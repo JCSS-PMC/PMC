@@ -1,0 +1,20 @@
+# Book settings
+title: Probabilistic Model Code
+author: Joint Committee on Structural Safety
+logo: jcss.png
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+repository:
+  url: https://github.com/JCSS-PMC/PMC
+
+html:
+  use_edit_page_button: true
+  use_repository_button: true
+  use_issues_button: true
+  extra_navbar: ""
+
+parse:
+  myst_extended_syntax: true

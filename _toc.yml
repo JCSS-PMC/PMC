@@ -1,4 +1,4 @@
-- file: intro
+- file: part-00/intro.md
 
 - part: Basis of Design
   chapters:
@@ -9,12 +9,3 @@
   - file: part-01/05-models-for-physical-behaviour.md
   - file: part-01/06-reliability.md
   - file: part-01/07-target-reliability.md
-
-- part: Load Models
-  chapters:
-  - file: markdown
-
-
-- part: Material Properties
-  chapters:
-  - file: markdown

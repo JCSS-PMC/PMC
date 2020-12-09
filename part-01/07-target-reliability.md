@@ -63,7 +63,7 @@ The shadowed value in Table 1 should be considered as the most common
 
 -   **Consequence classes**
 
- A classification into consequenze classes is based on the ratio ρ
+ A classification into consequenze classes is based on the ratio $\rho$
  defined as the ratio between total costs (i.e. construction costs plus
  direct failure costs) and construction costs.
 

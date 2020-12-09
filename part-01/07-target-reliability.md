@@ -67,25 +67,25 @@ The shadowed value in Table 1 should be considered as the most common
  defined as the ratio between total costs (i.e. construction costs plus
  direct failure costs) and construction costs.
 
- _Class 1 Minor Consequences:_ *ρ* is less than approximately 2
+ _Class 1 Minor Consequences:_ $\rho$ is less than approximately 2
 
  Risk to life, given a failure, is small to negligible and economic
  consequences are small or negligible (e.g. agricultural structures,
  silos, masts);
 
- _Class 2 Moderate Consequences:_ *ρ* is between 2 and 5.
+ _Class 2 Moderate Consequences:_ $\rho$ is between 2 and 5.
 
  Risk to life, given a failure, is medium or economic consequences are
  considerable (e.g. office buildings, industrial buildings, apartment
  buildings).
 
- _Class 3 Large Consequences:_ *ρ* is between 5 and 10.
+ _Class 3 Large Consequences:_ $\rho$ is between 5 and 10.
 
  Risk to life, given a failure, is high, or economic consequences are
  significant (e.g. main bridges, theaters, hospitals, high rise
  buildings).
 
- If *ρ* is larger than 10 and the absolute value of *H* also is large,
+ If $\rho$ is larger than 10 and the absolute value of *H* also is large,
  the consequences should be regarded as extreme and a full cost benefit
  analysis is recommended. The conclusion might be that the structure
  should not be build at all.

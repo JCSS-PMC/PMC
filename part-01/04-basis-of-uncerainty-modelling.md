@@ -86,7 +86,7 @@
  model have to be stated more precisely for each specific variable. The
  model is associated with a hierarchical set of subpopulations.
 
- The hierarchical model assumes that a random quantity $X$ can be written
+ The hierarchical model assumes that a random quantity $\vec{X}$ can be written
  as a function of several variables, each one representing a specific
  type of variability:
 

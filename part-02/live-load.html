@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Requirements &#8212; Probabilistic Model Code</title>
+    <title>3. Live Load &#8212; Probabilistic Model Code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Principles of limit state design" href="03-principles-of-limit-state-design.html" />
-    <link rel="prev" title="Introduction" href="01-introduction.html" />
+    <link rel="next" title="4. Loads In Car Parks" href="loads-in-car-parks.html" />
+    <link rel="prev" title="2. Self Weight" href="self-weight.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -94,40 +94,119 @@
   Basis of Design
  </span>
 </p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/requirements.html">
+   2. Requirements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/principles-of-limit-state-design.html">
+   3. Principles of limit state design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">
+   4. Basis of uncerainty modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/models-for-physical-behaviour.html">
+   5. Models for physical behaviour
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/reliability.html">
+   6. Reliability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/target-reliability.html">
+   7. Target Reliability
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Load Models
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01-introduction.html">
-   Introduction
+  <a class="reference internal" href="general-principles.html">
+   1. General Principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="self-weight.html">
+   2. Self Weight
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Requirements
+   3. Live Load
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03-principles-of-limit-state-design.html">
-   Principles of limit state design
+  <a class="reference internal" href="loads-in-car-parks.html">
+   4. Loads In Car Parks
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04-basis-of-uncerainty-modelling.html">
-   Basis of uncerainty modelling
+  <a class="reference internal" href="snow-load.html">
+   5. Snow Load
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05-models-for-physical-behaviour.html">
-   Models for physical behaviour
+  <a class="reference internal" href="wind.html">
+   6. Wind
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06-reliability.html">
-   Reliability
+  <a class="reference internal" href="impact-load.html">
+   7. Impact Load
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07-target-reliability.html">
-   Target Reliability
+  <a class="reference internal" href="fire.html">
+   8. Fire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resistance Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/concrete-properties.html">
+   1. Concrete Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
+   2. Static Properties Of Reinforcing Steel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/model-uncertainties.html">
+   3. Model Uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/dimensions.html">
+   4. Dimensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/excentricities.html">
+   5. Excentricities
   </a>
  </li>
 </ul>
@@ -167,7 +246,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-01/02-requirements.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part-02/live-load.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -187,10 +266,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/02-requirements.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/live-load.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/02-requirements.md"><button
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/live-load.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -216,18 +295,23 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-requirements">
-   Basic requirements
+  <a class="reference internal nav-link" href="#basic-model">
+   3.1. Basic Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#reliability-differentiation">
-   Reliability differentiation
+  <a class="reference internal nav-link" href="#stochastic-model">
+   3.2. Stochastic Model
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#requirements-for-durability">
-   Requirements for durability
+  <a class="reference internal nav-link" href="#variations-in-time">
+   3.3. Variations in Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-parameters">
+   3.4. Load Parameters
   </a>
  </li>
 </ul>
@@ -241,65 +325,20 @@
         
               <div>
                 
-  <div class="section" id="requirements">
-<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="basic-requirements">
-<h2>Basic requirements<a class="headerlink" href="#basic-requirements" title="Permalink to this headline">¶</a></h2>
-<p>Structures and structural elements shall be designed, constructed and
-maintained in such a way that they are suited for their use during the
-design working life and in an economic way.</p>
-<p>In particular they shall, with appropriate levels of reliability,
-fulfil the following requirements:</p>
-<ul class="simple">
-<li><p>They shall remain fit for the use for which they are required
-(<em>serviceability limit state requirement</em>)</p></li>
-<li><p>They shall withstand extreme and/or frequently repeated actions
-occurring during their construction and anticipated use (<em>ultimate
-limit state requirement</em>)</p></li>
-<li><p>They shall not be damaged by accidental events like fire,
-explosions, impact or consequences of human errors, to an extent
-disproportionate to the triggering event (<em>robustness requirement</em>,
-see Annex A).</p></li>
-</ul>
+  <div class="section" id="live-load">
+<h1><span class="section-number">3. </span>Live Load<a class="headerlink" href="#live-load" title="Permalink to this headline">¶</a></h1>
+<p>2.2 LIVE LOAD</p>
+<div class="section" id="basic-model">
+<h2><span class="section-number">3.1. </span>Basic Model<a class="headerlink" href="#basic-model" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="reliability-differentiation">
-<h2>Reliability differentiation<a class="headerlink" href="#reliability-differentiation" title="Permalink to this headline">¶</a></h2>
-<p>The expression “<em>with appropriate levels of reliability</em>” used above
-means that the degree of reliability should be adopted to suit the use
-of the structure, the type of structure or structural element and the
-situation considered in the design, etc.</p>
-<p>The choice of the various levels of reliability should take into
-account the possible consequences of failure in terms of risk to life
-or injury, the potential economic losses and the degree of social
-inconvenience, as described in chapter 8. It should also take into
-account the amount of expense and effort required to reduce the risk
-of failure. It is further noted, that the</p>
-<p>term “failure” as used in this document refers to either inadequate
-strength or inadequate serviceability of the structure.</p>
-<p>The consequences of a failure generally depend on the mode of failure,
-specially in those cases when the risk to human life or injury exists.</p>
-<p>In order to provide a structure corresponding to the requirements and
-to the assumptions made in the design, appropriate <em>quality measures</em>
-shall be adopted. These measures comprise definition of reliability
-requirements, organisational measures and controls at the stages of
-design, execution and use and the maintenance of the structure.</p>
+<div class="section" id="stochastic-model">
+<h2><span class="section-number">3.2. </span>Stochastic Model<a class="headerlink" href="#stochastic-model" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="requirements-for-durability">
-<h2>Requirements for durability<a class="headerlink" href="#requirements-for-durability" title="Permalink to this headline">¶</a></h2>
-<p>The durability of the structure in its environment shall be such that
-it remains fit for use during its design working life. This
-requirement can be considered in one of the following ways:</p>
-<p>a)  By using materials that, if well maintained, will not degenerate
-during the design working life.</p>
-<p>b)  By giving such dimensions that deterioration during the design
-working life is compensated.</p>
-<p>c)  By chosing a shorter lifetime for structural elements, which may be
-replaced one or more times during the design working life.</p>
-<p>d)  By inspection at fixed or condition dependent intervals and
-appropriate maintenance activities.</p>
-<p>In all cases the reliability requirements for long and short term
-periods should be met. Analysis aspects on durability are described in
-Annex B.</p>
+<div class="section" id="variations-in-time">
+<h2><span class="section-number">3.3. </span>Variations in Time<a class="headerlink" href="#variations-in-time" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="load-parameters">
+<h2><span class="section-number">3.4. </span>Load Parameters<a class="headerlink" href="#load-parameters" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -316,7 +355,7 @@ Annex B.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./part-01"
+            path: "./part-02"
         },
         predefinedOutput: true
     }
@@ -328,8 +367,8 @@ Annex B.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01-introduction.html" title="previous page">Introduction</a>
-    <a class='right-next' id="next-link" href="03-principles-of-limit-state-design.html" title="next page">Principles of limit state design</a>
+    <a class='left-prev' id="prev-link" href="self-weight.html" title="previous page"><span class="section-number">2. </span>Self Weight</a>
+    <a class='right-next' id="next-link" href="loads-in-car-parks.html" title="next page"><span class="section-number">4. </span>Loads In Car Parks</a>
 
         </div>
         

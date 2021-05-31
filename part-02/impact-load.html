@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Probabilistic Model Code</title>
+    <title>7. Impact Load &#8212; Probabilistic Model Code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Requirements" href="02-requirements.html" />
-    <link rel="prev" title="JCSS Probabilistic Model Code" href="../part-00/intro.html" />
+    <link rel="next" title="8. Fire" href="fire.html" />
+    <link rel="prev" title="6. Wind" href="wind.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -94,40 +94,119 @@
   Basis of Design
  </span>
 </p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/introduction.html">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/requirements.html">
+   2. Requirements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/principles-of-limit-state-design.html">
+   3. Principles of limit state design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">
+   4. Basis of uncerainty modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/models-for-physical-behaviour.html">
+   5. Models for physical behaviour
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/reliability.html">
+   6. Reliability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-01/target-reliability.html">
+   7. Target Reliability
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Load Models
+ </span>
+</p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="general-principles.html">
+   1. General Principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="self-weight.html">
+   2. Self Weight
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="live-load.html">
+   3. Live Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="loads-in-car-parks.html">
+   4. Loads In Car Parks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="snow-load.html">
+   5. Snow Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="wind.html">
+   6. Wind
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Introduction
+   7. Impact Load
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02-requirements.html">
-   Requirements
+  <a class="reference internal" href="fire.html">
+   8. Fire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resistance Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/concrete-properties.html">
+   1. Concrete Properties
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03-principles-of-limit-state-design.html">
-   Principles of limit state design
+  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
+   2. Static Properties Of Reinforcing Steel
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04-basis-of-uncerainty-modelling.html">
-   Basis of uncerainty modelling
+  <a class="reference internal" href="../part-03/model-uncertainties.html">
+   3. Model Uncertainties
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05-models-for-physical-behaviour.html">
-   Models for physical behaviour
+  <a class="reference internal" href="../part-03/dimensions.html">
+   4. Dimensions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06-reliability.html">
-   Reliability
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07-target-reliability.html">
-   Target Reliability
+  <a class="reference internal" href="../part-03/excentricities.html">
+   5. Excentricities
   </a>
  </li>
 </ul>
@@ -167,7 +246,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-01/01-introduction.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part-02/impact-load.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -187,10 +266,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/01-introduction.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/impact-load.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/01-introduction.md"><button
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/impact-load.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -210,6 +289,82 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-model-for-impact-loading">
+   7.1. Basic Model for Impact Loading
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction">
+     7.1.1. Introduction
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#failure-probability">
+     7.1.2. Failure probability
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribution-function-for-the-impac-tload">
+     7.1.3. Distribution function for the impac tload
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impact-from-vehicles">
+   7.2. Impact from vehicles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#distribution-of-impact-force">
+     7.2.1. Distribution of impact force
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#specifications-of-impact-force">
+     7.2.2. Specifications of impact force
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impact-from-ships">
+   7.3. Impact from ships
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     7.3.1. Distribution of impact force
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     7.3.2. Specifications of impact force
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impact-from-airplanes">
+   7.4. Impact from airplanes
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     7.4.1. Distribution of impact force
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -218,10 +373,45 @@
         
               <div>
                 
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>This part treats the general principles for a probabilistic design of load bearing structures. The more detailed aspects dealing with the probabilistic description of loads are treated in part 2. In the same way the probabilistic description of structural resistance parameters is treated in part 3.</p>
-<p>This part doesn’t give detailed information about methods for the calculation of probabilities. It is assumed that the user of a probabilistic code is familiar with such methods. A clause on the interpretation of probabilities treated in this document is provided in Annex D.</p>
+  <div class="section" id="impact-load">
+<h1><span class="section-number">7. </span>Impact Load<a class="headerlink" href="#impact-load" title="Permalink to this headline">¶</a></h1>
+<p>2.18 IMPACT LOAD</p>
+<div class="section" id="basic-model-for-impact-loading">
+<h2><span class="section-number">7.1. </span>Basic Model for Impact Loading<a class="headerlink" href="#basic-model-for-impact-loading" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="introduction">
+<h3><span class="section-number">7.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="failure-probability">
+<h3><span class="section-number">7.1.2. </span>Failure probability<a class="headerlink" href="#failure-probability" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="distribution-function-for-the-impac-tload">
+<h3><span class="section-number">7.1.3. </span>Distribution function for the impac tload<a class="headerlink" href="#distribution-function-for-the-impac-tload" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="impact-from-vehicles">
+<h2><span class="section-number">7.2. </span>Impact from vehicles<a class="headerlink" href="#impact-from-vehicles" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="distribution-of-impact-force">
+<h3><span class="section-number">7.2.1. </span>Distribution of impact force<a class="headerlink" href="#distribution-of-impact-force" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="specifications-of-impact-force">
+<h3><span class="section-number">7.2.2. </span>Specifications of impact force<a class="headerlink" href="#specifications-of-impact-force" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="impact-from-ships">
+<h2><span class="section-number">7.3. </span>Impact from ships<a class="headerlink" href="#impact-from-ships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3><span class="section-number">7.3.1. </span>Distribution of impact force<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="id2">
+<h3><span class="section-number">7.3.2. </span>Specifications of impact force<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
+<div class="section" id="impact-from-airplanes">
+<h2><span class="section-number">7.4. </span>Impact from airplanes<a class="headerlink" href="#impact-from-airplanes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h3><span class="section-number">7.4.1. </span>Distribution of impact force<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -237,7 +427,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./part-01"
+            path: "./part-02"
         },
         predefinedOutput: true
     }
@@ -249,8 +439,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../part-00/intro.html" title="previous page">JCSS Probabilistic Model Code</a>
-    <a class='right-next' id="next-link" href="02-requirements.html" title="next page">Requirements</a>
+    <a class='left-prev' id="prev-link" href="wind.html" title="previous page"><span class="section-number">6. </span>Wind</a>
+    <a class='right-next' id="next-link" href="fire.html" title="next page"><span class="section-number">8. </span>Fire</a>
 
         </div>
         

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JCSS Probabilistic Model Code &#8212; Probabilistic Model Code</title>
+    <title>5. Snow Load &#8212; Probabilistic Model Code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,7 +51,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="1. Introduction" href="../part-01/introduction.html" />
+    <link rel="next" title="6. Wind" href="wind.html" />
+    <link rel="prev" title="4. Loads In Car Parks" href="loads-in-car-parks.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -82,8 +83,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-00/intro.html">
    JCSS Probabilistic Model Code
   </a>
  </li>
@@ -135,44 +136,44 @@
   Load Models
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/general-principles.html">
+  <a class="reference internal" href="general-principles.html">
    1. General Principles
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/self-weight.html">
+  <a class="reference internal" href="self-weight.html">
    2. Self Weight
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/live-load.html">
+  <a class="reference internal" href="live-load.html">
    3. Live Load
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/loads-in-car-parks.html">
+  <a class="reference internal" href="loads-in-car-parks.html">
    4. Loads In Car Parks
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/snow-load.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    5. Snow Load
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/wind.html">
+  <a class="reference internal" href="wind.html">
    6. Wind
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/impact-load.html">
+  <a class="reference internal" href="impact-load.html">
    7. Impact Load
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/fire.html">
+  <a class="reference internal" href="fire.html">
    8. Fire
   </a>
  </li>
@@ -245,7 +246,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-00/intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part-02/snow-load.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -265,10 +266,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-00/intro.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/snow-load.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-00/intro.md"><button
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/snow-load.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -288,6 +289,51 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basic-model-for-snow-load-on-roofs">
+   5.1. Basic Model for Snow Load on roofs
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#probabilistic-model-for-sg">
+   5.2. Probabilistic Model for Sg
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conversion-ground-to-roof-snow-load">
+   5.3. Conversion ground to roof snow load
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general">
+     5.3.1. General
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-exposure-coefficient-ce">
+     5.3.2. The exposure coefficient Ce
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-thermal-coefficient-ct">
+     5.3.3. The thermal coefficient Ct
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-redistribution-coefficient-cr">
+     5.3.4. The redistribution coefficient Cr
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -296,67 +342,29 @@
         
               <div>
                 
-  <div class="section" id="jcss-probabilistic-model-code">
-<h1>JCSS Probabilistic Model Code<a class="headerlink" href="#jcss-probabilistic-model-code" title="Permalink to this headline">¶</a></h1>
-<p>This document is a first attempt to put together in a consistent way
-some - certainly not all - of the rules, regulations, and explanations
-that are necessary for the design of new structures, or the assessment
-of existing ones from a probabilistic point of view. The document, of
-course, is also useful for background calculations of non
-–probabilistic codes.</p>
-<p>From a probabilistic point of view designing new structures, or
-accepting existing ones as sufficiently safe, is the result of a
-decision-making process guided by some optimality criteria. This
-process links, in a logical and consistent way, the requirements and
-expectations of the client or owner of a structure, the loads and
-actions to be expected, the characteristics of materials to be used or
-found in the proposed or existing structure, the calculation models,
-the grades of workmanship expected or observed on the site, the
-behaviour of the users, and, finally, in an ideal case, the
-perceptions of society with respect to environmental impact and
-sustainable development.</p>
-<p>The aim of this document is threefold: First, it is the attempt of a
-number of people interested in such an approach to see whether, at
-this point in time, the main problems in the development of such a
-document can be mastered. Second, it is intended to put a text into
-the hands of structural engineers who are willing now to apply new
-approaches in their work. Third, the Joint Committee on Structural
-Safety (JCSS) is convinced that such a document will spur the
-development of a Probabilistic Code covering all aspects of Structural
-Engineering.</p>
-<p>There are people who advocate staying with traditional
-non-probabilistic codes, claiming that data is not sufficient for full
-probabilistic methods. There is much truth in the statement that often
-data is scarce. But this holds for both approaches. Let’s face it:
-since data is often scarce in either approach, what remains is in
-essence probabilistic. Important in this respect is the meaning of the
-word “probability”. In this document a “probability” is not
-necessarily considered as a “relative frequency that can be observed
-in reality”. Such a straightforward interpretation is possible for
-dice and card games, but not for structural design where uncertainties
-must be modelled by complicated probabilistic models and which
-interact in a complex way. Here, probabilities are understood in the
-Bayesian way, expressing degrees of belief in relation to the various
-uncertainties, and suitable to decision making processes. At best,
-probabilities can be interpreted as “best estimates” of the relative
-frequencies, sometimes being wrong on the one side, sometimes on the
-other the degree of deviation from reality being a direct function of
-the state of knowledge. More discussion on this topic can be found on
-Annex X of Part 1, Basis of Design.</p>
-<p>The present version of this JCSS Probabilistic Model Code document is
-available on the Internet at <a class="reference external" href="https://www.jcss-lc.org/">www.jcss-lc.org</a>. It is
-intended that the document will be adapted and extended a number of
-times in the years to come. To get the best possible and efficient
-improvements all users are invited to send their questions, comments
-and suggestions to <a class="reference external" href="https://www.jcss-lc.org/">www.jcss-lc.org</a> The
-JCSS hopes that this document - the most recent of its
-pre-codification work since its creation in 1972 - will find its way
-into the practical work of structural engineers.</p>
-<div class="toctree-wrapper compound">
+  <div class="section" id="snow-load">
+<h1><span class="section-number">5. </span>Snow Load<a class="headerlink" href="#snow-load" title="Permalink to this headline">¶</a></h1>
+<p>2.12 SNOW LOAD</p>
+<div class="section" id="basic-model-for-snow-load-on-roofs">
+<h2><span class="section-number">5.1. </span>Basic Model for Snow Load on roofs<a class="headerlink" href="#basic-model-for-snow-load-on-roofs" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="probabilistic-model-for-sg">
+<h2><span class="section-number">5.2. </span>Probabilistic Model for Sg<a class="headerlink" href="#probabilistic-model-for-sg" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="conversion-ground-to-roof-snow-load">
+<h2><span class="section-number">5.3. </span>Conversion ground to roof snow load<a class="headerlink" href="#conversion-ground-to-roof-snow-load" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general">
+<h3><span class="section-number">5.3.1. </span>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="the-exposure-coefficient-ce">
+<h3><span class="section-number">5.3.2. </span>The exposure coefficient Ce<a class="headerlink" href="#the-exposure-coefficient-ce" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="the-thermal-coefficient-ct">
+<h3><span class="section-number">5.3.3. </span>The thermal coefficient Ct<a class="headerlink" href="#the-thermal-coefficient-ct" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="the-redistribution-coefficient-cr">
+<h3><span class="section-number">5.3.4. </span>The redistribution coefficient Cr<a class="headerlink" href="#the-redistribution-coefficient-cr" title="Permalink to this headline">¶</a></h3>
+</div>
 </div>
 </div>
 
@@ -373,7 +381,7 @@ into the practical work of structural engineers.</p>
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./part-00"
+            path: "./part-02"
         },
         predefinedOutput: true
     }
@@ -385,7 +393,8 @@ into the practical work of structural engineers.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="../part-01/introduction.html" title="next page"><span class="section-number">1. </span>Introduction</a>
+    <a class='left-prev' id="prev-link" href="loads-in-car-parks.html" title="previous page"><span class="section-number">4. </span>Loads In Car Parks</a>
+    <a class='right-next' id="next-link" href="wind.html" title="next page"><span class="section-number">6. </span>Wind</a>
 
         </div>
         

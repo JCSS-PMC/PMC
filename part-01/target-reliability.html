@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Target Reliability &#8212; Probabilistic Model Code</title>
+    <title>7. Target Reliability &#8212; Probabilistic Model Code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,7 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Reliability" href="06-reliability.html" />
+    <link rel="next" title="1. General Principles" href="../part-02/general-principles.html" />
+    <link rel="prev" title="6. Reliability" href="reliability.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -97,38 +98,117 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01-introduction.html">
-   Introduction
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02-requirements.html">
-   Requirements
+  <a class="reference internal" href="requirements.html">
+   2. Requirements
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03-principles-of-limit-state-design.html">
-   Principles of limit state design
+  <a class="reference internal" href="principles-of-limit-state-design.html">
+   3. Principles of limit state design
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04-basis-of-uncerainty-modelling.html">
-   Basis of uncerainty modelling
+  <a class="reference internal" href="basis-of-uncerainty-modelling.html">
+   4. Basis of uncerainty modelling
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05-models-for-physical-behaviour.html">
-   Models for physical behaviour
+  <a class="reference internal" href="models-for-physical-behaviour.html">
+   5. Models for physical behaviour
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06-reliability.html">
-   Reliability
+  <a class="reference internal" href="reliability.html">
+   6. Reliability
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Target Reliability
+   7. Target Reliability
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Load Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/general-principles.html">
+   1. General Principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/self-weight.html">
+   2. Self Weight
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/live-load.html">
+   3. Live Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/loads-in-car-parks.html">
+   4. Loads In Car Parks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/snow-load.html">
+   5. Snow Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/wind.html">
+   6. Wind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/impact-load.html">
+   7. Impact Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/fire.html">
+   8. Fire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resistance Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/concrete-properties.html">
+   1. Concrete Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
+   2. Static Properties Of Reinforcing Steel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/model-uncertainties.html">
+   3. Model Uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/dimensions.html">
+   4. Dimensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/excentricities.html">
+   5. Excentricities
   </a>
  </li>
 </ul>
@@ -168,7 +248,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-01/07-target-reliability.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part-01/target-reliability.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -188,10 +268,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/07-target-reliability.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/target-reliability.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/07-target-reliability.md"><button
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/target-reliability.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -218,22 +298,22 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#general-aspects">
-   General Aspects
+   7.1. General Aspects
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#recommendations">
-   Recommendations
+   7.2. Recommendations
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#ultimate-limit-states">
-     Ultimate Limit States
+     7.2.1. Ultimate Limit States
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#serviceability-limit-state">
-     Serviceability Limit State
+     7.2.2. Serviceability Limit State
     </a>
    </li>
   </ul>
@@ -250,9 +330,9 @@
               <div>
                 
   <div class="section" id="target-reliability">
-<h1>Target Reliability<a class="headerlink" href="#target-reliability" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">7. </span>Target Reliability<a class="headerlink" href="#target-reliability" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="general-aspects">
-<h2>General Aspects<a class="headerlink" href="#general-aspects" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.1. </span>General Aspects<a class="headerlink" href="#general-aspects" title="Permalink to this headline">¶</a></h2>
 <p>In terms of a reliability based approach the structural risk
 acceptance criteria correspond to a required minimum reliability
 herein defined as <em>target reliability</em>. The requirements to the safety
@@ -284,13 +364,13 @@ assumptions</em>, defined by specified target values for the various
 classes of structures and structural members.</p>
 </div>
 <div class="section" id="recommendations">
-<h2>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">7.2. </span>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
 <p>Target reliability values are provided in the next paragraphs. They
 are based on optimization procedures and on the assumption that for
 allmost all engineering facilities the only reasonable reconstruction
 policy is systematic rebuilding or repair.</p>
 <div class="section" id="ultimate-limit-states">
-<h3>Ultimate Limit States<a class="headerlink" href="#ultimate-limit-states" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.1. </span>Ultimate Limit States<a class="headerlink" href="#ultimate-limit-states" title="Permalink to this headline">¶</a></h3>
 <p>Target reliability values for ultimate limit states are proposed in
 Table 1. The values in Table 1 are obtained based on cost benefit
 analysis for the public at characteristic and representative</p>
@@ -393,7 +473,7 @@ related to the actual situation in performance and use. No general
 rules are given in this document.</p>
 </div>
 <div class="section" id="serviceability-limit-state">
-<h3>Serviceability Limit State<a class="headerlink" href="#serviceability-limit-state" title="Permalink to this headline">¶</a></h3>
+<h3><span class="section-number">7.2.2. </span>Serviceability Limit State<a class="headerlink" href="#serviceability-limit-state" title="Permalink to this headline">¶</a></h3>
 <p>When setting target values for serviceability limit states (SLS) it is
 important to distinguish between irreversible and reversible
 serviceability limit states. Target values for SLS can be derived
@@ -432,7 +512,8 @@ serviceability limit states no general values are given.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="06-reliability.html" title="previous page">Reliability</a>
+    <a class='left-prev' id="prev-link" href="reliability.html" title="previous page"><span class="section-number">6. </span>Reliability</a>
+    <a class='right-next' id="next-link" href="../part-02/general-principles.html" title="next page"><span class="section-number">1. </span>General Principles</a>
 
         </div>
         

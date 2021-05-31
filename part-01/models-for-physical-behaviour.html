@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Models for physical behaviour &#8212; Probabilistic Model Code</title>
+    <title>5. Models for physical behaviour &#8212; Probabilistic Model Code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reliability" href="06-reliability.html" />
-    <link rel="prev" title="Basis of uncerainty modelling" href="04-basis-of-uncerainty-modelling.html" />
+    <link rel="next" title="6. Reliability" href="reliability.html" />
+    <link rel="prev" title="4. Basis of uncerainty modelling" href="basis-of-uncerainty-modelling.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -98,38 +98,117 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01-introduction.html">
-   Introduction
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02-requirements.html">
-   Requirements
+  <a class="reference internal" href="requirements.html">
+   2. Requirements
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03-principles-of-limit-state-design.html">
-   Principles of limit state design
+  <a class="reference internal" href="principles-of-limit-state-design.html">
+   3. Principles of limit state design
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="04-basis-of-uncerainty-modelling.html">
-   Basis of uncerainty modelling
+  <a class="reference internal" href="basis-of-uncerainty-modelling.html">
+   4. Basis of uncerainty modelling
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Models for physical behaviour
+   5. Models for physical behaviour
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06-reliability.html">
-   Reliability
+  <a class="reference internal" href="reliability.html">
+   6. Reliability
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07-target-reliability.html">
-   Target Reliability
+  <a class="reference internal" href="target-reliability.html">
+   7. Target Reliability
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Load Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/general-principles.html">
+   1. General Principles
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/self-weight.html">
+   2. Self Weight
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/live-load.html">
+   3. Live Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/loads-in-car-parks.html">
+   4. Loads In Car Parks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/snow-load.html">
+   5. Snow Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/wind.html">
+   6. Wind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/impact-load.html">
+   7. Impact Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/fire.html">
+   8. Fire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resistance Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/concrete-properties.html">
+   1. Concrete Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
+   2. Static Properties Of Reinforcing Steel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/model-uncertainties.html">
+   3. Model Uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/dimensions.html">
+   4. Dimensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/excentricities.html">
+   5. Excentricities
   </a>
  </li>
 </ul>
@@ -169,7 +248,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-01/05-models-for-physical-behaviour.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part-01/models-for-physical-behaviour.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -189,10 +268,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/05-models-for-physical-behaviour.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/models-for-physical-behaviour.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/05-models-for-physical-behaviour.md"><button
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/models-for-physical-behaviour.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -219,32 +298,32 @@
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#general">
-   General
+   5.1. General
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#action-models">
-   Action models
+   5.2. Action models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#geometrical-models">
-   Geometrical models
+   5.3. Geometrical models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#material-models">
-   Material models
+   5.4. Material models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mechanical-models">
-   Mechanical models
+   5.5. Mechanical models
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#model-uncertainties">
-   Model uncertainties
+   5.6. Model uncertainties
   </a>
  </li>
 </ul>
@@ -259,9 +338,9 @@
               <div>
                 
   <div class="section" id="models-for-physical-behaviour">
-<h1>Models for physical behaviour<a class="headerlink" href="#models-for-physical-behaviour" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5. </span>Models for physical behaviour<a class="headerlink" href="#models-for-physical-behaviour" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="general">
-<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.1. </span>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <p>Calculation models shall describe the structure and its behaviour up
 to the limit state under consideration, accounting for relevant
 actions and environmental influences. Models should</p>
@@ -282,7 +361,7 @@ an entire structural system is studied or if interactions between
 loads and structural response are of interest.</p>
 </div>
 <div class="section" id="action-models">
-<h2>Action models<a class="headerlink" href="#action-models" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.2. </span>Action models<a class="headerlink" href="#action-models" title="Permalink to this headline">¶</a></h2>
 <p>A complete action model should describe several properties of the
 action such as its magnitude, position, direction, duration etc. In
 some cases there is an interaction between the different properties
@@ -291,14 +370,14 @@ Such interactions should be taken into account.</p>
 <p>The magnitude <span class="math notranslate nohighlight">\(F\)</span> of an action may often be described by two different
 types of variables so that</p>
 <div class="math notranslate nohighlight" id="equation-eq4">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq4" title="Permalink to this equation">¶</a></span>\[F = \varphi(F_0,W)\]</div>
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq4" title="Permalink to this equation">¶</a></span>\[F = \varphi(F_0,W)\]</div>
 <p>where <span class="math notranslate nohighlight">\(\varphi\)</span> is an appropriate function and</p>
 <p><span class="math notranslate nohighlight">\(F_0\)</span> is a basic action variable, often with time and space dependent
 variations (random or non-random) and is generally independent of the
 structure</p>
 <p><span class="math notranslate nohighlight">\(W\)</span> is a random or non-random variable or a random field which may
 depend on the structural properties and which transformes <span class="math notranslate nohighlight">\(F_0\)</span> to <span class="math notranslate nohighlight">\(F\)</span>.</p>
-<p>Eq. <a class="reference internal" href="#equation-eq4">(4)</a> should be regarded as a symbolic expression where <span class="math notranslate nohighlight">\(F_0\)</span> and <span class="math notranslate nohighlight">\(W\)</span> may
+<p>Eq. <a class="reference internal" href="#equation-eq4">(5.1)</a> should be regarded as a symbolic expression where <span class="math notranslate nohighlight">\(F_0\)</span> and <span class="math notranslate nohighlight">\(W\)</span> may
 represent several variables.</p>
 <p>One example may be snow load where <span class="math notranslate nohighlight">\(F_0\)</span> is the time dependent snow load
 on ground and <span class="math notranslate nohighlight">\(W\)</span> is the conversion factor for snow load on ground to
@@ -308,7 +387,7 @@ noted that action models may include material properties (earthquake
 action depends for example on material damping).</p>
 </div>
 <div class="section" id="geometrical-models">
-<h2>Geometrical models<a class="headerlink" href="#geometrical-models" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.3. </span>Geometrical models<a class="headerlink" href="#geometrical-models" title="Permalink to this headline">¶</a></h2>
 <p>A structure can generally be described by a model consisting of
 one-dimensional elements (beams, columns, cables, arches, etc),
 two-dimensional elements (slabs, walls, shells, etc) and
@@ -329,7 +408,7 @@ imperfections. The effects of such deformations are generally denoted
 accounted for.</p>
 </div>
 <div class="section" id="material-models">
-<h2>Material models<a class="headerlink" href="#material-models" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.4. </span>Material models<a class="headerlink" href="#material-models" title="Permalink to this headline">¶</a></h2>
 <p>When strength or stiffness is considered the material model normally
 consists of relations between forces or stresses and deformations i.e
 <em>costitutive relationships</em>. The parameters of such relations are
@@ -346,7 +425,7 @@ considered.</p>
 given in part 3.</p>
 </div>
 <div class="section" id="mechanical-models">
-<h2>Mechanical models<a class="headerlink" href="#mechanical-models" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.5. </span>Mechanical models<a class="headerlink" href="#mechanical-models" title="Permalink to this headline">¶</a></h2>
 <p>The following mechanical models may be classified</p>
 <ol class="simple">
 <li><p>models describing static response</p></li>
@@ -404,11 +483,11 @@ chemical attack or fire can modify the parameters entering the
 aforementioned models or the models themselves.</p>
 </div>
 <div class="section" id="model-uncertainties">
-<h2>Model uncertainties<a class="headerlink" href="#model-uncertainties" title="Permalink to this headline">¶</a></h2>
+<h2><span class="section-number">5.6. </span>Model uncertainties<a class="headerlink" href="#model-uncertainties" title="Permalink to this headline">¶</a></h2>
 <p>A calculation model is a physically based or empirical relation
 between relevant variables, which are in general random variables:</p>
 <div class="math notranslate nohighlight" id="equation-eq5">
-<span class="eqno">(5)<a class="headerlink" href="#equation-eq5" title="Permalink to this equation">¶</a></span>\[Y = f(X_1,X_2,\dots ,X_n)\]</div>
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq5" title="Permalink to this equation">¶</a></span>\[Y = f(X_1,X_2,\dots ,X_n)\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(Y\)</span> = model output</p></li>
 <li><p><span class="math notranslate nohighlight">\(f( )\)</span> = model function</p></li>
@@ -423,7 +502,7 @@ simplification of the model, for the convenience of the designer. The
 difference between the model prediction and the real outcome of the
 experiment can be written down as:</p>
 <div class="math notranslate nohighlight" id="equation-eq6">
-<span class="eqno">(6)<a class="headerlink" href="#equation-eq6" title="Permalink to this equation">¶</a></span>\[Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)\]</div>
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq6" title="Permalink to this equation">¶</a></span>\[Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)\]</div>
 <p><span class="math notranslate nohighlight">\(\theta_i\)</span> are referred to as parameters which contain the model uncertainties
 and are treated as random variables. Their statistical properties can
 in most cases be derived from experiments or observations. The mean of
@@ -457,8 +536,8 @@ the calculation model correctly predicts the test results.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="04-basis-of-uncerainty-modelling.html" title="previous page">Basis of uncerainty modelling</a>
-    <a class='right-next' id="next-link" href="06-reliability.html" title="next page">Reliability</a>
+    <a class='left-prev' id="prev-link" href="basis-of-uncerainty-modelling.html" title="previous page"><span class="section-number">4. </span>Basis of uncerainty modelling</a>
+    <a class='right-next' id="next-link" href="reliability.html" title="next page"><span class="section-number">6. </span>Reliability</a>
 
         </div>
         

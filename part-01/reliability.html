@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Basis of uncerainty modelling &#8212; Probabilistic Model Code</title>
+    <title>6. Reliability &#8212; Probabilistic Model Code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Models for physical behaviour" href="05-models-for-physical-behaviour.html" />
-    <link rel="prev" title="Principles of limit state design" href="03-principles-of-limit-state-design.html" />
+    <link rel="next" title="7. Target Reliability" href="target-reliability.html" />
+    <link rel="prev" title="5. Models for physical behaviour" href="models-for-physical-behaviour.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -98,38 +98,117 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="01-introduction.html">
-   Introduction
+  <a class="reference internal" href="introduction.html">
+   1. Introduction
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="02-requirements.html">
-   Requirements
+  <a class="reference internal" href="requirements.html">
+   2. Requirements
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="03-principles-of-limit-state-design.html">
-   Principles of limit state design
+  <a class="reference internal" href="principles-of-limit-state-design.html">
+   3. Principles of limit state design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="basis-of-uncerainty-modelling.html">
+   4. Basis of uncerainty modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="models-for-physical-behaviour.html">
+   5. Models for physical behaviour
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Basis of uncerainty modelling
+   6. Reliability
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="05-models-for-physical-behaviour.html">
-   Models for physical behaviour
+  <a class="reference internal" href="target-reliability.html">
+   7. Target Reliability
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Load Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/general-principles.html">
+   1. General Principles
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="06-reliability.html">
-   Reliability
+  <a class="reference internal" href="../part-02/self-weight.html">
+   2. Self Weight
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="07-target-reliability.html">
-   Target Reliability
+  <a class="reference internal" href="../part-02/live-load.html">
+   3. Live Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/loads-in-car-parks.html">
+   4. Loads In Car Parks
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/snow-load.html">
+   5. Snow Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/wind.html">
+   6. Wind
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/impact-load.html">
+   7. Impact Load
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-02/fire.html">
+   8. Fire
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Resistance Models
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/concrete-properties.html">
+   1. Concrete Properties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
+   2. Static Properties Of Reinforcing Steel
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/model-uncertainties.html">
+   3. Model Uncertainties
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/dimensions.html">
+   4. Dimensions
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/excentricities.html">
+   5. Excentricities
   </a>
  </li>
 </ul>
@@ -169,7 +248,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-01/04-basis-of-uncerainty-modelling.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/part-01/reliability.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -189,10 +268,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/04-basis-of-uncerainty-modelling.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/reliability.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/04-basis-of-uncerainty-modelling.md"><button
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/reliability.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -218,23 +297,18 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-variables">
-   Basic variables
+  <a class="reference internal nav-link" href="#reliability-measures">
+   6.1. Reliability measures
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#types-of-uncertainty">
-   Types of uncertainty
+  <a class="reference internal nav-link" href="#component-reliability-and-system-reliability">
+   6.2. Component reliability and system reliability
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#definition-of-populations">
-   Definition of populations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#hierarchy-of-uncertainty-models">
-   Hierarchy of uncertainty models
+  <a class="reference internal nav-link" href="#methods-for-reliability-analysis-and-calculation">
+   6.3. Methods for reliability analysis and calculation
   </a>
  </li>
 </ul>
@@ -248,97 +322,85 @@
         
               <div>
                 
-  <div class="section" id="basis-of-uncerainty-modelling">
-<h1>Basis of uncerainty modelling<a class="headerlink" href="#basis-of-uncerainty-modelling" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="basic-variables">
-<h2>Basic variables<a class="headerlink" href="#basic-variables" title="Permalink to this headline">¶</a></h2>
-<p>The calculation model for each limit state considered should contain a
-specified set of basic variables, i.e. physical quantities which
-characterize actions and environmental influences, material and soil
-properties and geometrical quantities. The model should also contain
-model parameters which characterize the model itself and which are
-treated as basic variables (compare 4.2). Finally there are also
-parameters which describe the requirements (e.g. serviceability
-constraints) and which may be treated as basic variables. The basic
-variables (in</p>
-<p>the wide sence given above) are assumed to carry the entire input
-information to the calculation model.</p>
-<p>The basic variables may be random variables (indlucing the special
-case deterministic variables) or stochastic processes or random
-fields. Each basic variable is defined by a number of parameters such
-as mean, standard deviation, parameters determining the correlation
-structure etc.</p>
+  <div class="section" id="reliability">
+<h1><span class="section-number">6. </span>Reliability<a class="headerlink" href="#reliability" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="reliability-measures">
+<h2><span class="section-number">6.1. </span>Reliability measures<a class="headerlink" href="#reliability-measures" title="Permalink to this headline">¶</a></h2>
+<p>A standard reliability measure may be chosen to be the <em>generalized
+reliability index</em>. It is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq7">
+<span class="eqno">(6.1)<a class="headerlink" href="#equation-eq7" title="Permalink to this equation">¶</a></span>\[\beta = \Phi^{-1}(P_f)\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_f\)</span> is the probability of failure</p>
+<p><span class="math notranslate nohighlight">\(\Phi^{-1}(\cdot)\)</span> is the inverse Gaussian distribution</p>
+<p>Another equivalent reliability measure is the probability of the
+complement of the adverse event</p>
+<div class="math notranslate nohighlight" id="equation-eq8">
+<span class="eqno">(6.2)<a class="headerlink" href="#equation-eq8" title="Permalink to this equation">¶</a></span>\[P_s = 1 - P_f\]</div>
+<p>The probability <span class="math notranslate nohighlight">\(P_f\)</span> should be calculated on the basis of the
+standardized joint distribution type of the basic variables and the
+standardized distributional formalism of dealing with both model
+uncertainty and statistical uncertainty.</p>
+<p>In special situations other than the standardized distribution types
+can be relevant for the reliability evaluation. In such cases the
+distributional assumptions must be tested on a suitable representative
+set of observation data.</p>
+<p>Reliability analysis principles including time-dependent reliability
+problems are described in Annex C.</p>
 </div>
-<div class="section" id="types-of-uncertainty">
-<h2>Types of uncertainty<a class="headerlink" href="#types-of-uncertainty" title="Permalink to this headline">¶</a></h2>
-<p>Uncertainties from <em>all essential sources</em> must be evaluated and
-integrated in a basic variable model. Types of uncertainty to be taken
-into account are:</p>
+<div class="section" id="component-reliability-and-system-reliability">
+<h2><span class="section-number">6.2. </span>Component reliability and system reliability<a class="headerlink" href="#component-reliability-and-system-reliability" title="Permalink to this headline">¶</a></h2>
+<p><strong>Component reliability</strong> is the reliability of one single structural
+component which has one dominating failure mode.</p>
+<p><strong>System reliability</strong> is the reliability of a structural system
+composed of a number of components or the reliability of a single
+component which has several failure modes of nearly equal importance.
+The following type of systems can be classified:</p>
 <ul class="simple">
-<li><p>intrinsic physical or mechanical uncertainty</p></li>
-<li><p>statistical uncertainty, when the design decisions are based on a
-small sample of observations or when there are other similar
-conditions</p></li>
-<li><p>model uncertainties (see 5.6).</p></li>
+<li><p>-<em>redundant systems</em> where the components are “fail safe”, i.e.
+local behaviour of one component does not directly result in failure
+of the structure;</p></li>
+<li><p>-<em>non-redundant</em> systems where local failure of one component leads
+rapidly to failure of the structure.</p></li>
 </ul>
-<p>Within given classes of structural design problems the types of
-probability distributions of the basic variables should be
-standardized. These standardizations are defined in the parts 2 and 3
-of the probabilistic model code.</p>
-</div>
-<div class="section" id="definition-of-populations">
-<h2>Definition of populations<a class="headerlink" href="#definition-of-populations" title="Permalink to this headline">¶</a></h2>
-<p>The random quantities within a reliability analysis should always be
-related to a meaningfull and consistent set of populations. The
-description of the random quantities should correspond to this set and
-the resulting failure probability is only valid for the same set.</p>
-<p>The basis for the definition of a population is in most cases the
-physical background of the variable. Factors which may define the
-population are:</p>
+<p>Probabilistic structural design is primarily concerned with <em>component
+behaviour</em>. System behaviour is, however, of concern because it is
+usually the most serious consequence of structural failure. Therefore
+the likelihood of system failure following an initial component
+failure should be assessed. In particular, it is necessary to
+determine the system characteristics in relation to damage tolerance
+or robustness with respect to accidental events. The requirements for
+the reliability of the components of a system should depend upon the
+system characteristics.</p>
+<p>A probabilistic system analysis should therefore be carried out to
+establish:</p>
 <ul class="simple">
-<li><p>the nature and origin of a random quantity</p></li>
-<li><p>the spatial conditions (e.g. the geographical region considered)</p></li>
-<li><p>the temporal conditions (e.g. the intended time of use of the
-structure considered)</p></li>
+<li><p>the redundancy (alternate load-carrying paths)</p></li>
+<li><p>the state and complexity of the structure (multiple failure modes).
+Furher aspects on system reliability are provided in Annex C.</p></li>
 </ul>
-<p>The choice of a population is to some extent a free choice of the
-designer. It may depend on the objective of the analysis, the amount
-and nature of the available data and the amount of work that can be
-afforded.</p>
-<p>In connection with theoretical treatment of data and with the
-evaluation of observations it is often convenient to divide the
-largest population into sub-populations which in turn are further
-divided in smaller sub-populations etc. Then it is possible to study
-and distinguish variability within a population and variability
-between different populations.</p>
-<p>In an analysis for a specific structure it may be efficient to define
-a population as small as possible as far as use, shape and location of
-the structure are concerned (microzonation). When the results are used
-for design in a national or international code, it may be necessary or
-convenient to put the sub-populations together to the large population
-again in order not to get too complicated rules (randomizing). This
-means that the variability within the population is increased.</p>
 </div>
-<div class="section" id="hierarchy-of-uncertainty-models">
-<h2>Hierarchy of uncertainty models<a class="headerlink" href="#hierarchy-of-uncertainty-models" title="Permalink to this headline">¶</a></h2>
-<p>This section contains a convenient and recommended mathematical
-description in general terms of a hierarchical model which can be used
-for different kinds of actions and materials. The details of this
-model have to be stated more precisely for each specific variable. The
-model is associated with a hierarchical set of subpopulations.</p>
-<p>The hierarchical model assumes that a random quantity <span class="math notranslate nohighlight">\(\vec{X}\)</span> can be written
-as a function of several variables, each one representing a specific
-type of variability:</p>
-<div class="math notranslate nohighlight" id="equation-eq3">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq3" title="Permalink to this equation">¶</a></span>\[X_{ijk} = f(Y_i,Y_{ij},Y_{ijk})\]</div>
-<p>The <span class="math notranslate nohighlight">\(Y\)</span> represent various origins, time scales of fluctuation or spatial
-scales of fluctuation.</p>
-<p>For instance <span class="math notranslate nohighlight">\(Y_i\)</span> may represent the building to building variation,
-<span class="math notranslate nohighlight">\(Y_{ij}\)</span> the floor to floor variation in building <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(Y_{ijk}\)</span> the point
-to point variation on floor <span class="math notranslate nohighlight">\(j\)</span> in building <span class="math notranslate nohighlight">\(i\)</span>.</p>
-<p>In a similar way, <span class="math notranslate nohighlight">\(Y_i\)</span> may represent the constant in time variability,
-<span class="math notranslate nohighlight">\(Y_{ij}\)</span> a slowly fluctuating time process and <span class="math notranslate nohighlight">\(Y_{ijk}\)</span> a fast fluctuating
-time process.</p>
+<div class="section" id="methods-for-reliability-analysis-and-calculation">
+<h2><span class="section-number">6.3. </span>Methods for reliability analysis and calculation<a class="headerlink" href="#methods-for-reliability-analysis-and-calculation" title="Permalink to this headline">¶</a></h2>
+<p>The numerical value of the reliability measure is obtained by a
+reliability analysis and calculation method (see Annex C). The
+reliability method used should be capable of producing a sensitivity
+analysis including importance factors for uncertain parameters. The
+choice of the method should be in general justified. The justification
+can be for example based by another relevant computation method or by
+reference to appropriate literature.</p>
+<p>Due to the computational complexity a method giving an approximation
+to the exact result is generally applied. Two fundamental accuracy
+requirements are:</p>
+<ul class="simple">
+<li><p>Overestimation of the reliability due to use of an approximative
+calculation method shall be within limits generally accepted for
+the specific type of structure.</p></li>
+<li><p>The overestimation of the reliability index should not exceed 5 %
+with respect to the target level.</p></li>
+</ul>
+<p>The accuracy of the reliability calculation method is linked to the
+sensitivity with respect to structural dimensions and material
+properties in the resulting design.</p>
 </div>
 </div>
 
@@ -367,8 +429,8 @@ time process.</p>
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="03-principles-of-limit-state-design.html" title="previous page">Principles of limit state design</a>
-    <a class='right-next' id="next-link" href="05-models-for-physical-behaviour.html" title="next page">Models for physical behaviour</a>
+    <a class='left-prev' id="prev-link" href="models-for-physical-behaviour.html" title="previous page"><span class="section-number">5. </span>Models for physical behaviour</a>
+    <a class='right-next' id="next-link" href="target-reliability.html" title="next page"><span class="section-number">7. </span>Target Reliability</a>
 
         </div>
         

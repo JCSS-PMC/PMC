@@ -1,11 +1,34 @@
 - file: part-00/intro.md
 
 - part: Basis of Design
+  numbered: true
   chapters:
-  - file: part-01/01-introduction.md
-  - file: part-01/02-requirements.md
-  - file: part-01/03-principles-of-limit-state-design.md
-  - file: part-01/04-basis-of-uncerainty-modelling.md
-  - file: part-01/05-models-for-physical-behaviour.md
-  - file: part-01/06-reliability.md
-  - file: part-01/07-target-reliability.md
+  - file: part-01/introduction.md
+  - file: part-01/requirements.md
+  - file: part-01/principles-of-limit-state-design.md
+  - file: part-01/basis-of-uncerainty-modelling.md
+  - file: part-01/models-for-physical-behaviour.md
+  - file: part-01/reliability.md
+  - file: part-01/target-reliability.md
+
+- part: Load Models
+  numbered: true
+  chapters:
+  - file: part-02/general-principles.md
+  - file: part-02/self-weight.md
+  - file: part-02/live-load.md
+  - file: part-02/loads-in-car-parks.md
+  - file: part-02/snow-load.md
+  - file: part-02/wind.md
+  - file: part-02/impact-load.md
+  - file: part-02/fire.md
+
+
+- part: Resistance Models
+  numbered: true
+  chapters:
+  - file: part-03/concrete-properties.md
+  - file: part-03/static-properties-of-reinforcing-steel.md
+  - file: part-03/model-uncertainties.md
+  - file: part-03/dimensions.md
+  - file: part-03/excentricities.md

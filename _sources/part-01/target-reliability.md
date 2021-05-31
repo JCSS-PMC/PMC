@@ -47,8 +47,7 @@ ii) formal failure probability requirements, *conditional upon these
 
  Target reliability values for ultimate limit states are proposed in
  Table 1. The values in Table 1 are obtained based on cost benefit
- analysis for the public at characteristic and representative
-
+ analysis for the public at characteristic and representative 
  but simple example structures and are compatible with calibration
  studies and statistical observations.
 

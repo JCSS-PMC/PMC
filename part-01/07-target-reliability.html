@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Target Reliability &#8212; Probabilistic Model Code</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Reliability" href="06-reliability.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/jcss.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Probabilistic Model Code</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-00/intro.html">
+   JCSS Probabilistic Model Code
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basis of Design
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-requirements.html">
+   Requirements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-principles-of-limit-state-design.html">
+   Principles of limit state design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-basis-of-uncerainty-modelling.html">
+   Basis of uncerainty modelling
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="05-models-for-physical-behaviour.html">
+   Models for physical behaviour
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-reliability.html">
+   Reliability
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Target Reliability
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part-01/07-target-reliability.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/JCSS-PMC/PMC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/07-target-reliability.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/07-target-reliability.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general-aspects">
+   General Aspects
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#recommendations">
+   Recommendations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ultimate-limit-states">
+     Ultimate Limit States
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#serviceability-limit-state">
+     Serviceability Limit State
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="target-reliability">
+<h1>Target Reliability<a class="headerlink" href="#target-reliability" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-aspects">
+<h2>General Aspects<a class="headerlink" href="#general-aspects" title="Permalink to this headline">¶</a></h2>
+<p>In terms of a reliability based approach the structural risk
+acceptance criteria correspond to a required minimum reliability
+herein defined as <em>target reliability</em>. The requirements to the safety
+of the structure are consequently expressed in terms of <em>the accepted
+minimum reliability index</em> or <em>the accepted maximum failure
+probability</em>.</p>
+<p>In a rational analysis the target reliability is considered as a
+control parameter subject to <em>optimization</em>. The parameter assigns a
+particular investment to the material placed in the structure. The
+more material - invested in right places - the less is the expected
+loss. Such optimization is mainly possible when economic loss
+components dominate over life, injury, and culture components. When
+the expected loss of life or limb is important, the optimal
+reliability level becomes more controversional. Frequently, this leads
+to the problem of the economic equivalent of human life; <em>risk-benefit
+analyses</em> are then applied to circuvent this difficulty; the
+<em>reliability of the system is translated into the cost per life
+saved</em>. The target reliability may then be chosen such that the cost
+per life saved is at acceptable levels (for example comparable to
+other similar systems).</p>
+<p>In a practical approach the required reliability of the structure is
+controlled by:</p>
+<p>i)  a set of assumptions about <em>quality assurance</em> and <em>quality
+management</em> measures; these measures are for example related to
+design and construction supervision and are intended to avoid <em>gross
+errors</em>.</p>
+<p>ii) formal failure probability requirements, <em>conditional upon these
+assumptions</em>, defined by specified target values for the various
+classes of structures and structural members.</p>
+</div>
+<div class="section" id="recommendations">
+<h2>Recommendations<a class="headerlink" href="#recommendations" title="Permalink to this headline">¶</a></h2>
+<p>Target reliability values are provided in the next paragraphs. They
+are based on optimization procedures and on the assumption that for
+allmost all engineering facilities the only reasonable reconstruction
+policy is systematic rebuilding or repair.</p>
+<div class="section" id="ultimate-limit-states">
+<h3>Ultimate Limit States<a class="headerlink" href="#ultimate-limit-states" title="Permalink to this headline">¶</a></h3>
+<p>Target reliability values for ultimate limit states are proposed in
+Table 1. The values in Table 1 are obtained based on cost benefit
+analysis for the public at characteristic and representative</p>
+<p>but simple example structures and are compatible with calibration
+studies and statistical observations.</p>
+<a class="reference internal image-reference" href="../_images/table-1.png" id="image-table-1"><img alt="../_images/table-1.png" id="image-table-1" src="../_images/table-1.png" style="height: 200px;" /></a>
+<p>The shadowed value in Table 1 should be considered as the most common
+design situation. In order to make the right choice in this table the
+following guidelines may be of help:</p>
+<ul class="simple">
+<li><p><strong>Consequence classes</strong></p></li>
+</ul>
+<p>A classification into consequenze classes is based on the ratio <span class="math notranslate nohighlight">\(\rho\)</span>
+defined as the ratio between total costs (i.e. construction costs plus
+direct failure costs) and construction costs.</p>
+<p><em>Class 1 Minor Consequences:</em> <span class="math notranslate nohighlight">\(\rho\)</span> is less than approximately 2</p>
+<p>Risk to life, given a failure, is small to negligible and economic
+consequences are small or negligible (e.g. agricultural structures,
+silos, masts);</p>
+<p><em>Class 2 Moderate Consequences:</em> <span class="math notranslate nohighlight">\(\rho\)</span> is between 2 and 5.</p>
+<p>Risk to life, given a failure, is medium or economic consequences are
+considerable (e.g. office buildings, industrial buildings, apartment
+buildings).</p>
+<p><em>Class 3 Large Consequences:</em> <span class="math notranslate nohighlight">\(\rho\)</span> is between 5 and 10.</p>
+<p>Risk to life, given a failure, is high, or economic consequences are
+significant (e.g. main bridges, theaters, hospitals, high rise
+buildings).</p>
+<p>If <span class="math notranslate nohighlight">\(\rho\)</span> is larger than 10 and the absolute value of <em>H</em> also is large,
+the consequences should be regarded as extreme and a full cost benefit
+analysis is recommended. The conclusion might be that the structure
+should not be build at all.</p>
+<p>One should be aware of the fact that failure consequences also depend
+on the type of failure, which can be classified according to:</p>
+<p>a)  ductile failure with reserve strength capacity resulting from strain
+hardening</p>
+<p>b)  ductile failure with no reserve capacity</p>
+<p>c)  brittle failure</p>
+<p>Consequently a structural element which would be likely to collapse
+suddenly without warning should be designed for a higher level of
+reliability than one for which a collapse is preceded by some kind of
+warning which enables measures to be taken to avoid severe
+consequences.</p>
+<p>The values given relate to the structural system or in approximation
+to the dominant failure mode or structural component dominating system
+failure. Therefore, structures with multiple, equally important
+failure modes should be designed for a higher level of reliability.</p>
+<ul class="simple">
+<li><p><strong>Relative cost of safety measures classificaton</strong></p></li>
+</ul>
+<p>The normal class (B) should be associated with:</p>
+<ul class="simple">
+<li><p>medium variabilities of the total loads and resistances (0.1 &lt; <em>V</em>
+&lt; 0.3),</p></li>
+<li><p>relative cost of safety measure</p></li>
+<li><p>normal design life and normal obsolesce rate composed to
+construction costs of the order of 3%</p></li>
+</ul>
+<p>The given values are for structures or structural elements as designed
+(not as built). Failures due to human error or ignorance and failures
+due to non-structural causes are not covered by table 1.</p>
+<p>Values outside the given ranges may lead to a higher or lower
+classification. In particular attention may be given to the following
+aspects:</p>
+<ul class="simple">
+<li><p><em>Degree of Uncertainty</em></p></li>
+</ul>
+<p>A large uncertainty in either loading or resistance (coefficients of
+variation larger then 40 %), as for instance the case of many
+accidental and seismic situations, a lower reliability class should be
+used. The point is that for these large uncertainties the additional
+costs to achieve a high reliability are prohibitive. If on the other
+hand both acting and resisting variables have coefficients of
+variation smaller than 10%, like for most dead loads and well-known
+small resistance variability, a higher class can be achieved by very
+little effort and this should be done.</p>
+<ul class="simple">
+<li><p><em>Quality assurance</em> and <em>inspections</em></p></li>
+</ul>
+<p>Quality assurance (for new structures) and inspections (for existing
+structures) have an increasing effect on costs. This will lead to a
+lower reliability class. On the other hand, due to QA and inspections
+the uncertainty will normally decrease and a higher class becomes
+economically more attractive. General rules are difficult to give.</p>
+<ul class="simple">
+<li><p><em>Existing structures</em></p></li>
+</ul>
+<p>For existing structures the costs of achieving a higher reliability
+level are usually high compared to structures under design. For this
+reason the target level for existing structures usually should be
+lower.</p>
+<ul class="simple">
+<li><p><em>Service life and/or obsolesce</em></p></li>
+</ul>
+<p>For structures designed for short service life or otherwise rapid
+obsolesce (say less than 10 years) the beta-values can be lowered by
+one or half a class.</p>
+<p>By definition serviceability failures are not associated with loss of
+human life or limb. For existing structures the demand will be more
+related to the actual situation in performance and use. No general
+rules are given in this document.</p>
+</div>
+<div class="section" id="serviceability-limit-state">
+<h3>Serviceability Limit State<a class="headerlink" href="#serviceability-limit-state" title="Permalink to this headline">¶</a></h3>
+<p>When setting target values for serviceability limit states (SLS) it is
+important to distinguish between irreversible and reversible
+serviceability limit states. Target values for SLS can be derived
+based on decision analysis methods.</p>
+<p>For irreversible serviceability limit states tentative target values
+are given in Table 2. A variation from the target serviceability
+indexes of the order of 0.3 can be considered. For reversible
+serviceability limit states no general values are given.</p>
+<a class="reference internal image-reference" href="../_images/table-2.png" id="id1"><img alt="../_images/table-2.png" id="id1" src="../_images/table-2.png" style="height: 100px;" /></a>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part-01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="06-reliability.html" title="previous page">Reliability</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Joint Committee on Structural Safety<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

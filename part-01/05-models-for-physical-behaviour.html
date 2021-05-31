@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Models for physical behaviour &#8212; Probabilistic Model Code</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reliability" href="06-reliability.html" />
+    <link rel="prev" title="Basis of uncerainty modelling" href="04-basis-of-uncerainty-modelling.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/jcss.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Probabilistic Model Code</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-00/intro.html">
+   JCSS Probabilistic Model Code
+  </a>
+ </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Basis of Design
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="01-introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="02-requirements.html">
+   Requirements
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="03-principles-of-limit-state-design.html">
+   Principles of limit state design
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="04-basis-of-uncerainty-modelling.html">
+   Basis of uncerainty modelling
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Models for physical behaviour
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="06-reliability.html">
+   Reliability
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="07-target-reliability.html">
+   Target Reliability
+  </a>
+ </li>
+</ul>
+
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/part-01/05-models-for-physical-behaviour.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/JCSS-PMC/PMC"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/05-models-for-physical-behaviour.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/05-models-for-physical-behaviour.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#general">
+   General
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#action-models">
+   Action models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geometrical-models">
+   Geometrical models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#material-models">
+   Material models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mechanical-models">
+   Mechanical models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-uncertainties">
+   Model uncertainties
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="models-for-physical-behaviour">
+<h1>Models for physical behaviour<a class="headerlink" href="#models-for-physical-behaviour" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general">
+<h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<p>Calculation models shall describe the structure and its behaviour up
+to the limit state under consideration, accounting for relevant
+actions and environmental influences. Models should</p>
+<p>generally be regarded as simplifications which take account of
+decisive factors and neglect the less important ones.</p>
+<p>One can often distinguish between:</p>
+<ul class="simple">
+<li><p>action models</p></li>
+<li><p>structural models which give action effects (internal forces,
+moments etc.)</p></li>
+<li><p>resistance models which give resistances corresponding to the action
+effects, and are based on.</p></li>
+<li><p>material models and geometry models .</p></li>
+</ul>
+<p>However, in some cases it is not possible or convenient to make this
+distinction, for example, if the instability or loss of equilibrium of
+an entire structural system is studied or if interactions between
+loads and structural response are of interest.</p>
+</div>
+<div class="section" id="action-models">
+<h2>Action models<a class="headerlink" href="#action-models" title="Permalink to this headline">¶</a></h2>
+<p>A complete action model should describe several properties of the
+action such as its magnitude, position, direction, duration etc. In
+some cases there is an interaction between the different properties
+and also between these properties and the response of the structure.
+Such interactions should be taken into account.</p>
+<p>The magnitude <span class="math notranslate nohighlight">\(F\)</span> of an action may often be described by two different
+types of variables so that</p>
+<div class="math notranslate nohighlight" id="equation-eq4">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq4" title="Permalink to this equation">¶</a></span>\[F = \varphi(F_0,W)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\varphi\)</span> is an appropriate function and</p>
+<p><span class="math notranslate nohighlight">\(F_0\)</span> is a basic action variable, often with time and space dependent
+variations (random or non-random) and is generally independent of the
+structure</p>
+<p><span class="math notranslate nohighlight">\(W\)</span> is a random or non-random variable or a random field which may
+depend on the structural properties and which transformes <span class="math notranslate nohighlight">\(F_0\)</span> to <span class="math notranslate nohighlight">\(F\)</span>.</p>
+<p>Eq. <a class="reference internal" href="#equation-eq4">(4)</a> should be regarded as a symbolic expression where <span class="math notranslate nohighlight">\(F_0\)</span> and <span class="math notranslate nohighlight">\(W\)</span> may
+represent several variables.</p>
+<p>One example may be snow load where <span class="math notranslate nohighlight">\(F_0\)</span> is the time dependent snow load
+on ground and <span class="math notranslate nohighlight">\(W\)</span> is the conversion factor for snow load on ground to
+snow load on roof which normally is assumed to to be time independent.</p>
+<p>Further information on action models is provided in part 2. It is
+noted that action models may include material properties (earthquake
+action depends for example on material damping).</p>
+</div>
+<div class="section" id="geometrical-models">
+<h2>Geometrical models<a class="headerlink" href="#geometrical-models" title="Permalink to this headline">¶</a></h2>
+<p>A structure can generally be described by a model consisting of
+one-dimensional elements (beams, columns, cables, arches, etc),
+two-dimensional elements (slabs, walls, shells, etc) and
+three-dimensional elements.</p>
+<p>The geometrical quantities which are included in the model generally
+refer to nominal values,</p>
+<p>i.e. the values given in drawings, descriptions etc. Normally, the
+geometrical quantities of a real structure differ from their nominal
+values, i.e. the structure has geometrical imperfections. If the
+structural behaviour is sensitive to such imperfections, these shall
+be inlcuded in the model.</p>
+<p>In many cases the deformation of a structure causes significant
+deviations from nominal values of geometrical quantities. If such
+deformations are of importance for the structural behaviour, they have
+to be considered in the design in principally the same way as
+imperfections. The effects of such deformations are generally denoted
+<em>geometrically nonlinear</em> or <em>second order effects</em> and should be
+accounted for.</p>
+</div>
+<div class="section" id="material-models">
+<h2>Material models<a class="headerlink" href="#material-models" title="Permalink to this headline">¶</a></h2>
+<p>When strength or stiffness is considered the material model normally
+consists of relations between forces or stresses and deformations i.e
+<em>costitutive relationships</em>. The parameters of such relations are
+modulus of elasticity, yield limit, ultimate strength etc. which
+generally are considered as random variables, Sometimes they are time
+dependent or space dependent. There is often an correlation between
+the parameters e.g. the modulus of elasticity and the ultimate
+strength of concrete.</p>
+<p>Other material properties, e.g. resistance against material
+deterioration may often be treated in a similar way. However the
+principles are strongly dependent on type of material and the property
+considered.</p>
+<p>Further information related to models of several material types is
+given in part 3.</p>
+</div>
+<div class="section" id="mechanical-models">
+<h2>Mechanical models<a class="headerlink" href="#mechanical-models" title="Permalink to this headline">¶</a></h2>
+<p>The following mechanical models may be classified</p>
+<ol class="simple">
+<li><p>models describing static response</p></li>
+<li><p>models decribing dynamic response</p></li>
+<li><p>models for fatigue</p></li>
+</ol>
+<p>a)  <em>models describing static response</em></p>
+<p>In almost all design calculations some assumptions concerning the
+relation between forces or moments and deformations (or deformation
+rates) are necessary. These assumptions can vary and depend on the
+purpose and type of calculation. The most general relationship
+regarding structural response is considered to be elastic) developing
+into plastic behaviour in certain parts of the structure at high
+action effects. In other parts of the structure intermediate stages
+occur. Such relationships may be used generally. However the use of
+any theory taking into account in-elastic or post-critical behaviour
+may have to take into account repetitions of variable actions that are
+free. Such actions may cause great variations of the action effects,
+repeated yielding and exhaustion of the deformation capacity.</p>
+<p>The theory of elasticity may be regarded as a simplification of a more
+general theory and may generally be used provided that forces and
+moments are limited to those values, for which the behaviour of the
+structure is still considered as elastic. However, the theory of
+elasticity may also be used in other cases if it is applied as a
+conservative approximation.</p>
+<p>Theories in which fully developed plasticity is assumed to occur in
+certain zones of the structure (plastic hinges in beams, yield lines
+in slabs, etc) may also be used, provided that the deformations which
+are needed to ensure plastic behaviour, occur before the ultimate
+limit state is reached. Thus theory of plasticity should be used with
+care to determine the load carrying capacity of a structure, if this
+capacity is limited by:</p>
+<ul class="simple">
+<li><p>brittle failure</p></li>
+<li><p>failure due to instability</p></li>
+</ul>
+<p>b)  <em>models for dynamic response</em></p>
+<p>In most cases dynamic response of a structure is caused by a rapid
+variation of the magnitude, position or direction of an action
+However, a sudden change of the stiffness or resistance of a
+structural element may also cause dynamic behaviour.</p>
+<p>The models for dynamic response consist in general of:</p>
+<ul class="simple">
+<li><p>a stiffness model</p></li>
+<li><p>a damping model</p></li>
+<li><p>an inertia model</p></li>
+</ul>
+<p>c)  <em>models for fatigue</em></p>
+<p>Fatigue models are used for the description of fatigue failures caused
+by fluctuating actions. Two types of models are distinguished:</p>
+<p>a)  S-N model based on experiments</p>
+<p>b)  fracture mechanics model</p>
+<p>It is further noted here, that other types of degradation such as
+chemical attack or fire can modify the parameters entering the
+aforementioned models or the models themselves.</p>
+</div>
+<div class="section" id="model-uncertainties">
+<h2>Model uncertainties<a class="headerlink" href="#model-uncertainties" title="Permalink to this headline">¶</a></h2>
+<p>A calculation model is a physically based or empirical relation
+between relevant variables, which are in general random variables:</p>
+<div class="math notranslate nohighlight" id="equation-eq5">
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq5" title="Permalink to this equation">¶</a></span>\[Y = f(X_1,X_2,\dots ,X_n)\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Y\)</span> = model output</p></li>
+<li><p><span class="math notranslate nohighlight">\(f( )\)</span> = model function</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_i\)</span>    = basic variables</p></li>
+</ul>
+<p>The model <span class="math notranslate nohighlight">\(f(\dots)\)</span> may be complete and exact, so that, if the values
+of <span class="math notranslate nohighlight">\(X_i\)</span> are known in a particular experiment (from measurements), the
+outcome <span class="math notranslate nohighlight">\(Y\)</span> can be predicted without error. This, however, is not
+normally the situation. In most cases the model will be incomplete and
+inexact. This may be the result of lack of knowledge, or a deliberate
+simplification of the model, for the convenience of the designer. The
+difference between the model prediction and the real outcome of the
+experiment can be written down as:</p>
+<div class="math notranslate nohighlight" id="equation-eq6">
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq6" title="Permalink to this equation">¶</a></span>\[Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)\]</div>
+<p><span class="math notranslate nohighlight">\(\theta_i\)</span> are referred to as parameters which contain the model uncertainties
+and are treated as random variables. Their statistical properties can
+in most cases be derived from experiments or observations. The mean of
+these parameters should be determined in such a way that, on average,
+the calculation model correctly predicts the test results.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./part-01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="04-basis-of-uncerainty-modelling.html" title="previous page">Basis of uncerainty modelling</a>
+    <a class='right-next' id="next-link" href="06-reliability.html" title="next page">Reliability</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Joint Committee on Structural Safety<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

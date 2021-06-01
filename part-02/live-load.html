@@ -49,6 +49,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="4. Loads In Car Parks" href="loads-in-car-parks.html" />
@@ -327,12 +329,47 @@
                 
   <div class="section" id="live-load">
 <h1><span class="section-number">3. </span>Live Load<a class="headerlink" href="#live-load" title="Permalink to this headline">¶</a></h1>
-<p>2.2 LIVE LOAD</p>
 <div class="section" id="basic-model">
 <h2><span class="section-number">3.1. </span>Basic Model<a class="headerlink" href="#basic-model" title="Permalink to this headline">¶</a></h2>
+<p>The live loads on floors in buildings are caused by the weight of furniture, equipment, stored objects
+and persons. Not included in this type of load are any structural or non-structural elements, partition walls or
+extraordinary equipment. The live load is distinguished according the intended user category of the building, i.e.
+domestic buildings, hotels, hospitals, office buildings, schools, and stores. At design stage considerations
+should also be given to eventual changes of use during the life-time. Areas dedicated to store goods, materials,
+etc. must be treated separately. Live loads vary in time and space in a random manner. The spatial variations
+are assumed to be homogeneous in a first approximation. With respect to the variation in time, it is divided into
+two components, the sustained load and the intermittent load.</p>
+<p>The sustained load contains the weight of furniture and heavy equipment. The load magnitude
+according to the model represents the time average of the real fluctuating load. Changes usually related to
+changes in use and of users in a building. Short term fluctuations are included in the uncertainties of this load
+part.</p>
+<p>The intermittent load represents all kinds of live loads, which are not covered by the sustained load.
+The sources are like gathering of people, crowded rooms during special events, or stacking of furniture during
+remodelling. The relative duration of an intermittent loads is fairly small.</p>
 </div>
 <div class="section" id="stochastic-model">
 <h2><span class="section-number">3.2. </span>Stochastic Model<a class="headerlink" href="#stochastic-model" title="Permalink to this headline">¶</a></h2>
+<p>The load intensity is represented by a stochastic field <span class="math notranslate nohighlight">\(W(x,y)\)</span>, whereby the parameters depend on
+the user category of the building.</p>
+<div class="math notranslate nohighlight">
+\[
+W ( x , y ) = m + V + U ( x, y )
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the overall mean load intensity for a particular user category, <span class="math notranslate nohighlight">\(V\)</span> is a zero mean normal distributed
+variable and <span class="math notranslate nohighlight">\(U(x,y)\)</span> is a zero mean random field with a characteristic skewness to the right. The quantities <span class="math notranslate nohighlight">\(V\)</span>
+and U are assumed to be stochastically independent.</p>
+<p>The load effects calculated from the model shall describe the load effects caused by the real load, with
+sufficient accuracy. For linear elastic systems, where superposition is possible, the load effect <span class="math notranslate nohighlight">\(S\)</span> is written as:</p>
+<div class="math notranslate nohighlight">
+\[
+S = \int_A W ( x, y ) i( x, y ) dA
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(W(x,y)\)</span> is the load intensity and <span class="math notranslate nohighlight">\(i(x,y)\)</span> is the influence function for the load effect over a considered area <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>For non-linear structural response a stepwise linearity can be assumed, whereby the proposed relation
+for the load effect can be used in each step. The load intensity <span class="math notranslate nohighlight">\(W\)</span> is substituted by the step <span class="math notranslate nohighlight">\(\Delta W\)</span> and the
+influence function <span class="math notranslate nohighlight">\(i(x,y)\)</span> must reflect the total load situation, which results in a corresponding step
+<span class="math notranslate nohighlight">\(\Delta S\)</span> for the load effect. When applying the theory of plasticity, then the influence function is
+proportional to the deflection corresponding to the mechanism.</p>
 </div>
 <div class="section" id="variations-in-time">
 <h2><span class="section-number">3.3. </span>Variations in Time<a class="headerlink" href="#variations-in-time" title="Permalink to this headline">¶</a></h2>

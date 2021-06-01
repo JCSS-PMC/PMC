@@ -49,6 +49,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="2. Self Weight" href="self-weight.html" />
@@ -426,6 +428,54 @@ loading, involved although they are variable actions.</p>
 </div>
 <div class="section" id="modelling-of-actions">
 <h2><span class="section-number">1.3. </span>Modelling of actions<a class="headerlink" href="#modelling-of-actions" title="Permalink to this headline">¶</a></h2>
+<p>There are two main aspects of the description of an action: one is the physical aspect, the other is the
+statistical aspect. In most cases these aspects can be clearly separated. Then the physical description
+gives the types of physical data which characterise the action model, for example, vertical forces
+distributed over a given area. The statistical description gives the statistical properties of the
+variables, for example, a probability distribution function. In some cases the physical and statistical
+aspects are so integrated that they cannot be considered separately.</p>
+<p>A complete action model consists in general, of several constituents which describe the magnitude,
+the position, the direction, the duration etc. of the action. Sometimes there is an interaction between
+the components. There may in certain cases also be an interaction between the action and the
+response of the structure.</p>
+<p>One can in many cases distinguish between two kinds of variables (constituents) <span class="math notranslate nohighlight">\(F_0\)</span> and <span class="math notranslate nohighlight">\(W\)</span> describing
+an action <span class="math notranslate nohighlight">\(F\)</span> (see also part 1, Basis of Design).</p>
+<div class="math notranslate nohighlight" id="equation-eq-action-f">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-action-f" title="Permalink to this equation">¶</a></span>\[
+F = φ (F_O, W)
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F_O\)</span> is a basic action variable which is directly associated with the event causing the action and
+which should be defined so that it is, as far as possible, independent of the structure. For
+example, for snow load Fo is the snow load on ground, on a flat horizontal surface</p></li>
+<li><p><span class="math notranslate nohighlight">\(W\)</span> is a kind of conversion factor or model parameter appearing in the transformation from the
+basic action to the action F which affects the particular structure. W may depend on the form
+and size of the structure etc. For the snow load example W is the factor which transforms the
+snow load on ground to the snow load on roof and which depends on the roof slope, the type
+of roof surface etc.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\varphi\)</span> is a suitable function, often a simple product.</p></li>
+</ul>
+<p>The time variability is normally included in <span class="math notranslate nohighlight">\(F_O\)</span>, whereas <span class="math notranslate nohighlight">\(W\)</span> can often be considered as time
+independent. A systematic part of the space variability of an action is in most cases included in <span class="math notranslate nohighlight">\(W\)</span>,
+whereas a possible random part may be included in <span class="math notranslate nohighlight">\(F_O\)</span> or in <span class="math notranslate nohighlight">\(W\)</span>. Eq. <a class="reference internal" href="#equation-eq-action-f">(1.1)</a> should be regarded as a
+schematic equation. For one action there may be several variables <span class="math notranslate nohighlight">\(F_O\)</span> and several variables <span class="math notranslate nohighlight">\(W\)</span>.</p>
+<p>Any action model contains a set of parameters and variables that must be evaluated before the model
+can be used. In probabilistic modelling all action variables are in principle assumed to be random
+variables or processes while other parameters may be time or spatial co-ordinates, directions etc.
+Sometimes parameters may themselves be random variables, for example when the model allows for
+statistical uncertainty due to small sample sizes.</p>
+<p>An action model often includes two or more variables of different character as is described by eq. <a class="reference internal" href="#equation-eq-action-f">(1.1)</a>
+For each variable a suitable model should be chosen so that the complete action model
+consists of a number of models for the individual variables.</p>
+<p>These models may be described in terms of:</p>
+<ul class="simple">
+<li><p>stochastic processes or random fields</p></li>
+<li><p>sequences of random variables</p></li>
+<li><p>individual random variables</p></li>
+<li><p>deterministic values or functions</p></li>
+</ul>
+<p>The definition of the models for these quantities require probability distributions (see annex 2) and a
+description of the correlation patterns.</p>
 </div>
 <div class="section" id="models-for-fluctuations-in-time">
 <h2><span class="section-number">1.4. </span>Models for fluctuations in time<a class="headerlink" href="#models-for-fluctuations-in-time" title="Permalink to this headline">¶</a></h2>

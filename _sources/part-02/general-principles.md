@@ -1,6 +1,7 @@
 # General Principles
 
 ## Introduction
+
 The environment in which structural systems function gives rise to internal forces, deformations, material deterioration and other short-term or long-term effects in these systems. The causes of these effects are termed actions. The environment from which the actions originate can be of a natural
 character, for example, snow, wind and earthquake. lt can also be associated with human activities such as living in a domestic house, working in a factory, etc.
 The following concepts of actions are used in this document.
@@ -40,6 +41,62 @@ loading, involved although they are variable actions.
 
 
 ## Modelling of actions
+
+There are two main aspects of the description of an action: one is the physical aspect, the other is the
+statistical aspect. In most cases these aspects can be clearly separated. Then the physical description
+gives the types of physical data which characterise the action model, for example, vertical forces
+distributed over a given area. The statistical description gives the statistical properties of the
+variables, for example, a probability distribution function. In some cases the physical and statistical
+aspects are so integrated that they cannot be considered separately.
+
+A complete action model consists in general, of several constituents which describe the magnitude,
+the position, the direction, the duration etc. of the action. Sometimes there is an interaction between
+the components. There may in certain cases also be an interaction between the action and the
+response of the structure.
+
+One can in many cases distinguish between two kinds of variables (constituents) $F_0$ and $W$ describing
+an action $F$ (see also part 1, Basis of Design).
+
+$$
+F = φ (F_O, W)
+$$(eq_action_F)
+
+- $F_O$ is a basic action variable which is directly associated with the event causing the action and
+which should be defined so that it is, as far as possible, independent of the structure. For
+example, for snow load Fo is the snow load on ground, on a flat horizontal surface
+- $W$ is a kind of conversion factor or model parameter appearing in the transformation from the
+basic action to the action F which affects the particular structure. W may depend on the form
+and size of the structure etc. For the snow load example W is the factor which transforms the
+snow load on ground to the snow load on roof and which depends on the roof slope, the type
+of roof surface etc.
+- $\varphi$ is a suitable function, often a simple product.
+
+The time variability is normally included in $F_O$, whereas $W$ can often be considered as time
+independent. A systematic part of the space variability of an action is in most cases included in $W$,
+whereas a possible random part may be included in $F_O$ or in $W$. Eq. {eq}`eq_action_F` should be regarded as a
+schematic equation. For one action there may be several variables $F_O$ and several variables $W$.
+
+Any action model contains a set of parameters and variables that must be evaluated before the model
+can be used. In probabilistic modelling all action variables are in principle assumed to be random
+variables or processes while other parameters may be time or spatial co-ordinates, directions etc.
+Sometimes parameters may themselves be random variables, for example when the model allows for
+statistical uncertainty due to small sample sizes.
+
+An action model often includes two or more variables of different character as is described by eq. {eq}`eq_action_F`
+For each variable a suitable model should be chosen so that the complete action model
+consists of a number of models for the individual variables.
+
+These models may be described in terms of:
+
+- stochastic processes or random fields
+- sequences of random variables
+- individual random variables
+- deterministic values or functions
+
+The definition of the models for these quantities require probability distributions (see annex 2) and a
+description of the correlation patterns.
+
+
 ## Models for fluctuations in time
 ### Types of models
 ### Distribution of extremes for single processes

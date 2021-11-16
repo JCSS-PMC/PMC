@@ -1,6 +1,7 @@
-- file: part-00/intro.md
-
-- part: Basis of Design
+format: jb-book
+root: part-00/intro.md
+parts:
+- caption: Basis of Design
   numbered: true
   chapters:
   - file: part-01/introduction.md
@@ -10,8 +11,7 @@
   - file: part-01/models-for-physical-behaviour.md
   - file: part-01/reliability.md
   - file: part-01/target-reliability.md
-
-- part: Load Models
+- caption: Load Models
   numbered: true
   chapters:
   - file: part-02/general-principles.md
@@ -22,9 +22,7 @@
   - file: part-02/wind.md
   - file: part-02/impact-load.md
   - file: part-02/fire.md
-
-
-- part: Resistance Models
+- caption: Resistance Models
   numbered: true
   chapters:
   - file: part-03/concrete-properties.md
@@ -32,9 +30,7 @@
   - file: part-03/model-uncertainties.md
   - file: part-03/dimensions.md
   - file: part-03/excentricities.md
-
-  
-- part: How to Use
+- caption: How to Use
   numbered: true
   chapters:
   - file: help/how-to-use.md

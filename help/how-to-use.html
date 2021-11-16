@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>16. Concrete Properties &#8212; Probabilistic Model Code</title>
+    <title>21. How to Use &#8212; Probabilistic Model Code</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,8 +51,7 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="17. Static Properties Of Reinforcing Steel" href="static-properties-of-reinforcing-steel.html" />
-    <link rel="prev" title="15. Fire" href="../part-02/fire.html" />
+    <link rel="prev" title="20. Excentricities" href="../part-03/excentricities.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -190,29 +189,29 @@
   Resistance Models
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../part-03/concrete-properties.html">
    16. Concrete Properties
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="static-properties-of-reinforcing-steel.html">
+  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
    17. Static Properties Of Reinforcing Steel
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="model-uncertainties.html">
+  <a class="reference internal" href="../part-03/model-uncertainties.html">
    18. Model Uncertainties
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="dimensions.html">
+  <a class="reference internal" href="../part-03/dimensions.html">
    19. Dimensions
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="excentricities.html">
+  <a class="reference internal" href="../part-03/excentricities.html">
    20. Excentricities
   </a>
  </li>
@@ -222,9 +221,9 @@
   How to Use
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../help/how-to-use.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    21. How to Use
   </a>
  </li>
@@ -265,7 +264,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-03/concrete-properties.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/help/how-to-use.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -285,10 +284,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/concrete-properties.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fhelp/how-to-use.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/concrete-properties.md"><button
+        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/help/how-to-use.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -314,28 +313,25 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-properties">
-   16.1. Basic Properties
+  <a class="reference internal nav-link" href="#set-up">
+   21.1. Set-up
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#installation">
+     21.1.1. Installation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-command-line-interface">
+     21.1.2. Build command line interface
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#stress-strain-relationship">
-   16.2. Stress-strain-relationship
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-probabilistic-model">
-   16.3. The probabilistic model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distribution-for-ykj">
-   16.4. Distribution for Ykj
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#distribution-for-fco">
-   16.5. Distribution for fco
+  <a class="reference internal nav-link" href="#online">
+   21.2. Online
   </a>
  </li>
 </ul>
@@ -349,23 +345,38 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="concrete-properties">
-<h1><span class="section-number">16. </span>Concrete Properties<a class="headerlink" href="#concrete-properties" title="Permalink to this headline">¶</a></h1>
-<p>3.1 CONCRETE PROPERTIES</p>
-<div class="section" id="basic-properties">
-<h2><span class="section-number">16.1. </span>Basic Properties<a class="headerlink" href="#basic-properties" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-use">
+<h1><span class="section-number">21. </span>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h1>
+<p>This is a short guid how to set-up and work with <a class="reference external" href="https://jupyterbook.org/intro.html">jupyterbook</a>.</p>
+<div class="section" id="set-up">
+<h2><span class="section-number">21.1. </span>Set-up<a class="headerlink" href="#set-up" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installation">
+<h3><span class="section-number">21.1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>This chapter gives an introduction how to set-up and use jupyterbook on your local machine. Jupyterbook uses python, hence you need a local python environment to install jupyterbook.</p>
+<p>In your local python environment install the following packages:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">matplotlib</span> <span class="n">numpy</span>
+</pre></div>
 </div>
-<div class="section" id="stress-strain-relationship">
-<h2><span class="section-number">16.2. </span>Stress-strain-relationship<a class="headerlink" href="#stress-strain-relationship" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="the-probabilistic-model">
-<h2><span class="section-number">16.3. </span>The probabilistic model<a class="headerlink" href="#the-probabilistic-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-command-line-interface">
+<h3><span class="section-number">21.1.2. </span>Build command line interface<a class="headerlink" href="#build-command-line-interface" title="Permalink to this headline">¶</a></h3>
+<p>When you’ve written your book’s content, it is now time to build outputs for your book so that you may share them with others. For example, you may wish to build HTML files to host as a static website, or a PDF to share with colleagues.</p>
+<p>he basic way to build your book is via the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">book</span><span class="o">&gt;</span>
+</pre></div>
 </div>
-<div class="section" id="distribution-for-ykj">
-<h2><span class="section-number">16.4. </span>Distribution for Ykj<a class="headerlink" href="#distribution-for-ykj" title="Permalink to this headline">¶</a></h2>
+<p>For example if you in the book folder (i.e. where the <code class="docutils literal notranslate"><span class="pre">_config.yml</span></code> file is located) you shuld run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="o">.</span>
+</pre></div>
 </div>
-<div class="section" id="distribution-for-fco">
-<h2><span class="section-number">16.5. </span>Distribution for fco<a class="headerlink" href="#distribution-for-fco" title="Permalink to this headline">¶</a></h2>
+<p>In the folder <code class="docutils literal notranslate"><span class="pre">_build</span></code>, you will find the created book.</p>
+</div>
+</div>
+<div class="section" id="online">
+<h2><span class="section-number">21.2. </span>Online<a class="headerlink" href="#online" title="Permalink to this headline">¶</a></h2>
+<p>You also can edit the content online, when you do not want to set-up jupyterbook on your local machine.</p>
+<p>Therefore, go to the online version of the book and click at the top button <code class="docutils literal notranslate"><span class="pre">sugesst</span> <span class="pre">edits</span></code>. An online text editor will open up where you can make your changes.</p>
+<a class="reference internal image-reference" href="../_images/edit-online.png" id="image-edit-online"><img alt="../_images/edit-online.png" id="image-edit-online" src="../_images/edit-online.png" style="height: 200px;" /></a>
 </div>
 </div>
 
@@ -382,7 +393,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./part-03"
+            path: "./help"
         },
         predefinedOutput: true
     }
@@ -394,19 +405,12 @@
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../part-02/fire.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../part-03/excentricities.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">15. </span>Fire</p>
+            <p class="prev-next-title"><span class="section-number">20. </span>Excentricities</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="static-properties-of-reinforcing-steel.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Static Properties Of Reinforcing Steel</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
         

@@ -52,9 +52,9 @@ During registration, you will be asked if you want to have a free or paid accoun
 After successful registration, you can use the functionalities of GitHub and edit the PMC online.
 
 
-# Online editing
+## Online editing
 
-## First Steps
+### First Steps
 You also can edit the content of the [PMC online](https://jcss-pmc.github.io/PMC/part-00/intro.html), when you do not want to set-up jupyterbook on your local machine. Therefore a github account is needed (see XXX).
 
 You have two options for online editing:
@@ -63,7 +63,7 @@ You have two options for online editing:
 2. you can start a discussion on specific topics (`open issue`).
 
 
-## Sugesst Edits
+### Sugesst Edits
 
 If you want to suggest direct changes to the text, you can do so using the `sugesst edits` function. To do this, go to the corresponding page of the PMC and move the mouse over the ![GitHubLogo](https://fr.wikipedia.org/wiki/GitHub#/media/Fichier:Octicons-mark-github.svg) button.  In the menu below, you can select option `sugesst edits`. Click on this option.
 
@@ -72,7 +72,52 @@ If you want to suggest direct changes to the text, you can do so using the `suge
 :name: image-edit-online
 ```
 
+After that, an edit field opens in your browser where you can make the corresponding changes in the text directly. Jupyterbook uses Markdown as a simplified markup language for the text, i.e. the text is formatted using punctuation symbols (e.g. `**` for bold -> `**bold**` = **bold**) and command sequences. An overview of the most essential formatting commands for the PMC can be found in section XXX. The formatted version of the text can be viewed under the `Preview` tab.
+
+
+```{image} images/edit-file.png
+:height: 580px
+:name: image-edit-file
+```
 
 
 
-## Open Issues
+```{image} images/make-edit.png
+:height: 313px
+:name: image-make-edit
+```
+
+
+```{image} images/commit-changes.png
+:height: 313px
+:name: image-commit-changes
+```
+
+
+```{image} images/commit-changes.png
+:height: 362px
+:name: image-commit-changes
+```
+
+```{image} images/new-pull-request.png
+:height: 457px
+:name: image-new-pull-request
+```
+
+
+```{image} images/add-comment.png
+:height: 300px
+:name: image-add-comment
+```
+
+```{image} images/discussion.png
+:height: 368px
+:name: image-discussion
+```
+
+```{image} images/new-published.png
+:height: 341px
+:name: image-new-published
+```
+
+### Open Issues

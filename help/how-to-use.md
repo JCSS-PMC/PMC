@@ -68,7 +68,6 @@ You have two options for online editing:
 If you want to suggest direct changes to the text, you can do so using the `sugesst edits` function. To do this, go to the corresponding page of the PMC and move the mouse over the ![GitHubLogo](https://fr.wikipedia.org/wiki/GitHub#/media/Fichier:Octicons-mark-github.svg) button.  In the menu below, you can select option `sugesst edits`. Click on this option.
 
 ```{image} images/edit-online.png
-:height: 200px
 :name: image-edit-online
 ```
 

@@ -312,27 +312,63 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#set-up">
-   21.1. Set-up
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   21. How to Use
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#installation">
-     21.1.1. Installation
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#local-set-up">
+     21.1. Local set-up
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#installation">
+       21.1.1. Installation
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#build-command-line-interface">
+       21.1.2. Build command line interface
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-command-line-interface">
-     21.1.2. Build command line interface
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#online-set-up">
+     21.2. Online set-up
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#github-account">
+       21.2.1. GitHub Account
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#online">
-   21.2. Online
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#online-editing">
+   22. Online editing
   </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#first-steps">
+     22.1. First Steps
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sugesst-edits">
+     22.2. Sugesst Edits
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#open-issues">
+     22.3. Open Issues
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -347,12 +383,16 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="how-to-use">
 <h1><span class="section-number">21. </span>How to Use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h1>
-<p>This is a short guid how to set-up and work with <a class="reference external" href="https://jupyterbook.org/intro.html">jupyterbook</a>.</p>
-<div class="section" id="set-up">
-<h2><span class="section-number">21.1. </span>Set-up<a class="headerlink" href="#set-up" title="Permalink to this headline">¶</a></h2>
+<p>This guide gives an overview of how to install <a class="reference external" href="https://jupyterbook.org/intro.html">jupyterbook</a> locally on your computer (for advanced users) as well as how to edit the PMC directly online without needing a local installation (recommended option).</p>
+<div class="section" id="local-set-up">
+<h2><span class="section-number">21.1. </span>Local set-up<a class="headerlink" href="#local-set-up" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This setup is only recommended for advanced users who have basic knowledge of <code class="docutils literal notranslate"><span class="pre">git</span></code>, <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">markdown</span></code>.</p>
+</div>
 <div class="section" id="installation">
 <h3><span class="section-number">21.1.1. </span>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
-<p>This chapter gives an introduction how to set-up and use jupyterbook on your local machine. Jupyterbook uses python, hence you need a local python environment to install jupyterbook.</p>
+<p>This chapter gives an introduction how to set-up and use jupyterbook on your local machine. Jupyterbook uses <code class="docutils literal notranslate"><span class="pre">python</span></code>, hence you need a local python environment to install jupyterbook.</p>
 <p>In your local python environment install the following packages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">matplotlib</span> <span class="n">numpy</span>
 </pre></div>
@@ -372,11 +412,41 @@
 <p>In the folder <code class="docutils literal notranslate"><span class="pre">_build</span></code>, you will find the created book.</p>
 </div>
 </div>
-<div class="section" id="online">
-<h2><span class="section-number">21.2. </span>Online<a class="headerlink" href="#online" title="Permalink to this headline">¶</a></h2>
-<p>You also can edit the content online, when you do not want to set-up jupyterbook on your local machine.</p>
-<p>Therefore, go to the online version of the book and click at the top button <code class="docutils literal notranslate"><span class="pre">sugesst</span> <span class="pre">edits</span></code>. An online text editor will open up where you can make your changes.</p>
+<div class="section" id="online-set-up">
+<h2><span class="section-number">21.2. </span>Online set-up<a class="headerlink" href="#online-set-up" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The PMC was designed in such a way that editing, moderation and publication of the content can be carried out online without local installations of the required programmes.</p>
+</div>
+<div class="section" id="github-account">
+<h3><span class="section-number">21.2.1. </span>GitHub Account<a class="headerlink" href="#github-account" title="Permalink to this headline">¶</a></h3>
+<p>To edit the PMC, you need a GitHub user account. If you don’t have such an account yet, go to <a class="reference external" href="https://github.com/">github.com</a> and click the sign up button. Please follow the instructions to create an account.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>During registration, you will be asked if you want to have a free or paid account. A free account is perfectly sufficient for editing the PMC!</p>
+</div>
+<p>After successful registration, you can use the functionalities of GitHub and edit the PMC online.</p>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="online-editing">
+<h1><span class="section-number">22. </span>Online editing<a class="headerlink" href="#online-editing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="first-steps">
+<h2><span class="section-number">22.1. </span>First Steps<a class="headerlink" href="#first-steps" title="Permalink to this headline">¶</a></h2>
+<p>You also can edit the content of the <a class="reference external" href="https://jcss-pmc.github.io/PMC/part-00/intro.html">PMC online</a>, when you do not want to set-up jupyterbook on your local machine. Therefore a github account is needed (see XXX).</p>
+<p>You have two options for online editing:</p>
+<ol class="simple">
+<li><p>you can suggest changes to the text directly (<code class="docutils literal notranslate"><span class="pre">sugesst</span> <span class="pre">edits</span></code>), or</p></li>
+<li><p>you can start a discussion on specific topics (<code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">issue</span></code>).</p></li>
+</ol>
+</div>
+<div class="section" id="sugesst-edits">
+<h2><span class="section-number">22.2. </span>Sugesst Edits<a class="headerlink" href="#sugesst-edits" title="Permalink to this headline">¶</a></h2>
+<p>If you want to suggest direct changes to the text, you can do so using the <code class="docutils literal notranslate"><span class="pre">sugesst</span> <span class="pre">edits</span></code> function. To do this, go to the corresponding page of the PMC and move the mouse over the <img alt="GitHubLogo" src="https://fr.wikipedia.org/wiki/GitHub#/media/Fichier:Octicons-mark-github.svg" /> button.  In the menu below, you can select option <code class="docutils literal notranslate"><span class="pre">sugesst</span> <span class="pre">edits</span></code>. Click on this option.</p>
 <a class="reference internal image-reference" href="../_images/edit-online.png" id="image-edit-online"><img alt="../_images/edit-online.png" id="image-edit-online" src="../_images/edit-online.png" style="height: 200px;" /></a>
+</div>
+<div class="section" id="open-issues">
+<h2><span class="section-number">22.3. </span>Open Issues<a class="headerlink" href="#open-issues" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 

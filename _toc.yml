@@ -32,3 +32,9 @@
   - file: part-03/model-uncertainties.md
   - file: part-03/dimensions.md
   - file: part-03/excentricities.md
+
+  
+- part: How to Use
+  numbered: true
+  chapters:
+  - file: help/how-to-use.md

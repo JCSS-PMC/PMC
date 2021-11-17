@@ -1,5 +1,5 @@
 # Target Reliability
-
+here are my edits and suggestions
 ## General Aspects
 
  In terms of a reliability based approach the structural risk

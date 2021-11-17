@@ -75,47 +75,45 @@ After that, an edit field opens in your browser where you can make the correspon
 
 
 ```{image} images/edit-file.png
-:height: 580px
 :name: image-edit-file
 ```
-
-
+Make your edits to the text.
 
 ```{image} images/make-edit.png
-:height: 313px
 :name: image-make-edit
 ```
 
+After the changes have been made, they must be transmitted. There is a commit changes field at the bottom of the page. In this area, there is a line where the title of the change must be entered. This should be short and concise. Longer comments can also be added to describe the changes to the PMC in more detail.
+
+```{note}
+If you have broad permissions on the GitHub repository from the PMC (administrator), there are two options for submitting your changes. ``Commit directly to the master branch``, and ``Create a new branch for this commit and start poll request``. The first optione is without moderation, hance it should only used for small fixes of typos but not form major changes.
+```
+
+After you have pressed the `propose changes` button, your proposed changes will be submitted. 
 
 ```{image} images/commit-changes.png
-:height: 313px
 :name: image-commit-changes
 ```
 
+A new `pull request` is now created at the PMC's github repository. This will give other participants an overview of your proposed changes and allow them to discuss them before they are committed to the PMC. 
 
-```{image} images/commit-changes.png
-:height: 362px
-:name: image-commit-changes
-```
 
 ```{image} images/new-pull-request.png
-:height: 457px
 :name: image-new-pull-request
 ```
-
+In the Conversations section, you and others can comment on the proposed changes.
 
 ```{image} images/add-comment.png
-:height: 300px
 :name: image-add-comment
 ```
+After a discussion of the proposed changes, the moderator (user with extended powers) can include or reject the change in the PMC. 
 
 ```{image} images/discussion.png
-:height: 368px
 :name: image-discussion
 ```
+If the proposed changes are accepted, the current version of the PMC is automatically updated and published online.
 
 ```{image} images/new-published.png
-:height: 341px
 :name: image-new-published
 ```
 

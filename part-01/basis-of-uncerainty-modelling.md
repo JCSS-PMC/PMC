@@ -1,6 +1,6 @@
-# Basis of uncerainty modelling
+# 4. Basis of uncertainty modelling
 
-## Basic variables
+## 4.1. Basic variables
 
  The calculation model for each limit state considered should contain a
  specified set of basic variables, i.e. physical quantities which
@@ -10,18 +10,16 @@
  treated as basic variables (compare 4.2). Finally there are also
  parameters which describe the requirements (e.g. serviceability
  constraints) and which may be treated as basic variables. The basic
- variables (in
-
- the wide sence given above) are assumed to carry the entire input
+ variables (in the wide sence given above) are assumed to carry the entire input
  information to the calculation model.
 
- The basic variables may be random variables (indlucing the special
+ The basic variables may be random variables (including the special
  case deterministic variables) or stochastic processes or random
  fields. Each basic variable is defined by a number of parameters such
  as mean, standard deviation, parameters determining the correlation
  structure etc.
 
-## Types of uncertainty
+## 4.2. Types of uncertainty
 
  Uncertainties from *all essential sources* must be evaluated and
  integrated in a basic variable model. Types of uncertainty to be taken
@@ -40,7 +38,7 @@
  standardized. These standardizations are defined in the parts 2 and 3
  of the probabilistic model code.
 
-## Definition of populations
+## 4.3. Definition of populations
 
  The random quantities within a reliability analysis should always be
  related to a meaningfull and consistent set of populations. The
@@ -78,7 +76,7 @@
  again in order not to get too complicated rules (randomizing). This
  means that the variability within the population is increased.
 
-## Hierarchy of uncertainty models
+## 4.4. Hierarchy of uncertainty models
 
  This section contains a convenient and recommended mathematical
  description in general terms of a hierarchical model which can be used
@@ -86,15 +84,11 @@
  model have to be stated more precisely for each specific variable. The
  model is associated with a hierarchical set of subpopulations.
 
- The hierarchical model assumes that a random quantity $\vec{X}$ can be written
+ The hierarchical model assumes that a random quantity $X$ can be written
  as a function of several variables, each one representing a specific
  type of variability:
 
-
-```{math}
-:label: eq3
-X_{ijk} = f(Y_i,Y_{ij},Y_{ijk})
-```
+$$X_{ijk} = f(Y_i,Y_{ij},Y_{ijk})\tag{3}$$
 
  The $Y$ represent various origins, time scales of fluctuation or spatial
  scales of fluctuation.

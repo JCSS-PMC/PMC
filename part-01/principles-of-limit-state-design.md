@@ -1,6 +1,6 @@
-# Principles of limit state design
+# 3. Principles of limit state design
 
-## Limit states and adverse states
+## 3.1. Limit states and adverse states
 
  The structural performance of a whole structure or part of it should
  be described with reference to a specified set of limit states which
@@ -22,10 +22,10 @@
  adverse state back to the desired state occurs.
 
  It is further noted here that in some cases a limit between the
- aforementioned limit state types may be defined This can be done by an
+ aforementioned limit state types may be defined. This can be done by an
  artificial discretization of a the continuous situation between the
  serviceability and the ultimate limit state. By applying such a
- procedure a so- called *partial damage limit state*" can be defined.
+ procedure a so- called "*partial damage limit state*" can be defined.
  For example in case of earthquake damage of plant structures such
  limit state is associated to the safe shut down of the plant.
 
@@ -60,10 +60,8 @@
      appearance of structural or non-structural elements or the
      functioning of equipment.
 
- excessive vibrations which cause discomfort to people or affect
- non-structural
-
--   elements or the functioning of equipment
+-   excessive vibrations which cause discomfort to people or affect non-structural
+    elements or the functioning of equipment
 
  In the cases of permanent local damage or permanent unacceptable
  deformations the exceedance of a serviceability limit state is
@@ -79,7 +77,7 @@ b)  if exceedance is acceptable but the time when the structure is in
     the undesired state is longer than specified
 
 c)  if exceedance is acceptable but the number of times that the
-    serveciability limit state is exceeded is larger than specified
+    serveciability limit state is exceeded is larger than &nbsp;&nbsp;&nbsp;&nbsp;specified
 
 d)  if a combination of the above criteria occur.
 
@@ -88,7 +86,7 @@ d)  if a combination of the above criteria occur.
  the serviceability limit state should be defined on the basis of
  *utility considerations*.
 
-## Limit State Function
+## 3.2. Limit State Function
 
  For each specific limit state the relevant basic variables should be
  identified, i.e. the variables which characterize:
@@ -113,33 +111,28 @@ d)  if a combination of the above criteria occur.
 
  Where calculation models are available, the limit state can be
  described with aid of a function, g, of the basic variables
- $X(t)=X_1(t),X_2(t)\dots$ so that
+ $X(t)=X_1(t),X_2(t),\dots$ so that
 
-```{math}
-:label: eq1
-g(X(t))= 0
-```
 
- Eq. {eq}`eq1` is called the limit state equation, and
+$$g(X(t))=0\tag{1}$$
 
-```{math}
-:label: eq2
-g(X(t))= 0
-```
+ Eq. $(1)$ is called the limit state equation, and
+
+$$g(X(t))<0\tag{2}$$
 
  identifies the adverse state.
 
  In a component analysis where there is one dominating failure mode the
  limit state condition can normally be described by one equation
- according to eq. {eq}`eq1`. In a system analysis, where more than one
+ according to eq. $(1)$. In a system analysis, where more than one
  failure mode may be determining, there are several such equations.
 
-## Design situations
+## 3.3. Design situations
 
  Actions, environmental influences and structural properties may vary
  with time. Such variations, which occur throughout the lifetime of the
  structure, should be considered by selected design situations, each
- one representing a certain time intervall with associated hazards,
+ one representing a certain time interval with associated hazards,
  conditions and relevant structural limit states.
 
  The design situations may be classified as:

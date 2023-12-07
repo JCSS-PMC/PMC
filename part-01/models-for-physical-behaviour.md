@@ -1,14 +1,10 @@
-# Models for physical behaviour
+# 5. Models for physical behaviour
 
-here are my edits
-
-## General
+## 5.1. General
 
  Calculation models shall describe the structure and its behaviour up
  to the limit state under consideration, accounting for relevant
- actions and environmental influences. Models should
-
- generally be regarded as simplifications which take account of
+ actions and environmental influences. Models should generally be regarded as simplifications which take account of
  decisive factors and neglect the less important ones.
 
  One can often distinguish between:
@@ -28,7 +24,7 @@ here are my edits
  an entire structural system is studied or if interactions between
  loads and structural response are of interest.
 
-## Action models
+## 5.2. Action models
 
  A complete action model should describe several properties of the
  action such as its magnitude, position, direction, duration etc. In
@@ -39,11 +35,11 @@ here are my edits
  The magnitude $F$ of an action may often be described by two different
  types of variables so that
 
-```{math}
-:label: eq4
-F = \varphi(F_0,W)
-```
- where $\varphi$ is an appropriate function and
+$$F = \varphi(F_0,W)\tag{4}$$
+
+ where, 
+
+ $\varphi$ is an appropriate function and
 
  $F_0$ is a basic action variable, often with time and space dependent
  variations (random or non-random) and is generally independent of the
@@ -52,7 +48,7 @@ F = \varphi(F_0,W)
  $W$ is a random or non-random variable or a random field which may
  depend on the structural properties and which transformes $F_0$ to $F$.
 
- Eq. {eq}`eq4` should be regarded as a symbolic expression where $F_0$ and $W$ may
+ Eq. $(4)$ should be regarded as a symbolic expression where $F_0$ and $W$ may
  represent several variables.
 
  One example may be snow load where $F_0$ is the time dependent snow load
@@ -63,7 +59,7 @@ F = \varphi(F_0,W)
  noted that action models may include material properties (earthquake
  action depends for example on material damping).
 
-## Geometrical models
+## 5.3. Geometrical models
 
  A structure can generally be described by a model consisting of
  one-dimensional elements (beams, columns, cables, arches, etc),
@@ -71,9 +67,7 @@ F = \varphi(F_0,W)
  three-dimensional elements.
 
  The geometrical quantities which are included in the model generally
- refer to nominal values,
-
- i.e. the values given in drawings, descriptions etc. Normally, the
+ refer to nominal values, i.e. the values given in drawings, descriptions etc. Normally, the
  geometrical quantities of a real structure differ from their nominal
  values, i.e. the structure has geometrical imperfections. If the
  structural behaviour is sensitive to such imperfections, these shall
@@ -87,14 +81,14 @@ F = \varphi(F_0,W)
  *geometrically nonlinear* or *second order effects* and should be
  accounted for.
 
-## Material models
+## 5.4. Material models
 
  When strength or stiffness is considered the material model normally
  consists of relations between forces or stresses and deformations i.e
  *costitutive relationships*. The parameters of such relations are
  modulus of elasticity, yield limit, ultimate strength etc. which
  generally are considered as random variables, Sometimes they are time
- dependent or space dependent. There is often an correlation between
+ dependent or space dependent. There is often a correlation between
  the parameters e.g. the modulus of elasticity and the ultimate
  strength of concrete.
 
@@ -106,15 +100,13 @@ F = \varphi(F_0,W)
  Further information related to models of several material types is
  given in part 3.
 
-## Mechanical models
+## 5.5. Mechanical models
 
  The following mechanical models may be classified
 
-1.  models describing static response
-
-2.  models decribing dynamic response
-
-3.  models for fatigue
+a)  models describing static response  
+b)  models decribing dynamic response  
+c)  models for fatigue
 
 a)  *models describing static response*
 
@@ -153,7 +145,7 @@ a)  *models describing static response*
 b)  *models for dynamic response*
 
  In most cases dynamic response of a structure is caused by a rapid
- variation of the magnitude, position or direction of an action
+ variation of the magnitude, position or direction of an action.
  However, a sudden change of the stiffness or resistance of a
  structural element may also cause dynamic behaviour.
 
@@ -178,15 +170,12 @@ b)  fracture mechanics model
  chemical attack or fire can modify the parameters entering the
  aforementioned models or the models themselves.
 
-## Model uncertainties
+## 5.6. Model uncertainties
 
  A calculation model is a physically based or empirical relation
  between relevant variables, which are in general random variables:
 
-```{math}
-:label: eq5
-Y = f(X_1,X_2,\dots ,X_n)
-```
+$$Y = f(X_1,X_2,\dots ,X_n)\tag{5}$$
 
 - $Y$ = model output
 - $f( )$ = model function
@@ -201,10 +190,7 @@ Y = f(X_1,X_2,\dots ,X_n)
  difference between the model prediction and the real outcome of the
  experiment can be written down as:
 
-```{math}
-:label: eq6
-Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)
-```
+$$Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)\tag{6}$$
 
  $\theta_i$ are referred to as parameters which contain the model uncertainties
  and are treated as random variables. Their statistical properties can

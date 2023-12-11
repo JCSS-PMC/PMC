@@ -1,26 +1,22 @@
-# Reliability
+# 6. Reliability
 
-## Reliability measures
+## 6.1. Reliability measures
 
  A standard reliability measure may be chosen to be the *generalized
  reliability index*. It is defined as:
 
-```{math}
-:label: eq7
-\beta = \Phi^{-1}(P_f)
-```
+$$\beta = \Phi^{-1}(P_f)\tag{7}$$
 
- where $P_f$ is the probability of failure
+ where  
+ 
+ $P_f$ is the probability of failure
 
  $\Phi^{-1}(\cdot)$ is the inverse Gaussian distribution
 
  Another equivalent reliability measure is the probability of the
  complement of the adverse event
 
-```{math}
-:label: eq8
-P_s = 1 - P_f
-```
+$$P_s = 1 - P_f\tag{8}$$
 
  The probability $P_f$ should be calculated on the basis of the
  standardized joint distribution type of the basic variables and the
@@ -35,7 +31,7 @@ P_s = 1 - P_f
  Reliability analysis principles including time-dependent reliability
  problems are described in Annex C.
 
-## Component reliability and system reliability
+## 6.2. Component reliability and system reliability
 
  **Component reliability** is the reliability of one single structural
  component which has one dominating failure mode.
@@ -68,9 +64,10 @@ P_s = 1 - P_f
 -   the redundancy (alternate load-carrying paths)
 
 -   the state and complexity of the structure (multiple failure modes).
-     Furher aspects on system reliability are provided in Annex C.
 
-##  Methods for reliability analysis and calculation
+Furher aspects on system reliability are provided in Annex C.
+
+##  6.3. Methods for reliability analysis and calculation
 
  The numerical value of the reliability measure is obtained by a
  reliability analysis and calculation method (see Annex C). The

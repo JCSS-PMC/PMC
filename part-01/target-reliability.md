@@ -1,6 +1,6 @@
-# Target Reliability
-here are my edits and suggestions
-## General Aspects
+# 7. Target Reliability
+
+## 7.1. General Aspects
 
  In terms of a reliability based approach the structural risk
  acceptance criteria correspond to a required minimum reliability
@@ -36,14 +36,14 @@ ii) formal failure probability requirements, *conditional upon these
     assumptions*, defined by specified target values for the various
     classes of structures and structural members.
 
-## Recommendations
+## 7.2. Recommendations
 
  Target reliability values are provided in the next paragraphs. They
  are based on optimization procedures and on the assumption that for
- allmost all engineering facilities the only reasonable reconstruction
+ almost all engineering facilities the only reasonable reconstruction
  policy is systematic rebuilding or repair.
 
-### Ultimate Limit States
+### 7.2.1. Ultimate Limit States
 
  Target reliability values for ultimate limit states are proposed in
  Table 1. The values in Table 1 are obtained based on cost benefit
@@ -51,10 +51,13 @@ ii) formal failure probability requirements, *conditional upon these
  but simple example structures and are compatible with calibration
  studies and statistical observations.
 
-```{image} images/table-1.png
-:height: 200px
-:name: image-table-1
-```
+**Table 1: Tentative target reliability indices β (and associated target failure rates) related to one year reference period and ultimate limit states**
+|                1                |               2               |                      3                      |                4                |
+|:-------------------------------:|:-----------------------------:|:-------------------------------------------:|:-------------------------------:|
+| Relative cost of safety measure | Minor consequences of failure |       Moderate consequences of failure      |  Large consequences of failure  |   
+|            Large (A)            |   $\beta=3.1 (P_F≈10^{-3})$   |        $\beta=3.3 (P_F≈5\cdot10^{-4})$      | $\beta=3.7 (P_F≈10^{-4})$       |
+|            Normal (B)           |   $\beta=3.7 (P_F≈10^{-4})$   |  $\textcolor{red}{\beta=4.2 (P_F≈10^{-5})}$ | $\beta=4.4 (P_F≈5\cdot10^{-6})$ |
+|            Small (C)            |   $\beta=4.2 (P_F≈10^{-5})$   |        $\beta=4.4 (P_F≈5\cdot10^{-6})$      | $\beta=4.7 (P_F≈10^{-6})$       |
 
 The shadowed value in Table 1 should be considered as the most common
  design situation. In order to make the right choice in this table the
@@ -168,7 +171,7 @@ c)  brittle failure
  related to the actual situation in performance and use. No general
  rules are given in this document.
 
-### Serviceability Limit State
+### 7.2.2. Serviceability Limit State
 
  When setting target values for serviceability limit states (SLS) it is
  important to distinguish between irreversible and reversible
@@ -180,7 +183,9 @@ c)  brittle failure
  indexes of the order of 0.3 can be considered. For reversible
  serviceability limit states no general values are given.
 
-```{image} images/table-2.png
-:height: 100px
-:name: image-table-1
-```
+**Table 2: Tentative target reliability indices (and associated probabilities) related to one year reference period and irreversible serviceability limit states**
+| Relative Cost of Safety Measure | Target Index (irreversible SLS) |
+|:-------------------------------:|:-------------------------------:|
+|              High               |    $\beta=1.3 (P_F≈10^{-1})$    |  
+|              Normal             | $\beta=1.7 (P_F≈5\cdot10^{-2})$ |
+|              Low                |    $\beta=2.3 (P_F≈10^{-2})$    |

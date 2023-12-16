@@ -136,7 +136,7 @@ More general systems can be constructed by combining the two fundamental types. 
 
 The framework for probabilistic modeling and reliability evaluation is outlined in this section. The focus is on the procedure to be followed in assessing the reliability of a critical component with respect to a particular failure mode.
 
-#### $\text{\underline{General Steps}}$
+#### $\underline{\text{General Steps}}$
 
 The main steps in a component reliability analysis are the following:
 
@@ -152,7 +152,7 @@ The main steps in a component reliability analysis are the following:
 
 Step (1) is essentially the same as for deterministic analysis. Step (2) should be considered carefully, since it affects the probabilistic modeling of many variables, particularly live loading. Step (3) is perhaps the most important because the considerations made in developing the probabilistic models have a major effect on the results obtained, see section $3.2$. Step (4) should be undertaken with one of the methods summarized in section $3.3$, depending on the application. Step (5) is necessary insofar as the sensitivity of any results (deterministic or probabilistic) should be assessed before a decision is taken.
 
-### $\text{\underline{Probabilistic Modelling}}$ 
+### $\underline{\text{Probabilistic Modelling}}$ 
 
 For the particular failure mode under consideration, uncertainty modeling must be undertaken with respect to those variables in the corresponding limit state function whose variability is judged to be important (basic random variables). Most engineering structures are affected by the following types of uncertainty:
 
@@ -170,14 +170,14 @@ For most commonly encountered basic random variables there have been studies (of
 
 The following comments may also be helpful in selecting a suitable probabilistic model.
 
-$\text{\underline{Material properties}}$
+$\underline{\text{Material properties}}$
 
 - frequency of negative values is normally zero
 - log-normal distribution can often be used
 - distribution type and parameters should, in general, be derived from large homogeneous samples and with due account of established distributions for similar variables (e.g. for a new high strength steel grade, the information on properties of existing grades should be consulted); tests should be planned so that they are, as far as possible, a realistic description of the potential use of the material in real applications.
 
 
-$\text{\underline{Geometric parameters}}$
+$\underline{\text{Geometric parameters}}$
 
 - variability in structural dimensions and overall geometry tends to be small
 - dimensional variables can be adequately modelled by the normal or log-normal distribution
@@ -185,7 +185,7 @@ $\text{\underline{Geometric parameters}}$
 - variables linked to manufacturing can have large coefficients of variation (e.g. imperfections, misalignments, residual stresses, weld defects).
 
 
-$\text{\underline{Load variables}}$
+$\underline{\text{Load variables}}$
 
 - loads should be divided according to their time variation (permanent, variable, accidental)
 - in certain cases, permanent loads consist of the sum of many individual elements; they may be represented by a normal distribution
@@ -223,7 +223,7 @@ and the following comments offer some general guidance in estimating the statist
 - the choice of a suitable probability distribution for $\mathrm{X}_{\mathrm{m}}$ is often governed by mathematical convenience and a normal distribution has been used extensively.
 
 
-### $\text{\underline{Computation of Failure Probability}}$
+### $\underline{\text{Computation of Failure Probability}}$
 
 As mentioned above, the failure probability of a structural component with respect to a single failure mode is given by
 
@@ -235,7 +235,7 @@ where $\mathbf{X}$ is the vector of basic random variables, $g(\boldsymbol{x})$ 
 
 An important class of limit states are those for which all the variables are treated as time independent, either by neglecting time variations in cases where this is considered acceptable or by transforming time-dependent processes into time-invariant variables (e.g. by using extreme value distributions). The methods commonly used for calculating $P_{f}$ in such cases are outlined below. Guidelines on how to deal with time-dependent problems are given in section 5. Note that after calculating $P_{f}$ via one of the methods outlined below, or any other valid method, a reliability index may be obtained from equation $(C.5)$, for comparative or other purposes.
 
-$\text{\underline{Asymptotic approximate methods}}$
+$\underline{\text{Asymptotic approximate methods}}$
 
 Although these methods first emerged with basic random variables described through 'second-moment' information (i.e. with their mean value and standard deviation, but without assigning any probability distributions), it is nowadays possible in many cases to have a full description of the random vector $\mathbf{X}$ (as a result of data collection and probabilistic modelling studies). In such cases, the probability of failure could be calculated via first or second order reliability methods (FORM and SORM respectively). Their implementation relies on:
 
@@ -297,7 +297,7 @@ $$
 
 for $\beta_{\mathrm{HL}} \rightarrow \infty$, where $\kappa_{j}$ are the principal curvatures of the limit state surface at the design point. An expression applicable to finite values of $\beta_{\mathrm{HL}}$ is also available.
 
-$\text{\underline{Simulation Methods}}$
+$\underline{\text{Simulation Methods}}$
 
 In this approach, random sampling is employed to simulate a large number of (usually numerical) experiments and to observe the result. In the context of structural reliability, this means, in the simplest approach, sampling the random vector $\mathbf{X}$ to obtain a set of sample values. The limit state function is then evaluated to ascertain whether, for this set, failure (i.e. $g(\mathbf{x}) \leq 0)$ has occurred. The experiment is repeated many times and the probability of failure, $P_{f}$, is estimated from the fraction of trials leading to failure divided by the total number of trials. This so-called Direct or Crude Monte Carlo method is not likely to be of use in practical problems because of the large number of trials required in order to estimate with a certain degree of confidence the failure probability. Note that the number of trials increases as the failure probability decreases. Simple rules may be found, of the form $N>\mathrm{C} / P_{f}$, where $N$ is the required sample size and $\mathrm{C}$ is a constant related to the confidence level and the type of function being evaluated.
 
@@ -307,7 +307,7 @@ A powerful method belonging to the second category is Directional Simulation. It
 
 The two methods outlined above have also been used in combination, which indicates that when simulation is chosen as the basic approach for reliability assessment, there is scope to adapt the detailed methodology to suit the particular problem in hand.
 
-### $\text{\underline{Recommendations}}$
+### $\underline{\text{Recommendations}}$
 
 As with any other analysis, choosing a particular method must be justified through experience and/or verification. Experience shows that FORM/SORM estimates are adequate for a wide range of problems. However, these approximate methods have the disadvantage of not being quantified by error estimates, except for few special cases. As indicated, simulation may be used to verify FORM/SORM results, particularly in situations where multiple design points might be suspected. Simulation results should include the variance of the estimated probability of failure, though good estimates of the variance could increase the computations required. When using FORM/SORM, attention should be given to the ordering of dependent random variables and the choice of initial points for the search algorithm. Not least, the results for the design point should be assessed to ensure that they do not contradict physical reasoning.
 
@@ -315,7 +315,7 @@ As with any other analysis, choosing a particular method must be justified throu
 
 As discussed in section 3, individual component failure events can be represented by failure boundaries in basic variable or standard normal space. System failure events can be similarly represented, see Fig. $C.6(a)$ and $C.6(b)$, and, once more, certain approximate results may be derived as an extension to FORM/SORM analysis of individual components. In addition, system analysis is sometimes performed using bounding techniques and some relevant results are given below.
 
-### $\text{\underline{Series systems}}$
+### $\underline{\text{Series systems}}$
 
 The probability of failure of a series system with $m$ components is defined as
 
@@ -352,13 +352,13 @@ $$
 but these are likely to be rather wide, especially for large $m$, in which case second-order linear bounds (Ditlevsen bounds) may be needed. These are given by
 
 $$
-P\left[F_{1}\right]+\sum_{j=2}^{m} Max \left\{\left[P\left(F_{j}\right)-\sum_{k=1}^{j-1} P\left(F_{j} \cap F_{k}\right)\right], 0\right\} \leq P_{f y y s} \leq \\ P\left[F_{l}\right]+\sum_{j=2}^{m}\left\{P\left(F_{j}\right)- \underset{k<j}{Max} \left[P\left(F_{j} \cap F_{k}\right)\right]\right\} \tag{C.16b}
+P\left[F_{1}\right]+\sum_{j=2}^{m} Max \left\lbrace\left[P\left(F_{j}\right)-\sum_{k=1}^{j-1} P\left(F_{j} \cap F_{k}\right)\right], 0\right\rbrace \leq P_{f s y s} \leq \\ P\left[F_{1}\right]+\sum_{j=2}^{m}\left\lbrace P \left(F_{j} \right) - \underset{k < j}{Max} \left[P\left(F_{j} \cap F_{k}\right)\right] \right\rbrace \tag{C.16b} 
 $$
 
 
 The narrowness of these bounds depends in part on the ordering of the events. The optimal ordering may differ between the lower and the upper bound. In general, these bounds are much narrower than the simple first-order linear bounds given by equation $(C.16a)$. The bisections of events may be calculated using a first-order approximation, which appears below in the presentation of results for parallel systems.
 
-### $\text{\underline{Parallel systems}}$
+### $\underline{\text{Parallel systems}}$
 
 Following the same approach and notation as above, the failure probability of a parallel system with $m$ components is given by
 
@@ -388,7 +388,7 @@ The error involved in the first-order evaluation of the intersections, $\mathrm{
 
 ## Time-Dependent Reliability
 
-### $\text{\underline{General Remarks}}$
+### $\underline{\text{General Remarks}}$
 
 Even in considering a relatively simple safety margin for component reliability analysis such as $M=R-S$, where $R$ is the resistance at a critical section in a structural member and $S$ is the corresponding load effect at the same section, it is generally the case that both $S$ and resistance $R$ are functions of time. Changes in both mean values and standard deviations could occur for either $R(t)$ or $S(t)$. For example, the mean value of $R(t)$ may change as a result of deterioration (e.g. corrosion of reinforcement in an RC bridge implies loss of area, hence a reduction in the mean resistance) and its standard deviation may also change (e.g. uncertainty in predicting the effect of corrosion on loss of area may increase as the periods considered become longer). On the other hand, the mean value of $S(t)$ may increase over time (e.g. due to higher traffic flow and/or higher individual vehicle weights) and, equally, the estimate of its standard deviation may increase due to lower confidence in predicting the correct mix of traffic for longer periods. A time-dependent reliability problem could thus be schematically represented as in Fig. $C.7$, the diagram implying that, on average, the reliability decreases with time. Although this situation is usual, the converse could also occur in reliability assessment of existing structures, for example through strengthening or favourable change in use.
 
@@ -420,7 +420,7 @@ Another class of problems calling for a time-dependent reliability analysis are 
 
 It is evident from the above remarks that the best approach for solving a time-dependent reliability problem would depend on a number of considerations, including the time frame of interest, the nature of the load and resistance processes involved, their correlation properties in time, and the confidence required in the probability estimates. All these issues may be important in determining the appropriate idealisations and approximations.
 
-### $\text{\underline{Transformation to Time-Independent Formulations}}$
+### $\underline{\text{Transformation to Time-Independent Formulations}}$
 
 Although time variations are likely to be present in most structural reliability problems, the methods outlined in $Sections~3$ and $4$ have gained wide acceptance, partly due to the fact that, in many cases, it is possible to transform a time dependent failure mode into a corresponding time independent mode. This is especially so in the case of overload failure, where individual time-varying actions, which are essentially random processes, $p(t)$, can be modelled by the distribution of the maximum value within a given reference period T, i.e. $X=\max _{\mathrm{T}}\left\lbrace p(t)\right\rbrace$ rather than the point-in-time distribution. For continuous processes, the probability distribution of the maximum value (i.e. the largest extreme) is often approximated by one of the asymptotic extreme value distributions. Hence, for structures subjected to a single time-varying action, a random process model is replaced by a random variable model and the principles and methods given previously may be applied.
 
@@ -453,7 +453,7 @@ When a number of FBC processes act in combination and the ratios of their repeti
 
 A deterministic code format, compatible with the above rules, leads to the introduction of combination factors, $\psi_{\mathrm{o}i}$, for each time-varying load $i$. In principle, these factors express ratios between fractiles in the extreme value and point-in-time distributions so that the probability of exceeding the design value arising from a combination of loads is of the same order as the probability of exceeding the design value caused by one load. For time-varying loads, they would depend on distribution parameters, target reliability and FORM/SORM sensitivity factors and on the frequency characteristics (i.e. the base period assumed for stationary events) of loads considered within any particular combination.
 
-### $\text{\underline{Introduction to Crossing Theory}}$
+### $\underline{\text{Introduction to Crossing Theory}}$
 
 In considering a time-dependent safety margin, i.e. $\mathrm{M}(t)=g(\mathbf{X}(t))$, the problem is to establish the probability that $\mathrm{M}(t)$ becomes zero or less in a reference time period, $t_{\mathrm{L}}$. As mentioned previously, this constitutes a so-called 'crossing' problem. The time at which $\mathrm{M}(t)$ becomes less than zero for the first time is called the 'time to failure' and is a random variable, see Fig. $C.12(a)$, or, in a basic variable space, Fig. $C.12(b)$. The probability that $M(t) \leq 0$ occurs during $t_{\mathrm{L}}$ is called the 'first-passage' probability. Clearly, it is identical to the probability of failure during time $t_{\mathrm{L}}$.
 

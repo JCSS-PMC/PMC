@@ -1,16 +1,408 @@
 # Impact Load
-2.18 IMPACT LOAD
 
+**List of symbols:**
+
+$\mathrm{a}=$ deceleration
+
+$\mathrm{A}_{\mathrm{b}}=$ the area of the building including the shadow area
+
+$\mathrm{d} =$ distance from the structural element to the road
+
+$\mathrm{f}_{\mathrm{s}}(\mathrm{y})=$ distribution of initial object position in $\mathrm{y}$ direction
+
+$\mathrm{F}_{\mathrm{c}}(\mathrm{x})=$ static compression strength at a distance $\mathrm{x}$ from the nose
+
+$\mathrm{k}=$ stiffness
+
+$\mathrm{m}=$ mass
+
+$\mathrm{m}^{\prime}(\mathrm{x})=$ mass per unit length
+
+$\mathrm{n}=$ number of vehicles, ships or planes per time unit
+
+$\mathrm{n}(\mathrm{t})=$ number of moving objects per time unit (traffic intensity)
+
+$\mathrm{P}_{\mathrm{a}}=$ the probability that a collision is avoided by human intervention.
+
+$\mathrm{P}_{\mathrm{fq}}(\mathrm{xy})=$ the probability of structural failure given a mechanical or human failure on the ship, vehicle, etc. at point $(\mathrm{x}, \mathrm{y})$.
+
+$\mathrm{r}=\mathrm{d} / \sin \alpha=$ the distance from "leaving point" to "impact point"
+
+$\mathrm{R}=$ radius of airport influence circle
+
+$\mathrm{T}=$ period of time under consideration
+
+$\mathrm{v}_{\mathrm{c}}=$ the object velocity at impact
+
+$\mathrm{v}_{\mathrm{c}}(\mathrm{t})=$ velocity of the crashed part
+
+$\mathrm{v}_{\mathrm{c}}(\mathrm{xy})=$ object velocity at impact, given initial failure at point $(\mathrm{x}, \mathrm{y})$
+
+$\mathrm{v}_{\mathrm{o}}=$ velocity of the vehicle when leaving the track
+
+$\mathrm{x}, \mathrm{y}=$ coordinate system;
+
+$\alpha=$ angle between collision course and track direction
+
+$\Lambda(\mathrm{r})=$ collision rate for crash at distance $\mathrm{r}$ from the airport with $\mathrm{r}<\mathrm{R}$
+
+$\lambda(\mathrm{x}, \mathrm{t})=$ failure intensity as a function of the coordinate $\mathrm{x}$ and the time $\mathrm{t}$.
+
+(section-2.18.1)=
 ## Basic Model for Impact Loading
+
 ### Introduction
+
+The basic model for impact loading constitutes of (see {numref}`fig-impact-load-2.18.1`):
+
+- potentially colliding objects (vehicles, ships, airplanes) that have an intended course, which may be the centre line of a traffic lane, a shipping lane or an air corridor; the moving object will normally have some distance to this centre line;
+- the occurrence of a human or mechanical failure that may lead to a deviation of the intended course; these occurences are described by a homogeneous Poisson process;
+- the course of the object after the initial failure, which depend on both object properties and environment;
+- the mechanical impact between object and structure, where the kinetic energy of the colliding object is partly transferred into elastic-plastic deformation or fracture of the structural elements in both the building structure and the colliding object.
+
+```{figure} ../part-02/images/Figure-2.18.1.jpg
+:name: fig-impact-load-2.18.1
+
+Probabilistic collision model
+```
+
+(section-2.18.1.2)=
 ### Failure probability
-### Distribution function for the impac tload
+
+The probability that a single object, moving in x-direction, suffers from a human or mechanical failure in the square [dx, dy] (see {numref}`fig-impact-load-2.18.1`) and causes collapse at some structure is given by:
+
+```{math}
+\mathrm{P}_{\mathrm{fq}}(\mathrm{x}, \mathrm{y})~\mathrm{f}_{\mathrm{s}}(\mathrm{y})~\mathrm{dy}~\lambda(\mathrm{x}, \mathrm{t})~d \mathrm{x}
+```
+
+where:
+
+{math}`\mathrm{f}_{\mathrm{s}}(\mathrm{y})=` distribution of initial object position in y direction (see {numref}`fig-impact-load-2.18.1`)
+
+{math}`\mathrm{P}_{\mathrm{fq}}(\mathrm{xy})=` the probability of structural failure given a mechanical or human failure on the ship, vehicle, etc. at point {math}`(\mathrm{x}, \mathrm{y})`.
+
+{math}`\mathrm{x}, \mathrm{y}=` coordinate system; the {math}`\mathrm{x}` coordinate follows the centre line of the traffic lane, while the {math}`\mathrm{y}` coordinate represents the (horizontal) distance of the object to the centre; the structure that potentially could be hit, is located at the point with coordinates {math}`\mathrm{x}=0` and {math}`\mathrm{y}=\mathrm{d}`.
+
+{math}`\lambda(\mathrm{x}, \mathrm{t})=` failure intensity as a function of the coordinate {math}`\mathrm{x}` and the time {math}`\mathrm{t}`. The length dependency expresses the variability in circumstances along the centre line (for instance curved versus straight trajectories). The time dependency indicates differences in summer and winter, day and night, etc. Note that although {math}`\lambda(\mathrm{x}, \mathrm{t})` is a function of {math}`\mathrm{x}` and {math}`\mathrm{t}`, its dimension is [1/Length].
+
+The probability of structural failure for a period {math}`\mathrm{T}` can then be presented as:
+
+```{math}
+:label: eq-impact-2.18.1
+\mathrm{P_{f}(T)}=1-\exp \left\lbrace-\iiint \mathrm{n(t)} \lambda(\mathrm{x, t}) \mathrm{P_{f q}}(\mathrm{x y}) \mathrm{f_{s}(y) d x~d y~d t}\right\rbrace
+```
+
+or for small probability and constant {math}`\mathrm{n}` and {math}`\lambda` :
+
+```{math}
+:label: eq-impact-2.18.2
+\mathrm{P_{f}(T)=n T \lambda \iint{P_{f q}}(x, y) f_{S}(y) d y d x}
+```
+
+where:
+
+{math}`\mathrm{T} \quad=\quad` period under consideration
+
+{math}`\mathrm{n}(\mathrm{t}) \quad=\quad` number of moving objects per time unit (traffic intensity)
+
+### Distribution function for the impact load
+
+In principle, impact is an interaction phenomenon between the object and the structure. It is not possible to formulate a separate action and a separate resistance function. However, an upper bound for the impact load can be found using the "rigid structure" assumption. If the colliding object is modelled as an elastic single degree of freedom system, with equivalent stiffness {math}`\mathrm{k}` and mass {math}`\mathrm{m}`, the maximum possible resulting interaction force equals:
+
+```{math}
+:label: eq-impact-2.18.3
+\mathrm{F}_{\mathrm{c}}=\mathrm{v}_{\mathrm{c}} \sqrt{ (\mathrm{km})}
+```
+
+{math}`\mathrm{v}_{\mathrm{c}}=` the object velocity at impact
+
+Note that {eq}`eq-impact-2.18.3` gives the maximum for the external load; dynamic effects within the structure still need to be considered. Note further that simple upperbounds also may be obtained if the structure and or the object behaves plastic: {math}`\mathrm{F_{c}}=\min \left[\mathrm{F_{y s}, F_{y o}}\right]` where {math}`\mathrm{F_{y s}}=` yield force of the structure and {math}`\mathrm{F_{y o}}=` yield force of the object; the duration of this load is {math}`\Delta_{\mathrm{t}}=\mathrm{mv}_{\mathrm{c}} / \mathrm{F}_{\mathrm{c}}`.
+
+Based on formulation {eq}`eq-impact-2.18.3` the distribution function for the load {math}`\mathrm{F}_{\mathrm{c}}` can be found: 
+
+```{math}
+:label: eq-impact-2.18.4
+\mathrm{P}\left\{\mathrm{F}_{\mathrm{C}}<\mathrm{X}\right\}=1-\exp \left\lbrace-\iiint \mathrm{n} \lambda~\mathrm{P}\left[\mathrm{v}_{\mathrm{C}}(\mathrm{xy}) \sqrt{\mathrm{km}}>\mathrm{X}\right] \mathrm{f}_{\mathrm{S}}(\mathrm{y}) \mathrm{dxdydt}\right\rbrace
+```
+
+{math}`\mathrm{v}_{\mathrm{c}}(\mathrm{xy})=` object velocity at impact, given initial failure at point {math}`(\mathrm{x}, \mathrm{y})`
+
+For small probabilities:
+
+```{math}
+:label: eq-impact-2.18.5
+\mathrm{P}\left\{\mathrm{F}_{\mathrm{C}}>\mathrm{X}\right\}=\mathrm{P}_{\mathrm{f}}(\mathrm{T})=\mathrm{nT} \lambda \iint \mathrm{P}\left[\mathrm{v}_{\mathrm{c}} \sqrt{\mathrm{km}}>\mathrm{X}\right] \mathrm{f}_{\mathrm{S}}(\mathrm{y}) \mathrm{dydx}
+```
+
+For the designation of the variables, see [clause 18.1.2](section-2.18.1.2).
+
 ## Impact from vehicles
+
+(section-2.18.2.1)=
 ### Distribution of impact force
+
+Consider a structural element in the vicinity of a road or track. Impact will occur if some vehicle, travelling over the track, leaves its intended course at some critical place with sufficient speed (see {numref}`fig-impact-load-2.18.2`).
+
+```{figure} ../part-02/images/Figure-2.18.2.jpg
+:name: fig-impact-load-2.18.2
+
+A vehicle leaves the intended course at point {math}`\mathrm{Q}` with velocity {math}`\mathrm{v}_{0}` and angle {math}`\mathrm{a}`. A structural element at distance {math}`\mathrm{r}` is hit with velocity {math}`\mathrm{v}_{\mathrm{r}}`
+```
+
+The collision force probability distribution based on {eq}`eq-impact-2.18.5`, neglecting the variability in y-direction is given by:
+
+```{math}
+:label: eq-impact-2.18.6
+\mathrm{P}\left(\mathrm{F}_{\mathrm{c}}>\mathrm{X}\right)=\mathrm{n} \mathrm{T} \lambda \Delta \mathrm{x}~\mathrm{P}\left[\sqrt{ }\left\lbrace\mathrm{m} \mathrm{k}\left(\mathrm{v}_{\mathrm{o}}^{2}-2 \mathrm{ar}\right)\right\rbrace>\mathrm{X}\right]
+```
+
+{math}`\mathrm{n} =` number of vehicles per time unit
+
+{math}`\mathrm{T}=` period of time under consideration
+
+{math}`\lambda=` probability of a vehicle leaving the road per unit length of track
+
+{math}`\Delta \mathrm{x} =` part of the road from where collisions may be expected
+
+{math}`\mathrm{v}_{\mathrm{o}} =` velocity of the vehicle when leaving the track
+
+a = deceleration 
+
+{math}`\mathrm{r} =\mathrm{d} / \sin \alpha=` the distance from "leaving point" to "impact point"
+
+{math}`\mathrm{d}=` distance from the structural element to the road
+
+{math}`\alpha \quad=` angle between collision course and track direction
+
+{math}`\lambda \Delta \mathrm{x}` is the probability that a passing vehicle leaves the road at the interval {math}`\Delta \mathrm{x}`, which is approximated by:
+
+```{math}
+:label: eq-impact-2.18.7
+\Delta \mathrm{x}=\mathrm{b} / \sin \mu(\alpha)
+```
+
+The value of b depends on the structural dimensions. However, for small objects such as columns a minimum value of b follows from the width of the vehicle, so b > 2.5 m.
+
+Numerical values and probabilistic models can be found in {numref}`tbl2.18.1`.
+
+```{table} Numerical values for vehicle impact
+:name: tbl2.18.1
+| variable | designation | type | mean | stand dev |
+| :---: | :--- | :---: | :--- | :--- |
+| {math}`\lambda` | accident rate | deterministic | {math}`10^{-10} \mathrm{~m}^{-1}` | - |
+| {math}`\alpha` | angle of collision course | rayleigh | {math}`10^{\circ}` | {math}`10^{\circ}` |
+| {math}`\mathrm{v}` | vehicle velocity <br> {math}`\quad`- motorway <br> {math}`\quad`-urban area <br> {math}`\quad`- court yard <br> {math}`\quad`- parking garage | <br> lognormal <br> lognormal  <br> lognormal <br> lognormal | <br> 80 km/hr <br> 40 <br> 15 <br> 10 | <br> 10 km/hr <br> 7 <br> 6 <br> 5 |
+| a | deceleration | lognormal | 4 m{math}`^{2}`/s | 1.3 m{math}`^{2}`/s |
+| m | vehicle mass <br> {math}`\quad`- truck <br>  {math}`\quad`- car | <br> normal <br> normal | <br> 20,000 kg* <br> 1500 kg | <br> 12,000 kg* <br> 400 kg |
+| k | vehicle stiffness | lognormal | 300 kN\m | 60 kN\m |
+```
+
+*Combined with F = k√mv these estimates are quite conservative. One might consider possible reductions due to transformation of energy into rotational movements, etc. e.g. by the concept of “effective mass”
+
 ### Specifications of impact force
+
+The collission force is a horizontal force; only the force component perpendicular to the structural surface needs to be considered.
+
+The collision force for passenger cars affects the structure at {math}`0.5 \mathrm{~m}` above the level of the driving surface; for trucks the collision force affects it at {math}`1.25 \mathrm{~m}` above the level of the driving surface. The force application area is {math}`0.25 \mathrm{~m}` (height) times {math}`1.50 \mathrm{~m}` (width). 
+
+For impact loads on horizontal structural elements above traffic lanes the following rules hold (see {numref}`fig-impact-load-2.18.3`):
+
+1) on vertical surfaces the impact actions follow from [18.2.1.](section-2.18.2.1) and the height reduction as specified at (3).
+
+2) on horizontal lower side surfaces upward inclination of 10% should be considered. The force application area is 0.25 m (height) times 0.25 m (width).
+
+3) for free heights {math}`\mathrm{h}` larger 6.0 m the forces are equal to zero; for free heights between 4.0 m and 6.0 m a linear interpolation should be used
+
+```{figure} ../part-02/images/Figure-2.18.3.jpg
+:name: fig-impact-load-2.18.3
+
+Impact loads on horizontal structural elements above traffic lanes
+```
+
 ## Impact from ships
+
 ### Distribution of impact force
+
+A co-ordinate system {math}`\mathrm{(x,y)}` is introduced as indicated in {numref}`fig-impact-load-2.18.4`. The {math}`\mathrm{x}` coordinate follows the centre line of the traffic lane, while the The {math}`\mathrm{y}` co-ordinate represents the (horizontal) distance of the ship to the centre. The structure that potentially could be hit is located at the point with co-ordinates {math}`\mathrm{x}=0` and {math}`\mathrm{y}=\mathrm{d}`.
+
+```{figure} ../part-02/images/Figure-2.18.4.jpg
+:name: fig-impact-load-2.18.4
+
+Ingredients for a ship collision model 
+```
+
+Ship impact may be the result of:
+
+1) either a ship being on collision course, while no avoidance action is taken
+
+2) a mechanical or human failure leading to a change of course.
+
+In case (1) a ship is on collision course, which is not corrected due to inattendance, bad visibility, old cards and so on. In case (2) the orginal course is correct, but changed, due to e.g. rudder problems or misjudgement.
+
+Both origins (1) and (2) are present in the following model which is a modification of [18.1.](section-2.18.1):
+
+```{math}
+:label: eq-impact-2.18.8
+\begin{aligned}
+& \mathrm{P}(\mathrm{F}>\mathrm{X}) \quad=\mathrm{nT} \mathrm{P}_{\mathrm{na}} \iint_{\Delta \mathrm{y}} \mathrm{P}\left[\mathrm{v}_{\mathrm{C}}(\mathrm{x}, \mathrm{y}) \sqrt{\mathrm{km}}>\mathrm{X}\right] \mathrm{f}_{\mathrm{S}}(\mathrm{y}) \mathrm{dx} \mathrm{dy} \\
+& +\mathrm{nT} \lambda \iint_{-\infty}^{+\infty} \mathrm{P}\left[\mathrm{v}_{\mathrm{C}}(\mathrm{x}, \mathrm{y}) \sqrt{\mathrm{km}}>\mathrm{X}\right] \mathrm{f}_{\mathrm{S}}(\mathrm{y}) \mathrm{dx} d y
+\end{aligned}
+```
+
+{math}`\mathrm{T}=` period of time under consideration
+
+{math}`\mathrm{n}=` number of ships per time unit (traffic intensity)
+
+{math}`\lambda=` probability of a failure per unit travelling distance
+
+{math}`\mathrm{v}(\mathrm{x}, \mathrm{y})=` impact velocity of ship, given error at point {math}`(\mathrm{x}, \mathrm{y}){math}`
+
+{math}`\mathrm{k}=` stiffness of the ship
+
+{math}`\mathrm{m}=` mass of the ship
+
+{math}`\mathrm{f}_{\mathrm{s}}(\mathrm{y})=` distribution of initial ship position in {math}`\mathrm{y}` direction
+
+{math}`\mathrm{P}_{\mathrm{na}}=` the probability that a collision is not avoided by human intervention, given collision course
+
+{math}`\Delta \mathrm{y}=` values of {math}`\mathrm{y}` coinciding with a collision course
+
+For the evaluation in practical cases, it may be necessary to evaluate {eq}`eq-impact-2.18.8` for various ship types and traffic lanes, and add the results in a proper way at the end of the analysis. 
+
+{numref}`tbl2.18.2` gives a number of standard ship characteristics and velocities that could be chosen by the designer.
+
+```{table} Numerical values for ship impact
+:name: tbl2.18.2
+| variable | designation | type | mean | standard dev |
+| :--- | :--- | :--- | :--- | :--- |
+| {math}`\mathrm{P}_{\mathrm{na}}` | avoidance <br> probability <br> {math}`\quad`- small <br> {math}`\quad`- medium <br> {math}`\quad`- large  <br> {math}`\quad`- very large | - | <br> <br> 0.045 <br> 0.003 <br> 0.002 <br> 0.001 | - |
+| {math}`\lambda` | failure rate | - | 10{math}`^{-6}` km{math}`^{-1}` | - |
+| v | velocity <br> {math}`\quad`- harbour <br> {math}`\quad`- canal <br> {math}`\quad`- sea | <br> lognormal <br> lognormal <br> lognormal | <br> 1.5 m\s <br> 3 <br> 6 | <br> 0.5 m\s <br> 1.0 <br> 1.5 |
+| m | mass <br> {math}`\quad`- small <br> {math}`\quad`- medium <br> {math}`\quad`- large <br> {math}`\quad`- very large | <br> lognormal <br> lognormal <br> lognormal <br> lognormal | <br> 1000 ton <br> 4000 <br> 20000 <br> 200000 | <br> 2000 ton <br> 8000 <br> 40000 <br> 200000 |
+| k | equivalent stiffness | lognormal | 15 MN/m | 3 MN/m |
+```
+
 ### Specifications of impact force
+
+Bow, stern and broad side impact shall be considered where relevant; for side and stern impact the design impact velocities may be reduced.
+
+Bow impact shall be considered for the main sail direction with a maximum deviation of {math}`30^{\circ}`.
+
+If a wall structure is hit under an angle a, the following forces should be considered:
+
+- perpendicular to the wall:
+{math}`\mathrm{F}_{\mathrm{y}}=\mathrm{F} \sin \alpha`
+- in wall direction:
+{math}`\mathrm{F}_{\mathrm{x}}=\mathrm{fF} \sin \alpha`
+
+where {math}`\mathrm{F}` is the collision force at {math}`\alpha=90^{\circ}` and {math}`\mathrm{f}=0.3` is the friction coefficient.
+
+Impact is to be considered as a free horizontal force; the point of impact depends on the geomertry of the structure and the size of the vessel. As a guideline one could take the most unfavourable point ranging from {math}`0.1 \mathrm{~L}` below to {math}`0.1 \mathrm{~L}` above the design water level. The impact area is {math}`0.05 \mathrm{~L} * 0.1 \mathrm{~L}` unless the stuctural element is smaller.
+
+{math}`\mathrm{L}` is the typical ship length {math}`(\mathrm{L}=15,40,100` and {math}`300 \mathrm{~m}` for respectively small, medium, large and very large ship size).
+
+The forces on the superstructure of the bridge depend on the height of the bridge and the type of ships to be expected. In general the force on the superstructure of the bridge will be limited by the yield strenght of the ships superstructure. A maximum of {math}`10000 \mathrm{kN}` for large and very large ships and {math}`3000 \mathrm{kN}` for small and medium ships can be taken as a guideline averages.
+
 ## Impact from airplanes
+
 ### Distribution of impact force
+
+The probability of a structure being hit by an airplane is very small. Only for exceptional structures like nuclear power plants, where the consequences of failure may be very large, is it mandatory to account for aircraft impact during design.
+
+For {math}`\text{\underline{air corridors}}`, using {eq}`eq-impact-2.18.3` and for small probabilities:
+
+```{math}
+:label: eq-impact-2.18.9
+\mathrm{P}\left(\mathrm{F}_{\mathrm{C}}>\mathrm{X}\right)=\mathrm{n} \mathrm{T} \lambda \mathrm{A_{b}} \mathrm{P}_{\mathrm{na}} \mathrm{P}\left(\mathrm{F}_{\mathrm{C}}>\mathrm{X} \mid \mathrm{impact}\right) \mathrm{f}_{\mathrm{S}}(\mathrm{y})
+```
+
+{math}`\mathrm{n}=` number of planes passing per time unit through an air corridor (traffic intensity)
+
+{math}`\mathrm{T}=` time period of interest (for instance reference period)
+
+{math}`\lambda=` probability of a crash per unit distance of flying
+
+{math}`\mathrm{f}_{\mathrm{s}}(\mathrm{y})=` distribution of ground impact perpendicular to the corridor direction, given a crash
+
+{math}`\mathrm{A}_{\mathrm{b}}=` the area of the building including the shadow area
+
+{math}`\mathrm{P}_{\text {na }}=` probability of not avoiding a collision, given an airplane on collision course
+
+The area {math}`\mathrm{A_{b}}` is the area of the building itself, enlarged by a so called shadow area (see {numref}`fig-impact-load-5`). The strike angle {math}`\alpha` is random.
+
+For the {math}`\text{\underline{vicinity of an airport}}` (at a distance {math}`\mathrm{r}`) the impact force distribution is based on:
+
+```{math}
+:label: eq-impact-2.18.10
+\mathrm{P}\left(\mathrm{F}_{\mathrm{C}}>\mathrm{X}\right)=\operatorname{nTP}_{\mathrm{na}} \Lambda(\mathrm{r}) \mathrm{A}_{\mathrm{b}} \mathrm{P}\left\lbrace\mathrm{F}_{\mathrm{C}}>\mathrm{X} \mid \mathrm{impact}\right\rbrace
+```
+
+```{math}
+:label: eq-impact-2.18.11
+\Lambda(\mathrm{r})=\frac{\overline{\Lambda} \mathrm{R}}{2 \mathrm{r}}
+```
+
+{math}`\overline{\Lambda}=` average air plane collision rate for a circular area with radius {math}`\mathrm{R}` = 8 km
+
+{math}`\Lambda(\mathrm{r})=` collision rate for crash at distance {math}`\mathrm{r}` from the airport with {math}`\mathrm{r}<\mathrm{R}`
+
+{math}`\mathrm{n}=` number of planes approaching the airport per windtunnel
+
+{math}`\mathrm{R}=` radius of airport influence circle
+
+{math}`\mathrm{r}=` distance to the airport
+
+Numerical values are presented in {numref}`tbl2.18.3`
+
+```{figure} ../part-02/images/Figure-2.18.5.jpg
+:name: fig-impact-load-2.18.5
+
+Strike area {math}`\mathrm{A_{b}}` for an airplane crash
+```
+
+For airplanes the impact model {eq}`eq-impact-2.18.3` is not sufficient. A better model is given by:
+
+```{math}
+:label: eq-impact-2.18.12
+\mathrm{F}_{\mathrm{C}}(\mathrm{t})=\mathrm{F}_{\mathrm{C}}(\xi)+\mathrm{m}^{\prime}(\xi) \mathrm{v}_{\mathrm{c}}^{2}(\mathrm{t})
+```
+```{math}
+:label: eq-impact-2.18.13
+\xi=\int_{0}^{t} \mathrm{v}_{\mathrm{c}}(\tau) \mathrm{d} \tau
+```
+
+{math}`\mathrm{F}_{\mathrm{c}}(\mathrm{x})=` static compression strength at a distance {math}`\mathrm{x}` from the nose
+
+{math}`\mathrm{m}^{\prime}(\mathrm{x})=` mass per unit length at a distance {math}`\mathrm{x}` from the nose
+
+{math}`\mathrm{v}_{\mathrm{c}}(\mathrm{t})=` velocity of the crashed part of the plane at time {math}`\mathrm{t}`
+
+Sometimes {math}`\mathrm{v}_{\mathrm{c}}(\mathrm{t})` is taken as constant and equal to {math}`\mathrm{v}_{\mathrm{r}}` for further simplification. Results from calculations based on this model can be found in {numref}`tbl2.18.4`.
+
+It is recommended to make the analysis for each type of aircraft (small, large, civil, military) separately and add the results afterwards.
+
+```{table} Numerical values for the air plane impact model
+:name: tbl2.18.3
+| | | |
+| :--- | :--- | :--- |
+| {math}`\lambda` | Crash rate <br> {math}`\quad`- military plane <br> {math}`\quad`- civil plane | <br> {math}`10^{-8}` km{math}`^{-1}` <br> {math}`10^{-9}` km{math}`^{-1}` |
+| {math}`\Lambda` | Average collission rate for airport area <br> {math}`\quad`- small planes (<6 ton) <br> {math}`\quad`- large planes (>6 ton) | <br> {math}`10^{-4}` yr{math}`^{-1}` km{math}`^{-1}` <br> 4 . {math}`10^{-5}` yr{math}`^{-1}` km{math}`^{-1}` |
+| {math}`\mathrm{R}` | Radius of aiport influence circle | 8 km |
+| {math}`\alpha` | Strike angle | mean 10{math}`^{\circ}` <br> standard deviation  10{math}`^{\circ}` <br> Rayleigh Distribution |
+```
+
+```{table} Impact characteristics for various aircrafts (perpendicular on immovable walls)
+:name: tbl2.18.4
+| Type | t [ms] | F [MN] |  |
+| :--- | :---: | :---: | :--- |
+| Cessna 210 A <br> m = 1.7 ton <br> v = 100 m/s <br> A = 7 m{math}`^2` <br> engine m = 0.2 ton <br> {math}`\quad \quad \quad`A =  0.5 m{math}`^2`| 0 <br> 3 <br> 6 <br> 18 <br> 18 <br> {math}`\quad` | 0 <br> 7 <br> 7 <br> 4 <br> 4 <br> {math}`\quad` | ![F vs. t plot for Cessna 210 A](../part-02/images/Table-2.18.4-1.png) |
+| Lear Jet 23 A <br> m = 5.7 ton <br> v = 100 m/s <br> A = 12 m{math}`^2` <br> <br> <br> <br> | 0 <br> 20 <br> 35 <br> 50 <br> 70 <br> 80 <br> 100 | 0 <br> 2 <br> 6 <br> 6 <br> 12 <br> 20 <br> 0 | ![ F vs. t plot for Lear Jet 23 A](../part-02/images/Table-2.18.4-2.png) |
+| MRCA (Multi Role Combat) <br> m = 25 ton <br> v = 215 m/s <br> 4 = 7 m{math}`^2` <br> engine m = 1.2 ton <br> {math}`\quad \quad \quad`A =  0.5 m{math}`^2` | 0 <br> 10 <br> 30 <br> 40 <br> 50 <br> 701 | 0 <br> 55 <br> 55 <br> 154 <br> 154 <br> 0 | ![F vs. t plot for MRCA (Multi Role Combat)](../part-02/images/Table-2.18.4-3.png) |
+| Boeing 707-320 <br> m = 90 ton <br> v = 100 m/s <br> A = 36 m{math}`^2` <br> <br> <br> <br> <br>| 0 <br> 30 <br> 150 <br> 200 <br> 230 <br> 250 <br> 320 <br> 330 | 0 <br> 20 <br> 20 <br> 90 <br> 90 <br> 20 <br> 10 <br> 0 | ![F vs. t plot for Boeing 707-320](../part-02/images/Table-2.18.4-4.png) |
+```
+{math}`\mathrm{A}` = cross sectional area of the plane or engine
+
+{math}`\mathrm{m} = ` mass
+
+{math}`\mathrm{v}_{\mathrm{r}} = ` velocity at impact
 

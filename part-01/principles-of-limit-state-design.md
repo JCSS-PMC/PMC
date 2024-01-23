@@ -1,6 +1,7 @@
-# 3. Principles of limit state design
+# Principles of limit state design
 
-## 3.1. Limit states and adverse states
+(section-3.1)=
+## Limit states and adverse states
 
  The structural performance of a whole structure or part of it should
  be described with reference to a specified set of limit states which
@@ -77,7 +78,7 @@ b)  if exceedance is acceptable but the time when the structure is in
     the undesired state is longer than specified
 
 c)  if exceedance is acceptable but the number of times that the
-    serveciability limit state is exceeded is larger than &nbsp;&nbsp;&nbsp;&nbsp;specified
+    serveciability limit state is exceeded is larger than specified
 
 d)  if a combination of the above criteria occur.
 
@@ -86,7 +87,8 @@ d)  if a combination of the above criteria occur.
  the serviceability limit state should be defined on the basis of
  *utility considerations*.
 
-## 3.2. Limit State Function
+(section-3.2)=
+## Limit State Function
 
  For each specific limit state the relevant basic variables should be
  identified, i.e. the variables which characterize:
@@ -105,29 +107,35 @@ d)  if a combination of the above criteria occur.
  properties. The parameters of such models should in principle be
  treated in the same way as basic variables.
 
- Serviceability constaints (limit values according to 4.1) should in
+ Serviceability constaints (limit values according to [4.1]((section-4.1))) should in
  principle be regarded as random and may in many cases be treated in
  the same way as basic variables.
 
  Where calculation models are available, the limit state can be
  described with aid of a function, g, of the basic variables
- $X(t)=X_1(t),X_2(t),\dots$ so that
+ {math}`X(t)=X_1(t),X_2(t),\dots` so that
 
+```{math}
+:label: eq1
+g(X(t))=0
+```
 
-$$g(X(t))=0\tag{1}$$
+ Eq. {eq}`eq1` is called the limit state equation, and
 
- Eq. $(1)$ is called the limit state equation, and
-
-$$g(X(t))<0\tag{2}$$
+```{math}
+:label: eq2
+g(X(t))<0
+```
 
  identifies the adverse state.
 
  In a component analysis where there is one dominating failure mode the
  limit state condition can normally be described by one equation
- according to eq. $(1)$. In a system analysis, where more than one
+ according to {eq}`eq1`. In a system analysis, where more than one
  failure mode may be determining, there are several such equations.
 
-## 3.3. Design situations
+(section-3.3)=
+## Design situations
 
  Actions, environmental influences and structural properties may vary
  with time. Such variations, which occur throughout the lifetime of the

@@ -1,6 +1,6 @@
-# 5. Models for physical behaviour
+# Models for physical behaviour
 
-## 5.1. General
+## General
 
  Calculation models shall describe the structure and its behaviour up
  to the limit state under consideration, accounting for relevant
@@ -24,7 +24,7 @@
  an entire structural system is studied or if interactions between
  loads and structural response are of interest.
 
-## 5.2. Action models
+## Action models
 
  A complete action model should describe several properties of the
  action such as its magnitude, position, direction, duration etc. In
@@ -32,34 +32,35 @@
  and also between these properties and the response of the structure.
  Such interactions should be taken into account.
 
- The magnitude $F$ of an action may often be described by two different
+ The magnitude {math}`F` of an action may often be described by two different
  types of variables so that
 
-$$F = \varphi(F_0,W)\tag{4}$$
+```{math}
+:label: eq4
+F = \varphi(F_0,W)
+```
 
  where, 
 
- $\varphi$ is an appropriate function and
+ {math}`\varphi` is an appropriate function and
 
- $F_0$ is a basic action variable, often with time and space dependent
+ {math}`F_0` is a basic action variable, often with time and space dependent
  variations (random or non-random) and is generally independent of the
  structure
 
- $W$ is a random or non-random variable or a random field which may
- depend on the structural properties and which transformes $F_0$ to $F$.
+ {math}`W` is a random or non-random variable or a random field which may
+ depend on the structural properties and which transformes {math}`F_0` to {math}`F`.
 
- Eq. $(4)$ should be regarded as a symbolic expression where $F_0$ and $W$ may
+ {eq}`eq4` should be regarded as a symbolic expression where {math}`F_0` and {math}`W` may
  represent several variables.
 
- One example may be snow load where $F_0$ is the time dependent snow load
- on ground and $W$ is the conversion factor for snow load on ground to
+ One example may be snow load where {math}`F_0` is the time dependent snow load
+ on ground and {math}`W` is the conversion factor for snow load on ground to
  snow load on roof which normally is assumed to to be time independent.
 
- Further information on action models is provided in part 2. It is
- noted that action models may include material properties (earthquake
- action depends for example on material damping).
-
-## 5.3. Geometrical models
+ Further information on action models is provided in [part 2](../part-02/general-principles.md). It is noted that action models may include material properties (earthquake action depends for example on material damping). 
+ 
+## Geometrical models
 
  A structure can generally be described by a model consisting of
  one-dimensional elements (beams, columns, cables, arches, etc),
@@ -81,7 +82,8 @@ $$F = \varphi(F_0,W)\tag{4}$$
  *geometrically nonlinear* or *second order effects* and should be
  accounted for.
 
-## 5.4. Material models
+(section-5.4)=
+## Material models
 
  When strength or stiffness is considered the material model normally
  consists of relations between forces or stresses and deformations i.e
@@ -98,9 +100,9 @@ $$F = \varphi(F_0,W)\tag{4}$$
  considered.
 
  Further information related to models of several material types is
- given in part 3.
+ given in [part 3](../part-03/general-principles.md).
 
-## 5.5. Mechanical models
+## Mechanical models
 
  The following mechanical models may be classified
 
@@ -170,29 +172,36 @@ b)  fracture mechanics model
  chemical attack or fire can modify the parameters entering the
  aforementioned models or the models themselves.
 
-## 5.6. Model uncertainties
+(section-5.6)=
+## Model uncertainties
 
  A calculation model is a physically based or empirical relation
  between relevant variables, which are in general random variables:
 
-$$Y = f(X_1,X_2,\dots ,X_n)\tag{5}$$
+```{math}
+:label: eq5
+Y = f(X_1,X_2,\dots ,X_n)
+```
 
-- $Y$ = model output
-- $f( )$ = model function
-- $X_i$    = basic variables
+- {math}`Y` = model output
+- {math}`f( )` = model function
+- {math}`X_i`    = basic variables
 
- The model $f(\dots)$ may be complete and exact, so that, if the values
- of $X_i$ are known in a particular experiment (from measurements), the
- outcome $Y$ can be predicted without error. This, however, is not
+ The model {math}`f(\dots)` may be complete and exact, so that, if the values
+ of {math}`X_i` are known in a particular experiment (from measurements), the
+ outcome {math}`Y` can be predicted without error. This, however, is not
  normally the situation. In most cases the model will be incomplete and
  inexact. This may be the result of lack of knowledge, or a deliberate
  simplification of the model, for the convenience of the designer. The
  difference between the model prediction and the real outcome of the
  experiment can be written down as:
+ 
+ ```{math}
+:label: eq6
+Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)
+```
 
-$$Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)\tag{6}$$
-
- $\theta_i$ are referred to as parameters which contain the model uncertainties
+ {math}`\theta_i` are referred to as parameters which contain the model uncertainties
  and are treated as random variables. Their statistical properties can
  in most cases be derived from experiments or observations. The mean of
  these parameters should be determined in such a way that, on average,

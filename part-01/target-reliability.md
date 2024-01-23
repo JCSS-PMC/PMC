@@ -1,6 +1,6 @@
-# 7. Target Reliability
+# Target Reliability
 
-## 7.1. General Aspects
+## General Aspects
 
  In terms of a reliability based approach the structural risk
  acceptance criteria correspond to a required minimum reliability
@@ -36,58 +36,60 @@ ii) formal failure probability requirements, *conditional upon these
     assumptions*, defined by specified target values for the various
     classes of structures and structural members.
 
-## 7.2. Recommendations
+## Recommendations
 
  Target reliability values are provided in the next paragraphs. They
  are based on optimization procedures and on the assumption that for
  almost all engineering facilities the only reasonable reconstruction
  policy is systematic rebuilding or repair.
 
-### 7.2.1. Ultimate Limit States
+### Ultimate Limit States
 
  Target reliability values for ultimate limit states are proposed in
- Table 1. The values in Table 1 are obtained based on cost benefit
+ [Table 7.1](tbl1). The values in [Table 7.1](tbl1) are obtained based on cost benefit
  analysis for the public at characteristic and representative 
  but simple example structures and are compatible with calibration
  studies and statistical observations.
 
-**Table 1: Tentative target reliability indices β (and associated target failure rates) related to one year reference period and ultimate limit states**
+```{table} Tentative target reliability indices (and associated target failure rates) related to one year reference period and ultimate limit states
+:name: tbl1
 |                1                |               2               |                      3                      |                4                |
-|:-------------------------------:|:-----------------------------:|:-------------------------------------------:|:-------------------------------:|
-| Relative cost of safety measure | Minor consequences of failure |       Moderate consequences of failure      |  Large consequences of failure  |   
-|            Large (A)            |   $\beta=3.1 (P_F≈10^{-3})$   |        $\beta=3.3 (P_F≈5\cdot10^{-4})$      | $\beta=3.7 (P_F≈10^{-4})$       |
-|            Normal (B)           |   $\beta=3.7 (P_F≈10^{-4})$   |  $\textcolor{red}{\beta=4.2 (P_F≈10^{-5})}$ | $\beta=4.4 (P_F≈5\cdot10^{-6})$ |
-|            Small (C)            |   $\beta=4.2 (P_F≈10^{-5})$   |        $\beta=4.4 (P_F≈5\cdot10^{-6})$      | $\beta=4.7 (P_F≈10^{-6})$       |
+|:-------------------------------:|:-----------------------------------:|:-------------------------------------------------:|:-------------------------------------:|
+| Relative cost of safety measure |    Minor consequences of failure    |          Moderate consequences of failure         |      Large consequences of  failure    |   
+|            Large (A)            |   {math}`\beta=3.1 (P_F≈10^{-3})`   |        {math}`\beta=3.3 (P_F≈5\cdot10^{-4})`      | {math}`\beta=3.7 (P_F≈10^{-4})`       |
+|            Normal (B)           |   {math}`\beta=3.7 (P_F≈10^{-4})`   |  {math}`\textcolor{red}{\beta=4.2 (P_F≈10^{-5})}` | {math}`\beta=4.4 (P_F≈5\cdot10^{-6})` |
+|            Small (C)            |   {math}`\beta=4.2 (P_F≈10^{-5})`   |        {math}`\beta=4.4 (P_F≈5\cdot10^{-6})`      | {math}`\beta=4.7 (P_F≈10^{-6})`       |
+```
 
-The shadowed value in Table 1 should be considered as the most common
+The shadowed value in [Table 7.1](tbl1) should be considered as the most common
  design situation. In order to make the right choice in this table the
  following guidelines may be of help:
 
 -   **Consequence classes**
 
- A classification into consequenze classes is based on the ratio $\rho$
+ A classification into consequenze classes is based on the ratio {math}`\rho`
  defined as the ratio between total costs (i.e. construction costs plus
  direct failure costs) and construction costs.
 
- _Class 1 Minor Consequences:_ $\rho$ is less than approximately 2
+ _Class 1 Minor Consequences:_ {math}`\rho` is less than approximately 2
 
  Risk to life, given a failure, is small to negligible and economic
  consequences are small or negligible (e.g. agricultural structures,
  silos, masts);
 
- _Class 2 Moderate Consequences:_ $\rho$ is between 2 and 5.
+ _Class 2 Moderate Consequences:_ {math}`\rho` is between 2 and 5.
 
  Risk to life, given a failure, is medium or economic consequences are
  considerable (e.g. office buildings, industrial buildings, apartment
  buildings).
 
- _Class 3 Large Consequences:_ $\rho$ is between 5 and 10.
+ _Class 3 Large Consequences:_ {math}`\rho` is between 5 and 10.
 
  Risk to life, given a failure, is high, or economic consequences are
  significant (e.g. main bridges, theaters, hospitals, high rise
  buildings).
 
- If $\rho$ is larger than 10 and the absolute value of *H* also is large,
+ If {math}`\rho` is larger than 10 and the absolute value of *H* also is large,
  the consequences should be regarded as extreme and a full cost benefit
  analysis is recommended. The conclusion might be that the structure
  should not be build at all.
@@ -127,7 +129,7 @@ c)  brittle failure
 
  The given values are for structures or structural elements as designed
  (not as built). Failures due to human error or ignorance and failures
- due to non-structural causes are not covered by table 1.
+ due to non-structural causes are not covered by [Table 7.1](tbl1).
 
  Values outside the given ranges may lead to a higher or lower
  classification. In particular attention may be given to the following
@@ -171,7 +173,7 @@ c)  brittle failure
  related to the actual situation in performance and use. No general
  rules are given in this document.
 
-### 7.2.2. Serviceability Limit State
+### Serviceability Limit State
 
  When setting target values for serviceability limit states (SLS) it is
  important to distinguish between irreversible and reversible
@@ -179,13 +181,16 @@ c)  brittle failure
  based on decision analysis methods.
 
  For irreversible serviceability limit states tentative target values
- are given in Table 2. A variation from the target serviceability
+ are given in [Table 7.2](tbl2). A variation from the target serviceability
  indexes of the order of 0.3 can be considered. For reversible
  serviceability limit states no general values are given.
 
-**Table 2: Tentative target reliability indices (and associated probabilities) related to one year reference period and irreversible serviceability limit states**
-| Relative Cost of Safety Measure | Target Index (irreversible SLS) |
-|:-------------------------------:|:-------------------------------:|
-|              High               |    $\beta=1.3 (P_F≈10^{-1})$    |  
-|              Normal             | $\beta=1.7 (P_F≈5\cdot10^{-2})$ |
-|              Low                |    $\beta=2.3 (P_F≈10^{-2})$    |
+```{table} Tentative target reliability indices (and associated probabilities) related to one year reference period and irreversible serviceability limit states
+:name: tbl2
+| Relative Cost of Safety Measure |    Target Index (irreversible SLS)    |
+|:-------------------------------:|:-------------------------------------:|
+|              High               |    {math}`\beta=1.3 (P_F≈10^{-1})`    |  
+|              Normal             | {math}`\beta=1.7 (P_F≈5\cdot10^{-2})` |
+|              Low                |    {math}`\beta=2.3 (P_F≈10^{-2})`    |
+```
+

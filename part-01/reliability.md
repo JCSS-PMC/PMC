@@ -1,24 +1,30 @@
-# 6. Reliability
+# Reliability
 
-## 6.1. Reliability measures
+## Reliability measures
 
  A standard reliability measure may be chosen to be the *generalized
  reliability index*. It is defined as:
 
-$$\beta = \Phi^{-1}(P_f)\tag{7}$$
+```{math}
+:label: eq7
+\beta = \Phi^{-1}(P_f)
+```
 
  where  
  
- $P_f$ is the probability of failure
+ {math}`P_f` is the probability of failure
 
- $\Phi^{-1}(\cdot)$ is the inverse Gaussian distribution
+ {math}`\Phi^{-1}(\cdot)` is the inverse Gaussian distribution
 
  Another equivalent reliability measure is the probability of the
  complement of the adverse event
 
-$$P_s = 1 - P_f\tag{8}$$
+```{math}
+:label: eq8
+P_s = 1 - P_f
+```
 
- The probability $P_f$ should be calculated on the basis of the
+ The probability {math}`P_f` should be calculated on the basis of the
  standardized joint distribution type of the basic variables and the
  standardized distributional formalism of dealing with both model
  uncertainty and statistical uncertainty.
@@ -29,9 +35,9 @@ $$P_s = 1 - P_f\tag{8}$$
  set of observation data.
 
  Reliability analysis principles including time-dependent reliability
- problems are described in Annex C.
+ problems are described in [Annex C](../part-01/annex-C-Reliability-Analysis-Principles.md).
 
-## 6.2. Component reliability and system reliability
+## Component reliability and system reliability
 
  **Component reliability** is the reliability of one single structural
  component which has one dominating failure mode.
@@ -65,12 +71,12 @@ $$P_s = 1 - P_f\tag{8}$$
 
 -   the state and complexity of the structure (multiple failure modes).
 
-Furher aspects on system reliability are provided in Annex C.
+Furher aspects on system reliability are provided in [Annex C](../part-01/annex-C-Reliability-Analysis-Principles.md).
 
-##  6.3. Methods for reliability analysis and calculation
+##  Methods for reliability analysis and calculation
 
  The numerical value of the reliability measure is obtained by a
- reliability analysis and calculation method (see Annex C). The
+ reliability analysis and calculation method (see [Annex C](../part-01/annex-C-Reliability-Analysis-Principles.md)). The
  reliability method used should be capable of producing a sensitivity
  analysis including importance factors for uncertain parameters. The
  choice of the method should be in general justified. The justification

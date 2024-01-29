@@ -221,7 +221,7 @@ At the reference height {math}`\mathrm{z}_{\mathrm{ref}}`, the ratio of the mean
 
 Table 2. Scale factors for the mean velocity (and the mean velocity pressure) at reference height in various terrain exposure
 
-```{table} Parameters for live loads depending on the user category
+```{table} Scale factors for the mean velocity (and the mean velocity pressure) at reference height in various terrain exposure
 :name: tbl2-wind
 | Terrain category | A. Open sea. Smooth flat country | B. Open country | C. Sparsely built-up urban areas. Wooded areas | D. Densely built-up urban areas. Forests | E. Centers of large cities |
 | :---: | :---: | :---: | :---: | :---: | :---: |

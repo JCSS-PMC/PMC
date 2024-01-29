@@ -225,7 +225,9 @@ In considering either a random process or a random field, it is clear that, apar
 
 The other three types of uncertainty mentioned above (measurement, statistical, model) also play an important role in the evaluation of reliability. As mentioned in [section 2.3](section-2.3), these uncertainties are influenced by the particular method used in, for example, strength analysis and by the collection of additional (possibly, directly obtained) data. These uncertainties could be rigorously analysed by adopting the approach outlined by eqns {eq}`eqC8a`, {eq}`eqC8b` and {eq}`eqC9`. However, in many practical applications a simpler approach has been adopted insofar as model (and measurement) uncertainty is concerned based on the differences between results predicted by the mathematical model adopted for {math}`g(\mathrm{x})` and some more elaborate model believed to be a closer representation of actual conditions. In such cases, a model uncertainty basic random variable {math}`X_{m}` is introduced where
 
-{math}`\mathrm{X}_{\mathrm{m}}=\frac{\text { actual value }}{\text { predicted value }}`
+```{math}
+\mathrm{X}_{\mathrm{m}}=\frac{\text { actual value }}{\text { predicted value }}
+```
 
 and the following comments offer some general guidance in estimating the statistics of {math}`\mathrm{X_{m}}` :
 

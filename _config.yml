@@ -18,3 +18,8 @@ html:
 
 parse:
   myst_extended_syntax: true
+
+
+bibtex_bibfiles:
+    - references.bib
+

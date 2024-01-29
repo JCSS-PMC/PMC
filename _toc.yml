@@ -11,6 +11,11 @@ parts:
   - file: part-01/models-for-physical-behaviour.md
   - file: part-01/reliability.md
   - file: part-01/target-reliability.md
+  - file: part-01/annex-A-the-robust-requirement.md
+  - file: part-01/annex-B-durability
+  - file: part-01/annex-C-Reliability-Analysis-Principles
+  - file: part-01/annex-D-Bayesian-Interpretation-of-Probabilities
+
 - caption: Load Models
   numbered: true
   chapters:
@@ -20,17 +25,30 @@ parts:
   - file: part-02/loads-in-car-parks.md
   - file: part-02/snow-load.md
   - file: part-02/wind.md
-  - file: part-02/impact-load.md
+  - file: part-02/thermal-actions.md  
+  - file: part-02/wave-loads.md
+  - file: part-02/earthquake.md
+  - file: part-02/impact-load.md 
   - file: part-02/fire.md
 - caption: Resistance Models
   numbered: true
   chapters:
+  - file: part-03/general-principles.md
   - file: part-03/concrete-properties.md
+  - file: part-03/static-properties-of-structural-steel.md
   - file: part-03/static-properties-of-reinforcing-steel.md
+  - file: part-03/static-properties-of-prestressing-steel.md
+  - file: part-03/timber.md
+  - file: part-03/soil-properties.md
+  - file: part-03/masonry.md
   - file: part-03/model-uncertainties.md
   - file: part-03/dimensions.md
   - file: part-03/excentricities.md
+  - file: part-03/fatigue.md
 - caption: How to Use
   numbered: true
   chapters:
   - file: help/how-to-use.md
+
+
+  

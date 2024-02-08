@@ -107,13 +107,13 @@ d)  if a combination of the above criteria occur.
  properties. The parameters of such models should in principle be
  treated in the same way as basic variables.
 
- Serviceability constaints (limit values according to [4.1]((section-4.1))) should in
+ Serviceability constaints (limit values according to [4.1](section-4.1)) should in
  principle be regarded as random and may in many cases be treated in
  the same way as basic variables.
 
  Where calculation models are available, the limit state can be
  described with aid of a function, g, of the basic variables
- {math}`X(t)=X_1(t),X_2(t),\dots` so that
+ $X(t)=X_1(t),X_2(t),\dots$ so that
 
 ```{math}
 :label: eq1

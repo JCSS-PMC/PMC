@@ -1,4 +1,4 @@
-# Annex A: The Robust Requirement
+# Annex A: The Robustness Requirement
 
 ## Introduction 
 
@@ -31,7 +31,7 @@ In the ideal design procedure, the occurrence and effects of an accidental actio
 
 ## Simplified design procedure
 
-The approach sketched in [A2](section-A2) has two disadvantages:
+The approach sketched in [8.2.](section-A2) has two disadvantages:
 
 1. it is extremely complicated
 

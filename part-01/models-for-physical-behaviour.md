@@ -32,7 +32,7 @@
  and also between these properties and the response of the structure.
  Such interactions should be taken into account.
 
- The magnitude {math}`F` of an action may often be described by two different
+ The magnitude $F$ of an action may often be described by two different
  types of variables so that
 
 ```{math}
@@ -42,20 +42,20 @@ F = \varphi(F_0,W)
 
  where, 
 
- {math}`\varphi` is an appropriate function and
+ $\varphi$ is an appropriate function and
 
- {math}`F_0` is a basic action variable, often with time and space dependent
+ $F_0$ is a basic action variable, often with time and space dependent
  variations (random or non-random) and is generally independent of the
  structure
 
- {math}`W` is a random or non-random variable or a random field which may
- depend on the structural properties and which transformes {math}`F_0` to {math}`F`.
+ $W$ is a random or non-random variable or a random field which may
+ depend on the structural properties and which transformes $F_0$ to $F$.
 
- {eq}`eq4` should be regarded as a symbolic expression where {math}`F_0` and {math}`W` may
+ {eq}`eq4` should be regarded as a symbolic expression where $F_0$ and $W$ may
  represent several variables.
 
- One example may be snow load where {math}`F_0` is the time dependent snow load
- on ground and {math}`W` is the conversion factor for snow load on ground to
+ One example may be snow load where $F_0$ is the time dependent snow load
+ on ground and $W$ is the conversion factor for snow load on ground to
  snow load on roof which normally is assumed to to be time independent.
 
  Further information on action models is provided in [part 2](../part-02/general-principles.md). It is noted that action models may include material properties (earthquake action depends for example on material damping). 
@@ -164,9 +164,9 @@ c)  *models for fatigue*
  Fatigue models are used for the description of fatigue failures caused
  by fluctuating actions. Two types of models are distinguished:
 
-a)  S-N model based on experiments
+1)  S-N model based on experiments
 
-b)  fracture mechanics model
+2)  fracture mechanics model
 
  It is further noted here, that other types of degradation such as
  chemical attack or fire can modify the parameters entering the
@@ -183,13 +183,13 @@ b)  fracture mechanics model
 Y = f(X_1,X_2,\dots ,X_n)
 ```
 
-- {math}`Y` = model output
-- {math}`f( )` = model function
-- {math}`X_i`    = basic variables
+- $Y$ = model output
+- $f( )$ = model function
+- $X_i$    = basic variables
 
- The model {math}`f(\dots)` may be complete and exact, so that, if the values
- of {math}`X_i` are known in a particular experiment (from measurements), the
- outcome {math}`Y` can be predicted without error. This, however, is not
+ The model $f(\dots)$ may be complete and exact, so that, if the values
+ of $X_i$ are known in a particular experiment (from measurements), the
+ outcome $Y$ can be predicted without error. This, however, is not
  normally the situation. In most cases the model will be incomplete and
  inexact. This may be the result of lack of knowledge, or a deliberate
  simplification of the model, for the convenience of the designer. The
@@ -201,7 +201,7 @@ Y = f(X_1,X_2,\dots ,X_n)
 Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)
 ```
 
- {math}`\theta_i` are referred to as parameters which contain the model uncertainties
+ $\theta_i$ are referred to as parameters which contain the model uncertainties
  and are treated as random variables. Their statistical properties can
  in most cases be derived from experiments or observations. The mean of
  these parameters should be determined in such a way that, on average,

@@ -46,98 +46,97 @@ ii) formal failure probability requirements, *conditional upon these
 ### Ultimate Limit States
 
  Target reliability values for ultimate limit states are proposed in
- [Table 7.1](tbl1). The values in [Table 7.1](tbl1) are obtained based on cost benefit
+ {numref}`table-target-reliability-indices-ULS`. The values in {numref}`table-target-reliability-indices-ULS` are obtained based on cost benefit
  analysis for the public at characteristic and representative 
  but simple example structures and are compatible with calibration
- studies and statistical observations.
+ studies and statistical observations. 
 
-```{table} Tentative target reliability indices (and associated target failure rates) related to one year reference period and ultimate limit states
-:name: tbl1
+```{table} Tentative target reliability indices $\beta$ (and associated target failure rates) related to one year reference period and ultimate limit states
+:name: table-target-reliability-indices-ULS
 |                1                |               2               |                      3                      |                4                |
 |:-------------------------------:|:-----------------------------------:|:-------------------------------------------------:|:-------------------------------------:|
 | Relative cost of safety measure |    Minor consequences of failure    |          Moderate consequences of failure         |      Large consequences of  failure    |   
-|            Large (A)            |   {math}`\beta=3.1 (P_F≈10^{-3})`   |        {math}`\beta=3.3 (P_F≈5\cdot10^{-4})`      | {math}`\beta=3.7 (P_F≈10^{-4})`       |
-|            Normal (B)           |   {math}`\beta=3.7 (P_F≈10^{-4})`   |  {math}`\textcolor{red}{\beta=4.2 (P_F≈10^{-5})}` | {math}`\beta=4.4 (P_F≈5\cdot10^{-6})` |
-|            Small (C)            |   {math}`\beta=4.2 (P_F≈10^{-5})`   |        {math}`\beta=4.4 (P_F≈5\cdot10^{-6})`      | {math}`\beta=4.7 (P_F≈10^{-6})`       |
+|            Large (A)            |   $\beta=3.1 (P_F≈10^{-3})$   |        $\beta=3.3 (P_F≈5\cdot10^{-4})$      | $\beta=3.7 (P_F≈10^{-4})$       |
+|            Normal (B)           |   $\beta=3.7 (P_F≈10^{-4})$   |  $\textcolor{red}{\beta=4.2 (P_F≈10^{-5})}$ | $\beta=4.4 (P_F≈5\cdot10^{-6})$ |
+|            Small (C)            |   $\beta=4.2 (P_F≈10^{-5})$   |        $\beta=4.4 (P_F≈5\cdot10^{-6})$      | $\beta=4.7 (P_F≈10^{-6})$       |
 ```
 
-The shadowed value in [Table 7.1](tbl1) should be considered as the most common
- design situation. In order to make the right choice in this table the
- following guidelines may be of help:
+The shadowed value in {numref}`table-target-reliability-indices-ULS` should be considered as the most common design situation. In order to make the right choice in this table the following guidelines may be of help:
 
--   **Consequence classes**
+-   **$\underline{\textbf{Consequence classes}}$**
 
- A classification into consequenze classes is based on the ratio {math}`\rho`
+    A classification into consequenze classes is based on the ratio $\rho$
  defined as the ratio between total costs (i.e. construction costs plus
  direct failure costs) and construction costs.
 
- _Class 1 Minor Consequences:_ {math}`\rho` is less than approximately 2
+    $\underline{\text{Class 1 Minor Consequences}}:$ $\qquad \rho$ is less than approximately 2
 
- Risk to life, given a failure, is small to negligible and economic
+    Risk to life, given a failure, is small to negligible and economic
  consequences are small or negligible (e.g. agricultural structures,
  silos, masts);
 
- _Class 2 Moderate Consequences:_ {math}`\rho` is between 2 and 5.
+    $\underline{\text{Class 2 Moderate Consequences}}:$ $\qquad \rho$ is between 2 and 5.
 
- Risk to life, given a failure, is medium or economic consequences are
+    Risk to life, given a failure, is medium or economic consequences are
  considerable (e.g. office buildings, industrial buildings, apartment
  buildings).
 
- _Class 3 Large Consequences:_ {math}`\rho` is between 5 and 10.
+    $\underline{\text{Class 3 Large Consequences}}:$ $\qquad \rho$ is between 5 and 10.
 
- Risk to life, given a failure, is high, or economic consequences are
+    Risk to life, given a failure, is high, or economic consequences are
  significant (e.g. main bridges, theaters, hospitals, high rise
  buildings).
 
- If {math}`\rho` is larger than 10 and the absolute value of *H* also is large,
+    If $\rho$ is larger than 10 and the absolute value of $H$ also is large,
  the consequences should be regarded as extreme and a full cost benefit
  analysis is recommended. The conclusion might be that the structure
  should not be build at all.
 
- One should be aware of the fact that failure consequences also depend
+    One should be aware of the fact that failure consequences also depend
  on the type of failure, which can be classified according to:
 
-a)  ductile failure with reserve strength capacity resulting from strain
+    1)  ductile failure with reserve strength capacity resulting from strain
     hardening
 
-b)  ductile failure with no reserve capacity
+    2)  ductile failure with no reserve capacity
 
-c)  brittle failure
+    3)  brittle failure
 
- Consequently a structural element which would be likely to collapse
+    Consequently a structural element which would be likely to collapse
  suddenly without warning should be designed for a higher level of
  reliability than one for which a collapse is preceded by some kind of
  warning which enables measures to be taken to avoid severe
  consequences.
 
- The values given relate to the structural system or in approximation
+    The values given relate to the structural system or in approximation
  to the dominant failure mode or structural component dominating system
  failure. Therefore, structures with multiple, equally important
  failure modes should be designed for a higher level of reliability.
 
--   **Relative cost of safety measures classificaton**
+-   **$\underline{\textbf{Relative cost of safety measures classificaton}}$**
 
- The normal class (B) should be associated with:
+    The normal class (B) should be associated with:
 
--   medium variabilities of the total loads and resistances (0.1 \< *V*
+    -   medium variabilities of the total loads and resistances (0.1 \< $V$
     \< 0.3),
 
--   relative cost of safety measure
+    -   relative cost of safety measure
 
--   normal design life and normal obsolesce rate composed to
+    -   normal design life and normal obsolesce rate composed to
     construction costs of the order of 3%
 
- The given values are for structures or structural elements as designed
- (not as built). Failures due to human error or ignorance and failures
- due to non-structural causes are not covered by [Table 7.1](tbl1).
 
- Values outside the given ranges may lead to a higher or lower
+    The given values are for structures or structural elements as designed
+ (not as built). Failures due to human error or ignorance and failures
+ due to non-structural causes are not covered by {numref}`table-target-reliability-indices-ULS`.
+
+    Values outside the given ranges may lead to a higher or lower
  classification. In particular attention may be given to the following
  aspects:
 
 -   *Degree of Uncertainty*
 
- A large uncertainty in either loading or resistance (coefficients of
+    A large uncertainty in either loading or resistance (coefficients of
  variation larger then 40 %), as for instance the case of many
  accidental and seismic situations, a lower reliability class should be
  used. The point is that for these large uncertainties the additional
@@ -149,7 +148,7 @@ c)  brittle failure
 
 -   *Quality assurance* and *inspections*
 
- Quality assurance (for new structures) and inspections (for existing
+    Quality assurance (for new structures) and inspections (for existing
  structures) have an increasing effect on costs. This will lead to a
  lower reliability class. On the other hand, due to QA and inspections
  the uncertainty will normally decrease and a higher class becomes
@@ -157,18 +156,18 @@ c)  brittle failure
 
 -   *Existing structures*
 
- For existing structures the costs of achieving a higher reliability
+    For existing structures the costs of achieving a higher reliability
  level are usually high compared to structures under design. For this
  reason the target level for existing structures usually should be
  lower.
 
 -   *Service life and/or obsolesce*
 
- For structures designed for short service life or otherwise rapid
+    For structures designed for short service life or otherwise rapid
  obsolesce (say less than 10 years) the beta-values can be lowered by
  one or half a class.
 
- By definition serviceability failures are not associated with loss of
+    By definition serviceability failures are not associated with loss of
  human life or limb. For existing structures the demand will be more
  related to the actual situation in performance and use. No general
  rules are given in this document.
@@ -181,16 +180,16 @@ c)  brittle failure
  based on decision analysis methods.
 
  For irreversible serviceability limit states tentative target values
- are given in [Table 7.2](tbl2). A variation from the target serviceability
+ are given in {numref}`(table-target-reliability-indices-SLS)`. A variation from the target serviceability
  indexes of the order of 0.3 can be considered. For reversible
  serviceability limit states no general values are given.
 
 ```{table} Tentative target reliability indices (and associated probabilities) related to one year reference period and irreversible serviceability limit states
-:name: tbl2
+:name: table-target-reliability-indices-SLS
 | Relative Cost of Safety Measure |    Target Index (irreversible SLS)    |
 |:-------------------------------:|:-------------------------------------:|
-|              High               |    {math}`\beta=1.3 (P_F≈10^{-1})`    |  
-|              Normal             | {math}`\beta=1.7 (P_F≈5\cdot10^{-2})` |
-|              Low                |    {math}`\beta=2.3 (P_F≈10^{-2})`    |
+|              High               |    $\beta=1.3 (P_F≈10^{-1})$    |  
+|              Normal             | $\beta=1.7 (P_F≈5\cdot10^{-2})$ |
+|              Low                |    $\beta=2.3 (P_F≈10^{-2})$    |
 ```
 

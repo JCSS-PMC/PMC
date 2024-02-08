@@ -7,14 +7,14 @@
 
 ```{math}
 :label: eq7
-\beta = \Phi^{-1}(P_f)
+\beta = - \Phi^{-1}(P_f)
 ```
 
  where  
  
- {math}`P_f` is the probability of failure
+$P_f$ is the probability of failure
 
- {math}`\Phi^{-1}(\cdot)` is the inverse Gaussian distribution
+$\Phi^{-1}(\cdot)$ is the inverse Gaussian distribution
 
  Another equivalent reliability measure is the probability of the
  complement of the adverse event
@@ -24,7 +24,7 @@
 P_s = 1 - P_f
 ```
 
- The probability {math}`P_f` should be calculated on the basis of the
+ The probability $P_f$ should be calculated on the basis of the
  standardized joint distribution type of the basic variables and the
  standardized distributional formalism of dealing with both model
  uncertainty and statistical uncertainty.

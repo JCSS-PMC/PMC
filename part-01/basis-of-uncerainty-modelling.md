@@ -80,7 +80,7 @@ for different kinds of actions and materials. The details of this
 model have to be stated more precisely for each specific variable. The
 model is associated with a hierarchical set of subpopulations.
 
-The hierarchical model assumes that a random quantity {math}`X` can be written
+The hierarchical model assumes that a random quantity $X$ can be written
 as a function of several variables, each one representing a specific
 type of variability:
 
@@ -89,12 +89,12 @@ type of variability:
 X_{ijk} = f(Y_i,Y_{ij},Y_{ijk})
 ```
 
-The {math}`Y` represent various origins, time scales of fluctuation or spatial scales of fluctuation.
+The $Y$ represent various origins, time scales of fluctuation or spatial scales of fluctuation.
 
-For instance {math}`Y_i` may represent the building to building variation,
-{math}`Y_{ij}` the floor to floor variation in building {math}`i` and {math}`Y_{ijk}` the point
-to point variation on floor {math}`j` in building {math}`i`.
+For instance $Y_i$ may represent the building to building variation,
+$Y_{ij}$ the floor to floor variation in building $i$ and $Y_{ijk}$ the point
+to point variation on floor $j$ in building $i$.
 
-In a similar way, {math}`Y_i` may represent the constant in time variability,
-{math}`Y_{ij}` a slowly fluctuating time process and {math}`Y_{ijk}` a fast fluctuating
+In a similar way, $Y_i$ may represent the constant in time variability,
+$Y_{ij}$ a slowly fluctuating time process and $Y_{ijk}$ a fast fluctuating
 time process.

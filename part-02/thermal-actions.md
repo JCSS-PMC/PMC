@@ -2,83 +2,83 @@
 
 **List of symbols:**
 
-{math}`A=` cross-sectional area of the structural member 
+$A=$ cross-sectional area of the structural member 
 
-{math}`C=` coefficient for atmospheric clearness 
+$C=$ coefficient for atmospheric clearness 
 
-{math}`D=` the intensity of diffused solar radiation 
+$D=$ the intensity of diffused solar radiation 
 
-{math}`I_y=` main moment of inertia, direction of axis {math}`y` 
+$I_y=$ main moment of inertia, direction of axis $y$ 
 
-{math}`I_z=`main moment of inertia, direction of axis {math}`z` 
+$I_z=$main moment of inertia, direction of axis $z$ 
 
-{math}`Q=`the intensity of total radiation 
+$Q=$the intensity of total radiation 
 
-{math}`S=` the intensity of direct solar radiation  
+$S=$ the intensity of direct solar radiation  
 
-{math}`T=` temperature  
+$T=$ temperature  
 
-{math}`T_0=` initial temperature when structural member is restrained  
+$T_0=$ initial temperature when structural member is restrained  
 
-{math}`T_E=` residual no-linear self-equilibrated component  
+$T_E=$ residual no-linear self-equilibrated component  
 
-{math}`T_N=` uniform temperature component  
+$T_N=$ uniform temperature component  
 
-{math}`\Delta T_N=` range of uniform bridge temperature component 
+$\Delta T_N=$ range of uniform bridge temperature component 
 
-{math}`\Delta T_M=` linear temperature difference component 
+$\Delta T_M=$ linear temperature difference component 
 
-{math}`\Delta T_{M,\mathrm{heat}}=` linear temperature difference component (heating) 
+$\Delta T_{M,\text{heat}}=$ linear temperature difference component (heating) 
 
-{math}`\Delta T_{M,\mathrm{cool}}=` linear temperature difference component (cooling) 
+$\Delta T_{M,\text{cool}}=$ linear temperature difference component (cooling) 
 
-{math}`T_s=` temperature of the bridge surface  
+$T_s=$ temperature of the bridge surface  
 
-{math}`T_\mathrm{v}=` temperature of surrounding environment  
+$T_v=$ temperature of surrounding environment  
 
-{math}`T_{eq}=` equivalent temperature  
+$T_{eq}=$ equivalent temperature  
 
-{math}`c=` specific heat capacity  
+$c=$ specific heat capacity  
 
-{math}`h=` altitude of sun 
+$h=$ altitude of sun 
 
-{math}`h_c=` surface transfer coefficient 
+$h_c=$ surface transfer coefficient 
 
-{math}`k_s=` absorption factor
+$k_s=$ absorption factor
 
-{math}`m=` mean; number of optical masses of the atmosphere  
+$m=$ mean; number of optical masses of the atmosphere  
 
-{math}`n=` number of measurements  
+$n=$ number of measurements  
 
-{math}`s=` standard deviation  
+$s=$ standard deviation  
 
-{math}`q=` heat energy  
+$q=$ heat energy  
 
-{math}`q_s=` heat due to solar radiation  
+$q_s=$ heat due to solar radiation  
 
-{math}`q_r=` heat due to re-radiation  
+$q_r=$ heat due to re-radiation  
 
-{math}`q_c=` heat due to thermal transfer  
+$q_c=$ heat due to thermal transfer  
 
-{math}`t=` time  
+$t=$ time  
 
-{math}`\alpha =` coefficient of linear expansion   
+$\alpha =$ coefficient of linear expansion   
 
-{math}`\alpha_e =` exchange factor  
+$\alpha_e =$ exchange factor  
 
-{math}`\gamma =` hour angle of the sun 
+$\gamma =$ hour angle of the sun 
 
-{math}`\delta =` angle of the sun declination  
+$\delta =$ angle of the sun declination  
 
-{math}`\varepsilon =` coefficient of emissivity; strain  
+$\varepsilon =$ coefficient of emissivity; strain  
 
-{math}`\lambda=` heat conduction coefficient
+$\lambda=$ heat conduction coefficient
 
-{math}`\rho=` mass density  
+$\rho=$ mass density  
 
-{math}`\sigma =` the Stephan-Boltzmann constant  
+$\sigma =$ the Stephan-Boltzmann constant  
 
-{math}`\varphi=` geographical latitude of the locality  
+$\varphi=$ geographical latitude of the locality  
 
 *Conversion of units for temperatures considering °C, K and °F* 
 
@@ -141,75 +141,75 @@ For the solution of heat conduction problems in a structure, the Fourier heat co
 \frac{\partial T(z, t)}{\partial t}=\frac{\lambda}{c \rho} \frac{\partial^{2} T}{\partial z^{2}}
 ```
 
-where {math}`t` is the time, {math}`T` is the temperature, {math}`c` is the specific heat capacity of material, {math}`\rho` is the mass density and {math}`\lambda` is the heat conduction coefficient of material {cite}`mirambell1987modelo,mangerig1986klimatische`!. It should be noted that in some cases the properties of several materials may need to be considered. Recommended ranges of some thermophysical coefficients can be found in e.g. {cite}`mangerig1986klimatische_bis, neville1986properties`!. Some parameters may be considered as random variables represented by their probabilistic distribution functions.
+where $t$ is the time, $T$ is the temperature, $c$ is the specific heat capacity of material, $\rho$ is the mass density and $\lambda$ is the heat conduction coefficient of material {cite}`mirambell1987modelo,mangerig1986klimatische`!. It should be noted that in some cases the properties of several materials may need to be considered. Recommended ranges of some thermophysical coefficients can be found in e.g. {cite}`mangerig1986klimatische_bis, neville1986properties`!. Some parameters may be considered as random variables represented by their probabilistic distribution functions.
 
-Equation {eq}`eq-thermal-actions-1` is solved for the initial condition {math}`T=T_{0}` in time {math}`t=t_{0}` and boundary conditions on top and bottom structural surface with respect to the type of heat transmission between two adjacent mediums (surrounding environment and structure). The boundary conditions may be expressed as
+Equation {eq}`eq-thermal-actions-1` is solved for the initial condition $T=T_{0}$ in time $t=t_{0}$ and boundary conditions on top and bottom structural surface with respect to the type of heat transmission between two adjacent mediums (surrounding environment and structure). The boundary conditions may be expressed as
 
 ```{math}
 :label: eq-thermal-actions-2
 \frac{\lambda}{c \rho} \frac{\partial T}{\partial z} \eta_{z}+q=0
 ```
 
-where {math}`\eta_{\mathrm{z}}` is the directional cosine of the normal vector and {math}`q` is the heat energy exchange between the structure and its surrounding.
+where $\eta_{z}$ is the directional cosine of the normal vector and $q$ is the heat energy exchange between the structure and its surrounding.
 
-The heat energy {math}`q` is composed of
+The heat energy $q$ is composed of
 
 ```{math}
 :label: eq-thermal-actions-3
-q=q_{\mathrm{s}}+q_{\mathrm{r}}+q_{\mathrm{c}}
+q=q_{s}+q_{r}+q_{c}
 ```
 
-where {math}`q_{\mathrm{s}}` represents the heat due to solar radiation (direct and diffused), {math}`q_{\mathrm{r}}` the re-radiation and {math}`q_{\mathrm{c}}` the thermal transfer.
+where $q_{s}$ represents the heat due to solar radiation (direct and diffused), $q_{r}$ the re-radiation and $q_{c}$ the thermal transfer.
 
 The heat due to solar radiation is given as
 
 ```{math}
 :label: eq-thermal-actions-4
-q_{\mathrm{s}}=k_{\mathrm{s}} m Q
+q_{s}=k_{s} m Q
 ```
 
-where {math}`k_{\mathrm{s}}` is the coefficient of surface absorptivity, {math}`m` is the parameter dependent on cloudiness and {math}`Q` is the intensity of total solar radiation (see [Clause 18.3](section-2.14.3)).
+where $k_{s}$ is the coefficient of surface absorptivity, $m$ is the parameter dependent on cloudiness and $Q$ is the intensity of total solar radiation (see [Clause 18.3](section-2.14.3)).
 
 The re-radiation may be expressed as
 
 ```{math}
 :label: eq-thermal-actions-5
-q_{\mathrm{r}}=\varepsilon \sigma\left(T_{\mathrm{s}}^{4}-T_{\mathrm{v}}^{4}\right)
+q_{r}=\varepsilon \sigma\left(T_{s}^{4}-T_{v}^{4}\right)
 ```
 
-where {math}`\varepsilon` is the bridge surface emissivity (in a range from 0,85 to 0,98 ), {math}`\sigma` is Stephan Boltzmann constant {math}`\left(5,67 \times 10^{-8} \mathrm{Wm}^{-2} \mathrm{~K}^{-4}\right), T_{\mathrm{s}}` is the temperature of the bridge surface and {math}`T_{\mathrm{v}}` is the temperature of surrounding environment.
+where $\varepsilon$ is the bridge surface emissivity (in a range from 0,85 to 0,98 ), $\sigma$ is Stephan Boltzmann constant $\left(5,67 \times 10^{-8} W^{-2} ~K^{-4}\right), T_{s}$ is the temperature of the bridge surface and $T_{v}$ is the temperature of surrounding environment.
 
 The heat transfer due to conduction and convection is expressed as
 
 ```{math}
 :label: eq-thermal-actions-6
-q_{\mathrm{c}}=h_{\mathrm{c}}\left(T_{\mathrm{s}}-T_{\mathrm{v}}\right)
+q_{c}=h_{c}\left(T_{s}-T_{v}\right)
 ```
 
-where {math}`h_{\mathrm{c}}` is the surface transfer coefficient depending on the wind velocity.
+where $h_{c}$ is the surface transfer coefficient depending on the wind velocity.
 
-For example the top surface heat transfer coefficient {math}`h_{\mathrm{s}, \mathrm{t}}` includes both the radiation and convection losses (and gains) from the structural surface. The values of the coefficient {math}`h_{\mathrm{s}, \mathrm{t}}` for concrete vary from {math}`14 \mathrm{Wm}^{-2} \mathrm{~K}^{-1}` to {math}`57 \mathrm{Wm}^{-2} \mathrm{~K}^{-1}` according to the exposure of the surface and the wind speed. For common exposure (considered {math}`3^{\text {rd }}` to {math}`5^{\text {th }}` storeys of buildings in the
-interior of towns) and a wind speed of {math}`2,2 \mathrm{~m} / \mathrm{s}` to {math}`3,1 \mathrm{~m} / \mathrm{s}`, the value of {math}`h_{\mathrm{s}, \mathrm{t}}` is {math}`23 \mathrm{Wm}^{-2} \mathrm{~K}^{-1}`. For the same exposure and a wind speed of almost zero, the value of {math}`h_{\mathrm{s}, t}` is {math}`19 \mathrm{Wm}^{-2} \mathrm{~K}^{-1}` {cite}`trrl561`.
+For example the top surface heat transfer coefficient $h_{s, t}$ includes both the radiation and convection losses (and gains) from the structural surface. The values of the coefficient $h_{s, t}$ for concrete vary from $14 Wm^{-2} ~K^{-1}$ to $57 Wm^{-2} ~K^{-1}$ according to the exposure of the surface and the wind speed. For common exposure (considered $`3^{\text {rd }}$ to $5^{\text {th }}$ storeys of buildings in the
+interior of towns) and a wind speed of $2,2 ~m / s$ to $3,1 ~m / s$, the value of $h_{s, t}$ is $23 Wm^{-2} ~K^{-1}$. For the same exposure and a wind speed of almost zero, the value of $h_{s, t}$ is $19 Wm^{-2} ~K^{-1}$ {cite}`trrl561`.
 
 ### *Components of thermal actions*
 
-The temperature {math}`T(z, t)` for a considered one dimensional problem of a structural member with the cross-sectional area {math}`A`, the centroid with principal axis of inertia {math}`y` in the transversal direction and axis {math}`z` in the direction of cross-sectional height may be decomposed to three temperature components on the basis of the following expression
+The temperature $T(z, t)$ for a considered one dimensional problem of a structural member with the cross-sectional area $A$, the centroid with principal axis of inertia $y$ in the transversal direction and axis $z$ in the direction of cross-sectional height may be decomposed to three temperature components on the basis of the following expression
 
 ```{math}
 :label: eq-thermal-actions-7
-T(z, t)=T_{N}(z, t)+z \Delta T_{M z}(z, t)+T_{\mathrm{E}}(z, t)
+T(z, t)=T_{N}(z, t)+z \Delta T_{M z}(z, t)+T_{E}(z, t)
 ```
 
-where {math}`T_{N}` denotes the uniform temperature component (effective bridge temperature), {math}`\Delta T_{M z}` the temperature difference component and {math}`T_{\mathrm{E}}` the residual non-linear self-equilibrated component.
+where $T_{N}$ denotes the uniform temperature component (effective bridge temperature), $\Delta T_{M z}$ the temperature difference component and $T_{E}$ the residual non-linear self-equilibrated component.
 
-The temperature components may be determined on the basis of integration of equation {eq}`eq-thermal-actions-7` across the area {math}`A`
+The temperature components may be determined on the basis of integration of equation {eq}`eq-thermal-actions-7` across the area $A$
 
 ```{math}
 :label: eq-thermal-actions-8
 \int_{A} T(z, t) d A=T_{N}(t) \int_{A} d A+\Delta T_{M z}(t) \int_{A} z d A+\int_{A} T_{E}(z, t) d A
 ```
 
-where {math}`\int_{A} d A=A`, and {math}`\int_{A} z d A=0` for the principal axis of inertia. It is considered {math}`\int_{A} T_{E}(z, t) d A=0` for the self-equilibrated temperature component. The equation {eq}`eq-thermal-actions-8` may be rewritten under these assumptions as
+where $\int_{A} d A=A$, and $\int_{A} z d A=0$ for the principal axis of inertia. It is considered $\int_{A} T_{E}(z, t) d A=0$ for the self-equilibrated temperature component. The equation {eq}`eq-thermal-actions-8` may be rewritten under these assumptions as
 
 ```{math}
 :label: eq-thermal-actions-9
@@ -223,30 +223,30 @@ and the uniform temperature component may be expressed as
 T_{N}(z, t)=\frac{1}{A} \int_{A} T(z, t) d A
 ```
 
-Similarly the temperature difference component may be derived on the basis of the multiplication of equation {eq}`eq-thermal-actions-7` by variable {math}`z` and its integration across the cross-sectional area $A$ given as
+Similarly the temperature difference component may be derived on the basis of the multiplication of equation {eq}`eq-thermal-actions-7` by variable $z$ and its integration across the cross-sectional area $A$ given as
 
 ```{math}
 :label: eq-thermal-actions-11
 \Delta T_{M z}(z, t)=\frac{1}{I_{y}} \int_{A} T(z, t) z d A
 ```
 
-where {math}`I_{y}` is the main moment of inertia of a member cross-section with respect to the principal axis {math}`y` of the cross-section and where the requirement {math}`\int_{A} T_{E}(z, t) z d A=0` is considered.
+where $I_{y}$ is the main moment of inertia of a member cross-section with respect to the principal axis $y$ of the cross-section and where the requirement $\int_{A} T_{E}(z, t) z d A=0$ is considered.
 
 The non-equilibrated component is expressed from equation {eq}`eq-thermal-actions-7` as
 
 ```{math}
 :label: eq-thermal-actions-12
-T_{\mathrm{E}}(z, t)=T(z, t)-\left[T_{N}(t)+z \Delta T_{M z}(t)\right]
+T_(z, t)=T(z, t)-\left[T_{N}(t)+z \Delta T_{M z}(t)\right]
 ```
 
 and for equations {eq}`eq-thermal-actions-10` and {eq}`eq-thermal-actions-11`
 
 ```{math}
 :label: eq-thermal-actions-13
-T_{\mathrm{E}}(z, t)=T(z, t)-\left[\frac{1}{A} \int_{A} T(z, t) d A+\frac{1}{I_{y}} \int_{A} T(z, t) z d A\right]
+T_{E}(z, t)=T(z, t)-\left[\frac{1}{A} \int_{A} T(z, t) d A+\frac{1}{I_{y}} \int_{A} T(z, t) z d A\right]
 ```
 
-Presently all temperature components {math}`T_{N}, \Delta T_{M z}` and {math}`T_{\mathrm{E}}` are based on temperature {math}`T(t, z)` which was previously solved in equation {eq}`eq-thermal-actions-1`.
+Presently all temperature components $T_{N}, \Delta T_{M z}$ and $T_{E}$ are based on temperature $T(t, z)$ which was previously solved in equation {eq}`eq-thermal-actions-1`.
 
 ### *Deformation and stress effects*
 
@@ -282,20 +282,20 @@ The uniform bridge temperature component may be specified on the basis of shade 
 The skewness of the uniform bridge temperature component determined from experimental bridge measurements {cite}`eurocode_thermal_actions` is considerably less (between 0,2 to 0,6 ) than the skewness of the Gumbel distribution which is commonly recommended in prescriptive documents {cite}`en_1991_1_5`. Therefore, the Weibull distribution may be preferably applied for the bridge uniform
 temperature component. However, the disadvantage of the Weibull distribution is its upper bound which is rather difficult to be estimated. More convenient seems to apply the skewness instead of trying to specify the upper bound of the distribution.
 
-Three types of the extreme values distributions which may be applied for the probabilistic modelling of basic variables are illustrated in {numref}`fig-thermal-2.14.1`.
+Three types of the extreme values distributions which may be applied for the probabilistic modelling of basic variables are illustrated in {numref}`fig-extreme-values-distribution-versus-skewness`.
 
-```{figure} ../part-02/images/Figure-2.14.1.png
-:name: fig-thermal-2.14.1
+```{figure} ../part-02/images/extreme-values-distribution-versus-skewness.jpg 
+:name: fig-extreme-values-distribution-versus-skewness
 
-Types of the extreme values distribution versus the skewness {math}`\alpha`
+Types of the extreme values distribution versus the skewness $\alpha$
 ```
 
-The variation of the upper bound {math}`x_{\text {sup }}(m, s, a)` with skewness {math}`a` is illustrated in {numref}`fig-thermal-2.14.2` for the mean temperature {math}`m` from 30 to 36 °C and standard deviation {math}`s` from 5 to 6 °C (with equal coefficient of variation 1/6).
+The variation of the upper bound $x_{\text {sup }}(m, s, a)$ with skewness $a$ is illustrated in {numref}`fig-Upper-bound-versus-skewness-for-Weibull-distribution` for the mean temperature $m$ from 30 to 36 °C and standard deviation $s$ from 5 to 6 °C (with equal coefficient of variation 1/6).
 
-```{figure} ../part-02/images/Figure-2.14.2.jpg
-:name: fig-thermal-2.14.2
+```{figure} ../part-02/images/Upper-bound-versus-skewness-for-Weibull-distribution.jpg 
+:name: fig-Upper-bound-versus-skewness-for-Weibull-distribution
 
-Upper bound {math}`x_{\text {sup }}(m, s, a)` of temperatures (in °C) versus skewness {math}`a` for Weibull distribution
+Upper bound $x_{\text {sup }}(m, s, a)$ of temperatures (in °C) versus skewness $a$ for Weibull distribution
 ```
 
 The document {cite}`eurocode_thermal_actions` introduces an estimated upper bound of extreme temperatures which is based on measurements of bridges in UK and Germany.
@@ -304,10 +304,10 @@ The upper bound of temperatures depends on the national climatic conditions of e
 
 The background document {cite}`eurocode_thermal_actions` gives several tables with statistically assessed parameters of uniform temperature component (mean, standard deviation and upper bound) of three-day maxima (Weibull maximum distribution) for concrete bridges, and one-day maxima for steel and composite bridges.
 
-Statistical parameters of one-year maxima for uniform bridge temperature {math}`T_{N, \max }` for steel and composite bridges are given in {numref}`tbl-thermal-2.14.1` based on the measurements of bridges in UK and Germany given in document {cite}`eurocode_thermal_actions`.
+Statistical parameters of one-year maxima for uniform bridge temperature $T_{N, \max }$ for steel and composite bridges are given in {numref}`table-Statistical-parameters-of-1-year-maxima-for-uniform-bridge-temperature-for-steel-and-composite-bridges` based on the measurements of bridges in UK and Germany given in document {cite}`eurocode_thermal_actions`.
 
 ```{table} Statistical parameters of one-year maxima for uniform bridge temperature for steel and composite bridges, in K (°C) (based on [[eur99](references)]) 
-:name: tbl-thermal-2.14.1
+:name: table-Statistical-parameters-of-1-year-maxima-for-uniform-bridge-temperature-for-steel-and-composite-bridges
 | Bridge position and depth of surfacing | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: |
 | Steel bridge | 313,15 (40) | 2 |
@@ -316,10 +316,10 @@ Statistical parameters of one-year maxima for uniform bridge temperature {math}`
 
 The mean values of uniform temperatures are slightly decreasing with increasing thickness of bridge surfacing while the value of standard deviation remains unchanged.
 
-Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, {math}`\Delta T_{N, \text { exp }}` for concrete bridges are given in {numref}`tbl-thermal-2.14.2` based on the measurements of bridges in UK and Germany given in document {cite}`eurocode_thermal_actions`.
+Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, $\Delta T_{N, \text { exp }}$ for concrete bridges are given in {numref}`table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component-for-concrete-bridges` based on the measurements of bridges in UK and Germany given in document {cite}`eurocode_thermal_actions`.
 
 ```{table} Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, ΔTN,exp = TN,max – 10°C for concrete bridges, in K (°C)  (based on [[eur99](references)])
-:name: tbl-thermal-2.14.2
+:name: table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component-for-concrete-bridges
 | Depth [m] | Mean, in K (°C) | Standard deviation |
 | :---: | :---: | :---: |
 |  | Box girder |  |
@@ -346,26 +346,26 @@ Solar radiation has considerable influence on the temperature difference compone
 
 The observation data of solar radiation may be obtained from the National Meteorological Institute. The probabilistic model of solar radiation for the site location should be based on the statistical assessment of data.
 
-When observation data are not available, an estimate of direct and diffused radiation can be obtained e.g. from ISO/TR 9492 {cite}`iso_tr_9492`. The records of measurements of direct radiation {math}`S` on the surface perpendicular to sun rays, diffused radiation {math}`D` and total radiation {math}`Q` are available in special reports of the Meteorological Institute, averaged for some time period (week, month).
+When observation data are not available, an estimate of direct and diffused radiation can be obtained e.g. from ISO/TR 9492 {cite}`iso_tr_9492`. The records of measurements of direct radiation $S$ on the surface perpendicular to sun rays, diffused radiation $D$ and total radiation $Q$ are available in special reports of the Meteorological Institute, averaged for some time period (week, month).
 
-Where observation data are not available, the intensity {math}`S_{\mathrm{m}}` of direct solar radiation under clear sky and non-varying clearness of atmosphere during the day may be approximately expressed as
+Where observation data are not available, the intensity $S_{m}$ of direct solar radiation under clear sky and non-varying clearness of atmosphere during the day may be approximately expressed as
 
 ```{math}
 :label: eq-thermal-actions-14
-S_{\mathrm{m}}=S_{0} /(1+C m)
+S_{m}=S_{0} /(1+C m)
 ```
 
 where
 
-{math}`S_{0}` is the meteorological solar constant equal to {math}`1256 \mathrm{Wm}^{-2}`,
+$S_{0}$ is the meteorological solar constant equal to $1256 Wm^{-2}$,
 
-{math}`C` is the coefficient which depends on atmospheric clearness, for normal clearness it may be assumed as {math}`C=0,31`,
+$C$ is the coefficient which depends on atmospheric clearness, for normal clearness it may be assumed as $C=0,31$,
 
-{math}`m` is the number of optical masses of the atmosphere to be assumed according to the altitude of the sun {math}`h`, see {numref}`tbl-thermal-2.14.3`.
+$m$ is the number of optical masses of the atmosphere to be assumed according to the altitude of the sun $h$, see {numref}`table-optical-masses-for-altitude-of-sun`.
 
 ```{table} The optical masses m for the altitude of sun h [[iso87](references)])
-:name: tbl-thermal-2.14.3
-| Altitude of the sun {math}`h`, <br> in degrees | Number of optical <br> masses, {math}`m` | Altitude of the sun {math}`h`, <br> in degrees | Number of optical <br> masses, {math}`m` |
+:name: table-optical-masses-for-altitude-of-sun
+| Altitude of the sun $h$, <br> in degrees | Number of optical <br> masses, $m$ | Altitude of the sun $h$, <br> in degrees | Number of optical <br> masses, $m$ |
 | :---: | :---: | :---: | :---: |
 | 90 | 1 | 16,4 | 3,5 |
 | 41,7 | 1,5 | 14,3 | 4 |
@@ -374,7 +374,7 @@ where
 | 19,3 | 3 |  |  |
 ```
 
-The altitude of the sun above the horizon {math}`h` may be determined as
+The altitude of the sun above the horizon $h$ may be determined as
 
 ```{math}
 :label: eq-thermal-actions-15
@@ -383,11 +383,11 @@ The altitude of the sun above the horizon {math}`h` may be determined as
 
 where
 
-{math}`\varphi` is the geographical latitude of the locality,
+$\varphi$ is the geographical latitude of the locality,
 
-{math}`\delta` is the angle of the sun declination,
+$\delta$ is the angle of the sun declination,
 
-{math}`\gamma` is the hour angle of the sun, in degrees, {math}`\gamma=15 \tau`, where {math}`\tau` is time in hours starting at noon.
+$\gamma$ is the hour angle of the sun, in degrees, $\gamma=15 \tau$, where $\tau$ is time in hours starting at noon.
 
 The intensity of direct solar radiation on a horizontal surface is given as
 
@@ -410,33 +410,33 @@ and the intensity of total radiation on the horizontal surface is given as
 Q=S^{\prime}+D
 ```
 
-Data on intensity of direct solar radiation on the surface normal to the sun rays can be used for evaluation of the intensity of radiation on vertical {math}`S_{\mathrm{v}}`, and inclined surfaces of any orientation {math}`S_{\alpha}` by the formulae
+Data on intensity of direct solar radiation on the surface normal to the sun rays can be used for evaluation of the intensity of radiation on vertical $S_{v}$, and inclined surfaces of any orientation $S_{\alpha}$ by the formulae
 
 ```{math}
 :label: eq-thermal-actions-19
-S_{\mathrm{v}}=S \cos \theta 
+S_{v}=S \cos \theta 
 ```
 
 ```{math}
 :label: eq-thermal-actions-20
-S_{\alpha}=S_{\mathrm{v}} \sin \alpha+S^{\prime} \cos \alpha
+S_{\alpha}=S_{v} \sin \alpha+S^{\prime} \cos \alpha
 ```
 
 where
-{math}`\theta` is the angle between the direction of the sun ray and the normal to the surface at the given point of latitude {math}`\varphi`,
+$\theta$ is the angle between the direction of the sun ray and the normal to the surface at the given point of latitude $\varphi$,
 
-{math}`\alpha` is the angle of inclination between the surface and the horizon.
+$\alpha$ is the angle of inclination between the surface and the horizon.
 
-The values of {math}`\cos \theta` for surfaces of different orientation may be determined by the formulae
+The values of $\cos \theta$ for surfaces of different orientation may be determined by the formulae
 
 ```{math}
 :label: eq-thermal-actions-21
-\cos \theta_{\mathrm{S}}=\cos \delta \sin \varphi \cos \gamma-\sin \delta \cos \varphi
+\cos \theta_{S}=\cos \delta \sin \varphi \cos \gamma-\sin \delta \cos \varphi
 ```
 
 ```{math}
 :label: eq-thermal-actions-22
-\cos \theta_{\mathrm{N}}=\sin \delta \cos \varphi-\cos \delta \sin \varphi \cos \gamma
+\cos \theta_{N}=\sin \delta \cos \varphi-\cos \delta \sin \varphi \cos \gamma
 ```
 
 ```{math}
@@ -446,38 +446,38 @@ The values of {math}`\cos \theta` for surfaces of different orientation may be d
 
 ```{math}
 :label: eq-thermal-actions-24
-\cos \theta_{\mathrm{NSE}, \mathrm{SW}}=\sqrt{ } 2 / 2(\cos \delta \sin \varphi \cos \gamma-\sin \delta \cos \varphi+\cos \delta \sin \gamma)
+\cos \theta_{NSE, SW}=\sqrt{ } 2 / 2(\cos \delta \sin \varphi \cos \gamma-\sin \delta \cos \varphi+\cos \delta \sin \gamma)
 ```
 
 ```{math}
 :label: eq-thermal-actions-25
-\cos \theta_{\mathrm{NSE}, \mathrm{NW}}=\sqrt{ } 2 / 2(\cos \delta \sin \gamma+\sin \delta \cos \varphi-\cos \delta \sin \varphi \cos \gamma)
+\cos \theta_{NSE, NW}=\sqrt{ } 2 / 2(\cos \delta \sin \gamma+\sin \delta \cos \varphi-\cos \delta \sin \varphi \cos \gamma)
 ```
 
 Using these formulae it may be calculated the intensity of direct solar radiation under a clear sky on the horizontal as well as vertical and inclined surfaces of different orientation for each hour of the day in any season corresponding to the latitude of the locality.
 
 The intensity of diffused solar radiation on a vertical surface can be determined by an indirect method using the data of pyrheliometric observations for the diffused radiation of the horizontal surface and experimental data for the value of the relative illuminance of vertical surfaces of different orientation.
 
-Due to a significant variety of influencing factors, an accurate description of the influence of the solar radiation on structure is complicated. Therefore, the equivalent temperature {math}`T_{\mathrm{s}}` may be applied {cite}`iso_tr_9492` for the assessment of solar radiation effects given as
+Due to a significant variety of influencing factors, an accurate description of the influence of the solar radiation on structure is complicated. Therefore, the equivalent temperature $`T_{s}$ may be applied {cite}`iso_tr_9492` for the assessment of solar radiation effects given as
 
 ```{math}
 :label: eq-thermal-actions-26
-T_{\mathrm{s}}=\frac{k_{\mathrm{s}}}{\alpha_{\mathrm{e}}} Q
+T_{s}=\frac{k_{s}}{\alpha_{e}} Q
 ```
 
 where
 
-{math}`Q` is the intensity of the total (i.e. direct and diffused) solar radiation, {math}`\mathrm{Wm}^{-2}`,
+$Q$ is the intensity of the total (i.e. direct and diffused) solar radiation, $Wm^{-2}$,
 
-{math}`k_{\mathrm{s}}` is the absorption factor of solar radiation by the structure surface,
+$k_{s}$ is the absorption factor of solar radiation by the structure surface,
 
-{math}`\alpha_{\mathrm{e}}` is the exchange factor as a result of convection and radiation, {math}`\mathrm{Wm}^{-2} \mathrm{~K}^{-1}`.
+$\alpha_{e}$ is the exchange factor as a result of convection and radiation, $Wm^{-2} ~K^{-1}$.
 
-The coefficient {math}`\alpha_{\mathrm{e}}` depends on the material and colour of the structure and on the wind velocity {cite}`mangerig1986klimatische`. The equivalent temperature {math}`T_{\mathrm{s}}` is added during the structural analysis to the outdoor air temperatures. Both the daily distribution of {math}`T_{\mathrm{s}}` and the daily variation of outdoor air temperature can be expanded into Fourier series. The values of absorption factor {math}`k_{\mathrm{s}}` of solar radiation are given in {numref}`tbl-thermal-2.14.4`.
+The coefficient $\alpha_{e}$ depends on the material and colour of the structure and on the wind velocity {cite}`mangerig1986klimatische`. The equivalent temperature $T_{s}$ is added during the structural analysis to the outdoor air temperatures. Both the daily distribution of $T_{s}$ and the daily variation of outdoor air temperature can be expanded into Fourier series. The values of absorption factor $k_{s}$ of solar radiation are given in {numref}`table-absorption-factor-of-solar-radiation by-structure-surface`.
 
 ```{table} The absorption factor of solar radiation by the structure surface
-:name: tbl-thermal-2.14.4
-| Material of structure | {math}`k_{\mathrm{s}}` |
+:name: table-absorption-factor-of-solar-radiation by-structure-surface
+| Material of structure | $k_{s}$ |
 | :--- | :--- |
 | Asphalt | 0,8 to 0,9 |
 | Clay brick | 0,7 to 0,8 |
@@ -485,11 +485,11 @@ The coefficient {math}`\alpha_{\mathrm{e}}` depends on the material and colour o
 | Aluminium | 0,4 to 0,5 |
 | Silica brick | 0,3 to 0,4 |
 | Rendered, faced or coloured surfaces of materials and structures: |  |
-| {math}`\quad`- white and light grey | 0,3 to 0,4 |
-| {math}`\quad`- grey | 0,4 to 0,5 |
-| {math}`\quad`- red, brown, green | 0,5 to 0,7 |
-| {math}`\quad`- blue | 0,7 to 0,8 |
-| {math}`\quad`- dark-blue, black | 0,8 to 0,9 |
+| $\quad$- white and light grey | 0,3 to 0,4 |
+| $\quad$- grey | 0,4 to 0,5 |
+| $\quad$- red, brown, green | 0,5 to 0,7 |
+| $\quad$- blue | 0,7 to 0,8 |
+| $\quad$- dark-blue, black | 0,8 to 0,9 |
 ```
 
 The solar radiation is the leading variable for the temperature differences Here are multiple citations {cite}`en_1991_1_5, eurocode_thermal_actions`!. Information on short-wave solar radiation can be obtained from pyrheliometric observations, including direct radiation on the surface perpendicular to sun rays, diffused radiation and total radiation on the horizontal surfaces of the structure {cite}`iso_tr_9492`.
@@ -500,10 +500,10 @@ For the determination of the vertical difference temperature component, the expr
 
 The statistical characteristics of the model of temperature difference component may be assessed on the basis of the extreme value probabilistic distribution. The skewness of the temperature difference component determined from the experimental measurements seems to be considerably less than the skewness of the Gumbel distribution. It appears that the Weibull or three parameter lognormal distributions may be preferably applied for modelling the temperature difference component.
 
-Statistical parameters of one-year maxima for temperature differences {math}`\Delta T_{M \text {,heat }}` (heating) for steel and composite bridges are given in {numref}`tbl-thermal-2.14.5` and for temperature differences {math}`\Delta T_{M, \text { cool }}` (cooling) are given in {numref}`tbl-thermal-2.14.6` based on the measurements of bridges in UK and Germany given in the background document {cite}`eurocode_thermal_actions`.
+Statistical parameters of one-year maxima for temperature differences $\Delta T_{M \text {,heat }}$ (heating) for steel and composite bridges are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridge` and for temperature differences $\Delta T_{M, \text { cool }}$ (cooling) are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges` based on the measurements of bridges in UK and Germany given in the background document {cite}`eurocode_thermal_actions`.
 
 ```{table} Statistical parameters of one-year maxima of temperature differences for steel and composite bridges in K (°C) (based on [[eur99](references)])
-:name: tbl-thermal-2.14.5
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridges
 | Bridge | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: |
 | Steel | 284,15 (11) | 0,5 |
@@ -511,17 +511,17 @@ Statistical parameters of one-year maxima for temperature differences {math}`\De
 ```
 
 ```{table} Statistical parameters of one-year maxima of temperature difference in K (°C) for steel and composite bridges (based on [[eur99](references)])
-:name: tbl-thermal-2.14.6
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges
 | Bridge | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: |
 | Steel | 290,15 (17) | 0,5 |
 | Composite | 293,15 (20) | 0,5 |
 ```
 
-Statistical parameters of one-year maxima for temperature differences {math}`\Delta T_{M \text {,heat }}` for concrete bridge are given in {numref}`tbl-thermal-2.14.7` based on the measurements of bridges in UK and Germany given in the document {cite}`eurocode_thermal_actions`. The mean of temperature difference is slightly decreasing with increasing thickness of the bridge surfacing while the value of standard deviation remains unchanged.
+Statistical parameters of one-year maxima for temperature differences $\Delta T_{M \text {,heat }}$ for concrete bridge are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-concrete-bridges` based on the measurements of bridges in UK and Germany given in the document {cite}`eurocode_thermal_actions`. The mean of temperature difference is slightly decreasing with increasing thickness of the bridge surfacing while the value of standard deviation remains unchanged.
 
 ```{table} Statistical parameters of one-year maxima of temperature differences in K (°C) for concrete bridges (based on [[eur99](references)])
-:name: tbl-thermal-2.14.7
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-concrete-bridges
 | Type | Depth [m] | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: | :---: |
 | Box girder | 2,0 | 297,15 (24) | 0,5 |
@@ -542,14 +542,14 @@ Following relationship may be applied for determination of longitudinal displace
 \varepsilon=\alpha T
 ```
 
-where the coefficient of linear thermal expansion {math}`\alpha` have influence on the resulting thermal effects. The coefficient {math}`\alpha` changes partly systematically (due to the type of material) and partly randomly (due to the physical and chemical properties of material). For the determination of statistical characteristics of the coefficient {math}`\alpha`, it is necessary to evaluate data of the relevant material.
+where the coefficient of linear thermal expansion $\alpha$ have influence on the resulting thermal effects. The coefficient $\alpha$ changes partly systematically (due to the type of material) and partly randomly (due to the physical and chemical properties of material). For the determination of statistical characteristics of the coefficient $\alpha$, it is necessary to evaluate data of the relevant material.
 
-The coefficient {math}`\alpha` for concrete may be expected in the range {cite}`technical_handbook_45`
+The coefficient $\alpha$ for concrete may be expected in the range {cite}`technical_handbook_45`
 
-- concrete with common aggregate {math}`\alpha_{\min }=7 \times 10^{-6}` to {math}`\alpha_{\max }=13 \times 10^{-6}`
-- concrete with lightweight aggregate {math}`\alpha_{\min }=5 \times 10^{-6}` to {math}`\alpha_{\max }=11 \times 10^{-6}`
+- concrete with common aggregate $\alpha_{\min }=7 \times 10^{-6}$ to $\alpha_{\max }=13 \times 10^{-6}$
+- concrete with lightweight aggregate $\alpha_{\min }=5 \times 10^{-6}$ to $\alpha_{\max }=11 \times 10^{-6}$
 
-depending on the type of cement, the composition of aggregate, on the humidity and the size of the structural cross-section. The humidity of material decreases with the increasing temperature of concrete influencing the value of coefficient {math}`\alpha`.
+depending on the type of cement, the composition of aggregate, on the humidity and the size of the structural cross-section. The humidity of material decreases with the increasing temperature of concrete influencing the value of coefficient $\alpha$.
 
 ## Model Uncertainities
 
@@ -557,21 +557,21 @@ Basic variables involved in the assessment of thermal actions on structures cont
 
 For the assessment of the model uncertainty, it should be known model uncertainties of its individual variables. Some prior basic information concerning model uncertainties from other types of climatic actions (snow, wind) might be accepted.
 
-The mean and coefficient of variation of the variables (for boundary conditions) entering the components of the heat energy {math}`q` in eq. {eq}`eq-thermal-actions-3` may be expressed as
+The mean and coefficient of variation of the variables (for boundary conditions) entering the components of the heat energy $q$ in eq. {eq}`eq-thermal-actions-3` may be expressed as
 
 ```{math}
 :label: eq-thermal-actions-28
-\mathrm{E}(q)=\mathrm{E}\left(q_{\mathrm{s}}\right)+\mathrm{E}\left(q_{\mathrm{r}}\right)+\mathrm{E}\left(q_{\mathrm{c}}\right) 
+E(q)=E\left(q_{s}\right)+E\left(q_{r}\right)+E\left(q_{c}\right) 
 ```
 
 ```{math}
 :label: eq-thermal-actions-29
-\sigma=\sqrt{\sigma\left(q_{\mathrm{s}}\right)^{2}+\sigma\left(q_{\mathrm{r}}\right)^{2}+\sigma\left(q_{\mathrm{c}}\right)^{2}}
+\sigma=\sqrt{\sigma\left(q_{s}\right)^{2}+\sigma\left(q_{r}\right)^{2}+\sigma\left(q_{c}\right)^{2}}
 ```
 
 where uncorrelated variables are considered.
 
-The model uncertainties of the basic variables for individual components of the heat energy {math}`q_{\mathrm{s}}, q_{\mathrm{r}}` and {math}`q_{\mathrm{c}}` should also be considered.
+The model uncertainties of the basic variables for individual components of the heat energy $q_{s}, q_{r}$ and $q_{c}$ should also be considered.
 
 The coefficients of variations of temperature components for several bridges based on the background document {cite}`eurocode_thermal_actions` and for measurements in three bridges in the Czech Republic (two prestressed concrete bridges and one composite steel concrete bridge {cite}`markova2013optimisation`) are given in [Annex A](section-annex-A).
 
@@ -592,12 +592,12 @@ Additional information may be found in documents given in bibliography.
 
 #### *Measurements of uniform temperature in bridges in UK and Germany*
 
-The one-year maxima of uniform bridge temperature component {math}`T_{N, \max }` for steel bridges is given in {numref}`tbl-thermal-A.2.1` and for composite bridges in {numref}`tbl-thermal-A.2.2`. The one-year maxima of uniform temperature ranges {math}`\Delta T_{N, \exp }` for concrete bridges are given in {numref}`tbl-thermal-A.2.3`. {numref}`tbl-thermal-A.2.1` to {numref}`tbl-thermal-A.2.3` gives information on selected bridges of the background document {cite}`eurocode_thermal_actions`.
+The one-year maxima of uniform bridge temperature component $T_{N, \max }$ for steel bridges is given in {numref}`table-Statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge` and for composite bridges in {numref}`table-Statistical-parameters-of-one-year-maxima-of-uniform-bridge-temperature-for-composite-bridges`. The one-year maxima of uniform temperature ranges $\Delta T_{N, \exp }$ for concrete bridges are given in {numref}`table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component,-for-concrete-bridges`. {numref}`table-Statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge` to {numref}`table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component,-for-concrete-bridges` gives information on selected bridges of the background document {cite}`eurocode_thermal_actions`.
 
-The model of uniform (effective) temperature component {math}`T_{N}` may be based on the national isotherms of minimum and maximum shade air temperatures, or determined from evaluated data from the site location. The extreme value distribution may be applied.
+The model of uniform (effective) temperature component $T_{N}$ may be based on the national isotherms of minimum and maximum shade air temperatures, or determined from evaluated data from the site location. The extreme value distribution may be applied.
 
 ```{table} Statistical parameters of one-year maxima for uniform temperature TN,max for steel bridge in K (°C) (web plate 20×4000 mm, bottom flange 600×40 mm, width of the bridge 15000 mm, length of cantilever 3000 mm)
-:name: tbl-thermal-A.2.1
+:name: table-Statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge
 | Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
 | North-south direction, east side of the <br> cross-section, 50mm surfacing | 313,25 (40,1) | 1,1 | -0,19 |
@@ -605,7 +605,7 @@ The model of uniform (effective) temperature component {math}`T_{N}` may be base
 ```
 
 ```{table} Statistical parameters of one-year maxima of uniform bridge temperature TN,max for composite bridges in K (°C) (concrete slab 300 mm, web plate 20×400 mm, top flange 400×40, bottom flange 600×40 mm, width of bridge 15000 mm, length of cantilever 3000 mm)
-:name: tbl-thermal-A.2.2
+:name: table-Statistical-parameters-of-one-year-maxima-of-uniform-bridge-temperature-for-composite-bridges
 | Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
 | North/south direction, east side of the <br> cross-section, 50mm surfacing, <br> coefficient $\alpha=1,0 \times 10^{-5}$ | 303,65 (30,5) | 0,9 | -0,16 |
@@ -614,7 +614,7 @@ The model of uniform (effective) temperature component {math}`T_{N}` may be base
 ```
 
 ```{table} Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, TN,exp = TN,max – 10°C for concrete bridges, expressed in K and °C
-:name: tbl-thermal-A.2.3
+:name: table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component,-for-concrete-bridges
 | Depth [m] | Mean, in K (°C) | Standard deviation | Skewness |
 | :---: | :---: | :---: | :---: |
 |  | Box girder |  |  |
@@ -633,40 +633,40 @@ The model of uniform (effective) temperature component {math}`T_{N}` may be base
 
 #### *Measurements of uniform temperature in the Czech Republic*
 
-One-year maxima of uniform bridge temperature component {math}`\Delta T_{N, \max }` in the Koberovice bridge (prestressed concrete box girder, three spans {math}`54 \mathrm{~m}+74 \mathrm{~m}+54 \mathrm{~m}`, cross-section of {math}`4,2 \mathrm{~m}`, depth of surfacing {math}`0,12 \mathrm{~m}`) are given in {numref}`tbl-thermal-A.2.4`. The uniform bridge temperature is based on the one year maxima derived from 3-day extremes of temperatures (period from June to August, 1999 - 2002) which was obtained from averaged morning measurements of bridge in four points (in walls, in top and bottom sides) of the box girder.
+One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ in the Koberovice bridge (prestressed concrete box girder, three spans $54 ~m+74 ~m+54 ~m$, cross-section of $4,2 ~m$, depth of surfacing $0,12 ~m$) are given in {numref}`table-Statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-Koberovice-bridge`. The uniform bridge temperature is based on the one year maxima derived from 3-day extremes of temperatures (period from June to August, 1999 - 2002) which was obtained from averaged morning measurements of bridge in four points (in walls, in top and bottom sides) of the box girder.
 
 ```{table} Statistical parameters of one-year maxima for uniform bridge temperature TN,max for Koberovice bridge, in K (°C).
-:name: tbl-thermal-A.2.4
+:name: table-Statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-Koberovice-bridge
 | Mean, in K (°C) | Standard deviation | Skewness |
 | :---: | :---: | :---: |
 | 298,45 (25,3) | 1,1 | -0,04 |
 ```
 
-NOTE The characteristic value of uniform temperature component obtained on the basis of measurements in Koberovice bridge is compared with the characteristic value of uniform temperature component given in EN 1991-1-5 {cite}`en_1991_1_5`. The characteristic value of uniform temperature component based on measurements in Koberovice bridge (see {numref}`tbl-thermal-A.2.4`) is specified as
+NOTE The characteristic value of uniform temperature component obtained on the basis of measurements in Koberovice bridge is compared with the characteristic value of uniform temperature component given in EN 1991-1-5 {cite}`en_1991_1_5`. The characteristic value of uniform temperature component based on measurements in Koberovice bridge (see {numref}`table-Statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-Koberovice-bridge`) is specified as
 
 ```{math}
-T_{N \mathrm{k}, \max }=37,5^{\circ} \mathrm{C}
+T_{N k, \max }=37,5^{\circ} C
 ```
 
 The characteristic value of uniform temperature component based on EN 1991-1-5 {cite}`en_1991_1_5` and Czech national map of isotherms is given as
 
-{math}`T_{\mathrm{Nk}, \max , \mathrm{EN}}=T_{\mathrm{Nk}, \mathrm{EN}}+1,5^{\circ} \mathrm{C}=38+1,5=39,5^{\circ} \mathrm{C} \quad` (for lower bound of isotherms {math}`T_{\mathrm{Nk}, \max }=36+1,5=` {math}`\left.37,5^{\circ} \mathrm{C}\right)`
+$T_{Nk, \max , EN}=T_{Nk, EN}+1,5^{\circ} C=38+1,5=39,5^{\circ} C \quad$ (for lower bound of isotherms $T_{Nk, \max }=36+1,5=$ $\left.37,5^{\circ} C\right)$
 
 It could be noted that obtained characteristic values of the uniform temperature component are in a good agreement.
 
-One-year maxima of uniform bridge temperature component {math}`\Delta T_{N, \max }` in the Doksany 11 span prestressed concrete two beam bridge in Highway D8 (across river Ohre, 2011-2013) are given in {numref}`tbl-thermal-A.2.5`.
+One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ in the Doksany 11 span prestressed concrete two beam bridge in Highway D8 (across river Ohre, 2011-2013) are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-for-Doksany-prestressed-concrete-bridge`.
 
-```{table} Statistical parameters of one-year maxima for uniform bridge temperature TN,max for Koberovice bridge, in K (°C).
-:name: tbl-thermal-A.2.5
+```{table} Statistical parameters of one-year maxima of temperature difference component TM,heat for Doksany prestressed concrete bridge, in K (°C)
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-for-Doksany-prestressed-concrete-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
 | 295,45 (22,3) | 2,5 | 0,6 |
 ```
 
-One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ for the three span composite steel concrete Slavici bridge in Prague ring (close to exit of Lochkov tunnel, 2011-2013), are given in {numref}`tbl-thermal-A.2.6`.
+One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ for the three span composite steel concrete Slavici bridge in Prague ring (close to exit of Lochkov tunnel, 2011-2013), are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-uniform-temperature-range-for-composite-steel-concrete-Slavici-bridge`.
 
 ```{table} Statistical parameters of one-year maxima of uniform temperature range TN,heat for the composite steel concrete Slavici bridge, in K (°C)
-:name: tbl-thermal-A.2.6
+:name: table-Statistical-parameters-of-one-year-maxima-of-uniform-temperature-range-for-composite-steel-concrete-Slavici-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
 | 299,95 (26,8) | 3,3 | 0,55 |
@@ -676,47 +676,47 @@ One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ fo
 
 The relationship between the extreme shade air temperature and uniform temperature component for the three types of bridge superstructure is recommended in EN 1991-1-5 {cite}`en_1991_1_5`.
 
-Note: The maximum uniform temperature component {math}`T_{N, \max }` and minimum uniform temperature component {math}`T_{N, \text { min }}` considered in {cite}`en_1991_1_5` for three types of bridges (in °C ) can be expressed as
+Note: The maximum uniform temperature component $T_{N, \max }$ and minimum uniform temperature component $T_{N, \text { min }}$ considered in {cite}`en_1991_1_5` for three types of bridges (in °C ) can be expressed as
 
 ```{math}
 \left.
 \begin{array}{ll}
-\text{Type 1,} & T_{\mathrm{N}, \max} = T_{\max} + 16^\circ \mathrm{C} \\
-\text{Type 2,} & T_{\mathrm{N}, \max} = T_{\max} + 4.5^\circ \mathrm{C} \\
-\text{Type 3,} & T_{\mathrm{N}, \max} = T_{\max} + 1.5^\circ \mathrm{C}
+\text{Type 1,} & T_{N, \max} = T_{\max} + 16^\circ C \\
+\text{Type 2,} & T_{N, \max} = T_{\max} + 4.5^\circ C \\
+\text{Type 3,} & T_{N, \max} = T_{\max} + 1.5^\circ C
 \end{array}
-\right\} \text{for } 30^\circ \mathrm{C} \leq T_{\max} \leq 50^\circ \mathrm{C}
+\right\} \text{for } 30^\circ C \leq T_{\max} \leq 50^\circ C
 \left.
 \begin{array}{ll}
-T_{\mathrm{N}, \text { min }}=T_{\text {min }}-3^{\circ} \mathrm{C} \\
-T_{\mathrm{N}, \text { min }}=T_{\text {min }}+4,5^{\circ} \mathrm{C} \\
-T_{\mathrm{N}, \text { min }}=T_{\text {min }}+8^{\circ} \mathrm{C}
+T_{N, \text { min }}=T_{\text {min }}-3^{\circ} C \\
+T_{N, \text { min }}=T_{\text {min }}+4,5^{\circ} C \\
+T_{N, \text { min }}=T_{\text {min }}+8^{\circ} C
 \end{array}
-\right\} \text { for }-50^{\circ} \mathrm{C} \leq T_{\text {min }} \leq 0^{\circ} \mathrm{C}
+\right\} \text { for }-50^{\circ} C \leq T_{\text {min }} \leq 0^{\circ} C
 ```
 
-based on the daily range of 10°C. For other daily ranges of temperature, the adjustment of temperature components {math}`T_{N, \max }` and {math}`T_{N, \min }` is indicated in the following Table based on the Background document {cite}`eurocode_thermal_actions`.
+based on the daily range of 10°C. For other daily ranges of temperature, the adjustment of temperature components $T_{N, \max }$ and $T_{N, \min }$ is indicated in the following Table based on the Background document {cite}`eurocode_thermal_actions`.
 
 Adjustment of the uniform temperature component for temperature daily ranges, in °C
 
-| Type of bridge deck | {math}`T_{N, \max }` | {math}`T_{N, \text { min }}` |
+| Type of bridge deck | $T_{N, \max }$ | $T_{N, \text { min }}$ |
 | :--- | :---: | :---: |
-| 1. Steel | {math}`T_{N, \max }+\left(10-\Delta_{2}\right) / 3` | {math}`T_{N, \min }` |
-| 2. Composite deck | {math}`T_{N, \max }+\left(10-\Delta_{2}\right) / 2` | {math}`T_{N, \min }+\left(\Delta_{1}-10\right) / 2` |
-| 3. Concrete deck | {math}`T_{N, \max }+\left(10-\Delta_{2}\right) / 2` | {math}`T_{N, \text { min }}+\left(\Delta_{1}-10\right) / 4` |
+| 1. Steel | $T_{N, \max }+\left(10-\Delta_{2}\right) / 3$ | $T_{N, \min }$ |
+| 2. Composite deck | $T_{N, \max }+\left(10-\Delta_{2}\right) / 2$ | $T_{N, \min }+\left(\Delta_{1}-10\right) / 2$ |
+| 3. Concrete deck | $T_{N, \max }+\left(10-\Delta_{2}\right) / 2$ | $T_{N, \text { min }}+\left(\Delta_{1}-10\right) / 4$ |
 
-{math}`\Delta_{1}`, resp. {math}`\Delta_{2}` is the shade air temperature range for minimum, resp. maximum temperature conditions appropriate to the site location
+$\Delta_{1}$, resp. $\Delta_{2}$ is the shade air temperature range for minimum, resp. maximum temperature conditions appropriate to the site location
 
 ### Temperature difference components
 
 #### *Measurements of temperature difference component in bridges in UK and Germany*
 
-The results of statistical analysis of temperature differences {math}`\Delta T_{M z}` for steel bridges based on one-year maxima (type III maximum value distribution) are indicated in {numref}`tbl-thermal-A.3.1` and {numref}`tbl-thermal-A.3.2`, for composite bridges in {numref}`tbl-thermal-A.3.3` and {numref}`tbl-thermal-A.3.4`, and for concrete bridges in {numref}`tbl-thermal-A.3.5` based on the document {cite}`eurocode_thermal_actions`.
+The results of statistical analysis of temperature differences $\Delta T_{M z}$ for steel bridges based on one-year maxima (type III maximum value distribution) are indicated in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-steel-bridges` and {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-cool-for-steel-bridges`, for composite bridges in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-heat-for-composite-bridges` and {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-cool-for-composite-bridges`, and for concrete bridges in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-concrete-bridges` based on the document {cite}`eurocode_thermal_actions`.
 
-Table A.3.1 Statistical parameters of one-year maxima of temperature differences {math}`\Delta T_{M, \text { heat }}` for steel bridges (top warmer than bottom), in {math}`\mathrm{K}\left({ }^{\circ} \mathrm{C}\right)`
+Table A.3.1 Statistical parameters of one-year maxima of temperature differences $\Delta T_{M, \text { heat }}$ for steel bridges (top warmer than bottom), in $\mathrm{K}\left({ }^{\circ} \mathrm{C}\right)$
 
 ```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,heat for steel bridges (top warmer than bottom), in K (°C)
-:name: tbl-thermal-A.3.1
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-steel-bridges
 | Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
 | North/south direction, east side of <br> the cross-section, 50 mm surfacing | 283,95 (10,8) | 0,4 | -0,08 |
@@ -725,7 +725,7 @@ Table A.3.1 Statistical parameters of one-year maxima of temperature differences
 ```
 
 ```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,cool for steel bridges (bottom warmer than top), in K (°C)
-:name: tbl-thermal-A.3.2
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-cool-for-steel-bridges
 | Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
 | Bridge position, depth of surfacing <br> and coefficient {math}`\alpha` | Mean, in K (°C) | St. deviation | Skewness |
@@ -735,7 +735,7 @@ Table A.3.1 Statistical parameters of one-year maxima of temperature differences
 ```
 
 ```{table} Statistical parameters of one-year maxima of temperature difference ΔTM,heat in K (°C) for composite bridges (top warmer than bottom)
-:name: tbl-thermal-A.3.3
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-heat-for-composite-bridges
 | Bridge position, depth of surfacing <br> and coefficient {math}`\alpha` | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
 | North/south direction, east side of <br> the cross-section, 50 mm surfacing, <br> {math}`\alpha=1,0 \times 10^{-5}` | 283,95 (10,8) | 1,1 | 0,54 |
@@ -744,7 +744,7 @@ Table A.3.1 Statistical parameters of one-year maxima of temperature differences
 ```
 
 ```{table} Statistical parameters of one-year maxima of temperature difference ΔTM,cool in K (°C) for composite bridges (bottom warmer than top)
-:name: tbl-thermal-A.3.4
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-cool-for-composite-bridges
 | Bridge position, depth of surfacing <br> and coefficient {math}`\alpha` | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
 | North/South direction, east side of <br> the cross-section, 50mm surfacing, <br> {math}`\alpha=1,0 \times 10^{-5}` | 292,85 (19,7) | 0,5 | -0,28 |
@@ -754,7 +754,7 @@ Table A.3.1 Statistical parameters of one-year maxima of temperature differences
 ```
 
 ```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,heat in K (°C) for concrete bridges.
-:name: tbl-thermal-A.3.5
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-concrete-bridges
 | Depth [m] | Mean, in °K (°C) | St. deviation | Skewness |  
 | :---: | :---: | :---: | :---: | 
 |  | box girder |  |  |  |
@@ -773,10 +773,10 @@ Table A.3.1 Statistical parameters of one-year maxima of temperature differences
 
 #### *Measurements of temperature difference component in the Czech Republic*
 
-The results of measurements of temperature differences in the Koberovice bridge (concrete box girders, cross-section A of left bridge, cross-section D of right bridge) are shown in {numref}`tbl-thermal-A.3.6` and {numref}`tbl-thermal-A.3.7`. The temperature differences are based on the 3 day extremes of the concrete box girder (measured in top and bottom of the box girder). The statistical characteristics for annual extremes of type III are given in {numref}`tbl-thermal-A.3.6` and {numref}`tbl-thermal-A.3.7`.
+The results of measurements of temperature differences in the Koberovice bridge (concrete box girders, cross-section A of left bridge, cross-section D of right bridge) are shown in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-Koberovice-bridge` and {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge`. The temperature differences are based on the 3 day extremes of the concrete box girder (measured in top and bottom of the box girder). The statistical characteristics for annual extremes of type III are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-Koberovice-bridge` and {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge`.
 
 ```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,heat for Koberovice bridge, concrete box girder A, in K (°C)
-:name: tbl-thermal-A.3.6
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-Koberovice-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
 | 281,35(8,2) | 1,2 | 0,95 |
@@ -786,30 +786,30 @@ NOTE The characteristic value of temperature difference component obtained on th
 The characteristic value of temperature difference component based on measurements in Koberovice bridge is specified as
 
 ```{math}
-\Delta T_{M \mathrm{k}, \text { heat }}=10,75^{\circ} \mathrm{C}
+\Delta T_{M , \text { heat }}=10,75^{\circ} 
 ```
 
 The characteristic value of temperature difference component based on EN 1991-1-5 {cite}`en_1991_1_5` is given as
 
 ```{math}
-\Delta T_{M \mathrm{k}, \text { heat,EN }}=12,5-2,5=10^{\circ} \mathrm{C}
+\Delta T_{M , \text { heat,EN }}=12,5-2,5=10^{\circ} 
 ```
 
 It could be noted that obtained characteristic values of the temperature difference component are in a good agreement.
 
-The results of three year measurements of Doksany bridge on Highway D8 (across river Ohre) are given for temperature difference component in {numref}`tbl-thermal-A.3.7` (2011-2013).
+The results of three year measurements of Doksany bridge on Highway D8 (across river Ohre) are given for temperature difference component in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge` (2011-2013).
 
 ```{table} Statistical parameters of one-year maxima of temperature difference component ΔTM,heat for Doksany prestressed concrete bridge, in K (°C)
-:name: tbl-thermal-A.3.7
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
 | 279,55(6,4) | 1,1 | 0,1 |
 ```
 
-Results of three year measurements of Slavici composite steel concrete bridge in Prague ring is given for temperature difference component in {numref}`tbl-thermal-A.3.8` (2011-2013).
+Results of three year measurements of Slavici composite steel concrete bridge in Prague ring is given for temperature difference component in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-Slavici-composite-steel-concrete-bridge` (2011-2013).
 
 ```{table} Statistical parameters of one-year maxima of temperature difference component ΔTM,heat for Slavici composite steel concrete bridge, in K (°C)
-:name: tbl-thermal-A.3.8
+:name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-Slavici-composite-steel-concrete-bridge
 | Mean in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
 | 277,05(3,9) | 0,6 | 0,6 |
@@ -817,12 +817,11 @@ Results of three year measurements of Slavici composite steel concrete bridge in
 
 ### Solar radiation for Koberovice bridge
 
-The daily solar radiation was measured in the Meteorological station in Košetice (about {math}`12 \mathrm{~km}` from the Koberovice bridge in the Czech Republic) from June to August 1999 -2001 (No. of observations {math}`n=276`). Statistical parameters of daily global solar radiation and its components are given in {numref}`tbl-thermal-A.4.1`.
+The daily solar radiation was measured in the Meteorological station in Košetice (about $12 ~km$ from the Koberovice bridge in the Czech Republic) from June to August 1999 -2001 (No. of observations $n=276$). Statistical parameters of daily global solar radiation and its components are given in {numref}`table-Statistical-parameters-of-global-solar-radiation-and-its-components-provided-by-Meteorological-station-Košetice`.
 
-{numref}`tbl-thermal-A.4.1` Statistical parameters of global solar radiation and its components (diffused and direct) from June to August 1999-2001 provided by the Meteorological station Košetice, in kJ/ {math}`{ }^{2}`.
 
 ```{table} Statistical parameters of global solar radiation and its components (diffused and direct) from June to August 1999-2001 provided by the Meteorological station Košetice, in kJ/m2.
-:name: tbl-thermal-A.4.1
+:name: table-Statistical-parameters-of-global-solar-radiation-and-its-components-provided-by-Meteorological-station-Košetice
 | Statistical parameters | Global radiation | Diffused radiation | Direct radiation |
 | :--- | :---: | :---: | :---: |
 | Minimum | 1832 | 1832 | 0 |
@@ -833,10 +832,10 @@ The daily solar radiation was measured in the Meteorological station in Košetic
 | Skewness | -0,22 | -0,46 | 0,52 |
 ```
 
-The one-year maxima of global solar radiation is assessed on the basis of 3-day maxima based on the measurements provided by Meteorological station Košetice from June to August 1999 - 2001. The statistical parameters are indicated in {numref}`tbl-thermal-A.4.2`.
+The one-year maxima of global solar radiation is assessed on the basis of 3-day maxima based on the measurements provided by Meteorological station Košetice from June to August 1999 - 2001. The statistical parameters are indicated in {numref}`table-Statistical-parameters-of-one-year-maxima-for-global-solar-radiation-and-its-components-from-the-station-Košetice.
 
 ```{table} Statistical parameters of one-year maxima for global solar radiation and its components (diffused and direct) from the station Košetice, in kJ/m2.
-:name: tbl-thermal-A.4.2
+:name: table-Statistical-parameters-of-one-year-maxima-for-global-solar-radiation-and-its-components-from-the-station-Košetice
 | Statistical parameters | Global radiation | Diffused radiation | Direct radiation |
 | :--- | :---: | :---: | :---: |
 | Mean | 30790 | 13620 | 17290 |
@@ -848,18 +847,18 @@ The one-year maxima of global solar radiation is assessed on the basis of 3-day 
 
 For the global solar radiation and its components, the type III extreme value distribution may be applied.
 
-The daily total and diffused solar radiation from June to August 2002 is illustrated in {numref}`fig-thermal-A.4.1`.
+The daily total and diffused solar radiation from June to August 2002 is illustrated in {numref}`fig-daily-total-and-diffused-solar-radiation-from-June-to-August-2002`.
 
-```{figure} ../part-02/images/Figure-thermal-A.4.1.jpg
-:name: fig-thermal-A.4.1
+```{figure} ../part-02/images/daily-total-and-diffused-solar-radiation-from-June-to-August-2002.jpg        
+:name: fig-daily-total-and-diffused-solar-radiation-from-June-to-August-2002
 
 The daily total and diffused solar radiation from June to August 2002 based on information from Meteorological Institute near Koberovice bridge
 ```
 
-The daily course of measured temperatures in the Koberovice concrete box girder (left and right walls, top and bottom, outside temperatures (out) and inside temperatures (in) of the box girder) from 01/07 to 10/07/2002 is for illustration shown in {numref}`fig-thermal-A.4.2`.
+The daily course of measured temperatures in the Koberovice concrete box girder (left and right walls, top and bottom, outside temperatures (out) and inside temperatures (in) of the box girder) from 01/07 to 10/07/2002 is for illustration shown in {numref}`fig-daily-course-of-measured-temperatures-in-the-Koberovice-concrete-box-girder`.
 
-```{figure} ../part-02/images/Figure-thermal-A.4.2.jpg
-:name: fig-thermal-A.4.2
+```{figure} ../part-02/images/daily-course-of-measured-temperatures-in-the-Koberovice-concrete-box-girder.jpg 
+:name: fig-daily-course-of-measured-temperatures-in-the-Koberovice-concrete-box-girder
 
 The daily course of measured temperatures in the Koberovice concrete box girder in °C (left and right walls, top and bottom slabs, outside and inside temperatures) from 01/07 to 10 / 07 / 2002.
 ```

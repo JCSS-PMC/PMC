@@ -2,22 +2,21 @@
 
 **List of symbols:**
 
+$i  =\text { influence coefficient }$ 
 
-$\mathrm{i}  =\text { influence coefficient }$ 
+$t_{d}  =\text { busy time per year }$ 
 
-$\mathrm{t}_{\mathrm{d}}  =\text { busy time per year }$ 
+$t_{y}  =\text { busy days per year }$ 
 
-$\mathrm{t}_{\mathrm{y}}  =\text { busy days per year }$ 
+$L =\text { weight of car in } kN$ 
 
-$\mathrm{L} =\text { weight of car in } \mathrm{kN}$ 
+$S  =\text { load effect }$ 
 
-$\mathrm{S}  =\text { load effect }$ 
+$T  =\text { reference time in years }$ 
 
-$\mathrm{T}  =\text { reference time in years }$ 
+$N  =\text { number of parking places }$ 
 
-$\mathrm{N}  =\text { number of parking places }$ 
-
-$\lambda_{\mathrm{d}}  \text { = renewal rate in [1/d] }$ 
+$\lambda_{d}  \text { = renewal rate in [1/d] }$ 
 
 $\tau  =\text { mean dwell time in hours }$
 
@@ -35,13 +34,13 @@ With respect to the temporal fluctuations one can distinguish the following usag
 - car parks belonging to assembly halls, sport facilities etc.
 - car parks connected with railway stations airports etc.
 
-The temporal fluctuations are summarized in table 1. For parking facilities for heavy vehicles similar distinctions can be made.
+The temporal fluctuations are summarized in {numref}`table-Typical-temporal-fluctuations-in-car-parks`. For parking facilities for heavy vehicles similar distinctions can be made.
 
-The mean weight of light vehicles can be assumed to be about {math}`\mathrm{E}[\mathrm{L}] \approx 15 \mathrm{kN}` with coefficient of variation of 15 to 30% depending on the usage of the parking facility and the traffic mixture. The parking place covers an area of about {math}`2.4 \cdot 5.0 \mathrm{~m}^{2}`. A normal distribution can be assumed. In general, light vehicles can be modeled by point loads located in the middle of the parking places.
+The mean weight of light vehicles can be assumed to be about $E[L] \approx 15 kN$ with coefficient of variation of 15 to 30% depending on the usage of the parking facility and the traffic mixture. The parking place covers an area of about $2.4 \cdot 5.0 ~m^{2}$. A normal distribution can be assumed. In general, light vehicles can be modeled by point loads located in the middle of the parking places.
 
 ```{table} Typical temporal fluctuations in car parks
-:name: tbl-1-loads -in-car-parks
-| Location of car park | Busy days per year <br> {math}`\mathrm{t}_{\mathrm{y}}[\mathrm{d}]` | Busy times per day <br> {math}`\mathrm{t}_{\mathrm{d}}[\mathrm{h}]` | Mean dwell time {math}`\tau[\mathrm{h}]` | Number of cars per day {math}`\lambda_{\mathrm{d}}[1 / \mathrm{d}]` |
+:name: table-Typical-temporal-fluctuations-in-car-parks
+| Location of car park | Busy days per year <br> $t_{y}[d]$ | Busy times per day <br> $t_{d}[h]$ | Mean dwell time $\tau[h]$ | Number of cars per day $\lambda_{d}[1 / d]$ |
 | :--- | :---: | :---: | :---: | :---: |
 | Commercial areas | 312 |8 <br> 4 | 2.4 | 3.2 |
 | Railway stations <br> Airports | 30 | 14 - 18 | 10 - 14 | 1.3 |
@@ -54,31 +53,31 @@ Calculation of load effects has to take proper account of influence functions ac
 
 ```{math}
 :label: eq-loads-in-car-parks-1
-\mathrm{S(t)}=\sum_{\mathrm{j=i}}^{\mathrm{n}} \mathrm{i_{j} L_{j}}
+S(t)=\sum_{j=i}^{n} i_{j} L_{j}
 ```
 
 If the negative parts of the influence functions can be neglected the distribution of extreme load effects can be computed from
 
 ```{math}
 :label: eq-loads-in-car-parks-2
-\mathrm{F}_{\max \{\mathrm{S}\}}(\mathrm{x}) \approx \exp \left[-\lambda_{\mathrm{d}} \mathrm{t_{y}} \mathrm{t_{d}} \mathrm{T P}\left(\sum_{\mathrm{j=1}}^{\mathrm{n}} \mathrm{i_{j} L_{j}} \geq \mathrm{x}\right)\right]
+F_{\max \{S\}}(x) \approx \exp \left[-\lambda_{d} t_{y} t_{d} T P\left(\sum_{j=1}^{n} i_{j} L_{j} \geq x\right)\right]
 ```
 
 with
 
 ```{math}
 :label: eq-loads-in-car-parks-3
-\mathrm{P}\left(\sum_{\mathrm{j=1}}^{\mathrm{n}} \mathrm{i_{j} L_{j}}>\mathrm{x}\right) \approx \Phi\left(-\frac{\mathrm{x}-\left(\sum_{\mathrm{j=1}}^{\mathrm{n}} \mathrm{i_{j} E}\left[\mathrm{L_{j}}\right]\right)}{\left(\sum_{\mathrm{j=1}}^{\mathrm{n}} \mathrm{i_{j}} \operatorname{Var}\left[\mathrm{L_{j}}\right]\right)^{1 / 2}}\right)
+P\left(\sum_{j=1}^{n} i_{j} L_{j}>x\right) \approx \Phi\left(-\frac{x-\left(\sum_{j=1}^{n} i_{j} E\left[L_{j}\right]\right)}{\left(\sum_{j=1}^{n} i_{j} \operatorname{Var}\left[L_{j}\right]\right)^{1 / 2}}\right)
 ```
 
-{math}`\mathrm{T}` is the reference time. On driveways where only one vehicle determines the load effect one has
+$T$ is the reference time. On driveways where only one vehicle determines the load effect one has
 
 ```{math}
 :label: eq-loads-in-car-parks-4
-\mathrm{F}_{\max \{\mathrm{S}\}}(\mathrm{x}) \approx \exp \left[-\lambda_{\mathrm{d}} \mathrm{t}_{\mathrm{y}} \mathrm{TN}\left\{1-\Phi\left(\frac{\mathrm{x}-\mathrm{E}[\mathrm{L}]}{(\operatorname{Var}[\mathrm{L}])^{1 / 2}}\right)\right\}\right]
+F_{\max \{S\}}(x) \approx \exp \left[-\lambda_{d} t_{y} TN\left\{1-\Phi\left(\frac{x-E[L]}{(\operatorname{Var}[L])^{1 / 2}}\right)\right\}\right]
 ```
 
-where {math}`\mathrm{N}` is the numer of parking places associated with the drive way.
+where $N$ is the numer of parking places associated with the drive way.
 
 **References**
 

@@ -2,138 +2,138 @@
 
 **List of symbols:**
 
-{math}`c =`  phase velocity ( {math}`c=\omega / k`) 
+$c =$  phase velocity ( $c=\omega / k$) 
 
-{math}`d =`  water depth 
+$d =$  water depth 
 
-{math}`d_{c} =`  thickness of protection block layer 
+$d_{c} =$  thickness of protection block layer 
 
-{math}`f =`  frequency ({math}`=1/T`) 
+$f =$  frequency ($=1/T$) 
 
-{math}`f_{p} =`  frequency corresponding to {math}`\mathrm{T}_{\mathrm{p}}` 
+$f_{p} =$  frequency corresponding to $T_{p}$ 
 
-{math}`g =`  acceleration of gravity 
+$g =$  acceleration of gravity 
 
-{math}`h =`  water depth in front of the structure; 
+$h =$  water depth in front of the structure; 
 
-{math}`h^{\prime} =`  water depth at the toe of the front wall (= {math}`d+d_{c}` )
+$h^{\prime} =$  water depth at the toe of the front wall (= $d+d_{c}$ )
 
-{math}`h_{b} =`  water depth at a distance of 5 times the significant wave height. 
+$h_{b} =$  water depth at a distance of 5 times the significant wave height. 
 
-{math}`k =`  wave number ( {math}`k=1 / \lambda`) 
+$k =$  wave number ( $k=1 / \lambda$) 
 
-{math}`u(x, z, t) =`  horizontal particle velocity
+$u(x, z, t) =$  horizontal particle velocity
 
-{math}`\dot{u}(x, z, t) =`  acceleration 
+$\dot{u}(x, z, t) =$  acceleration 
 
-{math}`u =`  water velocity perpendicular to structural member 
+$u =$  water velocity perpendicular to structural member 
 
-{math}`\dot{u} =`  water acceleration perpendicular to structural member 
+$\dot{u} =$  water acceleration perpendicular to structural member 
 
-{math}`u-\dot{x} =`  relative velocity 
+$u-\dot{x} =$  relative velocity 
 
-{math}`\dot{x} =`  cylinder velocity 
+$\dot{x} =$  cylinder velocity 
 
-{math}`\ddot{x} =`  cylinder acceleration 
+$\ddot{x} =$  cylinder acceleration 
 
-{math}`x, y, z =`  coordinates 
+$x, y, z =$  coordinates 
 
-{math}`A =`  cross section area 
+$A =$  cross section area 
 
-{math}`A_{\gamma} =`  normalisation factor, {math}`\approx 1-0.287 \ln (\gamma)` 
+$A_{\gamma} =$  normalisation factor, $\approx 1-0.287 \ln (\gamma)$ 
 
-{math}`C_{M} =`  inertia coefficient 
+$C_{M} =$  inertia coefficient 
 
-{math}`C_{D} \cdot =`  drag coefficient 
+$C_{D} \cdot =$  drag coefficient 
 
-{math}`D =`  cylinder diameter 
+$D =$  cylinder diameter 
 
-{math}`F =`  force per cylinder length in flow and motion direction 
+$F =$  force per cylinder length in flow and motion direction 
 
-{math}`H_{s} =`  significant wave height 
+$H_{s} =$  significant wave height 
 
-{math}`H=`  incident wave height (from trough to crest) in front of the structure 
+$H=$  incident wave height (from trough to crest) in front of the structure 
 
-{math}`K=`  non-linearity factor 
+$K=$  non-linearity factor 
 
-{math}`L=`  wave length; 
+$L=$  wave length; 
 
-{math}`M_{n}=`  n-th (spectral) moment 
+$M_{n}=$  n-th (spectral) moment 
 
-{math}`S=`  significant wave slope 
+$S=$  significant wave slope 
 
-{math}`S(f), S(\omega)=`  spectral density 
+$S(f), S(\omega)=$  spectral density 
 
-{math}`T=`  wave period. 
+$T=$  wave period. 
 
-{math}`T_{p}=`  peak period 
+$T_{p}=$  peak period 
 
-{math}`T_{z}=`  mean wave period 
+$T_{z}=$  mean wave period 
 
-{math}`T_{m o 2}=`  average wave period 
+$T_{m o 2}=$  average wave period 
 
-{math}`T_{\mathrm{d}}=`  duration of sea state
+$T_{d}=$  duration of sea state
 
-{math}`T(z, \omega)=`  transfer function 
+$T(z, \omega)=$  transfer function 
 
-{math}`V=`  coefficient of variation 
+$V=$  coefficient of variation 
 
-{math}`\alpha=`  generalised Phillips' constant, scale parameter 
+$\alpha=$  generalised Phillips' constant, scale parameter 
 
-{math}`\alpha_{1}, \alpha_{2}, \alpha_{3}=`  factors dependent on hydraulic conditions (see {eq}`eq-wave-2-56`) 
+$\alpha_{1}, \alpha_{2}, \alpha_{3}=$  factors dependent on hydraulic conditions (see {eq}`eq-wave-2-56`) 
 
-{math}`\alpha_{4}=`  kurtosis 
+$\alpha_{4}=$  kurtosis 
 
-{math}`\beta=`  shape parameter 
+$\beta=$  shape parameter 
 
-{math}`\beta=`  angle of wave incidence 
+$\beta=$  angle of wave incidence 
 
-{math}`\gamma=`  location parameter 
+$\gamma=$  location parameter 
 
-{math}`\gamma=`  peakness parameter in spectrum 
+$\gamma=$  peakness parameter in spectrum 
 
-{math}`\delta, \varepsilon=`  spectral width 
+$\delta, \varepsilon=$  spectral width 
 
-{math}`\phi_{\mathrm{s}}=`  mean wave direction 
+$\phi_{s}=$  mean wave direction 
 
-{math}`\lambda=`  wave length 
+$\lambda=$  wave length 
 
-{math}`\lambda_{1}, \lambda_{2}, \lambda_{3}=`  factors in wave force model 
+$\lambda_{1}, \lambda_{2}, \lambda_{3}=$  factors in wave force model 
 
-{math}`\theta=`  wave direction 
+$\theta=$  wave direction 
 
-{math}`\theta_{\mathrm{w}} =`  wave model unertainty 
+$\theta_{w} =$  wave model unertainty 
 
-{math}`\theta =`  angle between the elementary wave and the main wave direction 
+$\theta =$  angle between the elementary wave and the main wave direction 
 
-{math}`\theta_{\mathrm{MG}} =`  model uncertainty marine growth 
+$\theta_{\mathrm{MG}} =$  model uncertainty marine growth 
 
-{math}`\eta(x, y, t) =`  surface elevation 
+$\eta(x, y, t) =$  surface elevation 
 
-{math}`\nu_{0}^{u} =`  zero-crossing frequency 
+$\nu_{0}^{u} =$  zero-crossing frequency 
 
-{math}`\tilde{\nu}(z) =`  ensemble averaged up-crossing rate 
+$\tilde{\nu}(z) =$  ensemble averaged up-crossing rate 
 
-{math}`\rho =`  density of water 
+$\rho =$  density of water 
 
-{math}`\rho_{i j} =`  coefficient of correlation between members 
+$\rho_{i j} =$  coefficient of correlation between members 
 
-{math}`\sigma =`  standard deviation, spectral width parameter. 
+$\sigma =$  standard deviation, spectral width parameter. 
 
-{math}`\tau =`  short-term duration 
+$\tau =$  short-term duration 
 
-{math}`\omega =`  angular wave frequency (=2 {math}`\pi f`) 
+$\omega =$  angular wave frequency (=2 $\pi f$) 
 
-{math}`\omega_{p} =`  angular spectral peak frequency (= {math}`2 \pi f_{\mathrm{p} \text {.) }}` 
+$\omega_{p} =$  angular spectral peak frequency (= $2 \pi f_{\mathrm{p} \text {.) }}$ 
 
-{math}`\vec{\psi} =`  environmental state 
+$`\vec{\psi} =$  environmental state 
 
 
 ## Introduction
 
-Waves as relating to wave loads on structures are usually described in terms of sea states. A sea state is an approximately stationary condition described by parameters with long-term fluctuations. These parameters include the significant wave height {math}`H_{s}`, the mean wave period {math}`T_{z}`, the peak period {math}`T_{p}` and the wave direction {math}`\theta`.
+Waves as relating to wave loads on structures are usually described in terms of sea states. A sea state is an approximately stationary condition described by parameters with long-term fluctuations. These parameters include the significant wave height $H_{s}$, the mean wave period $T_{z}$, the peak period $T_{p}$ and the wave direction $\theta$.
 
-The waves in a sea state are usually described by means of the statistics of the surface elevation {math}`\eta(x, y, t)`. Wave forces depend on the velocity and acceleration of water particles below the surface. The relation between these variables can be found using wave theories. Among these may be mentioned:
+The waves in a sea state are usually described by means of the statistics of the surface elevation $eta(x, y, t)$. Wave forces depend on the velocity and acceleration of water particles below the surface. The relation between these variables can be found using wave theories. Among these may be mentioned:
 
 - *Linear wave* theory, by which the wave profile is described as a sine function.
 - *Solitary wave* theories for particularly shallow water.
@@ -143,40 +143,40 @@ The waves in a sea state are usually described by means of the statistics of the
 - *Solitons*, weakly non-linear dispersive waves
 - *Wave packets*, solutions of Non-Linear Schroedinger Equation
 
-The following wave theories are in common use ( {math}`\mathrm{d}` is the water depth and {math}`\lambda` is the wave length):
+The following wave theories are in common use ( $d$ is the water depth and $\lambda$ is the wave length):
 
-- Solitary wave theory for {math}`\mathrm{d} / \lambda<0.1`;
-- Stokes' {math}`5^{\text {th }}` order theory for {math}`0.1<\mathrm{d} / \lambda<0.3`;
-- Linear wave theory for {math}`\mathrm{d} / \lambda>0.3`.
+- Solitary wave theory for $d / \lambda<0.1$;
+- Stokes' $5^{\text {th }}$ order theory for $0.1<d / \lambda<0.3$;
+- Linear wave theory for $d / \lambda>0.3$.
 
 For most practical purposes an appropriate order of Dean's Stream Function or Stokes' 5th is applicable for regular wave analysis. For the spectral description of random seas, the linear wave theory is almost always used.
 
-The most important solution of the linear wave equations is the long crested wave. The surface elevation is a sine wave with amplitude {math}`a` progressing with phase velocity {math}`c=\omega / k`,
+The most important solution of the linear wave equations is the long crested wave. The surface elevation is a sine wave with amplitude $a$ progressing with phase velocity $c=\omega / k$,
 
 ```{math}
 :label: eq-wave-2-1
 \eta(x, t)=a \sin (\omega t-\vec{k} \vec{x})=a \sin (\omega t-k x))
 ```
 
-if the wave direction is parallel to the {math}`\mathrm{x}`-axis. More general wave forms can be generated by superposition of plane waves with different values of {math}`a` and {math}`\omega`. The dispersion relation between wave number {math}`k=1 / \lambda` and angular wave frequency {math}`\omega` reads
+if the wave direction is parallel to the $x$-axis. More general wave forms can be generated by superposition of plane waves with different values of $a$ and $\omega$. The dispersion relation between wave number $k=1 / \lambda$ and angular wave frequency $\omega$ reads
 
 ```{math}
 :label: eq-wave-2-2
 \omega^{2}=g k \tanh (k d)
 ```
 
-Here {math}`\mathrm{g}` is the constant of gravity and {math}`\mathrm{d}` is the water depth. The deep water approximation {math}`\omega^{2}=g k` is valid for depths exceeding approximately half the wavelength.
+Here $g$ is the constant of gravity and $d$ is the water depth. The deep water approximation $\omega^{2}=g k$ is valid for depths exceeding approximately half the wavelength.
 
-The horizontal particle velocity {math}`u(x, z, t)` and acceleration {math}`\dot{u}(x, z, t)` follow from:
+The horizontal particle velocity $u(x, z, t)$ and acceleration $\dot{u}(x, z, t)$ follow from:
 
 ```{math}
 :label: eq-wave-2-3
 u(x, z, t)=\omega \frac{\cosh k(z+d)}{\sinh (k d)} \eta(x, t)=\omega T(z, \omega) \eta(x, t)
 ```
 
-where T(z, \omega)` is a transfer function.
+where $T(z, \omega)$ is a transfer function.
 
-For large {math}`\omega`, the dispersion relation degenerates into the deep-water form, and
+For large $\omega$, the dispersion relation degenerates into the deep-water form, and
 
 ```{math}
 :label: eq-wave-2-4
@@ -184,7 +184,7 @@ T(z, \omega) \sim \exp \left(\frac{\omega^{2} z}{g}\right)
 ```
 
 The limiting average wave steepness for short-term irregular seastates may in absence of other reliable sources be taken as:
-{math}`
+
 ```{math}
 :label: eq-wave-2-5
 S=\frac{2 \pi}{g} \frac{H_{S}}{T_{Z}^{2}}=\left\lbrace
@@ -201,13 +201,13 @@ z_{s}=\frac{z-\eta}{1+\frac{\eta}{d}}
 
 where:
 
-{math}`z_{s}=` The modified coordinate to be used in particle velocity formulation
+$z_{s}=$ The modified coordinate to be used in particle velocity formulation
 
-{math}`z=` The elevation at which the kinematics are required (coordinate measured vertically upward from the still water surface)
+$z=$ The elevation at which the kinematics are required (coordinate measured vertically upward from the still water surface)
 
-{math}`\eta=` The instantaneous water level (same axis system as z)
+$\eta=$ The instantaneous water level (same axis system as z)
 
-{math}`d=` The still, or undisturbed water depth (positive).
+$d=$ The still, or undisturbed water depth (positive).
 
 This method ensures that the kinematics at the surface are always evaluated from the linear wave theory expressions as if they were at the still water level (Wheeler 1969).
 
@@ -216,18 +216,18 @@ This method ensures that the kinematics at the surface are always evaluated from
 
 ### Wave spectrum and sea state parameters
 
-During a relatively short period, waves can be conceived as a superposition of deterministic wave components with random phase and amplitude. As a result the waves form a stationary Gaussian process. The period for which such a model holds is called a sea state. The process is described by a variance spectrum {math}`S_{\eta \eta}(\omega)`. Before introducing this spectrum in more detail it is convenient to introduce the spectral moments.
+During a relatively short period, waves can be conceived as a superposition of deterministic wave components with random phase and amplitude. As a result the waves form a stationary Gaussian process. The period for which such a model holds is called a sea state. The process is described by a variance spectrum $S_{\eta \eta}(\omega)$. Before introducing this spectrum in more detail it is convenient to introduce the spectral moments.
 
 ### Spectral Moments
 
-The spectral moment {math}`M_{n}` of general order {math}`n` is defined as
+The spectral moment $M_{n}$ of general order $n$ is defined as
 
 ```{math}
 :label: eq-wave-2-7
 M_{n}=\int_{0}^{\infty} \omega^{n} S(\omega) d \omega
 ```
 
-where {math}`\mathrm{n}=-1,0,1,2,\cdots`.
+where $\mathrm{n}=-1,0,1,2,\ldots$
 
 Quantities that may be defined in terms of spectral moments are among others:
 
@@ -238,7 +238,7 @@ Significant wave height
 H_{m 0}=4 \sqrt{M_{0}}=4 \sigma_{\eta}
 ```
 
-where {math}`\sigma_{\eta}` is the standard deviation of {math}`\eta(t)`.
+where $\sigma_{\eta}$ is the standard deviation of $\eta(t)$.
 
 Average wave period
 
@@ -266,14 +266,14 @@ Spectral width
 \varepsilon=\sqrt{1-\frac{M_{2}^{2}}{M_{0} M_{4}}}
 ```
 
-If the spectral density is given as a function of the frequency {math}`\mathrm{f}, S=S(f)`, the relation is
+If the spectral density is given as a function of the frequency $f, S=S(f)$, the relation is
 
 ```{math}
 :label: eq-wave-2-13
 S(f)=2 \pi S(\omega)
 ```
 
-Similarly, if the moments of the circular frequency spectrum {math}`S(f)` are denoted {math}`M_{n}(f)`, the relationship to {math}`M_{n}` is
+Similarly, if the moments of the circular frequency spectrum $S(f)$ are denoted $M_{n}(f)$, the relationship to $M_{n}$ is
 
 ```{math}
 :label: eq-wave-2-14
@@ -287,7 +287,7 @@ Note: If the period is not given for a particular sea-state, a tentative estimat
 T_{z}=6 H_{s}^{0.3}
 ```
 
-where {math}`T_{z}` is in seconds and {math}`H_{s}` is in metres.
+where $T_{z}$ is in seconds and $H_{s}$ is in metres.
 
 ### Single peak spectrum
 
@@ -300,7 +300,7 @@ The originally proposed PM spectrum is:
 S(\omega)=0.0081 g^{2} \omega^{-5} \exp \left(-0.74\left(\frac{\omega}{\omega_{p}}\right)^{-4}\right)
 ```
 
-where {math}`g` is the acceleration of gravity, and {math}`\omega_{p}` is the angular spectral peak frequency.
+where $g$ is the acceleration of gravity, and $\omega_{p}$ is the angular spectral peak frequency.
 
 The ISCC (1964) version of the PM spectrum is
 
@@ -318,47 +318,47 @@ S(\omega)=\alpha g^{2} \omega^{-5} \exp \left(-\frac{5}{4}\left(\frac{\omega}{\o
 
 where
 
-{math}`
-\omega =\text { Angular wave frequency, } \omega=2 \pi \mathrm{f} 
+$
+\omega =\text { Angular wave frequency, } \omega=2 \pi f 
 $
 
-{math}`\mathrm{f} =\text { Wave frequency, } \mathrm{f}=1 / \mathrm{T}`
+$f =\text { Wave frequency, } f=1 / T$
 
-{math}`\mathrm{T} =\text { Wave period. }`
+$T =\text { Wave period. }$
 
-{math}`\mathrm{T}_{\mathrm{p}} =\text { Peak period }`
+$T_{p} =\text { Peak period }$
 
-{math}`\mathrm{f}_{\mathrm{p}} =1 / \mathrm{T}_{\mathrm{p}}`
+$f_{p} =1 / T_{p}$
 
-{math}`\omega_{\mathrm{p}} =\text { Angular spectral peak frequency } \omega_{\mathrm{p}}=2 \pi \mathrm{f}_{\mathrm{p}}`
+$\omega_{p} =\text { Angular spectral peak frequency } \omega_{p}=2 \pi f_{p}$
 
-{math}`\mathrm{g} =\text { Acceleration of gravity. }`
+$g =\text { Acceleration of gravity. }$
 
-{math}`\alpha  =\text { Generalised Phillips’ constant, } =(5 / 16)^{*}\left(\mathrm{H}_{\mathrm{s}}{ }^{2} \omega_{\mathrm{p}}{ }^{4} / \mathrm{g}^{2}\right)^{*} \mathrm{~A}_{\gamma}`
+$\alpha  =\text { Generalised Phillips’ constant, } =(5 / 16)^{*}\left(H_{s}{ }^{2} \omega_{p}{ }^{4} / g^{2}\right)^{*} ~A_{\gamma}$
 
-{math}`\mathrm{A}_{\gamma}  =\text { Normalisation factor, } \approx 1-0.287 \ln (\gamma)`
+$A_{\gamma}  =\text { Normalisation factor, } \approx 1-0.287 \ln (\gamma)$
 
-{math}`\sigma  =\text { Spectral width parameter. }  =0.07 \text { if } \omega \leq \omega_{\mathrm{p}}`
+$\sigma  =\text { Spectral width parameter. }  =0.07 \text { if } \omega \leq \omega_{p}$
 
-{math}`\sigma = \text{Spectral width parameter} = \begin{cases} 
+$\sigma = \text{Spectral width parameter} = \begin{cases} 
 0.07 & \text{if } \omega \leq \omega_p \\
 0.09 & \text{if } \omega > \omega_p 
-\end{cases}`
+\end{cases}$
 
-{math}`\gamma  =\text { Peakness parameter }(\gamma=1.0 \text { for PM })`
+$\gamma  =\text { Peakness parameter }(\gamma=1.0 \text { for PM })$
 
-If no particular values are given for the peakedness parameter {math}`\gamma`, the following value may be used:
+If no particular values are given for the peakedness parameter $\gamma$, the following value may be used:
 
 ```{math}
 :label: eq-wave-2-19
 \begin{aligned}
-& \gamma=5 \quad \text { for } \quad \frac{\mathrm{T}_{\mathrm{p}}}{\sqrt{\mathrm{H}_{\mathrm{s}}}} \leq 3.6 \\
-& \gamma=e^{5.75-1.15 T_{p} / \sqrt{H_{s}}} \text { for } 3.6 \leq \frac{\mathrm{T}_{\mathrm{p}}}{\sqrt{\mathrm{H}_{\mathrm{s}}}} \leq 5 \\
-& \gamma=1 \quad \text { for } \quad 5 \leq \frac{\mathrm{T}_{\mathrm{p}}}{\sqrt{\mathrm{H}_{\mathrm{s}}}}
+& \gamma=5 \quad \text { for } \quad \frac{T_{p}}{\sqrt{H_{s}}} \leq 3.6 \\
+& \gamma=e^{5.75-1.15 T_{p} / \sqrt{H_{s}}} \text { for } 3.6 \leq \frac{T_{p}}{\sqrt{H_{s}}} \leq 5 \\
+& \gamma=1 \quad \text { for } \quad 5 \leq \frac{T_{p}}{\sqrt{H_{s}}}
 \end{aligned}
 ```
 
-where {math}`T_{p}` is in seconds and {math}`H_{s}` is in metres.
+where $T_{p}$ is in seconds and $H_{s}$ is in metres.
 
 For the JONSWAP spectrum the spectral moments are given approximately as
 
@@ -372,14 +372,14 @@ M_{2} &= \frac{1}{16} H_{s}^{2} \omega_{p}^{2} \frac{11+\gamma}{5+\gamma}
 \end{aligned}
 ```
 
-The average zero-crossing wave period {math}`T_{z}` may be related to the peak period {math}`T_{p}` by
+The average zero-crossing wave period $T_{z}$ may be related to the peak period $T_{p}$ by
 
 ```{math}
 :label: eq-wave-2-21
 T_{z}=T_{p}\left(\frac{5+\gamma}{11+\gamma}\right)^{1 / 2}
 ```
 
-Note: A possible non-conservatism related to the choice of the spectral model is due to the definition of the frequency exponent describing the equilibrium range of the spectrum. The JONSWAP and Pierson-Moskowitz spectra adopt {math}`\omega^{-5}`. Both the theory, as well as recent analysis of spectral data (Prevosto et al, 1996), show that the tail of the JONSWAP spectrum is indeed closer to {math}`\omega^{-4}`, as has already been noted by Battjes et al (1978). The tail behaviour may be important for structural response. E.g., Bitner-Gregersen and Haver (1991) show that the {math}`f^{-4}` assumption may increase the dynamic response of a jacket structure by {math}`25 \%` as compared to the {math}`f^{-5}` model.
+Note: A possible non-conservatism related to the choice of the spectral model is due to the definition of the frequency exponent describing the equilibrium range of the spectrum. The JONSWAP and Pierson-Moskowitz spectra adopt $\omega^{-5}$. Both the theory, as well as recent analysis of spectral data (Prevosto et al, 1996), show that the tail of the JONSWAP spectrum is indeed closer to $\omega^{-4}$, as has already been noted by Battjes et al (1978). The tail behaviour may be important for structural response. E.g., Bitner-Gregersen and Haver (1991) show that the $f^{-4}$ assumption may increase the dynamic response of a jacket structure by $25 \%$ as compared to the $f^{-5}$ model.
 
 ### Double peak spectrum
 
@@ -394,18 +394,18 @@ Splitting of the wave spectrum into wind sea and swell have been made by several
 
 Ochi and Hubble represent each spectrum component by a three parameter formula of a Gamma type. The parameters should be determined numerically to best fit the observed spectra.
 
-Input parameters to the Torsethaugen spectrum are significant wave height and peak period. A modified JONSWAP spectrum is used for both wind sea and swell peaks, and the spectrum parameters are related to {math}`H_{s}` and {math}`T_{p}` according to empirical parameters based on analysis of measured data from the Norwegian and North Sea.
+Input parameters to the Torsethaugen spectrum are significant wave height and peak period. A modified JONSWAP spectrum is used for both wind sea and swell peaks, and the spectrum parameters are related to $H_{s}$ and $T_{p}$ according to empirical parameters based on analysis of measured data from the Norwegian and North Sea.
 
 ### Directional wave spectrum
 
-Directional short-crested wave spectra {math}`S(\omega, \theta)` may be expressed in terms of the nondirectional wave spectra,
+Directional short-crested wave spectra $S(\omega, \theta)$ may be expressed in terms of the nondirectional wave spectra,
 
 ```{math}
 :label: eq-wave-2-23
 S(\omega, \theta)=S(\omega) D(\theta, \omega)=S(\omega) D(\theta)
 ```
 
-where the latter equality represents a simplification often used in practice. Here {math}`D(\theta, \omega) ; D(\theta)` is a directionality function, and {math}`\theta` is the angle between the direction of elementary wave trains and the main wave direction of the short crested wave system.
+where the latter equality represents a simplification often used in practice. Here $D(\theta, \omega) ; D(\theta)$ is a directionality function, and $\theta$ is the angle between the direction of elementary wave trains and the main wave direction of the short crested wave system.
 
 The directionality function fulfils the requirement
 
@@ -421,7 +421,7 @@ Different forms of directional functions are given in the literature. An early f
 D(\theta, \omega) \propto \cos ^{n}\left(\theta-\theta_{p}\right) \quad \text { where } \quad 2 \leq \mathrm{n} \leq 10
 ```
 
-Due consideration is to be taken to reflect an accurate correlation between the actual sea-state and the constant, {math}`n`. The main direction may be set equal to the prevailing wind direction if directional measurements are not available.
+Due consideration is to be taken to reflect an accurate correlation between the actual sea-state and the constant, $`n$. The main direction may be set equal to the prevailing wind direction if directional measurements are not available.
 
 A commonly applied cosine-power form is the cos-2s distribution introduced by Longuet-Higgins (1963)
 
@@ -434,14 +434,14 @@ Measurements should indicate which form and parameters should be preferred.
 
 ### Crest distribution for Gaussian Sea-State
 
-The statistical distribution of individual wave crests {math}`Z` in an irregular short-term stationary sea state is in a linear, narrow band approximation the same as the distribution of the envelope of a Gaussian process, i.e. the Rayleigh distribution
+The statistical distribution of individual wave crests $Z$ in an irregular short-term stationary sea state is in a linear, narrow band approximation the same as the distribution of the envelope of a Gaussian process, i.e. the Rayleigh distribution
 
 ```{math}
 :label: eq-wave-2-27
 F(z)=1-e^{-\frac{1}{2}\left(\frac{z}{\sigma_{\eta}}\right)^{2}}=1-e^{-8\left(\frac{z}{H_{s}}\right)^{2}}
 ```
 
-where {math}`\sigma_{\eta}=H_{s} / 4`. The extreme value distribution {math}`F_{E}(z)` of crest in a stationary sea state of duration {math}`\tau` follows by assuming Poisson upcrossings of level {math}`\mathrm{z}` as
+where $\sigma_{\eta}=H_{s} / 4$. The extreme value distribution $F_{E}(z)$ of crest in a stationary sea state of duration $\tau$ follows by assuming Poisson upcrossings of level $z$ as
 
 ```{math}
 :label: eq-wave-2-28
@@ -450,10 +450,10 @@ F_{E}(z) \approx \exp \left\lbrace-\frac{\tau}{T_{z}} \exp \left\lbrace-\frac{1}
 
 ### Crest distribution for Non-Gaussian Sea-State
 
-The Gaussian model fails to capture asymmetric, non-linear wave aspects caused by dynamic pressures not included in the linear theory, which is essential for shallow water, but can also be important for deep-water applications. A possible classification of statistical procedures for assessment of non-Gaussian processes {math}`\eta(t)` is
+The Gaussian model fails to capture asymmetric, non-linear wave aspects caused by dynamic pressures not included in the linear theory, which is essential for shallow water, but can also be important for deep-water applications. A possible classification of statistical procedures for assessment of non-Gaussian processes $\eta(t)$ is
 
-- establish the probability distribution of the elevation process {math}`\eta(t)` by modification of a simpler distribution, usually the Gaussian distribution
-- transform the elevation process {math}`\eta(t)` into a Gaussian process {math}`U(t)` and apply properties of the Gaussian process
+- establish the probability distribution of the elevation process $\eta(t)$ by modification of a simpler distribution, usually the Gaussian distribution
+- transform the elevation process $\eta(t)$ into a Gaussian process $U(t)$ and apply properties of the Gaussian process
 - establish the exact joint distribution function of the process and the differentiated process
 - fit a distribution function to the sample of local peaks.
 
@@ -470,14 +470,14 @@ P(H>h)=\exp \left\lbrace-\left(\frac{h}{2 \sqrt{2} \sigma_{\eta}}\right)^{2}\rig
 For not too narrow banded waves this distribution is a good approximation only when the root-mean-square (rms) amplitude is used instead of the sea surface elevation standard deviation, (Longuet-Higgins, 1980).
 
 Other studies of the probability distribution of wave heights are made by e.g. Massel (1989), Battjes (1978), Cavanie et al. (1976), Arhan and Ezraty (1978). The following
-expression for the exceedance probability for high {math}`h` values is due to Tayfun (1981, 1990)
+expression for the exceedance probability for high $h$ values is due to Tayfun (1981, 1990)
 
 ```{math}
 :label: eq-wave-2-30
 P(H>h)=\left(1+\frac{1-k^{2}}{4 k h^{2}} \sigma_{\eta}^{2}\right)\left(\frac{1+k^{2}}{2 k}\right)^{1 / 2} \exp \left\lbrace -\frac{h^{2}}{4(1+k) \sigma_{\eta}^{2}}\right\rbrace
 ```
 
-where {math}`k` is a parameter for the correlation between crest and subsequent trough.
+where $k$ is a parameter for the correlation between crest and subsequent trough.
 
 The extreme wave height estimates can be transformed into measures for the crests using e.g. Stokes theory or regression analysis. E.g., Skourup et al. (1996) analyse data from the Central North Sea (Gorm field) and finds the expected ratio 0.69 between extreme crest height and extreme wave height.
 
@@ -499,14 +499,14 @@ In selecting the method there is a tradeoff between the global models using all 
 
 Frequently applied distribution functions for marginal distribution of significant wave height are for global data 2-parameter Weibull, 3-parameter Weibull and a hybrid lognormal plus 2-parameter Weibull distribution. For event models, 3-parameter Weibull, Gumbel and Generalized Pareto (for Peak Over Threshold) are commonly used. Local measurements should give indications which distribution type is to be preferred.
 
-The 3-parameter Weibull distribution for variable {math}`X` is given as
+The 3-parameter Weibull distribution for variable $X$ is given as
 
 ```{math}
 :label: eq-wave-2-31
 F(x)=1-\exp \left\lbrace -\left(\frac{x-\gamma}{\alpha}\right)^{\beta}\right\rbrace
 ```
 
-where {math}`\alpha=` scale parameter, {math}`\beta=` shape parameter, {math}`\gamma=` location parameter.
+where $\alpha=$ scale parameter, $\beta=$ shape parameter, $\gamma=$ location parameter.
 
 The Gumbel extreme value distribution is
 
@@ -515,16 +515,16 @@ The Gumbel extreme value distribution is
 F(x)=\exp \left[-e^{-\alpha(x-\beta)}\right]
 ```
 
-where {math}`\beta` is a location parameter and {math}`\alpha` is a scale parameter.
+where $\beta$ is a location parameter and $\alpha$ is a scale parameter.
 
-The Pareto distribution ( {math}`\mathrm{y}=` threshold excess values) is
+The Pareto distribution ( $y=$ threshold excess values) is
 
 ```{math}
 :label: eq-wave-2-33
 F(y)=1-\left(1+c \frac{y}{a}\right)^{-1 / c} ; \quad \begin{array}{cc}0<y<-\frac{a}{c} & c<0 \\ 0<y<\infty & c \geq 0\end{array}
 ```
 
-Following Næss (1998), efficient parameter estimation is obtained by taking {math}`\mathrm{c}=0`. This means that the data are exponential distributed
+Following Næss (1998), efficient parameter estimation is obtained by taking $c=0$. This means that the data are exponential distributed
 
 ```{math}
 :label: eq-wave-2-34
@@ -560,18 +560,18 @@ where a possible parameterisation is
 \sigma(h)=b_{0}+b_{1} \exp \left\lbrace b_{2} h\right\rbrace
 ```
 
-The parameters {math}`a_{1}, a_{2}, a_{3}, b_{1}, b_{2}` and {math}`b_{3}` are determined from the data.
+The parameters $a_{1}, a_{2}, a_{3}, b_{1}, b_{2}$ and $b_{3}$ are determined from the data.
 
 ## Extreme individual wave height and crest height
 
-The extreme individual crest or wave height can be determined by combining short term and long term statistics. The long-term distribution of waves is obtained by combining the joint long-term distribution of sea state parameters, with the short-term distribution of sea surface elevation. Let the short term, extreme value distribution of crest {math}`Z` in an environmental state {math}`\vec{\psi}` for a short-term duration {math}`\tau` be denoted {math}`F_{Z \mid \vec{\psi}}(z \mid \vec{\psi} ; \tau)`. Conditioning on the environmental state {math}`\vec{\psi}` may be integrated out, according to the theorem of total probability, to provide the corresponding short term, extreme value distribution for a single, random, environmental state. The extreme value distribution during an operation time {math}`\lambda` might then be obtained as
+The extreme individual crest or wave height can be determined by combining short term and long term statistics. The long-term distribution of waves is obtained by combining the joint long-term distribution of sea state parameters, with the short-term distribution of sea surface elevation. Let the short term, extreme value distribution of crest $Z$ in an environmental state $\vec{\psi}$ for a short-term duration $\tau$ be denoted $F_{Z \mid \vec{\psi}}(z \mid \vec{\psi} ; \tau)$. Conditioning on the environmental state $\vec{\psi}$ may be integrated out, according to the theorem of total probability, to provide the corresponding short term, extreme value distribution for a single, random, environmental state. The extreme value distribution during an operation time $\lambda$ might then be obtained as
 
 ```{math}
 :label: eq-wave-2-38
 F_{E}(z ; \lambda)=\left[\int F_{Z \mid \vec{\Psi}}(z \mid \vec{\psi} ; \tau) f_{\vec{\Psi}}(\vec{\psi}) d \vec{\psi}\right]^{\lambda / \tau}
 ```
 
-where {math}`f_{\vec{\psi}}(\vec{\psi})` is the probability density of the sea state parameters (e.g. {math}`h_{s}` ).
+where $f_{\vec{\psi}}(\vec{\psi})$ is the probability density of the sea state parameters (e.g. $h_{s}$ ).
 
 This expression is based on the multiplication rule and an assumption of independence between the crest level in each short-term state. A slightly different formulation is the following expression due to Battjes (1978)
 
@@ -580,14 +580,14 @@ This expression is based on the multiplication rule and an assumption of indepen
 F_{E}(z ; \lambda)=\left[\int \frac{v(z \mid \vec{\psi})}{\widetilde{v}(z)} F_{Z \mid \vec{\Psi}}(z \mid \vec{\psi}) f_{\vec{\Psi}}(\vec{\psi}) d \vec{\psi}\right]^{\tilde{v}(z) \lambda}
 ```
 
-where {math}`\tilde{v}(z)` is the ensemble averaged up-crossing rate
+where $\tilde{v}(z)$ is the ensemble averaged up-crossing rate
 
 ```{math}
 :label: eq-wave-2-40
 \widetilde{v}(z)=\int v(z \mid \vec{\psi}) f_{\vec{\Psi}}(\vec{\psi}) d \vec{\psi}
 ```
 
-Here {math}`v(z \mid \vec{\psi})` is the mean upcrossing rate of the underlying process through the level {math}`z`, and {math}`F_{z \mid \vec{\Psi}}(z \mid \vec{\psi})` is the distribution of the random cycle amplitudes. Note the difference between the integrands in Eq. {eq}`eq-wave-2-38` and Eq. {eq}`eq-wave-2-39`, where {math}`F_{Z \mid \vec{\psi}}(z \mid \vec{\psi} ; \tau)` is the short term extreme value distribution, while {math}`F_{z \mid \vec{\Psi}}(z \mid \vec{\psi})` is the distribution of a random cycle amplitude.
+Here $v(z \mid \vec{\psi})$ is the mean upcrossing rate of the underlying process through the level $z$, and $F_{z \mid \vec{\Psi}}(z \mid \vec{\psi})$ is the distribution of the random cycle amplitudes. Note the difference between the integrands in Eq. {eq}`eq-wave-2-38` and Eq. {eq}`eq-wave-2-39`, where $F_{Z \mid \vec{\psi}}(z \mid \vec{\psi} ; \tau)$ is the short term extreme value distribution, while $F_{z \mid \vec{\Psi}}(z \mid \vec{\psi})$ is the distribution of a random cycle amplitude.
 
 As an alternative, an ensemble-averaged up-crossing approach may be used, in which the distribution function is expressed as (Næss 1984)
 
@@ -596,7 +596,7 @@ As an alternative, an ensemble-averaged up-crossing approach may be used, in whi
 F_{E}(z ; \lambda)=\exp \lbrace-\lambda \tilde{v}(z)\rbrace
 ```
 
-Eqs. {eq}`eq-wave-2-38` to {eq}`eq-wave-2-41` may be applied directly in a Level 3 structural reliability analysis for modelling of the extreme crest. If the purpose is to estimate the 100 -year crest level, this quantity can be determined as the appropriate fractile of {math}`F_{E}(z ; \lambda)`.
+Eqs. {eq}`eq-wave-2-38` to {eq}`eq-wave-2-41` may be applied directly in a Level 3 structural reliability analysis for modelling of the extreme crest. If the purpose is to estimate the 100 -year crest level, this quantity can be determined as the appropriate fractile of $F_{E}(z ; \lambda)$.
 
 In applications not the extreme wave height as such may be important, but rather the maximum load effect in the structure, e.g. the bending moment in a member. In this respect reference is made to Ditlevsen (2002).
 
@@ -613,63 +613,63 @@ F=\rho A\left[C_{M} \dot{u}+\left(C_{M}-1\right) \ddot{x}\right]+\frac{1}{2} \rh
 
 where
 
-{math}`F =` force per cylinder length in flow and motion direction   
+$F =$ force per cylinder length in flow and motion direction   
 
-A  {math}`=\pi D^{2} / 4`, cross section area  
+$A  =\pi D^{2} / 4$, cross section area  
 
-{math}`D=` cylinder diameter 
+$D=$ cylinder diameter 
 
-{math}`\dot{x}=`   cylinder velocity  
+$\dot{x}=$   cylinder velocity  
 
-{math}`\ddot{x}=`   cylinder acceleration   
+$\ddot{x}=$   cylinder acceleration   
 
-{math}`u=` water velocity perpendicular to structural member     
+$u=$ water velocity perpendicular to structural member     
 
-{math}`\dot{u}=` water acceleration perpendicular to structural member
+$\dot{u}=$ water acceleration perpendicular to structural member
 
-{math}`u-\dot{x}=` relative velocity 
+$u-\dot{x}=$ relative velocity 
 
-{math}`C_{M}=` inertia coefficient 
+$C_{M}=$ inertia coefficient 
 
-{math}`C_{D}=` drag coefficient 
+$C_{D}=$ drag coefficient 
 
-{math}`\rho=` water mass density
+$\rho=$ water mass density
 
-For {math}`u>>\dot{x}`, a useful approximation is
+For $u>>\dot{x}$, a useful approximation is
 
 ```{math}
 :label: eq-wave-2-43
 (u-\dot{x})|u-\dot{x}| \approx u|u|-2|u| \dot{x}
 ```
 
-The second term provides additional damping, and if the coefficient to {math}`\dot{x}` is replaced by its expectation, the following form is obtained:
+The second term provides additional damping, and if the coefficient to $\dot{x}$ is replaced by its expectation, the following form is obtained:
 
 ```{math}
 :label: eq-wave-2-44
 (u-\dot{x})|u-\dot{x}| \approx u|u|-\sqrt{8 / \pi} \sigma_{u} \dot{x}
 ```
 
-where {math}`\sigma_{\mathrm{u}}` represents the standard deviation of {math}`\mathrm{u}` in a random sea.
+where $\sigma_{u}$ represents the standard deviation of $u$ in a random sea.
 
 Another linearisation schemes exist that include the effect of combined wave and current. The scheme should depend on the application (e.g. collapse versus fatigue analysis).
 
-Assume in the following that linear wave theory can be applied and that the wave elevation {math}`\eta(x, t)` is a stationary Gaussian process. Then the particle velocity {math}`u(t)` and acceleration {math}`\dot{u}(t)` are also normal processes The relevant wave components {math}`u(t)` and {math}`\dot{u}(t)` then maybe considered as independent, zero-mean normal processes with standard deviations {math}`\sigma_{u}` and {math}`\sigma_{\dot{u}}`. A measure of the relative importance of drag and inertia, and of the deviation from normal distribution, is
+Assume in the following that linear wave theory can be applied and that the wave elevation $\eta(x, t)$ is a stationary Gaussian process. Then the particle velocity $u(t)$ and acceleration $\dot{u}(t)$ are also normal processes The relevant wave components $u(t)$ and $\dot{u}(t)$ then maybe considered as independent, zero-mean normal processes with standard deviations $\sigma_{u}$ and $\sigma_{\dot{u}}$. A measure of the relative importance of drag and inertia, and of the deviation from normal distribution, is
 
 ```{math}
 :label: eq-wave-2-45
 K=\frac{k_{D}}{k_{M}} \frac{\sigma_{u}^{2}}{\sigma_{\dot{u}}^{2}}
 ```
 
-where {math}`k_{D}=\frac{1}{2} \rho D C_{D}` and {math}`k_{M}=\rho A C_{M}`. In normalised form, the Morison can be expressed as the non-Gaussian process (Madsen et al. 1986)
+where $k_{D}=\frac{1}{2} \rho D C_{D}$ and $k_{M}=\rho A C_{M}$. In normalised form, the Morison can be expressed as the non-Gaussian process (Madsen et al. 1986)
 
 ```{math}
 :label: eq-wave-2-46
 Q(t)=\frac{F}{k_{M} \sigma_{\dot{u}}}=K\left(X_{u}(t)+V\right)\left|X_{u}(t)+V\right|+X_{\dot{u}}(t)
 ```
 
-where {math}`X_{u}(t)=u(t) / \sigma_{u}` and {math}`X_{\dot{u}}(t)=\dot{u}(t) / \sigma_{\dot{u}}`. The current velocity, inline with the waves, is {math}`V \sigma_{u}`. The natural period of variation of the current is assumed to be so long that its time variation can be ignored for the considered time span, hence {math}`\mathrm{V}` is taken as a fixed variable.
+where $X_{u}(t)=u(t) / \sigma_{u}$ and $X_{\dot{u}}(t)=\dot{u}(t) / \sigma_{\dot{u}}$. The current velocity, inline with the waves, is $V \sigma_{u}$. The natural period of variation of the current is assumed to be so long that its time variation can be ignored for the considered time span, hence $V$ is taken as a fixed variable.
 
-The second order statistics is characterised by the covariance matrix {math}`C_{\vec{X}}` of the process  
+The second order statistics is characterised by the covariance matrix $C_{\vec{X}}$ of the process  
 ```{math}
 \vec{X}(t)^{T}=\left(X_{u}(t), X_{\dot{u}}(t), \dot{X}_{\dot{u}}(t)\right)
 ```
@@ -678,9 +678,9 @@ The second order statistics is characterised by the covariance matrix {math}`C_{
 C_{\vec{X}}=\left(\begin{array}{ccc}1 & 0 & -\omega_{0} \\ 0 & 1 & 0 \\ -\omega_{0} & 0 & \omega_{0}^{2} / \alpha^{2}\end{array}\right)
 ```
 
-where {math}`\omega_{0} \equiv \sigma_{\dot{u}} / \sigma_{u}` and {math}`\alpha` is a bandwidth parameter for the velocity process u(t), i.e. {math}`\alpha=-\sigma_{\dot{u}}^{2} \sigma_{u}^{-1} \sigma_{i i}^{-1}`.
+where $\omega_{0} \equiv \sigma_{\dot{u}} / \sigma_{u}$ and $\alpha$ is a bandwidth parameter for the velocity process u(t), i.e. $\alpha=-\sigma_{\dot{u}}^{2} \sigma_{u}^{-1} \sigma_{i i}^{-1}$.
 
-The mean {math}`\mu_{q}` and standard deviations {math}`\sigma_{q}` and {math}`\sigma_{\dot{q}}` of the Morison force are given as (Madsen et al, 1986):
+The mean $\mu_{q}$ and standard deviations $\sigma_{q}$ and $\sigma_{\dot{q}}$ of the Morison force are given as (Madsen et al, 1986):
 
 ```{math}
 :label: eq-wave-2-47
@@ -697,21 +697,21 @@ The mean {math}`\mu_{q}` and standard deviations {math}`\sigma_{q}` and {math}`\
 \sigma_{\dot{q}}^{2}  =4 K^{2}\left(1+V^{2}\right) \frac{\sigma_{\dot{u}}^{2}}{\sigma_{u}^{2}}+\frac{\sigma_{\dot{u}}^{2}}{\sigma_{\dot{u}}^{2}} 
 ```
 
-Let in the following {math}`V=0`. The probability density of the wave force {math}`Q(t)` is completely determined by the non-linearity factor {math}`K` and the variance of the force {math}`\sigma_{q}{ }^{2}`. The kurtosis {math}`\alpha_{4}` gives the shape of the distribution of {math}`Q(t)` through the relation
+Let in the following $V=0$. The probability density of the wave force $Q(t)$ is completely determined by the non-linearity factor $K$ and the variance of the force $\sigma_{q}{ }^{2}$. The kurtosis $\alpha_{4}$ gives the shape of the distribution of $Q(t)$ through the relation
 
 ```{math}
 :label: eq-wave-2-50
 \alpha_{4}=3+\frac{78}{\left(3+1 / K^{2}\right)^{2}}
 ```
 
-For the narrow band approximation {math}`\alpha \rightarrow 1`, the asymptotic result for the upcrossing rate is (Madsen et al., 1986)
+For the narrow band approximation $\alpha \rightarrow 1$, the asymptotic result for the upcrossing rate is (Madsen et al., 1986)
 
 ```{math}
 :label: eq-wave-2-51
 v(q) \approx v_{0}^{u}\left\lbrace \begin{array}{cc}\exp \left(-\frac{1}{2} q^{2}\right), & |q|<\frac{1}{2 K} \\ \\ \exp \left[-\frac{1}{2 K}\left(q-\frac{1}{4 K}\right)\right], & |q| \geq \frac{1}{2 K}\end{array}\right.
 ```
 
-where {math}`v_{0}^{u}` is the zero-crossing frequency of {math}`\mathrm{u}(\mathrm{t})`. In a narrow-band approximation of the force, the distribution of local maxima can be obtained by neglecting the positive minima and negative maxima. This gives the probability density function of local maxima
+where $v_{0}^{u}$ is the zero-crossing frequency of $u(t)$. In a narrow-band approximation of the force, the distribution of local maxima can be obtained by neglecting the positive minima and negative maxima. This gives the probability density function of local maxima
 
 ```{math}
 :label: eq-wave-2-52
@@ -729,7 +729,7 @@ This density is derived in Borgman (1965).
 
 ### Vertical walls
 
-The water pressures {math}`p_{1}` and {math}`p_{3}` (see {numref}`fig-wave-2.15.1`) on a vertical wall due to pulsating forces (impact and breaking excluded) are given by according (Goda (1985)):
+The water pressures $p_{1}$ and $p_{3}$ (see {numref}`fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces`) on a vertical wall due to pulsating forces (impact and breaking excluded) are given by according (Goda (1985)):
 
 ```{math}
 :label: eq-wave-2-54
@@ -741,55 +741,55 @@ p_{3} = \alpha_{3} p_{1}
 
 where:
 
-{math}`H: ` incident wave height (from trough to crest) in front of the structure;
+$H: $ incident wave height (from trough to crest) in front of the structure;
 
-{math}`\beta: `  angle of wave incidence with respect to a line perpendicular to the structure;
+$\beta: $  angle of wave incidence with respect to a line perpendicular to the structure;
 
-{math}`\rho:` density of water;
+$\rho:$ density of water;
 
-{math}`g:` acceleration of gravity;
+$g:$ acceleration of gravity;
 
-{math}`\alpha_{1}, \alpha_{2}, \alpha_{3}:` factors dependent on hydraulic conditions (see {eq}`eq-wave-2-56`)
+$\alpha_{1}, \alpha_{2}, \alpha_{3}:$ factors dependent on hydraulic conditions (see {eq}`eq-wave-2-56`)
 
-{math}`\lambda_{1}, \lambda_{2}, \lambda_{3}:` factors dependent on the structural geometry (usually =1.0)
+$\lambda_{1}, \lambda_{2}, \lambda_{3}:$ factors dependent on the structural geometry (usually =1.0)
 
-The pressure at the top {math}`p_{4}` for a given value of {math}`R_{\mathrm{C}}` can be derived from:
+The pressure at the top $p_{4}$ for a given value of $R_{C}$ can be derived from:
 
 ```{math}
 :label: eq-wave-2-55
 \eta^{*}=0.75(1+\cos \beta) \lambda_{1} H
 ```
 
-```{figure} ../part-02/images/Figure-wave-2.15.1.jpg
-:name: fig-wave-2.15.1
+```{figure} ../part-02/images/fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces.jpg 
+:name: fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces
 
 Vertical wall on toe-structure
 ```
 
-The {math}`\alpha`-factors are given by:
+The $\alpha$-factors are given by:
 
 ```{math}
 :label: eq-wave-2-56
 \begin{array}{l}
-\alpha_{1}=0.6+0.5\left(\frac{4 \pi \mathrm{h} / \mathrm{L}}{\sinh (4 \pi \mathrm{h} / \mathrm{L})}\right)^{2} \\ \\
-\alpha_{2}=\min \left(\frac{\left(\mathrm{h}_{\mathrm{b}}-\mathrm{d}\right)}{3 \mathrm{h}_{\mathrm{b}}}\left(\mathrm{\frac{H}{d}}\right)^{2}, \mathrm{\frac{2 d}{H}}\right) \\ \\
-\alpha_{3}=1-\left(\mathrm{\frac{h^{\prime}}{h}}\right)\left(1-\frac{1}{\cosh (2 \pi \mathrm{h / L})}\right)
+\alpha_{1}=0.6+0.5\left(\frac{4 \pi h / L}{\sinh (4 \pi h / L)}\right)^{2} \\ \\
+\alpha_{2}=\min \left(\frac{\left(h_{b}-d\right)}{3 h_{b}}\left(\frac{H}{d}\right)^{2}, \frac{2 d}{H}\right) \\ \\
+\alpha_{3}=1-\left(\frac{h^{\prime}}{h}\right)\left(1-\frac{1}{\cosh (2 \pi h / L)}\right)
 \end{array}
 ```
 
 where
 
-{math}`L:` wave length;
+$L:$ wave length;
 
-{math}`h^{\prime}:` water depth at the toe of the front wall {math}`=\left(d+d_{c}\right)`
+$h^{\prime}:$ water depth at the toe of the front wall $=\left(d+d_{c}\right)$
 
-{math}`h:` water depth in front of the structure;
+$h:$ water depth in front of the structure;
 
-{math}`h_{b}:` water depth at a distance of 5 times the significant wave height.
+$h_{b}:$ water depth at a distance of 5 times the significant wave height.
 
-{math}`d:` water depth at top of protection blocks
+$d:$ water depth at top of protection blocks
 
-{math}`d_{c}:` thickness of protection block layer
+$d_{c}:$ thickness of protection block layer
 
 ### Volume members
 
@@ -805,7 +805,7 @@ The second order hydrodynamic load effects may in many cases be important for th
 
 A variety of perturbation-based frequency and time domain methods are presented in the literature
 
-Superposing {math}`\mathrm{N}` waves with amplitudes {math}`a_{j}`, frequency {math}`\omega_{j}` and phase {math}`\varepsilon_{j}, \mathrm{j}=1, \ldots, \mathrm{N}`
+Superposing $N$ waves with amplitudes $a_{j}$, frequency $\omega_{j}$ and phase $\varepsilon_{j}, j=1, \ldots, N$
 
 ```{math}
 :label: eq-wave-2-54-a
@@ -831,25 +831,25 @@ F_{D}^{(1)}(t)=\operatorname{Re} \sum_{j=1}^{N} a_{j} F^{(1)}\left(\omega_{k}\ri
 F_{D}{ }^{(2)}(t)=\operatorname{Re} \sum_{k=1}^{N} \sum_{j=1}^{N} a_{j} a_{k}\left[F_{+}^{(2)}\left(\omega_{j}, \omega_{k}\right) e^{i\left(\left(\omega_{j}+\omega_{k}\right) t+\varepsilon_{j}+\varepsilon_{k}\right)}+F_{-}^{(2)}\left(\omega_{j}, \omega_{k}\right) e^{i\left(\left(\omega_{j}-\omega_{k}\right) t+\varepsilon_{j}-\varepsilon_{k}\right)}\right]
 ```
 
-where {math}`F^{(1)}` is the linear transfer function (LTF) and {math}`F_{+}^{(2)}, F_{-}^{(2)}` are sum- and differencefrequency force quadratic transfer functions (QTF). Response transfer functions, {math}`H^{(1)}, H_{+}^{(2)}, H_{-}^{(2)}`, corresponding to the force transfer functions, are found by solving the simultaneous linear equations of structural motions in 6 degrees of freedom.
+where $F^{(1)}$ is the linear transfer function (LTF) and $F_{+}^{(2)}, F_{-}^{(2)}$ are sum- and differencefrequency force quadratic transfer functions (QTF). Response transfer functions, $H^{(1)}, H_{+}^{(2)}, H_{-}^{(2)}$, corresponding to the force transfer functions, are found by solving the simultaneous linear equations of structural motions in 6 degrees of freedom.
 
 Response quantities of interest include both extreme values and fatigue damage. In the following a simplified statistics in terms of four statistical moments is given.
 
-The response {math}`x(t)` is expressed in terms of standard normal processes {math}`u_{i}(t)` that are independent at fixed {math}`\mathrm{t}` :
+The response $x(t)$ is expressed in terms of standard normal processes $u_{i}(t)$ that are independent at fixed $t$ :
 
 ```{math}
 :label: eq-wave-2-58
 x(t)=\sum_{i} c_{i} u_{i}(t)+\sum_{i} \lambda_{i} u_{i}^{2}(t)
 ```
 
-The coefficients {math}`\lambda_{i}` are eigen values of the integral equation (Kac and Siegert, 1947)
+The coefficients $\lambda_{i}$ are eigen values of the integral equation (Kac and Siegert, 1947)
 
 ```{math}
 :label: eq-wave-2-59
 \int_{-\infty}^{\infty} \Gamma\left(\omega_{1}, \omega_{2}\right) \Phi\left(\omega_{2}\right) d \omega_{2}=\lambda \Phi\left(\omega_{1}\right)
 ```
 
-in which {math}`\Gamma\left(\omega_{1}, \omega_{2}\right)=H_{+}^{(2)}\left(\omega_{1},-\omega_{2}\right) \sqrt{S\left(\left|\omega_{1}\right|\right) S\left(\left|\omega_{2}\right|\right)} / 2`. The first order coefficient is next determined as
+in which $\Gamma\left(\omega_{1}, \omega_{2}\right)=H_{+}^{(2)}\left(\omega_{1},-\omega_{2}\right) \sqrt{S\left(\left|\omega_{1}\right|\right) S\left(\left|\omega_{2}\right|\right)} / 2$. The first order coefficient is next determined as
 
 ```{math}
 :label: eq-wave-2-60
@@ -880,7 +880,7 @@ The moments follow by algebra as
 
 E.g., by a Hermite transformation, these moments can be used to model the nonGaussian response process (Winterstein, 1991).
 
-The Gaussian model is approached either if the {math}`\lambda_{i}{ }^{\prime} s` become small relative to the {math}`c_{i}{ }^{\prime} s`, or when the number of significant {math}`\lambda_{i}` terms grows.
+The Gaussian model is approached either if the $\lambda_{i}{ }^{\prime} s$ become small relative to the $c_{i}{ }^{\prime} s$, or when the number of significant $\lambda_{i}$ terms grows.
 
 This second order model has been used also for the slow drift problem (see e.g. Næss 1984, 1985).
 
@@ -901,19 +901,19 @@ Ship hull vibrations are often due to propeller cavitation.
 
 **Models for random variables**
 
-{numref}`tbl-wave-2.15.1` presents a list of variables that could be considered as uncertain within a probabilistic wave load analysis. For every variable suggestions are presented for the probabilistic modelling. In most cases these suggestions are based on what is presented in the literature by various authors, sometimes on the basis of observations and data, sometimes only for use in example calculations. As a result, the background of the values given may differ substantially from one random variable to another.
+{numref}`table-wave-load--asic-variables-and-probabilistic-models` presents a list of variables that could be considered as uncertain within a probabilistic wave load analysis. For every variable suggestions are presented for the probabilistic modelling. In most cases these suggestions are based on what is presented in the literature by various authors, sometimes on the basis of observations and data, sometimes only for use in example calculations. As a result, the background of the values given may differ substantially from one random variable to another.
 
-In {numref}`tbl-wave-2.15.1` mean values are often presented as to the nominal value or the locally measured value. The scatter, introduced as a coefficient of {math}`\mathrm{V}`, may also depend heavily on local circumstances. The designation of the distribution type, is clarified at the bottom of the table. For variables which are defined per member or per joint, the value of {math}`\rho_{i j}` indicates the coefficient of correlation between members. For the interpretation of {math}`\rho_{i j}` it is convenient to have the following relationship:
+In {numref}`table-wave-load--asic-variables-and-probabilistic-models` mean values are often presented as to the nominal value or the locally measured value. The scatter, introduced as a coefficient of $V$, may also depend heavily on local circumstances. The designation of the distribution type, is clarified at the bottom of the table. For variables which are defined per member or per joint, the value of $\rho_{i j}$ indicates the coefficient of correlation between members. For the interpretation of $\rho_{i j}$ it is convenient to have the following relationship:
 
 ```{math}
 \rho_{i j}=1-\left(V_{\text {int }} / V\right)^{2}{4}
 ```
 
-{math}`\mathrm{V}_{\mathrm{int}}=` member to member variability
+$V_{int}=$ member to member variability
 
-{math}`\mathrm{V}=` total uncertainty
+$V=$ total uncertainty
 
-As an example, let the member to member variability for the yield stress within one structure be equal to {math}`V_{\text {int }}=0.4`. The total uncertainty is about {math}`V=0.8`. So:
+As an example, let the member to member variability for the yield stress within one structure be equal to $V_{\text {int }}=0.4$. The total uncertainty is about $V=0.8$. So:
 
 ```{math}
 \rho_{i j}=1-(0.4 / 0.8)^{2}=0.75
@@ -923,57 +923,55 @@ In many practical calculations, values close to 0.0 or 1.0 should be rounded off
 
 In cases where little data is available, statistical parameters suffer seriously from "statistical uncertainty". The most important statistical uncertainty concerns the uncertainty in the mean, which can be translated into an increased coefficient of variation. The coefficients of variation given in the Table should be considered as including this statistical uncertainty.
 
-**Some detailed comments to {numref}`tbl-wave-2.15.1`**
+**Some detailed comments to {numref}`table-wave-load--asic-variables-and-probabilistic-models`**
 
 **Waves**
 
-The most important load parameter is the sea elevation {math}`\eta`, which can be considered as a zero mean piece-wise stationary Gaussion process. The parameters describing the spectra depend on the site location. When elaborating the parameters for a special case, however, it is recommended that one should take into account the statistical uncertainty due to the limited number of data, the effect of measurement errors and the difference in location between the measurement site and the construction site.
+The most important load parameter is the sea elevation $\eta$, which can be considered as a zero mean piece-wise stationary Gaussion process. The parameters describing the spectra depend on the site location. When elaborating the parameters for a special case, however, it is recommended that one should take into account the statistical uncertainty due to the limited number of data, the effect of measurement errors and the difference in location between the measurement site and the construction site.
 
 ```{table} Basic variables and probabilistic models
-:name: tbl-wave-2.15.1
-| {math}`\boldsymbol{X}` | Designation | {math}`\mu` | {math}`\mathbf{V}` | Dist type | {math}`\rho_{i j}` |
+:name: table-wave-load--asic-variables-and-probabilistic-models
+| $\boldsymbol{X}$ | Designation | $\mu$ | $\mathbf{V}$ | Dist type | $\rho_{i j}$ |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-|  | Measurement {math}`H_{s}` | nom | 0.10 | - | - |
-| {math}`H_{s}` | Significant wave height | Local | Local | {math}`\mathrm{W/L}` | - |
-| {math}`T_{z} \mid H_{s}` | Mean period for given {math}`H_{\mathrm{s}}` | Local | Local | {math}`\mathrm{L/N}` | - |
-| {math}`\phi_{s}` | Mean wave direction | Local | Local | Local | - |
-| {math}`T_{d}` | Duration of sea state | 3-6 hrs | 1.0 | {math}`\mathrm{E}` | - |
-| {math}`H_{\max } \mid H_{s}` | Max wave in given sea state | Calculation | Local | {math}`\mathrm{G}` | - |
-| {math}`\theta_{w}` | Wave model | Depends | 0.05 - 0.3 | - | - |
-| {math}`\theta_{M G}` | Marine growth model | 1 | 0.2 - 0.5 | {math}`\mathrm{W}` | 0.9 |
-| {math}`C_{D}` | Drag force coefficient | 0.6 - 1.3 | 0.2 - 0.3 | {math}`\mathrm{L}` | 0.9 |
-| {math}`C_{M}` | Inertia force coefficient | 1.6 - 2.5 | 0.10 - 0.15 | {math}`\mathrm{L}` | 0.9 |
-| {math}`\mathrm{p}_{1}` | Horizontal pressure on wall | 0.90 | 0.20 | {math}`\mathrm{L}` | - |
-|  | Moment due to horizontal <br> pressure on wall | 0.81 | 0.37 | {math}`\mathrm{L}` | - |
-| {math}`\mathrm{p}_{4}` | Uplift pressure | 0.77 | 0.20 | {math}`\mathrm{L}` | - |
-|  | Moment due to uplift pressure | 0.72 | 0.34 | {math}`\mathrm{L}` | - |
+|  | Measurement $H_{s}$ | nom | 0.10 | - | - |
+| $H_{s}$ | Significant wave height | Local | Local | $W/L$ | - |
+| $T_{z} \mid H_{s}$ | Mean period for given $H_{s}$ | Local | Local | $L/N$ | - |
+| $\phi_{s}$ | Mean wave direction | Local | Local | Local | - |
+| $T_{d}$ | Duration of sea state | 3-6 hrs | 1.0 | $E$ | - |
+| $H_{\max } \mid H_{s}$ | Max wave in given sea state | Calculation | Local | $G$ | - |
+| $\theta_{w}$ | Wave model | Depends | 0.05 - 0.3 | - | - |
+| $\theta_{M G}$ | Marine growth model | 1 | 0.2 - 0.5 | $W$ | 0.9 |
+| $C_{D}$ | Drag force coefficient | 0.6 - 1.3 | 0.2 - 0.3 | $L$ | 0.9 |
+| $C_{M}$ | Inertia force coefficient | 1.6 - 2.5 | 0.10 - 0.15 | $L$ | 0.9 |
+| $p_{1}$ | Horizontal pressure on wall | 0.90 | 0.20 | $L$ | - |
+|  | Moment due to horizontal <br> pressure on wall | 0.81 | 0.37 | $L$ | - |
+| $p_{4}$ | Uplift pressure | 0.77 | 0.20 | $L$ | - |
+|  | Moment due to uplift pressure | 0.72 | 0.34 | $L$ | - |
 ```
-{math}`\theta_{\mathrm{X}}=` model uncertainty of {math}`\mathrm{X}, \rho_{i j}=` correlation between members, {math}`\mathrm{N}=` normal, {math}`\mathrm{L}=` lognormal, {math}`\mathrm{E}=` exponential, {math}`\mathrm{W}=` Weibull, {math}`\mathrm{G}=` Gumbel
+
+$\theta_{X}=$ model uncertainty of $X, \rho_{i j}=$ correlation between members, $N=$ normal, $L=$ lognormal, $E=$ exponential, $W=$ Weibull, $G=$ Gumbel
 
 There is no generally valid one-to-one relationship between the visual wave height and the significant wave height (instrumentally measured), or between the visual wave period and zero-crossing wave period (instrumentally measured). Thus, usually correction factors should be applied to the visual observations, see for example Bitner-Gregersen and Hagen (1990).
 
 The Global Wave Statistics (GWS) visual observations of wave climate, see British Maritime Technology (1986), represent the only truly global set of wave data with a sufficiently long observation history to give reliable global climatic statistics. British Maritime Technology (1986) states that it should not be necessary to apply any correction factors, usually used for estimating wave height and wave period from visual observations. However, the accuracy of the data is still questioned in the literature. The GWS data should be used with care, and if possible they should be checked against available instrumental or hindcast data for considered areas. For the North Pacific, the visual wave observations owing to Watanabe et al. (1992) are probably of higher accuracy than the Global Wave Statistics data. The Global Wave Statistics data were collected from ships whose density of traffic in the North Pacific area was rather low.
 
-The World Meteorological Organisation's accuracy requirements for waves, in terms of {math}`95 \%` confidence interval limits, are (WMO, 1983): {math}`\pm 20 \%` for significant wave height and {math}`\pm 1.0 \mathrm{~s}` for the average wave period. However, the accuracy of the actual wave data may be widely varying and is very much related to the observation mode.
+The World Meteorological Organisation's accuracy requirements for waves, in terms of $95 \%$ confidence interval limits, are (WMO, 1983): $\pm 20 \%$ for significant wave height and $\pm 1.0 ~s$ for the average wave period. However, the accuracy of the actual wave data may be widely varying and is very much related to the observation mode.
 
-The instrumental accuracy depends on the type of instrument used. A study by Hasselman et al. (1973) shows that properly calibrated instruments are in general equally accurate. Wave buoys are regarded as being highly accurate instruments, and
-
-Page 22
-error in the estimated significant wave height due to imperfections of the wave buoys may be considered as negligible for most sea states, Steel and Earle (1979), Monaldo (1988). During the severe sea conditions, the buoy may be drawn through the crest of wave, causing a smoothing effect in the recorded data. In the presence of a strong surface current, the buoy will most likely underestimate high wave heights. External forces on the buoy (e.g., breaking waves, mooring) may cause violent accelerations, that will lead to overestimation of the waves. These uncertainties are difficult to quantify.
+The instrumental accuracy depends on the type of instrument used. A study by Hasselman et al. (1973) shows that properly calibrated instruments are in general equally accurate. Wave buoys are regarded as being highly accurate instruments, and error in the estimated significant wave height due to imperfections of the wave buoys may be considered as negligible for most sea states, Steel and Earle (1979), Monaldo (1988). During the severe sea conditions, the buoy may be drawn through the crest of wave, causing a smoothing effect in the recorded data. In the presence of a strong surface current, the buoy will most likely underestimate high wave heights. External forces on the buoy (e.g., breaking waves, mooring) may cause violent accelerations, that will lead to overestimation of the waves. These uncertainties are difficult to quantify.
 
 In steep waves, the differences between sea surface oscillations recorded by a fixed (Eulerian) probe or laser, and those obtained by a free-floating (Lagrangian) buoy can be very marked. Reference is made to, Vartdal et al. (1989), Marthinsen and Winterstein (1992). Thus the wave buoy data should not be used for estimation of wave profiles in steep waves.
 
 Platform mounted wave gages and other wave sensing devices have the advantage that they measure directly sea surface displacement rather than the acceleration as the buoys. For accuracy of the platform data see e.g. Cardone et al. (1995).
 
-Several investigations carried out in the last years indicate very promising results that support use of the satellite data. Carter et al. (1992) demonstrated that over the range of wave heights 1m - 8m satellite altimeter derived significant wave heights were nearly as accurate as the ones obtained from surface buoy measurements. Cooper and Forristall (1995) have shown that the satellite data are suitable for analysing ocean areas dominated by large storms or monsoon flows (accuracy: {math}`\mathrm{COV}=10 \%` ).
+Several investigations carried out in the last years indicate very promising results that support use of the satellite data. Carter et al. (1992) demonstrated that over the range of wave heights 1m - 8m satellite altimeter derived significant wave heights were nearly as accurate as the ones obtained from surface buoy measurements. Cooper and Forristall (1995) have shown that the satellite data are suitable for analysing ocean areas dominated by large storms or monsoon flows (accuracy: $COV=10 \%$ ).
 
 Modelled wave data are produced operationally by major national meteorological services and are filed by the data centers. The accuracy of these data may vary and depends strongly on the hindcast models applied to generate the data as well as the adopted wind field. To allow hindcast data to be used, the underlying hindcast models must be calibrated with measured data.
 
 As noted above neither measurements nor wave models can be entirely relied upon to provide unbiased and error-free estimates under all conditions. The best way of providing a reliable metocean database is to make use of both measurements and model data, and to quantify uncertainties related to them. Generally, the offshore industry regards the instrumentally measured data always superior to model derived data, and recommends to use them for evaluating the design and operational criteria. Note that for instrumentally recorded wave data sampling variability due to a limited registration time constitutes a significant part of the random errors.
 
-For the JONSWAP and Pierson-Moskowitz spectrum the sampling variability coefficient of variation of the significant wave height and zero-crossing wave period are approximately {math}`4-6 \%` and {math}`1.5-2.5 \%` respectively.
+For the JONSWAP and Pierson-Moskowitz spectrum the sampling variability coefficient of variation of the significant wave height and zero-crossing wave period are approximately $4-6 \%$ and $1.5-2.5 \%$ respectively.
 
-An unbiased noise in the measurement system will increase the measured {math}`H_{S}`. This sampling variability leads to extrapolations of extreme wave heights and periods that are biased. A review of data from 17 storms at Forties carried out by Earle and Baer (1982) indicates that the storm-peak significant wave heights determined from a single 17 -minute record every three hours are biased by about {math}`6 \%`, relative to threehour-average values.
+An unbiased noise in the measurement system will increase the measured $H_{S}$. This sampling variability leads to extrapolations of extreme wave heights and periods that are biased. A review of data from 17 storms at Forties carried out by Earle and Baer (1982) indicates that the storm-peak significant wave heights determined from a single 17 -minute record every three hours are biased by about $6 \%$, relative to threehour-average values.
 
 **Long-term Description**
 
@@ -983,7 +981,7 @@ While both data uncertainty and statistical uncertainty is possible to quantify,
 
 The global approach utilising all data from long series of regular observations introduces correlation among observations (e.g. clustering), and may obscure critical tail behaviour. However, the method is less sensitive to uncertainties in the few largest data points. In the alternative Peak Over Threshold method extreme observations may be nearly independent, but their scarceness increases the statistical uncertainty relative to the global approach. The method is also more sensitive to errors in the few highest data points. There is no general agreement on whether the global approach or the event method should be used. A choice between the methods should depend on the data set at hand as well as the application considered. However, for fatigue calculations for steel or steel welds all data should generally be preferred. Further, for extreme value analysis there are reasons for favouring event models (Winterstein et al., 2001).
 
-Sampling variability of measured wave data (due to registration time = 1024s and 3- hour spacing interval) will lead to a positive bias in long-term period extreme wave heights estimated either directly from measurements or from hindcast data calibrated with measurements, see Heidemann et al. (1994). Further, as shown by Heidemann et al. (1995) the {math}`\mathrm{H}_{\mathrm{s}}` distribution function is clearly negatively biased for storms with shorter duration and greater intervals between samples, and positively biased for storms with greater duration and more frequent samples. The bias in 100 -year Hs for 1-hour spacing and 3-hour spacing is not negligible. Furthermore, as demonstrated by Heidemann et al. (1995), uncertainty in design criteria increases rapidly as the data record length decreases below that which is required to achieve an acceptable COV of, say, 0.1 . Too short record has to be compensated by adopting more expensive safety margins by a designer. Thus it may be more desirable to have record with some uncertainty in the accuracy of the data than to have a very short data record of perfect accuracy.
+Sampling variability of measured wave data (due to registration time = 1024s and 3- hour spacing interval) will lead to a positive bias in long-term period extreme wave heights estimated either directly from measurements or from hindcast data calibrated with measurements, see Heidemann et al. (1994). Further, as shown by Heidemann et al. (1995) the $H_{s}$ distribution function is clearly negatively biased for storms with shorter duration and greater intervals between samples, and positively biased for storms with greater duration and more frequent samples. The bias in 100 -year Hs for 1-hour spacing and 3-hour spacing is not negligible. Furthermore, as demonstrated by Heidemann et al. (1995), uncertainty in design criteria increases rapidly as the data record length decreases below that which is required to achieve an acceptable COV of, say, 0.1 . Too short record has to be compensated by adopting more expensive safety margins by a designer. Thus it may be more desirable to have record with some uncertainty in the accuracy of the data than to have a very short data record of perfect accuracy.
 
 Climatic uncertainty appears when the observed data are obtained from a time interval that is not fully representative for the long-term variations of the environmental conditions. This may result in overestimation or underestimation of the design/operational wave. The database needs to cover at least 20 years of preferably 30 years or more in order to account for climatic variability. In regions where the predominating storm type is a hurricane, and the frequency of occurrence of extreme hurricanes at a site is low (such as in the Gulf of Mexico), the uncertainty in the 100year wave height might not reach a "comfortable" level until the data base coverage actually approaches 100 years, see Heidemann et al. (1994).
 
@@ -999,11 +997,11 @@ All uncertainties related to wave models should where possible be quantified and
 
 **Wave loads**
 
-The values of the coefficients {math}`C_{M}` and {math}`C_{D}` are a source of model uncertainty. For common structural cross sections, typical values of {math}`C_{D}` are found in the range between 0.6 and 1.3. Similarly, typical values of {math}`C_{M}` are found in the range between 1.6 to 2.5 .
+The values of the coefficients $C_{M}$ and $C_{D}$ are a source of model uncertainty. For common structural cross sections, typical values of $C_{D}$ are found in the range between 0.6 and 1.3. Similarly, typical values of $C_{M}$ are found in the range between 1.6 to 2.5 .
 
-The drag coefficient {math}`C_{D}` is a function of Reynolds number. The inertia coefficient {math}`C_{M}` can in many cases be evaluated theoretically, as the inertia force is essentially the same force as that evaluated by integrating the pressure over the cylinder surface in a velocity potential representation. Different values of the drag coefficient {math}`C_{D}` and the inertia coefficient {math}`C_{M}` below and above sea water level should be considered because of marine growth.
+The drag coefficient $C_{D}$ is a function of Reynolds number. The inertia coefficient $C_{M}$ can in many cases be evaluated theoretically, as the inertia force is essentially the same force as that evaluated by integrating the pressure over the cylinder surface in a velocity potential representation. Different values of the drag coefficient $C_{D}$ and the inertia coefficient $C_{M}$ below and above sea water level should be considered because of marine growth.
 
-In the reliability analysis it is recommended to adopt {math}`C_{M}` as a lognormally distributed variable with {math}`C O V=0.10`, and {math}`C_{D}` as a lognormally distributed variable with {math}`C O V=0.20-0.30`, Haring and Spencer (1979), Dean et al. (1979).
+In the reliability analysis it is recommended to adopt $C_{M}$ as a lognormally distributed variable with $C O V=0.10$, and $C_{D}$ as a lognormally distributed variable with $C O V=0.20-0.30$, Haring and Spencer (1979), Dean et al. (1979).
 
 The model uncertainties of the Goda formula (last four lines) have been studied by Van der Meer (1994).
 

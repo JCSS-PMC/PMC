@@ -867,4 +867,6 @@ The daily course of measured temperatures in the Koberovice concrete box girder 
 **References**
 
 ```{bibliography}
+:filter: docname in docnames
+:style: unsrt
 ```

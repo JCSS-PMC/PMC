@@ -153,7 +153,7 @@ The collision force probability distribution based on {eq}`eq-impact-2.18.5`, ne
 
 ```{math}
 :label: eq-impact-2.18.6
-P\left(F_{c}>X\right)=n T \lambda \Delta x~P\left[\sqrt{ }\left\lbracem k\left(v_{o}^{2}-2 ar\right)\right\rbrace>X\right]
+P\left(F_{c}>X\right)=n T \lambda \Delta xP\left[\sqrt{ }\left\lbrace m k\left(v_{o}^{2}-2 ar\right)\right\rbrace >X\right]
 ```
 
 $n =$ number of vehicles per time unit
@@ -309,7 +309,7 @@ The forces on the superstructure of the bridge depend on the height of the bridg
 
 The probability of a structure being hit by an airplane is very small. Only for exceptional structures like nuclear power plants, where the consequences of failure may be very large, is it mandatory to account for aircraft impact during design.
 
-For $\text{\underline{air corridors}}$, using {eq}`eq-impact-2.18.3` and for small probabilities:
+For $\underline{\text{air corridors}}$, using {eq}`eq-impact-2.18.3` and for small probabilities:
 
 ```{math}
 :label: eq-impact-2.18.9
@@ -330,11 +330,11 @@ $P_{\text {na }}=$ probability of not avoiding a collision, given an airplane on
 
 The area $A_{b}$ is the area of the building itself, enlarged by a so called shadow area (see {numref}`fig-strike-area-for-airplane-crash`). The strike angle $\alpha$ is random.
 
-For the $\text{\underline{vicinity of an airport}}$ (at a distance $r$) the impact force distribution is based on:
+For the $\underline{\text{vicinity of an airport}}$ (at a distance $r$) the impact force distribution is based on:
 
 ```{math}
 :label: eq-impact-2.18.10
-P\left(F_{C}>X\right)=\operatorname{nTP}_{na} \Lambda(r) A_{b} P\left\lbraceF_{C}>X \mid impact\right\rbrace
+P\left(F_{C}>X\right)=\operatorname{nTP}_{na} \Lambda(r) A_{b} P\left\lbrace F_{C}>X \mid \text{impact}\right\rbrace
 ```
 
 ```{math}

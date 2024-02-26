@@ -180,7 +180,7 @@ The shadowed value in {numref}`table-target-reliability-indices-ULS` should be c
  based on decision analysis methods.
 
  For irreversible serviceability limit states tentative target values
- are given in {numref}`(table-target-reliability-indices-SLS)`. A variation from the target serviceability
+ are given in {numref}`table-target-reliability-indices-SLS`. A variation from the target serviceability
  indexes of the order of 0.3 can be considered. For reversible
  serviceability limit states no general values are given.
 

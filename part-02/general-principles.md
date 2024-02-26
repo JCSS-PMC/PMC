@@ -500,7 +500,7 @@ The maximum action effect $E_{\max }$ from $Q_{1}$ and $Q_{2}$ during the refere
 
 ```{math}
 :label: eqA3.3
-E_{\max }=\max \left\lbracec_{1} Q_{1}+c_{2} Q_{2 c}\right\rbrace
+E_{\max }=\max \left\lbrace c_{1} Q_{1}+c_{2} Q_{2 c}\right\rbrace
 ```
 
 The maximum should be taken over all intervals $\tau_{1}$ within the reference period $t_{o}$.

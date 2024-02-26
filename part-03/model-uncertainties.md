@@ -2,17 +2,12 @@
 
 **List of Symbols**
 
-{math}`Y =` response of the structure according to the model
-
-{math}`Y^{\prime}=` real response of the structure
-
-{math}`f()=` model function
-
-{math}`f^{\prime}()=` model function including model uncertainties
-
-{math}`X_{\mathrm{i}}=` basic variable
-
-{math}`\theta_{\mathrm{i}}=` model uncertainty
+$\begin{array}{ll}Y  & = \text { response of the structure according to the model } \\
+Y^{\prime} & = \text { real response of the structure } \\
+f() & = \text { model function } \\
+f^{\prime}() & = \text { model function including model uncertainties } \\
+X_{\mathrm{i}} & = \text { basic variable } \\
+\theta_{\mathrm{i}} & = \text { model uncertainty }\end{array}$
 
 ## General
 
@@ -23,25 +18,25 @@ In order to calculate the response of a structure with certain (random) properti
 Y=f\left(X_{1}, X_{2}, \ldots X_{n}\right)
 ```
 
-{math}`Y =`  response of the structure
+$Y =$  response of the structure
 
-{math}`f()=` model function
+$f()=$ model function
 
-{math}`X_{\mathrm{i}}=` basic variables (actions and structural properties)
+$X_{i}=$ basic variables (actions and structural properties)
 
-The model function {math}`f(..)` is usually not complete and exact, so that the outcome {math}`Y` cannot be predicted without error, even if the values of all random basic variables are known. The real outcome {math}`Y^{\prime}` of the experiment can formally be written down as:
+The model function $f(..)$ is usually not complete and exact, so that the outcome $Y$ cannot be predicted without error, even if the values of all random basic variables are known. The real outcome $Y^{\prime}$ of the experiment can formally be written down as:
 
 ```{math}
 :label: eq-model-uncertainities-3.9.2
 Y^{\prime}=f^{\prime}\left(X_{1} \ldots X_{n}, \theta_{1} \ldots \theta_{2}\right)
 ```
 
-The variables {math}`\theta_{\mathrm{i}}` are referred to as parameters which contain the model uncertainties and are treated as random variables. The model uncertainties account for:
+The variables $\theta_{i}$ are referred to as parameters which contain the model uncertainties and are treated as random variables. The model uncertainties account for:
 
 - random effects that are neglected in the models
 - simplifications in the mathematical relations
 
-Ideally model uncertainties should be obtained from a set of representative laboratory experiments and measurements on real structures where all values of {math}`x_{i}` are measured or controlled. In those case a model uncertainty has the nature of an intrinsic uncertainty. If the number of measurements is small the statistical uncertainty may be large. Additional there may be uncertainty due to measurement errors both in the {math}`X_{i}` and in the {math}`Y`. Bayesian regressian analysis usually is the appropriate tool to deal with the above situation.
+Ideally model uncertainties should be obtained from a set of representative laboratory experiments and measurements on real structures where all values of $x_{i}$ are measured or controlled. In those case a model uncertainty has the nature of an intrinsic uncertainty. If the number of measurements is small the statistical uncertainty may be large. Additional there may be uncertainty due to measurement errors both in the $X_{i}$ and in the $Y$. Bayesian regressian analysis usually is the appropriate tool to deal with the above situation.
 
 In many cases, however, a good and consistent set of experiments is lacking and statistical properties for model uncertainties are purely based on engineering judgement. Sometimes a comparison between various models may help to defend certain propositions.
 
@@ -59,12 +54,12 @@ or
 Y^{\prime}=\theta_{1}+f\left(X_{1} \ldots X_{n}\right)
 ```
 
-or a combination of both. The first definition is clarified in {numref}`fig-model-uncertainities-3.9.1`
+or a combination of both. The first definition is clarified in {numref}`fig-estimation-of-model-uncertainty-statistics-on-a-number-of-tests`
 
-It should be kept in mind that this way the statistical properties of the model uncertainties depend on the exact definition of the model output. A theoretical elegant way to avoid these definition dependency is to link model uncertainties directly to the basic variables, that is to introduce {math}`X^{\prime} i=\theta_{1} X_{i}`
+It should be kept in mind that this way the statistical properties of the model uncertainties depend on the exact definition of the model output. A theoretical elegant way to avoid these definition dependency is to link model uncertainties directly to the basic variables, that is to introduce $X^{\prime} i=\theta_{1} X_{i}$
 
-```{figure} ../part-03/images/fig-model-uncertainities-3.9.1.jpg
-:name: fig-model-uncertainities-3.9.1
+```{figure} ../part-03/images/estimation-of-model-uncertainty-statistics-on-a-number-of-tests.jpg 
+:name: fig-estimation-of-model-uncertainty-statistics-on-a-number-of-tests
 
 estimation of model uncertainty statistics on a number of tests following definition [31.3.](section-model-uncertainities-3.9.3)
 ```
@@ -88,17 +83,17 @@ The local models are used to define the behaviour of an element, a typical cross
 (section-model-uncertainities-3.9.3)=
 ## Recommendations for practice
 
-Models may be of a numerical , analytical or empirical nature. In the recommended values in {numref}`tbl-model-uncertainities-3.9.1` a more or less standard structural Finite Element Model has been kept in mind.
+Models may be of a numerical , analytical or empirical nature. In the recommended values in {numref}`table-recommended-probabilistic-models-for-model-uncertainties` a more or less standard structural Finite Element Model has been kept in mind.
 
-The model uncertainties are assumed to be partly correlated throughout the structure: on one point of the structure the circumstances will usually be different from another point which makes it unlikely that a full correlation exists. For that reason the {numref}`tbl-model-uncertainities-3.9.1` also includes an estimate for the degree of correlation between various points or critical cross sections in one structure. 
+The model uncertainties are assumed to be partly correlated throughout the structure: on one point of the structure the circumstances will usually be different from another point which makes it unlikely that a full correlation exists. For that reason the {numref}`table-recommended-probabilistic-models-for-model-uncertainties` also includes an estimate for the degree of correlation between various points or critical cross sections in one structure. 
 
 ```{table} Recommended probabilistic models for Model Uncertainties
-:name: tbl-model-uncertainities-3.9.1
+:name: table-recommended-probabilistic-models-for-model-uncertainties
 | Model type | Distr | mean | CoV | correlation |
 | :--- | :---: | :---: | :---: | :---: |
-| **load effect calculation** <br> {math}`\quad` moments in frames <br> {math}`\quad` axial forces in frames <br>  {math}`\quad` shear forces in frames <br> {math}`\quad` moments in plates <br> {math}`\quad` forces in plates <br>  {math}`\quad` stresses in 2D solids <br> {math}`\quad` stresses in 3D solids | <br> LN <br> LN <br> LN <br> LN <br> LN <br> N <br> N  | <br> 1.0 <br> 1.0 <br> 1.0 <br> 1.0 <br> 1.0 <br> 0.0 <br> 0.0 | <br> 0.1 <br> 0.05 <br> 0.1 <br> 0.2 <br> 0.1 <br> 0.05 <br> 0.05  |
-| **resistance models steel (static)** <br> {math}`\quad` bending moment capacity{math}`^{(1)}` <br> {math}`\quad` shear capacity <br> {math}`\quad` welded connection capacity <br> {math}`\quad` bolted connection capacity | <br> LN <br> LN <br> LN <br> LN | <br> 1.0 <br> 1.0 <br> 1.15 <br> 1.25 | <br> 0.05 <br> 0.05 <br> 0.15 <br> 0.15 |  |
-| **resistance models concrete (static)** <br> {math}`\quad` bending moment capacity{math}`^{(1)}` <br> {math}`\quad` shear capacity <br> {math}`\quad` connection capacity | <br> LN <br> LN <br> LN | <br> 1.2 <br> 1.4 <br> 1.0 | <br> 0.15 <br> 0.25 <br> 0.1 |  |
+| **load effect calculation** <br> $\quad$ moments in frames <br> $\quad$ axial forces in frames <br>  $\quad$ shear forces in frames <br> $\quad$ moments in plates <br> $\quad$ forces in plates <br>  $\quad$ stresses in 2D solids <br> $\quad$ stresses in 3D solids | <br> LN <br> LN <br> LN <br> LN <br> LN <br> N <br> N  | <br> 1.0 <br> 1.0 <br> 1.0 <br> 1.0 <br> 1.0 <br> 0.0 <br> 0.0 | <br> 0.1 <br> 0.05 <br> 0.1 <br> 0.2 <br> 0.1 <br> 0.05 <br> 0.05  |
+| **resistance models steel (static)** <br> $\quad$ bending moment capacity$^{(1)}$ <br> $\quad$ shear capacity <br> $\quad$ welded connection capacity <br> $\quad$ bolted connection capacity | <br> LN <br> LN <br> LN <br> LN | <br> 1.0 <br> 1.0 <br> 1.15 <br> 1.25 | <br> 0.05 <br> 0.05 <br> 0.15 <br> 0.15 |  |
+| **resistance models concrete (static)** <br> $\quad$ bending moment capacity$^{(1)}$ <br> $\quad$ shear capacity <br> $\quad$ connection capacity | <br> LN <br> LN <br> LN | <br> 1.2 <br> 1.4 <br> 1.0 | <br> 0.15 <br> 0.25 <br> 0.1 |  |
 ```
 (1) including the effects of normal and shear forces.
 

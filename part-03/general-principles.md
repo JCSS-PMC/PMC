@@ -2,21 +2,21 @@
 
 **List of symbols:**
 
-{math}`\mathrm{f}_{\mathrm{x}}(\mathrm{x} \mid \mathrm{q})=` the variability of property {math}`\mathrm{x}` within a given lot
+$f_{x}(x \mid q)=$ the variability of property $x$ within a given lot
 
-{math}`\mathrm{f}_{\mathrm{q}}(\mathrm{q})=` the variability of the parameters {math}`\mathrm{q}` from lot to lot; statistical description of the production
+$f_{q}(q)=$ the variability of the parameters $q$ from lot to lot; statistical description of the production
 
-{math}`\mathrm{f}^{\prime}(\mathrm{q})=` prior distribution of {math}`\mathrm{q}`
+$f^{\prime}(q)=$ prior distribution of $q$
 
-{math}`\mathrm{f}^{\prime \prime}(\mathrm{q})=` posterior distribution of {math}`\mathrm{q}`
+$f^{\prime \prime}(q)=$ posterior distribution of $q$
 
-{math}`\mathrm{L}(` data {math}`\mid` {math}`\mathrm{q})=` likelihood function
+$L$ (data $\mid$ $q$) $=$ likelihood function
 
-{math}`\mathrm{q}=` vector of distribution parameters (e.g. mean and std. dev.)
+$q=$ vector of distribution parameters (e.g. mean and std. dev.)
 
-{math}`\mathrm{C}=` normalising constant
+$C=$ normalising constant
 
-{math}`\mathrm{d}=` decision rule
+$d=$ decision rule
 
 ## Introduction
 
@@ -38,12 +38,12 @@ extensive and well defined testing program.
 
 Material properties are defined as the properties of material specimens of defined size and conditioning, sampled according to given rules, subjected to an agreed testing procedure, the results of which are evaluated according to specified procedures.
 
-The main characteristics of the mechanical behaviour is described by the one dimensional {math}`\sigma-\varepsilon-` diagram, as presented in {numref}`fig-stress-strain-diagram`. As an absolute minimum for structural design the
+The main characteristics of the mechanical behaviour is described by the one dimensional $\sigma-\varepsilon-$ diagram, as presented in {numref}`fig-stress-strain-diagram`. As an absolute minimum for structural design the
 
 - modulus of elasticity
 - the strength of the material
 
-both for tensile and compression should be known. Other important parameters in the one-dimensional {math}`\sigma-\varepsilon-` diagram are:
+both for tensile and compression should be known. Other important parameters in the one-dimensional $\sigma-\varepsilon-$ diagram are:
 
 - yield stress (if present)
 - limit of proportionality
@@ -57,7 +57,7 @@ The strain at rupture is a local phenomenon and the value obtained may heavily d
 Stress strain relationship 
 ```
 
-Additional to the one dimensional {math}`\sigma-\varepsilon-` diagram, information about a number of other quantities and effects is of importance, such as:
+Additional to the one dimensional $\sigma-\varepsilon-$ diagram, information about a number of other quantities and effects is of importance, such as:
 
 - Multi-axial stress condition
 - Duration and strain rate effects
@@ -72,7 +72,7 @@ In the present version of this JCSS model code not all properties will be consid
 
 ## Uncertainties in material modelling
 
-Material properties vary randomly in space: The strength in one point of a structure will not be the same as the strength in another point of the same structure or another one. This item will be further developed in the sections [3.04](../part-03/model-uncertainties.md) and [3.05](../part-03/dimensions.md). 
+Material properties vary randomly in space: The strength in one point of a structure will not be the same as the strength in another point of the same structure or another one. This item will be further developed in the sections [23.4.](section-3.04) and [23.5.](section-3.05). 
 
 Additional to spatial variations of materials, the following uncertainties between measured properties of specimen and properties of the real structure should be accounted for.
 
@@ -88,11 +88,12 @@ Additional to spatial variations of materials, the following uncertainties betwe
 
 6. Uncertainties related to alterations in time, predictable only by laboratory testing, field observations, etc.
 
+(section-3.04)=
 ## Scales of modelling variations
 
-Material properties vary locally in space and, possibly, in time. As far as the spacial variations are concerned, it is useful to distinguish between three hierarchical levels of variation: global (macro), local (meso) and micro (see {numref}`tbl-general-principles-3.0.1`).
+Material properties vary locally in space and, possibly, in time. As far as the spacial variations are concerned, it is useful to distinguish between three hierarchical levels of variation: global (macro), local (meso) and micro (see {numref}`table-heirarchial-scales-of-fluctuation`).
 
-For example, the variability of the mean and standard deviation of concrete cylinder strength per job or construction unit as shown in {numref}`fig-general-principles-3.0.2` is a typical form of global parameter variation. This variation primarily is the result of production technology and production strategy of the concrete producers. Parameter variations between objects are conveniently denoted as macroscale variations. The unit of that scale is in the order of a structure or a construction unit. Parameter variations may also be due to statistical uncertainties.
+For example, the variability of the mean and standard deviation of concrete cylinder strength per job or construction unit as shown in {numref}`fig-Description-of-production-parameters-lots-and-total-supply` is a typical form of global parameter variation. This variation primarily is the result of production technology and production strategy of the concrete producers. Parameter variations between objects are conveniently denoted as macroscale variations. The unit of that scale is in the order of a structure or a construction unit. Parameter variations may also be due to statistical uncertainties.
 
 Given a certain parameter realisation in a system the next step is to model the local variations within the system in terms of random processes or fields. Characteristically, spatial correlations (dependencies) become negligible at distances comparable to the size of the system. This is a direct consequence of the hierarchical modelling procedure where it is natural to assume that the variation within the system is conditional on the variations between systems and the first type of variation is conditionally independent of the second. At this level one may speak of meso-scale variations. Examples are the spatial variation of soils within a given (not too large) foundation site or the number, size and spatial distribution of flaws along welding lines given a welding factory (or welding operator). The unit of this scale is in the order of the size of the structural elements and probably most conveniently measured in meters.
 
@@ -104,9 +105,10 @@ A useful concept is to introduce a reference volume of the material which in gen
 
 The reason for this concept of modelling at several levels (steps) is the requirement for operationability not only in the probabilistic manipulations but also in sampling, estimation and quality control. This way of modelling and the considerations below are, of course, only valid under certain technical standards for production and its control. At the macro-scale level it is assumed that the production process is under control. This simply means that the outcome of production is stationary in some sense. Should a trend develop, production control corrects for it immediately or with some sufficiently small delay. Therefore, it is assumed that at least for some time interval (or spatial region) whose length (size) is to be selected carefully, approximate stationarity on the meso- and micro-scale is guaranteed. Quite frequently, the operational, mathematical models available so far even require ergodicity. Variations at the macro scale level, therefore, can be described by stationary sequences. If the sequences are or can be assumed independent, it is possible to handle macro-scale variations by the concept of random variables. Stationarity is also assumed at the lower levels. However, it may be necessary to use the theory of random processes (fields) at the lower levels, especially in order to take into account of significant effects of dependencies in time or space.
 
+(section-3.05)=
 ## Hierarchical modelling
 
-Consider a random material property {math}`\mathrm{X}` which is described by a probability density function {math}`f_{\mathrm{x}}(\mathrm{x} \mid \mathbf{q})`, where {math}`\mathbf{q}=\left(\mathrm{q_{1}}, \mathrm{q_{2}}, \ldots\right)` is the statistical parameter vector, e.g. {math}`\mathrm{q_{1}}` is the mean and {math}`\mathrm{q_{2}}` the standard deviation. The density function {math}`\mathrm{f}_{\mathrm{x}}(\mathrm{x} \mid \mathbf{q})` applies to the property of a *finite reference volume*, identical with or clearly related to the volume of the test specimen within a given unit of material. Guidance on the type of distribution may be obtained by assessing the performance of the reference volume under testing conditions in terms of some *micro system* behaviour. The performance of test specimens, regarded as a system of micro elements, can usually be interpreted by one of the following strength models
+Consider a random material property $X$ which is described by a probability density function $f_{x}(x \mid \mathbf{q})$, where $\mathbf{q}=\left(q_{1}, q_{2}, \ldots\right)$ is the statistical parameter vector, e.g. $q_{1}$ is the mean and $q_{2}$ the standard deviation. The density function $f_{x}(x \mid \mathbf{q})$ applies to the property of a *finite reference volume*, identical with or clearly related to the volume of the test specimen within a given unit of material. Guidance on the type of distribution may be obtained by assessing the performance of the reference volume under testing conditions in terms of some *micro system* behaviour. The performance of test specimens, regarded as a system of micro elements, can usually be interpreted by one of the following strength models
 
 - Weakest link model
 - Full plasticity model
@@ -114,14 +116,14 @@ Consider a random material property {math}`\mathrm{X}` which is described by a p
 
 When applying these models to systems with increasing number of elements, they generally lead to specific distributions for the properties of the system at the meso-scale level. The weakest link model leads to a Weibull distribution, the other two models to a normal distribution. For larger coefficients of variation the normal distribution must be replaced by a lognormal distribution in order to avoid physically impossible, negative strength values.
 
-In the next step (see {numref}`tbl-general-principles-3.0.1`) a *unit* (a structural member) is considered as *meso-scale* (local variations). The respective unit is regarded as being constituted from a sequence of finite volumes. Hence, a property in this unit is modelled by a random sequence {math}`\mathrm{X}_{1}, \mathrm{X}_{2}, \mathrm{X}_{3} \ldots` of reference volume properties. The {math}`\mathrm{X_{i}}` may have to be considered as correlated, with a coefficient of correlation depending on the distance {math}`\Delta \mathrm{r}_{\mathrm{ij}}` and a correlation parameters {math}`\rho_{\mathrm{o}}` and {math}`\mathrm{d}_{\mathrm{c}}`, for example:
+In the next step (see {numref}`table-heirarchial-scales-of-fluctuation`) a *unit* (a structural member) is considered as *meso-scale* (local variations). The respective unit is regarded as being constituted from a sequence of finite volumes. Hence, a property in this unit is modelled by a random sequence $X_{1}, X_{2}, X_{3} \ldots$ of reference volume properties. The $X_{i}$ may have to be considered as correlated, with a coefficient of correlation depending on the distance $\Delta r_{ij}$ and a correlation parameters $\rho_{o}$ and $d_{c}$, for example:
 
 ```{math}
 :label: eq-general-principles-3.0.1
-\rho\left(\Delta \mathrm{r_{i j}}\right)=\rho_{o}+\left(1-\rho_{o}\right) \exp \left[-\left(\Delta \mathrm{r_{i j}} / \mathrm{d_{c}}\right)^{2}\right]
+\rho\left(\Delta r_{i j}\right)=\rho_{o}+\left(1-\rho_{o}\right) \exp \left[-\left(\Delta r_{i j} / d_{c}\right)^{2}\right]
 ```
 
-In general {math}`\rho_{0}=0`.
+In general $\rho_{0}=0$.
 
 In the subsequent step the complete structure or some relevant part of it is considered as a lot. A lot is defined as a set of units, produced by one producer, in a relatively short period, with no obvious changes in production circumstances and intended for one building site. In practice lots correspond to e.g.:
 
@@ -129,58 +131,58 @@ In the subsequent step the complete structure or some relevant part of it is con
 - structural steel from one melt processed according to the same conditions
 - foundation piles for a specific site
 
-As a lot is a set of units it can also be conceived as a set of reference volumes {math}`\mathrm{X}_{\mathrm{i}}`. Normally the parameters {math}`\mathrm{q}` defined before are defined on the lot level. The correlation between the {math}`\mathrm{X}_{\mathrm{i}}` values within different members normally can be modelled by a single parameter
+As a lot is a set of units it can also be conceived as a set of reference volumes $X_{i}$. Normally the parameters $q$ defined before are defined on the lot level. The correlation between the $X_{i}$ values within different members normally can be modelled by a single parameter
 
 ```{math}
 :label: eq-general-principles-3.0.2
-\rho_{\mathrm{ij}}=\rho_{0}
+\rho_{ij}=\rho_{0}
 ```
 
 Finally, at the highest *macro scale* level, we have a sequence of lots, represented by a random sequence of lot parameters (in space or in time). Here we are concerned with the estimation of the distribution of lot parameters, either from one source or several sources. The individual lots may be interpreted as random samples taken from the enlarged population or *gross supply*. The gross supply comprises all materials produced (and controlled) according to given specifications, within a country or groups of countries. The *macro-scale* model may be used if the number of producers and structures is large or differences between producers can be considered as approximately random.
 
 ```{table} Scales of fluctuation
-:name: tbl-general-principles-3.0.1
+:name: table-heirarchial-scales-of-fluctuation
 | Scale | Population | Reference name | Description |
 | :--- | :--- | :--- | :--- |
-| macro (global) | set of structures | gross supply | {math}`\mathbf{X}` |
-| meso | set of elements | lot | {math}`\mathbf{X} \mid \mathbf{q}` and {math}`\boldsymbol{\rho}_{\mathbf{o}}` |
-| meso (local) | one element | unit | {math}`\mathbf{X} \mid \mathbf{q}` and {math}`\boldsymbol{\rho}(\Delta \mathbf{r})` |
+| macro (global) | set of structures | gross supply | $\mathbf{X}$ |
+| meso | set of elements | lot | $\mathbf{X} \mid \mathbf{q}$ and $\boldsymbol{\rho}_{\mathbf{o}}$ |
+| meso (local) | one element | unit | $\mathbf{X} \mid \mathbf{q}$ and $\boldsymbol{\rho}(\Delta \mathbf{r})$ |
 | micro | aggregate level | reference volume | type of distribution |
 ```
 
-```{figure} ../part-03/images/fig-general-principles-3.0.2.jpg
-:name: fig-general-principles-3.0.2
+```{figure} ../part-03/images/Description-of-production-parameters-lots-and-total-supply.jpg
+:name: fig-Description-of-production-parameters-lots-and-total-supply
 
-Figure a) production description {math}`\mathrm{f}_{\mathrm{q}}(\mathrm{q})`
+Figure a) production description $\mathrm{f}_{\mathrm{q}}(\mathrm{q})$
 
-Figure b) lot description {math}`\mathrm{f}_{\mathrm{x}}(\mathrm{x} \mid \mathrm{q})` 
+Figure b) lot description $\mathrm{f}_{\mathrm{x}}(\mathrm{x} \mid \mathrm{q})$ 
 
-Figure c) total supply {math}`\mathrm{f_{x}(x)}` 
+Figure c) total supply $\mathrm{f_{x}(x)}$ 
 
 Description of production parameters, lots and total supply 
 ```
 
-The gross supply is described by {math}`\mathrm{f}(\mathrm{q})`. Type and parameters should follow from a statistical survey of the fluctuations of the various lots which belong to the production under consideration. It will be assumed here that {math}`\mathrm{f}(\mathrm{q})` is known without statistical uncertainty. If statistical uncertainties cannot be neglected, they can be incorporated. The distribution {math}`\mathrm{f}(\mathrm{q})` should be monitored more or less continuously to find possible changes in production characteristics.
+The gross supply is described by $f(q)$. Type and parameters should follow from a statistical survey of the fluctuations of the various lots which belong to the production under consideration. It will be assumed here that $f(q)$ is known without statistical uncertainty. If statistical uncertainties cannot be neglected, they can be incorporated. The distribution $f(q)$ should be monitored more or less continuously to find possible changes in production characteristics.
 
 The probability density function (predictive density function) for an arbitrary unit (arbitrary means that the lot is not explicitly identified) can be found from the total probability theorem:
 
 ```{math}
 :label: eq-general-principles-3.0.3
-\mathrm{f_{x}(x)}=\int \mathrm{f_{x}}(\mathrm{x \mid q})~\mathrm{f_{q}(q)~d q}
+f_{x}(x)=\int f_{x}(x \mid q)~f_{q}(q)~d q
 ```
 
-The density function {math}`\mathrm{f}(\mathrm{x})` may be conceived as the statistical description of {math}`\mathrm{x}` within a large number of randomly selected lots. For some purposes one could also identify {math}`\mathrm{f}(\mathrm{x})` directly.
+The density function $f(x)$ may be conceived as the statistical description of $x$ within a large number of randomly selected lots. For some purposes one could also identify $f(x)$ directly.
 
 ## Definition of characteristic value
 
-The characteristic value of a material with respect to a given property {math}`\mathrm{X}` is defined as the {math}`\mathrm{p}_{\mathrm{x}}` - quantile in the predictive distribution, i.e.
+The characteristic value of a material with respect to a given property $X$ is defined as the $p_{x}$ - quantile in the predictive distribution, i.e.
 
 ```{math}
 :label: eq-general-principles-3.0.4
-\mathrm{x}_{\mathrm{c}}=\mathrm{F}_{\mathrm{x}}^{-1}(\mathrm{p})
+x_{c}=F_{x}^{-1}(p)
 ```
 
-Examples for predictive distributions can be found in [Annex A](section-part-3-general-principles-annex-A). Others may be found in [1](section-part-3-general-principles-references), [2](section-part-3-general-principles-references) and [3](section-part-3-general-principles-references).
+Examples for predictive distributions can be found in [Annex A](section-part-3-general-principles-annex-A). Others may be found in {cite}`Aitchison1975`, {cite}`Raiffa1968` and {cite}`Engelund1992`.
 
 ## Quality control strategies
 
@@ -190,12 +192,12 @@ Normally the statistical parameters of the material properties are based on gene
 
 Quality control may be of a total (all units are tested) or a statistical nature (a sample is tested). Quality control will lead to more economical solutions, but has in general the disadvantage that the result is not available at the time of design. In those cases, the design value has to be based on the combination of the unfiltered production characteristics and the expected effect of the quality control selection rules.
 
-Various quality control procedures can be activated, each one leading to a different design value. In {numref}`fig-general-principles-3.0.3` an overview is presented. The easiest procedure is to perform no additional activities (option "no tests"). This means that the units, lots, production should be defined, their descriptions {math}`\mathrm{f}(\mathrm{x} \mid \mathrm{q})` and {math}`\mathrm{f}(\mathrm{q})` should be established and only {math}`\mathrm{f}(\mathrm{q})` should be checked for long term changes in production characteristics.
+Various quality control procedures can be activated, each one leading to a different design value. In {numref}`fig-Strategies-for-Quality-Control` an overview is presented. The easiest procedure is to perform no additional activities (option "no tests"). This means that the units, lots, production should be defined, their descriptions $f(x \mid q)$ and $f(q)$ should be established and only $f(q)$ should be checked for long term changes in production characteristics.
 
 If on the other hand tests are performed one may distinguish between a total (unit by unit) control and sampling on the one hand and between selection and updating on the other hand. The various options will be discussed.
 
-```{figure} ../part-03/images/fig-general-principles-3.0.3.jpg
-:name: fig-general-principles-3.0.3
+```{figure} ../part-03/images/Strategies-for-Quality-Control.jpg
+:name: fig-Strategies-for-Quality-Control
 
 Strategies for Quality Control
 ```
@@ -226,7 +228,7 @@ The larger efficiency results in smaller sample sizes for obtaining the same fil
 
 Testing can be done with two purposes:
 
-1) to update the probability density function {math}`\mathrm{f}(\mathrm{x})` or {math}`\mathrm{f}(\mathrm{q})` of some particular lot or item (updating);
+1) to update the probability density function $f(x)$ or $f(q)$ of some particular lot or item (updating);
 
 2) to identify and reject inadequate lots or units on the basis of predefined sampling procedures and selection rules (selection).
 
@@ -234,98 +236,101 @@ The basic formula for the first option is given by:
 
 ```{math}
 :label: eq-general-principles-3.0.5
-\mathrm{f}^{\prime \prime}(\mathrm{q})=\mathrm{C}~\mathrm{L}(\text{data} \left.\mid \mathrm{q})\right) \mathrm{f}^{\prime}(\mathrm{q})
+f^{\prime \prime}(q)=C~L(\text{data} \left.\mid q)\right) f^{\prime}(q)
 ```
+[comment]: <> (check for the extra right parenthesis)
 
 where:
 
-{math}`\mathrm{f}^{\prime \prime}(\mathrm{q})  =` posterior distribution of q
+$f^{\prime \prime}(q)  =$ posterior distribution of q
 
-{math}`\mathrm{f}^{\prime}(\mathrm{q})  =` prior distribution of q
+$f^{\prime}(q)  =$ prior distribution of q
 
-{math}`\mathrm{L}(\text { data/q })  =` likelihood of the data 
+$L(\text { data/q })  =$ likelihood of the data 
 
-{math}`\mathrm{q}  =` vector of distribution parameters (e.g. mean and std. dev.)
+$q  =$ vector of distribution parameters (e.g. mean and std. dev.)
 
-{math}`\mathrm{C} =` normalising constant = {math}`\int \left.\mathrm{L}(\text { data } \mid \mathrm{q})\right) \mathrm{f}^{\prime}(\mathrm{q}) d q`
+$C =$ normalising constant = $\int \left.L(\text { data } \mid q)\right) f^{\prime}(q) d q$   
+
+[comment]: <> (check for the extra right parenthesis in $C =$)
 
 For the normal case more detailed information is presented in [Annex A](section-part-3-general-principles-annex-A).
 
-The first option can only be used after production of the lot or item under consideration. This data may not be known at the time of the design (e.g. ready mix concrete). The second option, on the other hand, offers the possibility to predict the posterior {math}`\mathrm{f}^{\prime \prime}(\mathrm{q})` for the filtered supply for a given combination of {math}`\mathrm{f(x \mid q), f(q)}` and a selection rule {math}`\mathrm{d}`. In such a case the control may lead to two possible outcomes:
+The first option can only be used after production of the lot or item under consideration. This data may not be known at the time of the design (e.g. ready mix concrete). The second option, on the other hand, offers the possibility to predict the posterior $f^{\prime \prime}(q)$ for the filtered supply for a given combination of $f(x \mid q), f(q)$ and a selection rule $d$. In such a case the control may lead to two possible outcomes:
 
-- the lot (or unit) is rejected {math}`\qquad: \mathrm{d} \notin \mathrm{A}`
-- the lot (or unit) is accepted {math}`\qquad: \mathrm{d} \in \mathrm{A}`
+- the lot (or unit) is rejected $\qquad: d \notin A$
+- the lot (or unit) is accepted $\qquad: d \in A$
 
-Here {math}`\mathrm{d}` is a function of the test result of a single unit or of the combined test result of the units in a sample and {math}`\mathrm{A}` is the acceptance domain. 
+Here $d$ is a function of the test result of a single unit or of the combined test result of the units in a sample and $A$ is the acceptance domain. 
 
 One may then calculate the posterior distributions for an arbitrary accepted lot:
 
 ```{math}
 :label: eq-general-principles-3.0.6
-\mathrm{f}^{\prime}(\mathrm{q} \mid \mathrm{d} \in \mathrm{A})=\mathrm{C}~\mathrm{P}(\mathrm{d} \in \mathrm{A} \mid \mathrm{q})~\mathrm{f}^{\prime}(\mathrm{q})
+f^{\prime}(q \mid d \in A)=C~P(d \in A \mid q)~f^{\prime}(q)
 ```
 
-Here {math}`\mathrm{f}(\mathrm{q})` is the distribution function for the unfiltered supply and the acceptance probability {math}`\mathrm{P}(\mathrm{d} \in \mathrm{A} \mid \mathrm{q})` should be calculated from the decision rule.
+Here $f(q)$ is the distribution function for the unfiltered supply and the acceptance probability $P(d \in A \mid q)$ should be calculated from the decision rule.
 
-The updated distribution for {math}`\mathrm{X}` can be obtained through {eq}`eq-general-principles-3.0.3` with {math}`\mathrm{f}(\mathrm{q})` replaced by {math}`\mathrm{f}^{\prime \prime}(\mathrm{q})`.
+The updated distribution for $X$ can be obtained through {eq}`eq-general-principles-3.0.3` with $f(q)$ replaced by $f^{\prime \prime}(q)$.
 
-More information about the effect of quality cobntrol on the distribution of material properties can be found in [4](section-part-3-general-principles-references). 
+More information about the effect of quality cobntrol on the distribution of material properties can be found in {cite}`KerskenBradley1991`. 
 
 (section-part-3-general-principles-annex-A)=
 ## Annex A: *Bayesian evaluation procedure for the normal and lognormal distribution - characteristic values*
 
-If {math}`\mathrm{X}` has a normal distribution with parameters {math}`\mathrm{q}_{1}=\mu` and {math}`\mathrm{q}_{2}=\sigma` it is convenient to assume a prior distribution for {math}`\mu` and {math}`\sigma` according to:
+If $X$ has a normal distribution with parameters $q_{1}=\mu$ and $q_{2}=\sigma$ it is convenient to assume a prior distribution for $\mu$ and $\sigma$ according to:
 
 ```{math}
 :label: eq-general-principles-annex-A-1
-\mathrm{f}^{\prime}(\mu, \sigma)=\mathrm{k} \sigma^{-\left(\nu^{\prime}+\delta\left(\mathrm{n}^{\prime}\right)+1\right)} \exp \left\lbrace-\frac{1}{2 \sigma^{2}}\left\lbrace \nu^{\prime} \mathrm{s}^{\prime 2}+\mathrm{n}^{\prime}\left(\mu-\mathrm{m}^{\prime}\right)^{2}\right\rbrace \right\rbrace
+f^{\prime}(\mu, \sigma)=k \sigma^{-\left(v^{\prime}+\delta\left(n^{\prime}\right)+1\right)} \exp \left\lbrace-\frac{1}{2 \sigma^{2}}\left\lbrace v^{\prime} s^{\prime 2}+n^{\prime}\left(\mu-m^{\prime}\right)^{2}\right\rbrace \right\rbrace
 ```
 
-{math}`\mathrm{k}=` normalizing constant  
-{math}`\delta\left(\mathrm{n}^{\prime}\right)=` 0 for {math}`\mathrm{n}^{\prime}=0`  
-{math}`\delta\left(\mathrm{n}^{\prime}\right)=` for {math}`\mathrm{n}^{\prime}>0`
+$k=$ normalizing constant  
+$\delta\left(n^{\prime}\right)=$ 0 for $n^{\prime}=0$  
+$\delta\left(n^{\prime}\right)=$ for $n^{\prime}>0$
 
-This special choice enables a further analytical treatment of the various operations. The prior distribution {eq}`eq-general-principles-annex-A-1` contains four parameters: {math}`\mathrm{m}^{\prime}, \mathrm{n}^{\prime}, \mathrm{s}^{\prime 2}` and {math}`\nu^{\prime}`.
+This special choice enables a further analytical treatment of the various operations. The prior distribution {eq}`eq-general-principles-annex-A-1` contains four parameters: $m^{\prime}, n^{\prime}, s^{\prime 2}$ and $v^{\prime}$.
 
-Using equation {eq}`eq-general-principles-3.0.4` one may combine the prior information characterised by {eq}`eq-general-principles-annex-A-1` and a test result of {math}`\mathrm{n}` observations with sample mean {math}`\mathrm{m}` and sample standard deviation {math}`\mathrm{s}`. The result is a posterior distribution for the unknown mean and standard deviation of {math}`\mathrm{X}`, which is again given by {eq}`eq-general-principles-annex-A-1`, but with parameters given by the following updating formula's:
+Using equation {eq}`eq-general-principles-3.0.4` one may combine the prior information characterised by {eq}`eq-general-principles-annex-A-1` and a test result of $n$ observations with sample mean $m$ and sample standard deviation $s$. The result is a posterior distribution for the unknown mean and standard deviation of $X$, which is again given by {eq}`eq-general-principles-annex-A-1`, but with parameters given by the following updating formula's:
 
 ```{math}
 :label: eq-general-principles-annex-A-2
-\mathrm{n}^{\prime \prime}=\mathrm{n}^{\prime}+\mathrm{n}
+n^{\prime \prime}=n^{\prime}+n
 ```
 
 ```{math}
 :label: eq-general-principles-annex-A-3
-\nu^{\prime \prime}=\nu^{\prime}+\nu+\delta\left(\mathrm{n}^{\prime}\right)
+v^{\prime \prime}=v^{\prime}+v+\delta\left(n^{\prime}\right)
 ```
 
 ```{math}
 :label: eq-general-principles-annex-A-4
-\mathrm{m}^{\prime \prime}\mathrm{n}^{\prime \prime} =\mathrm{n}^{\prime} \mathrm{m}^{\prime}+ \mathrm{nm}
+m^{\prime \prime}n^{\prime \prime} =n^{\prime} m^{\prime}+ nm
 ```
 
 ```{math}
 :label: eq-general-principles-annex-A-5
-{\left[\nu^{\prime \prime} \mathrm{s}^{\prime \prime 2}+\mathrm{n}^{\prime \prime} \mathrm{m}^{\prime \prime 2}\right]=\left[\nu^{\prime} \mathrm{s}^{, 2}+\mathrm{n}^{\prime} \mathrm{m}^{\prime 2}\right]+\left[\nu \mathrm{s}^{2}+\mathrm{n m}^{2}\right]}
+{\left[v^{\prime \prime} s^{\prime \prime 2}+n^{\prime \prime} m^{\prime \prime 2}\right]=\left[v^{\prime} s^{, 2}+n^{\prime} m^{\prime 2}\right]+\left[v s^{2}+n m^{2}\right]}
 ```
 
-Then, using equation {eq}`eq-general-principles-3.0.3` the predictive value of {math}`\mathrm{X}` can be found from:
+Then, using equation {eq}`eq-general-principles-3.0.3` the predictive value of $X$ can be found from:
 
 ```{math}
 :label: eq-general-principles-annex-A-6
-X=\mathrm{m}^{\prime \prime}+\mathrm{t}_{\mathrm{v}^{\prime \prime}}~\mathrm{s}^{\prime \prime}\left(1+\frac{1}{\mathrm{n}^{\prime \prime}}\right)^{0.5}
+X=m^{\prime \prime}+t_{v^{\prime \prime}}~s^{\prime \prime}\left(1+\frac{1}{n^{\prime \prime}}\right)^{0.5}
 ```
 
-where {math}`\mathrm{t}_{\mathrm{v}^{\prime \prime}}` has a central t-distribution.
+where $t_{v^{\prime \prime}}$ has a central t-distribution.
 
-In case of known standard deviation {math}`\sigma` eq. {eq}`eq-general-principles-3.0.2` and {eq}`eq-general-principles-3.0.4` still hold for the posterior mean. The predictive value of {math}`\mathrm{X}` is
+In case of known standard deviation $\sigma$ eq. {eq}`eq-general-principles-3.0.2` and {eq}`eq-general-principles-3.0.4` still hold for the posterior mean. The predictive value of $X$ is
 
 ```{math}
 :label: eq-general-principles-annex-A-7
-X=\mathrm{m}^{\prime \prime}+u \sigma\left(1+\frac{1}{\mathrm{n}^{\prime \prime}}\right)^{0.5}
+X=m^{\prime \prime}+u \sigma\left(1+\frac{1}{n^{\prime \prime}}\right)^{0.5}
 ```
 
-where {math}`\mathrm{u}` has a standard normal distribution.
+where $u$ has a standard normal distribution.
 
 The characteristic value is thus defined as
 
@@ -337,48 +342,44 @@ m^{\prime \prime}+t_{v^{\prime \prime}}\left(p_{x}\right) s^{\prime \prime}\left
 \end{array}\right.
 ```
 
-For {math}`\mathrm{n}^{\prime \prime} \nu^{\prime \prime} \rightarrow \infty~~\mathrm{x}_{\mathrm{c}}=\mathrm{m}^{\prime \prime} + \mathrm{u}\left(\mathrm{p}_{\mathrm{x}}\right) \mathrm{s}^{\prime \prime}` in both cases with {math}`\mathrm{s}^{\prime \prime}=\sigma`.
+For $n^{\prime \prime} v^{\prime \prime} \rightarrow \infty~~x_{c}=m^{\prime \prime} + u\left(p_{x}\right) s^{\prime \prime}$ in both cases with $s^{\prime \prime}=\sigma$.
 
-If {math}`\mathrm{X}` has a lognormal distribution, {math}`\mathrm{Y}=\ln (\mathrm{X})` has a normal distribution. One may then use the former formula's on {math}`\mathrm{Y}` and use {math}`\mathrm{X}=\exp (\mathrm{Y})` for results on {math}`\mathrm{X}`. 
+If $X$ has a lognormal distribution, $Y=\ln (X)$ has a normal distribution. One may then use the former formula's on $Y$ and use $X=\exp (Y)$ for results on $X$. 
 
 ## Annex B: *Bayesian evaluation procedure for regression - characteristic value*
 
-If only indirect measurements for the quantity of interest are possible and a linear regression model {math}`\mathrm{y}=\mathrm{a}_{0}+\mathrm{a}_{1} \mathrm{x}` is suitable the predictive value of {math}`\mathrm{y}` has also a t-distribution given by
+If only indirect measurements for the quantity of interest are possible and a linear regression model $y=a_{0}+a_{1} x$ is suitable the predictive value of $y$ has also a t-distribution given by
 
 ```{math}
-y=a_{0}+a_{1} x+t_{\nu}~s \left(1 + \frac{1}{n}+\frac{\left(\bar{x}-x_{0}\right)^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right)^{1/2}
+y=a_{0}+a_{1} x+t_{v}~s \left(1 + \frac{1}{n}+\frac{\left(\bar{x}-x_{0}\right)^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right)^{1/2}
 ```
 
 where
 
-{math}`a_{0}=\bar{y}-a_{1} \bar{x}`
+$a_{0}=\bar{y}-a_{1} \bar{x}$
 
-{math}`a_{1}=\frac{\sum_{i=1}^{n} x_{i} y_{i}-n \overline{x y}}{\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}}`
+$a_{1}=\frac{\sum_{i=1}^{n} x_{i} y_{i}-n \overline{x y}}{\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}}$
 
-{math}`\bar{x}=\frac{1}{n} \sum_{i=1}^{n} x_{i}`
+$\bar{x}=\frac{1}{n} \sum_{i=1}^{n} x_{i}$
 
-{math}`\bar{y}=\frac{1}{n} \sum_{i=1}^{n} y_{i}`
+$\bar{y}=\frac{1}{n} \sum_{i=1}^{n} y_{i}$
 
-{math}`s^{2}=\frac{1}{n-2} \sum_{i=1}^{n} \left(y_{i}-a_{0}-a_{1} x_{i} \right)^2`
+$s^{2}=\frac{1}{n-2} \sum_{i=1}^{n} \left(y_{i}-a_{0}-a_{1} x_{i} \right)^2$
 
-{math}`\nu=n-2`
+$v=n-2$
 
-The characteristic value corresponding to the quantile {math}`\mathrm{p}` is
+The characteristic value corresponding to the quantile $p$ is
 
 ```{math}
-y_{c}=a_{0}+a_{1} x+T^{-1}(p, \nu)~s \left(1 + \frac{1}{n}+\frac{\left(\bar{x}-x_{0}\right)^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right)^{1/2}
+y_{c}=a_{0}+a_{1} x+T^{-1}(p, v)~s \left(1 + \frac{1}{n}+\frac{\left(\bar{x}-x_{0}\right)^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right)^{1/2}
 ```
 
-For example, for S-N curves, it is $\mathrm{y}=\ln (\mathrm{N}), \mathrm{x}=\ln (\Delta \sigma), \mathrm{a}_{1}=-\mathrm{m}$ and $\mathrm{a}_{0}=\ln \mathrm{a}$. The characteristic value of $\mathrm{N}$ for given $\ln \left(\Delta \sigma_{\mathrm{E}}\right)=\mathrm{x}_{0}$ is $\mathrm{N}_{\mathrm{c}}=\exp \left[\mathrm{y}_{\mathrm{c}}\right]$.
+For example, for S-N curves, it is $y=\ln (N), x=\ln (\Delta \sigma), a_{1}=-m$ and $a_{0}=\ln a$. The characteristic value of $N$ for given $\ln \left(\Delta \sigma_{E}\right)=x_{0}$ is $N_{c}=\exp \left[y_{c}\right]$.
 
 
-(section-part-3-general-principles-references)=
 **References**
 
-[1] Aitchison, J., Dunsmore, I.R., Statistical Prediction Analysis, Cambridge University Press, Cambridge, 1975
-
-[2] Raiffa, H., Schlaifer, R., Applied Statistical Decision Theory, MIT Press, Cambridge, 1968
-
-[3] Engelund, S., Rackwitz, R., On Predictive Distribution Functions for the Three Asymptotic Extreme Value Distributions, Structural Safety, Vol. 11, 1992, pp. 255-258
-
-[4] Kersken-Bradley, M., Rackwitz, R., Stochastic Modeling of Material Properties and Quality Control, JCSS Working Document, IABSE-publication, March 1991
+```{bibliography}
+:filter: docname in docnames
+:style: unsrt
+```

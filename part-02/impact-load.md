@@ -374,12 +374,12 @@ It is recommended to make the analysis for each type of aircraft (small, large, 
 :name: table-Impact-characteristics-for-various-aircrafts
 | Type | t [ms] | F [MN] |  |
 | :--- | :---: | :---: | :--- |
-| Cessna 210 A <br> m = 1.7 ton <br> v = 100 m/s <br> A = 7 m$^2$ <br> engine m = 0.2 ton <br> $\quad \quad \quad$A =  0.5 m$^2$| 0 <br> 3 <br> 6 <br> 18 <br> 18 <br> $\quad$ | 0 <br> 7 <br> 7 <br> 4 <br> 4 <br> $\quad$ | ![F vs. t plot for Cessna 210 A](../part-02/images/Table-2.18.4-1.png) |
-| Lear Jet 23 A <br> m = 5.7 ton <br> v = 100 m/s <br> A = 12 m$^2$ <br> <br> <br> <br> | 0 <br> 20 <br> 35 <br> 50 <br> 70 <br> 80 <br> 100 | 0 <br> 2 <br> 6 <br> 6 <br> 12 <br> 20 <br> 0 | ![ F vs. t plot for Lear Jet 23 A](../part-02/images/Table-2.18.4-2.png) |
-| MRCA (Multi Role Combat) <br> m = 25 ton <br> v = 215 m/s <br> 4 = 7 m$^2$ <br> engine m = 1.2 ton <br> $\quad \quad \quad$A =  0.5 m$^2$ | 0 <br> 10 <br> 30 <br> 40 <br> 50 <br> 701 | 0 <br> 55 <br> 55 <br> 154 <br> 154 <br> 0 | ![F vs. t plot for MRCA (Multi Role Combat)](../part-02/images/Table-2.18.4-3.png) |
-| Boeing 707-320 <br> m = 90 ton <br> v = 100 m/s <br> A = 36 m$^2$ <br> <br> <br> <br> <br>| 0 <br> 30 <br> 150 <br> 200 <br> 230 <br> 250 <br> 320 <br> 330 | 0 <br> 20 <br> 20 <br> 90 <br> 90 <br> 20 <br> 10 <br> 0 | ![F vs. t plot for Boeing 707-320](../part-02/images/Table-2.18.4-4.png) |
+| Cessna 210 A <br> m = 1.7 ton <br> v = 100 m/s <br> A = 7 m$^2$ <br> engine m = 0.2 ton <br> $\quad \quad \quad$A =  0.5 m$^2$| 0 <br> 3 <br> 6 <br> 18 <br> 18 <br> $\quad$ | 0 <br> 7 <br> 7 <br> 4 <br> 4 <br> $\quad$ | ![F vs. t plot for Cessna 210 A](../part-02/images/Table-21.4-Cessna.png) |
+| Lear Jet 23 A <br> m = 5.7 ton <br> v = 100 m/s <br> A = 12 m$^2$ <br> <br> <br> <br> | 0 <br> 20 <br> 35 <br> 50 <br> 70 <br> 80 <br> 100 | 0 <br> 2 <br> 6 <br> 6 <br> 12 <br> 20 <br> 0 | ![ F vs. t plot for Lear Jet 23 A](../part-02/images/Table-21.4-Lear_Jet.png) |
+| MRCA (Multi Role Combat) <br> m = 25 ton <br> v = 215 m/s <br> 4 = 7 m$^2$ <br> engine m = 1.2 ton <br> $\quad \quad \quad$A =  0.5 m$^2$ | 0 <br> 10 <br> 30 <br> 40 <br> 50 <br> 701 | 0 <br> 55 <br> 55 <br> 154 <br> 154 <br> 0 | ![F vs. t plot for MRCA (Multi Role Combat)](../part-02/images/Table-21.4-MRCA.png) |
+| Boeing 707-320 <br> m = 90 ton <br> v = 100 m/s <br> A = 36 m$^2$ <br> <br> <br> <br> <br>| 0 <br> 30 <br> 150 <br> 200 <br> 230 <br> 250 <br> 320 <br> 330 | 0 <br> 20 <br> 20 <br> 90 <br> 90 <br> 20 <br> 10 <br> 0 | ![F vs. t plot for Boeing 707-320](../part-02/images/Table-21.4-Boeing_707.png) |
 ```
-$A$ = cross sectional area of the plane or engine
+$A =$ cross sectional area of the plane or engine
 
 $m = $ mass
 

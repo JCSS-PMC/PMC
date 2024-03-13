@@ -4,16 +4,11 @@
 
 The following properties of structural steel are dealt with herein:
 
-$f_y=$ yield strength [MPa]
-
-$f_u=$ ultimate tensile strength [MPa]
-
-$E=$ modulus of elasticity [MPa]
-
-$\nu=$ Poisson's ratio
-
-$\varepsilon_u=$ ultimate strain
-
+$\begin{array}{ll}f_y &= \text { yield strength [MPa]}\\
+f_u &= \text { ultimate tensile strength [MPa]}\\
+E &= \text { modulus of elasticity [MPa]}\\
+\nu &= \text { Poisson's ratio}\\
+\varepsilon_u &= \text { ultimate strain}\end{array}$
 
 A probabilistic model is proposed for the random vector $\mathbf{X}=\left(f_{y}, f_{u}, E, \nu, \varepsilon_{u}\right)$ to be used for any particular steel grade, which may be defined in terms of nominal values verified by standard mill tests (e.g. following the procedures of EN 10025 for sampling and selection of test pieces and the requirements of EN 10002-1 for testing) or in terms of minimum (hereinafter referred to as code specified) values given in material specifications (e.g. EN 10025: 1990).
 

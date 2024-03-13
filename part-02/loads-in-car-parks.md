@@ -2,23 +2,15 @@
 
 **List of symbols:**
 
-$i  =\text { influence coefficient }$ 
-
-$t_{d}  =\text { busy time per year }$ 
-
-$t_{y}  =\text { busy days per year }$ 
-
-$L =\text { weight of car in } kN$ 
-
-$S  =\text { load effect }$ 
-
-$T  =\text { reference time in years }$ 
-
-$N  =\text { number of parking places }$ 
-
-$\lambda_{d}  \text { = renewal rate in [1/d] }$ 
-
-$\tau  =\text { mean dwell time in hours }$
+$\begin{array}{ll} i  &=\text { influence coefficient } \\
+t_{d}  &=\text { busy time per year }\\ 
+t_{y}  &=\text { busy days per year }\\ 
+L &=\text { weight of car in } kN\\ 
+S  &=\text { load effect }\\ 
+T  &=\text { reference time in years }\\ 
+N  &=\text { number of parking places }\\ 
+\lambda_{d}   &= \text {renewal rate in [1/d] }\\ 
+\tau  &=\text { mean dwell time in hours }\end{array}$
 
 
 ## Basic Model

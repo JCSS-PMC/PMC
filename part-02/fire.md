@@ -2,35 +2,21 @@
 
 **List of symbols:**
 
-$A_{f}=$ floor area
-
-$A_{i}=$ area of the vertical opening $i$ in the fire compartment $\left[m^{2}\right]$
-
-$A_{t}=$ total internal surface area
-
-$f=$ ventilation opening
-
-$H_{i}$ = specific combustible energy for material $i$
-
-$m_{i}=$ derating factor between 0 and 1 , describing the degree of combustion
-
-$M_{ki}=$ combustible mass present at $\Delta A$ for material $i$
-
-$q_{o}=$ fire load density per unit floor area
-
-$t=$ time
-
-$t_{eq}=$ equivalent time of fire duration
-
-$\alpha=$ parameter
-
-$\beta_{f}=$ coefficient (model uncertainty)
-
-$\theta=$ temperature in the compartment
-
-$\theta_{0}=$ temperature at the start of the fire
-
-$\theta_{A}=$ parameter
+$\begin{array}{ll}A_{f} &= \text { floor area}\\
+A_{i} &= \text { area of the vertical opening i in the fire compartment} \left[m^{2}\right]\\
+A_{t} &= \text { total internal surface area}\\
+f &= \text { ventilation opening}\\
+H_{i}  &= \text { specific combustible energy for material}~i\\
+m_{i} &= \text { derating factor between 0 and 1 , describing the degree of combustion}\\
+M_{ki} &= \text { combustible mass present at} \Delta A \text { for material}~i\\
+q_{o} &= \text { fire load density per unit floor area}\\
+t &= \text { time}\\
+t_{eq} &= \text { equivalent time of fire duration}\\
+\alpha &= \text { parameter}\\
+\beta_{f} &= \text { coefficient (model uncertainty)}\\
+\theta &= \text { temperature in the compartment}\\
+\theta_{0} &= \text { temperature at the start of the fire}\\
+\theta_{A} &= \text { parameter}\end{array}$
 
 ## Fire ignition model
 

@@ -2,51 +2,29 @@
 
 **List of symbols:**
 
-$a=$ deceleration
-
-$A_{b}=$ the area of the building including the shadow area
-
-$d =$ distance from the structural element to the road
-
-$f_{s}(y)=$ distribution of initial object position in $y$ direction
-
-$F_{c}(x)=$ static compression strength at a distance $x$ from the nose
-
-$k=$ stiffness
-
-$m=$ mass
-
-$m^{\prime}(x)=$ mass per unit length
-
-$n=$ number of vehicles, ships or planes per time unit
-
-$n(t)=$ number of moving objects per time unit (traffic intensity)
-
-$P_{a}=$ the probability that a collision is avoided by human intervention.
-
-$P_{fq}(xy)=$ the probability of structural failure given a mechanical or human failure on the ship, vehicle, etc. at point $(x, y)$.
-
-$r=d / \sin \alpha=$ the distance from "leaving point" to "impact point"
-
-$R=$ radius of airport influence circle
-
-$T=$ period of time under consideration
-
-$v_{c}=$ the object velocity at impact
-
-$v_{c}(t)=$ velocity of the crashed part
-
-$v_{c}(xy)=$ object velocity at impact, given initial failure at point $(x, y)$
-
-$v_{o}=$ velocity of the vehicle when leaving the track
-
-$x, y=$ coordinate system;
-
-$\alpha=$ angle between collision course and track direction
-
-$\Lambda(r)=$ collision rate for crash at distance $r$ from the airport with $r<R$
-
-$\lambda(x, t)=$ failure intensity as a function of the coordinate $x$ and the time $t$.
+$\begin{array}{ll}a &= \text { deceleration}\\
+A_{b} &= \text { the area of the building including the shadow area}\\
+d  &= \text { distance from the structural element to the road}\\
+f_{s}(y) &= \text { distribution of initial object position in} \text { y direction}\\
+F_{c}(x) &= \text { static compression strength at a distance} \text { x from the nose}\\
+k &= \text { stiffness}\\
+m &= \text { mass}\\
+m^{\prime}(x) &= \text { mass per unit length}\\
+n &= \text { number of vehicles, ships or planes per time unit}\\
+n(t) &= \text { number of moving objects per time unit (traffic intensity)}\\
+P_{a} &= \text { the probability that a collision is avoided by human intervention}\\
+P_{fq}(xy) &= \text { the probability of structural failure given a mechanical or human failure on the ship, vehicle, etc. at point} (x, y)\\
+r=d / \sin \alpha &= \text { the distance from "leaving point" to "impact point"}\\
+R &= \text { radius of airport influence circle}\\
+T &= \text { period of time under consideration}\\
+v_{c} &= \text { the object velocity at impact}\\
+v_{c}(t) &= \text { velocity of the crashed part}\\
+v_{c}(xy) &= \text { object velocity at impact, given initial failure at point} (x, y)\\
+v_{o} &= \text { velocity of the vehicle when leaving the track}\\
+x, y &= \text { coordinate system;}\\
+\alpha &= \text { angle between collision course and track direction}\\
+\Lambda(r) &= \text { collision rate for crash at distance r from the airport with} r<R\\
+\lambda(x, t) &= \text { failure intensity as a function of the coordinate} x \text { and the time} t\end{array}$
 
 (section-2.18.1)=
 ## Basic Model for Impact Loading

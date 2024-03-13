@@ -2,31 +2,19 @@
 
 ## List of symbols:
 
-$f_{co}=$ basic concrete compression strength
-
-$M_{j}=$ the logarithmic mean at strength job $j$
-
-$\Sigma_{j}=$ the logarithmic strength standard deviation at job $j$
-
-$Y_{1, j}=$ a log-normal variable representing additional variations due to the special placing, curing and hardening conditions of in situ concrete at job $j$
-
-$U_{ij}=$ a standard normal variable
-
-$\lambda=$ lognormal variable with mean 0.96 and coefficient of variation 0.005 ; generally it suffices to take $\lambda$ deterministically
-
-$\alpha(t, \tau)=$ is a deterministic function which takes into account the concrete age at the loading time $t$ and the duration of loading $\tau$
-
-$\phi(t, \tau)=$ is the creep coefficient.
-
-$\beta_{d}=$ total load and depends from the type of the structure
-
-$E_{c}=$ modulus of elasticity
-
-$f_{c}=$ in situ strength
-
-$\varepsilon_{e}=$ strain at yielding
-
-$\varepsilon_{u}=$ ultimate strain
+$\begin{array}{ll}f_{co} &= \text { basic concrete compression strength}\\
+M_{j} &= \text { the logarithmic mean at strength job}~j\\
+\Sigma_{j} &= \text { the logarithmic strength standard deviation at job}~j\\
+Y_{1, j} &= \text { a log-normal variable representing additional variations due to the special placing, curing and hardening conditions of in situ concrete at job}~j\\
+U_{ij} &= \text { a standard normal variable}\\
+\lambda &= \text { lognormal variable with mean 0.96 and coefficient of variation 0.005 ; generally it suffices to take}~\lambda \text { deterministically}\\
+\alpha(t, \tau) &= \text { is a deterministic function which takes into account the concrete age at the loading time} t \text { and the duration of loading}~\tau\\
+\phi(t, \tau) &= \text { is the creep coefficient}\\
+\beta_{d} &= \text { total load and depends from the type of the structure}\\
+E_{c} &= \text { modulus of elasticity}\\
+f_{c} &= \text { in situ strength}\\
+\varepsilon_{e} &= \text { strain at yielding}\\
+\varepsilon_{u} &= \text { ultimate strain}\end{array}$
 
 ## Basic Properties
 
@@ -230,4 +218,5 @@ If $n^{\prime \prime} v ">10$, a good approximation of the concrete strength dis
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
 ```

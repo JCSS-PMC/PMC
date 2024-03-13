@@ -2,17 +2,12 @@
 
 **List of symbols:**
 
-$d=$ correlation length
-
-$V=$ volume described by the boundary of the structural part
-
-$\gamma=$ weight density of the material.
-
-$\gamma_{av}=$ average weight density for a structural part
-
-$\rho_{0}=$ correlation between two far away points in one member
-
-$\Delta r=$ distance between two points within a member
+$\begin{array}{ll} d &= \text {correlation length} \\
+V &= \text {volume described by the boundary of the structural part} \\
+\gamma &= \text {weight density of the material} \\
+\gamma_{av} &= \text {average weight density for a structural part} \\
+\rho_{0} &= \text {correlation between two far away points in one member} \\
+\Delta r &= \text {distance between two points within a member}\end{array}$
 
 ## Introduction
 
@@ -67,7 +62,7 @@ The weight density and the dimensions of a structural part are assumed to have G
 
 Mean values, $\mu_{\gamma}$, and coefficients of variation, $V_{\gamma}$, for the total variability of the weight density of some common building materials are given in {numref}`table-Mean-value-and-coefficient-of-variation-for-weight-density`.
 
-```{table} Mean value and coefficient of variation for weight density 
+```{table} Mean value and coefficient of variation for weight density${}^{1)}$ 
 :name: table-Mean-value-and-coefficient-of-variation-for-weight-density
 | Material | Mean value [$kN/m^3$] | Coefficient of variation |
 | :--- | :--- | :--- |

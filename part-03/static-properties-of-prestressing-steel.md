@@ -2,47 +2,27 @@
 
 **List of symbols:**
 
-$E_{p}=$ modulus of elasticity
-
-$E_{p}{ }^{\prime}=$ tangent to the stress-strain curve at the proof stress $\sigma_{p}$
-
-$f_{p}=$ tensile strength
-
-$f_{p 0.1}=0.1 \%$ proof stress
-
-$f_{p 0.2}=0.2 \%$ proof stress
-
-$f_{p p}=$ proportional limit
-
-$f_{p y}=$ yield stress
-
-$m=$ parameter of the second part of the modified Ramberg-Osgood curve
-
-$n=$ parameter of the Ramberg-Osgood curve
-
-$n^{\prime}=$ parameter of the first part of the modified Ramberg-Osgood curve
-
-$p=$ plastic strain at the proof stress $\sigma_{p}$
-
-$P =$ prestressing force
-
-$P_{0}=$ jacking force
-
-$\Delta P=$ prestress losses
-
-$t=$ time
-
-$x=$ distance from the jacking end
-
-$\varepsilon=$ strain
-
-$\varepsilon_{p}=$ full strain at the proof stress $\sigma_{p}$
-
-$\varepsilon_{u}=$ strain corresponding to the tensile strength
-
-$\sigma=$ stress
-
-$\sigma_{p}=$ proof stress
+$\begin{array}{ll}E_{p} &= \text { modulus of elasticity}\\
+E_{p}{ }^{\prime} &= \text { tangent to the stress-strain curve at the proof stress} ~\sigma_{p}\\
+f_{p} &= \text { tensile strength}\\
+f_{p 0.1} &= \text { 0.1 \% proof stress}\\
+f_{p 0.2} &= \text { 0.2 \% proof stress}\\
+f_{p p} &= \text { proportional limit}\\
+f_{p y} &= \text { yield stress}\\
+m &= \text { parameter of the second part of the modified Ramberg-Osgood curve}\\
+n &= \text { parameter of the Ramberg-Osgood curve}\\
+n^{\prime} &= \text { parameter of the first part of the modified Ramberg-Osgood curve}\\
+p &= \text { plastic strain at the proof stress} ~\sigma_{p}\\
+P  &= \text { prestressing force}\\
+P_{0} &= \text { jacking force}\\
+\Delta P &= \text { prestress losses}\\
+t &= \text { time}\\
+x &= \text { distance from the jacking end}\\
+\varepsilon &= \text { strain}\\
+\varepsilon_{p} &= \text { full strain at the proof stress} ~\sigma_{p}\\
+\varepsilon_{u} &= \text { strain corresponding to the tensile strength}\\
+\sigma &= \text { stress}\\
+\sigma_{p} &= \text { proof stress}\end{array}$
 
 ## Types of prestressing steel
 

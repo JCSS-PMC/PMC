@@ -2,29 +2,18 @@
 
 **List of symbols:**
 
-$A=$ area $\left[m^{2}\right]$
-
-$d_{p}=$ duration of intermittend load [year]
-
-$i=$ influence function
-
-$m=$ mean load intensity in $\left[kN / m^{2}\right]$
-
-$p=$ intermittent load in $\left[kN / m^{2}\right]$
-
-$q=$ sustained load in $\left[kN / m^{2}\right]$
-
-$S=$ load effect in $\left[kN / m^{2}\right]$
-
-$T=$ reference time in [year]
-
-$V=$ zero mean normal distributed variable in $\left[kN / m^{2}\right]$
-
-$W=$ load intensity in $\left[kN / m^{2}\right]$
-
-$\lambda=$ occurrence rate of sustained load changes in [1/year]
-
-$v=$ occurrence rate of intermittent load changes in [1/year]
+$\begin{array}{ll} A &= \text {area} \left[m^{2}\right]\\
+d_{p} &= \text {duration of intermittend load} [year]\\
+i &= \text {influence function}\\
+m &= \text {mean load intensity in} \left[kN / m^{2}\right]\\
+p &= \text {intermittent load in} \left[kN / m^{2}\right]\\
+q &= \text {sustained load in} \left[kN / m^{2}\right]\\
+S &= \text {load effect in} \left[kN / m^{2}\right]\\
+T &= \text {reference time in [year]}\\
+V &= \text {zero mean normal distributed variable in} \left[kN / m^{2}\right]\\
+W &= \text {load intensity in} \left[kN / m^{2}\right]\\
+\lambda &= \text {occurrence rate of sustained load changes in [1/year]}\\
+v &= \text {occurrence rate of intermittent load changes in [1/year]}\end{array}$
 
 ## Basic Model
 

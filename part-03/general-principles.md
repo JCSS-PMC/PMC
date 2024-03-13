@@ -2,21 +2,14 @@
 
 **List of symbols:**
 
-$f_{x}(x \mid q)=$ the variability of property $x$ within a given lot
-
-$f_{q}(q)=$ the variability of the parameters $q$ from lot to lot; statistical description of the production
-
-$f^{\prime}(q)=$ prior distribution of $q$
-
-$f^{\prime \prime}(q)=$ posterior distribution of $q$
-
-$L$ (data $\mid$ $q$) $=$ likelihood function
-
-$q=$ vector of distribution parameters (e.g. mean and std. dev.)
-
-$C=$ normalising constant
-
-$d=$ decision rule
+$\begin{array}{ll}f_{x}(x \mid q) &= \text { the variability of property} x \text { within a given lot}\\
+f_{q}(q) &= \text { the variability of the parameters}~q \text { from lot to lot; statistical description of the production}\\
+f^{\prime}(q) &= \text { prior distribution of}~q\\
+f^{\prime \prime}(q) &= \text { posterior distribution of}~q\\
+L (\text { data} \mid q)  &= \text { likelihood function}\\
+q &= \text { vector of distribution parameters (e.g. mean and std. dev.)}\\
+C &= \text { normalising constant}\\
+d &= \text { decision rule}\end{array}$
 
 ## Introduction
 

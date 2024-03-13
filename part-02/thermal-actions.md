@@ -2,83 +2,45 @@
 
 **List of symbols:**
 
-$A=$ cross-sectional area of the structural member 
-
-$C=$ coefficient for atmospheric clearness 
-
-$D=$ the intensity of diffused solar radiation 
-
-$I_y=$ main moment of inertia, direction of axis $y$ 
-
-$I_z=$main moment of inertia, direction of axis $z$ 
-
-$Q=$the intensity of total radiation 
-
-$S=$ the intensity of direct solar radiation  
-
-$T=$ temperature  
-
-$T_0=$ initial temperature when structural member is restrained  
-
-$T_E=$ residual no-linear self-equilibrated component  
-
-$T_N=$ uniform temperature component  
-
-$\Delta T_N=$ range of uniform bridge temperature component 
-
-$\Delta T_M=$ linear temperature difference component 
-
-$\Delta T_{M,\text{heat}}=$ linear temperature difference component (heating) 
-
-$\Delta T_{M,\text{cool}}=$ linear temperature difference component (cooling) 
-
-$T_s=$ temperature of the bridge surface  
-
-$T_v=$ temperature of surrounding environment  
-
-$T_{eq}=$ equivalent temperature  
-
-$c=$ specific heat capacity  
-
-$h=$ altitude of sun 
-
-$h_c=$ surface transfer coefficient 
-
-$k_s=$ absorption factor
-
-$m=$ mean; number of optical masses of the atmosphere  
-
-$n=$ number of measurements  
-
-$s=$ standard deviation  
-
-$q=$ heat energy  
-
-$q_s=$ heat due to solar radiation  
-
-$q_r=$ heat due to re-radiation  
-
-$q_c=$ heat due to thermal transfer  
-
-$t=$ time  
-
-$\alpha =$ coefficient of linear expansion   
-
-$\alpha_e =$ exchange factor  
-
-$\gamma =$ hour angle of the sun 
-
-$\delta =$ angle of the sun declination  
-
-$\varepsilon =$ coefficient of emissivity; strain  
-
-$\lambda=$ heat conduction coefficient
-
-$\rho=$ mass density  
-
-$\sigma =$ the Stephan-Boltzmann constant  
-
-$\varphi=$ geographical latitude of the locality  
+$\begin{array}{ll}A &= \text { cross-sectional area of the structural member}\\ 
+C &= \text { coefficient for atmospheric clearness}\\ 
+D &= \text { the intensity of diffused solar radiation}\\ 
+I_y &= \text { main moment of inertia, direction of axis} y\\
+I_z &= \text { main moment of inertia, direction of axis} z\\
+Q &= \text { the intensity of total radiation}\\ 
+S &= \text { the intensity of direct solar radiation}\\  
+T &= \text { temperature} \\ 
+T_0 &= \text { initial temperature when structural member is restrained}\\  
+T_E &= \text { residual no-linear self-equilibrated component}\\  
+T_N &= \text { uniform temperature component} \\ 
+\Delta T_N &= \text { range of uniform bridge temperature component} \\
+\Delta T_M &= \text { linear temperature difference component} \\
+\Delta T_{M,\text{heat}} &= \text { linear temperature difference component (heating)} \\
+\Delta T_{M,\text{cool}} &= \text { linear temperature difference component (cooling)} \\
+T_s &= \text { temperature of the bridge surface}  \\
+T_v &= \text { temperature of surrounding environment}  \\
+T_{eq} &= \text { equivalent temperature}  \\
+c &= \text { specific heat capacity}  \\
+h &= \text { altitude of sun}\\ 
+h_c &= s\text { urface transfer coefficient} \\
+k_s &= \text { absorption factor}\\
+m &= \text { mean; number of optical masses of the atmosphere}\\  
+n &= \text { number of measurements}\\  
+s &= \text { standard deviation} \\ 
+q &= \text { heat energy}\\  
+q_s &= \text { heat due to solar radiation}\\  
+q_r &= \text { heat due to re-radiation}\\  
+q_c &= \text { heat due to thermal transfer}\\  
+t &= \text { time} \\ 
+\alpha &= \text { coefficient of linear expansion}\\   
+\alpha_e &= \text { exchange factor}\\  
+\gamma &= \text { hour angle of the sun} \\
+\delta &= \text { angle of the sun declination}\\  
+\varepsilon &= \text { coefficient of emissivity; strain}\\  
+\lambda &= \text { heat conduction coefficient}\\
+\rho &= \text { mass density}\\  
+\sigma &= \text { the Stephan-Boltzmann constant }\\ 
+\varphi &= \text { geographical latitude of the locality}\end{array}$  
 
 *Conversion of units for temperatures considering °C, K and °F* 
 
@@ -282,7 +244,7 @@ The uniform bridge temperature component may be specified on the basis of shade 
 The skewness of the uniform bridge temperature component determined from experimental bridge measurements {cite}`eurocode_thermal_actions` is considerably less (between 0,2 to 0,6 ) than the skewness of the Gumbel distribution which is commonly recommended in prescriptive documents {cite}`en_1991_1_5`. Therefore, the Weibull distribution may be preferably applied for the bridge uniform
 temperature component. However, the disadvantage of the Weibull distribution is its upper bound which is rather difficult to be estimated. More convenient seems to apply the skewness instead of trying to specify the upper bound of the distribution.
 
-Three types of the extreme values distributions which may be applied for the probabilistic modelling of basic variables are illustrated in {numref}`fig-extreme-values-distribution-versus-skewness`.
+Three types of the extreme values distributions which may be applied for the probabilistic modelling of basic variables are illustrated in {numref}`fig-extreme-values-distribution-versus-skewness`. 
 
 ```{figure} ../part-02/images/extreme-values-distribution-versus-skewness.jpg 
 :name: fig-extreme-values-distribution-versus-skewness
@@ -306,7 +268,7 @@ The background document {cite}`eurocode_thermal_actions` gives several tables wi
 
 Statistical parameters of one-year maxima for uniform bridge temperature $T_{N, \max }$ for steel and composite bridges are given in {numref}`table-Statistical-parameters-of-1-year-maxima-for-uniform-bridge-temperature-for-steel-and-composite-bridges` based on the measurements of bridges in UK and Germany given in document {cite}`eurocode_thermal_actions`.
 
-```{table} Statistical parameters of one-year maxima for uniform bridge temperature for steel and composite bridges, in K (°C) (based on [[eur99](references)]) 
+```{table} Statistical parameters of one-year maxima for uniform bridge temperature $T_{N,max}$ for steel and composite bridges, in K (°C) (based on [[1](references)]) 
 :name: table-Statistical-parameters-of-1-year-maxima-for-uniform-bridge-temperature-for-steel-and-composite-bridges
 | Bridge position and depth of surfacing | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: |
@@ -318,7 +280,7 @@ The mean values of uniform temperatures are slightly decreasing with increasing 
 
 Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, $\Delta T_{N, \text { exp }}$ for concrete bridges are given in {numref}`table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component-for-concrete-bridges` based on the measurements of bridges in UK and Germany given in document {cite}`eurocode_thermal_actions`.
 
-```{table} Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, ΔTN,exp = TN,max – 10°C for concrete bridges, in K (°C)  (based on [[eur99](references)])
+```{table} Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, $\Delta T_{N,exp}$ = $T_{N,max}$ – 10°C for concrete bridges, in K (°C)  (based on [[1](references)])
 :name: table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component-for-concrete-bridges
 | Depth [m] | Mean, in K (°C) | Standard deviation |
 | :---: | :---: | :---: |
@@ -363,7 +325,7 @@ $C$ is the coefficient which depends on atmospheric clearness, for normal clearn
 
 $m$ is the number of optical masses of the atmosphere to be assumed according to the altitude of the sun $h$, see {numref}`table-optical-masses-for-altitude-of-sun`.
 
-```{table} The optical masses m for the altitude of sun h [[iso87](references)])
+```{table} The optical masses $m$ for the altitude of sun $h$ [[7](references)])
 :name: table-optical-masses-for-altitude-of-sun
 | Altitude of the sun $h$, <br> in degrees | Number of optical <br> masses, $m$ | Altitude of the sun $h$, <br> in degrees | Number of optical <br> masses, $m$ |
 | :---: | :---: | :---: | :---: |
@@ -475,7 +437,7 @@ $\alpha_{e}$ is the exchange factor as a result of convection and radiation, $Wm
 
 The coefficient $\alpha_{e}$ depends on the material and colour of the structure and on the wind velocity {cite}`mangerig1986klimatische`. The equivalent temperature $T_{s}$ is added during the structural analysis to the outdoor air temperatures. Both the daily distribution of $T_{s}$ and the daily variation of outdoor air temperature can be expanded into Fourier series. The values of absorption factor $k_{s}$ of solar radiation are given in {numref}`table-absorption-factor-of-solar-radiation by-structure-surface`.
 
-```{table} The absorption factor of solar radiation by the structure surface
+```{table} The absorption factor of solar radiation $k_{s}$ by the structure surface
 :name: table-absorption-factor-of-solar-radiation by-structure-surface
 | Material of structure | $k_{s}$ |
 | :--- | :--- |
@@ -500,9 +462,9 @@ For the determination of the vertical difference temperature component, the expr
 
 The statistical characteristics of the model of temperature difference component may be assessed on the basis of the extreme value probabilistic distribution. The skewness of the temperature difference component determined from the experimental measurements seems to be considerably less than the skewness of the Gumbel distribution. It appears that the Weibull or three parameter lognormal distributions may be preferably applied for modelling the temperature difference component.
 
-Statistical parameters of one-year maxima for temperature differences $\Delta T_{M \text {,heat }}$ (heating) for steel and composite bridges are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridge` and for temperature differences $\Delta T_{M, \text { cool }}$ (cooling) are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges` based on the measurements of bridges in UK and Germany given in the background document {cite}`eurocode_thermal_actions`.
+Statistical parameters of one-year maxima for temperature differences $\Delta T_{M \text {,heat }}$ (heating) for steel and composite bridges are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridges` and for temperature differences $\Delta T_{M, \text { cool }}$ (cooling) are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges` based on the measurements of bridges in UK and Germany given in the background document {cite}`eurocode_thermal_actions`.
 
-```{table} Statistical parameters of one-year maxima of temperature differences for steel and composite bridges in K (°C) (based on [[eur99](references)])
+```{table} Statistical parameters of one-year maxima of temperature differences $\Delta T_{M,heat}$ for steel and composite bridges in K (°C) (based on [[1](references)])
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridges
 | Bridge | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: |
@@ -510,7 +472,7 @@ Statistical parameters of one-year maxima for temperature differences $\Delta T_
 | Composite | 288,15 (15) | 1 |
 ```
 
-```{table} Statistical parameters of one-year maxima of temperature difference in K (°C) for steel and composite bridges (based on [[eur99](references)])
+```{table} Statistical parameters of one-year maxima of temperature difference $\Delta T_{M,cool}$ in K (°C) for steel and composite bridges (based on [[1](references)])
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges
 | Bridge | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: |
@@ -520,7 +482,7 @@ Statistical parameters of one-year maxima for temperature differences $\Delta T_
 
 Statistical parameters of one-year maxima for temperature differences $\Delta T_{M \text {,heat }}$ for concrete bridge are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-concrete-bridges` based on the measurements of bridges in UK and Germany given in the document {cite}`eurocode_thermal_actions`. The mean of temperature difference is slightly decreasing with increasing thickness of the bridge surfacing while the value of standard deviation remains unchanged.
 
-```{table} Statistical parameters of one-year maxima of temperature differences in K (°C) for concrete bridges (based on [[eur99](references)])
+```{table} Statistical parameters of one-year maxima of temperature differences $\Delta T_{M,heat}$ in K (°C) for concrete bridges (based on [[1](references)])
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-concrete-bridges
 | Type | Depth [m] | Mean in K (°C) | St. deviation |
 | :--- | :---: | :---: | :---: |
@@ -596,7 +558,7 @@ The one-year maxima of uniform bridge temperature component $T_{N, \max }$ for s
 
 The model of uniform (effective) temperature component $T_{N}$ may be based on the national isotherms of minimum and maximum shade air temperatures, or determined from evaluated data from the site location. The extreme value distribution may be applied.
 
-```{table} Statistical parameters of one-year maxima for uniform temperature TN,max for steel bridge in K (°C) (web plate 20×4000 mm, bottom flange 600×40 mm, width of the bridge 15000 mm, length of cantilever 3000 mm)
+```{table} Statistical parameters of one-year maxima for uniform temperature $T_{N,max}$ for steel bridge in K (°C) (web plate 20×4000 mm, bottom flange 600×40 mm, width of the bridge 15000 mm, length of cantilever 3000 mm)
 :name: table-Statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge
 | Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
@@ -604,7 +566,7 @@ The model of uniform (effective) temperature component $T_{N}$ may be based on t
 | East-west direction, south side of the <br> cross-section, 80mm surfacing | 311,95 (38,8) | 0,9 | -0,30 |
 ```
 
-```{table} Statistical parameters of one-year maxima of uniform bridge temperature TN,max for composite bridges in K (°C) (concrete slab 300 mm, web plate 20×400 mm, top flange 400×40, bottom flange 600×40 mm, width of bridge 15000 mm, length of cantilever 3000 mm)
+```{table} Statistical parameters of one-year maxima of uniform bridge temperature $T_{N,max}$ for composite bridges in K (°C) (concrete slab 300 mm, web plate 20×400 mm, top flange 400×40, bottom flange 600×40 mm, width of bridge 15000 mm, length of cantilever 3000 mm)
 :name: table-Statistical-parameters-of-one-year-maxima-of-uniform-bridge-temperature-for-composite-bridges
 | Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
@@ -613,7 +575,7 @@ The model of uniform (effective) temperature component $T_{N}$ may be based on t
 | East-west direction, south side cross- <br> section, 80mm surfacing, $\alpha=1,0 \times 10^{-5}$ | 303,05 (29,9) | 0,9 | -0,12 |
 ```
 
-```{table} Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, TN,exp = TN,max – 10°C for concrete bridges, expressed in K and °C
+```{table} Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, $T_{N,exp}$ = $T_{N,max} – 10$°C for concrete bridges, expressed in K and °C
 :name: table-Statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component,-for-concrete-bridges
 | Depth [m] | Mean, in K (°C) | Standard deviation | Skewness |
 | :---: | :---: | :---: | :---: |
@@ -635,7 +597,7 @@ The model of uniform (effective) temperature component $T_{N}$ may be based on t
 
 One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ in the Koberovice bridge (prestressed concrete box girder, three spans $54 ~m+74 ~m+54 ~m$, cross-section of $4,2 ~m$, depth of surfacing $0,12 ~m$) are given in {numref}`table-Statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-Koberovice-bridge`. The uniform bridge temperature is based on the one year maxima derived from 3-day extremes of temperatures (period from June to August, 1999 - 2002) which was obtained from averaged morning measurements of bridge in four points (in walls, in top and bottom sides) of the box girder.
 
-```{table} Statistical parameters of one-year maxima for uniform bridge temperature TN,max for Koberovice bridge, in K (°C).
+```{table} Statistical parameters of one-year maxima for uniform bridge temperature $T_{N,max}$ for Koberovice bridge, in K (°C).
 :name: table-Statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-Koberovice-bridge
 | Mean, in K (°C) | Standard deviation | Skewness |
 | :---: | :---: | :---: |
@@ -656,7 +618,7 @@ It could be noted that obtained characteristic values of the uniform temperature
 
 One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ in the Doksany 11 span prestressed concrete two beam bridge in Highway D8 (across river Ohre, 2011-2013) are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-for-Doksany-prestressed-concrete-bridge`.
 
-```{table} Statistical parameters of one-year maxima of temperature difference component TM,heat for Doksany prestressed concrete bridge, in K (°C)
+```{table} Statistical parameters of one-year maxima of temperature difference component $T_{N,heat}$ for Doksany prestressed concrete bridge, in K (°C)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-for-Doksany-prestressed-concrete-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
@@ -665,7 +627,7 @@ One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ in
 
 One-year maxima of uniform bridge temperature component $\Delta T_{N, \max }$ for the three span composite steel concrete Slavici bridge in Prague ring (close to exit of Lochkov tunnel, 2011-2013), are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-uniform-temperature-range-for-composite-steel-concrete-Slavici-bridge`.
 
-```{table} Statistical parameters of one-year maxima of uniform temperature range TN,heat for the composite steel concrete Slavici bridge, in K (°C)
+```{table} Statistical parameters of one-year maxima of uniform temperature range $T_{N,heat}$ for the composite steel concrete Slavici bridge, in K (°C)
 :name: table-Statistical-parameters-of-one-year-maxima-of-uniform-temperature-range-for-composite-steel-concrete-Slavici-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
@@ -715,7 +677,7 @@ The results of statistical analysis of temperature differences $\Delta T_{M z}$ 
 
 Table A.3.1 Statistical parameters of one-year maxima of temperature differences $\Delta T_{M, \text { heat }}$ for steel bridges (top warmer than bottom), in $\mathrm{K}\left({ }^{\circ} \mathrm{C}\right)$
 
-```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,heat for steel bridges (top warmer than bottom), in K (°C)
+```{table} Statistical parameters of one-year maxima of temperature differences $T_{M,heat}$ for steel bridges (top warmer than bottom), in K (°C)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-steel-bridges
 | Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
@@ -724,36 +686,35 @@ Table A.3.1 Statistical parameters of one-year maxima of temperature differences
 | East-west direction, south side of <br> the cross-section, 80 mm surfacing | 281,85 (8,7) | 0,4 | -0,19 |
 ```
 
-```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,cool for steel bridges (bottom warmer than top), in K (°C)
+```{table} Statistical parameters of one-year maxima of temperature differences $T_{M,cool}$ for steel bridges (bottom warmer than top), in K (°C)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-cool-for-steel-bridges
-| Bridge position and depth of surfacing | Mean, in K (°C) | St. deviation | Skewness |
-| :--- | :---: | :---: | :---: |
-| Bridge position, depth of surfacing <br> and coefficient {math}`\alpha` | Mean, in K (°C) | St. deviation | Skewness |
+
+| Bridge position, depth of surfacing <br> and coefficient $\alpha$ | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
 | North/south direction, east side of <br> the cross-section, 50mm surfacing | 288,55 (15,4) | 0,5 | -0,14 |
 | North/south direction, east side of <br> the cross-section, 80mm surfacing | 289,95 (16,8) | 0,5 | -0,30 |
 ```
 
-```{table} Statistical parameters of one-year maxima of temperature difference ΔTM,heat in K (°C) for composite bridges (top warmer than bottom)
+```{table} Statistical parameters of one-year maxima of temperature difference $T_{M,heat}$ in K (°C) for composite bridges (top warmer than bottom)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-heat-for-composite-bridges
-| Bridge position, depth of surfacing <br> and coefficient {math}`\alpha` | Mean, in K (°C) | St. deviation | Skewness |
+| Bridge position, depth of surfacing <br> and coefficient $\alpha$ | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
-| North/south direction, east side of <br> the cross-section, 50 mm surfacing, <br> {math}`\alpha=1,0 \times 10^{-5}` | 283,95 (10,8) | 1,1 | 0,54 |
-| North/south direction, east side of <br> the cross-section, 50 mm surfacing, <br> {math}`\alpha=1,2 \times 10^{-5}` | 288,15 (15,0) | 0,8 | 0,15 |
-| North/south or East/west directions, <br> east side of the cross-section, <br> 80mm surfacing, {math}`\alpha=1,0 \times 10^{-5}` | 282,85 (9,7) | 0,4 | -0,14 |
+| North/south direction, east side of <br> the cross-section, 50 mm surfacing, <br> $\alpha=1,0 \times 10^{-5}$ | 283,95 (10,8) | 1,1 | 0,54 |
+| North/south direction, east side of <br> the cross-section, 50 mm surfacing, <br> $\alpha=1,2 \times 10^{-5}$ | 288,15 (15,0) | 0,8 | 0,15 |
+| North/south or East/west directions, <br> east side of the cross-section, <br> 80mm surfacing, $\alpha=1,0 \times 10^{-5}$ | 282,85 (9,7) | 0,4 | -0,14 |
 ```
 
-```{table} Statistical parameters of one-year maxima of temperature difference ΔTM,cool in K (°C) for composite bridges (bottom warmer than top)
+```{table} Statistical parameters of one-year maxima of temperature difference $T_{M,cool}$ in K (°C) for composite bridges (bottom warmer than top)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-cool-for-composite-bridges
-| Bridge position, depth of surfacing <br> and coefficient {math}`\alpha` | Mean, in K (°C) | St. deviation | Skewness |
+| Bridge position, depth of surfacing <br> and coefficient $\alpha$ | Mean, in K (°C) | St. deviation | Skewness |
 | :--- | :---: | :---: | :---: |
-| North/South direction, east side of <br> the cross-section, 50mm surfacing, <br> {math}`\alpha=1,0 \times 10^{-5}` | 292,85 (19,7) | 0,5 | -0,28 |
-| North/south direction, east side of <br> the cross-section, 50mm surfacing, <br> {math}`\alpha=1,2 \times 10^{-5}` | 290,15 (17,0) | 1,0 | 0,18 |
-| North/south direction, east side of <br> the cross-section, 80mm surfacing, <br> {math}`\alpha=1,0 \times 10^{-5}` | 292,85 (19,7) | 0,6 | -0,27 |
-| East-west direction, south side of the <br> cross-section, 80mm surfacing, <br> {math}`\alpha=`  {math}`1,0 \times 10^{-5}` | 289,15 (16,7) | 1,0 | 0,13 |
+| North/South direction, east side of <br> the cross-section, 50mm surfacing, <br> $\alpha=1,0 \times 10^{-5}$ | 292,85 (19,7) | 0,5 | -0,28 |
+| North/south direction, east side of <br> the cross-section, 50mm surfacing, <br> $\alpha=1,2 \times 10^{-5}$ | 290,15 (17,0) | 1,0 | 0,18 |
+| North/south direction, east side of <br> the cross-section, 80mm surfacing, <br> $\alpha=1,0 \times 10^{-5}$ | 292,85 (19,7) | 0,6 | -0,27 |
+| East-west direction, south side of the <br> cross-section, 80mm surfacing, <br> $\alpha=$  $1,0 \times 10^{-5}$ | 289,15 (16,7) | 1,0 | 0,13 |
 ```
 
-```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,heat in K (°C) for concrete bridges.
+```{table} Statistical parameters of one-year maxima of temperature differences $T_{M,heat}$ in K (°C) for concrete bridges.
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-concrete-bridges
 | Depth [m] | Mean, in °K (°C) | St. deviation | Skewness |  
 | :---: | :---: | :---: | :---: | 
@@ -775,7 +736,7 @@ Table A.3.1 Statistical parameters of one-year maxima of temperature differences
 
 The results of measurements of temperature differences in the Koberovice bridge (concrete box girders, cross-section A of left bridge, cross-section D of right bridge) are shown in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-Koberovice-bridge` and {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge`. The temperature differences are based on the 3 day extremes of the concrete box girder (measured in top and bottom of the box girder). The statistical characteristics for annual extremes of type III are given in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-Koberovice-bridge` and {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge`.
 
-```{table} Statistical parameters of one-year maxima of temperature differences ΔTM,heat for Koberovice bridge, concrete box girder A, in K (°C)
+```{table} Statistical parameters of one-year maxima of temperature differences $T_{M,heat}$ for Koberovice bridge, concrete box girder A, in K (°C)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-Koberovice-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
@@ -799,7 +760,7 @@ It could be noted that obtained characteristic values of the temperature differe
 
 The results of three year measurements of Doksany bridge on Highway D8 (across river Ohre) are given for temperature difference component in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge` (2011-2013).
 
-```{table} Statistical parameters of one-year maxima of temperature difference component ΔTM,heat for Doksany prestressed concrete bridge, in K (°C)
+```{table} Statistical parameters of one-year maxima of temperature difference component $T_{M,heat}$ for Doksany prestressed concrete bridge, in K (°C)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference component-heat-for-Doksany-prestressed-concrete-bridge
 | Mean, in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
@@ -808,7 +769,7 @@ The results of three year measurements of Doksany bridge on Highway D8 (across r
 
 Results of three year measurements of Slavici composite steel concrete bridge in Prague ring is given for temperature difference component in {numref}`table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-Slavici-composite-steel-concrete-bridge` (2011-2013).
 
-```{table} Statistical parameters of one-year maxima of temperature difference component ΔTM,heat for Slavici composite steel concrete bridge, in K (°C)
+```{table} Statistical parameters of one-year maxima of temperature difference component $T_{M,heat}$ for Slavici composite steel concrete bridge, in K (°C)
 :name: table-Statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-Slavici-composite-steel-concrete-bridge
 | Mean in K (°C) | St. deviation | Skewness |
 | :---: | :---: | :---: |
@@ -870,3 +831,21 @@ The daily course of measured temperatures in the Koberovice concrete box girder 
 :filter: docname in docnames
 :style: unsrt
 ```
+
+**Additional References**
+
+1. Froli M., Barsotti R., Statistical analysis of thermal actions on a concrete segmental boxgirder bridge Structural Engineering International, 2000
+
+2. TRRL Laboratory Report 696 Bridge temperatures estimated from shade temperatures, Crowthorne, 1976
+
+3. TRRL Laboratory Report 748, W. Black et al., Bridge temperatures derived from measurement of movement, Crowthorne, 1976
+
+4. TRRL Laboratory Report 783, M. Emerson, Temperatures in bridges during the hot summer of 1976, Crowthorne, 1977
+
+5. TRRL Laboratory Report 641, J.D.Mortlock, The instrumentation of bridges for the measurement of temperature and movement, Crowthorne, 1974
+
+6. White I.G., Non-linear differential temperature distributions in concrete bridge structures: a review of the current literature, Cement and concrete association, Technical report, 1979
+
+7. Jones MR, Calculated deck plate temperatures for a steel box bridge, TRRL laboratory report, Crowthorne, 1977
+
+8. TRRL Laboratory Report 783, M. Emerson, Extreme values bridge temperatures for design purposes, Crowthorne, 1996

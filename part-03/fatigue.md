@@ -74,7 +74,7 @@ In this document three different approaches to the formulation of the fatigue li
 
 The models presented to not include the situation following a crack through situation of the wall thickness. The fatigue loading is characterised by the number of stress cycles and the magnitude of stress range for each cycle. A probabilistic description of stress ranges can be developed if the stochastic properties of the stress process over the entire lifetime of the structure are known. For some models the expectation of the $m^{\text {th }}$ moment of the arbitrary point in time distribution of the stress is sufficient.
 
-This chapter is based on BS 7910:2005 as far as possible.
+This chapter is based on {cite}`BSI2000` as far as possible.
 
 ## S-N-approach
 
@@ -143,7 +143,7 @@ where $\boldsymbol{X}$ is the vector of random variables, $t$ the time, $D_{cr}$
 
 **Crack Growth model**
 
-The fatigue crack growth model is the bi-linear version (see {numref}`fig-crack-growth-rates-with-linear-and-bi-linear-approximations`) of the model by {cite}`Paris1963`:
+The fatigue crack growth model is the bi-linear version (see {numref}`fig-crack-growth-rates-with-linear-and-bi-linear-approximations`) of the model by {cite}`ParisErdogan1963`:
 
 ```{math}
 :label: eq-fatigue-3.1
@@ -248,7 +248,7 @@ When the fatigue life of a fatigue sensitive detail is required, the critical cr
 g(\mathbf{X}, t)=\min _{t} f\left(K_{r}, L_{r}\right)
 ```
 
-where $\boldsymbol{X}$ is the vector of random variables as a function of the time $t, K_{r}$ is the fracture ratio, $L_{r}$ is a measure of the proximity to plastic collapse and $f()$ is an appropriate interaction criterion, as for example (see {numref}`fig-Kr-Lr-interaction-cruves`) given in BS 7910 (BSI, 2005) or (see {numref}`fig-Kr-Lr-interaction-cruves`) Dijkstra (1991) as:
+where $\boldsymbol{X}$ is the vector of random variables as a function of the time $t, K_{r}$ is the fracture ratio, $L_{r}$ is a measure of the proximity to plastic collapse and $f()$ is an appropriate interaction criterion, as for example (see {numref}`fig-Kr-Lr-interaction-cruves`) given in {cite}`BSI2000` or (see {numref}`fig-Kr-Lr-interaction-cruves`) {cite}`Dijkstra1991` as:
 
 ```{math}
 :label: eq-fatigue-3.10
@@ -260,7 +260,7 @@ In this approach failure occurs when a stress cycle arrives that causes the redu
 ```{figure} ../part-03/images/Kr-Lr-interaction-cruves.jpg 
 :name: fig-Kr-Lr-interaction-cruves
 
-$K_{r}-L_{r}$ interaction curves according to BS 7910 (above) and Dijkstra (below)
+$K_{r}-L_{r}$ interaction curves according to {cite}`BSI2000` (above) and {cite}`Dijkstra1991` (below)
 ```
 
 In {eq}`eq-fatigue-3.10` the variable $R$ is a normalised resistance parameter (nominally equal to 1.0) and the quantities $K_{r}$ and $L_{r}$ are defined as follows:
@@ -282,7 +282,7 @@ $\sigma_{\text {net }}\quad$  net section stress (function of the crack size)
 
 $\sigma_{y} \quad$ yield stress
 
-The factor $\rho$ may be determined by the following procedure. For $\chi=K_{I}^{s}~L_{r} / K_{I}^{p}>4$ an interpolating technique need to be applied (see BS 7910, 2005). For $\chi \leq 4$ we have:
+The factor $\rho$ may be determined by the following procedure. For $\chi=K_{I}^{s}~L_{r} / K_{I}^{p}>4$ an interpolating technique need to be applied (see {cite}`BSI2000`). For $\chi \leq 4$ we have:
 
 ```{math}
 :label: eq-fatigue-3.13
@@ -302,7 +302,7 @@ with
 
 The crack size $a$ may be determined from the fatigue crack growth models described above. The plasticity correction factor $\rho$ reflects the interaction between the applied load (giving rise to the stress intensity factor $K$) and the residual stresses (giving rise to the stress intensity factor $K_{I}^{S}$ ). Different residual stress profiles for various cracked geometries and restraint conditions may be assumed but their use implies that $K_{I}^{s}$ would need to be evaluated using either finite element techniques or the weight function method. A simplified (and conservative) method would be to approximate the residual stress field via a linear stress field subtended from the surface and crack tip stress values. The corresponding $K_{I}^{s}$ can then be obtained by superposition of the tensile and bending solutions for the geometry in question.
 
-Further details of this approximation are given by Tada et al. (2000). If the bending solution is not known, in which case the previously mentioned procedure cannot be applied, the residual stress field may be assumed to be uniform. This approach will, in general, yield very conservative results for deep cracks and less conservative results for shallow cracks.
+Further details of this approximation are given by {cite}`TadaParisIrwin2000`. If the bending solution is not known, in which case the previously mentioned procedure cannot be applied, the residual stress field may be assumed to be uniform. This approach will, in general, yield very conservative results for deep cracks and less conservative results for shallow cracks.
 
 ## Probabilistic models
 
@@ -338,7 +338,7 @@ The fatigue crack propagation model involves a number of parameters, which are s
 
 ***Fracture Toughness***
 
-For the fracture toughness $K_{\text {mat }}$ a three-parameter Weibull distribution is proposed to describe fracture toughness related to cleavage fracture (Burdekin \& Hamour, 2000; Lukić \& Cremona, 2001; Righiniotis \& Chryssanthopoulos, 2003):
+For the fracture toughness $K_{\text {mat }}$ a three-parameter Weibull distribution is proposed to describe fracture toughness related to cleavage fracture (Burdekin \& Hamour, 2000; {cite}`LukicCremona2001`; {cite}`RighiniotisChryssanthopoulos2003`):
 
 ```{math}
 :label: eq-fatigue-4.1
@@ -347,11 +347,11 @@ F_{K_{\text {mat }}}(k)=1-\exp \left[-\left(\frac{k-K_{0}}{\sigma}\right)^{\lamb
 
 where
 
-$\lambda$ is the shape parameter, taken as 4 on the basis of experiments (Wallin, 1984).
+$\lambda$ is the shape parameter, taken as 4 on the basis of experiments {cite}`Wallin1984`.
 
-$K_{0}$ is the threshold parameter, recommended is $20 \mathrm{MPa}~\mathrm{m}{ }^{1 / 2}` (Burdekin \& Hamour, 2000).
+$K_{0}$ is the threshold parameter, recommended is $20 \mathrm{MPa}~\mathrm{m}{ }^{1 / 2}` {cite}`BurdekinHamour2000`.
 
-$\sigma$ is the scale parameter and may be obtained from the following correlation attributed to Wallin (Burdekin \& Hamour, 2000):
+$\sigma$ is the scale parameter and may be obtained from the following correlation attributed to Wallin {cite}`BurdekinHamour2000`:
 
 ```{math}
 :label: eq-fatigue-4.2
@@ -407,7 +407,7 @@ ${ }^{* *} \mathrm{MU}=$ Model Uncertainty
 (annex-A-fatigue)=
 ## Annex A: The stress intensity correction factor $Y$
 
-The stress intensity correction factor $Y$ for membrane loading is determined with the procedure of Newman and Raju (1981) and BS 7910:2005. For the stress intensity correction factor in general they propose:
+The stress intensity correction factor $Y$ for membrane loading is determined with the procedure of {cite}`NewmanRaju1981` and {cite}`BSI2000`. For the stress intensity correction factor in general they propose:
 
 ```{math}
 Y=M f_{w} M_{m} M_{k}
@@ -506,7 +506,7 @@ The parameters $D$ and $k$ depend on the structural and weld geometry as discrib
 ```
 $a=$ crack depth, $B=$ plate thickness and $L=$ size of the node, defined acc. to {numref}`fig-definition-of-node-length-for-two-weld-details`.
 
-For $M_{\mathrm{kc}}$ we may use the same formulas, however substitute $a=0,15 \mathrm{~mm}$ (See BS 7910:2005).
+For $M_{\mathrm{kc}}$ we may use the same formulas, however substitute $a=0,15 \mathrm{~mm}$ (See {cite}`BSI2000`).
 
 ```{figure} ../part-03/images/definition-of-node-length-for-two-weld-details.jpg 
 :name: fig-definition-of-node-length-for-two-weld-details
@@ -628,31 +628,23 @@ E\left[y^{m}\right]=\gamma a_{w}^{m}~\Gamma\left(\frac{m+b_{w}}{b_{w}} ; y_{t h}
 
 where $\Gamma(\cdots ; \cdots)$ is the incomplete Gamma function. When the expectation is over all stress cycles, this can be replaced by the complete Gamma function in the above expressions. In fracture mechanics $S_{t h}$ is defined in terms of the stress range corresponding to $\Delta K_{t h}$ via Eq {eq}`eq-fatigue-3.5` and can be seen as a function of the random crack depth $a$ and random aspect ratio $a / c$. In the case of an S-N approach, the threshold may refer to some nonpropagating stress or cut off value.
 
-## References
+**References**
 
-1. British Standards Institution (2000). BS7910: Guide on methods for assessing the acceptability of flaws in fusion welded structures, London.
+```{bibliography}
+:filter: docname in docnames
+:style: unsrt
+```
 
-2. Burdekin, F.M., Hamour, W. (2000). "Partial safety factors for SINTAP procedure", Offshore Technology Report, OTO 2000 020, HSE, London.
+**Additional References**
 
-3. Dijkstra O.D. et all (1991), A fracture mechanics approach to the assessment of the remaining fatigue life of defective welded joints, IABSE Workshop, Lausanne, April 1990.
+1. Hobbacher, A. (1993). "Stress intensity factors of welded joints", Eng. Fract. Mech., Vol. 46(2).
 
-4. Hobbacher, A. (1993). "Stress intensity factors of welded joints", Eng. Fract. Mech., Vol. 46(2).
+2. Newman, J.C. and Raju, I.S. (1986). "Stress-intensity factor equations for cracks in three-dimensional finite bodies subjected to tension and bending loads", Computational Methods in the Mechanics of Fracture, S.N. Atluri (ed), Elsevier North Holland, New York.
 
-5. Lukić, M. and Cremona, C. (2001). "Probabilistic assessment of welded joints versus fatigue and fracture", J. Struct. Engg., ASCE, Vol. 127(2).
+3. Righiniotis, T.D. and Chryssanthopoulos, M.K. (2004). "Fatigue and fracture simulation of welded bridge details through a bi-linear crack growth law", Struct. Safety, Vol. 26.
 
-6. Newman, J.C. and Raju, I.S. (1981). "An empirical stress intensity factor equation for the surface crack", Engg. Fract. Mechs., Vol. 15.
+4. Shetty, N.K. and Baker, M.J. (1990). "Fatigue reliability of tubular joints in offshore structures: Crack propagation model", Proc. 9th Offshore Mechanics and Arctic Engineering Conf., ASME.
 
-7. Newman, J.C. and Raju, I.S. (1986). "Stress-intensity factor equations for cracks in three-dimensional finite bodies subjected to tension and bending loads", Computational Methods in the Mechanics of Fracture, S.N. Atluri (ed), Elsevier North Holland, New York.
 
-8. Paris, P.C. and Erdogan, F.A. (1963). "A critical analysis of crack propagation laws", J. Basic Engineering, ASME Transactions, {math}`85 \mathrm{D}(4)`.
 
-9. Righiniotis, T.D. and Chryssanthopoulos, M.K. (2003). "Probabilistic fatigue analysis under constant amplitude loading", Journal of Constructional Steel Research, Vol. 59(7), 867-886.
-
-10. Righiniotis, T.D. and Chryssanthopoulos, M.K. (2004). "Fatigue and fracture simulation of welded bridge details through a bi-linear crack growth law", Struct. Safety, Vol. 26.
-
-11. Shetty, N.K. and Baker, M.J. (1990). "Fatigue reliability of tubular joints in offshore structures: Crack propagation model", Proc. 9th Offshore Mechanics and Arctic Engineering Conf., ASME.
-
-12. Tada, H., Paris, P.C. and Irwin, G.R. (2000). The stress analysis of cracks handbook, ASME, New York.
-
-13. Wallin, K. (1984). "The scatter in K KC results", Eng. Fract. Mechs., Vol 19(6).
 

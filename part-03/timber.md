@@ -512,3 +512,7 @@ The presented document does not cover all aspects of the design of timber struct
 :style: unsrt
 ```
 
+**Additional References**
+
+1. Raiffa H. and Schlaifer R. Applied statistical decision theory. John Wiley & Sons Ltd. Chichester, UK, 1960.
+

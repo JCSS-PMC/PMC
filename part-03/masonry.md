@@ -94,7 +94,7 @@ k_{\lambda=5}=\left(0.966+0.00136 \cdot \lambda_{\text {specimen }}^{2}\right)
 
 The parameters $K, \alpha$, and $\beta$ are prior values and should be updated by use of test data. The compressive strength of masonry $f_{m, l}$ in longitudinal direction (only for masonry with grouted head joints) is thought to be 50% of the masonry compressive strength $f_{m}$ according to equation {eq}`eq-masonry-1` and {eq}`eq-masonry-2`.
 
-```{table} Parameters K, α, β for the determination of the compressive strength of masonry according to Schubert (2010) for a slenderness of the specimen of λ = 10
+```{table} Parameters K, α, β for the determination of the compressive strength of masonry according to [[1]](masonry-references) for a slenderness of the specimen of λ = 10
 :name: table-parameters-K-α-β-for-the-determination-of-the-compressive-strength-of-masonry
 |  | Masonry |  | $n$ | $K$ | $\alpha$ | $\beta$ |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -145,7 +145,7 @@ $c_{1}=$ ratio $E_{m} / f_{m}$ according to {numref}`table-values-for-c1`
 
 The parameter $c_{1}$ is a prior value and should be updated by use of test data.
 
-```{table} Values for $c_{1}$ according to Schubert (2010)
+```{table} Values for $c_{1}$ according to [[1]](masonry-references)
 :name: table-values-for-c1
 | Type of unit | Mortar | $\boldsymbol{c}_{\boldsymbol{1}}$ <br> [-] |
 | :---: | :---: | :---: |
@@ -163,7 +163,7 @@ The parameter $c_{1}$ is a prior value and should be updated by use of test data
 
 The flexural tensile strength of masonry can be divided into flexural tensile strength perpendicular and parallel to the bed joints. It is a strongly scattering property and depends mainly on the mortar. The execution of the head joints (unfilled (uf) or filled (f)) was also found to have small influence. Since only thin layer mortar is providing sufficiently reliable cohesion, tests of the flexural tensile strength were more or less only conducted on masonry with TLM. Values of the flexural tensile strength for masonry with TLM can be found in {numref}`table-flexural-tensile-strength-of-masonry-parallel-to-bed-joints` and {numref}`table-flexural-tensile-strength-of-masonry-perpendicular-to-bed-joints`.
 
-```{table} Flexural tensile strength $f_{t, m, p a}$ of masonry (parallel to bed joints) according to Schubert (2010)
+```{table} Flexural tensile strength $f_{t, m, p a}$ of masonry (parallel to bed joints) according to [[1]](masonry-references)
 :name: table-flexural-tensile-strength-of-masonry-parallel-to-bed-joints
 | Unit |  | Head <br> joints$^a$ | Number <br> of tests $n$ | $f_{t, m, p a}$ in <br> $\mathbf{N} / \mathbf{m m}^{2}$ | Range of <br> values in <br> N/mm² |
 | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -180,7 +180,7 @@ The flexural tensile strength of masonry can be divided into flexural tensile st
 ```
 $^a$ uf= unfilled,   f= filled
 
-```{table} Flexural tensile strength of masonry $f_{t, m, p e r}$ (perpendicular to bed joints) according to Schubert (2010)
+```{table} Flexural tensile strength of masonry $f_{t, m, p e r}$ (perpendicular to bed joints) according to [[1]](masonry-references)
 :name: table-flexural-tensile-strength-of-masonry-perpendicular-to-bed-joints
 | Unit |  | Head <br> joints$^a$ | Number <br> of tests $n$ | $f_{t, m, p a}$ in <br> $\mathbf{N} / \mathbf{m m}^{2}$ | Range of <br> values in <br> $\mathrm{N} / \mathrm{mm}^{2}$ |
 | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -223,7 +223,7 @@ $c_{3} = \operatorname{ratio} f_{b t, s} / f_{b}$
 
 For the large variety of masonry products which all differ in perforation and material, the prior values given in {numref}`table-values-c2-and-c3` can be used.
 
-```{table} Values $c_{2}$ and $c_{3}$ according to Schubert (2010)
+```{table} Values $c_{2}$ and $c_{3}$ according to [[1]](masonry-references)
 :name: table-values-c2-and-c3
 | Type of unit | Number of <br> tests $\left(\boldsymbol{c}_{\mathbf{2}}\right)$ | $\boldsymbol{c}_{\mathbf{2}}[-]$ | Number of <br> tests $\left(\boldsymbol{c}_{\mathbf{3}}\right)$ | $\boldsymbol{c}_{\mathbf{3}}[-]$ |
 | :--- | :--- | :--- | :--- | :--- |
@@ -242,7 +242,7 @@ For the large variety of masonry products which all differ in perforation and ma
 
 ### Cohesion
 
-The values $f_{v, m}$ for the cohesion can be taken from {numref}`table-mean-of-the-cohesion`. Please note that these values have been derived from the characteristic values provided in EN 1996-1-1 by application of the stochastic models presented in {numref}`table-stochastic-parameters-for-Y6` and assuming the characteristic values to represent 5%-quantiles. The values for the cohesion are prior values and require updating by use of test data.
+The values $f_{v, m}$ for the cohesion can be taken from {numref}`table-mean-of-the-cohesion`. Please note that these values have been derived from the characteristic values provided in {cite}`EN1996-1-1` by application of the stochastic models presented in {numref}`table-stochastic-parameters-for-Y6` and assuming the characteristic values to represent 5%-quantiles. The values for the cohesion are prior values and require updating by use of test data.
 
 ```{table} Mean of the cohesion $f_{v, m}$
 :name: table-mean-of-the-cohesion
@@ -320,7 +320,7 @@ $Y_{1}=$ a log-normal variable accounting for uncertainties in the calculation o
 | Clay bricks | GPM | LN | 1.0 | 17% |
 ```
 
-### 3.2.4.2 Modulus of elasticity
+### Modulus of elasticity
 
 The modulus of elasticity is commonly related to the compressive strength of masonry. For the stochastic modelling, the following equation {eq}`eq-masonry-11` is recommended. A first estimate for the stochastic parameters of the log-normal variable $Y_{2}$ can be found in {numref}`table-parameters-for-the-stress-strain-relationship-of-different-kinds-of-masonry-under-compression`.
 
@@ -456,15 +456,21 @@ $Y_{6}=$ a log-normal variable according to {numref}`table-stochastic-parameters
 
 **References**
 
-1. Glowienka, S. (2007): Zuverlässigkeit von Mauerwerkswänden aus großformatigen Steinen, doctoral thesis, Technische Universität Darmstadt, Darmstadt, in German
+```{bibliography}
+:filter: docname in docnames
+:style: unsrt
+```
 
-2. Schueremans, L. (2001): Probabilistic Evaluation of structural masonry, doctoral thesis, University of Leuven, Belgium, 2001
+(masonry-references)=
+**Additional References**
 
-3. Glock, C. (2004): Traglast unbewehrter Beton- und Mauerwerkswände, doctoral thesis, Technische Universität Darmstadt, Darmstadt, in German
+1. Schubert, P. (2010): Eigenschaftswerte von Mauerwerk, Mauersteinen und Mauermörtel, Mauerwerk-Kalender 2010, Ernst & Sohn, Berlin
 
-4. Schubert, P. (2010): Eigenschaftswerte von Mauerwerk, Mauersteinen und Mauermörtel, Mauerwerk-Kalender 2010, Ernst \& Sohn, Berlin
+2. Glowienka, S. (2007): Zuverlässigkeit von Mauerwerkswänden aus großformatigen Steinen, doctoral thesis, Technische Universität Darmstadt, Darmstadt, in German
 
-5. EN 1996-1-1 (Eurocode 6), Design of masonry structures, Beuth Verlag, Berlin, 2005, AC: 2009
+3. Schueremans, L. (2001): Probabilistic Evaluation of structural masonry, doctoral thesis, University of Leuven, Belgium, 2001
 
-6. Brehm, E. (2011): Reliability of Unreinforced Masonry Bracing Walls, doctoral thesis, ISBN 978-3-942886-02-4, Technische Universität Darmstadt
+4. Glock, C. (2004): Traglast unbewehrter Beton- und Mauerwerkswände, doctoral thesis, Technische Universität Darmstadt, Darmstadt, in German
+
+5. Brehm, E. (2011): Reliability of Unreinforced Masonry Bracing Walls, doctoral thesis, ISBN 978-3-942886-02-4, Technische Universität Darmstadt
 

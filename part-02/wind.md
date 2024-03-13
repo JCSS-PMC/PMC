@@ -2,76 +2,42 @@
 
 **List of symbols:**
 
-$f_c$ = Coriolis parameter (= 2 $\Omega \sin \phi$)
-
-$f_0$ = mean frequency of zero upcrossing, in $Hz$
-
-$g$ = peak factor (no dimension)
-
-$G_u(n), G_v(n), G_w(n)$ = half-sided power spectral density for longitudinal, transversal and vertical components of velocity fluctuations
-
-$I_u(z)$ = turbulence intensity of longitudinal velocity fluctuations (dimensionless)
-
-$k$ = von Karman`s constant (= 0.4)
-
-$L_u(z)$ = integral length scale for longitudinal velocity fluctuations, in $m$
-
-$L_v(z)$ = integral length scale for transversal velocity fluctuations, in $m$
-
-$L_w(z)$ =integral length scale for vertical velocity fluctuations, in $m$
-
-$N$ = number of reference time, in years
-
-$n$ = frequency, in Hertz
-
-$n_u,n_v,n_w$ = dimensionless frequency of fluctuations in longitudinal, transversal and vertical direction
-
-$\overline{Q}_{ref}$ = reference wind velocity pressure
-
-$\overline{Q}_z$ = mean velocity pressure at height $z = \left((1/2) \rho \overline{U}^2 (z)\right)$ 
-
-$S_{ij}(n)$ = cross spectral power density
-
-$T$ = reference time
-
-$\overline{T}(u_p)$ = mean recurrence interval of maximum annual mean velocity, in years
-
-$\overline{U}_{ref}$ = reference wind velocity, in $m/s$
-
-$\overline{U}(z)$ = mean longitudinal velocity of the wind at height $z$
-
-$u_1$ = mode of the maximum annual mean wind speed in Gumbel distribution
-
-$u(x,z,t)=u$ = longitudinal component of the wind velocity fluctuations, in $m/s$
-
-$v(y,z,t)=v$ = transversal component of wind velocity fluctuations, in $m/s$
-
-$w(z,t)=w$ = vertical component of wind velocity fluctuations, in $m/s$
-
-$z$ = height above ground, in $m$
-
-$z_0$  = roughness length, in $m$
-
-$z_r$ = a reference height above ground, in $m$
-
-$z_{ref}$ = the reference height above ground (10 - 30 $m$)
-
-$\alpha_1$ = dispersion parameter for the maximum annual mean wind speed in
-Gumbel distribution
-
-$\delta$ = height of the atmospheric boundary layer
-
-$\kappa$ = surface drag coefficient (dimensionless) $\left(=\left[k/ln(z_{ref}/z_0 \right)\right]^2 )$
-
-$\lambda_{\kappa}$ = $k$-th moment of spectral density
-
-$ν(x)$ = mean upcrossing rate for level $x$
-
-$\phi$ = geographical latitude
-
-$\rho$ = air density (= 1.25 $kg/m^3$ )
-
-$\sigma_{u}, \sigma_{v},\sigma_{w}$ = standard deviation of velocity fluctuations in $x-$, $y-$ and $z-$direction, in $m/s$
+$\begin{array}{ll}f_c &= \text { Coriolis parameter} (= 2 \Omega \sin \phi)\\
+f_0 &= \text { mean frequency of zero upcrossing, in} Hz\\
+g &= \text { peak factor (no dimension)}\\
+G_u(n), G_v(n), G_w(n) &= \text { half-sided power spectral density for longitudinal, transversal and vertical components of velocity fluctuations}\\
+I_u(z) &= \text { turbulence intensity of longitudinal velocity fluctuations (dimensionless)}\\
+k &= \text { von Karman`s constant} (= 0.4)\\
+L_u(z) &= \text { integral length scale for longitudinal velocity fluctuations, in} m\\
+L_v(z) &= \text { integral length scale for transversal velocity fluctuations, in} m\\
+L_w(z) &= \text { integral length scale for vertical velocity fluctuations, in} m\\
+N &= \text { number of reference time, in years}\\
+n &= \text { frequency, in Hertz}\\
+n_u,n_v,n_w &= \text { dimensionless frequency of fluctuations in longitudinal, transversal and vertical direction}\\
+\overline{Q}_{ref} &= \text { reference wind velocity pressure}\\
+\overline{Q}_z &= \text { mean velocity pressure at height z} = \left((1/2) \rho \overline{U}^2 (z)\right) \\
+S_{ij}(n) &= \text { cross spectral power density}\\
+T &= \text { reference time}\\
+\overline{T}(u_p) &= \text { mean recurrence interval of maximum annual mean velocity, in years}\\
+\overline{U}_{ref} &= \text { reference wind velocity, in} m/s\\
+\overline{U}(z) &= \text { mean longitudinal velocity of the wind at height} z\\
+u_1 &= \text { mode of the maximum annual mean wind speed in Gumbel distribution}\\
+u(x,z,t) &=u = \text { longitudinal component of the wind velocity fluctuations, in} m/s\\
+v(y,z,t) &=v = \text { transversal component of wind velocity fluctuations, in} m/s\\
+w(z,t) &=w = \text { vertical component of wind velocity fluctuations, in} m/s\\
+z &= \text { height above ground, in} m\\
+z_0  &= \text { roughness length, in} m\\
+z_r &= \text { a reference height above ground, in} m\\
+z_{ref} &= \text { the reference height above ground} (10 - 30 m)\\
+\alpha_1 &= \text { dispersion parameter for the maximum annual mean wind speed in
+Gumbel distribution}\\
+\delta &= \text { height of the atmospheric boundary layer}\\
+\kappa &= \text { surface drag coefficient (dimensionless)} \left(=\left[k/ln(z_{ref}/z_0 \right)\right]^2 )\\
+\lambda_{\kappa} &= \text { k-th moment of spectral density}\\
+ν(x) &= \text { mean upcrossing rate for level} x\\
+\phi &= \text { geographical latitude}\\
+\rho &= \text { air density} (= 1.25 kg/m^3 )\\
+\sigma_{u}, \sigma_{v},\sigma_{w} &= \text { standard deviation of velocity fluctuations in x-, y- and z-direction, in}~m/s\end{array}$
 
 ## Introduction
 
@@ -162,7 +128,7 @@ The roughness of the ground surface is aerodynamically described by the roughnes
 
 where $k \cong 0.4$ is von Karman's constant and $z_{\text {ref }}$ is the reference height ({numref}`table-Scale-factors-for-the-mean-velocity`, {numref}`table-Wind-parameters-depending-on-terrain-category`). Various terrain categories are classified in {numref}`table-Roughness-length-for-various-terrain-categories` according to their approximate roughness lengths. The distribution of the surface roughness with wind direction must be considered.
 
-```{table} Roughness length, in meters, for various terrain categories
+```{table} Roughness length, in meters, for various terrain categories${}^{1)~2)}$ 
 :name: table-Roughness-length-for-various-terrain-categories
 | Terrain category | Terrain description | Range of $z_{0}$ | Recommended value |
 | :---: | :--- | :---: | :---: |
@@ -208,9 +174,9 @@ $\Omega \quad=0.726~10^{-4}=$ angular rotation velocity in $rad / s$
 
 $\phi \quad=$ latitude of location in degree
 
-For lowest 0.1 $\delta$ or 200 m of the boundary layer only the first term needs to be taken into account (Harris and Deaves, 1981). The lowest height of validity for Eq.{eq}`eq-wind-7`, $d_{0}$, is close to the average height of dominant roughness elements : i.e. from less than 1 m, for smooth flat country to more than 15 m, for centers of cities. For $z_{0} \leq z \leq d_{0}$ a linear interpolation is recommended. In engineering practice, Eq.{eq}`eq-wind-7` is conservatively used with $d_{0}=0$.
+For lowest 0.1 $\delta$ or 200 m of the boundary layer only the first term needs to be taken into account {cite}`Harris1980`. The lowest height of validity for Eq.{eq}`eq-wind-7`, $d_{0}$, is close to the average height of dominant roughness elements : i.e. from less than 1 m, for smooth flat country to more than 15 m, for centers of cities. For $z_{0} \leq z \leq d_{0}$ a linear interpolation is recommended. In engineering practice, Eq.{eq}`eq-wind-7` is conservatively used with $d_{0}=0$.
 
-With respect to the reference (open terrain) exposure, the relation between wind velocities in two different roughness categories at two different heights can be written approximately as (Bietry, 1976, Simiu, 1986):
+With respect to the reference (open terrain) exposure, the relation between wind velocities in two different roughness categories at two different heights can be written approximately as (Bietry, 1976, Simiu, {cite}`Simiu1986`):
 
 ```{math}
 :label: eq-wind-8
@@ -248,7 +214,7 @@ The turbulent fluctuations of the wind velocity can be assumed to be normally di
 \frac{\sigma_{w}}{u_{*}}=\beta_{w}\left(1-\frac{z}{\delta}\right)  \quad \text { Vertical }
 ```
 
-The approximate linear variation with height (Hanna, 1982) can be used only in moderate and strong winds. For neutral atmosphere, the ratios$`\sigma_{v} / \sigma_{u}$ and $\sigma_{w} / \sigma_{u}$ near the ground are constant irrespective of the roughness of the terrain (ESDU 1993):
+The approximate linear variation with height (Hanna, 1982) can be used only in moderate and strong winds. For neutral atmosphere, the ratios$`\sigma_{v} / \sigma_{u}$ and $\sigma_{w} / \sigma_{u}$ near the ground are constant irrespective of the roughness of the terrain {cite}`ESDU85020`:
 
 ```{math}
 :label: eq-wind-10a
@@ -289,7 +255,7 @@ and, for $z<0.1 \delta$ :
 \frac{\sigma_{w}}{\sigma_{u}} \cong 0.505
 ```
 
-The variance of the longitudinal velocity fluctuations can also be expressed from non-linear regression of measurement data, as function of terrain roughness (Solari, 1987):
+The variance of the longitudinal velocity fluctuations can also be expressed from non-linear regression of measurement data, as function of terrain roughness {cite}`Solari1987`:
 
 ```{math}
 :label: eq-wind-13
@@ -363,7 +329,7 @@ The integral length scale of turbulence in direction $i$ at the height $z$ is:
 L_{i}(z)=U(z) \int_{0}^{\infty} \rho_{i} (\tau_{i}) d \tau_{i}
 ```
 
-where the autocorrelation $\rho_{i}\left(\tau_{i}\right)$ is the Fourier transform of spectral density. An estimation of the length of the integral scale of longitudinal turbulence, for heights up to 300 m is given by ESDU (1993), as:
+where the autocorrelation $\rho_{i}\left(\tau_{i}\right)$ is the Fourier transform of spectral density. An estimation of the length of the integral scale of longitudinal turbulence, for heights up to 300 m is given by {cite}`ESDU85020`, as:
 
 ```{math}
 :label: eq-wind-17
@@ -378,7 +344,7 @@ $K_{z}=0.188\left[1-\left(1-z / z_{c}\right)^{2}\right]^{1 / 2}$
 
 $z_{c} / \delta=0.39\left[\frac{u_{*}}{f_{c} z_{0}}\right]^{-1 / 8}$
 
-For the lateral and vertical direction (ESDU, 1993):
+For the lateral and vertical direction {cite}`ESDU85020`:
 
 ```{math}
 :label: eq-wind-18a
@@ -428,7 +394,7 @@ with:
 
 where $\overline{k}=\frac{2 \pi n}{\overline{U}_{m}}$ and $\psi_{i}^{2}=\left(r^{2} \overline{k}^{2}+r^{2} / L_{i}^{2}\right)$. All coherence function $\operatorname{Coh}_{i j}^{1 / 2}\left(n, P_{1}, P_{2}\right)$ with $i \neq j$ can be assumed to vanish.
 
-The longitudinal coherence can also be approximated by (Kareem, 1987):
+The longitudinal coherence can also be approximated by {cite}`JointCommittee1974`:
 
 ```{math}
 :label: eq-wind-21
@@ -614,86 +580,82 @@ Statistics of the above factors are suggested in {numref}`table-Statistics-of-ra
 :name: table-Statistics-of-random-variables-involved-in-the-assessment-of-the-wind-loading
 | Variable | Ratio $\frac{\text { Expected }}{\text { Computed }}$ | Coefficient of variation, $V$ | Reference |
 | :--- | :---: | :---: | :---: |
-| $\overline{\mathrm{Q}}_{\text {ref }}$ <br> $\mathrm{c}_{\mathrm{r}}$ <br> $\mathrm{c}_{\mathrm{a}}$ - pressure coefficients <br> $\quad$ - force coefficients <br> $\mathrm{c}_{\mathrm{g}}$ <br> $\mathrm{c}_{\mathrm{d}}$  | 0.8 <br> 0.8 <br> 1.0 <br> 1.0 <br> 1.0 <br> 1.0  | 0.2 - 0.3 <br> 0.1 - 0.2 <br> 0.1 - 0.3 <br> 0.1 - 0.15 <br> 0.1 - 0.15 <br> 0.1 - 0.2 | Davenport, 1987 |
+| $\overline{\mathrm{Q}}_{\text {ref }}$ <br> $\mathrm{c}_{\mathrm{r}}$ <br> $\mathrm{c}_{\mathrm{a}}$ - pressure coefficients <br> $\quad$ - force coefficients <br> $\mathrm{c}_{\mathrm{g}}$ <br> $\mathrm{c}_{\mathrm{d}}$  | 0.8 <br> 0.8 <br> 1.0 <br> 1.0 <br> 1.0 <br> 1.0  | 0.2 - 0.3 <br> 0.1 - 0.2 <br> 0.1 - 0.3 <br> 0.1 - 0.15 <br> 0.1 - 0.15 <br> 0.1 - 0.2 | {cite}`Davenport1987` |
 | Structure period <br> $\quad$ - small amplitudes <br> $\quad$ - large amplitudes <br> Structure damping <br> $\quad$ - small amplitudes <br> $\quad$ - large amplitudes | <br> 0.85 <br> 1.15 <br> <br> 0.8 <br> 1.2 | <br> 0.3 - 0.35 <br> 0.3 - 0.35 <br> <br> 0.4 - 0.6 <br> 0.4 - 0.6 | Vanmarcke, 1992 |
 ```
 
 Generally, but not necessarily, the lognormal distribution is the recommended probability distribution function for each of the partial factors involved in Eq. {eq}`eq-wind-32` and Eq. {eq}`eq-wind-34`.
 
-**Relevant Literature and References**
+**References**
 
-Arya S.P., 1993. Atmospheric boundary layer and its parametrization. Proceedings of the NATO Advanced Study Institute on Wind Climate in Cities, Waldbronn, Germany, July 5-16, Kluwer Academic Publishers, Dordrecht/Boston/London, p.41-66
+```{bibliography}
+:filter: docname in docnames
+:style: unsrt
+```
 
-ASCE 7-93, 1993 and Draft of ASCE7-95, 1995. Minimum design loads for buildings and other structures. American Society of Civil Engineers, New York
+**Additional References**
 
-CIB W81 Commission, 1994. Actions on structures. Wind loads, 6th draft, May
+1. Arya S.P., 1993. Atmospheric boundary layer and its parametrization. Proceedings of the NATO Advanced Study Institute on Wind Climate in Cities, Waldbronn, Germany, July 5-16, Kluwer Academic Publishers, Dordrecht/Boston/London, p.41-66
 
-Davenport N.G., 1995. The response of slender structures to wind. In the wind climate and cities. Kluwer Academic Publishers, p.209-239
+2. ASCE 7-93, 1993 and Draft of ASCE7-95, 1995. Minimum design loads for buildings and other structures. American Society of Civil Engineers, New York
 
-Davenport A.G., 1987. Proposed new international (ISO) wind load standard. High winds and building codes. Proceedings of the WERC/NSF Wind engineering symposium. Kansas City, Missouri, Nov., p.373-388
+3. CIB W81 Commission, 1994. Actions on structures. Wind loads, 6th draft, May
 
-Davenport A.G., 1967. Gust loading factors. Journal of the Structural Division, ASCE, Vol.93, No.3, p.1295-1313
+4. Davenport N.G., 1995. The response of slender structures to wind. In the wind climate and cities. Kluwer Academic Publishers, p.209-239
 
-Davenport A.G., 1964. Note on the distribution of the largest value of a random function with application to gust loading. Proceedings. Institution of Civil Engineering, London, England, Vol. 28 June, p.187-195
+5. Davenport A.G., 1967. Gust loading factors. Journal of the Structural Division, ASCE, Vol.93, No.3, p.1295-1313
 
-Davenport A.G., 1961. The application of statistical concepts to the wind loading of structures. Proceedings, Institution of Civil Engineering, London, England, Vol.19, Aug., p.449-472
+6. Davenport A.G., 1964. Note on the distribution of the largest value of a random function with application to gust loading. Proceedings. Institution of Civil Engineering, London, England, Vol. 28 June, p.187-195
 
-ESDU 85020, Characteristics of atmospheric turbulence near the ground. Part II: single point data for strong winds (neutral atmosphere), April 1993, 36 p. London, U.K.
+7. Davenport A.G., 1961. The application of statistical concepts to the wind loading of structures. Proceedings, Institution of Civil Engineering, London, England, Vol.19, Aug., p.449-472
 
-ESDU 86010, Characteristics of atmospheric turbulence near the ground. Part III: variation in space and time for strong winds (neutral atmosphere), Sept. 1991, 33 p., London, U.K.
+8. ESDU 86010, Characteristics of atmospheric turbulence near the ground. Part III: variation in space and time for strong winds (neutral atmosphere), Sept. 1991, 33 p., London, U.K.
 
-European Prestandard ENV 1991-2-4, 1994. EUROCODE 1: Basis of design and actions on structures, Part 2.4 : Wind actions, CEN
+9. European Prestandard ENV 1991-2-4, 1994. EUROCODE 1: Basis of design and actions on structures, Part 2.4 : Wind actions, CEN
 
-Gerstoft P., 1986. An assessment of wind loading on tower shaped structures. Technical University of Denmark, Lingby, Serie R, No.213
+10. Gerstoft P., 1986. An assessment of wind loading on tower shaped structures. Technical University of Denmark, Lingby, Serie R, No.213
 
-Ghiocel D., Lungu D., 1975. Wind, snow and temperature effects on structures, based on probability. Abacus Press, Tunbridge Wells, Kent, U.K.
+11. Ghiocel D., Lungu D., 1975. Wind, snow and temperature effects on structures, based on probability. Abacus Press, Tunbridge Wells, Kent, U.K.
 
-Harris R.I., Deaves D.M., 1980. The structure of strong winds. The wind engineering in the eighties. Proceedings of CIRIA Conference 12/13 Nov., Construction Industry, Research and Information Association, London, p.4.1-4.93
+12. ISO / TC 98 / SC3 Draft International Standard 4354, 1990. Wind actions on structures. International Organisation for Standardisation
 
-ISO / TC 98 / SC3 Draft International Standard 4354, 1990. Wind actions on structures. International Organisation for Standardisation
+13. Karman v., T., 1948. Progress in statistical theory of turbulence. Proceedings, National Academy of Science, Washington D.C., p.530-539 Lumley J.L., Panofsky H.A., 1964. The structure of atmospheric turbulence. J.Wiley \\& Sons
 
-Joint Committee on Structural Safety CEB-CECM-CIB-FIP-IABSE, 1974. Basic data on loads. Second draft. Lisbon Kareem, A., Wind Effects on Structures, Prob. Eng. Mech., 2, 4, 1987, pp. 166-200
+14. Lungu D., Gelder P., Trandafir R., 1995. Comparative study of Eurocode 1, ISO and ASCE procedures for calculating wind loads. IABSE Colloquium, Basis of design and actions on structures, Background and application of Eurocode 1, Delft, The Netherlands, 1996
 
-Karman v., T., 1948. Progress in statistical theory of turbulence. Proceedings, National Academy of Science, Washington D.C., p.530-539 Lumley J.L., Panofsky H.A., 1964. The structure of atmospheric turbulence. J.Wiley \\& Sons
+15. NBC of Canada, 1990. Code National du Bâtiment du Canada, 1990 and Supplement du Code, Comité Associé du Code National du Bâtiment, Conseil National de Recherche, Canada
 
-Lungu D., Gelder P., Trandafir R., 1995. Comparative study of Eurocode 1, ISO and ASCE procedures for calculating wind loads. IABSE Colloquium, Basis of design and actions on structures, Background and application of Eurocode 1, Delft, The Netherlands, 1996
+16. Plate E.J., 1993. Urban climates and urban climate modelling: An introduction. Proceedings of the NATO Advanced Study Institute on Wind Climate in Cities, Waldbronn, Germany, July 5-16, Kluwer Academic Publishers, Dordrecht/Boston/London, p.23-40
 
-NBC of Canada, 1990. Code National du Bâtiment du Canada, 1990 and Supplement du Code, Comité Associé du Code National du Bâtiment, Conseil National de Recherche, Canada
+17. Plate E.J., Davenport A.G., 1993. The risk of wind effects in cities. Proceedings of the NATO Advanced Study Institute on Wind Climate in Cities, Waldbronn, Germany, July 5-16, Kluwer Academic Publishers, Dordrecht/Boston/London, p.1-20 Ruscheweyh H., 1995. Wind loads on structures from Eurocode 1, ENV 1991-2-3. In Wind climate in cities. Kluwer Academic Publishers, p.241-258
 
-Plate E.J., 1993. Urban climates and urban climate modelling: An introduction. Proceedings of the NATO Advanced Study Institute on Wind Climate in Cities, Waldbronn, Germany, July 5-16, Kluwer Academic Publishers, Dordrecht/Boston/London, p.23-40
+18. Schroers H., Lösslein H., Zilch K., 1990. Untersuchung der Windstructur bei Starkwind und Sturm. Meteorol. Rdsch., 42, Oct., p.202-212
 
-Plate E.J., Davenport A.G., 1993. The risk of wind effects in cities. Proceedings of the NATO Advanced Study Institute on Wind Climate in Cities, Waldbronn, Germany, July 5-16, Kluwer Academic Publishers, Dordrecht/Boston/London, p.1-20 Ruscheweyh H., 1995. Wind loads on structures from Eurocode 1, ENV 1991-2-3. In Wind climate in cities. Kluwer Academic Publishers, p.241-258
+19. Simiu E., 1980. Revised procedure for estimating along-wind response. Journal of the Structural Division, ASCE, Vol.106, No.1, p.1-10
 
-Schroers H., Lösslein H., Zilch K., 1990. Untersuchung der Windstructur bei Starkwind und Sturm. Meteorol. Rdsch., 42, Oct., p.202-212
+20. Simiu E., 1974. Wind spectra and dynamic along-wind response. Journal of the Structural Division, ASCE, Vol.100, No.9, p.1897-1910
 
-Simiu E., Scanlan R.H., 1986. Wind effects on structures. Second edition. J. Wiley \\& Sons
+21. Solari G., 1993. Gust buffeting. I Peak wind velocity and equivalent pressure. Journal of Structural Engineering, ASCE, Vol.119, No.2, p.365-382
 
-Simiu E., 1980. Revised procedure for estimating along-wind response. Journal of the Structural Division, ASCE, Vol.106, No.1, p.1-10
+22. Solari G., 1993. Gust buffeting. II Dynamic along-wind response. Journal of Structural Engineering, Vol.119, No.2, p.383398
 
-Simiu E., 1974. Wind spectra and dynamic along-wind response. Journal of the Structural Division, ASCE, Vol.100, No.9, p.1897-1910
+23. Solari G., 1988. Equivalent wind spectrum technique: theory and applications. Journal of Structural Engineering ASCE, Vol.114, No.6, p.1303-1323
 
-Solari G., 1993. Gust buffeting. I Peak wind velocity and equivalent pressure. Journal of Structural Engineering, ASCE, Vol.119, No.2, p.365-382
+24. Theurer W., Bachlin W., Plate E.J., 1992. Model study of the development of boundary layer above urban areas. Journal of Wind Engineering and Industrial Aerodynamics, Vol. 41-44, p.437-448, Elsevier
 
-Solari G., 1993. Gust buffeting. II Dynamic along-wind response. Journal of Structural Engineering, Vol.119, No.2, p.383398
+25. Uniform Building Code, 1991 Edition. International Conference of Building Officials, Whittier, California
 
-Solari G., 1988. Equivalent wind spectrum technique: theory and applications. Journal of Structural Engineering ASCE, Vol.114, No.6, p.1303-1323
+26. Vellozi J., Cohen E., 1968. Gust response factors. Journal of the Structural Division, ASCE, Vol.97, No.6, p.1295-1313
 
-Solari G., 1987. Turbulence modelling for gust loading. Journal of Structural Engineering, ASCE, Vol.113, No.7, p.11501569
+27. Vickery B.J., 1994. Across - wind loading on reinforced concrete chimneys of circular cross-section. ACI Structural Journal, May-June, p.355-356
 
-Theurer W., Bachlin W., Plate E.J., 1992. Model study of the development of boundary layer above urban areas. Journal of Wind Engineering and Industrial Aerodynamics, Vol. 41-44, p.437-448, Elsevier
+28. Vickery B.J., Basu R., 1983. Simplified approaches to the evaluation of the across-wind response of chimneys. Journal of Wind Engineering and Industrial Aerodynamics, Vol.14, p. 153-166.
 
-Uniform Building Code, 1991 Edition. International Conference of Building Officials, Whittier, California
+29. Vickery B.J., 1970. On the reliability of gust loading factors. Proceedings, Technical meeting concerning wind loads on buildings and structures, Building Science Series 30, National Bureau of Standards, Washington D.C., p.93-104
 
-Vellozi J., Cohen E., 1968. Gust response factors. Journal of the Structural Division, ASCE, Vol.97, No.6, p.1295-1313
+30. Vickery B.J., 1969. Gust response factors. Discussion. Journal of the Structural Division, ASCE, ST3, March, p.494-501
 
-Vickery B.J., 1994. Across - wind loading on reinforced concrete chimneys of circular cross-section. ACI Structural Journal, May-June, p.355-356
+31. Wieringa J., 1993. Representative roughness parameters for homogenous terrain. Boundary Layer Meteorology, Vol.63, No.4, p.323-364
 
-Vickery B.J., Basu R., 1983. Simplified approaches to the evaluation of the across-wind response of chimneys. Journal of Wind Engineering and Industrial Aerodynamics, Vol.14, p. 153-166.
+32. Wind loading and wind-induced structural response, 1987. State of the art report prepared by the Committee on Wind effects of the Structural Division of ASCE. ASCE, N.Y.
 
-Vickery B.J., 1970. On the reliability of gust loading factors. Proceedings, Technical meeting concerning wind loads on buildings and structures, Building Science Series 30, National Bureau of Standards, Washington D.C., p.93-104
-
-Vickery B.J., 1969. Gust response factors. Discussion. Journal of the Structural Division, ASCE, ST3, March, p.494-501
-
-Wieringa J., 1993. Representative roughness parameters for homogenous terrain. Boundary Layer Meteorology, Vol.63, No.4, p.323-364
-
-Wind loading and wind-induced structural response, 1987. State of the art report prepared by the Committee on Wind effects of the Structural Division of ASCE. ASCE, N.Y.

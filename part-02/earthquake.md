@@ -34,7 +34,7 @@ Probabilistic seismic hazard assessment (PSHA) is related to the prediction of t
 
 ### Magnitude model
 
-The usual expression relating earthquake magnitudes with their rates of occurrence is due to Gutenberg \& Richter (1944). This relation is called "magnitude-frequency formula" and states that in a certain region and in a given period of time given an earthquake event:
+The usual expression relating earthquake magnitudes with their rates of occurrence is due to {cite}`GutenbergRichter1944`. This relation is called "magnitude-frequency formula" and states that in a certain region and in a given period of time given an earthquake event:
 
 ```{math}
 :label: eq-earthquake-2.17.1
@@ -78,23 +78,23 @@ where $\Delta, k$ are in $km, A$ in fraction of $g, b_{1}, ~b_{2}, ~b_{3}$ and $
 :name: table-attenuation-Laws-for-the-peak-ground-acceleration
 | Region | Literature | $b_{1}$ <br> $[g]$ | $b_{2}$ <br> $[-]$ | $b_{3}$ <br> $[-]$ | $k$ <br> $[km]$ | $V\left(\varepsilon_{A}\right)$ |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| California <br> USA | Donovan (1973) | 1.1 | 0.51 | 1.32 | 25 | 0.71 |
-| California | Mc Guire (1974) | 0.48 | 0.64 | 1.3 | 25 | 0.22 |
-| California and <br> Central America | Esteva \& Villaverde (1973) | 5.7 | 0.8 | 2 | 40 | 0.64 |
-| California ${ }^{* 1}$ | Campbell (1981) | 0.016 | 0.868 | 1.09 | 2.007 | 0.24 |
-| Canada | Milne \& Davenport (1969) | 0.04 | 0.99 | 1.39 | 0 | - |
+| California <br> USA | {cite}`Donovan1973` | 1.1 | 0.51 | 1.32 | 25 | 0.71 |
+| California | {cite}`McGuire1974` | 0.48 | 0.64 | 1.3 | 25 | 0.22 |
+| California and <br> Central America | {cite}`EstevaVillaverde1973` | 5.7 | 0.8 | 2 | 40 | 0.64 |
+| California ${ }^{* 1}$ | {cite}`Campbell1981` | 0.016 | 0.868 | 1.09 | 2.007 | 0.24 |
+| Canada | {cite}`MilneDavenport1969` | 0.04 | 0.99 | 1.39 | 0 | - |
 | Canada | Davenport (1972) | 0.279 | 0.8 | 1.64 | 0 | - |
-| Japan | Katayama \& Saeki (1978) | 0.02 | 0.7 | 0.8 | 0 | - |
-| Taiwan | Mau \& Kao (1978) | 0.38 | 0.876 | 1.836 | 20 | - |
-| South Africa | Donovan \& Bornstein <br> (1977) | 0.073 | 0.756 | 1.01 | 25 | - |
-| Central Europe | Ahorner \& Rosenhauer <br> (1975) | 1.28 | 0.8 | 2.0 | 13 | - |
-| Greece | Makropoulos (1978) | 2.2 | 0.7 | 1.8 | 20 | 0.50 |
-| Switzerland ${ }^{* 1}$ | Ziegler (1985) | 0.016 | 0.868 | 0.95 | 2.649 | - |
-| Italy ${ }^{* 2}$ | Sabetta and Pugliese (1987) | 0.014 | 0.363 | 0.5 | 25 | 0.20 |
+| Japan | {cite}`KatayamaSaeki1978` | 0.02 | 0.7 | 0.8 | 0 | - |
+| Taiwan | {cite}`MauKao1978` | 0.38 | 0.876 | 1.836 | 20 | - |
+| South Africa | {cite}`DonovanBornstein1977` | 0.073 | 0.756 | 1.01 | 25 | - |
+| Central Europe | {cite}`Ahorner1975` | 1.28 | 0.8 | 2.0 | 13 | - |
+| Greece | {cite}`Makropoulos1978` | 2.2 | 0.7 | 1.8 | 20 | 0.50 |
+| Switzerland ${ }^{* 1}$ | {cite}`Ziegler1985` | 0.016 | 0.868 | 0.95 | 2.649 | - |
+| Italy ${ }^{* 2}$ | {cite}`SabettaPugliese1987` | 0.014 | 0.363 | 0.5 | 25 | 0.20 |
 ```
 Notes:
 
-*1) In difference to eq. {eq}`eq-earthquake-2.17.4`, the attenuation laws proposed by Campbell (1981) and Ziegler (1985) are defined as:
+*1) In difference to eq. {eq}`eq-earthquake-2.17.4`, the attenuation laws proposed by {cite}`Campbell1981` and {cite}`Ziegler1985` are defined as:
 
 ```{math}
 :label: eq-earthquake-2.17.5
@@ -103,7 +103,7 @@ A=b_{1} \cdot e^{b_{2}-M} \cdot(R+k)^{-b_{3}} \cdot \varepsilon_{A}
 
 where $R$ is the epicentral distance in $km$.
 
-*2) The attenuation law by Sabetta and Pugliese (1987) is the following:
+*2) The attenuation law by {cite}`SabettaPugliese1987` is the following:
 
 ```{math}
 :label: eq-earthquake-2.17.6
@@ -114,7 +114,7 @@ A=b_{1} \cdot e^{b_{2}-M} \cdot\left(\Delta^{2}+k\right)^{-b_{3}} \cdot \varepsi
 
 The source may generally be taken as a spatial random variable. The focus is the point where earthquake motion starts to be generated in the event. The focal distance is taken as the distance between focus and site.
 
-If there are well-defined fault-lines it may be assumed that the focus occurs anywhere along the fault-line with equal probability. The focus may be understood as the center of the rupture zone. The focal distance can also be taken as the closest distance between rupture zone and site. The rupture length $l$ may be taken as a fraction of the earthquake magnitude according to: $l=\exp \left(c_{1} . M-c_{2}\right)$ with $c_{1}$ and $c_{2}$ coefficients characteristic for the fault (Der Kiureghian \& Ang 1977).
+If there are well-defined fault-lines it may be assumed that the focus occurs anywhere along the fault-line with equal probability. The focus may be understood as the center of the rupture zone. The focal distance can also be taken as the closest distance between rupture zone and site. The rupture length $l$ may be taken as a fraction of the earthquake magnitude according to: $l=\exp \left(c_{1} . M-c_{2}\right)$ with $c_{1}$ and $c_{2}$ coefficients characteristic for the fault {cite}`DerKiureghianAng1977`.
 
 In many geographical regions fault locations and their activity are not known; existing data are so sparse that a division of a seismic region into faults or other active zones would be meaningless and unreliable. In addition one should consider that in regions with very high seismicity earthquakes occur practically everywhere.
 
@@ -145,7 +145,7 @@ $T=$ period of time
 
 $P^{\prime}[A>a]=$ probability of $A>a$ given an earthquake with $M>M_{1}$ in one source area
 
-The statistical uncertainty in the estimate of $\nu$ is very important, particularly if the observation records cover only a short period of time or the seismicity is relative small and consequently a Bayesian model to the description of the uncertainties of $\nu$ is recommended (see [Appendix A](section-Appendix-A)). The following simplified expression is proposed by Benjamin (1968) for the mean occurrence rate $\nu$ derived from Bayes' theorem:
+The statistical uncertainty in the estimate of $\nu$ is very important, particularly if the observation records cover only a short period of time or the seismicity is relative small and consequently a Bayesian model to the description of the uncertainties of $\nu$ is recommended (see [Appendix A](section-Appendix-A)). The following simplified expression is proposed by {cite}`Benjamin1968` for the mean occurrence rate $\nu$ derived from Bayes' theorem:
 
 ```{math}
 :label: eq-earthquake-2.17.9
@@ -336,43 +336,20 @@ Rotational excitations generally can be neglected. Horizontal and vertical accel
 
 Given an earthquake ground accelerations are spatially correlated at any point in time. The following form of the auto-correlation function is suggested: $\rho(r)=\exp \left[-\alpha r^{2}\right]$ where $r$ is the distance in $[m]$ between $10^{-6}$ (for firm ground) and $10^{-7}$ (for soft ground). For $r<100 ~m$ full correlation may be assumed.
 
-**REFERENCES**
+**References**
 
-Ahorner, L. \& Rosenhauer, W., 1975, Probability Distribution of Earthquake Accelerations with Applications to Sites in the Northern Rhine Area, Central Europe, Journ. Geophys., 41, 581-594.
+```{bibliography}
+:filter: docname in docnames
+:style: unsrt
+```
 
-Benjamin, J.R., 1968, Probabilistic Models for Seismic Force Design, Journ. Struc. Div., ASCE, 94, ST5, 1174-1195.
+**Additional References**
 
-Campbell, K.W., 1981, Near-Source-Attenuation of Peak Horizontal Acceleration, BSSA, Vol.71, No.6.
+1. Cornell, C.A., 1971, Probabilistic Analysis of Damage to Structures under Seismic Loads, Dynamic Waves in Civil Engineering, Wiley-Interscience (edited by D.A. Howells, I.P. Haigh and C. Taylor), Great Britain.
 
-Cornell, C.A., 1971, Probabilistic Analysis of Damage to Structures under Seismic Loads, Dynamic Waves in Civil Engineering, Wiley-Interscience (edited by D.A. Howells, I.P. Haigh and C. Taylor), Great Britain.
+2. Der Kiureghian, A., 1981, Seismic Risk Analysis of Structural Systems, Journ. Eng. Mech. Div., ASCE, 107, No. EM6, 1133-1153.
 
-Der Kiureghian, A. \& Ang, A., 1977, A Fault Rupture Model for Seismic Risk Analysis, Bull. Seis. Soc. Amer., 67, No. 4, 1173-1194.
-
-Der Kiureghian, A., 1981, Seismic Risk Analysis of Structural Systems, Journ. Eng. Mech. Div., ASCE, 107, No. EM6, 1133-1153.
-
-Donovan, N.C., 1973, A Statistical Evaluation of Strong Motion Data Including the February 9, 1971, San Fernando Earthquake, Proc. of $5^{\text {th }}$ WCEE, Rome, Italy, 1252-1261.
-
-Donovan, N.C. \& Bornstein, A.E., 1977, The Problems of Uncertainties in the Use of Seismic Risk Procedures in Use of Probabilities in Earthquake Engineering, ASCE, Spec. Publ., 1-36.
-
-Esteva, L. \& Villaverde, R., 1973, Seismic Risk, Design Spectra and Structural Reliability, Proc. $5^{\text {th }}$ WCEE, Rome, 2586-2597.
-
-Gutenberg, B. \& Richter, C., 1944, Frequencies of Earthquakes in California, Bull. Seism. Soc. Amer., 34, 185-188.
-
-Katayama, T. \& Saeki, M., 1978, Statistical Analysis of Earthquake Acceleration Response Spectra, Proc. of ISCE, No. 275 (in Japanese).
-
-Makropoulos, K., 1978, The Statistics of Large Earthquake Magnitude and an Evaluation of Greek Seismicity, PhD Thesis, University of Edinburgh, Scotland, 1978.
-
-Mau, S.T. \& Kao, C.S., 1978, A Risk Model for Seismic Zoning in Taiwan, Proc. of $2^{\text {nd }}$ Intern. Conf. on Microzonation, Vol. I, San Francisco, 367-378.
-
-McGuire, R.K., 1974, Seismic structural response risk analysis, incorporating peak response regressions on earthquake magnitude and distance. Massachusets Inst. of Technol., Dep. of Civ. Eng., Res. Rpt. R74-51.
-
-Milne, W.G. \& Davenport, A.G., 1969, Distribution of Earthquake Risk in Canada, Bull. Seism. Soc. Amer., 59, No. 2, 754-799.
-
-Sabetta, F. \& Pugliese, A., 1987, Attenuation of peak horizontal acceleration and velocity from Italian strong-motion records. Bull. Seismol. Soc. Amer. 77 (1987) 1491-1523.
-
-Tajimi, H.: A Statistical Method of Determining the Maximum Response of a Building Structure during an Earthquake, Proc. $2^{\text {nd }}$ WCEE, Tokyo,2,pp. 781.797, Science Council of Japan, Japan.
-
-Ziegler, A., 1985, Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum, Abhandlung zur Erlangung des Titels eines Doktors der Technischen Wissenschaften der Eidgenössischen Technischen Hochschule Zürich, Diss. ETH Nr. 7767, Schweiz.
+3. Tajimi, H.: A Statistical Method of Determining the Maximum Response of a Building Structure during an Earthquake, Proc. $2^{\text {nd }}$ WCEE, Tokyo,2,pp. 781.797, Science Council of Japan, Japan.
 
 (section-Appendix-A)=
 ## Appendix A: Bayesian Updating of Earthquake Occurrence Rates and Magnitudes

@@ -2,29 +2,18 @@
 
 **List of symbols:**
 
-$C_{e} \quad=$ exposure coefficient
-
-$C_{r} \quad=$ redistribution (due to wind) coefficient
-
-$C_{t} \quad=$ deterministic thermal coefficient
-
-$d \quad=$ snow depth
-
-$h \quad=$ altitute of the building site
-
-$h_{r} \quad=$ reference altitude
-
-$k=$ coefficient for altitude conversion
-
-$r=$ conversion factor of snow load on ground to snow load on roofs
-
-$S_{r} \quad=$ snow load on the roof
-
-$S_{g} \quad=$ snow load on ground at the weather station
-
-$\gamma(d)=$ average weight density of the snow for depth $d$
-
-$\eta_{a} \quad=$ shape coefficient
+$\begin{array}{ll}C_{e}  &= \text { exposure coefficient}\\
+C_{r}  &= \text { redistribution (due to wind) coefficient}\\
+C_{t}  &= \text { deterministic thermal coefficient}\\
+d  &= \text { snow depth}\\
+h  &= \text { altitute of the building site}\\
+h_{r}  &= \text { reference altitude}\\
+k &= \text { coefficient for altitude conversion}\\
+r &= \text { conversion factor of snow load on ground to snow load on roofs}\\
+S_{r}  &= \text { snow load on the roof}\\
+S_{g}  &= \text { snow load on ground at the weather station}\\
+\gamma(d) &= \text { average weight density of the snow for depth d}\\
+\eta_{a}  &= \text { shape coefficient}\end{array}$
 
 ## Basic Model for Snow Load on roofs
 
@@ -140,7 +129,7 @@ The redistribution coefficient, $C_{r}$, takes account of the redistribution of 
 
 For monopitch roofs the redistribution of snow load may be neglected.
 
-For symmetrical duopitch roofs the coefficient $C_{r}$ is assumed to be constant and equal to $\pm C_{ro}$ for each half of the roof according to {numref}`fig-redistributed-snow-load-on-a-duopitch-roof`. $C_{ro}$ has a $\beta$-distribution with $\mu\left(C_{ro}\right)$ according to {numref}`fig-C_ro-as-a-function-of-roof-angle`; the coefficient of variation of $C_{r}$ is equal to 1.0. For other types of roofs the numerical values given in ENV 1991-2-3 and ISO 4355 shall be used. These values can be assumed to correspond to the mean value plus one standard deviation.
+For symmetrical duopitch roofs the coefficient $C_{r}$ is assumed to be constant and equal to $\pm C_{ro}$ for each half of the roof according to {numref}`fig-redistributed-snow-load-on-a-duopitch-roof`. $C_{ro}$ has a $\beta$-distribution with $\mu\left(C_{ro}\right)$ according to {numref}`fig-C_ro-as-a-function-of-roof-angle`; the coefficient of variation of $C_{r}$ is equal to 1.0. For other types of roofs the numerical values given in {cite}`ENV1991-2-3` and {cite}`ISO4355` shall be used. These values can be assumed to correspond to the mean value plus one standard deviation.
 
 ```{figure} ../part-02/images/redistributed-snow-load-on-a-duopitch-roof.jpg 
 :name: fig-redistributed-snow-load-on-a-duopitch-roof
@@ -172,3 +161,11 @@ $C_{ro}$ as function of the roof angle
 ```
 
 ${ }^{1)}$ Data from similar stations can be used as prior with $n^{\prime}=3$ and $v^{\prime}=2$.
+
+**References**
+
+```{bibliography}
+:filter: docname in docnames
+:style: unsrt
+```
+

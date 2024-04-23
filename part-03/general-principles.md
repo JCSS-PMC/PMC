@@ -265,7 +265,7 @@ Here $f(q)$ is the distribution function for the unfiltered supply and the accep
 
 The updated distribution for $X$ can be obtained through {eq}`eq-general-principles-3.0.3` with $f(q)$ replaced by $f^{\prime \prime}(q)$.
 
-More information about the effect of quality cobntrol on the distribution of material properties can be found in {cite}`KerskenBradley1991`. 
+More information about the effect of quality cobntrol on the distribution of material properties can be found in {cite}`KerskenBradleyRackwitz1991`. 
 
 (section-part-3-general-principles-annex-A)=
 ## Annex A: *Bayesian evaluation procedure for the normal and lognormal distribution - characteristic values*

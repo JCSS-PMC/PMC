@@ -149,7 +149,7 @@ More general systems can be constructed by combining the two fundamental types. 
 
 The framework for probabilistic modeling and reliability evaluation is outlined in this section. The focus is on the procedure to be followed in assessing the reliability of a critical component with respect to a particular failure mode.
 
-#### $\underline{\text{General Steps}}$
+### $\underline{\text{General Steps}}$
 
 The main steps in a component reliability analysis are the following:
 

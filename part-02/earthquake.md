@@ -340,7 +340,6 @@ Given an earthquake ground accelerations are spatially correlated at any point i
 
 ```{bibliography}
 :filter: docname in docnames
-:style: unsrt
 ```
 
 **Additional References**

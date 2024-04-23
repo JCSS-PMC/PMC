@@ -229,7 +229,7 @@ The basic formula for the first option is given by:
 
 ```{math}
 :label: eq-general-principles-3.0.5
-f^{\prime \prime}(q)=C~L(\text{data} \left.\mid q)\right) f^{\prime}(q)
+f^{\prime \prime}(q)=C~L(\text{data} \mid q) f^{\prime}(q)
 ```
 [comment]: <> (check for the extra right parenthesis)
 
@@ -243,9 +243,7 @@ $L(\text { data/q })  =$ likelihood of the data
 
 $q  =$ vector of distribution parameters (e.g. mean and std. dev.)
 
-$C =$ normalising constant = $\int \left.L(\text { data } \mid q)\right) f^{\prime}(q) d q$   
-
-[comment]: <> (check for the extra right parenthesis in $C =$)
+$C =$ normalising constant = $\int L(\text { data } \mid q) f^{\prime}(q) d q$   
 
 For the normal case more detailed information is presented in [Annex A](section-part-3-general-principles-annex-A).
 
@@ -374,5 +372,4 @@ For example, for S-N curves, it is $y=\ln (N), x=\ln (\Delta \sigma), a_{1}=-m$ 
 
 ```{bibliography}
 :filter: docname in docnames
-:style: unsrt
 ```

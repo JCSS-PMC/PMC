@@ -741,7 +741,6 @@ In cases with unlikely but very unfavorable scenario's of the stratigraphy, sign
 
 ```{bibliography}
 :filter: docname in docnames
-:style: unsrt
 ```
 
 (Appendix-soil-propereties-3.7.A)=

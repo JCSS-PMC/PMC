@@ -218,5 +218,4 @@ If $n^{\prime \prime} v ">10$, a good approximation of the concrete strength dis
 
 ```{bibliography}
 :filter: docname in docnames
-:style: unsrt
 ```

@@ -181,6 +181,5 @@ For a bundle of tendons prestress losses are considered for the whole bundle, i.
 
 ```{bibliography}
 :filter: docname in docnames
-:style: unsrt
 ```
 

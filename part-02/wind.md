@@ -590,7 +590,6 @@ Generally, but not necessarily, the lognormal distribution is the recommended pr
 
 ```{bibliography}
 :filter: docname in docnames
-:style: unsrt
 ```
 
 **Additional References**

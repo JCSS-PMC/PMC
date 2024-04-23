@@ -947,7 +947,6 @@ The model uncertainties of the Goda formula (last four lines) have been studied 
 
 ```{bibliography}
 :filter: docname in docnames
-:style: unsrt
 ```
 
 **Additional References**

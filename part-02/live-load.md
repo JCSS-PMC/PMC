@@ -148,13 +148,13 @@ A list of parameters in {numref}`table-Parameters-for-live-loads-depending-on-th
 
 **References**
 
-[1] CIB W81. Actions on Structures - Live Loads in Buildings. Conseil International du Bâtiment pour la Recherche l'Etude et la Documentation (CIB). Report 116, Rotterdam, 1989.
+1. CIB W81. Actions on Structures - Live Loads in Buildings. Conseil International du Bâtiment pour la Recherche l'Etude et la Documentation (CIB). Report 116, Rotterdam, 1989.
 
-[2] EC 1-Part 2.1: Actions on structures - Densities, self-weight, imposed loads. Eurocode 1 - Basis of Design and Actions on Structures. Comité Européen de Normalisation (CEN). Pre-standard draft, Brussels, 1994.
+2. EC 1-Part 2.1: Actions on structures - Densities, self-weight, imposed loads. Eurocode 1 - Basis of Design and Actions on Structures. Comité Européen de Normalisation (CEN). Pre-standard draft, Brussels, 1994.
 
-[3] Rackwitz R: Live Loads in Buildings. Manuscript, unpublished, Munich, 1995.
+3. Rackwitz R: Live Loads in Buildings. Manuscript, unpublished, Munich, 1995.
 
-[4] PMC Part 1: Basis of Design. Probabilistic Model Code - third draft. Joint Committee on Structural Safety (JCSS), 1995.
+4. PMC Part 1: Basis of Design. Probabilistic Model Code - third draft. Joint Committee on Structural Safety (JCSS), 1995.
 
 
 

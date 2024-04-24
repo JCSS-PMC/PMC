@@ -509,6 +509,8 @@ The presented document does not cover all aspects of the design of timber struct
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
+:labelprefix: 28.
 ```
 
 **Additional References**

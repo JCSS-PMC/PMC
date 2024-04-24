@@ -73,4 +73,4 @@ where $N$ is the numer of parking places associated with the drive way.
 
 **References**
 
-CIB W81, Actions on Structures: Live Load in Buildings, Rep. N0. 116, Rotterdam, 1989
+1. CIB W81, Actions on Structures: Live Load in Buildings, Rep. N0. 116, Rotterdam, 1989

@@ -150,4 +150,4 @@ The variability within a component (e.g. the variability of the cross section ar
 
 **Reference**
 
-CIB W81, Actions on Stuctures, Self weight, Report no. 115, Rotterdam
+1. CIB W81, Actions on Stuctures, Self weight, Report no. 115, Rotterdam

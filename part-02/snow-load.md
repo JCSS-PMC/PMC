@@ -166,5 +166,7 @@ ${ }^{1)}$ Data from similar stations can be used as prior with $n^{\prime}=3$ a
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
+:labelprefix: 16.
 ```
 

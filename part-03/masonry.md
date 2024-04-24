@@ -286,7 +286,7 @@ The value $k_{0}$ represents the slope of the unified stress-strain curve at ori
 :name: table-parameters-for-the-stress-strain-relationship-of-different-kinds-of-masonry-under-compression
 | Lightweight con- <br> crete | Hollow clay bricks <br> and AAC | CS hollow block | CS full block |
 | :--- | :--- | :--- | :--- |
-| ![Parameters for the stress-strain relationship of Lightweight concrete under compression](../part-03/images/Table-3.2-7a.jpg) | ![Parameters for the stress-strain relationship of Hollow clay bricks and AAC under compression](../part-03/images/Table-3.2-7b.jpg) | ![Parameters for the stress-strain relationship of CS hollow block under compression](../part-03/images/Table-3.2-7c.jpg) | ![Parameters for the stress-strain relationship of CS full block under compression](../part-03/images/Table-3.2-7d.jpg) |
+| ![Parameters for the stress-strain relationship of Lightweight concrete under compression](../part-03/images/Table-30.7-light_weight_concrete.jpg) | ![Parameters for the stress-strain relationship of Hollow clay bricks and AAC under compression](../part-03/images/Table-30.7-Hollow_clay_bricks_and_AAC.jpg) | ![Parameters for the stress-strain relationship of CS hollow block under compression](../part-03/images/Table-30.7-CS_hollow_block.jpg) | ![Parameters for the stress-strain relationship of CS full block under compression](../part-03/images/Table-30.7-CS_full_block.jpg) |
 | $\mathrm{k}_{0}=1.0$ | $\mathrm{k}_{0}=1.0$ | $\mathrm{k}_{0}=2.0$ | $\mathrm{k}_{0}=2.0$ |
 | $\varepsilon_{\mathrm{f}}=1.2~‰$ | $\varepsilon_{\mathrm{f}}=2.0~‰$ | $\varepsilon_{\mathrm{f}}=2.0~‰$ | $\varepsilon_{\mathrm{f}}=2.0~‰$ |
 | $\varepsilon_{\mathrm{u}}=1.2~‰$ | $\varepsilon_{\mathrm{u}}=2.0~‰$ | $\varepsilon_{\mathrm{u}}=2.5~‰$ | $\varepsilon_{\mathrm{u}}=3.5~‰$ |
@@ -458,6 +458,8 @@ $Y_{6}=$ a log-normal variable according to {numref}`table-stochastic-parameters
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
+:labelprefix: 30.
 ```
 
 (masonry-references)=

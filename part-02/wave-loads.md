@@ -947,21 +947,23 @@ The model uncertainties of the Goda formula (last four lines) have been studied 
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
+:labelprefix: 19.
 ```
 
 **Additional References**
 
-Arhan, M. and R. Ezraty (1978), "Statistical Relations Between Successive Wave Heights”, Acta Oceanologica, 1, 151-158.
+1. Arhan, M. and R. Ezraty (1978), "Statistical Relations Between Successive Wave Heights”, Acta Oceanologica, 1, 151-158.
 
-Battjes, J. A. (1978), "Engineering Aspects of Ocean Waves and Currents", Seminar on Safety of Structures under Dynamic Loading, Trondheim, Norway.
+2. Battjes, J. A. (1978), "Engineering Aspects of Ocean Waves and Currents", Seminar on Safety of Structures under Dynamic Loading, Trondheim, Norway.
 
-Belverova, D. (1994), "Wind Waves”, PhD, Polish Academy of Sciences, Gdansk.
+3. Belverova, D. (1994), "Wind Waves”, PhD, Polish Academy of Sciences, Gdansk.
 
-Borgman, L.E. (1979), "Directional Wave Spectra from Wave Sensors", Ocean Wave Climate, Plenum, New York, pp. 269-300
+4. Borgman, L.E. (1979), "Directional Wave Spectra from Wave Sensors", Ocean Wave Climate, Plenum, New York, pp. 269-300
 
-Buoy-altimeter Comparisons”, J. Geophys., pp. 2285-2302
+5. Buoy-altimeter Comparisons”, J. Geophys., pp. 2285-2302
 
-Takahashi, S (1996): Design of vertical breakwaters. Port and Harbour Research Institute
+6. Takahashi, S (1996): Design of vertical breakwaters. Port and Harbour Research Institute
 
 
 

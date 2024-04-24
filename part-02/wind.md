@@ -176,7 +176,7 @@ $\phi \quad=$ latitude of location in degree
 
 For lowest 0.1 $\delta$ or 200 m of the boundary layer only the first term needs to be taken into account {cite}`Harris1980`. The lowest height of validity for Eq.{eq}`eq-wind-7`, $d_{0}$, is close to the average height of dominant roughness elements : i.e. from less than 1 m, for smooth flat country to more than 15 m, for centers of cities. For $z_{0} \leq z \leq d_{0}$ a linear interpolation is recommended. In engineering practice, Eq.{eq}`eq-wind-7` is conservatively used with $d_{0}=0$.
 
-With respect to the reference (open terrain) exposure, the relation between wind velocities in two different roughness categories at two different heights can be written approximately as (Bietry, 1976, Simiu, {cite}`Simiu1986`):
+With respect to the reference (open terrain) exposure, the relation between wind velocities in two different roughness categories at two different heights can be written approximately as (Bietry, 1976, {cite}`Simiu1986`):
 
 ```{math}
 :label: eq-wind-8
@@ -590,6 +590,8 @@ Generally, but not necessarily, the lognormal distribution is the recommended pr
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
+:labelprefix: 17.
 ```
 
 **Additional References**

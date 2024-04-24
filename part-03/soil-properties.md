@@ -164,7 +164,7 @@ An important modeling concept regarding statistical inference of field statistic
 
 For ergodicity w.r.t. the mean (in case of constant mean fields) or ergodicity w.r.t. average trend coefficients (in case the average trend coefficients are constant throughout the field), this implies that the autocovariance function must tend to zero for large lag, however this condition is not sufficient.
 
-$\underline{Positive definiteness}:$
+$\underline{Positive~definiteness}:$
 
 The variance of any finite linear combination of values at any locations in the field must always be positive. This condition leads to the requirement that the covariance function must be positive definite. Verifying the positive definiteness of a parameterized autocovariance function can be done using Fourier transforms, but the procedure is difficult, and so in practice this requirement is usually met by
 selecting the function from one of those listed below (all of which have been shown to be positive definite).
@@ -741,6 +741,8 @@ In cases with unlikely but very unfavorable scenario's of the stratigraphy, sign
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
+:labelprefix: 29.
 ```
 
 (Appendix-soil-propereties-3.7.A)=

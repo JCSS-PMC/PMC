@@ -340,6 +340,8 @@ Given an earthquake ground accelerations are spatially correlated at any point i
 
 ```{bibliography}
 :filter: docname in docnames
+:style: unsrt
+:labelprefix: 20.
 ```
 
 **Additional References**
@@ -414,7 +416,7 @@ where $n_{o}$ the number of earthquakes with magnitude $M \geq m_{o}$ and arithm
 
 $\underline{\text {References}}$
 
-[A1] Benjamin, J.R., Cornell, C.A., Probability, Statistics and Decision for Civil Engineers, McGraw-Hill, ,New York, 1970.
+1. Benjamin, J.R., Cornell, C.A., Probability, Statistics and Decision for Civil Engineers, McGraw-Hill, ,New York, 1970.
 
-[A2] Campbell, K.W., Bayesian Analysis of Extreme Earthquake Occurrences, Part I: Probabilistic Hazard Models, BSSA, 72, 1982, 5. pp. 1689-1705.
+2. Campbell, K.W., Bayesian Analysis of Extreme Earthquake Occurrences, Part I: Probabilistic Hazard Models, BSSA, 72, 1982, 5. pp. 1689-1705.
 

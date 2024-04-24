@@ -81,7 +81,7 @@ where $\Phi^{-1}(.)$ is the inverse of the standard normal distribution function
 
 ```{table} Relationship between $\beta$ and $P_{f}$
 :name: tbl-relationship-between-beta-and-prob-of-failure
-| $P_{f}$ | $10^{-1}$ | $10^{-2}$ | $10^{-3}$ | $10^{-4}` | $10^{-5}$ | $10^{-6}`$ | $10^{-7}$ |
+| $P_{f}$ | $10^{-1}$ | $10^{-2}$ | $10^{-3}$ | $10^{-4}$ | $10^{-5}$ | $10^{-6}$ | $10^{-7}$ |
 | :-----------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: | :-------------: |
 | $\beta$ |       1.3       |       2.3       |       3.1       |       3.7       |       4.2       |       4.7       |       5.2       |
 ```
@@ -606,7 +606,7 @@ Time-dependent safety margin and schematic representation of vector outcrossing
 
 ## Bibliography
 
-[C1] Ang A H S and Tang W H, Probability Concepts in Engineering Planning and Design, Vol. I \\& II, John Wiley, 1984.
+[C1] Ang A H S and Tang W H, Probability Concepts in Engineering Planning and Design, Vol. I \& II, John Wiley, 1984.
 
 [C2] Augusti G, Baratta A and Casciati F, Probabilistic Methods in Structural Engineering, Chapman and Hall, 1984.
 
@@ -630,6 +630,8 @@ Time-dependent safety margin and schematic representation of vector outcrossing
 
 [C12] CEB, First Order Concepts for Design Codes, CEB Bulletin No. 112, 1976.
 
-[C13] CEB, Common Unified Rules for Different Types of Construction and Materials, Vol. 1, CEB Bulletin No. 116, 1976. [C14] Construction Industry Research and Information Association (CIRIA), Rationalisation of Safety and Serviceability Factors in Structural Codes, Report 63, London, 1977.
+[C13] CEB, Common Unified Rules for Different Types of Construction and Materials, Vol. 1, CEB Bulletin No. 116, 1976. 
+
+[C14] Construction Industry Research and Information Association (CIRIA), Rationalisation of Safety and Serviceability Factors in Structural Codes, Report 63, London, 1977.
 
 [C15] International Organization for Standardization (ISO), General Principles on Reliability for Structures, ISO 2394, Third edition.

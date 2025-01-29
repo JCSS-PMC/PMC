@@ -17,4 +17,12 @@ html:
   extra_navbar: ""
 
 parse:
-  myst_extended_syntax: true
+  # myst_extended_syntax: true
+  myst_enable_extensions:
+    - amsmath
+    - dollarmath
+
+
+bibtex_bibfiles:
+    - references.bib
+

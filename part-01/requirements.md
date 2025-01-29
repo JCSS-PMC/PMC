@@ -18,11 +18,12 @@
 -   They shall not be damaged by accidental events like fire,
     explosions, impact or consequences of human errors, to an extent
     disproportionate to the triggering event (*robustness requirement*,
-    see Annex A).
+    see [Annex A](annex-A-the-robust-requirement.md)).
 
+(section-2.2)=
 ## Reliability differentiation
 
- The expression \"*with appropriate levels of reliability*\" used above
+ The expression "*with appropriate levels of reliability*" used above
  means that the degree of reliability should be adopted to suit the use
  of the structure, the type of structure or structural element and the
  situation considered in the design, etc.
@@ -30,11 +31,7 @@
  The choice of the various levels of reliability should take into
  account the possible consequences of failure in terms of risk to life
  or injury, the potential economic losses and the degree of social
- inconvenience, as described in chapter 8. It should also take into
- account the amount of expense and effort required to reduce the risk
- of failure. It is further noted, that the
-
- term \"failure\" as used in this document refers to either inadequate
+ inconvenience, as described in [chapter 8](annex-A-the-robust-requirement.md). It should also take into account the amount of expense and effort required to reduce the risk of failure. It is further noted, that the term "failure" as used in this document refers to either inadequate
  strength or inadequate serviceability of the structure.
 
  The consequences of a failure generally depend on the mode of failure,
@@ -46,6 +43,7 @@
  requirements, organisational measures and controls at the stages of
  design, execution and use and the maintenance of the structure.
 
+(section-2.3)=
 ## Requirements for durability
 
  The durability of the structure in its environment shall be such that
@@ -66,4 +64,4 @@ d)  By inspection at fixed or condition dependent intervals and
 
  In all cases the reliability requirements for long and short term
  periods should be met. Analysis aspects on durability are described in
- Annex B.
+ [Annex B](annex-B-durability).

@@ -1,0 +1,1608 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>30. Masonry Properties &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-03/masonry';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="31. Model Uncertainties" href="model-uncertainties.html" />
+    <link rel="prev" title="29. Soil Properties" href="soil-properties.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/masonry.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/masonry.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-03/masonry.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Masonry Properties</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">30.1. Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-properties">30.2. Basic Properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compressive-strength-of-masonry">30.2.1. Compressive strength of masonry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus-of-elasticity">30.2.2. Modulus of elasticity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flexural-tensile-strength-of-masonry">30.2.3. Flexural tensile strength of masonry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensile-strength-of-the-units">30.2.4. Tensile strength of the units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohesion">30.2.5. Cohesion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#friction-coefficient">30.2.6. Friction coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-strain-relationship">30.2.7. Stress-strain relationship</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-probabilistic-model">30.3. The probabilistic model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compressive-strength">30.3.1. Compressive strength</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">30.3.2. Modulus of elasticity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">30.3.3. Flexural tensile strength of masonry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">30.3.4. Tensile strength of the units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">30.3.5. Cohesion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">30.3.6. Friction coefficient</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="masonry-properties">
+<h1><span class="section-number">30. </span>Masonry Properties<a class="headerlink" href="#masonry-properties" title="Link to this heading">#</a></h1>
+<p><strong>List of symbols:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}f_{m}  &amp; = \text { compressive strength of masonry } \\
+f_{m, l} &amp; = \text { compressive strength of masonry in longitudinal direction } \\
+f_{b} &amp; = \text { compressive strength of unit } \\
+f_{\text {mo }} &amp; = \text { compressive strength of mortar } \\
+f_{b t, l} &amp; = \text { tensile strength of units in longitudinal direction of the units } \\
+f_{b t, s}  &amp; = \text { splitting tensile strength of units } \\
+f_{t}  &amp; = \text { tensile strength of masonry } \\
+f_{v}  &amp; = \text { cohesion } \\
+a  &amp; = \text { coefficient } \\
+b  &amp; = \text { coefficient } \\
+c  &amp; = \text { coefficient } \\
+c_{1} &amp; = \text { ratio } E_{m} / f_{m} \\
+c_{2} &amp; = \text { ratio } f_{b t, l} / f_{b} \\
+c_{3} &amp; = \text { ratio } f_{b t, s} / f_{b} \\
+Y_{1} &amp; = \text { a log-normal variable taking into account uncertainties in the calculation of the compressive strength of masonry } \\
+Y_{2} &amp; = \text { a log-normal variable taking into account uncertainties in the calculation of the modulus of elasticity } \\
+Y_{3} &amp; = \text { a log-normal variable taking into account uncertainties in the calculation of the tensile strength of masonry } \\
+Y_{4} &amp; = \text { a log-normal variable taking into account uncertainties in the calculation of the tensile strength of unit } \\
+Y_{5} &amp; = \text { a log-normal variable taking into account uncertainties in the calculation of the cohesion } \\
+Y_{6} &amp; = \text { a log-normal variable taking into account uncertainties in the calculation of the friction coefficient } \\
+\varepsilon  &amp; = \text { strain } \\
+\mathcal{E}_{u} &amp; = \text { ultimate strain } \\
+E_{0} &amp; = \text { modulus of elasticity } \\
+\mu &amp; = \text { friction coefficient } \\
+\sigma &amp; = \text { stress } \\
+h_{k}  &amp; = \text { buckling length of wall } \\
+t &amp; = \text { thickness of wall }\end{array}\)</span></p>
+<p><strong>Abbreviations:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}\text { LC } &amp; \quad \text { Lightweight concrete } \\   
+\text { NC } &amp; \quad   \text { Normal density concrete } \\   
+\text { C }  &amp; \quad   \text { Concrete } \\   
+\text { CS } &amp; \quad   \text { Calcium silicate } \\   
+\text { AAC } &amp; \quad   \text { Autoclave aerated concrete } \\ 
+\text { CB } &amp;  \quad  \text { Clay brick } \\   
+\text { GPM } &amp; \quad   \text { General purpose mortar } \\ 
+\text { TLM } &amp; \quad   \text { Thin layer mortar }\end{array}\)</span></p>
+<section id="scope">
+<h2><span class="section-number">30.1. </span>Scope<a class="headerlink" href="#scope" title="Link to this heading">#</a></h2>
+<p>Masonry is made of units and mortar which show strong regional differences in the material properties and dimensions. Since stochastic treatment of masonry is relatively new, all the values given in the following represent prior values and may be subject to updating techniques. Also, the values (except the values for the compressive strength of masonry) are values derived from tests on single elements. The values might be different for full walls due to spatial variation.</p>
+<p>This section especially deals with unreinforced masonry made of artificial units that meet the requirements of the national manufacturing codes. Masonry is widely used as an unreinforced material but in certain countries reinforced solutions are common (e.g. in earthquake regions). For reinforced masonry, additional information is required for the stochastic modelling of the reinforcing steel (s. <a class="reference internal" href="static-properties-of-reinforcing-steel.html"><span class="std std-doc">chapter 26.</span></a>).</p>
+</section>
+<section id="basic-properties">
+<h2><span class="section-number">30.2. </span>Basic Properties<a class="headerlink" href="#basic-properties" title="Link to this heading">#</a></h2>
+<p>The main property of masonry is the compressive strength <span class="math notranslate nohighlight">\(f_{m}\)</span> which is determined on standard test specimens (so called RILEM specimens which are 5 units tall, 2.5 units wide and 1 unit thick) tested according to standard conditions (RILEM TC 76-LUM). Other properties, such as the modulus of elasticity are related to the compressive strength. However, some properties - like the friction coefficient - directly depend on the used type of units and mortar.</p>
+<p>Masonry only provides very small tensile strength perpendicular to the bed joints which therefore is often neglected. However, the flexural tensile strength of masonry may have a large effect on the load-carrying capacity of slender walls and should be considered in a probabilistic analysis. The flexural tensile strength parallel to the bed joints often has to be taken into account if walls are subjected to lateral loads (wind, earth pressure).</p>
+<p>The shear capacity of masonry walls depends on the tensile strength of the units (shear failure) and on the cohesion between units and mortar (sliding failure). Additionally, the friction coefficient is influencing the tensile strength parallel to the bed joints and the sliding shear capacity.</p>
+<section id="compressive-strength-of-masonry">
+<h3><span class="section-number">30.2.1. </span>Compressive strength of masonry<a class="headerlink" href="#compressive-strength-of-masonry" title="Link to this heading">#</a></h3>
+<p>The compressive strength of masonry depends on the compressive strength of units and mortar. The following equation <a class="reference internal" href="#equation-eq-masonry-1">(30.1)</a> is recommended for the determination of the compressive strength.</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-1">
+<span class="eqno">(30.1)<a class="headerlink" href="#equation-eq-masonry-1" title="Link to this equation">#</a></span>\[f_{m}=K \cdot f_{b}^{\alpha} \cdot f_{m o}^{\beta} \qquad\left(f_{b} \text { and } f_{m} \text { represent mean values }\right)\]</div>
+<p>In case of thin layer mortar, the mortar quality does not influence the compressive strength of masonry and so the relationship becomes</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-2">
+<span class="eqno">(30.2)<a class="headerlink" href="#equation-eq-masonry-2" title="Link to this equation">#</a></span>\[f_{m}=K \cdot f_{b}^{\alpha} \qquad\left(f_{b} \text { represents the mean value }\right)\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(f_{m} =\)</span> mean of the compressive strength of masonry</p>
+<p><span class="math notranslate nohighlight">\(f_{b} =\)</span> mean of the compressive strength of units in vertical direction</p>
+<p><span class="math notranslate nohighlight">\(f_{\text {mo }}=\)</span> mean of the compressive strength of mortar</p>
+<p><span class="math notranslate nohighlight">\(K=\)</span> coefficient, see <a class="reference internal" href="#table-parameters-k-for-the-determination-of-the-compressive-strength-of-masonry"><span class="std std-numref">Table 30.1</span></a></p>
+<p><span class="math notranslate nohighlight">\(\alpha=\)</span> coefficient, see <a class="reference internal" href="#table-parameters-k-for-the-determination-of-the-compressive-strength-of-masonry"><span class="std std-numref">Table 30.1</span></a></p>
+<p><span class="math notranslate nohighlight">\(\beta =\)</span> coefficient, see <a class="reference internal" href="#table-parameters-k-for-the-determination-of-the-compressive-strength-of-masonry"><span class="std std-numref">Table 30.1</span></a></p>
+<p>The slenderness <span class="math notranslate nohighlight">\(\lambda=h_{k} / t\)</span> plays an important role in the determination of the masonry compressive strength. To transform the obtained compressive strength to the reference slenderness of <span class="math notranslate nohighlight">\(\lambda=5\)</span>, the following equation can be used.</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-3">
+<span class="eqno">(30.3)<a class="headerlink" href="#equation-eq-masonry-3" title="Link to this equation">#</a></span>\[k_{\lambda=5}=\left(0.966+0.00136 \cdot \lambda_{\text {specimen }}^{2}\right)\]</div>
+<p>The parameters <span class="math notranslate nohighlight">\(K, \alpha\)</span>, and <span class="math notranslate nohighlight">\(\beta\)</span> are prior values and should be updated by use of test data. The compressive strength of masonry <span class="math notranslate nohighlight">\(f_{m, l}\)</span> in longitudinal direction (only for masonry with grouted head joints) is thought to be 50% of the masonry compressive strength <span class="math notranslate nohighlight">\(f_{m}\)</span> according to equation <a class="reference internal" href="#equation-eq-masonry-1">(30.1)</a> and <a class="reference internal" href="#equation-eq-masonry-2">(30.2)</a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-parameters-k-for-the-determination-of-the-compressive-strength-of-masonry">
+<caption><span class="caption-number">Table 30.1 </span><span class="caption-text">Parameters K, α, β for the determination of the compressive strength of masonry according to <a class="reference internal" href="#masonry-references"><span class="std std-ref">[1]</span></a> for a slenderness of the specimen of λ = 10</span><a class="headerlink" href="#table-parameters-k-for-the-determination-of-the-compressive-strength-of-masonry" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Masonry</p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(K\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\beta\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Units</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Material</p></td>
+<td class="text-center"><p>Unit type</p></td>
+<td class="text-center"><p>Mortar</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p><br> full and hollow <br> blocks</p></td>
+<td class="text-center"><p>TLM <br> LWM <br> GPM</p></td>
+<td class="text-center"><p>35 <br> 80 <br> 167</p></td>
+<td class="text-center"><p>0.85 <br> 0.85 <br> 0.85</p></td>
+<td class="text-center"><p>0.84 <br> 0.58 <br> 0.73</p></td>
+<td class="text-center"><p>0 <br> 0.15 <br> 0.07</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p>full blocks</p></td>
+<td class="text-center"><p>LWM</p></td>
+<td class="text-center"><p>21</p></td>
+<td class="text-center"><p>0.70</p></td>
+<td class="text-center"><p>0.66</p></td>
+<td class="text-center"><p>0.16</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p>hollow blocks</p></td>
+<td class="text-center"><p>LWM</p></td>
+<td class="text-center"><p>59</p></td>
+<td class="text-center"><p>0.86</p></td>
+<td class="text-center"><p>0.57</p></td>
+<td class="text-center"><p>0.14</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p>full blocks</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>61</p></td>
+<td class="text-center"><p>0.85</p></td>
+<td class="text-center"><p>0.72</p></td>
+<td class="text-center"><p>0.09</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p>hollow blocks</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>106</p></td>
+<td class="text-center"><p>0.89</p></td>
+<td class="text-center"><p>0.69</p></td>
+<td class="text-center"><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p>full blocks</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>20</p></td>
+<td class="text-center"><p>0.63</p></td>
+<td class="text-center"><p>1.00</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>regular unit</p></td>
+<td class="text-center"><p>NM</p></td>
+<td class="text-center"><p>140</p></td>
+<td class="text-center"><p>0.98</p></td>
+<td class="text-center"><p>0.68</p></td>
+<td class="text-center"><p>0.02</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>regular unit</p></td>
+<td class="text-center"><p>NM</p></td>
+<td class="text-center"><p>140</p></td>
+<td class="text-center"><p>0.99</p></td>
+<td class="text-center"><p>0.69</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>regular unit</p></td>
+<td class="text-center"><p>LM</p></td>
+<td class="text-center"><p>17</p></td>
+<td class="text-center"><p>0.80</p></td>
+<td class="text-center"><p>0.64</p></td>
+<td class="text-center"><p>0.09</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>regular unit</p></td>
+<td class="text-center"><p>LM</p></td>
+<td class="text-center"><p>17</p></td>
+<td class="text-center"><p>0.99</p></td>
+<td class="text-center"><p>0.64</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>plane element</p></td>
+<td class="text-center"><p>DM</p></td>
+<td class="text-center"><p>162</p></td>
+<td class="text-center"><p>0.63</p></td>
+<td class="text-center"><p>1.00</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>plane element</p></td>
+<td class="text-center"><p>DM</p></td>
+<td class="text-center"><p>162</p></td>
+<td class="text-center"><p>0.83</p></td>
+<td class="text-center"><p>0.86</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>NC</p></td>
+<td class="text-center"><p>hollow block</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>15</p></td>
+<td class="text-center"><p>0.03</p></td>
+<td class="text-center"><p>1.82</p></td>
+<td class="text-center"><p>0.23</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>full</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>276</p></td>
+<td class="text-center"><p>0.70</p></td>
+<td class="text-center"><p>0.74</p></td>
+<td class="text-center"><p>0.21</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>block</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>24</p></td>
+<td class="text-center"><p>0.44</p></td>
+<td class="text-center"><p>0.92</p></td>
+<td class="text-center"><p>0.17</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>perforated</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>108</p></td>
+<td class="text-center"><p>0.85</p></td>
+<td class="text-center"><p>0.57</p></td>
+<td class="text-center"><p>0.20</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>hollow</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>70</p></td>
+<td class="text-center"><p>0.99</p></td>
+<td class="text-center"><p>0.64</p></td>
+<td class="text-center"><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>plane elements</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>66</p></td>
+<td class="text-center"><p>0.53</p></td>
+<td class="text-center"><p>1.00</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>full</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>55</p></td>
+<td class="text-center"><p>0.73</p></td>
+<td class="text-center"><p>0.73</p></td>
+<td class="text-center"><p>0.16</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>perforated</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>342</p></td>
+<td class="text-center"><p>0.55</p></td>
+<td class="text-center"><p>0.56</p></td>
+<td class="text-center"><p>0.46</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>lightweight <br> perforated</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>9</p></td>
+<td class="text-center"><p>0.75</p></td>
+<td class="text-center"><p>0.72</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>lightweight <br> perforated</p></td>
+<td class="text-center"><p>LWM 21</p></td>
+<td class="text-center"><p>17</p></td>
+<td class="text-center"><p>0.67</p></td>
+<td class="text-center"><p>0.50</p></td>
+<td class="text-center"><p>0.05</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>lightweight <br> perforated</p></td>
+<td class="text-center"><p>LWM 21</p></td>
+<td class="text-center"><p>17</p></td>
+<td class="text-center"><p>0.18</p></td>
+<td class="text-center"><p>1.00</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>lightweight <br> perforated</p></td>
+<td class="text-center"><p>LWM 36</p></td>
+<td class="text-center"><p>13</p></td>
+<td class="text-center"><p>0.47</p></td>
+<td class="text-center"><p>0.82</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>lightweight <br> perforated</p></td>
+<td class="text-center"><p>LWM 36</p></td>
+<td class="text-center"><p>13</p></td>
+<td class="text-center"><p>0.28</p></td>
+<td class="text-center"><p>1.00</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>lightweight <br> perforated</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>28</p></td>
+<td class="text-center"><p>0.26</p></td>
+<td class="text-center"><p>0.82</p></td>
+<td class="text-center"><p>0.42</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="modulus-of-elasticity">
+<h3><span class="section-number">30.2.2. </span>Modulus of elasticity<a class="headerlink" href="#modulus-of-elasticity" title="Link to this heading">#</a></h3>
+<p>The modulus of elasticity is commonly related to the compressive strength of masonry. For the stochastic modelling, the following equation <a class="reference internal" href="#equation-eq-masonry-4">(30.4)</a> is recommended.</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-4">
+<span class="eqno">(30.4)<a class="headerlink" href="#equation-eq-masonry-4" title="Link to this equation">#</a></span>\[E_{m}=c_{1} \cdot f_{m}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(E_{m}=\)</span> mean of modulus of elasticity of masonry</p>
+<p><span class="math notranslate nohighlight">\(c_{1}=\)</span> ratio <span class="math notranslate nohighlight">\(E_{m} / f_{m}\)</span> according to <a class="reference internal" href="#table-values-for-c1"><span class="std std-numref">Table 30.2</span></a></p>
+<p>The parameter <span class="math notranslate nohighlight">\(c_{1}\)</span> is a prior value and should be updated by use of test data.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-values-for-c1">
+<caption><span class="caption-number">Table 30.2 </span><span class="caption-text">Values for <span class="math notranslate nohighlight">\(c_{1}\)</span> according to <a class="reference internal" href="#masonry-references"><span class="std std-ref">[1]</span></a></span><a class="headerlink" href="#table-values-for-c1" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Type of unit</p></th>
+<th class="head text-center"><p>Mortar</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\boldsymbol{c}_{\boldsymbol{1}}\)</span> <br> [-]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>GPM, TLM</p></td>
+<td class="text-center"><p>500</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>520</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>560</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>1040</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>LC</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>930</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Perforated clay bricks</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>1170</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Perforated clay bricks</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>1190</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Perforated clay bricks</p></td>
+<td class="text-center"><p>lightweight</p></td>
+<td class="text-center"><p>1480</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="flexural-tensile-strength-of-masonry">
+<h3><span class="section-number">30.2.3. </span>Flexural tensile strength of masonry<a class="headerlink" href="#flexural-tensile-strength-of-masonry" title="Link to this heading">#</a></h3>
+<p>The flexural tensile strength of masonry can be divided into flexural tensile strength perpendicular and parallel to the bed joints. It is a strongly scattering property and depends mainly on the mortar. The execution of the head joints (unfilled (uf) or filled (f)) was also found to have small influence. Since only thin layer mortar is providing sufficiently reliable cohesion, tests of the flexural tensile strength were more or less only conducted on masonry with TLM. Values of the flexural tensile strength for masonry with TLM can be found in <a class="reference internal" href="#table-flexural-tensile-strength-of-masonry-parallel-to-bed-joints"><span class="std std-numref">Table 30.3</span></a> and <a class="reference internal" href="#table-flexural-tensile-strength-of-masonry-perpendicular-to-bed-joints"><span class="std std-numref">Table 30.4</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-flexural-tensile-strength-of-masonry-parallel-to-bed-joints">
+<caption><span class="caption-number">Table 30.3 </span><span class="caption-text">Flexural tensile strength <span class="math notranslate nohighlight">\(f_{t, m, p a}\)</span> of masonry (parallel to bed joints) according to <a class="reference internal" href="#masonry-references"><span class="std std-ref">[1]</span></a></span><a class="headerlink" href="#table-flexural-tensile-strength-of-masonry-parallel-to-bed-joints" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Head <br> joints<span class="math notranslate nohighlight">\(^a\)</span></p></th>
+<th class="head text-center"><p>Number <br> of tests <span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(f_{t, m, p a}\)</span> in <br> <span class="math notranslate nohighlight">\(\mathbf{N} / \mathbf{m m}^{2}\)</span></p></th>
+<th class="head text-center"><p>Range of <br> values in <br> N/mm²</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Type</p></td>
+<td class="text-center"><p>Compressive strength of <br> brick <span class="math notranslate nohighlight">\(f_{b}\)</span> in <span class="math notranslate nohighlight">\(\mathrm{N} / \mathrm{mm}^{2}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Lightweight <br> perforated CB</p></td>
+<td class="text-center"><p>&gt;8, &gt;12</p></td>
+<td class="text-center"><p>uf</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>0.21</p></td>
+<td class="text-center"><p>0.20 ; 0.22</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>&gt;12, &gt;20</p></td>
+<td class="text-center"><p>f</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>0.51</p></td>
+<td class="text-center"><p>0.36 <span class="math notranslate nohighlight">\(\div\)</span> 0.69</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>&gt;28</p></td>
+<td class="text-center"><p>f</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>1.05</p></td>
+<td class="text-center"><p>0.96 ; 1.14</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>&gt;8<span class="math notranslate nohighlight">\(\ldots\)</span>&gt;28</p></td>
+<td class="text-center"><p>uf</p></td>
+<td class="text-center"><p>11</p></td>
+<td class="text-center"><p>0.71</p></td>
+<td class="text-center"><p>0.38 <span class="math notranslate nohighlight">\(\div\)</span> 0.97</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Perforated CS</p></td>
+<td class="text-center"><p>&gt;12</p></td>
+<td class="text-center"><p>f</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>0.48</p></td>
+<td class="text-center"><p>0.45 <span class="math notranslate nohighlight">\(\div\)</span> 0.51</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Perforated CS</p></td>
+<td class="text-center"><p>&gt;12</p></td>
+<td class="text-center"><p>uf</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>0.25</p></td>
+<td class="text-center"><p>0.29 <span class="math notranslate nohighlight">\(\div\)</span> 0.35</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>&gt;</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\mathrm{f}\)</span></p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>0.23</p></td>
+<td class="text-center"><p>0.22 <span class="math notranslate nohighlight">\(\div\)</span> 0.23</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>&gt;4 <span class="math notranslate nohighlight">\(\ldots\)</span> &gt;8</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\mathrm{f}\)</span></p></td>
+<td class="text-center"><p>7</p></td>
+<td class="text-center"><p>0.45</p></td>
+<td class="text-center"><p>0.28 <span class="math notranslate nohighlight">\(\div\)</span> 0.64</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>&gt;2, &gt;4</p></td>
+<td class="text-center"><p>uf</p></td>
+<td class="text-center"><p>6</p></td>
+<td class="text-center"><p>0.20</p></td>
+<td class="text-center"><p>0.16 <span class="math notranslate nohighlight">\(\div\)</span> 0.24</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(^a\)</span> uf= unfilled,   f= filled</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-flexural-tensile-strength-of-masonry-perpendicular-to-bed-joints">
+<caption><span class="caption-number">Table 30.4 </span><span class="caption-text">Flexural tensile strength of masonry <span class="math notranslate nohighlight">\(f_{t, m, p e r}\)</span> (perpendicular to bed joints) according to <a class="reference internal" href="#masonry-references"><span class="std std-ref">[1]</span></a></span><a class="headerlink" href="#table-flexural-tensile-strength-of-masonry-perpendicular-to-bed-joints" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Head <br> joints<span class="math notranslate nohighlight">\(^a\)</span></p></th>
+<th class="head text-center"><p>Number <br> of tests <span class="math notranslate nohighlight">\(n\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(f_{t, m, p a}\)</span> in <br> <span class="math notranslate nohighlight">\(\mathbf{N} / \mathbf{m m}^{2}\)</span></p></th>
+<th class="head text-center"><p>Range of <br> values in <br> <span class="math notranslate nohighlight">\(\mathrm{N} / \mathrm{mm}^{2}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>Unit</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>Head <br> joints<span class="math notranslate nohighlight">\(^a\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(n\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(f_{t, m, p a}\)</span> in <br> <span class="math notranslate nohighlight">\(\mathbf{N} / \mathbf{m m}^{2}\)</span></p></td>
+<td class="text-center"><p>Range of <br> values in <br> N/mm²</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>:—:</p></td>
+<td class="text-center"><p>:—:</p></td>
+<td class="text-center"><p>:—:</p></td>
+<td class="text-center"><p>:—:</p></td>
+<td class="text-center"><p>:—:</p></td>
+<td class="text-center"><p>:—:</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Type</p></td>
+<td class="text-center"><p>Compressive strength of <br> brick <span class="math notranslate nohighlight">\(f_{b}\)</span> in N/mm</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Lightweight <br> perforated CB</p></td>
+<td class="text-center"><p>&gt;8, &gt;12</p></td>
+<td class="text-center"><p>uf</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>0.28</p></td>
+<td class="text-center"><p>0.26 <span class="math notranslate nohighlight">\(\div\)</span> 0.30</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\mathrm{CS}\)</span></p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>uf/f</p></td>
+<td class="text-center"><p>8</p></td>
+<td class="text-center"><p>0.56</p></td>
+<td class="text-center"><p>0.35 <span class="math notranslate nohighlight">\(\div\)</span> 0.73</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Perforated CS</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p>f</p></td>
+<td class="text-center"><p>4</p></td>
+<td class="text-center"><p>0.34</p></td>
+<td class="text-center"><p>0.23 <span class="math notranslate nohighlight">\(\div\)</span> 0.48</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>&gt;2 <span class="math notranslate nohighlight">\(\ldots\)</span>&gt;8</p></td>
+<td class="text-center"><p>uf/f</p></td>
+<td class="text-center"><p>23</p></td>
+<td class="text-center"><p>0.40</p></td>
+<td class="text-center"><p>0.25 <span class="math notranslate nohighlight">\(\div\)</span> 0.81</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Concrete <br> blocks</p></td>
+<td class="text-center"><p>&gt;2 <span class="math notranslate nohighlight">\(\ldots\)</span>&gt;6</p></td>
+<td class="text-center"><p>f</p></td>
+<td class="text-center"><p>5</p></td>
+<td class="text-center"><p>0.33</p></td>
+<td class="text-center"><p>0.22 <span class="math notranslate nohighlight">\(\div\)</span> 0.44</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(^a\)</span> uf= unfilled,   f= filled</p>
+</section>
+<section id="tensile-strength-of-the-units">
+<h3><span class="section-number">30.2.4. </span>Tensile strength of the units<a class="headerlink" href="#tensile-strength-of-the-units" title="Link to this heading">#</a></h3>
+<p>For the tensile strength in longitudinal direction of the units:</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-5">
+<span class="eqno">(30.5)<a class="headerlink" href="#equation-eq-masonry-5" title="Link to this equation">#</a></span>\[f_{b t, l}=c_{2} \cdot f_{b}\]</div>
+<p>For the splitting tensile strength of the units:</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-6">
+<span class="eqno">(30.6)<a class="headerlink" href="#equation-eq-masonry-6" title="Link to this equation">#</a></span>\[f_{b t, s}=c_{3} \cdot f_{b}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(f_{b t, l}=\)</span> mean of tensile strength of the unit in longitudinal direction</p>
+<p><span class="math notranslate nohighlight">\(f_{b t, s}=\)</span> mean of splitting tensile strength of the units</p>
+<p><span class="math notranslate nohighlight">\(c_{2}=\operatorname{ratio} f_{b t, l} / f_{b}\)</span></p>
+<p><span class="math notranslate nohighlight">\(c_{3} = \operatorname{ratio} f_{b t, s} / f_{b}\)</span></p>
+<p>For the large variety of masonry products which all differ in perforation and material, the prior values given in <a class="reference internal" href="#table-values-c2-and-c3"><span class="std std-numref">Table 30.5</span></a> can be used.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-values-c2-and-c3">
+<caption><span class="caption-number">Table 30.5 </span><span class="caption-text">Values <span class="math notranslate nohighlight">\(c_{2}\)</span> and <span class="math notranslate nohighlight">\(c_{3}\)</span> according to <a class="reference internal" href="#masonry-references"><span class="std std-ref">[1]</span></a></span><a class="headerlink" href="#table-values-c2-and-c3" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type of unit</p></th>
+<th class="head text-left"><p>Number of <br> tests <span class="math notranslate nohighlight">\(\left(\boldsymbol{c}_{\mathbf{2}}\right)\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\boldsymbol{c}_{\mathbf{2}}[-]\)</span></p></th>
+<th class="head text-left"><p>Number of <br> tests <span class="math notranslate nohighlight">\(\left(\boldsymbol{c}_{\mathbf{3}}\right)\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\boldsymbol{c}_{\mathbf{3}}[-]\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>CS</p></td>
+<td class="text-left"><p>18</p></td>
+<td class="text-left"><p>0.063</p></td>
+<td class="text-left"><p>40</p></td>
+<td class="text-left"><p>0.070</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Perforated CS</p></td>
+<td class="text-left"><p>19</p></td>
+<td class="text-left"><p>0.035</p></td>
+<td class="text-left"><p>31</p></td>
+<td class="text-left"><p>0.060</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>CB</p></td>
+<td class="text-left"><p>9</p></td>
+<td class="text-left"><p>0.040</p></td>
+<td class="text-left"><p>9</p></td>
+<td class="text-left"><p>0.070</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Perforated CB</p></td>
+<td class="text-left"><p>20</p></td>
+<td class="text-left"><p>0.030</p></td>
+<td class="text-left"><p>29</p></td>
+<td class="text-left"><p>0.040</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Lightweight perforated CB</p></td>
+<td class="text-left"><p>54</p></td>
+<td class="text-left"><p>0.010</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Lightweight concrete hollow <br> block</p></td>
+<td class="text-left"><p>8</p></td>
+<td class="text-left"><p>0.080</p></td>
+<td class="text-left"><p>10</p></td>
+<td class="text-left"><p>0.090</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Full lightweight concrete block</p></td>
+<td class="text-left"><p>23</p></td>
+<td class="text-left"><p>0.080</p></td>
+<td class="text-left"><p>13</p></td>
+<td class="text-left"><p>0.110</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>AAC, plane element</p></td>
+<td class="text-left"><p>24</p></td>
+<td class="text-left"><p>0.110</p></td>
+<td class="text-left"><p>24</p></td>
+<td class="text-left"><p>0.090</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>AAC, plane element 2</p></td>
+<td class="text-left"><p>7</p></td>
+<td class="text-left"><p>0.180</p></td>
+<td class="text-left"><p>9</p></td>
+<td class="text-left"><p>0.150</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>AAC, plane element 4,6,8</p></td>
+<td class="text-left"><p>8</p></td>
+<td class="text-left"><p>0.110</p></td>
+<td class="text-left"><p>9</p></td>
+<td class="text-left"><p>0.120</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Hollow Concrete block</p></td>
+<td class="text-left"><p>2</p></td>
+<td class="text-left"><p>0.080</p></td>
+<td class="text-left"><p>3</p></td>
+<td class="text-left"><p>0.040</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cohesion">
+<h3><span class="section-number">30.2.5. </span>Cohesion<a class="headerlink" href="#cohesion" title="Link to this heading">#</a></h3>
+<p>The values <span class="math notranslate nohighlight">\(f_{v, m}\)</span> for the cohesion can be taken from <a class="reference internal" href="#table-mean-of-the-cohesion"><span class="std std-numref">Table 30.6</span></a>. Please note that these values have been derived from the characteristic values provided in <span id="id1">[<a class="reference internal" href="#id168" title="European Committee for Standardization. Design of masonry structures. Standard EN 1996-1-1 (Eurocode 6), Beuth Verlag, Berlin, 2005. AC: 2009.">30.01</a>]</span> by application of the stochastic models presented in <a class="reference internal" href="#table-stochastic-parameters-for-y6"><span class="std std-numref">Table 30.13</span></a> and assuming the characteristic values to represent 5%-quantiles. The values for the cohesion are prior values and require updating by use of test data.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-mean-of-the-cohesion">
+<caption><span class="caption-number">Table 30.6 </span><span class="caption-text">Mean of the cohesion <span class="math notranslate nohighlight">\(f_{v, m}\)</span></span><a class="headerlink" href="#table-mean-of-the-cohesion" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(f_{v, m}\)</span> in <span class="math notranslate nohighlight">\(MN/m^2\)</span></p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>LWM</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>20 and higher</p></td>
+<td class="text-center"><p>0.42</p></td>
+<td class="text-center"><p>0.65<span class="math notranslate nohighlight">\(^{\mathrm{a}}\)</span></p></td>
+<td class="text-center"><p>0.26</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>10 <span class="math notranslate nohighlight">\(\div\)</span> 19</p></td>
+<td class="text-center"><p>0.37</p></td>
+<td class="text-center"><p>0.65<span class="math notranslate nohighlight">\(^{\mathrm{a}}\)</span></p></td>
+<td class="text-center"><p>0.26</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>5 <span class="math notranslate nohighlight">\(\div\)</span> 9</p></td>
+<td class="text-center"><p>0.28</p></td>
+<td class="text-center"><p>0.65<span class="math notranslate nohighlight">\(^{\mathrm{a}}\)</span></p></td>
+<td class="text-center"><p>0.26</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>2.5 <span class="math notranslate nohighlight">\(\div\)</span> 4.5</p></td>
+<td class="text-center"><p>0.14</p></td>
+<td class="text-center"><p>0.65<span class="math notranslate nohighlight">\(^{\mathrm{a}}\)</span></p></td>
+<td class="text-center"><p>0.26</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>1 <span class="math notranslate nohighlight">\(\div\)</span> 2</p></td>
+<td class="text-center"><p>0.04</p></td>
+<td class="text-center"><p>0.65<span class="math notranslate nohighlight">\(^{\mathrm{a}}\)</span></p></td>
+<td class="text-center"><p>0.26</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(^a\)</span> divide by 2 if the perforation is more than 15% of the cross-section</p>
+</section>
+<section id="friction-coefficient">
+<h3><span class="section-number">30.2.6. </span>Friction coefficient<a class="headerlink" href="#friction-coefficient" title="Link to this heading">#</a></h3>
+<p>The friction coefficient <span class="math notranslate nohighlight">\(\mu\)</span> is normally estimated with a mean value of 0.8 . In case of in-plane shear a reduction may become necessary to account for possible overturning of the units.</p>
+</section>
+<section id="stress-strain-relationship">
+<h3><span class="section-number">30.2.7. </span>Stress-strain relationship<a class="headerlink" href="#stress-strain-relationship" title="Link to this heading">#</a></h3>
+<p>In unified form, the stress-strain relationship of masonry under compression is determined by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-7">
+<span class="eqno">(30.7)<a class="headerlink" href="#equation-eq-masonry-7" title="Link to this equation">#</a></span>\[\frac{\sigma}{f_{m}}=\frac{k_{0} \cdot \eta-\eta^{2}}{1+\left(k_{0}-2\right) \cdot \eta} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-8">
+<span class="eqno">(30.8)<a class="headerlink" href="#equation-eq-masonry-8" title="Link to this equation">#</a></span>\[\eta=\frac{\varepsilon}{\varepsilon_{f}} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-9">
+<span class="eqno">(30.9)<a class="headerlink" href="#equation-eq-masonry-9" title="Link to this equation">#</a></span>\[k_{0}=\frac{E_{0} \cdot \varepsilon_{f}}{f_{m}}\]</div>
+<p>The value <span class="math notranslate nohighlight">\(k_{0}\)</span> represents the slope of the unified stress-strain curve at origin. Values for the different materials can be taken from <a class="reference internal" href="#table-parameters-for-the-stress-strain-relationship-of-different-kinds-of-masonry-under-compression"><span class="std std-numref">Table 30.7</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-parameters-for-the-stress-strain-relationship-of-different-kinds-of-masonry-under-compression">
+<caption><span class="caption-number">Table 30.7 </span><span class="caption-text">Parameters for the stress-strain relationship of different kinds of masonry under compression</span><a class="headerlink" href="#table-parameters-for-the-stress-strain-relationship-of-different-kinds-of-masonry-under-compression" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Lightweight con- <br> crete</p></th>
+<th class="head text-left"><p>Hollow clay bricks <br> and AAC</p></th>
+<th class="head text-left"><p>CS hollow block</p></th>
+<th class="head text-left"><p>CS full block</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><img alt="Parameters for the stress-strain relationship of Lightweight concrete under compression" src="../_images/Table-30.7-light_weight_concrete.jpg" /></p></td>
+<td class="text-left"><p><img alt="Parameters for the stress-strain relationship of Hollow clay bricks and AAC under compression" src="../_images/Table-30.7-Hollow_clay_bricks_and_AAC.jpg" /></p></td>
+<td class="text-left"><p><img alt="Parameters for the stress-strain relationship of CS hollow block under compression" src="../_images/Table-30.7-CS_hollow_block.jpg" /></p></td>
+<td class="text-left"><p><img alt="Parameters for the stress-strain relationship of CS full block under compression" src="../_images/Table-30.7-CS_full_block.jpg" /></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\mathrm{k}_{0}=1.0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathrm{k}_{0}=1.0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathrm{k}_{0}=2.0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathrm{k}_{0}=2.0\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{f}}=1.2~‰\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{f}}=2.0~‰\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{f}}=2.0~‰\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{f}}=2.0~‰\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{u}}=1.2~‰\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{u}}=2.0~‰\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{u}}=2.5~‰\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\varepsilon_{\mathrm{u}}=3.5~‰\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="the-probabilistic-model">
+<h2><span class="section-number">30.3. </span>The probabilistic model<a class="headerlink" href="#the-probabilistic-model" title="Link to this heading">#</a></h2>
+<section id="compressive-strength">
+<h3><span class="section-number">30.3.1. </span>Compressive strength<a class="headerlink" href="#compressive-strength" title="Link to this heading">#</a></h3>
+<p>The compressive strength of masonry depends on the compressive strength of units and mortar. The following equation <a class="reference internal" href="#equation-eq-masonry-10">(30.10)</a> is recommended for the determination of the compressive strength.</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-10">
+<span class="eqno">(30.10)<a class="headerlink" href="#equation-eq-masonry-10" title="Link to this equation">#</a></span>\[f_{m, j}=Y_{1} \cdot f_{m}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(f_{m} =\)</span> compressive strength of masonry according to equation <a class="reference internal" href="#equation-eq-masonry-1">(30.1)</a> or <a class="reference internal" href="#equation-eq-masonry-2">(30.2)</a></p>
+<p><span class="math notranslate nohighlight">\(Y_{1}=\)</span> a log-normal variable accounting for uncertainties in the calculation of the compressive strength, see <a class="reference internal" href="#table-stochastic-parameters-for-y1"><span class="std std-numref">Table 30.8</span></a></p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stochastic-parameters-for-y1">
+<caption><span class="caption-number">Table 30.8 </span><span class="caption-text">Stochastic Parameters for <span class="math notranslate nohighlight">\(Y_{1}\)</span></span><a class="headerlink" href="#table-stochastic-parameters-for-y1" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p>Mortar</p></th>
+<th class="head text-center"><p>Distr.</p></th>
+<th class="head text-center"><p>Mean</p></th>
+<th class="head text-center"><p>CoV</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>20%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>20%</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Large sized units CS</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>16%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Large sized units AAC</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>14%</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Clay bricks</p></td>
+<td class="text-center"><p>GPM</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>17%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id2">
+<h3><span class="section-number">30.3.2. </span>Modulus of elasticity<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>The modulus of elasticity is commonly related to the compressive strength of masonry. For the stochastic modelling, the following equation <a class="reference internal" href="#equation-eq-masonry-11">(30.11)</a> is recommended. A first estimate for the stochastic parameters of the log-normal variable <span class="math notranslate nohighlight">\(Y_{2}\)</span> can be found in <a class="reference internal" href="#table-parameters-for-the-stress-strain-relationship-of-different-kinds-of-masonry-under-compression"><span class="std std-numref">Table 30.7</span></a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-11">
+<span class="eqno">(30.11)<a class="headerlink" href="#equation-eq-masonry-11" title="Link to this equation">#</a></span>\[E_{m, j}=Y_{2} \cdot E_{m}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(E_{m}=\)</span> modulus of elasticity according to equation <a class="reference internal" href="#equation-eq-masonry-4">(30.4)</a></p>
+<p><span class="math notranslate nohighlight">\(Y_{2}=\)</span> a log-normal variable</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stochastic-parameters-for-y2">
+<caption><span class="caption-number">Table 30.9 </span><span class="caption-text">Stochastic Parameters for <span class="math notranslate nohighlight">\(Y_{2}\)</span></span><a class="headerlink" href="#table-stochastic-parameters-for-y2" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p>Mortar</p></th>
+<th class="head text-center"><p>Distr.</p></th>
+<th class="head text-center"><p>Mean</p></th>
+<th class="head text-center"><p>CoV</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>all</p></td>
+<td class="text-center"><p>all types</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>25%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id3">
+<h3><span class="section-number">30.3.3. </span>Flexural tensile strength of masonry<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>There is significant lack of data for the tensile strength of masonry. Nevertheless, the values in <a class="reference internal" href="#table-flexural-tensile-strength-of-masonry-parallel-to-bed-joints"><span class="std std-numref">Table 30.3</span></a> may be taken as first estimates for the means. The flexural tensile strength of masonry may be modelled as follows:</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-12">
+<span class="eqno">(30.12)<a class="headerlink" href="#equation-eq-masonry-12" title="Link to this equation">#</a></span>\[f_{t, j}=Y_{3} \cdot f_{t, m, i}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(f_{t, m} =\)</span> mean of flexural tensile strength according to <a class="reference internal" href="#table-flexural-tensile-strength-of-masonry-parallel-to-bed-joints"><span class="std std-numref">Table 30.3</span></a> and <a class="reference internal" href="#table-flexural-tensile-strength-of-masonry-perpendicular-to-bed-joints"><span class="std std-numref">Table 30.4</span></a></p>
+<p><span class="math notranslate nohighlight">\(Y_{3} =\)</span> a log-normal variable</p>
+<p>The stochastic parameters for the log-normal variable <span class="math notranslate nohighlight">\(Y_{3}\)</span> can be found in <a class="reference internal" href="#table-stochastic-parameters-for-y3"><span class="std std-numref">Table 30.10</span></a> depending on the direction of the flexural tensile strength (parallel or perpendicular to the bed joint). Please note, these values only represent prior parameters and require updating and validation by use of test data.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stochastic-parameters-for-y3">
+<caption><span class="caption-number">Table 30.10 </span><span class="caption-text">Stochastic Parameters for <span class="math notranslate nohighlight">\(Y_{3}\)</span></span><a class="headerlink" href="#table-stochastic-parameters-for-y3" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p>Mortar</p></th>
+<th class="head text-center"><p>Direction</p></th>
+<th class="head text-center"><p>Distr.</p></th>
+<th class="head text-center"><p>mean</p></th>
+<th class="head text-center"><p>CoV</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>parallel</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>30%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>perpen.</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>35%</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>parallel</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>26%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>perpen.</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>30%</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Lightweight perforated CB</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>parallel</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>30%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Lightweight perforated CB</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>perpen.</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>35%</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Concrete blocks</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>perpen.</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>30%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">30.3.4. </span>Tensile strength of the units<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>The shear capacity of masonry walls is strongly influenced by the tensile strength of units. As for many materials, the tensile strength can be described as function of the compressive strength. It was found that the tensile strength in longitudinal direction describes the shear capacity of CS and AAC units well while in case of CB, the splitting tensile strength is preferable.</p>
+<p>For the tensile strength in longitudinal direction of the units of CB and AAC units:</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-13">
+<span class="eqno">(30.13)<a class="headerlink" href="#equation-eq-masonry-13" title="Link to this equation">#</a></span>\[f_{b t, l, j}=Y_{4} \cdot f_{b t, l}\]</div>
+<p>For the splitting tensile strength of CB units:</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-14">
+<span class="eqno">(30.14)<a class="headerlink" href="#equation-eq-masonry-14" title="Link to this equation">#</a></span>\[f_{b t, s, j}=Y_{4} \cdot f_{b t, s}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(f_{b t, l}=\)</span> the tensile strength of the units in the longitudinal direction according to equation <a class="reference internal" href="#equation-eq-masonry-5">(30.5)</a></p>
+<p><span class="math notranslate nohighlight">\(f_{b t, s}=\)</span> the splitting tensile strength of the units according to equation <a class="reference internal" href="#equation-eq-masonry-6">(30.6)</a></p>
+<p><span class="math notranslate nohighlight">\(Y_{4}=\)</span> a log-normal variable accounting for the large scatter of the tensile strength of the units. Values can be found in <a class="reference internal" href="#table-stochastic-parameters-for-y4"><span class="std std-numref">Table 30.11</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stochastic-parameters-for-y4">
+<caption><span class="caption-number">Table 30.11 </span><span class="caption-text">Stochastic Parameters for <span class="math notranslate nohighlight">\(Y_{4}\)</span></span><a class="headerlink" href="#table-stochastic-parameters-for-y4" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p>Distr.</p></th>
+<th class="head text-center"><p>Mean</p></th>
+<th class="head text-center"><p>CoV</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>26%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>16%</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Clay bricks</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>24%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">30.3.5. </span>Cohesion<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>The cohesion may be modelled according to equation <a class="reference internal" href="#equation-eq-masonry-15">(30.15)</a>. A first estimate for the stochastic parameters for the random variable <span class="math notranslate nohighlight">\(Y_{5}\)</span> may be taken from <a class="reference internal" href="#table-stochastic-parameters-for-y5"><span class="std std-numref">Table 30.12</span></a> for different combinations of units and mortar.</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-15">
+<span class="eqno">(30.15)<a class="headerlink" href="#equation-eq-masonry-15" title="Link to this equation">#</a></span>\[f_{v, j}=Y_{5} \cdot f_{v, m}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(f_{v, m}=\)</span> mean of the cohesion according to <a class="reference internal" href="#table-mean-of-the-cohesion"><span class="std std-numref">Table 30.6</span></a></p>
+<p><span class="math notranslate nohighlight">\(Y_{5}=\)</span> a log-normal variable according to <a class="reference internal" href="#table-stochastic-parameters-for-y5"><span class="std std-numref">Table 30.12</span></a></p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stochastic-parameters-for-y5">
+<caption><span class="caption-number">Table 30.12 </span><span class="caption-text">Stochastic Parameters for <span class="math notranslate nohighlight">\(Y_{5}\)</span></span><a class="headerlink" href="#table-stochastic-parameters-for-y5" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p>Mortar</p></th>
+<th class="head text-center"><p>Dist.</p></th>
+<th class="head text-center"><p>Mean</p></th>
+<th class="head text-center"><p>CoV</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>35%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>TLM</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>35%</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>CB</p></td>
+<td class="text-center"><p>IIa</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>40%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id6">
+<h3><span class="section-number">30.3.6. </span>Friction coefficient<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>The friction coefficient may be modelled according to equation <a class="reference internal" href="#equation-eq-masonry-16">(30.16)</a> by use of the stochastic parameters found in <a class="reference internal" href="#table-stochastic-parameters-for-y4"><span class="std std-numref">Table 30.11</span></a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-masonry-16">
+<span class="eqno">(30.16)<a class="headerlink" href="#equation-eq-masonry-16" title="Link to this equation">#</a></span>\[\mu_{j}=Y_{6} \cdot \mu_{m}\]</div>
+<p>with</p>
+<p><span class="math notranslate nohighlight">\(\mu_{m} =\)</span> 0.8</p>
+<p><span class="math notranslate nohighlight">\(Y_{6}=\)</span> a log-normal variable according to <a class="reference internal" href="#table-stochastic-parameters-for-y6"><span class="std std-numref">Table 30.13</span></a></p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stochastic-parameters-for-y6">
+<caption><span class="caption-number">Table 30.13 </span><span class="caption-text">Stochastic Parameters for <span class="math notranslate nohighlight">\(Y_{6}\)</span></span><a class="headerlink" href="#table-stochastic-parameters-for-y6" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Unit</p></th>
+<th class="head text-center"><p>Distr.</p></th>
+<th class="head text-center"><p>Mean</p></th>
+<th class="head text-center"><p>CoV</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>CS</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>19%</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>AAC</p></td>
+<td class="text-center"><p>LN</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>19%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>References</strong></p>
+<div class="docutils container" id="id7">
+<div role="list" class="citation-list">
+<div class="citation" id="id168" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">30.01</a><span class="fn-bracket">]</span></span>
+<p>European Committee for Standardization. Design of masonry structures. Standard EN 1996-1-1 (Eurocode 6), Beuth Verlag, Berlin, 2005. AC: 2009.</p>
+</div>
+</div>
+</div>
+<p id="masonry-references"><strong>Additional References</strong></p>
+<ol class="arabic simple">
+<li><p>Schubert, P. (2010): Eigenschaftswerte von Mauerwerk, Mauersteinen und Mauermörtel, Mauerwerk-Kalender 2010, Ernst &amp; Sohn, Berlin</p></li>
+<li><p>Glowienka, S. (2007): Zuverlässigkeit von Mauerwerkswänden aus großformatigen Steinen, doctoral thesis, Technische Universität Darmstadt, Darmstadt, in German</p></li>
+<li><p>Schueremans, L. (2001): Probabilistic Evaluation of structural masonry, doctoral thesis, University of Leuven, Belgium, 2001</p></li>
+<li><p>Glock, C. (2004): Traglast unbewehrter Beton- und Mauerwerkswände, doctoral thesis, Technische Universität Darmstadt, Darmstadt, in German</p></li>
+<li><p>Brehm, E. (2011): Reliability of Unreinforced Masonry Bracing Walls, doctoral thesis, ISBN 978-3-942886-02-4, Technische Universität Darmstadt</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="soil-properties.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Soil Properties</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="model-uncertainties.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">31. </span>Model Uncertainties</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">30.1. Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-properties">30.2. Basic Properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compressive-strength-of-masonry">30.2.1. Compressive strength of masonry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus-of-elasticity">30.2.2. Modulus of elasticity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flexural-tensile-strength-of-masonry">30.2.3. Flexural tensile strength of masonry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tensile-strength-of-the-units">30.2.4. Tensile strength of the units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cohesion">30.2.5. Cohesion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#friction-coefficient">30.2.6. Friction coefficient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-strain-relationship">30.2.7. Stress-strain relationship</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-probabilistic-model">30.3. The probabilistic model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compressive-strength">30.3.1. Compressive strength</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">30.3.2. Modulus of elasticity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">30.3.3. Flexural tensile strength of masonry</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">30.3.4. Tensile strength of the units</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">30.3.5. Cohesion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">30.3.6. Friction coefficient</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

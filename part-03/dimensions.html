@@ -1,389 +1,627 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19. Dimensions &#8212; Probabilistic Model Code</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>32. Dimensions &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-      
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-03/dimensions';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="20. Excentricities" href="excentricities.html" />
-    <link rel="prev" title="18. Model Uncertainties" href="model-uncertainties.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="next" title="33. Excentricities" href="excentricities.html" />
+    <link rel="prev" title="31. Model Uncertainties" href="model-uncertainties.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/jcss.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Probabilistic Model Code</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-00/intro.html">
-   JCSS Probabilistic Model Code
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Basis of Design
- </span>
-</p>
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/requirements.html">
-   2. Requirements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/principles-of-limit-state-design.html">
-   3. Principles of limit state design
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">
-   4. Basis of uncerainty modelling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/models-for-physical-behaviour.html">
-   5. Models for physical behaviour
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/reliability.html">
-   6. Reliability
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/target-reliability.html">
-   7. Target Reliability
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Load Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/general-principles.html">
-   8. General Principles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/self-weight.html">
-   9. Self Weight
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/live-load.html">
-   10. Live Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/loads-in-car-parks.html">
-   11. Loads In Car Parks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/snow-load.html">
-   12. Snow Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/wind.html">
-   13. Wind
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/impact-load.html">
-   14. Impact Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-02/fire.html">
-   15. Fire
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Resistance Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="concrete-properties.html">
-   16. Concrete Properties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="static-properties-of-reinforcing-steel.html">
-   17. Static Properties Of Reinforcing Steel
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="model-uncertainties.html">
-   18. Model Uncertainties
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   19. Dimensions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="excentricities.html">
-   20. Excentricities
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  How to Use
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../help/how-to-use.html">
-   21. How to Use
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-</div>
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-03/dimensions.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/dimensions.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/dimensions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/JCSS-PMC/PMC"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/dimensions.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/dimensions.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-03/dimensions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dimensions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#external-dimensions-of-concrete-components">
-   19.1. External dimensions of concrete components
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#concrete-cover">
-   19.2. Concrete cover
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#differences-between-concrete-columns-slabs-and-beams">
-   19.3. Differences between concrete columns, slabs and beams
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cross-section-dimensions-of-hot-rolled-steel-products">
-   19.4. Cross-section dimensions of hot rolled steel products
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#theoretical-models">
-   19.5. Theoretical models
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#correlations">
-   19.6. Correlations
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#references">
-   19.7. References
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-dimensions-of-concrete-components">32.1. External dimensions of concrete components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concrete-cover">32.2. Concrete cover</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-concrete-columns-slabs-and-beams">32.3. Differences between concrete columns, slabs and beams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-section-dimensions-of-hot-rolled-steel-products">32.4. Cross-section dimensions of hot rolled steel products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-models">32.5. Theoretical models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlations">32.6. Correlations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">32.7. References</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="dimensions">
-<h1><span class="section-number">19. </span>Dimensions<a class="headerlink" href="#dimensions" title="Permalink to this headline">¶</a></h1>
-<p>3.10 DIMENSIONS</p>
-<div class="section" id="external-dimensions-of-concrete-components">
-<h2><span class="section-number">19.1. </span>External dimensions of concrete components<a class="headerlink" href="#external-dimensions-of-concrete-components" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="dimensions">
+<h1><span class="section-number">32. </span>Dimensions<a class="headerlink" href="#dimensions" title="Link to this heading">#</a></h1>
+<section id="external-dimensions-of-concrete-components">
+<h2><span class="section-number">32.1. </span>External dimensions of concrete components<a class="headerlink" href="#external-dimensions-of-concrete-components" title="Link to this heading">#</a></h2>
+<p>In the following the only time independent effects are considered. Dimensional deviations of a dimension <span class="math notranslate nohighlight">\(X\)</span> is described by statistical characteristics of its deviations <span class="math notranslate nohighlight">\(Y\)</span> from the nominal value <span class="math notranslate nohighlight">\(X_{\text {nom }}\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-1">
+<span class="eqno">(32.1)<a class="headerlink" href="#equation-eq-dimensions-1" title="Link to this equation">#</a></span>\[Y=X-X_{\text {nom }}\]</div>
+<p>Concerning external (perimeter) dimensions of reinforced concrete cross-section of horizontal members (beams, plates), available data are quite extensive, although not convincing. The following general remarks follow from recent analysis of large samples of measurements <span id="id1">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span>, <span id="id2">[<a class="reference internal" href="#id101" title="M. Tichý. Dimensional variations. In Quality Control of Concrete Structures, 171–180. Stockholm, June 1979. RILEM.">32.02</a>]</span>, <span id="id3">[<a class="reference internal" href="#id102" title="M. Tichý. Variability of dimensions of concrete elements. In Quality Control of Concrete Structures, 225–227. Stockholm, June 1979. RILEM.">32.03</a>]</span>, <span id="id4">[<a class="reference internal" href="#id103" title="P. Bouska and M. Holický. Statistical analysis of geometric parameters of concrete cross sections. Technical Report, Building Research Institute, Prague, 1983. In Czech - Summary in English is provided.">32.04</a>]</span>. It has been observed that the following aspects do not significantly affect dimensional deviations of reinforced concrete cross-section:</p>
+<ul class="simple">
+<li><p>the type of the elements (reinforced, prestressed),</p></li>
+<li><p>the shape of the cross/section (rectangular, I, T, L),</p></li>
+<li><p>the class of concrete (strength of concrete),</p></li>
+<li><p>dimension orientation (depth, width),</p></li>
+<li><p>position of the cross-section (mid-span, support).</p></li>
+</ul>
+<p>It has been found <span id="id5">[<a class="reference internal" href="#id103" title="P. Bouska and M. Holický. Statistical analysis of geometric parameters of concrete cross sections. Technical Report, Building Research Institute, Prague, 1983. In Czech - Summary in English is provided.">32.04</a>]</span> that external dimensions of concrete cross-sections are only slightly dependent on the mode of production (precast, cast in situ).</p>
+<p>When precast and cast in situ elements are taken together <span id="id6">[<a class="reference internal" href="#id101" title="M. Tichý. Dimensional variations. In Quality Control of Concrete Structures, 171–180. Stockholm, June 1979. RILEM.">32.02</a>]</span> then for the mean and standard deviation (the normal distribution seems to be satisfactory) of <span class="math notranslate nohighlight">\(Y\)</span> may be expected within the limits:</p>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-2">
+<span class="eqno">(32.2)<a class="headerlink" href="#equation-eq-dimensions-2" title="Link to this equation">#</a></span>\[0 \leq \mu_{y}=0.003 X_{\text {nom }} \leq 3 \mathrm{~mm} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-3">
+<span class="eqno">(32.3)<a class="headerlink" href="#equation-eq-dimensions-3" title="Link to this equation">#</a></span>\[\sigma_{y}=4 \mathrm{~mm}+0.006 X_{\text {nom }} \leq 10 \mathrm{~mm}\]</div>
+<p>These formulae are valid for the nominal value <span class="math notranslate nohighlight">\(X_{\text {nom, }}\)</span> up to about 1000 mm (no significant dependence is observed beyond this size). Note that recent European document <span id="id7">[<a class="reference internal" href="#id105" title="Execution of concrete structures - part 1: common. Brussels, 2000. ENV 13670-1.">32.05</a>]</span> on execution of concrete structures specifies is in a good agreement with the above mentioned data. The maximum permitted deviation <span class="math notranslate nohighlight">\(\pm\)</span> 19 mm (corresponding to about <span class="math notranslate nohighlight">\(\sigma_{y}=\)</span> 12 mm) is specified given for <span class="math notranslate nohighlight">\(X_{\text {nom }}=\)</span> 1000 mm</p>
+</section>
+<section id="concrete-cover">
+<h2><span class="section-number">32.2. </span>Concrete cover<a class="headerlink" href="#concrete-cover" title="Link to this heading">#</a></h2>
+<p><strong>Top Steel</strong></p>
+<p>According to the data reported in <span id="id8">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> the average concrete cover to the top steel of beams and slabs in systematically greater than the nominal value (by about 10 mm ), the standard deviation is also around 10 mm (within an interval from 5 to 15 mm ). Reasonable average formulae (with a great uncertainty) for the cover to beam and plate to steel may be written in an approximate form as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-4">
+<span class="eqno">(32.4)<a class="headerlink" href="#equation-eq-dimensions-4" title="Link to this equation">#</a></span>\[5 \mathrm{~mm} \leq \mu_{y} \leq 15 \mathrm{~mm}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-5">
+<span class="eqno">(32.5)<a class="headerlink" href="#equation-eq-dimensions-5" title="Link to this equation">#</a></span>\[5 \mathrm{~mm} \leq \sigma_{y} \leq 15 \mathrm{~mm}\]</div>
+<p><strong>Bottom steel</strong></p>
+<p>Even more scattered and less conclusive are data indicated <span id="id9">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> for cover to bottom steel of beams and slabs. Depending on type of spacers (and perhaps on many other production conditions) data reported in <span id="id10">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> indicate that the mean <span class="math notranslate nohighlight">\(\mu_{y}\)</span> may be expected within an extremely broad range from -20 mm to +20 mm, while the standard deviation seems to be relatively small, around 5 mm only, thus</p>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-6">
+<span class="eqno">(32.6)<a class="headerlink" href="#equation-eq-dimensions-6" title="Link to this equation">#</a></span>\[-20 \mathrm{~mm} \leq \mu_{y} \leq 20 \mathrm{~mm} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-7">
+<span class="eqno">(32.7)<a class="headerlink" href="#equation-eq-dimensions-7" title="Link to this equation">#</a></span>\[\sigma_{y} \cong 5 \mathrm{~mm} \]</div>
+<p><strong>Effective depth</strong></p>
+<p>Obviously, the above relations are providing only gross estimates and particular values must be chosen taking into account other specific conditions. Nevertheless, they are in a reasonable agreement with observations concerning effective depth of the cross-section (the depth and concrete cover could be highly correlated). If no further information is available, it is indicated in <span id="id11">[<a class="reference internal" href="#id101" title="M. Tichý. Dimensional variations. In Quality Control of Concrete Structures, 171–180. Stockholm, June 1979. RILEM.">32.02</a>]</span> that the characteristics may be assessed by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-8">
+<span class="eqno">(32.8)<a class="headerlink" href="#equation-eq-dimensions-8" title="Link to this equation">#</a></span>\[\mu_{y} \cong 10 \mathrm{~mm}  \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-9">
+<span class="eqno">(32.9)<a class="headerlink" href="#equation-eq-dimensions-9" title="Link to this equation">#</a></span>\[\sigma_{y} \cong 10 \mathrm{~mm} \]</div>
+<p>Further experimental measurements (related to specified production procedure) with a special emphasis on internal dimensions of horizontal, as well as vertical elements are obviously needed.</p>
+</section>
+<section id="differences-between-concrete-columns-slabs-and-beams">
+<h2><span class="section-number">32.3. </span>Differences between concrete columns, slabs and beams<a class="headerlink" href="#differences-between-concrete-columns-slabs-and-beams" title="Link to this heading">#</a></h2>
+<p>Concerning external dimensions no significant differences have been found between columns, slabs and beams <span id="id12">[<a class="reference internal" href="#id103" title="P. Bouska and M. Holický. Statistical analysis of geometric parameters of concrete cross sections. Technical Report, Building Research Institute, Prague, 1983. In Czech - Summary in English is provided.">32.04</a>]</span>. There are, however, some differences in concrete cover of these elements. <a class="reference internal" href="#table-characteristics-of-concrete-cover"><span class="std std-numref">Table 32.1</span></a> shows characteristics of concrete cover based on data reported in <span id="id13">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> collected in UK.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-characteristics-of-concrete-cover">
+<caption><span class="caption-number">Table 32.1 </span><span class="caption-text">Characteristics of concrete cover</span><a class="headerlink" href="#table-characteristics-of-concrete-cover" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Concrete cover</p></th>
+<th class="head text-center"><p>Mean <span class="math notranslate nohighlight">\(\mu_{Y}\)</span> <br> [mm]</p></th>
+<th class="head text-center"><p>Standard deviation <span class="math notranslate nohighlight">\(\sigma_{Y}\)</span> <br> [mm]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>in column - <span id="id14">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> (two samples)</p></td>
+<td class="text-center"><p>1 ; 3</p></td>
+<td class="text-center"><p>0,2 ; 7</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>in wall - <span id="id15">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> (one sample-241 obs.)</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>12</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>of slab bottom steel - <span id="id16">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> and {UK}</p></td>
+<td class="text-center"><p>−8 to 5 {7 to 23}</p></td>
+<td class="text-center"><p>6 to 15 {3 to 4}</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>of slab top steel - <span id="id17">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> and {UK}</p></td>
+<td class="text-center"><p>− 13 to 11 {5 to 16}</p></td>
+<td class="text-center"><p>11 to 17 {6 to 16}</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>of beam bottom steel in UK</p></td>
+<td class="text-center"><p>-17* to 3</p></td>
+<td class="text-center"><p>2 to 5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>of beam top steel in UK</p></td>
+<td class="text-center"><p>1 to 12</p></td>
+<td class="text-center"><p>8 to 14</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="concrete-cover">
-<h2><span class="section-number">19.2. </span>Concrete cover<a class="headerlink" href="#concrete-cover" title="Permalink to this headline">¶</a></h2>
+<p><span class="math notranslate nohighlight">\({ }^{*}\)</span> Note: The negative mean of deviations was observed when using plastic spacers.</p>
+<p>According to the data in <a class="reference internal" href="#table-characteristics-of-concrete-cover"><span class="std std-numref">Table 32.1</span></a> the following characteristics of concrete cover may be considered as a first approximations (intervals indicated for the mean and standard deviation represent a reasonable bonds which are dependent on particular conditions and quality of production):</p>
+<ul class="simple">
+<li><p>column and wall:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-10">
+<span class="eqno">(32.10)<a class="headerlink" href="#equation-eq-dimensions-10" title="Link to this equation">#</a></span>\[\mu_{Y}=0 \text { to } 5 \mathrm{~mm} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-11">
+<span class="eqno">(32.11)<a class="headerlink" href="#equation-eq-dimensions-11" title="Link to this equation">#</a></span>\[\sigma_{Y}=5 \text { to } 10 \mathrm{~mm} \]</div>
+<ul class="simple">
+<li><p>slab bottom steel:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-12">
+<span class="eqno">(32.12)<a class="headerlink" href="#equation-eq-dimensions-12" title="Link to this equation">#</a></span>\[\mu_{Y}=0 \text { to } 10 \mathrm{~mm} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-13">
+<span class="eqno">(32.13)<a class="headerlink" href="#equation-eq-dimensions-13" title="Link to this equation">#</a></span>\[\sigma_{Y}=5 \text { to } 10 \mathrm{~mm}\]</div>
+<ul class="simple">
+<li><p>beam bottom steel:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-14">
+<span class="eqno">(32.14)<a class="headerlink" href="#equation-eq-dimensions-14" title="Link to this equation">#</a></span>\[\mu_{Y}=-10 \text { to } 0 \mathrm{~mm}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-15">
+<span class="eqno">(32.15)<a class="headerlink" href="#equation-eq-dimensions-15" title="Link to this equation">#</a></span>\[\sigma_{Y}=5 \text { to } 10 \mathrm{~mm}\]</div>
+<ul class="simple">
+<li><p>slab and beams top steel:</p></li>
+</ul>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-16">
+<span class="eqno">(32.16)<a class="headerlink" href="#equation-eq-dimensions-16" title="Link to this equation">#</a></span>\[\mu_{Y}=0 \text { to } 10 \mathrm{~mm}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-17">
+<span class="eqno">(32.17)<a class="headerlink" href="#equation-eq-dimensions-17" title="Link to this equation">#</a></span>\[\sigma_{Y}=10 \text { to } 15 \mathrm{~mm}\]</div>
+<p>Obviously, these values represent only very gross estimates of basic statistical characteristics of concrete cover and particular values should be chosen in accordance with relevant production conditions. Further experimental measurements (related to given production procedure) with a specific emphasis on internal dimensions of horizontal, as well as vertical elements are obviously needed.</p>
+<p>Note that recent European document <span id="id18">[<a class="reference internal" href="#id105" title="Execution of concrete structures - part 1: common. Brussels, 2000. ENV 13670-1.">32.05</a>]</span> on execution of concrete structures specifies is in a good agreement with the above mentioned data. The minimum permitted deviation of concrete cover is -10 mm (corresponding to <span class="math notranslate nohighlight">\(\sigma_{y}=6\)</span> ), the maximum permitted deviation is from 10 mm up to 20 mm (corresponding to about <span class="math notranslate nohighlight">\(\sigma_{y}\)</span> from 6 to 13 mm ).</p>
+</section>
+<section id="cross-section-dimensions-of-hot-rolled-steel-products">
+<h2><span class="section-number">32.4. </span>Cross-section dimensions of hot rolled steel products<a class="headerlink" href="#cross-section-dimensions-of-hot-rolled-steel-products" title="Link to this heading">#</a></h2>
+<p>In Czech Republic <span id="id19">[<a class="reference internal" href="#id104" title="M. Fajkus, M. Holický, L. Rozlívka, and M. Vorlíček. Random properties of steel elements produced in czech republic. In Proc. Eurosteel'99, number Paper No. 90. Prague, 1999.">32.06</a>]</span> some data on dimensional deviations of cross-sections of rolled products (profile I, L, T) are collected and evaluated at present. Preliminary results obtained for profile I (IPE 80 to 200) indicate that the mean and standard deviation of <span class="math notranslate nohighlight">\(Y\)</span> of the basic dimensions (height, width and thickness) is less than 1 mm, while the coefficient of skewness is negligible, thus the indicative values of the deviation characteristics are</p>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-18">
+<span class="eqno">(32.18)<a class="headerlink" href="#equation-eq-dimensions-18" title="Link to this equation">#</a></span>\[-1,0 \mathrm{~mm} \leq \mu_{Y} \leq+1,0 \mathrm{~mm}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-dimensions-19">
+<span class="eqno">(32.19)<a class="headerlink" href="#equation-eq-dimensions-19" title="Link to this equation">#</a></span>\[\sigma_{Y} \leq 1,0 \mathrm{~mm}\]</div>
+<p>For cross-section area and modulus it has been found that independently on the profile height the mean of both quantities differ from their nominal values insignificantly (the differences are practically zero) and the coefficients of variations for cross-section area are about 3,2 %, for cross-section modulus about 4,0 %. The normal distribution seems to be fully satisfactory model for all geometrical properties.</p>
+</section>
+<section id="theoretical-models">
+<h2><span class="section-number">32.5. </span>Theoretical models<a class="headerlink" href="#theoretical-models" title="Link to this heading">#</a></h2>
+<p>Several theoretical models were considered in previous studies <span id="id20">[<a class="reference internal" href="#id100" title="F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.">32.01</a>]</span> and <span id="id21">[<a class="reference internal" href="#id101" title="M. Tichý. Dimensional variations. In Quality Control of Concrete Structures, 171–180. Stockholm, June 1979. RILEM.">32.02</a>]</span>. It appears that unless further data are available, normal distribution provides a good general model for external dimensions of both reinforced concrete and steel elements and also for effective depth of reinforced concrete cross-section.</p>
+<p>However, concrete cover to reinforcement in concrete cross-sections of various concrete elements is a special random variable, which may hardly be described by a normal distribution. In this case different types of one or two side-limited distribution should be considered.</p>
+<p>Taking into account various combination of the coefficient of variation <span class="math notranslate nohighlight">\(w=\sigma / \mu\)</span>, and skewness <span class="math notranslate nohighlight">\(\alpha\)</span> (the subscripts are omitted here), the following commonly used distributions could be considered:</p>
+<ul class="simple">
+<li><p>for all <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> beta distribution with general lower and upper bound <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, denoted <span class="math notranslate nohighlight">\(\operatorname{Beta}(\mu ; \sigma, a ; b)\)</span>,</p></li>
+<li><p>for all <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(\alpha&gt;0\)</span> shifted lognormal distribution with lower bound <span class="math notranslate nohighlight">\(a\)</span>, denoted <span class="math notranslate nohighlight">\(\operatorname{sLN}(\mu ; \sigma, a)\)</span>,</p></li>
+<li><p>for all <span class="math notranslate nohighlight">\(\alpha&lt;2 w\)</span> beta distribution with the lower <span class="math notranslate nohighlight">\(a\)</span> at zero <span class="math notranslate nohighlight">\((a=0)\)</span>, and a general upper bound <span class="math notranslate nohighlight">\(b\)</span>, which is denoted <span class="math notranslate nohighlight">\(\operatorname{Beta}(\mu ; \sigma ; 0 ; b)\)</span>,</p></li>
+<li><p>for <span class="math notranslate nohighlight">\(\alpha=3 w+w^{3}\)</span> lognormal distribution with the lower bound <span class="math notranslate nohighlight">\(a\)</span> at zero <span class="math notranslate nohighlight">\((a=0)\)</span>,</p></li>
+<li><p>for <span class="math notranslate nohighlight">\(\alpha=2 w\)</span> gamma distribution (which has the lower bound <span class="math notranslate nohighlight">\(a\)</span> at zero <span class="math notranslate nohighlight">\((a=0)\)</span> by definition), denoted <span class="math notranslate nohighlight">\(\operatorname{Gamma}(\mu ; \sigma)\)</span>.</p></li>
+</ul>
+</section>
+<section id="correlations">
+<h2><span class="section-number">32.6. </span>Correlations<a class="headerlink" href="#correlations" title="Link to this heading">#</a></h2>
+<p>It has been found <span id="id22">[<a class="reference internal" href="#id103" title="P. Bouska and M. Holický. Statistical analysis of geometric parameters of concrete cross sections. Technical Report, Building Research Institute, Prague, 1983. In Czech - Summary in English is provided.">32.04</a>]</span> that external dimensions of concrete cross-sections are only slightly dependent on the mode of production (precast, cast in situ). No significant correlation (the correlation coefficients being around 0,12 ) has been found between vertical and horizontal dimensions. No data are available concerning correlation of internal (concrete cover) and external dimensions even though the depth and concrete cover of some elements could be highly correlated. There may be a strong auto-correlation along the element; correlation distance may be assessed as multiple (say from 3 to 5) of the cross section height or as a part of the span (say 1/4 to 1/2 ).</p>
+</section>
+<section id="references">
+<h2><span class="section-number">32.7. </span>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<div class="docutils container" id="id23">
+<div role="list" class="citation-list">
+<div class="citation" id="id100" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>32.01<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id8">2</a>,<a role="doc-backlink" href="#id9">3</a>,<a role="doc-backlink" href="#id10">4</a>,<a role="doc-backlink" href="#id13">5</a>,<a role="doc-backlink" href="#id14">6</a>,<a role="doc-backlink" href="#id15">7</a>,<a role="doc-backlink" href="#id16">8</a>,<a role="doc-backlink" href="#id17">9</a>,<a role="doc-backlink" href="#id20">10</a>)</span>
+<p>F. Casciati, I. Negri, and R. Rackwitz. Geometrical variability in structural members and systems. Technical Report, JCSS Working Document, January 1991.</p>
 </div>
-<div class="section" id="differences-between-concrete-columns-slabs-and-beams">
-<h2><span class="section-number">19.3. </span>Differences between concrete columns, slabs and beams<a class="headerlink" href="#differences-between-concrete-columns-slabs-and-beams" title="Permalink to this headline">¶</a></h2>
+<div class="citation" id="id101" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>32.02<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id11">3</a>,<a role="doc-backlink" href="#id21">4</a>)</span>
+<p>M. Tichý. Dimensional variations. In <em>Quality Control of Concrete Structures</em>, 171–180. Stockholm, June 1979. RILEM.</p>
 </div>
-<div class="section" id="cross-section-dimensions-of-hot-rolled-steel-products">
-<h2><span class="section-number">19.4. </span>Cross-section dimensions of hot rolled steel products<a class="headerlink" href="#cross-section-dimensions-of-hot-rolled-steel-products" title="Permalink to this headline">¶</a></h2>
+<div class="citation" id="id102" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">32.03</a><span class="fn-bracket">]</span></span>
+<p>M. Tichý. Variability of dimensions of concrete elements. In <em>Quality Control of Concrete Structures</em>, 225–227. Stockholm, June 1979. RILEM.</p>
 </div>
-<div class="section" id="theoretical-models">
-<h2><span class="section-number">19.5. </span>Theoretical models<a class="headerlink" href="#theoretical-models" title="Permalink to this headline">¶</a></h2>
+<div class="citation" id="id103" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>32.04<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id5">2</a>,<a role="doc-backlink" href="#id12">3</a>,<a role="doc-backlink" href="#id22">4</a>)</span>
+<p>P. Bouska and M. Holický. Statistical analysis of geometric parameters of concrete cross sections. Technical Report, Building Research Institute, Prague, 1983. In Czech - Summary in English is provided.</p>
 </div>
-<div class="section" id="correlations">
-<h2><span class="section-number">19.6. </span>Correlations<a class="headerlink" href="#correlations" title="Permalink to this headline">¶</a></h2>
+<div class="citation" id="id105" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>32.05<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id7">1</a>,<a role="doc-backlink" href="#id18">2</a>)</span>
+<p>Execution of concrete structures - part 1: common. Brussels, 2000. ENV 13670-1.</p>
 </div>
-<div class="section" id="references">
-<h2><span class="section-number">19.7. </span>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<div class="citation" id="id104" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">32.06</a><span class="fn-bracket">]</span></span>
+<p>M. Fajkus, M. Holický, L. Rozlívka, and M. Vorlíček. Random properties of steel elements produced in czech republic. In <em>Proc. Eurosteel'99</em>, number Paper No. 90. Prague, 1999.</p>
 </div>
 </div>
+</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -397,7 +635,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./part-03"
         },
         predefinedOutput: true
@@ -405,46 +643,110 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="model-uncertainties.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">18. </span>Model Uncertainties</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="model-uncertainties.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">31. </span>Model Uncertainties</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="excentricities.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="excentricities.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Excentricities</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+        <p class="prev-next-title"><span class="section-number">33. </span>Excentricities</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Joint Committee on Structural Safety<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#external-dimensions-of-concrete-components">32.1. External dimensions of concrete components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concrete-cover">32.2. Concrete cover</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-concrete-columns-slabs-and-beams">32.3. Differences between concrete columns, slabs and beams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-section-dimensions-of-hot-rolled-steel-products">32.4. Cross-section dimensions of hot rolled steel products</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theoretical-models">32.5. Theoretical models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlations">32.6. Correlations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">32.7. References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

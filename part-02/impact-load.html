@@ -1,437 +1,845 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>14. Impact Load &#8212; Probabilistic Model Code</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>21. Impact Load &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-      
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-02/impact-load';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Fire" href="fire.html" />
-    <link rel="prev" title="13. Wind" href="wind.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="next" title="22. Fire" href="fire.html" />
+    <link rel="prev" title="20. Earthquake Load" href="earthquake.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/jcss.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Probabilistic Model Code</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-00/intro.html">
-   JCSS Probabilistic Model Code
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Basis of Design
- </span>
-</p>
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/requirements.html">
-   2. Requirements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/principles-of-limit-state-design.html">
-   3. Principles of limit state design
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">
-   4. Basis of uncerainty modelling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/models-for-physical-behaviour.html">
-   5. Models for physical behaviour
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/reliability.html">
-   6. Reliability
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/target-reliability.html">
-   7. Target Reliability
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Load Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="general-principles.html">
-   8. General Principles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="self-weight.html">
-   9. Self Weight
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="live-load.html">
-   10. Live Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="loads-in-car-parks.html">
-   11. Loads In Car Parks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="snow-load.html">
-   12. Snow Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="wind.html">
-   13. Wind
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   14. Impact Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="fire.html">
-   15. Fire
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fire.html">22. Fire</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Resistance Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/concrete-properties.html">
-   16. Concrete Properties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
-   17. Static Properties Of Reinforcing Steel
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/model-uncertainties.html">
-   18. Model Uncertainties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/dimensions.html">
-   19. Dimensions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/excentricities.html">
-   20. Excentricities
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  How to Use
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../help/how-to-use.html">
-   21. How to Use
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-</div>
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-02/impact-load.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/impact-load.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/impact-load.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/JCSS-PMC/PMC"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/impact-load.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/impact-load.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-02/impact-load.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Impact Load</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basic-model-for-impact-loading">
-   14.1. Basic Model for Impact Loading
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#introduction">
-     14.1.1. Introduction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#failure-probability">
-     14.1.2. Failure probability
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-function-for-the-impac-tload">
-     14.1.3. Distribution function for the impac tload
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#impact-from-vehicles">
-   14.2. Impact from vehicles
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-of-impact-force">
-     14.2.1. Distribution of impact force
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specifications-of-impact-force">
-     14.2.2. Specifications of impact force
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#impact-from-ships">
-   14.3. Impact from ships
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id1">
-     14.3.1. Distribution of impact force
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     14.3.2. Specifications of impact force
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#impact-from-airplanes">
-   14.4. Impact from airplanes
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id3">
-     14.4.1. Distribution of impact force
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model-for-impact-loading">21.1. Basic Model for Impact Loading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">21.1.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#failure-probability">21.1.2. Failure probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-function-for-the-impact-load">21.1.3. Distribution function for the impact load</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-from-vehicles">21.2. Impact from vehicles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-impact-force">21.2.1. Distribution of impact force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifications-of-impact-force">21.2.2. Specifications of impact force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-from-ships">21.3. Impact from ships</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">21.3.1. Distribution of impact force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">21.3.2. Specifications of impact force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-from-airplanes">21.4. Impact from airplanes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">21.4.1. Distribution of impact force</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="impact-load">
-<h1><span class="section-number">14. </span>Impact Load<a class="headerlink" href="#impact-load" title="Permalink to this headline">¶</a></h1>
-<p>2.18 IMPACT LOAD</p>
-<div class="section" id="basic-model-for-impact-loading">
-<h2><span class="section-number">14.1. </span>Basic Model for Impact Loading<a class="headerlink" href="#basic-model-for-impact-loading" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="introduction">
-<h3><span class="section-number">14.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="impact-load">
+<h1><span class="section-number">21. </span>Impact Load<a class="headerlink" href="#impact-load" title="Link to this heading">#</a></h1>
+<p><strong>List of symbols:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}a &amp;= \text { deceleration}\\
+A_{b} &amp;= \text { the area of the building including the shadow area}\\
+d  &amp;= \text { distance from the structural element to the road}\\
+f_{s}(y) &amp;= \text { distribution of initial object position in} \text { y direction}\\
+F_{c}(x) &amp;= \text { static compression strength at a distance} \text { x from the nose}\\
+k &amp;= \text { stiffness}\\
+m &amp;= \text { mass}\\
+m^{\prime}(x) &amp;= \text { mass per unit length}\\
+n &amp;= \text { number of vehicles, ships or planes per time unit}\\
+n(t) &amp;= \text { number of moving objects per time unit (traffic intensity)}\\
+P_{a} &amp;= \text { the probability that a collision is avoided by human intervention}\\
+P_{fq}(xy) &amp;= \text { the probability of structural failure given a mechanical or human failure on the ship, vehicle, etc. at point} (x, y)\\
+r=d / \sin \alpha &amp;= \text { the distance from &quot;leaving point&quot; to &quot;impact point&quot;}\\
+R &amp;= \text { radius of airport influence circle}\\
+T &amp;= \text { period of time under consideration}\\
+v_{c} &amp;= \text { the object velocity at impact}\\
+v_{c}(t) &amp;= \text { velocity of the crashed part}\\
+v_{c}(xy) &amp;= \text { object velocity at impact, given initial failure at point} (x, y)\\
+v_{o} &amp;= \text { velocity of the vehicle when leaving the track}\\
+x, y &amp;= \text { coordinate system;}\\
+\alpha &amp;= \text { angle between collision course and track direction}\\
+\Lambda(r) &amp;= \text { collision rate for crash at distance r from the airport with} r&lt;R\\
+\lambda(x, t) &amp;= \text { failure intensity as a function of the coordinate} x \text { and the time} t\end{array}\)</span></p>
+<section id="basic-model-for-impact-loading">
+<span id="section-2-18-1"></span><h2><span class="section-number">21.1. </span>Basic Model for Impact Loading<a class="headerlink" href="#basic-model-for-impact-loading" title="Link to this heading">#</a></h2>
+<section id="introduction">
+<h3><span class="section-number">21.1.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<p>The basic model for impact loading constitutes of (see <a class="reference internal" href="#fig-probabilistic-collision-model"><span class="std std-numref">Fig. 21.1</span></a>):</p>
+<ul class="simple">
+<li><p>potentially colliding objects (vehicles, ships, airplanes) that have an intended course, which may be the centre line of a traffic lane, a shipping lane or an air corridor; the moving object will normally have some distance to this centre line;</p></li>
+<li><p>the occurrence of a human or mechanical failure that may lead to a deviation of the intended course; these occurences are described by a homogeneous Poisson process;</p></li>
+<li><p>the course of the object after the initial failure, which depend on both object properties and environment;</p></li>
+<li><p>the mechanical impact between object and structure, where the kinetic energy of the colliding object is partly transferred into elastic-plastic deformation or fracture of the structural elements in both the building structure and the colliding object.</p></li>
+</ul>
+<figure class="align-default" id="fig-probabilistic-collision-model">
+<img alt="../_images/fig-probabilistic-collision-model.jpg" src="../_images/fig-probabilistic-collision-model.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.1 </span><span class="caption-text">Probabilistic collision model</span><a class="headerlink" href="#fig-probabilistic-collision-model" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="failure-probability">
+<span id="section-2-18-1-2"></span><h3><span class="section-number">21.1.2. </span>Failure probability<a class="headerlink" href="#failure-probability" title="Link to this heading">#</a></h3>
+<p>The probability that a single object, moving in x-direction, suffers from a human or mechanical failure in the square [dx, dy] (see <a class="reference internal" href="#fig-probabilistic-collision-model"><span class="std std-numref">Fig. 21.1</span></a>) and causes collapse at some structure is given by:</p>
+<div class="math notranslate nohighlight">
+\[P_{fq}(x, y)~f_{s}(y)~dy~\lambda(x, t)~d x\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(f_{s}(y)=\)</span> distribution of initial object position in y direction (see <a class="reference internal" href="#fig-probabilistic-collision-model"><span class="std std-numref">Fig. 21.1</span></a>)</p>
+<p><span class="math notranslate nohighlight">\(P_{fq}(xy)=\)</span> the probability of structural failure given a mechanical or human failure on the ship, vehicle, etc. at point <span class="math notranslate nohighlight">\((x, y)\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(x, y=\)</span> coordinate system; the <span class="math notranslate nohighlight">\(x\)</span> coordinate follows the centre line of the traffic lane, while the <span class="math notranslate nohighlight">\(y\)</span> coordinate represents the (horizontal) distance of the object to the centre; the structure that potentially could be hit, is located at the point with coordinates <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(y=d\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\lambda(x, t)=\)</span> failure intensity as a function of the coordinate <span class="math notranslate nohighlight">\(x\)</span> and the time <span class="math notranslate nohighlight">\(t\)</span>. The length dependency expresses the variability in circumstances along the centre line (for instance curved versus straight trajectories). The time dependency indicates differences in summer and winter, day and night, etc. Note that although <span class="math notranslate nohighlight">\(\lambda(x, t)\)</span> is a function of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(t\)</span>, its dimension is [1/Length].</p>
+<p>The probability of structural failure for a period <span class="math notranslate nohighlight">\(T\)</span> can then be presented as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-1">
+<span class="eqno">(21.1)<a class="headerlink" href="#equation-eq-impact-2-18-1" title="Link to this equation">#</a></span>\[P_{f}(T)=1-\exp \left\lbrace-\iiint n(t) \lambda(x, t) P_{f q}(x y) f_{s}(y) d x~d y~d t\right\rbrace\]</div>
+<p>or for small probability and constant <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(\lambda\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-2">
+<span class="eqno">(21.2)<a class="headerlink" href="#equation-eq-impact-2-18-2" title="Link to this equation">#</a></span>\[P_{f}(T)=n T \lambda \iint{P_{f q}}(x, y) f_{S}(y) d y d x\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(T \quad=\quad\)</span> period under consideration</p>
+<p><span class="math notranslate nohighlight">\(n(t) \quad=\quad\)</span> number of moving objects per time unit (traffic intensity)</p>
+</section>
+<section id="distribution-function-for-the-impact-load">
+<h3><span class="section-number">21.1.3. </span>Distribution function for the impact load<a class="headerlink" href="#distribution-function-for-the-impact-load" title="Link to this heading">#</a></h3>
+<p>In principle, impact is an interaction phenomenon between the object and the structure. It is not possible to formulate a separate action and a separate resistance function. However, an upper bound for the impact load can be found using the “rigid structure” assumption. If the colliding object is modelled as an elastic single degree of freedom system, with equivalent stiffness <span class="math notranslate nohighlight">\(k\)</span> and mass <span class="math notranslate nohighlight">\(m\)</span>, the maximum possible resulting interaction force equals:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-3">
+<span class="eqno">(21.3)<a class="headerlink" href="#equation-eq-impact-2-18-3" title="Link to this equation">#</a></span>\[F_{c}=v_{c} \sqrt{ (km)}\]</div>
+<p><span class="math notranslate nohighlight">\(v_{c}=\)</span> the object velocity at impact</p>
+<p>Note that <a class="reference internal" href="#equation-eq-impact-2-18-3">(21.3)</a> gives the maximum for the external load; dynamic effects within the structure still need to be considered. Note further that simple upperbounds also may be obtained if the structure and or the object behaves plastic: <span class="math notranslate nohighlight">\(F_{c}=\min \left[F_{y s}, F_{y o}\right]\)</span> where <span class="math notranslate nohighlight">\(F_{y s}=\)</span> yield force of the structure and <span class="math notranslate nohighlight">\(F_{y o}=\)</span> yield force of the object; the duration of this load is <span class="math notranslate nohighlight">\(\Delta_{t}=mv_{c} / F_{c}\)</span>.</p>
+<p>Based on formulation <a class="reference internal" href="#equation-eq-impact-2-18-3">(21.3)</a> the distribution function for the load <span class="math notranslate nohighlight">\(F_{c}\)</span> can be found:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-4">
+<span class="eqno">(21.4)<a class="headerlink" href="#equation-eq-impact-2-18-4" title="Link to this equation">#</a></span>\[P\left\{F_{C}&lt;X\right\}=1-\exp \left\lbrace-\iiint n \lambda~P\left[v_{C}(xy) \sqrt{km}&gt;X\right] f_{S}(y) dxdydt\right\rbrace\]</div>
+<p><span class="math notranslate nohighlight">\(v_{c}(xy)=\)</span> object velocity at impact, given initial failure at point <span class="math notranslate nohighlight">\((x, y)\)</span></p>
+<p>For small probabilities:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-5">
+<span class="eqno">(21.5)<a class="headerlink" href="#equation-eq-impact-2-18-5" title="Link to this equation">#</a></span>\[P\left\{F_{C}&gt;X\right\}=P_{f}(T)=nT \lambda \iint P\left[v_{c} \sqrt{km}&gt;X\right] f_{S}(y) dydx\]</div>
+<p>For the designation of the variables, see <a class="reference internal" href="#section-2-18-1-2"><span class="std std-ref">clause 18.1.2</span></a>.</p>
+</section>
+</section>
+<section id="impact-from-vehicles">
+<h2><span class="section-number">21.2. </span>Impact from vehicles<a class="headerlink" href="#impact-from-vehicles" title="Link to this heading">#</a></h2>
+<section id="distribution-of-impact-force">
+<span id="section-2-18-2-1"></span><h3><span class="section-number">21.2.1. </span>Distribution of impact force<a class="headerlink" href="#distribution-of-impact-force" title="Link to this heading">#</a></h3>
+<p>Consider a structural element in the vicinity of a road or track. Impact will occur if some vehicle, travelling over the track, leaves its intended course at some critical place with sufficient speed (see <a class="reference internal" href="#fig-illustration-of-impact-load-from-collision"><span class="std std-numref">Fig. 21.2</span></a>).</p>
+<figure class="align-default" id="fig-illustration-of-impact-load-from-collision">
+<img alt="../_images/illustration-of-impact-load-from-collision.jpg" src="../_images/illustration-of-impact-load-from-collision.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.2 </span><span class="caption-text">A vehicle leaves the intended course at point <span class="math notranslate nohighlight">\(Q\)</span> with velocity <span class="math notranslate nohighlight">\(v_{0}\)</span> and angle <span class="math notranslate nohighlight">\(a\)</span>. A structural element at distance <span class="math notranslate nohighlight">\(r\)</span> is hit with velocity <span class="math notranslate nohighlight">\(v_{r}\)</span></span><a class="headerlink" href="#fig-illustration-of-impact-load-from-collision" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The collision force probability distribution based on <a class="reference internal" href="#equation-eq-impact-2-18-5">(21.5)</a>, neglecting the variability in y-direction is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-6">
+<span class="eqno">(21.6)<a class="headerlink" href="#equation-eq-impact-2-18-6" title="Link to this equation">#</a></span>\[P\left(F_{c}&gt;X\right)=n T \lambda \Delta xP\left[\sqrt{ }\left\lbrace m k\left(v_{o}^{2}-2 ar\right)\right\rbrace &gt;X\right]\]</div>
+<p><span class="math notranslate nohighlight">\(n =\)</span> number of vehicles per time unit</p>
+<p><span class="math notranslate nohighlight">\(T=\)</span> period of time under consideration</p>
+<p><span class="math notranslate nohighlight">\(\lambda=\)</span> probability of a vehicle leaving the road per unit length of track</p>
+<p><span class="math notranslate nohighlight">\(\Delta x =\)</span> part of the road from where collisions may be expected</p>
+<p><span class="math notranslate nohighlight">\(v_{o} =\)</span> velocity of the vehicle when leaving the track</p>
+<p><span class="math notranslate nohighlight">\(a\)</span> = deceleration</p>
+<p><span class="math notranslate nohighlight">\(r =d / \sin \alpha=\)</span> the distance from “leaving point” to “impact point”</p>
+<p><span class="math notranslate nohighlight">\(d=\)</span> distance from the structural element to the road</p>
+<p><span class="math notranslate nohighlight">\(\alpha \quad=\)</span> angle between collision course and track direction</p>
+<p><span class="math notranslate nohighlight">\(\lambda \Delta x\)</span> is the probability that a passing vehicle leaves the road at the interval <span class="math notranslate nohighlight">\(\Delta x\)</span>, which is approximated by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-7">
+<span class="eqno">(21.7)<a class="headerlink" href="#equation-eq-impact-2-18-7" title="Link to this equation">#</a></span>\[\Delta x=b / \sin \mu(\alpha)\]</div>
+<p>The value of <span class="math notranslate nohighlight">\(b\)</span> depends on the structural dimensions. However, for small objects such as columns a minimum value of b follows from the width of the vehicle, so <span class="math notranslate nohighlight">\(b &gt; 2.5 m\)</span>.</p>
+<p>Numerical values and probabilistic models can be found in <a class="reference internal" href="#table-numerical-values-for-vehicle-impact"><span class="std std-numref">Table 21.1</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-numerical-values-for-vehicle-impact">
+<caption><span class="caption-number">Table 21.1 </span><span class="caption-text">Numerical values for vehicle impact</span><a class="headerlink" href="#table-numerical-values-for-vehicle-impact" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>variable</p></th>
+<th class="head text-left"><p>designation</p></th>
+<th class="head text-center"><p>type</p></th>
+<th class="head text-left"><p>mean</p></th>
+<th class="head text-left"><p>stand dev</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\lambda\)</span></p></td>
+<td class="text-left"><p>accident rate</p></td>
+<td class="text-center"><p>deterministic</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(10^{-10} ~m^{-1}\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+<td class="text-left"><p>angle of collision course</p></td>
+<td class="text-center"><p>rayleigh</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(10^{\circ}\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(10^{\circ}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(v\)</span></p></td>
+<td class="text-left"><p>vehicle velocity <br> <span class="math notranslate nohighlight">\(\quad\)</span>- motorway <br> <span class="math notranslate nohighlight">\(\quad\)</span>-urban area <br> <span class="math notranslate nohighlight">\(\quad\)</span>- court yard <br> <span class="math notranslate nohighlight">\(\quad\)</span>- parking garage</p></td>
+<td class="text-center"><p><br> lognormal <br> lognormal  <br> lognormal <br> lognormal</p></td>
+<td class="text-left"><p><br> 80 km/hr <br> 40 <br> 15 <br> 10</p></td>
+<td class="text-left"><p><br> 10 km/hr <br> 7 <br> 6 <br> 5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>a</p></td>
+<td class="text-left"><p>deceleration</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-left"><p>4 m<span class="math notranslate nohighlight">\(^{2}\)</span>/s</p></td>
+<td class="text-left"><p>1.3 m<span class="math notranslate nohighlight">\(^{2}\)</span>/s</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>m</p></td>
+<td class="text-left"><p>vehicle mass <br> <span class="math notranslate nohighlight">\(\quad\)</span>- truck <br>  <span class="math notranslate nohighlight">\(\quad\)</span>- car</p></td>
+<td class="text-center"><p><br> normal <br> normal</p></td>
+<td class="text-left"><p><br> 20,000 kg* <br> 1500 kg</p></td>
+<td class="text-left"><p><br> 12,000 kg* <br> 400 kg</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>k</p></td>
+<td class="text-left"><p>vehicle stiffness</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-left"><p>300 kN\m</p></td>
+<td class="text-left"><p>60 kN\m</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="failure-probability">
-<h3><span class="section-number">14.1.2. </span>Failure probability<a class="headerlink" href="#failure-probability" title="Permalink to this headline">¶</a></h3>
+<p>*Combined with <span class="math notranslate nohighlight">\(F = k√mv\)</span> these estimates are quite conservative. One might consider possible reductions due to transformation of energy into rotational movements, etc. e.g. by the concept of “effective mass”</p>
+</section>
+<section id="specifications-of-impact-force">
+<h3><span class="section-number">21.2.2. </span>Specifications of impact force<a class="headerlink" href="#specifications-of-impact-force" title="Link to this heading">#</a></h3>
+<p>The collission force is a horizontal force; only the force component perpendicular to the structural surface needs to be considered.</p>
+<p>The collision force for passenger cars affects the structure at <span class="math notranslate nohighlight">\(0.5 ~m\)</span> above the level of the driving surface; for trucks the collision force affects it at <span class="math notranslate nohighlight">\(1.25 ~m\)</span> above the level of the driving surface. The force application area is <span class="math notranslate nohighlight">\(0.25 ~m\)</span> (height) times <span class="math notranslate nohighlight">\(1.50 ~m\)</span> (width).</p>
+<p>For impact loads on horizontal structural elements above traffic lanes the following rules hold (see <a class="reference internal" href="#fig-impact-loads-on-horizontal-structural-elements-above-traffic-lanes"><span class="std std-numref">Fig. 21.3</span></a>):</p>
+<ol class="arabic simple">
+<li><p>on vertical surfaces the impact actions follow from <a class="reference internal" href="#section-2-18-2-1"><span class="std std-ref">18.2.1.</span></a> and the height reduction as specified at (3).</p></li>
+<li><p>on horizontal lower side surfaces upward inclination of 10% should be considered. The force application area is 0.25 m (height) times 0.25 m (width).</p></li>
+<li><p>for free heights <span class="math notranslate nohighlight">\(h\)</span> larger 6.0 m the forces are equal to zero; for free heights between 4.0 m and 6.0 m a linear interpolation should be used</p></li>
+</ol>
+<figure class="align-default" id="fig-impact-loads-on-horizontal-structural-elements-above-traffic-lanes">
+<img alt="../_images/fig-impact-loads-on-horizontal-structural-elements-above-traffic-lanes.jpg" src="../_images/fig-impact-loads-on-horizontal-structural-elements-above-traffic-lanes.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.3 </span><span class="caption-text">Impact loads on horizontal structural elements above traffic lanes</span><a class="headerlink" href="#fig-impact-loads-on-horizontal-structural-elements-above-traffic-lanes" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="impact-from-ships">
+<h2><span class="section-number">21.3. </span>Impact from ships<a class="headerlink" href="#impact-from-ships" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3><span class="section-number">21.3.1. </span>Distribution of impact force<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>A co-ordinate system <span class="math notranslate nohighlight">\((x,y)\)</span> is introduced as indicated in <a class="reference internal" href="#fig-ingredients-for-a-ship-collision-model"><span class="std std-numref">Fig. 21.4</span></a>. The <span class="math notranslate nohighlight">\(x\)</span> coordinate follows the centre line of the traffic lane, while the The <span class="math notranslate nohighlight">\(y\)</span> co-ordinate represents the (horizontal) distance of the ship to the centre. The structure that potentially could be hit is located at the point with co-ordinates <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(y=d\)</span>.</p>
+<figure class="align-default" id="fig-ingredients-for-a-ship-collision-model">
+<img alt="../_images/ingredients-for-a-ship-collision-model.jpg" src="../_images/ingredients-for-a-ship-collision-model.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.4 </span><span class="caption-text">Ingredients for a ship collision model</span><a class="headerlink" href="#fig-ingredients-for-a-ship-collision-model" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Ship impact may be the result of:</p>
+<ol class="arabic simple">
+<li><p>either a ship being on collision course, while no avoidance action is taken</p></li>
+<li><p>a mechanical or human failure leading to a change of course.</p></li>
+</ol>
+<p>In case (1) a ship is on collision course, which is not corrected due to inattendance, bad visibility, old cards and so on. In case (2) the orginal course is correct, but changed, due to e.g. rudder problems or misjudgement.</p>
+<p>Both origins (1) and (2) are present in the following model which is a modification of <a class="reference internal" href="#section-2-18-1"><span class="std std-ref">18.1.</span></a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-8">
+<span class="eqno">(21.8)<a class="headerlink" href="#equation-eq-impact-2-18-8" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; P(F&gt;X) \quad=nT P_{na} \iint_{\Delta y} P\left[v_{C}(x, y) \sqrt{km}&gt;X\right] f_{S}(y) dx dy \\
+&amp; +nT \lambda \iint_{-\infty}^{+\infty} P\left[v_{C}(x, y) \sqrt{km}&gt;X\right] f_{S}(y) dx dy
+\end{aligned}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(T=\)</span> period of time under consideration</p>
+<p><span class="math notranslate nohighlight">\(n=\)</span> number of ships per time unit (traffic intensity)</p>
+<p><span class="math notranslate nohighlight">\(\lambda=\)</span> probability of a failure per unit travelling distance</p>
+<p><span class="math notranslate nohighlight">\(v(x, y)=\)</span> impact velocity of ship, given error at point <span class="math notranslate nohighlight">\((x, y)\)</span></p>
+<p><span class="math notranslate nohighlight">\(k=\)</span> stiffness of the ship</p>
+<p><span class="math notranslate nohighlight">\(m=\)</span> mass of the ship</p>
+<p><span class="math notranslate nohighlight">\(f_{s}(y)=\)</span> distribution of initial ship position in <span class="math notranslate nohighlight">\(y\)</span> direction</p>
+<p><span class="math notranslate nohighlight">\(P_{n}=\)</span> the probability that a collision is not avoided by human intervention, given collision course</p>
+<p><span class="math notranslate nohighlight">\(\Delta y=\)</span> values of <span class="math notranslate nohighlight">\(y\)</span> coinciding with a collision course</p>
+<p>For the evaluation in practical cases, it may be necessary to evaluate <a class="reference internal" href="#equation-eq-impact-2-18-8">(21.8)</a> for various ship types and traffic lanes, and add the results in a proper way at the end of the analysis.</p>
+<p><a class="reference internal" href="#table-numerical-values-for-ship-impact"><span class="std std-numref">Table 21.2</span></a> gives a number of standard ship characteristics and velocities that could be chosen by the designer.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-numerical-values-for-ship-impact">
+<caption><span class="caption-number">Table 21.2 </span><span class="caption-text">Numerical values for ship impact</span><a class="headerlink" href="#table-numerical-values-for-ship-impact" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>variable</p></th>
+<th class="head text-left"><p>designation</p></th>
+<th class="head text-left"><p>type</p></th>
+<th class="head text-left"><p>mean</p></th>
+<th class="head text-left"><p>standard dev</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(P_{na}\)</span></p></td>
+<td class="text-left"><p>avoidance <br> probability <br> <span class="math notranslate nohighlight">\(\quad\)</span>- small <br> <span class="math notranslate nohighlight">\(\quad\)</span>- medium <br> <span class="math notranslate nohighlight">\(\quad\)</span>- large  <br> <span class="math notranslate nohighlight">\(\quad\)</span>- very large</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p><br> <br> 0.045 <br> 0.003 <br> 0.002 <br> 0.001</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\lambda\)</span></p></td>
+<td class="text-left"><p>failure rate</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>10<span class="math notranslate nohighlight">\(^{-6}\)</span> km<span class="math notranslate nohighlight">\(^{-1}\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>v</p></td>
+<td class="text-left"><p>velocity <br> <span class="math notranslate nohighlight">\(\quad\)</span>- harbour <br> <span class="math notranslate nohighlight">\(\quad\)</span>- canal <br> <span class="math notranslate nohighlight">\(\quad\)</span>- sea</p></td>
+<td class="text-left"><p><br> lognormal <br> lognormal <br> lognormal</p></td>
+<td class="text-left"><p><br> 1.5 m\s <br> 3 <br> 6</p></td>
+<td class="text-left"><p><br> 0.5 m\s <br> 1.0 <br> 1.5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>m</p></td>
+<td class="text-left"><p>mass <br> <span class="math notranslate nohighlight">\(\quad\)</span>- small <br> <span class="math notranslate nohighlight">\(\quad\)</span>- medium <br> <span class="math notranslate nohighlight">\(\quad\)</span>- large <br> <span class="math notranslate nohighlight">\(\quad\)</span>- very large</p></td>
+<td class="text-left"><p><br> lognormal <br> lognormal <br> lognormal <br> lognormal</p></td>
+<td class="text-left"><p><br> 1000 ton <br> 4000 <br> 20000 <br> 200000</p></td>
+<td class="text-left"><p><br> 2000 ton <br> 8000 <br> 40000 <br> 200000</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>k</p></td>
+<td class="text-left"><p>equivalent stiffness</p></td>
+<td class="text-left"><p>lognormal</p></td>
+<td class="text-left"><p>15 MN/m</p></td>
+<td class="text-left"><p>3 MN/m</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="distribution-function-for-the-impac-tload">
-<h3><span class="section-number">14.1.3. </span>Distribution function for the impac tload<a class="headerlink" href="#distribution-function-for-the-impac-tload" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id2">
+<h3><span class="section-number">21.3.2. </span>Specifications of impact force<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>Bow, stern and broad side impact shall be considered where relevant; for side and stern impact the design impact velocities may be reduced.</p>
+<p>Bow impact shall be considered for the main sail direction with a maximum deviation of <span class="math notranslate nohighlight">\(30^{\circ}\)</span>.</p>
+<p>If a wall structure is hit under an angle a, the following forces should be considered:</p>
+<ul class="simple">
+<li><p>perpendicular to the wall:
+<span class="math notranslate nohighlight">\(F_{y}=F \sin \alpha\)</span></p></li>
+<li><p>in wall direction:
+<span class="math notranslate nohighlight">\(F_{x}=fF \sin \alpha\)</span></p></li>
+</ul>
+<p>where <span class="math notranslate nohighlight">\(F\)</span> is the collision force at <span class="math notranslate nohighlight">\(\alpha=90^{\circ}\)</span> and <span class="math notranslate nohighlight">\(f=0.3\)</span> is the friction coefficient.</p>
+<p>Impact is to be considered as a free horizontal force; the point of impact depends on the geomertry of the structure and the size of the vessel. As a guideline one could take the most unfavourable point ranging from <span class="math notranslate nohighlight">\(0.1 ~L\)</span> below to <span class="math notranslate nohighlight">\(0.1 ~L\)</span> above the design water level. The impact area is <span class="math notranslate nohighlight">\(0.05 ~L * 0.1 ~L\)</span> unless the stuctural element is smaller.</p>
+<p><span class="math notranslate nohighlight">\(L\)</span> is the typical ship length (<span class="math notranslate nohighlight">\(L=15,40,100\)</span> and <span class="math notranslate nohighlight">\(300 ~m\)</span> for respectively small, medium, large and very large ship size).</p>
+<p>The forces on the superstructure of the bridge depend on the height of the bridge and the type of ships to be expected. In general the force on the superstructure of the bridge will be limited by the yield strenght of the ships superstructure. A maximum of <span class="math notranslate nohighlight">\(10000 kN\)</span> for large and very large ships and <span class="math notranslate nohighlight">\(3000 kN\)</span> for small and medium ships can be taken as a guideline averages.</p>
+</section>
+</section>
+<section id="impact-from-airplanes">
+<h2><span class="section-number">21.4. </span>Impact from airplanes<a class="headerlink" href="#impact-from-airplanes" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h3><span class="section-number">21.4.1. </span>Distribution of impact force<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>The probability of a structure being hit by an airplane is very small. Only for exceptional structures like nuclear power plants, where the consequences of failure may be very large, is it mandatory to account for aircraft impact during design.</p>
+<p>For <span class="math notranslate nohighlight">\(\underline{\text{air corridors}}\)</span>, using <a class="reference internal" href="#equation-eq-impact-2-18-3">(21.3)</a> and for small probabilities:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-9">
+<span class="eqno">(21.9)<a class="headerlink" href="#equation-eq-impact-2-18-9" title="Link to this equation">#</a></span>\[P\left(F_{C}&gt;X\right)=n T \lambda A_{b} P_{na} P\left(F_{C}&gt;X \mid impact\right) f_{S}(y)\]</div>
+<p><span class="math notranslate nohighlight">\(n=\)</span> number of planes passing per time unit through an air corridor (traffic intensity)</p>
+<p><span class="math notranslate nohighlight">\(T=\)</span> time period of interest (for instance reference period)</p>
+<p><span class="math notranslate nohighlight">\(\lambda=\)</span> probability of a crash per unit distance of flying</p>
+<p><span class="math notranslate nohighlight">\(f_{s}(y)=\)</span> distribution of ground impact perpendicular to the corridor direction, given a crash</p>
+<p><span class="math notranslate nohighlight">\(A_{b}=\)</span> the area of the building including the shadow area</p>
+<p><span class="math notranslate nohighlight">\(P_{\text {na }}=\)</span> probability of not avoiding a collision, given an airplane on collision course</p>
+<p>The area <span class="math notranslate nohighlight">\(A_{b}\)</span> is the area of the building itself, enlarged by a so called shadow area (see <a class="reference internal" href="#fig-strike-area-for-airplane-crash"><span class="std std-numref">Fig. 21.5</span></a>). The strike angle <span class="math notranslate nohighlight">\(\alpha\)</span> is random.</p>
+<p>For the <span class="math notranslate nohighlight">\(\underline{\text{vicinity of an airport}}\)</span> (at a distance <span class="math notranslate nohighlight">\(r\)</span>) the impact force distribution is based on:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-10">
+<span class="eqno">(21.10)<a class="headerlink" href="#equation-eq-impact-2-18-10" title="Link to this equation">#</a></span>\[P\left(F_{C}&gt;X\right)=\operatorname{nTP}_{na} \Lambda(r) A_{b} P\left\lbrace F_{C}&gt;X \mid \text{impact}\right\rbrace\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-11">
+<span class="eqno">(21.11)<a class="headerlink" href="#equation-eq-impact-2-18-11" title="Link to this equation">#</a></span>\[\Lambda(r)=\frac{\overline{\Lambda} R}{2 r}\]</div>
+<p><span class="math notranslate nohighlight">\(\overline{\Lambda}=\)</span> average air plane collision rate for a circular area with radius <span class="math notranslate nohighlight">\(R\)</span> = 8 km</p>
+<p><span class="math notranslate nohighlight">\(\Lambda(r)=\)</span> collision rate for crash at distance <span class="math notranslate nohighlight">\(r\)</span> from the airport with <span class="math notranslate nohighlight">\(r&lt;R\)</span></p>
+<p><span class="math notranslate nohighlight">\(n=\)</span> number of planes approaching the airport per windtunnel</p>
+<p><span class="math notranslate nohighlight">\(R=\)</span> radius of airport influence circle</p>
+<p><span class="math notranslate nohighlight">\(r=\)</span> distance to the airport</p>
+<p>Numerical values are presented in <a class="reference internal" href="#table-numerical-values-for-the-air-plane-impact-model"><span class="std std-numref">Table 21.3</span></a></p>
+<figure class="align-default" id="fig-strike-area-for-airplane-crash">
+<img alt="../_images/fig-strike-area-for-airplane-crash.jpg" src="../_images/fig-strike-area-for-airplane-crash.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 21.5 </span><span class="caption-text">Strike area <span class="math notranslate nohighlight">\(A_{b}\)</span> for an airplane crash</span><a class="headerlink" href="#fig-strike-area-for-airplane-crash" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For airplanes the impact model <a class="reference internal" href="#equation-eq-impact-2-18-3">(21.3)</a> is not sufficient. A better model is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-12">
+<span class="eqno">(21.12)<a class="headerlink" href="#equation-eq-impact-2-18-12" title="Link to this equation">#</a></span>\[F_{C}(t)=F_{C}(\xi)+m^{\prime}(\xi) v_{c}^{2}(t)\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-impact-2-18-13">
+<span class="eqno">(21.13)<a class="headerlink" href="#equation-eq-impact-2-18-13" title="Link to this equation">#</a></span>\[\xi=\int_{0}^{t} v_{c}(\tau) d \tau\]</div>
+<p><span class="math notranslate nohighlight">\(F_{c}(x)=\)</span> static compression strength at a distance <span class="math notranslate nohighlight">\(x\)</span> from the nose</p>
+<p><span class="math notranslate nohighlight">\(m^{\prime}(x)=\)</span> mass per unit length at a distance <span class="math notranslate nohighlight">\(x\)</span> from the nose</p>
+<p><span class="math notranslate nohighlight">\(v_{c}(t)=\)</span> velocity of the crashed part of the plane at time <span class="math notranslate nohighlight">\(t\)</span></p>
+<p>Sometimes <span class="math notranslate nohighlight">\(v_{c}(t)\)</span> is taken as constant and equal to <span class="math notranslate nohighlight">\(v_{r}\)</span> for further simplification. Results from calculations based on this model can be found in <a class="reference internal" href="#table-impact-characteristics-for-various-aircrafts"><span class="std std-numref">Table 21.4</span></a>.</p>
+<p>It is recommended to make the analysis for each type of aircraft (small, large, civil, military) separately and add the results afterwards.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-numerical-values-for-the-air-plane-impact-model">
+<caption><span class="caption-number">Table 21.3 </span><span class="caption-text">Numerical values for the air plane impact model</span><a class="headerlink" href="#table-numerical-values-for-the-air-plane-impact-model" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-left"><p></p></th>
+<th class="head text-left"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\lambda\)</span></p></td>
+<td class="text-left"><p>Crash rate <br> <span class="math notranslate nohighlight">\(\quad\)</span>- military plane <br> <span class="math notranslate nohighlight">\(\quad\)</span>- civil plane</p></td>
+<td class="text-left"><p><br> <span class="math notranslate nohighlight">\(10^{-8}\)</span> km<span class="math notranslate nohighlight">\(^{-1}\)</span> <br> <span class="math notranslate nohighlight">\(10^{-9}\)</span> km<span class="math notranslate nohighlight">\(^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\Lambda\)</span></p></td>
+<td class="text-left"><p>Average collission rate for airport area <br> <span class="math notranslate nohighlight">\(\quad\)</span>- small planes (&lt;6 ton) <br> <span class="math notranslate nohighlight">\(\quad\)</span>- large planes (&gt;6 ton)</p></td>
+<td class="text-left"><p><br> <span class="math notranslate nohighlight">\(10^{-4}\)</span> yr<span class="math notranslate nohighlight">\(^{-1}\)</span> km<span class="math notranslate nohighlight">\(^{-1}\)</span> <br> 4 . <span class="math notranslate nohighlight">\(10^{-5}\)</span> yr<span class="math notranslate nohighlight">\(^{-1}\)</span> km<span class="math notranslate nohighlight">\(^{-1}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(R\)</span></p></td>
+<td class="text-left"><p>Radius of aiport influence circle</p></td>
+<td class="text-left"><p>8 km</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+<td class="text-left"><p>Strike angle</p></td>
+<td class="text-left"><p>mean 10<span class="math notranslate nohighlight">\(^{\circ}\)</span> <br> standard deviation  10<span class="math notranslate nohighlight">\(^{\circ}\)</span> <br> Rayleigh Distribution</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-impact-characteristics-for-various-aircrafts">
+<caption><span class="caption-number">Table 21.4 </span><span class="caption-text">Impact characteristics for various aircrafts (perpendicular on immovable walls)</span><a class="headerlink" href="#table-impact-characteristics-for-various-aircrafts" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type</p></th>
+<th class="head text-center"><p>t [ms]</p></th>
+<th class="head text-center"><p>F [MN]</p></th>
+<th class="head text-left"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Cessna 210 A <br> m = 1.7 ton <br> v = 100 m/s <br> A = 7 m<span class="math notranslate nohighlight">\(^2\)</span> <br> engine m = 0.2 ton <br> <span class="math notranslate nohighlight">\(\quad \quad \quad\)</span>A =  0.5 m<span class="math notranslate nohighlight">\(^2\)</span></p></td>
+<td class="text-center"><p>0 <br> 3 <br> 6 <br> 18 <br> 18 <br> <span class="math notranslate nohighlight">\(\quad\)</span></p></td>
+<td class="text-center"><p>0 <br> 7 <br> 7 <br> 4 <br> 4 <br> <span class="math notranslate nohighlight">\(\quad\)</span></p></td>
+<td class="text-left"><p><img alt="F vs. t plot for Cessna 210 A" src="../_images/Table-21.4-Cessna.png" /></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Lear Jet 23 A <br> m = 5.7 ton <br> v = 100 m/s <br> A = 12 m<span class="math notranslate nohighlight">\(^2\)</span> <br> <br> <br> <br></p></td>
+<td class="text-center"><p>0 <br> 20 <br> 35 <br> 50 <br> 70 <br> 80 <br> 100</p></td>
+<td class="text-center"><p>0 <br> 2 <br> 6 <br> 6 <br> 12 <br> 20 <br> 0</p></td>
+<td class="text-left"><p><img alt=" F vs. t plot for Lear Jet 23 A" src="../_images/Table-21.4-Lear_Jet.png" /></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>MRCA (Multi Role Combat) <br> m = 25 ton <br> v = 215 m/s <br> 4 = 7 m<span class="math notranslate nohighlight">\(^2\)</span> <br> engine m = 1.2 ton <br> <span class="math notranslate nohighlight">\(\quad \quad \quad\)</span>A =  0.5 m<span class="math notranslate nohighlight">\(^2\)</span></p></td>
+<td class="text-center"><p>0 <br> 10 <br> 30 <br> 40 <br> 50 <br> 701</p></td>
+<td class="text-center"><p>0 <br> 55 <br> 55 <br> 154 <br> 154 <br> 0</p></td>
+<td class="text-left"><p><img alt="F vs. t plot for MRCA (Multi Role Combat)" src="../_images/Table-21.4-MRCA.png" /></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Boeing 707-320 <br> m = 90 ton <br> v = 100 m/s <br> A = 36 m<span class="math notranslate nohighlight">\(^2\)</span> <br> <br> <br> <br> <br></p></td>
+<td class="text-center"><p>0 <br> 30 <br> 150 <br> 200 <br> 230 <br> 250 <br> 320 <br> 330</p></td>
+<td class="text-center"><p>0 <br> 20 <br> 20 <br> 90 <br> 90 <br> 20 <br> 10 <br> 0</p></td>
+<td class="text-left"><p><img alt="F vs. t plot for Boeing 707-320" src="../_images/Table-21.4-Boeing_707.png" /></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="impact-from-vehicles">
-<h2><span class="section-number">14.2. </span>Impact from vehicles<a class="headerlink" href="#impact-from-vehicles" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="distribution-of-impact-force">
-<h3><span class="section-number">14.2.1. </span>Distribution of impact force<a class="headerlink" href="#distribution-of-impact-force" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="specifications-of-impact-force">
-<h3><span class="section-number">14.2.2. </span>Specifications of impact force<a class="headerlink" href="#specifications-of-impact-force" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="impact-from-ships">
-<h2><span class="section-number">14.3. </span>Impact from ships<a class="headerlink" href="#impact-from-ships" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3><span class="section-number">14.3.1. </span>Distribution of impact force<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="id2">
-<h3><span class="section-number">14.3.2. </span>Specifications of impact force<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="impact-from-airplanes">
-<h2><span class="section-number">14.4. </span>Impact from airplanes<a class="headerlink" href="#impact-from-airplanes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id3">
-<h3><span class="section-number">14.4.1. </span>Distribution of impact force<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-</div>
+<p><span class="math notranslate nohighlight">\(A =\)</span> cross sectional area of the plane or engine</p>
+<p><span class="math notranslate nohighlight">\(m = \)</span> mass</p>
+<p><span class="math notranslate nohighlight">\(v_{r} = \)</span> velocity at impact</p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -445,7 +853,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./part-02"
         },
         predefinedOutput: true
@@ -453,46 +861,123 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="wind.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">13. </span>Wind</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="earthquake.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Earthquake Load</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="fire.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="fire.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Fire</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+        <p class="prev-next-title"><span class="section-number">22. </span>Fire</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Joint Committee on Structural Safety<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model-for-impact-loading">21.1. Basic Model for Impact Loading</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">21.1.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#failure-probability">21.1.2. Failure probability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-function-for-the-impact-load">21.1.3. Distribution function for the impact load</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-from-vehicles">21.2. Impact from vehicles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-impact-force">21.2.1. Distribution of impact force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specifications-of-impact-force">21.2.2. Specifications of impact force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-from-ships">21.3. Impact from ships</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">21.3.1. Distribution of impact force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">21.3.2. Specifications of impact force</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impact-from-airplanes">21.4. Impact from airplanes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">21.4.1. Distribution of impact force</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

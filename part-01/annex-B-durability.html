@@ -1,0 +1,782 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Annex B: Durability &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-01/annex-B-durability';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10. Annex C: Reliability Analysis Principles" href="annex-C-Reliability-Analysis-Principles.html" />
+    <link rel="prev" title="8. Annex A: The Robustness Requirement" href="annex-A-the-robust-requirement.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/annex-B-durability.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/annex-B-durability.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-01/annex-B-durability.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Annex B: Durability</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-formulations">9.1. Probabilistic Formulations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-of-deterioration-processes">9.2. Modelling of deterioration processes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-inspection">9.3. Effect of inspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">9.4. Example</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="annex-b-durability">
+<h1><span class="section-number">9. </span>Annex B: Durability<a class="headerlink" href="#annex-b-durability" title="Link to this heading">#</a></h1>
+<section id="probabilistic-formulations">
+<h2><span class="section-number">9.1. </span>Probabilistic Formulations<a class="headerlink" href="#probabilistic-formulations" title="Link to this heading">#</a></h2>
+<p>Loads as well as material properties may vary in time as stationary or non-stationary
+processes. Time may also be present in the limit state function as an explicit parameter. As a result, the failure probability of a structure is also time dependent. The general formulation for the failure probability for a period of time t may be presented as:</p>
+<div class="math notranslate nohighlight" id="equation-eqb1">
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-eqb1" title="Link to this equation">#</a></span>\[P_{F}(t)=P[\min g(\mathbf{x}(\tau) ; \tau)&lt;0 \text { for } 0&lt;\tau&lt;t]\]</div>
+<p><span class="math notranslate nohighlight">\(g(.)\)</span> = limit state function</p>
+<p><span class="math notranslate nohighlight">\(\mathbf{x}(\tau)\)</span> = vector of basic variable at time <span class="math notranslate nohighlight">\(\tau\)</span></p>
+<p><span class="math notranslate nohighlight">\(t\)</span> = period of time under consideration</p>
+<p><span class="math notranslate nohighlight">\(\tau\)</span> = time</p>
+<p>The failure may be of ULS as well as SLS type. One should keep in mind that also in the case of a non-deteriorating time independent resistance and a stationary loading condition, the failure probability is also time dependent due to the random fluctuations of the load. This, however, is usually not considered as a durability problem.</p>
+<p>Given <a class="reference internal" href="#equation-eqb1">(9.1)</a>, the conditional failure rate (also referred to as risk functions) at time t may be found as:</p>
+<div class="math notranslate nohighlight" id="equation-eqb2">
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-eqb2" title="Link to this equation">#</a></span>\[r(t)=\frac{P(\text { failure in }[t, t+\Delta t] \mid \text { survival up } t)}{\Delta t}=\frac{p_{F}(t)}{1-P_{F}(t)}\]</div>
+<p>where,</p>
+<div class="math notranslate nohighlight" id="equation-eqb3">
+<span class="eqno">(9.3)<a class="headerlink" href="#equation-eqb3" title="Link to this equation">#</a></span>\[p_F(t) = \frac{dP_F(t)}{dt}\]</div>
+<p>is the failure time density. For small values of <span class="math notranslate nohighlight">\(t\)</span>, the failure probability <span class="math notranslate nohighlight">\(P_F( t )\)</span> is close to zero, which makes the conditional failure rate and the density almost numerically equal. For durability problems, the conditional failure rate is usually increasing in time. Reliability limits set in <a class="reference internal" href="target-reliability.html"><span class="std std-doc">section 7</span></a> may be related to <a class="reference internal" href="#equation-eqb2">(9.2)</a> or <a class="reference internal" href="#equation-eqb3">(9.3)</a> whichever is appropriate.</p>
+<p>If failure of a structural element leads automatically to replacement by a similar element, one may alternatively use the renewal density <span class="math notranslate nohighlight">\(h\)</span>, defined as;</p>
+<div class="math notranslate nohighlight" id="equation-eqb4">
+<span class="eqno">(9.4)<a class="headerlink" href="#equation-eqb4" title="Link to this equation">#</a></span>\[h(t)=\frac{\sum_{n=1}^{\infty} P(\text { failure of element number } n \text { in }[t, t+\Delta t])}{\Delta t}\]</div>
+<p>For small <span class="math notranslate nohighlight">\(t\)</span> the result will be equal to <a class="reference internal" href="#equation-eqb2">(9.2)</a> and <a class="reference internal" href="#equation-eqb3">(9.3)</a>. For large <span class="math notranslate nohighlight">\(t\)</span> the value of <span class="math notranslate nohighlight">\(h\)</span> will asymptotically lead to <span class="math notranslate nohighlight">\(1/μ\)</span> and where <span class="math notranslate nohighlight">\(μ\)</span> is the mean time to failure, defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eqb5">
+<span class="eqno">(9.5)<a class="headerlink" href="#equation-eqb5" title="Link to this equation">#</a></span>\[\mu = \int_{0}^{\infty} t\ \ p_{F}(t) dt = \int_{0}^{\infty} (1 - P_{F}(t)) dt\]</div>
+<p>The calculation procedure for <span class="math notranslate nohighlight">\(P_F(t)\)</span> depends on the nature of the limit state function <span class="math notranslate nohighlight">\(g(.)\)</span>. If <span class="math notranslate nohighlight">\(g(.)\)</span> is a smooth monotonically decreasing function not depending explicitly on random process variables, the minimum value is reached at the end of the period, and we simply have:</p>
+<div class="math notranslate nohighlight" id="equation-eqb6">
+<span class="eqno">(9.6)<a class="headerlink" href="#equation-eqb6" title="Link to this equation">#</a></span>\[P_{F}(t)=P[g(\mathbf{x} ; t)&lt;0]\]</div>
+<p>If <span class="math notranslate nohighlight">\(g(.)\)</span> depends on random process variables and, therefore, is not monotonically decreasing, we have a first passage problem. In that case the following upper bound approximation may be useful:</p>
+<div class="math notranslate nohighlight" id="equation-eqb7">
+<span class="eqno">(9.7)<a class="headerlink" href="#equation-eqb7" title="Link to this equation">#</a></span>\[P_F(t)=P_F(0)+\int_{0}^{t}v^{-}(\tau) d \tau\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_F(0)\)</span> is the failure at the start and <span class="math notranslate nohighlight">\({v^{-}}\)</span> the outcrossing rate or unconditional failure rate which is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqb8">
+<span class="eqno">(9.8)<a class="headerlink" href="#equation-eqb8" title="Link to this equation">#</a></span>\[v^{-}(\tau)=\frac{P[g(\tau)&gt;0 \cap g(\tau+\Delta \tau)&lt;0]}{\Delta \tau}\]</div>
+<p>In general, the limit state function <span class="math notranslate nohighlight">\(g(.)\)</span> may be quite complex due to a combination of physical, chemical and mechanical processes. Take as an example the deterioration processes due to carbonation and/or chloride ingress of concrete. After some period of time the carbonation or chloride fronts may reach the reinforcement and corrosion may start, resulting eventually in spalling and later even in failure by collapse due to some large mechanical load (see <a class="reference internal" href="#fig-failure-due-to-a-combination-of-physical-and-chemical-processes-and-a-variable-mechanical-load"><span class="std std-numref">Fig. 9.1</span></a>). Many parameters like the outside climate, the cover of the concrete, the diffusion properties, the corrosion speed and so on may play a role.</p>
+<figure class="align-default" id="fig-failure-due-to-a-combination-of-physical-and-chemical-processes-and-a-variable-mechanical-load">
+<img alt="../_images/Failure-due-to-a-combination-of-physical-and-chemical-processes-and-a-variable-mechanical-load.jpg" src="../_images/Failure-due-to-a-combination-of-physical-and-chemical-processes-and-a-variable-mechanical-load.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Failure due to a combination of physical and chemical processes and a variable mechanical load.</span><a class="headerlink" href="#fig-failure-due-to-a-combination-of-physical-and-chemical-processes-and-a-variable-mechanical-load" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="modelling-of-deterioration-processes">
+<h2><span class="section-number">9.2. </span>Modelling of deterioration processes<a class="headerlink" href="#modelling-of-deterioration-processes" title="Link to this heading">#</a></h2>
+<p>In this Annex we will restrict the discussion to a family of relatively simple damage
+accumulation processes that can be described by the following differential equation:</p>
+<div class="math notranslate nohighlight" id="equation-eqb9">
+<span class="eqno">(9.9)<a class="headerlink" href="#equation-eqb9" title="Link to this equation">#</a></span>\[\frac{dy}{dt}=y^{k}  h(z)\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; y(t)=\text { damage indicator } \\
+&amp; z(t)=\text { random process of disturbances } \\
+&amp; h(.)=\text { positive definite function of } z \\
+&amp; k=\text { parameter determining the nature of the process }
+\end{aligned}\end{split}\]</div>
+<p>From <a class="reference internal" href="#equation-eqb9">(9.9)</a> we may arrive at:</p>
+<div class="math notranslate nohighlight" id="equation-eqb10">
+<span class="eqno">(9.10)<a class="headerlink" href="#equation-eqb10" title="Link to this equation">#</a></span>\[\int_{y(0)}^{y(t)} y^{-k} dy=\int_{0}^{t} ~h(z(\tau)) d \tau\]</div>
+<p>Defining <span class="math notranslate nohighlight">\(\Psi(y)\)</span> as the integral function of <span class="math notranslate nohighlight">\(y^{-k}\)</span> and <span class="math notranslate nohighlight">\(\chi(t)\)</span> as the right hand side integral of <a class="reference internal" href="#equation-eqb10">(9.10)</a>, this can be written as:</p>
+<div class="math notranslate nohighlight">
+\[
+\Psi(y(t))-\Psi(y(0))=\chi(t)
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(z(t)\)</span> is stationary and ergodic, <span class="math notranslate nohighlight">\(\chi(t)\)</span> may asymptotically be taken as implying that the damage increases smoothly:</p>
+<div class="math notranslate nohighlight" id="equation-eqb11">
+<span class="eqno">(9.11)<a class="headerlink" href="#equation-eqb11" title="Link to this equation">#</a></span>\[\chi(t)=t E\lbrace h(z(t))\rbrace\]</div>
+<p>Failure will occur if the damage <span class="math notranslate nohighlight">\(y(t)\)</span> exceeds some critical value <span class="math notranslate nohighlight">\(y_{cr}\)</span>, which leads finally to the following expression for the limit state function:</p>
+<div class="math notranslate nohighlight" id="equation-eqb12">
+<span class="eqno">(9.12)<a class="headerlink" href="#equation-eqb12" title="Link to this equation">#</a></span>\[g(t)=\Psi\left(y_{cr}(t)\right)-\Psi(y(0))-\chi(t)\]</div>
+<p>The critical value <span class="math notranslate nohighlight">\(y_{c r}\)</span> may be a constant or time dependent. If <span class="math notranslate nohighlight">\(y_{c r}\)</span> is a constant we may use <a class="reference internal" href="#equation-eqb3">(9.3)</a>, to find the failure probability. If <span class="math notranslate nohighlight">\(y_{cr}\)</span> is time dependent we have a first passage problem.</p>
+<p><span class="math notranslate nohighlight">\(\underline{\text {Characteristic examples}}\)</span></p>
+<ol class="arabic">
+<li><p><em>Abrasion / corrosion modelling</em></p>
+<p>Abrasion and/or corrosion mechanisms can be modelled by <span class="math notranslate nohighlight">\(k\)</span>=0 and <span class="math notranslate nohighlight">\(h(z)=z\)</span>. In that case <a class="reference internal" href="#equation-eqb9">(9.9)</a> reduces to:</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{dy}{dt}=z(t)
+    \]</div>
+<p>For abrasion or corrosion the damage parameter <span class="math notranslate nohighlight">\(y\)</span> corresponds to the thickness of the lost material and <span class="math notranslate nohighlight">\(z\)</span> represents the abrasion or corrosion rate. In this case <span class="math notranslate nohighlight">\(Psi\)</span> is simple equal to y itself. Assuming that <span class="math notranslate nohighlight">\(z(t)\)</span> is a stationary and ergodic random process with mean <span class="math notranslate nohighlight">\(z\)</span>, we may use <a class="reference internal" href="#equation-eqb12">(9.12)</a> and arrive at:</p>
+<div class="math notranslate nohighlight">
+\[
+    g(t)=y_{cr}-y_{o}-\mu_{z} t
+    \]</div>
+<p>The value <span class="math notranslate nohighlight">\(y_{o}\)</span> may be 0 (or random) and the critical value of <span class="math notranslate nohighlight">\(y_{c r}\)</span> may be related to the load and material strength, for instance:</p>
+<div class="math notranslate nohighlight">
+\[y_{cr} = d_{o} - S / f\]</div>
+<p>where <span class="math notranslate nohighlight">\(d_{o}\)</span> is the original material thickness, <span class="math notranslate nohighlight">\(S\)</span> the load per unit length and <span class="math notranslate nohighlight">\(f\)</span> the material rupture strenght. It can easily be seen that <span class="math notranslate nohighlight">\(y_{cr}\)</span> is constant in time for a constant load <span class="math notranslate nohighlight">\(S\)</span> and that <span class="math notranslate nohighlight">\(y_{cr}\)</span> is time dependent for a fluctuating load.</p>
+</li>
+<li><p><em>Duration of load</em></p>
+<p>We consider again the case <span class="math notranslate nohighlight">\(n=0\)</span> and <span class="math notranslate nohighlight">\(h(z)=z\)</span>. Let now, however, <span class="math notranslate nohighlight">\(y\)</span> represent the relative reduction of the material strength <span class="math notranslate nohighlight">\(R\)</span>, that is <span class="math notranslate nohighlight">\(R(t)=R_{o}(1-y)\)</span>. Let further the disturbance <span class="math notranslate nohighlight">\(z\)</span> be proportional to the mechanical load <span class="math notranslate nohighlight">\(S\)</span>. In other words: the presence of a load will lead to a damage or strength reduction, and more if the load is higher. Such a model can be used to represent duration of load effects. If we define <span class="math notranslate nohighlight">\(z=S / S_{o}\)</span>, with <span class="math notranslate nohighlight">\(S_{o}\)</span> some random material parameter, we arrive at:</p>
+<div class="math notranslate nohighlight">
+\[
+    g(t)=y_{c r}-y_{o}-\mu_{S} ~t / S_{o}
+    \]</div>
+<p>Let <span class="math notranslate nohighlight">\(y_{o}=0\)</span> and let <span class="math notranslate nohighlight">\(y_{cr}\)</span> correspond to <span class="math notranslate nohighlight">\(R(t)=R_{o}\left(1-y_{cr}\right)=S(t)\)</span>, we arrive finally at:</p>
+<div class="math notranslate nohighlight">
+\[
+    g(t)=\left(1-\mu_{S} ~t / S_{o}\right)-S(t) / R_{o}
+    \]</div>
+<p>or equivalently:</p>
+<div class="math notranslate nohighlight">
+\[
+    g(t)=R_{o}\left(1-\mu_{S} ~t / S_{o}\right)-S(t)
+    \]</div>
+<p>Again, if <span class="math notranslate nohighlight">\(S\)</span> is a constant load we may use <a class="reference internal" href="#equation-eqb6">(9.6)</a>; if not we have a first passage problem. The resulting time dependent strength for a constant load <span class="math notranslate nohighlight">\(S\)</span> is presented in <a class="reference internal" href="#time-dependent-strength-for-constant-load"><span class="std std-numref">Fig. 9.2</span></a>.</p>
+<figure class="align-default" id="time-dependent-strength-for-constant-load">
+<img alt="../_images/Time-dependent-strength-for-constant-load.jpg" src="../_images/Time-dependent-strength-for-constant-load.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 9.2 </span><span class="caption-text">Load duration dependent strength under constant load</span><a class="headerlink" href="#time-dependent-strength-for-constant-load" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><em>Fatigue Crack Propagation</em></p>
+<p>Due to load fluctuations some initial small crack in a structure may grow and weaken the cross section. Finally some large load amplitude may lead to collapse of the structural element (see <a class="reference internal" href="#fatigue-fracture-under-cyclic-loading"><span class="std std-numref">Fig. 9.3</span></a>). The differential equation for the crack growth a is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+    \frac{da}{dn}=C ~Y(a)\left[\Delta S(n) \sqrt{\pi a}\right]^{m}
+    \]</div>
+<p>Where <span class="math notranslate nohighlight">\(\Delta S\)</span> represents the stress range, <span class="math notranslate nohighlight">\(Y(a)\)</span> represents a geometrical function, <span class="math notranslate nohighlight">\(C\)</span> and <span class="math notranslate nohighlight">\(m\)</span> are material constants and <span class="math notranslate nohighlight">\(n\)</span> is the stress cycle number. Note that in this example the time <span class="math notranslate nohighlight">\(t\)</span> has been replaced by the load cycle number <span class="math notranslate nohighlight">\(n\)</span> and that <span class="math notranslate nohighlight">\(k\)</span> in <a class="reference internal" href="#equation-eqb5">(9.5)</a> corresponds to <span class="math notranslate nohighlight">\(m/2\)</span>. The functions <span class="math notranslate nohighlight">\(\Psi\)</span> and <span class="math notranslate nohighlight">\(\chi\)</span> are then given by (assuming <span class="math notranslate nohighlight">\(\Delta S\)</span> to be stationary and ergodic):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; \Psi=\frac{2}{2-m} \frac{1}{C Y} \pi^{--m / 2} ~p^{-m / 2} ~a^{1-m / 2} \\
+\\
+&amp; \chi=nE\left\lbrace (\Delta S)^{m_{m}}\right\rbrace
+\end{aligned}\end{split}\]</div>
+<p>And the limit state function is given by:</p>
+<div class="math notranslate nohighlight">
+\[ g (t) = \Psi(a_{\text{cr}}) - \Psi(a_0) - \chi \]</div>
+<p>where <span class="math notranslate nohighlight">\(a_{0}\)</span> is the initial crack length and <span class="math notranslate nohighlight">\(a_{cr}\)</span> the critical crack length, which again may be time dependent or time independent. In the fist case <a class="reference internal" href="#equation-eqb6">(9.6)</a> may be used, in the second case we have a first passage problem.</p>
+<p>Alternatively, one may formulate the limit state function in the crack domain:</p>
+<div class="math notranslate nohighlight">
+\[
+    g(t)=a_{cr}-a(n) \quad \quad \text { with } ~a(n) = \left\lbrace {a_o}^{1-m/2} + \frac{2}{2-m} C~Y \pi^{m/2}~nE \left\lbrace \Delta s^m \right\rbrace \right\rbrace
+    \]</div>
+<p>or in the time domain:</p>
+<div class="math notranslate nohighlight">
+\[
+    g(t)=N - n \quad \quad \text{with} ~N= \frac{\psi(a_{cr}) -\psi(a_{o})}{E \left\lbrace (\Delta S)^m \right\rbrace}
+    \]</div>
+<p>These alternative formulations are fully equivalent to the first one.</p>
+<figure class="align-default" id="fatigue-fracture-under-cyclic-loading">
+<img alt="../_images/Fatigue-fracture-under-cyclic-loading.jpg" src="../_images/Fatigue-fracture-under-cyclic-loading.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 9.3 </span><span class="caption-text">Fatigue fracture under cyclic loading</span><a class="headerlink" href="#fatigue-fracture-under-cyclic-loading" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="effect-of-inspection">
+<h2><span class="section-number">9.3. </span>Effect of inspection<a class="headerlink" href="#effect-of-inspection" title="Link to this heading">#</a></h2>
+<p>In the case of deteriorating processes it may be uneconomic to design a structure in such a way that the reliability is sufficient for a normal design life of 50 years. In those cases a more economical solution can be obtained by the definition of an inspection scheme. In those cases failure will not occur if the inspection reveals some predefined deterioration criterion and the structure is repaired adequately.</p>
+<p>The sequence of events can be represented in an event tree as indicated in <a class="reference internal" href="#event-tree-representation-of-an-inspected-component"><span class="std std-numref">Fig. 9.4</span></a>. Let the first inspection <span class="math notranslate nohighlight">\(I_{i}\)</span> be planned at time <span class="math notranslate nohighlight">\(t_{i}\)</span>. In that case we may have three possibilities.</p>
+<ol class="arabic simple">
+<li><p>a failure occurs before <span class="math notranslate nohighlight">\(t_{i}\)</span> (branche <span class="math notranslate nohighlight">\(F\)</span> )</p></li>
+<li><p>the inspection detects a serious defect and repair is necessary (branche <span class="math notranslate nohighlight">\(R\)</span>)</p></li>
+<li><p>no serious defect is detected and a next inspection at <span class="math notranslate nohighlight">\(t=t_{2}\)</span> is planned</p></li>
+</ol>
+<p>If the structure is repaired, one may usually assume that all variables are reset to the initial situation. From every event <span class="math notranslate nohighlight">\(R\)</span> then a new event tree of the same type as the one in <a class="reference internal" href="#event-tree-representation-of-an-inspected-component"><span class="std std-numref">Fig. 9.4</span></a> is started.</p>
+<p>For reasons of simplicity we will start by having one inspection only. Using the total probability theorem, the probability of failure for a period <span class="math notranslate nohighlight">\(t\)</span> may then formally be written as:</p>
+<div class="math notranslate nohighlight" id="equation-eqb13">
+<span class="eqno">(9.13)<a class="headerlink" href="#equation-eqb13" title="Link to this equation">#</a></span>\[P_{F}(t)=P\left[F \mid Z_{i}&gt;0\right] ~P(Z_{i}&gt;0) + P\left[F \mid Z_{i}&lt;0\right] ~P(Z_{i}&lt;0)\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(F \quad=\)</span> failure</p>
+<p><span class="math notranslate nohighlight">\(Z_{i} \quad=\)</span> inspection result of inspection at time <span class="math notranslate nohighlight">\(t_{i}\)</span> (negative values correspond to the detection of damage)</p>
+<p>If we assume that in the case of a serious damage revealed at the inspection (that is <span class="math notranslate nohighlight">\(Z&lt;0\)</span> ) the structure will be repaired adequately, <a class="reference internal" href="#equation-eqb13">(9.13)</a> may be reduced to (replacing <span class="math notranslate nohighlight">\(F\)</span> by <span class="math notranslate nohighlight">\(\min _{\tau} g(\tau)&lt;0\)</span>, where <span class="math notranslate nohighlight">\(g(~)\)</span> is the limit state function and <span class="math notranslate nohighlight">\(0&lt;\tau&lt;t\)</span>) :</p>
+<div class="math notranslate nohighlight">
+\[
+P_{F}(t)=P\left[min_{\tau}~g(\tau)&lt;0 \mid Z_{i}&gt;0\right] P\left(Z_{i}&gt;0\right)
+\]</div>
+<p>or simply:</p>
+<div class="math notranslate nohighlight">
+\[
+P_{F}(t)=P\left[min_{\tau}~g(\tau)&lt;0 ~\cap~ Z_{i}&gt;0\right]
+\]</div>
+<p>If more inspections in fixed intervals are present we arrive at:</p>
+<div class="math notranslate nohighlight" id="equation-eqb14">
+<span class="eqno">(9.14)<a class="headerlink" href="#equation-eqb14" title="Link to this equation">#</a></span>\[P_{F}(t)=P\left[min_{\tau}~g(x(\tau) ;\tau)&lt;0~~\cap~~\left\lbrace \cap Z_i (\mathbf{x}(t_i);t_i)\right\rbrace &gt; 0 ~\text{for}~0&lt;\tau&lt;t \right]\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{t}_{\mathrm{i}}=\)</span> time of inspection; only inspections with <span class="math notranslate nohighlight">\(\mathrm{t}_{\mathrm{i}}&lt;\tau\)</span> are relevant</p>
+<p>Note: whether or not an inspection is planned, of course, is a matter of economy.</p>
+</section>
+<section id="example">
+<h2><span class="section-number">9.4. </span>Example<a class="headerlink" href="#example" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#fatigue-failure-between-time-interval"><span class="std std-numref">Fig. 9.5</span></a> clarifies formula <a class="reference internal" href="#equation-eqb14">(9.14)</a> for the case of fatigue. As discussed before, the g-function for the situation at the load cycle at time $\tau` is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+g=a_{c r}-a(t)
+\]</div>
+<p>Let the crack <span class="math notranslate nohighlight">\(a(\tau)\)</span> be monitored by a yearly inspection. If the measured crack <span class="math notranslate nohighlight">\(a_{m}\)</span> is larger that some limit <span class="math notranslate nohighlight">\(a_{lim}\)</span> the structure will be adequately repaired. An inspection failure may then be modelled as <span class="math notranslate nohighlight">\(Z_{\text {ins }}&lt;0\)</span> with:</p>
+<div class="math notranslate nohighlight">
+\[Z_{\text {ins }}=a_{\lim }-a_{m}\left(t_{i}\right)\]</div>
+<p>In present practice <span class="math notranslate nohighlight">\(a_{\lim }\)</span> usually corresponds to the detection limit and the probability distribution for <span class="math notranslate nohighlight">\(a_{\lim }\)</span> is then equal to the so called POD-curve (probability of detection).</p>
+<p>Failure will occur only if the measured value <span class="math notranslate nohighlight">\(a_{m}\left(t_{ins}\right)\)</span> is below the limit value <span class="math notranslate nohighlight">\(a_{lim}\)</span> at inspection <span class="math notranslate nohighlight">\(t_{i}\)</span> but above the <span class="math notranslate nohighlight">\(a_{crit}\)</span> before the next inspection. This way failure probability can be reduced by shorter inspection intervals or by more refined or accurate inspection techniques.</p>
+<p>Note that an implication of this method is that these Probability of Detection curves (POD curves) and measurement accuracies must be known to the designer in order to decide whether or not a certain structure meets the reliability requirements. Note further that the probability of repair is given by:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{P}=\mathrm{P}\left[\mathrm{Z}_{\text {ins }}&lt;0\right]
+\]</div>
+<p>Repair may be considered like some serviceability limit state. The designer should also make sure that the probability of repair is below some economic limit value.</p>
+<figure class="align-default" id="event-tree-representation-of-an-inspected-component">
+<img alt="../_images/Event-tree-representation-of-an-inspected-component.jpg" src="../_images/Event-tree-representation-of-an-inspected-component.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 9.4 </span><span class="caption-text">Event tree representation of an inspected component: <span class="math notranslate nohighlight">\(R=\)</span> Repair or maintenance action; <span class="math notranslate nohighlight">\(F=\)</span> Failure, <span class="math notranslate nohighlight">\(I_{i}=\)</span> Inspection at time <span class="math notranslate nohighlight">\(t_{i}\)</span></span><a class="headerlink" href="#event-tree-representation-of-an-inspected-component" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fatigue-failure-between-time-interval">
+<img alt="../_images/Fatigue-failure-between-time-interval.jpg" src="../_images/Fatigue-failure-between-time-interval.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 9.5 </span><span class="caption-text">Fatigue failure in the interval <span class="math notranslate nohighlight">\(t_{i}, t_{i}+\Delta t_{i}\)</span> with <span class="math notranslate nohighlight">\(a(\tau)&lt;a_{lim}\)</span> at the beginning of the interval.</span><a class="headerlink" href="#fatigue-failure-between-time-interval" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="annex-A-the-robust-requirement.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Annex A: The Robustness Requirement</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="annex-C-Reliability-Analysis-Principles.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Annex C: Reliability Analysis Principles</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-formulations">9.1. Probabilistic Formulations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-of-deterioration-processes">9.2. Modelling of deterioration processes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-inspection">9.3. Effect of inspection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example">9.4. Example</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

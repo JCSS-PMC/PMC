@@ -1,0 +1,1491 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>19. Wave loads &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-02/wave-loads';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="20. Earthquake Load" href="earthquake.html" />
+    <link rel="prev" title="18. Thermal Actions" href="thermal-actions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/wave-loads.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/wave-loads.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-02/wave-loads.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Wave loads</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">19.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-short-term-random-wave-process">19.2. The short-term random wave process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-spectrum-and-sea-state-parameters">19.2.1. Wave spectrum and sea state parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-moments">19.2.2. Spectral Moments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-peak-spectrum">19.2.3. Single peak spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-peak-spectrum">19.2.4. Double peak spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-wave-spectrum">19.2.5. Directional wave spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crest-distribution-for-gaussian-sea-state">19.2.6. Crest distribution for Gaussian Sea-State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crest-distribution-for-non-gaussian-sea-state">19.2.7. Crest distribution for Non-Gaussian Sea-State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-for-wave-heights">19.2.8. Distribution for wave heights</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-term-wave-conditions">19.3. Long-term wave conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-distribution-of-significant-wave-height">19.3.1. Marginal distribution of significant wave height</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joint-distribution-of-wave-height-and-period">19.3.2. Joint distribution of wave height and period</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-individual-wave-height-and-crest-height">19.4. Extreme individual wave height and crest height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-load-models">19.5. Wave load models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slender-members">19.5.1. Slender members</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-walls">19.5.2. Vertical walls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-members">19.5.3. Volume members</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slamming-loads">19.5.4. Slamming loads</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties">19.6. Uncertainties</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="wave-loads">
+<h1><span class="section-number">19. </span>Wave loads<a class="headerlink" href="#wave-loads" title="Link to this heading">#</a></h1>
+<p><strong>List of symbols:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}c &amp;=  \text { phase velocity} ( c=\omega / k) \\
+d &amp;=  \text { water depth} \\
+d_{c} &amp;=  \text { thickness of protection block layer} \\
+f &amp;=  \text { frequency} (=1/T) \\
+f_{p} &amp;=  \text { frequency corresponding to} T_{p} \\
+g &amp;=  \text { acceleration of gravity} \\
+h &amp;=  \text { water depth in front of the structure;} \\
+h^{\prime} &amp;=  \text { water depth at the toe of the front wall} (= d+d_{c} )\\
+h_{b} &amp;=  \text { water depth at a distance of 5 times the significant wave height}\\
+k &amp;=  \text { wave number} ( k=1 / \lambda) \\
+u(x, z, t) &amp;=  \text { horizontal particle velocity}\\
+\dot{u}(x, z, t) &amp;=  \text { acceleration} \\
+u &amp;=  \text { water velocity perpendicular to structural member} \\
+\dot{u} &amp;=  \text { water acceleration perpendicular to structural member} \\
+u-\dot{x} &amp;=  \text { relative velocity} \\
+\dot{x} &amp;=  \text { cylinder velocity} \\
+\ddot{x} &amp;=  \text { cylinder acceleration} \\
+x, y, z &amp;=  \text { coordinates} \\
+A &amp;=  \text { cross section area} \\
+A_{\gamma} &amp;=  \text { normalisation factor,} \approx 1-0.287 \ln (\gamma) \\
+C_{M} &amp;=  \text { inertia coefficient} \\
+C_{D} \cdot &amp;=  \text { drag coefficient} \\
+D &amp;=  \text { cylinder diameter} \\
+F &amp;=  \text { force per cylinder length in flow and motion direction} \\
+H_{s} &amp;=  \text { significant wave height} \\
+H &amp;=  \text { incident wave height (from trough to crest) in front of the structure} \\
+K &amp;=  \text { non-linearity factor} \\
+L &amp;=  \text { wave length;} \\
+M_{n} &amp;=  \text { n-th (spectral) moment} \\
+S &amp;=  \text { significant wave slope} \\
+S(f), S(\omega) &amp;=  \text { spectral density} \\
+T &amp;=  \text { wave period.} \\
+T_{p} &amp;=  \text { peak period} \\
+T_{z} &amp;=  \text { mean wave period} \\
+T_{m o 2} &amp;=  \text { average wave period} \\
+T_{d} &amp;=  \text { duration of sea state}\\
+T(z, \omega) &amp;=  \text { transfer function} \\
+V &amp;=  \text { coefficient of variation} \\
+\alpha &amp;=  \text { generalised Phillips' constant, scale parameter} \\
+\alpha_{1}, \alpha_{2}, \alpha_{3} &amp;=  \text { factors dependent on hydraulic conditions (see {eq}`eq-wave-2-56`)} \\
+\alpha_{4} &amp;=  \text { kurtosis} \\
+\beta &amp;=  \text { shape parameter} \\
+\beta &amp;=  \text { angle of wave incidence} \\
+\gamma &amp;=  \text { location parameter} \\
+\gamma &amp;=  \text { peakness parameter in spectrum} \\
+\delta, \varepsilon &amp;=  \text { spectral width} \\
+\phi_{s} &amp;=  \text { mean wave direction} \\
+\lambda &amp;=  \text { wave length} \\
+\lambda_{1}, \lambda_{2}, \lambda_{3} &amp;=  \text { factors in wave force model} \\
+\theta &amp;=  \text { wave direction} \\
+\theta_{w} &amp;=  \text { wave model unertainty} \\
+\theta &amp;=  \text { angle between the elementary wave and the main wave direction} \\
+\theta_{\mathrm{MG}} &amp;=  \text { model uncertainty marine growth} \\
+\eta(x, y, t) &amp;=  \text { surface elevation} \\
+\nu_{0}^{u} &amp;=  \text { zero-crossing frequency} \\
+\tilde{\nu}(z) &amp;=  \text { ensemble averaged up-crossing rate} \\
+\rho &amp;=  \text { density of water} \\
+\rho_{i j} &amp;=  \text { coefficient of correlation between members} \\
+\sigma &amp;=  \text { standard deviation, spectral width parameter} \\ 
+\tau &amp;=  \text { short-term duration} \\
+\omega &amp;=  \text { angular wave frequency} (=2 \pi f) \\
+\omega_{p} &amp;=  \text { angular spectral peak frequency} (= 2 \pi f_{\mathrm{p.}})\\
+\vec{\psi} &amp;=  \text { environmental state}\end{array}\)</span></p>
+<section id="introduction">
+<h2><span class="section-number">19.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Waves as relating to wave loads on structures are usually described in terms of sea states. A sea state is an approximately stationary condition described by parameters with long-term fluctuations. These parameters include the significant wave height <span class="math notranslate nohighlight">\(H_{s}\)</span>, the mean wave period <span class="math notranslate nohighlight">\(T_{z}\)</span>, the peak period <span class="math notranslate nohighlight">\(T_{p}\)</span> and the wave direction <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>The waves in a sea state are usually described by means of the statistics of the surface elevation <span class="math notranslate nohighlight">\(eta(x, y, t)\)</span>. Wave forces depend on the velocity and acceleration of water particles below the surface. The relation between these variables can be found using wave theories. Among these may be mentioned:</p>
+<ul class="simple">
+<li><p><em>Linear wave</em> theory, by which the wave profile is described as a sine function.</p></li>
+<li><p><em>Solitary wave</em> theories for particularly shallow water.</p></li>
+<li><p><em>Cnoidal wave</em> theories which cover the waves above as special cases.</p></li>
+<li><p><em>Stokes wave</em> theories for particularly high waves</p></li>
+<li><p><em>Stream-function waves</em>, which are based on numerical methods and accurately, describe the wave kinematics over a broad range of water depths</p></li>
+<li><p><em>Solitons</em>, weakly non-linear dispersive waves</p></li>
+<li><p><em>Wave packets</em>, solutions of Non-Linear Schroedinger Equation</p></li>
+</ul>
+<p>The following wave theories are in common use ( <span class="math notranslate nohighlight">\(d\)</span> is the water depth and <span class="math notranslate nohighlight">\(\lambda\)</span> is the wave length):</p>
+<ul class="simple">
+<li><p>Solitary wave theory for <span class="math notranslate nohighlight">\(d / \lambda&lt;0.1\)</span>;</p></li>
+<li><p>Stokes’ <span class="math notranslate nohighlight">\(5^{\text {th }}\)</span> order theory for <span class="math notranslate nohighlight">\(0.1&lt;d / \lambda&lt;0.3\)</span>;</p></li>
+<li><p>Linear wave theory for <span class="math notranslate nohighlight">\(d / \lambda&gt;0.3\)</span>.</p></li>
+</ul>
+<p>For most practical purposes an appropriate order of Dean’s Stream Function or Stokes’ 5th is applicable for regular wave analysis. For the spectral description of random seas, the linear wave theory is almost always used.</p>
+<p>The most important solution of the linear wave equations is the long crested wave. The surface elevation is a sine wave with amplitude <span class="math notranslate nohighlight">\(a\)</span> progressing with phase velocity <span class="math notranslate nohighlight">\(c=\omega / k\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-1">
+<span class="eqno">(19.1)<a class="headerlink" href="#equation-eq-wave-2-1" title="Link to this equation">#</a></span>\[\eta(x, t)=a \sin (\omega t-\vec{k} \vec{x})=a \sin (\omega t-k x))\]</div>
+<p>if the wave direction is parallel to the <span class="math notranslate nohighlight">\(x\)</span>-axis. More general wave forms can be generated by superposition of plane waves with different values of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(\omega\)</span>. The dispersion relation between wave number <span class="math notranslate nohighlight">\(k=1 / \lambda\)</span> and angular wave frequency <span class="math notranslate nohighlight">\(\omega\)</span> reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-2">
+<span class="eqno">(19.2)<a class="headerlink" href="#equation-eq-wave-2-2" title="Link to this equation">#</a></span>\[\omega^{2}=g k \tanh (k d)\]</div>
+<p>Here <span class="math notranslate nohighlight">\(g\)</span> is the constant of gravity and <span class="math notranslate nohighlight">\(d\)</span> is the water depth. The deep water approximation <span class="math notranslate nohighlight">\(\omega^{2}=g k\)</span> is valid for depths exceeding approximately half the wavelength.</p>
+<p>The horizontal particle velocity <span class="math notranslate nohighlight">\(u(x, z, t)\)</span> and acceleration <span class="math notranslate nohighlight">\(\dot{u}(x, z, t)\)</span> follow from:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-3">
+<span class="eqno">(19.3)<a class="headerlink" href="#equation-eq-wave-2-3" title="Link to this equation">#</a></span>\[u(x, z, t)=\omega \frac{\cosh k(z+d)}{\sinh (k d)} \eta(x, t)=\omega T(z, \omega) \eta(x, t)\]</div>
+<p>where <span class="math notranslate nohighlight">\(T(z, \omega)\)</span> is a transfer function.</p>
+<p>For large <span class="math notranslate nohighlight">\(\omega\)</span>, the dispersion relation degenerates into the deep-water form, and</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-4">
+<span class="eqno">(19.4)<a class="headerlink" href="#equation-eq-wave-2-4" title="Link to this equation">#</a></span>\[T(z, \omega) \sim \exp \left(\frac{\omega^{2} z}{g}\right)\]</div>
+<p>The limiting average wave steepness for short-term irregular seastates may in absence of other reliable sources be taken as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-5">
+<span class="eqno">(19.5)<a class="headerlink" href="#equation-eq-wave-2-5" title="Link to this equation">#</a></span>\[\begin{split}S=\frac{2 \pi}{g} \frac{H_{S}}{T_{Z}^{2}}=\left\lbrace
+\begin{array}{lll} \frac{1}{15} &amp; \text { for } T_{Z} \geq 12 s &amp; unlimited~fetch \\ \\ \frac{1}{10} &amp; \text { for } T_{Z}&lt;6 s &amp; limited~fetch \end{array}\right.\end{split}\]</div>
+<p>and interpolated linearly between the boundaries.</p>
+<p>Stretching of wave theory to the instantaneous sea surface should be performed. When linear wave theory is applied, the extrapolation of the wave kinematics to the free surface is most appropriately carried out by substituting the true elevation, at which the kinematics are required, with one which is at the same proportion of the still water depth as the true elevation is of the instantaneous water depth. This can be expressed as follows</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-6">
+<span class="eqno">(19.6)<a class="headerlink" href="#equation-eq-wave-2-6" title="Link to this equation">#</a></span>\[z_{s}=\frac{z-\eta}{1+\frac{\eta}{d}}\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(z_{s}=\)</span> The modified coordinate to be used in particle velocity formulation</p>
+<p><span class="math notranslate nohighlight">\(z=\)</span> The elevation at which the kinematics are required (coordinate measured vertically upward from the still water surface)</p>
+<p><span class="math notranslate nohighlight">\(\eta=\)</span> The instantaneous water level (same axis system as z)</p>
+<p><span class="math notranslate nohighlight">\(d=\)</span> The still, or undisturbed water depth (positive).</p>
+<p>This method ensures that the kinematics at the surface are always evaluated from the linear wave theory expressions as if they were at the still water level <span id="id1">[<a class="reference internal" href="#id205" title="J.D. Wheeler. Method for calculating forces produced by irregular waves. In Proceedings 1st Offshore Technology Conference, OTC 1006. Houston, 1969.">19.01</a>]</span>.</p>
+</section>
+<section id="the-short-term-random-wave-process">
+<h2><span class="section-number">19.2. </span>The short-term random wave process<a class="headerlink" href="#the-short-term-random-wave-process" title="Link to this heading">#</a></h2>
+<section id="wave-spectrum-and-sea-state-parameters">
+<h3><span class="section-number">19.2.1. </span>Wave spectrum and sea state parameters<a class="headerlink" href="#wave-spectrum-and-sea-state-parameters" title="Link to this heading">#</a></h3>
+<p>During a relatively short period, waves can be conceived as a superposition of deterministic wave components with random phase and amplitude. As a result the waves form a stationary Gaussian process. The period for which such a model holds is called a sea state. The process is described by a variance spectrum <span class="math notranslate nohighlight">\(S_{\eta \eta}(\omega)\)</span>. Before introducing this spectrum in more detail it is convenient to introduce the spectral moments.</p>
+</section>
+<section id="spectral-moments">
+<h3><span class="section-number">19.2.2. </span>Spectral Moments<a class="headerlink" href="#spectral-moments" title="Link to this heading">#</a></h3>
+<p>The spectral moment <span class="math notranslate nohighlight">\(M_{n}\)</span> of general order <span class="math notranslate nohighlight">\(n\)</span> is defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-7">
+<span class="eqno">(19.7)<a class="headerlink" href="#equation-eq-wave-2-7" title="Link to this equation">#</a></span>\[M_{n}=\int_{0}^{\infty} \omega^{n} S(\omega) d \omega\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{n}=-1,0,1,2,\ldots\)</span></p>
+<p>Quantities that may be defined in terms of spectral moments are among others:</p>
+<p>Significant wave height</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-8">
+<span class="eqno">(19.8)<a class="headerlink" href="#equation-eq-wave-2-8" title="Link to this equation">#</a></span>\[H_{m 0}=4 \sqrt{M_{0}}=4 \sigma_{\eta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_{\eta}\)</span> is the standard deviation of <span class="math notranslate nohighlight">\(\eta(t)\)</span>.</p>
+<p>Average wave period</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-9">
+<span class="eqno">(19.9)<a class="headerlink" href="#equation-eq-wave-2-9" title="Link to this equation">#</a></span>\[T_{m o 2}=2 \pi\left(\frac{M_{0}}{M_{2}}\right)^{1 / 2}\]</div>
+<p>Significant wave slope</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-10">
+<span class="eqno">(19.10)<a class="headerlink" href="#equation-eq-wave-2-10" title="Link to this equation">#</a></span>\[S=\frac{2}{\pi g} \frac{M_{2}}{\sqrt{M_{0}}}\]</div>
+<p>Spectral width</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-11">
+<span class="eqno">(19.11)<a class="headerlink" href="#equation-eq-wave-2-11" title="Link to this equation">#</a></span>\[\delta=\frac{M_{1}}{\sqrt{M_{0} M_{2}}} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-12">
+<span class="eqno">(19.12)<a class="headerlink" href="#equation-eq-wave-2-12" title="Link to this equation">#</a></span>\[\varepsilon=\sqrt{1-\frac{M_{2}^{2}}{M_{0} M_{4}}}\]</div>
+<p>If the spectral density is given as a function of the frequency <span class="math notranslate nohighlight">\(f, S=S(f)\)</span>, the relation is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-13">
+<span class="eqno">(19.13)<a class="headerlink" href="#equation-eq-wave-2-13" title="Link to this equation">#</a></span>\[S(f)=2 \pi S(\omega)\]</div>
+<p>Similarly, if the moments of the circular frequency spectrum <span class="math notranslate nohighlight">\(S(f)\)</span> are denoted <span class="math notranslate nohighlight">\(M_{n}(f)\)</span>, the relationship to <span class="math notranslate nohighlight">\(M_{n}\)</span> is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-14">
+<span class="eqno">(19.14)<a class="headerlink" href="#equation-eq-wave-2-14" title="Link to this equation">#</a></span>\[M_{n}(f)=\int_{0}^{\infty} f^{n} S(f) d f=(2 \pi)^{-n} M_{n}\]</div>
+<p>Note: If the period is not given for a particular sea-state, a tentative estimate</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-15">
+<span class="eqno">(19.15)<a class="headerlink" href="#equation-eq-wave-2-15" title="Link to this equation">#</a></span>\[T_{z}=6 H_{s}^{0.3}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{z}\)</span> is in seconds and <span class="math notranslate nohighlight">\(H_{s}\)</span> is in metres.</p>
+</section>
+<section id="single-peak-spectrum">
+<h3><span class="section-number">19.2.3. </span>Single peak spectrum<a class="headerlink" href="#single-peak-spectrum" title="Link to this heading">#</a></h3>
+<p>The most frequently used spectra are the JONSWAP (Hasselman et al., 1973) spectrum and the <span id="id2">[<a class="reference internal" href="#id194" title="W.J. Pierson and L. Moskowitz. A proposed spectral form for fully developed wind seas based on similarity theory of s.a. kitaigorodskii. J. Geoph. Res., 69:5181-5190, 1964.">19.02</a>]</span>. Both spectra describe wind sea conditions that are reasonable for the most severe seastates.</p>
+<p>The originally proposed PM spectrum is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-16">
+<span class="eqno">(19.16)<a class="headerlink" href="#equation-eq-wave-2-16" title="Link to this equation">#</a></span>\[S(\omega)=0.0081 g^{2} \omega^{-5} \exp \left(-0.74\left(\frac{\omega}{\omega_{p}}\right)^{-4}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(g\)</span> is the acceleration of gravity, and <span class="math notranslate nohighlight">\(\omega_{p}\)</span> is the angular spectral peak frequency.</p>
+<p>The <span id="id3">[<a class="reference internal" href="#id180" title="Proceedings of International Ship Structures Congress, Delft, the Netherlands, July 20-24 1964.">19.03</a>]</span> version of the PM spectrum is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-17">
+<span class="eqno">(19.17)<a class="headerlink" href="#equation-eq-wave-2-17" title="Link to this equation">#</a></span>\[S(\omega)=\frac{H_{S}^{2}}{4 \pi}\left(\frac{2 \pi}{T_{Z}}\right)^{4} \omega^{-5} \exp \left(-\frac{1}{\pi}\left(\frac{2 \pi}{T_{Z}}\right)^{4} \omega^{-4}\right)\]</div>
+<p>The PM spectrum is meant to be applied for fully developed seas. Observations indicate that the empirical spectrum is often more peaked than the PM spectrum. The JONSWAP spectral density function is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-18">
+<span class="eqno">(19.18)<a class="headerlink" href="#equation-eq-wave-2-18" title="Link to this equation">#</a></span>\[S(\omega)=\alpha g^{2} \omega^{-5} \exp \left(-\frac{5}{4}\left(\frac{\omega}{\omega_{p}}\right)^{-4}\right) \gamma^{\exp \left(-0.5\left(\frac{\omega-\omega_{p}}{\sigma \omega_{p}}\right)^{2}\right)}\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(
+\omega =\text { Angular wave frequency, } \omega=2 \pi f 
+\)</span></p>
+<p><span class="math notranslate nohighlight">\(f =\text { Wave frequency, } f=1 / T\)</span></p>
+<p><span class="math notranslate nohighlight">\(T =\text { Wave period. }\)</span></p>
+<p><span class="math notranslate nohighlight">\(T_{p} =\text { Peak period }\)</span></p>
+<p><span class="math notranslate nohighlight">\(f_{p} =1 / T_{p}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\omega_{p} =\text { Angular spectral peak frequency } \omega_{p}=2 \pi f_{p}\)</span></p>
+<p><span class="math notranslate nohighlight">\(g =\text { Acceleration of gravity. }\)</span></p>
+<p><span class="math notranslate nohighlight">\(\alpha  =\text { Generalised Phillips’ constant, } =(5 / 16)^{*}\left(H_{s}{ }^{2} \omega_{p}{ }^{4} / g^{2}\right)^{*} ~A_{\gamma}\)</span></p>
+<p><span class="math notranslate nohighlight">\(A_{\gamma}  =\text { Normalisation factor, } \approx 1-0.287 \ln (\gamma)\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sigma  =\text { Spectral width parameter. }  =0.07 \text { if } \omega \leq \omega_{p}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sigma = \text{Spectral width parameter} = \begin{cases} 
+0.07 &amp; \text{if } \omega \leq \omega_p \\
+0.09 &amp; \text{if } \omega &gt; \omega_p 
+\end{cases}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\gamma  =\text { Peakness parameter }(\gamma=1.0 \text { for PM })\)</span></p>
+<p>If no particular values are given for the peakedness parameter <span class="math notranslate nohighlight">\(\gamma\)</span>, the following value may be used:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-19">
+<span class="eqno">(19.19)<a class="headerlink" href="#equation-eq-wave-2-19" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \gamma=5 \quad \text { for } \quad \frac{T_{p}}{\sqrt{H_{s}}} \leq 3.6 \\
+&amp; \gamma=e^{5.75-1.15 T_{p} / \sqrt{H_{s}}} \text { for } 3.6 \leq \frac{T_{p}}{\sqrt{H_{s}}} \leq 5 \\
+&amp; \gamma=1 \quad \text { for } \quad 5 \leq \frac{T_{p}}{\sqrt{H_{s}}}
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{p}\)</span> is in seconds and <span class="math notranslate nohighlight">\(H_{s}\)</span> is in metres.</p>
+<p>For the JONSWAP spectrum the spectral moments are given approximately as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-20">
+<span class="eqno">(19.20)<a class="headerlink" href="#equation-eq-wave-2-20" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+M_{-1} &amp;= \frac{1}{16} H_{s}^{2} \omega_{p}^{-1} \frac{4.2+\gamma}{5+\gamma} \\
+M_{0} &amp;= \frac{1}{16} H_{s}^{2} \\
+M_{1} &amp;= \frac{1}{16} H_{s}^{2} \omega_{p} \frac{6.8+\gamma}{5+\gamma} \\
+M_{2} &amp;= \frac{1}{16} H_{s}^{2} \omega_{p}^{2} \frac{11+\gamma}{5+\gamma}
+\end{aligned}\end{split}\]</div>
+<p>The average zero-crossing wave period <span class="math notranslate nohighlight">\(T_{z}\)</span> may be related to the peak period <span class="math notranslate nohighlight">\(T_{p}\)</span> by</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-21">
+<span class="eqno">(19.21)<a class="headerlink" href="#equation-eq-wave-2-21" title="Link to this equation">#</a></span>\[T_{z}=T_{p}\left(\frac{5+\gamma}{11+\gamma}\right)^{1 / 2}\]</div>
+<p>Note: A possible non-conservatism related to the choice of the spectral model is due to the definition of the frequency exponent describing the equilibrium range of the spectrum. The JONSWAP and Pierson-Moskowitz spectra adopt <span class="math notranslate nohighlight">\(\omega^{-5}\)</span>. Both the theory, as well as recent analysis of spectral data <span id="id4">[<a class="reference internal" href="#id195" title="M. Prevosto, H.E. Krogstad, S.F. Barstow, and C. Guedes Soares. Observations of the high-frequency range of the wave spectrum. J. Offshore Mechanics and Arctic Engineering, 1996.">19.04</a>]</span>, show that the tail of the JONSWAP spectrum is indeed closer to <span class="math notranslate nohighlight">\(\omega^{-4}\)</span>, as has already been noted by <span id="id5">[<a class="reference internal" href="#id156" title="J. A. Battjes. Engineering aspects of ocean waves and currents. In Seminar on Safety of Structures under Dynamic Loading. Trondheim, Norway, 1978.">19.05</a>]</span>. The tail behaviour may be important for structural response. E.g., <span id="id6">[<a class="reference internal" href="#id157" title="E.M. Bitner-Gregersen and S. Haver. Joint environmental model for reliability calculations. In Proc. of the 1st International Offshore and Polar Engineering Conference. Edinburgh, United Kingdom, August 11-15 1991.">19.06</a>]</span> show that the <span class="math notranslate nohighlight">\(f^{-4}\)</span> assumption may increase the dynamic response of a jacket structure by <span class="math notranslate nohighlight">\(25 \%\)</span> as compared to the <span class="math notranslate nohighlight">\(f^{-5}\)</span> model.</p>
+</section>
+<section id="double-peak-spectrum">
+<h3><span class="section-number">19.2.4. </span>Double peak spectrum<a class="headerlink" href="#double-peak-spectrum" title="Link to this heading">#</a></h3>
+<p>Moderate and low sea states in open sea areas, are often composed of both wind sea and swell (e.g. the Western coast of Europe). A two-peak spectrum may be used to account for combined sea states, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-22">
+<span class="eqno">(19.22)<a class="headerlink" href="#equation-eq-wave-2-22" title="Link to this equation">#</a></span>\[S(\omega)=S_{H F}(\omega)+S_{L F}(\omega)\]</div>
+<p>Splitting of the wave spectrum into wind sea and swell have been made by several authors (<span id="id7">[<a class="reference internal" href="#id200" title="S.S. Strekalov and S. Massel. On the spectral analysis of wind waves. Arch. Hydrot., 18:457-485, 1971.">19.07</a>]</span>; <span id="id8">[<a class="reference internal" href="#id193" title="M.K. Ochi and E.N. Hubble. On six-parameters wave spectra. In Proc. 15th Coastal Eng. Conf., volume 1, 301-328. 1976.">19.08</a>]</span>; <span id="id9">[<a class="reference internal" href="#id173" title="C. Guedes Soares and M.C. Nolasco. Spectral modelling of sea states with multiple wave systems. Journal of Offshore Mechanics and Arctic Engineering, 114:278-284, 1992.">19.09</a>]</span>)</p>
+<p>Ochi and Hubble represent each spectrum component by a three parameter formula of a Gamma type. The parameters should be determined numerically to best fit the observed spectra.</p>
+<p>Input parameters to the Torsethaugen spectrum are significant wave height and peak period. A modified JONSWAP spectrum is used for both wind sea and swell peaks, and the spectrum parameters are related to <span class="math notranslate nohighlight">\(H_{s}\)</span> and <span class="math notranslate nohighlight">\(T_{p}\)</span> according to empirical parameters based on analysis of measured data from the Norwegian and North Sea.</p>
+</section>
+<section id="directional-wave-spectrum">
+<h3><span class="section-number">19.2.5. </span>Directional wave spectrum<a class="headerlink" href="#directional-wave-spectrum" title="Link to this heading">#</a></h3>
+<p>Directional short-crested wave spectra <span class="math notranslate nohighlight">\(S(\omega, \theta)\)</span> may be expressed in terms of the nondirectional wave spectra,</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-23">
+<span class="eqno">(19.23)<a class="headerlink" href="#equation-eq-wave-2-23" title="Link to this equation">#</a></span>\[S(\omega, \theta)=S(\omega) D(\theta, \omega)=S(\omega) D(\theta)\]</div>
+<p>where the latter equality represents a simplification often used in practice. Here <span class="math notranslate nohighlight">\(D(\theta, \omega) ; D(\theta)\)</span> is a directionality function, and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the direction of elementary wave trains and the main wave direction of the short crested wave system.</p>
+<p>The directionality function fulfils the requirement</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-24">
+<span class="eqno">(19.24)<a class="headerlink" href="#equation-eq-wave-2-24" title="Link to this equation">#</a></span>\[\int_{\theta_{\min }}^{\theta_{\max }} D(\theta, \omega) d \theta=1\]</div>
+<p>Different forms of directional functions are given in the literature. An early formulation is the cosine-power model</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-25">
+<span class="eqno">(19.25)<a class="headerlink" href="#equation-eq-wave-2-25" title="Link to this equation">#</a></span>\[D(\theta, \omega) \propto \cos ^{n}\left(\theta-\theta_{p}\right) \quad \text { where } \quad 2 \leq \mathrm{n} \leq 10\]</div>
+<p>Due consideration is to be taken to reflect an accurate correlation between the actual sea-state and the constant, <span class="math notranslate nohighlight">\(`n\)</span>. The main direction may be set equal to the prevailing wind direction if directional measurements are not available.</p>
+<p>A commonly applied cosine-power form is the cos-2s distribution introduced by <span id="id10">[<a class="reference internal" href="#id183" title="M.S. Longuet-Higgins. The effects of non-linearities on statistical distributions in the theory of sea waves. J. Fluid Mech., 1963.">19.010</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-26">
+<span class="eqno">(19.26)<a class="headerlink" href="#equation-eq-wave-2-26" title="Link to this equation">#</a></span>\[D(\theta)=\frac{1}{2 \pi} \frac{\Gamma(s+1)}{\sqrt{\pi} \Gamma(s+1 / 2)} \cos ^{2 s}\left(\frac{\theta}{2}\right) \quad \text { for } \quad s&gt;0\]</div>
+<p>Measurements should indicate which form and parameters should be preferred.</p>
+</section>
+<section id="crest-distribution-for-gaussian-sea-state">
+<h3><span class="section-number">19.2.6. </span>Crest distribution for Gaussian Sea-State<a class="headerlink" href="#crest-distribution-for-gaussian-sea-state" title="Link to this heading">#</a></h3>
+<p>The statistical distribution of individual wave crests <span class="math notranslate nohighlight">\(Z\)</span> in an irregular short-term stationary sea state is in a linear, narrow band approximation the same as the distribution of the envelope of a Gaussian process, i.e. the Rayleigh distribution</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-27">
+<span class="eqno">(19.27)<a class="headerlink" href="#equation-eq-wave-2-27" title="Link to this equation">#</a></span>\[F(z)=1-e^{-\frac{1}{2}\left(\frac{z}{\sigma_{\eta}}\right)^{2}}=1-e^{-8\left(\frac{z}{H_{s}}\right)^{2}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_{\eta}=H_{s} / 4\)</span>. The extreme value distribution <span class="math notranslate nohighlight">\(F_{E}(z)\)</span> of crest in a stationary sea state of duration <span class="math notranslate nohighlight">\(\tau\)</span> follows by assuming Poisson upcrossings of level <span class="math notranslate nohighlight">\(z\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-28">
+<span class="eqno">(19.28)<a class="headerlink" href="#equation-eq-wave-2-28" title="Link to this equation">#</a></span>\[F_{E}(z) \approx \exp \left\lbrace-\frac{\tau}{T_{z}} \exp \left\lbrace-\frac{1}{2}\left(\frac{z}{\sigma_{\eta}}\right)^{2}\right\rbrace \right\rbrace =\exp \left\lbrace -\frac{\tau}{T_{z}} \exp \left\lbrace -8\left(\frac{z}{H_{s}}\right)^{2}\right\rbrace \right\rbrace\]</div>
+</section>
+<section id="crest-distribution-for-non-gaussian-sea-state">
+<h3><span class="section-number">19.2.7. </span>Crest distribution for Non-Gaussian Sea-State<a class="headerlink" href="#crest-distribution-for-non-gaussian-sea-state" title="Link to this heading">#</a></h3>
+<p>The Gaussian model fails to capture asymmetric, non-linear wave aspects caused by dynamic pressures not included in the linear theory, which is essential for shallow water, but can also be important for deep-water applications. A possible classification of statistical procedures for assessment of non-Gaussian processes <span class="math notranslate nohighlight">\(\eta(t)\)</span> is</p>
+<ul class="simple">
+<li><p>establish the probability distribution of the elevation process <span class="math notranslate nohighlight">\(\eta(t)\)</span> by modification of a simpler distribution, usually the Gaussian distribution</p></li>
+<li><p>transform the elevation process <span class="math notranslate nohighlight">\(\eta(t)\)</span> into a Gaussian process <span class="math notranslate nohighlight">\(U(t)\)</span> and apply properties of the Gaussian process</p></li>
+<li><p>establish the exact joint distribution function of the process and the differentiated process</p></li>
+<li><p>fit a distribution function to the sample of local peaks.</p></li>
+</ul>
+</section>
+<section id="distribution-for-wave-heights">
+<h3><span class="section-number">19.2.8. </span>Distribution for wave heights<a class="headerlink" href="#distribution-for-wave-heights" title="Link to this heading">#</a></h3>
+<p>Assuming a Gaussian narrow banded sea surface elevation, the individual wave heights are described by the Rayleigh distribution as shown by <span id="id11">[<a class="reference internal" href="#id182" title="M.S. Longuet-Higgins. On statistical distribution of the heights of sea waves. J. Marine res., 11:245-266, 1952.">19.011</a>]</span>, and <span id="id12">[<a class="reference internal" href="#id163" title="D.E. Cartwright and M.S. Longuet-Higgins. The statistical distribution of maxima of a random process. Proc. Roy. Soc. London, Ser.A, 1956.">19.012</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-29">
+<span class="eqno">(19.29)<a class="headerlink" href="#equation-eq-wave-2-29" title="Link to this equation">#</a></span>\[P(H&gt;h)=\exp \left\lbrace-\left(\frac{h}{2 \sqrt{2} \sigma_{\eta}}\right)^{2}\right\rbrace\]</div>
+<p>For not too narrow banded waves this distribution is a good approximation only when the root-mean-square (rms) amplitude is used instead of the sea surface elevation standard deviation, <span id="id13">[<a class="reference internal" href="#id184" title="M.S. Longuet-Higgins. On the distribution of heights of sea waves: some effects of non-linearities and finite band width. Journal of Geophysical Research, 85(C3):1519-1523, 1980.">19.013</a>]</span>.</p>
+<p>Other studies of the probability distribution of wave heights are made by e.g. <span id="id14">[<a class="reference internal" href="#id187" title="S. Massel. Ocean Waves in the Coastal Zone. Elsevier, 1989.">19.014</a>]</span>, <span id="id15">[<a class="reference internal" href="#id156" title="J. A. Battjes. Engineering aspects of ocean waves and currents. In Seminar on Safety of Structures under Dynamic Loading. Trondheim, Norway, 1978.">19.05</a>]</span>, <span id="id16">[<a class="reference internal" href="#id164" title="A. Cavanie, M. Arhan, and R. Ezraty. A statistical relationship between individual heights and periods of storm waves. In Behaviour of Offshore Structures (BOSS’ 76), The Norwegian Institute of Technology. 1976.">19.015</a>]</span>, <span id="id17">[<a class="reference internal" href="#id155" title="M. Arhan and R. Ezraty. Statistical relations between successive wave heights. Acta Oceanologica, 1:151-158, 1978.">19.016</a>]</span>. The following
+expression for the exceedance probability for high <span class="math notranslate nohighlight">\(h\)</span> values is due to <span id="id18">[<a class="reference internal" href="#id201" title="M.A. Tayfun. Distribution of crest-to-trough wave heights. J. Wtrway, Port, Coastal and Ocean Engng., 107(3):149-158, 1981.">19.017</a>]</span>, <span id="id19">[<a class="reference internal" href="#id202" title="M.A. Tayfun. Distribution of large wave heights. J. Wtrway, Port, Coastal and Ocean Engng., 116(6):686-707, 1990.">19.018</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-30">
+<span class="eqno">(19.30)<a class="headerlink" href="#equation-eq-wave-2-30" title="Link to this equation">#</a></span>\[P(H&gt;h)=\left(1+\frac{1-k^{2}}{4 k h^{2}} \sigma_{\eta}^{2}\right)\left(\frac{1+k^{2}}{2 k}\right)^{1 / 2} \exp \left\lbrace -\frac{h^{2}}{4(1+k) \sigma_{\eta}^{2}}\right\rbrace\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is a parameter for the correlation between crest and subsequent trough.</p>
+<p>The extreme wave height estimates can be transformed into measures for the crests using e.g. Stokes theory or regression analysis. E.g., <span id="id20">[<a class="reference internal" href="#id197" title="J. Skourup, N.-E. Ottesen Hansen, and K.K. Andreasen. Non-gaussian extreme waves in the central north sea. In Proc. of the 15th Int. Conf. on Offshore Mechanics and Arctic Engineering, OMAE, volume I-Part A, 25-32. ASME, 1996.">19.019</a>]</span> analyse data from the Central North Sea (Gorm field) and finds the expected ratio 0.69 between extreme crest height and extreme wave height.</p>
+<p>Note that wave heights may be correlated to water levels through the wind speed.</p>
+</section>
+</section>
+<section id="long-term-wave-conditions">
+<h2><span class="section-number">19.3. </span>Long-term wave conditions<a class="headerlink" href="#long-term-wave-conditions" title="Link to this heading">#</a></h2>
+<section id="marginal-distribution-of-significant-wave-height">
+<h3><span class="section-number">19.3.1. </span>Marginal distribution of significant wave height<a class="headerlink" href="#marginal-distribution-of-significant-wave-height" title="Link to this heading">#</a></h3>
+<p>Long-term variations of sea states characteristics represent a base for establishing metocean criteria for design of offshore structures and for different operational conditions. The long-term description of waves is usually governed by the variation of significant wave height.</p>
+<p>The following analysis strategies are commonly applied:</p>
+<ul class="simple">
+<li><p>Global method, in which all regular data (all 3-hour data) are fitted by an appropriate distribution function, for example a 3-parameter Weibull distribution.</p></li>
+<li><p>Peak over threshold method or storm analysis method, in which peaks over specified thresholds are identified and fitted by a set of relevant statistical distributions (Gumbel, Weibull, exponential). Sensitivity analysis with respect to threshold level should be performed.</p></li>
+<li><p>Annual extremes, in which annual or seasonal extremes are fitted by relevant extreme value distributions.</p></li>
+</ul>
+<p>In selecting the method there is a tradeoff between the global models using all data and the extreme event models based on a subset of the largest data points. While the global approach utilises more data, it can obscure critical tail behaviour and introduce correlation between observations. In contrast, extreme events may be more nearly independent, but their scarceness increases statistical uncertainty. Effect of uncertainty is discussed in more detail in <a class="reference internal" href="#section-2-15-6"><span class="std std-ref">Chapter 19.6.</span></a>.</p>
+<p>Frequently applied distribution functions for marginal distribution of significant wave height are for global data 2-parameter Weibull, 3-parameter Weibull and a hybrid lognormal plus 2-parameter Weibull distribution. For event models, 3-parameter Weibull, Gumbel and Generalized Pareto (for Peak Over Threshold) are commonly used. Local measurements should give indications which distribution type is to be preferred.</p>
+<p>The 3-parameter Weibull distribution for variable <span class="math notranslate nohighlight">\(X\)</span> is given as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-31">
+<span class="eqno">(19.31)<a class="headerlink" href="#equation-eq-wave-2-31" title="Link to this equation">#</a></span>\[F(x)=1-\exp \left\lbrace -\left(\frac{x-\gamma}{\alpha}\right)^{\beta}\right\rbrace\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha=\)</span> scale parameter, <span class="math notranslate nohighlight">\(\beta=\)</span> shape parameter, <span class="math notranslate nohighlight">\(\gamma=\)</span> location parameter.</p>
+<p>The Gumbel extreme value distribution is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-32">
+<span class="eqno">(19.32)<a class="headerlink" href="#equation-eq-wave-2-32" title="Link to this equation">#</a></span>\[F(x)=\exp \left[-e^{-\alpha(x-\beta)}\right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta\)</span> is a location parameter and <span class="math notranslate nohighlight">\(\alpha\)</span> is a scale parameter.</p>
+<p>The Pareto distribution ( <span class="math notranslate nohighlight">\(y=\)</span> threshold excess values) is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-33">
+<span class="eqno">(19.33)<a class="headerlink" href="#equation-eq-wave-2-33" title="Link to this equation">#</a></span>\[\begin{split}F(y)=1-\left(1+c \frac{y}{a}\right)^{-1 / c} ; \quad \begin{array}{cc}0&lt;y&lt;-\frac{a}{c} &amp; c&lt;0 \\ 0&lt;y&lt;\infty &amp; c \geq 0\end{array}\end{split}\]</div>
+<p>Following <span id="id21">[<a class="reference internal" href="#id190" title="A. Næss. Estimation of long return period design values for wind speeds. Journal of Engineering Mechanics, 124:252-259, 1998.">19.020</a>]</span>, efficient parameter estimation is obtained by taking <span class="math notranslate nohighlight">\(c=0\)</span>. This means that the data are exponential distributed</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-34">
+<span class="eqno">(19.34)<a class="headerlink" href="#equation-eq-wave-2-34" title="Link to this equation">#</a></span>\[F(y)=1-\exp (-y / a)\]</div>
+<p>and that the extreme value distribution is of the Gumbel type.</p>
+</section>
+<section id="joint-distribution-of-wave-height-and-period">
+<h3><span class="section-number">19.3.2. </span>Joint distribution of wave height and period<a class="headerlink" href="#joint-distribution-of-wave-height-and-period" title="Link to this heading">#</a></h3>
+<p>Joint environmental models may often be used to approximate long-term variations of wave characteristics.</p>
+<p>The existing joint environmental models are established by fitting distributions to data from the actual area. The Maximum Likelihood Model (MLM), <span id="id22">[<a class="reference internal" href="#id196" title="R.G. Prince-Wright. Maximum likelihood models of joint environmental data for tlp design. In Proc. of the 14th Int. Conf. on Offshore Mechanics and Arctic Engineering OMAE, volume 2. Copenhagen, Denmark, 1995. ASME.">19.021</a>]</span>, and the Conditional Modelling Approach (CMA), e.g. <span id="id23">[<a class="reference internal" href="#id157" title="E.M. Bitner-Gregersen and S. Haver. Joint environmental model for reliability calculations. In Proc. of the 1st International Offshore and Polar Engineering Conference. Edinburgh, United Kingdom, August 11-15 1991.">19.06</a>]</span>, utilize the complete probabilistic information obtained from simultaneous observations of the environmental variables. If the available information about the simultaneously occurring variables is limited to the marginal distributions and the mutual correlation, then the Nataf model can be used <span id="id24">[<a class="reference internal" href="#id167" title="A. Der Kiureghian and P.-L. Liu. Structural reliability under incomplete probability information. J. Eng. Mechanics, 113(8):1208-1225, 1986.">19.022</a>]</span>.</p>
+<p>In the CMA, the joint density function is defined in terms of a marginal distribution and a series of conditional density functions modelled by parametric functions that are fitted to the conditioned data by some estimation procedure.</p>
+<p>For a given directional sector the joint model of significant wave height and spectral/zero-crossing wave period is usually approximated by a marginal distribution for significant wave height, typically the 3-parameter Weibull distribution, and the conditional lognormal distribution for spectral/zero-crossing wave period given the significant wave height</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-35">
+<span class="eqno">(19.35)<a class="headerlink" href="#equation-eq-wave-2-35" title="Link to this equation">#</a></span>\[f_{T_{m 02} \mid H m 0}(t \mid h)=\frac{1}{\sigma_{T}(h) t \sqrt{2 \pi}} \exp \left\lbrace-\frac{\left(\ln t-\mu_{T}(h)\right)^{2}}{2 \sigma_{T}^{2}(h)}\right\rbrace\]</div>
+<p>where a possible parameterisation is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-36">
+<span class="eqno">(19.36)<a class="headerlink" href="#equation-eq-wave-2-36" title="Link to this equation">#</a></span>\[\mu(h)=a_{0}+a_{1} h^{a_{2}}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-37">
+<span class="eqno">(19.37)<a class="headerlink" href="#equation-eq-wave-2-37" title="Link to this equation">#</a></span>\[\sigma(h)=b_{0}+b_{1} \exp \left\lbrace b_{2} h\right\rbrace\]</div>
+<p>The parameters <span class="math notranslate nohighlight">\(a_{1}, a_{2}, a_{3}, b_{1}, b_{2}\)</span> and <span class="math notranslate nohighlight">\(b_{3}\)</span> are determined from the data.</p>
+</section>
+</section>
+<section id="extreme-individual-wave-height-and-crest-height">
+<h2><span class="section-number">19.4. </span>Extreme individual wave height and crest height<a class="headerlink" href="#extreme-individual-wave-height-and-crest-height" title="Link to this heading">#</a></h2>
+<p>The extreme individual crest or wave height can be determined by combining short term and long term statistics. The long-term distribution of waves is obtained by combining the joint long-term distribution of sea state parameters, with the short-term distribution of sea surface elevation. Let the short term, extreme value distribution of crest <span class="math notranslate nohighlight">\(Z\)</span> in an environmental state <span class="math notranslate nohighlight">\(\vec{\psi}\)</span> for a short-term duration <span class="math notranslate nohighlight">\(\tau\)</span> be denoted <span class="math notranslate nohighlight">\(F_{Z \mid \vec{\psi}}(z \mid \vec{\psi} ; \tau)\)</span>. Conditioning on the environmental state <span class="math notranslate nohighlight">\(\vec{\psi}\)</span> may be integrated out, according to the theorem of total probability, to provide the corresponding short term, extreme value distribution for a single, random, environmental state. The extreme value distribution during an operation time <span class="math notranslate nohighlight">\(\lambda\)</span> might then be obtained as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-38">
+<span class="eqno">(19.38)<a class="headerlink" href="#equation-eq-wave-2-38" title="Link to this equation">#</a></span>\[F_{E}(z ; \lambda)=\left[\int F_{Z \mid \vec{\Psi}}(z \mid \vec{\psi} ; \tau) f_{\vec{\Psi}}(\vec{\psi}) d \vec{\psi}\right]^{\lambda / \tau}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{\vec{\psi}}(\vec{\psi})\)</span> is the probability density of the sea state parameters (e.g. <span class="math notranslate nohighlight">\(h_{s}\)</span> ).</p>
+<p>This expression is based on the multiplication rule and an assumption of independence between the crest level in each short-term state. A slightly different formulation is the following expression due to <span id="id25">[<a class="reference internal" href="#id156" title="J. A. Battjes. Engineering aspects of ocean waves and currents. In Seminar on Safety of Structures under Dynamic Loading. Trondheim, Norway, 1978.">19.05</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-39">
+<span class="eqno">(19.39)<a class="headerlink" href="#equation-eq-wave-2-39" title="Link to this equation">#</a></span>\[F_{E}(z ; \lambda)=\left[\int \frac{v(z \mid \vec{\psi})}{\widetilde{v}(z)} F_{Z \mid \vec{\Psi}}(z \mid \vec{\psi}) f_{\vec{\Psi}}(\vec{\psi}) d \vec{\psi}\right]^{\tilde{v}(z) \lambda}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tilde{v}(z)\)</span> is the ensemble averaged up-crossing rate</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-40">
+<span class="eqno">(19.40)<a class="headerlink" href="#equation-eq-wave-2-40" title="Link to this equation">#</a></span>\[\widetilde{v}(z)=\int v(z \mid \vec{\psi}) f_{\vec{\Psi}}(\vec{\psi}) d \vec{\psi}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(v(z \mid \vec{\psi})\)</span> is the mean upcrossing rate of the underlying process through the level <span class="math notranslate nohighlight">\(z\)</span>, and <span class="math notranslate nohighlight">\(F_{z \mid \vec{\Psi}}(z \mid \vec{\psi})\)</span> is the distribution of the random cycle amplitudes. Note the difference between the integrands in Eq. <a class="reference internal" href="#equation-eq-wave-2-38">(19.38)</a> and Eq. <a class="reference internal" href="#equation-eq-wave-2-39">(19.39)</a>, where <span class="math notranslate nohighlight">\(F_{Z \mid \vec{\psi}}(z \mid \vec{\psi} ; \tau)\)</span> is the short term extreme value distribution, while <span class="math notranslate nohighlight">\(F_{z \mid \vec{\Psi}}(z \mid \vec{\psi})\)</span> is the distribution of a random cycle amplitude.</p>
+<p>As an alternative, an ensemble-averaged up-crossing approach may be used, in which the distribution function is expressed as <span id="id26">[<a class="reference internal" href="#id191" title="A. Næss. Technical note: on the long-term statistics of extremes. Applied Ocean Research, 6(4):227-228, 1984.">19.023</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-41">
+<span class="eqno">(19.41)<a class="headerlink" href="#equation-eq-wave-2-41" title="Link to this equation">#</a></span>\[F_{E}(z ; \lambda)=\exp \lbrace-\lambda \tilde{v}(z)\rbrace\]</div>
+<p>Eqs. <a class="reference internal" href="#equation-eq-wave-2-38">(19.38)</a> to <a class="reference internal" href="#equation-eq-wave-2-41">(19.41)</a> may be applied directly in a Level 3 structural reliability analysis for modelling of the extreme crest. If the purpose is to estimate the 100 -year crest level, this quantity can be determined as the appropriate fractile of <span class="math notranslate nohighlight">\(F_{E}(z ; \lambda)\)</span>.</p>
+<p>In applications not the extreme wave height as such may be important, but rather the maximum load effect in the structure, e.g. the bending moment in a member. In this respect reference is made to <span id="id27">[<a class="reference internal" href="#id168" title="O. Ditlevsen. Stochastic model for joint wave and wind loads on offshore structures. Structural Safety, 24:139-163, 2002.">19.024</a>]</span>.</p>
+</section>
+<section id="wave-load-models">
+<h2><span class="section-number">19.5. </span>Wave load models<a class="headerlink" href="#wave-load-models" title="Link to this heading">#</a></h2>
+<section id="slender-members">
+<h3><span class="section-number">19.5.1. </span>Slender members<a class="headerlink" href="#slender-members" title="Link to this heading">#</a></h3>
+<p>If the diameter of structural elements is small compared to a characteristic wavelength, the loads are calculated by the Morison formula</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-42">
+<span class="eqno">(19.42)<a class="headerlink" href="#equation-eq-wave-2-42" title="Link to this equation">#</a></span>\[F=\rho A\left[C_{M} \dot{u}+\left(C_{M}-1\right) \ddot{x}\right]+\frac{1}{2} \rho D C_{D}(u-\dot{x})|u-\dot{x}|\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(F =\)</span> force per cylinder length in flow and motion direction</p>
+<p><span class="math notranslate nohighlight">\(A  =\pi D^{2} / 4\)</span>, cross section area</p>
+<p><span class="math notranslate nohighlight">\(D=\)</span> cylinder diameter</p>
+<p><span class="math notranslate nohighlight">\(\dot{x}=\)</span>   cylinder velocity</p>
+<p><span class="math notranslate nohighlight">\(\ddot{x}=\)</span>   cylinder acceleration</p>
+<p><span class="math notranslate nohighlight">\(u=\)</span> water velocity perpendicular to structural member</p>
+<p><span class="math notranslate nohighlight">\(\dot{u}=\)</span> water acceleration perpendicular to structural member</p>
+<p><span class="math notranslate nohighlight">\(u-\dot{x}=\)</span> relative velocity</p>
+<p><span class="math notranslate nohighlight">\(C_{M}=\)</span> inertia coefficient</p>
+<p><span class="math notranslate nohighlight">\(C_{D}=\)</span> drag coefficient</p>
+<p><span class="math notranslate nohighlight">\(\rho=\)</span> water mass density</p>
+<p>For <span class="math notranslate nohighlight">\(u&gt;&gt;\dot{x}\)</span>, a useful approximation is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-43">
+<span class="eqno">(19.43)<a class="headerlink" href="#equation-eq-wave-2-43" title="Link to this equation">#</a></span>\[(u-\dot{x})|u-\dot{x}| \approx u|u|-2|u| \dot{x}\]</div>
+<p>The second term provides additional damping, and if the coefficient to <span class="math notranslate nohighlight">\(\dot{x}\)</span> is replaced by its expectation, the following form is obtained:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-44">
+<span class="eqno">(19.44)<a class="headerlink" href="#equation-eq-wave-2-44" title="Link to this equation">#</a></span>\[(u-\dot{x})|u-\dot{x}| \approx u|u|-\sqrt{8 / \pi} \sigma_{u} \dot{x}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_{u}\)</span> represents the standard deviation of <span class="math notranslate nohighlight">\(u\)</span> in a random sea.</p>
+<p>Another linearisation schemes exist that include the effect of combined wave and current. The scheme should depend on the application (e.g. collapse versus fatigue analysis).</p>
+<p>Assume in the following that linear wave theory can be applied and that the wave elevation <span class="math notranslate nohighlight">\(\eta(x, t)\)</span> is a stationary Gaussian process. Then the particle velocity <span class="math notranslate nohighlight">\(u(t)\)</span> and acceleration <span class="math notranslate nohighlight">\(\dot{u}(t)\)</span> are also normal processes The relevant wave components <span class="math notranslate nohighlight">\(u(t)\)</span> and <span class="math notranslate nohighlight">\(\dot{u}(t)\)</span> then maybe considered as independent, zero-mean normal processes with standard deviations <span class="math notranslate nohighlight">\(\sigma_{u}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\dot{u}}\)</span>. A measure of the relative importance of drag and inertia, and of the deviation from normal distribution, is</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-45">
+<span class="eqno">(19.45)<a class="headerlink" href="#equation-eq-wave-2-45" title="Link to this equation">#</a></span>\[K=\frac{k_{D}}{k_{M}} \frac{\sigma_{u}^{2}}{\sigma_{\dot{u}}^{2}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_{D}=\frac{1}{2} \rho D C_{D}\)</span> and <span class="math notranslate nohighlight">\(k_{M}=\rho A C_{M}\)</span>. In normalised form, the Morison can be expressed as the non-Gaussian process <span id="id28">[<a class="reference internal" href="#id185" title="H.O. Madsen, S. Krenk, and N. Lind. Structural Safety. Prentice-Hall, 1986.">19.025</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-46">
+<span class="eqno">(19.46)<a class="headerlink" href="#equation-eq-wave-2-46" title="Link to this equation">#</a></span>\[Q(t)=\frac{F}{k_{M} \sigma_{\dot{u}}}=K\left(X_{u}(t)+V\right)\left|X_{u}(t)+V\right|+X_{\dot{u}}(t)\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_{u}(t)=u(t) / \sigma_{u}\)</span> and <span class="math notranslate nohighlight">\(X_{\dot{u}}(t)=\dot{u}(t) / \sigma_{\dot{u}}\)</span>. The current velocity, inline with the waves, is <span class="math notranslate nohighlight">\(V \sigma_{u}\)</span>. The natural period of variation of the current is assumed to be so long that its time variation can be ignored for the considered time span, hence <span class="math notranslate nohighlight">\(V\)</span> is taken as a fixed variable.</p>
+<p>The second order statistics is characterised by the covariance matrix <span class="math notranslate nohighlight">\(C_{\vec{X}}\)</span> of the process</p>
+<div class="math notranslate nohighlight">
+\[\vec{X}(t)^{T}=\left(X_{u}(t), X_{\dot{u}}(t), \dot{X}_{\dot{u}}(t)\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}C_{\vec{X}}=\left(\begin{array}{ccc}1 &amp; 0 &amp; -\omega_{0} \\ 0 &amp; 1 &amp; 0 \\ -\omega_{0} &amp; 0 &amp; \omega_{0}^{2} / \alpha^{2}\end{array}\right)\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\omega_{0} \equiv \sigma_{\dot{u}} / \sigma_{u}\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> is a bandwidth parameter for the velocity process u(t), i.e. <span class="math notranslate nohighlight">\(\alpha=-\sigma_{\dot{u}}^{2} \sigma_{u}^{-1} \sigma_{i i}^{-1}\)</span>.</p>
+<p>The mean <span class="math notranslate nohighlight">\(\mu_{q}\)</span> and standard deviations <span class="math notranslate nohighlight">\(\sigma_{q}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\dot{q}}\)</span> of the Morison force are given as <span id="id29">[<a class="reference internal" href="#id185" title="H.O. Madsen, S. Krenk, and N. Lind. Structural Safety. Prentice-Hall, 1986.">19.025</a>]</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-47">
+<span class="eqno">(19.47)<a class="headerlink" href="#equation-eq-wave-2-47" title="Link to this equation">#</a></span>\[\mu_{q}  =K\left[2 V \phi(V)+\left(1+V^{2}\right)(1-2 \Phi(-V))\right] \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-48">
+<span class="eqno">(19.48)<a class="headerlink" href="#equation-eq-wave-2-48" title="Link to this equation">#</a></span>\[\sigma_{q}^{2}  =K^{2}\left(3+6 V^{2}+V^{4}\right)+1-\mu_{q}^{2} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-49">
+<span class="eqno">(19.49)<a class="headerlink" href="#equation-eq-wave-2-49" title="Link to this equation">#</a></span>\[\sigma_{\dot{q}}^{2}  =4 K^{2}\left(1+V^{2}\right) \frac{\sigma_{\dot{u}}^{2}}{\sigma_{u}^{2}}+\frac{\sigma_{\dot{u}}^{2}}{\sigma_{\dot{u}}^{2}} \]</div>
+<p>Let in the following <span class="math notranslate nohighlight">\(V=0\)</span>. The probability density of the wave force <span class="math notranslate nohighlight">\(Q(t)\)</span> is completely determined by the non-linearity factor <span class="math notranslate nohighlight">\(K\)</span> and the variance of the force <span class="math notranslate nohighlight">\(\sigma_{q}{ }^{2}\)</span>. The kurtosis <span class="math notranslate nohighlight">\(\alpha_{4}\)</span> gives the shape of the distribution of <span class="math notranslate nohighlight">\(Q(t)\)</span> through the relation</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-50">
+<span class="eqno">(19.50)<a class="headerlink" href="#equation-eq-wave-2-50" title="Link to this equation">#</a></span>\[\alpha_{4}=3+\frac{78}{\left(3+1 / K^{2}\right)^{2}}\]</div>
+<p>For the narrow band approximation <span class="math notranslate nohighlight">\(\alpha \rightarrow 1\)</span>, the asymptotic result for the upcrossing rate is <span id="id30">[<a class="reference internal" href="#id185" title="H.O. Madsen, S. Krenk, and N. Lind. Structural Safety. Prentice-Hall, 1986.">19.025</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-51">
+<span class="eqno">(19.51)<a class="headerlink" href="#equation-eq-wave-2-51" title="Link to this equation">#</a></span>\[\begin{split}v(q) \approx v_{0}^{u}\left\lbrace \begin{array}{cc}\exp \left(-\frac{1}{2} q^{2}\right), &amp; |q|&lt;\frac{1}{2 K} \\ \\ \exp \left[-\frac{1}{2 K}\left(q-\frac{1}{4 K}\right)\right], &amp; |q| \geq \frac{1}{2 K}\end{array}\right.\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_{0}^{u}\)</span> is the zero-crossing frequency of <span class="math notranslate nohighlight">\(u(t)\)</span>. In a narrow-band approximation of the force, the distribution of local maxima can be obtained by neglecting the positive minima and negative maxima. This gives the probability density function of local maxima</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-52">
+<span class="eqno">(19.52)<a class="headerlink" href="#equation-eq-wave-2-52" title="Link to this equation">#</a></span>\[f_{m}(q) \approx-\frac{1}{v(0)} \frac{d}{d q} v(q)\]</div>
+<p>and the asymptotic result</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-53">
+<span class="eqno">(19.53)<a class="headerlink" href="#equation-eq-wave-2-53" title="Link to this equation">#</a></span>\[\begin{split}f_{m}(q) \approx\left\lbrace \begin{array}{cc}q \exp \left(-\frac{1}{2} q^{2}\right), &amp; 0&lt;q&lt;\frac{1}{2 K} \\ \\ \frac{1}{2 K} \exp \left[-\frac{1}{2 K}\left(q-\frac{1}{4 K}\right)\right], &amp; q \geq \frac{1}{2 K}\end{array}\right.\end{split}\]</div>
+<p>This density is derived in <span id="id31">[<a class="reference internal" href="#id159" title="L.E. Borgman. Spectral density of ocean wave forces. In Journal ASCE, Waterways and Harbors Div.; Proceedings, ASCE Specialty Cong. on Coastal Engineering. Santa Barbara, CA, 1965. October 1965.">19.026</a>]</span>.</p>
+</section>
+<section id="vertical-walls">
+<h3><span class="section-number">19.5.2. </span>Vertical walls<a class="headerlink" href="#vertical-walls" title="Link to this heading">#</a></h3>
+<p>The water pressures <span class="math notranslate nohighlight">\(p_{1}\)</span> and <span class="math notranslate nohighlight">\(p_{3}\)</span> (see <a class="reference internal" href="#fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces"><span class="std std-numref">Fig. 19.1</span></a>) on a vertical wall due to pulsating forces (impact and breaking excluded) are given by according <span id="id32">[<a class="reference internal" href="#id171" title="Y. Goda. Random seas and design of maritime structures. University of Tokyo press, Tokyo, 1985.">19.027</a>]</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-54">
+<span class="eqno">(19.54)<a class="headerlink" href="#equation-eq-wave-2-54" title="Link to this equation">#</a></span>\[\begin{split}\begin{array}{l}
+p_{1} = 0.5(1+\cos \beta)\left(\lambda_{1} \alpha_{1} + \lambda_{2} \alpha_{2} \cos^{2} \beta\right) \rho g H \\
+p_{3} = \alpha_{3} p_{1}
+\end{array}\end{split}\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(H: \)</span> incident wave height (from trough to crest) in front of the structure;</p>
+<p><span class="math notranslate nohighlight">\(\beta: \)</span>  angle of wave incidence with respect to a line perpendicular to the structure;</p>
+<p><span class="math notranslate nohighlight">\(\rho:\)</span> density of water;</p>
+<p><span class="math notranslate nohighlight">\(g:\)</span> acceleration of gravity;</p>
+<p><span class="math notranslate nohighlight">\(\alpha_{1}, \alpha_{2}, \alpha_{3}:\)</span> factors dependent on hydraulic conditions (see <a class="reference internal" href="#equation-eq-wave-2-56">(19.56)</a>)</p>
+<p><span class="math notranslate nohighlight">\(\lambda_{1}, \lambda_{2}, \lambda_{3}:\)</span> factors dependent on the structural geometry (usually =1.0)</p>
+<p>The pressure at the top <span class="math notranslate nohighlight">\(p_{4}\)</span> for a given value of <span class="math notranslate nohighlight">\(R_{C}\)</span> can be derived from:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-55">
+<span class="eqno">(19.55)<a class="headerlink" href="#equation-eq-wave-2-55" title="Link to this equation">#</a></span>\[\eta^{*}=0.75(1+\cos \beta) \lambda_{1} H\]</div>
+<figure class="align-default" id="fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces">
+<img alt="../_images/fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces.jpg" src="../_images/fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 19.1 </span><span class="caption-text">Vertical wall on toe-structure</span><a class="headerlink" href="#fig-water-pressures-on-a-vertical-wall-due-to-pulsating-forces" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The <span class="math notranslate nohighlight">\(\alpha\)</span>-factors are given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-56">
+<span class="eqno">(19.56)<a class="headerlink" href="#equation-eq-wave-2-56" title="Link to this equation">#</a></span>\[\begin{split}\begin{array}{l}
+\alpha_{1}=0.6+0.5\left(\frac{4 \pi h / L}{\sinh (4 \pi h / L)}\right)^{2} \\ \\
+\alpha_{2}=\min \left(\frac{\left(h_{b}-d\right)}{3 h_{b}}\left(\frac{H}{d}\right)^{2}, \frac{2 d}{H}\right) \\ \\
+\alpha_{3}=1-\left(\frac{h^{\prime}}{h}\right)\left(1-\frac{1}{\cosh (2 \pi h / L)}\right)
+\end{array}\end{split}\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(L:\)</span> wave length;</p>
+<p><span class="math notranslate nohighlight">\(h^{\prime}:\)</span> water depth at the toe of the front wall <span class="math notranslate nohighlight">\(=\left(d+d_{c}\right)\)</span></p>
+<p><span class="math notranslate nohighlight">\(h:\)</span> water depth in front of the structure;</p>
+<p><span class="math notranslate nohighlight">\(h_{b}:\)</span> water depth at a distance of 5 times the significant wave height.</p>
+<p><span class="math notranslate nohighlight">\(d:\)</span> water depth at top of protection blocks</p>
+<p><span class="math notranslate nohighlight">\(d_{c}:\)</span> thickness of protection block layer</p>
+</section>
+<section id="volume-members">
+<h3><span class="section-number">19.5.3. </span>Volume members<a class="headerlink" href="#volume-members" title="Link to this heading">#</a></h3>
+<p>For large-volume structures (i.e., structures for which a characteristic diameter is comparable to the wavelength), the hydrodynamic loads have to be determined by means of diffraction theory. An overview of the existing diffraction methods is given in ISSC (1991,2000). The diffraction theory is based on potential theory and viscous effects are neglected.</p>
+<p>Usually, a linear diffraction analysis will have a sufficient accuracy, such that the load process becomes a linear function of the wave process. Non-linear diffraction theory should be used for shallow water structures, for structures situated in arctic areas with the presence of ice, for structures for which slow drift effects are important, and for calculation of springing response of a TLP. Forces in the splash zone are not adequately described by linear waves. This effect may, however, be accounted for by various stretching techniques without adhering to the full non-linear theory.</p>
+<p>The second order hydrodynamic load effects may in many cases be important for the design of large volume structures. These effects may be:</p>
+<ul class="simple">
+<li><p>When a linear regular first order wave is interacting with itself and an ocean platform.</p></li>
+<li><p>For irregular sea the resulting second order exciting forces contain three components: the mean forces (drift forces), forces varying in time with the difference frequencies of the wave spectrum (often called slow drift forces) and with the sum frequencies of the wave spectrum (high frequency forces).</p></li>
+<li><p>The difference frequency forces may in particular be important for design of mooring and dynamic positioning of offshore structures as well as for offshore loading systems.</p></li>
+</ul>
+<p>A variety of perturbation-based frequency and time domain methods are presented in the literature</p>
+<p>Superposing <span class="math notranslate nohighlight">\(N\)</span> waves with amplitudes <span class="math notranslate nohighlight">\(a_{j}\)</span>, frequency <span class="math notranslate nohighlight">\(\omega_{j}\)</span> and phase <span class="math notranslate nohighlight">\(\varepsilon_{j}, j=1, \ldots, N\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-54-a">
+<span class="eqno">(19.57)<a class="headerlink" href="#equation-eq-wave-2-54-a" title="Link to this equation">#</a></span>\[\eta^{(1)}(t)=\operatorname{Re} \sum_{j=1}^{N} a_{j} e^{i\left(\omega_{j} t+\varepsilon_{j}\right)}\]</div>
+<p>the force (to second order) can be expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-55-a">
+<span class="eqno">(19.58)<a class="headerlink" href="#equation-eq-wave-2-55-a" title="Link to this equation">#</a></span>\[F_{D}(t)=F_{D}{ }^{(1)}(t)+F_{D}{ }^{(2)}(t)\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-56-a">
+<span class="eqno">(19.59)<a class="headerlink" href="#equation-eq-wave-2-56-a" title="Link to this equation">#</a></span>\[F_{D}^{(1)}(t)=\operatorname{Re} \sum_{j=1}^{N} a_{j} F^{(1)}\left(\omega_{k}\right) e^{i\left(\omega_{j} t+\varepsilon_{j}\right)} \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-57">
+<span class="eqno">(19.60)<a class="headerlink" href="#equation-eq-wave-2-57" title="Link to this equation">#</a></span>\[F_{D}{ }^{(2)}(t)=\operatorname{Re} \sum_{k=1}^{N} \sum_{j=1}^{N} a_{j} a_{k}\left[F_{+}^{(2)}\left(\omega_{j}, \omega_{k}\right) e^{i\left(\left(\omega_{j}+\omega_{k}\right) t+\varepsilon_{j}+\varepsilon_{k}\right)}+F_{-}^{(2)}\left(\omega_{j}, \omega_{k}\right) e^{i\left(\left(\omega_{j}-\omega_{k}\right) t+\varepsilon_{j}-\varepsilon_{k}\right)}\right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(F^{(1)}\)</span> is the linear transfer function (LTF) and <span class="math notranslate nohighlight">\(F_{+}^{(2)}, F_{-}^{(2)}\)</span> are sum- and differencefrequency force quadratic transfer functions (QTF). Response transfer functions, <span class="math notranslate nohighlight">\(H^{(1)}, H_{+}^{(2)}, H_{-}^{(2)}\)</span>, corresponding to the force transfer functions, are found by solving the simultaneous linear equations of structural motions in 6 degrees of freedom.</p>
+<p>Response quantities of interest include both extreme values and fatigue damage. In the following a simplified statistics in terms of four statistical moments is given.</p>
+<p>The response <span class="math notranslate nohighlight">\(x(t)\)</span> is expressed in terms of standard normal processes <span class="math notranslate nohighlight">\(u_{i}(t)\)</span> that are independent at fixed <span class="math notranslate nohighlight">\(t\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-58">
+<span class="eqno">(19.61)<a class="headerlink" href="#equation-eq-wave-2-58" title="Link to this equation">#</a></span>\[x(t)=\sum_{i} c_{i} u_{i}(t)+\sum_{i} \lambda_{i} u_{i}^{2}(t)\]</div>
+<p>The coefficients <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> are eigen values of the integral equation <span id="id33">[<a class="reference internal" href="#id181" title="M. Kac and A.J.F. Siegert. On the theory of noise in radio receivers with square law detectors. Journal of Applied Physics, pages 383-400, 1947.">19.028</a>]</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-59">
+<span class="eqno">(19.62)<a class="headerlink" href="#equation-eq-wave-2-59" title="Link to this equation">#</a></span>\[\int_{-\infty}^{\infty} \Gamma\left(\omega_{1}, \omega_{2}\right) \Phi\left(\omega_{2}\right) d \omega_{2}=\lambda \Phi\left(\omega_{1}\right)\]</div>
+<p>in which <span class="math notranslate nohighlight">\(\Gamma\left(\omega_{1}, \omega_{2}\right)=H_{+}^{(2)}\left(\omega_{1},-\omega_{2}\right) \sqrt{S\left(\left|\omega_{1}\right|\right) S\left(\left|\omega_{2}\right|\right)} / 2\)</span>. The first order coefficient is next determined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-60">
+<span class="eqno">(19.63)<a class="headerlink" href="#equation-eq-wave-2-60" title="Link to this equation">#</a></span>\[c_{i}=\int_{-\infty}^{\infty} H_{1}(\omega)[S(|\omega|)]^{1 / 2} \Phi_{i}^{*}(\omega) d \omega\]</div>
+<p>The moments follow by algebra as</p>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-61">
+<span class="eqno">(19.64)<a class="headerlink" href="#equation-eq-wave-2-61" title="Link to this equation">#</a></span>\[\mu_{x}=\sum_{i} \lambda_{i}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-62">
+<span class="eqno">(19.65)<a class="headerlink" href="#equation-eq-wave-2-62" title="Link to this equation">#</a></span>\[\sigma_{x}^{2}=\sum_{i} c_{i}^{2}+2 \lambda_{i}^{2}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-63">
+<span class="eqno">(19.66)<a class="headerlink" href="#equation-eq-wave-2-63" title="Link to this equation">#</a></span>\[\alpha_{3 x}=\sum_{i}\left(6 c_{i}^{2} \lambda_{i}+8 \lambda_{i}^{3}\right) / \sigma_{x}^{3}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-wave-2-64">
+<span class="eqno">(19.67)<a class="headerlink" href="#equation-eq-wave-2-64" title="Link to this equation">#</a></span>\[\alpha_{4 x}=3+\sum_{i} 48 \lambda_{i}^{2}\left(c_{i}^{2}+\lambda_{i}^{2}\right) / \sigma_{x}^{4}\]</div>
+<p>E.g., by a Hermite transformation, these moments can be used to model the nonGaussian response process <span id="id34">[<a class="reference internal" href="#id206" title="S.R. Winterstein, E.M. Bitner-Gregersen, and K.O. Ronold. Statistical and physical models of nonlinear random waves. In Proc. of the 10th Int. Conf. on Offshore Mechanics and Arctic Engineering, volume II, 23-32. 1991.">19.029</a>]</span>.</p>
+<p>The Gaussian model is approached either if the <span class="math notranslate nohighlight">\(\lambda_{i}{ }^{\prime} s\)</span> become small relative to the <span class="math notranslate nohighlight">\(c_{i}{ }^{\prime} s\)</span>, or when the number of significant <span class="math notranslate nohighlight">\(\lambda_{i}\)</span> terms grows.</p>
+<p>This second order model has been used also for the slow drift problem (see e.g. <span id="id35">[<a class="reference internal" href="#id191" title="A. Næss. Technical note: on the long-term statistics of extremes. Applied Ocean Research, 6(4):227-228, 1984.">19.023</a>]</span>, <span id="id36">[<a class="reference internal" href="#id192" title="A. Næss. The joint crossing frequency of stochastic processes and its application to wave theory. Journal of Applied Ocean Research, 1985.">19.030</a>]</span>).</p>
+</section>
+<section id="slamming-loads">
+<h3><span class="section-number">19.5.4. </span>Slamming loads<a class="headerlink" href="#slamming-loads" title="Link to this heading">#</a></h3>
+<p>Slamming loads in platform decks are important design consideration. Because of non-linear diffraction effects there is still no reliable method for assessing the loads.</p>
+<p>In simplified 2D cases a generalised Wagner solution seems to describe the water entry loads. The water exit loads are, however, not properly described.</p>
+<p>Impact forces associated with a slam induced whipping response can be reasonably predicted by 2D and 3D methods. However, some of the rigorous treatments that are available are CPU time consuming.</p>
+<p>For ships with non-vertical hull-sides in high waves, slamming loads are important. The dominating force is the added mass force. A state-of-the-art review of studies on slamming, including theories, numerical methods, elastic responses due to impact loads and stochastic modelling, is given by <span id="id37">[<a class="reference internal" href="#id189" title="S. Mizoguchi and K. Tanizawa. Impact wave loads due to slamming. Ship Technology Research, 43:139-154, 1996.">19.031</a>]</span>.</p>
+<p>Ship hull vibrations are often due to propeller cavitation.</p>
+</section>
+</section>
+<section id="uncertainties">
+<span id="section-2-15-6"></span><h2><span class="section-number">19.6. </span>Uncertainties<a class="headerlink" href="#uncertainties" title="Link to this heading">#</a></h2>
+<p><strong>Models for random variables</strong></p>
+<p><a class="reference internal" href="#table-wave-load-asic-variables-and-probabilistic-models"><span class="std std-numref">Table 19.1</span></a> presents a list of variables that could be considered as uncertain within a probabilistic wave load analysis. For every variable suggestions are presented for the probabilistic modelling. In most cases these suggestions are based on what is presented in the literature by various authors, sometimes on the basis of observations and data, sometimes only for use in example calculations. As a result, the background of the values given may differ substantially from one random variable to another.</p>
+<p>In <a class="reference internal" href="#table-wave-load-asic-variables-and-probabilistic-models"><span class="std std-numref">Table 19.1</span></a> mean values are often presented as to the nominal value or the locally measured value. The scatter, introduced as a coefficient of <span class="math notranslate nohighlight">\(V\)</span>, may also depend heavily on local circumstances. The designation of the distribution type, is clarified at the bottom of the table. For variables which are defined per member or per joint, the value of <span class="math notranslate nohighlight">\(\rho_{i j}\)</span> indicates the coefficient of correlation between members. For the interpretation of <span class="math notranslate nohighlight">\(\rho_{i j}\)</span> it is convenient to have the following relationship:</p>
+<div class="math notranslate nohighlight">
+\[\rho_{i j}=1-\left(V_{\text {int }} / V\right)^{2}{4}\]</div>
+<p><span class="math notranslate nohighlight">\(V_{int}=\)</span> member to member variability</p>
+<p><span class="math notranslate nohighlight">\(V=\)</span> total uncertainty</p>
+<p>As an example, let the member to member variability for the yield stress within one structure be equal to <span class="math notranslate nohighlight">\(V_{\text {int }}=0.4\)</span>. The total uncertainty is about <span class="math notranslate nohighlight">\(V=0.8\)</span>. So:</p>
+<div class="math notranslate nohighlight">
+\[\rho_{i j}=1-(0.4 / 0.8)^{2}=0.75\]</div>
+<p>In many practical calculations, values close to 0.0 or 1.0 should be rounded off.</p>
+<p>In cases where little data is available, statistical parameters suffer seriously from “statistical uncertainty”. The most important statistical uncertainty concerns the uncertainty in the mean, which can be translated into an increased coefficient of variation. The coefficients of variation given in the Table should be considered as including this statistical uncertainty.</p>
+<p><strong>Some detailed comments to <a class="reference internal" href="#table-wave-load-asic-variables-and-probabilistic-models"><span class="std std-numref">Table 19.1</span></a></strong></p>
+<p><strong>Waves</strong></p>
+<p>The most important load parameter is the sea elevation <span class="math notranslate nohighlight">\(\eta\)</span>, which can be considered as a zero mean piece-wise stationary Gaussion process. The parameters describing the spectra depend on the site location. When elaborating the parameters for a special case, however, it is recommended that one should take into account the statistical uncertainty due to the limited number of data, the effect of measurement errors and the difference in location between the measurement site and the construction site.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-wave-load-asic-variables-and-probabilistic-models">
+<caption><span class="caption-number">Table 19.1 </span><span class="caption-text">Basic variables and probabilistic models</span><a class="headerlink" href="#table-wave-load-asic-variables-and-probabilistic-models" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p><span class="math notranslate nohighlight">\(\boldsymbol{X}\)</span></p></th>
+<th class="head text-left"><p>Designation</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\mu\)</span></p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\mathbf{V}\)</span></p></th>
+<th class="head text-left"><p>Dist type</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\rho_{i j}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Measurement <span class="math notranslate nohighlight">\(H_{s}\)</span></p></td>
+<td class="text-left"><p>nom</p></td>
+<td class="text-left"><p>0.10</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(H_{s}\)</span></p></td>
+<td class="text-left"><p>Significant wave height</p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(W/L\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(T_{z} \mid H_{s}\)</span></p></td>
+<td class="text-left"><p>Mean period for given <span class="math notranslate nohighlight">\(H_{s}\)</span></p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(L/N\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\phi_{s}\)</span></p></td>
+<td class="text-left"><p>Mean wave direction</p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(T_{d}\)</span></p></td>
+<td class="text-left"><p>Duration of sea state</p></td>
+<td class="text-left"><p>3-6 hrs</p></td>
+<td class="text-left"><p>1.0</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(E\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(H_{\max } \mid H_{s}\)</span></p></td>
+<td class="text-left"><p>Max wave in given sea state</p></td>
+<td class="text-left"><p>Calculation</p></td>
+<td class="text-left"><p>Local</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(G\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta_{w}\)</span></p></td>
+<td class="text-left"><p>Wave model</p></td>
+<td class="text-left"><p>Depends</p></td>
+<td class="text-left"><p>0.05 - 0.3</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta_{M G}\)</span></p></td>
+<td class="text-left"><p>Marine growth model</p></td>
+<td class="text-left"><p>1</p></td>
+<td class="text-left"><p>0.2 - 0.5</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(W\)</span></p></td>
+<td class="text-left"><p>0.9</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(C_{D}\)</span></p></td>
+<td class="text-left"><p>Drag force coefficient</p></td>
+<td class="text-left"><p>0.6 - 1.3</p></td>
+<td class="text-left"><p>0.2 - 0.3</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<td class="text-left"><p>0.9</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(C_{M}\)</span></p></td>
+<td class="text-left"><p>Inertia force coefficient</p></td>
+<td class="text-left"><p>1.6 - 2.5</p></td>
+<td class="text-left"><p>0.10 - 0.15</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<td class="text-left"><p>0.9</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(p_{1}\)</span></p></td>
+<td class="text-left"><p>Horizontal pressure on wall</p></td>
+<td class="text-left"><p>0.90</p></td>
+<td class="text-left"><p>0.20</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Moment due to horizontal <br> pressure on wall</p></td>
+<td class="text-left"><p>0.81</p></td>
+<td class="text-left"><p>0.37</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(p_{4}\)</span></p></td>
+<td class="text-left"><p>Uplift pressure</p></td>
+<td class="text-left"><p>0.77</p></td>
+<td class="text-left"><p>0.20</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p></p></td>
+<td class="text-left"><p>Moment due to uplift pressure</p></td>
+<td class="text-left"><p>0.72</p></td>
+<td class="text-left"><p>0.34</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(L\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(\theta_{X}=\)</span> model uncertainty of <span class="math notranslate nohighlight">\(X, \rho_{i j}=\)</span> correlation between members, <span class="math notranslate nohighlight">\(N=\)</span> normal, <span class="math notranslate nohighlight">\(L=\)</span> lognormal, <span class="math notranslate nohighlight">\(E=\)</span> exponential, <span class="math notranslate nohighlight">\(W=\)</span> Weibull, <span class="math notranslate nohighlight">\(G=\)</span> Gumbel</p>
+<p>There is no generally valid one-to-one relationship between the visual wave height and the significant wave height (instrumentally measured), or between the visual wave period and zero-crossing wave period (instrumentally measured). Thus, usually correction factors should be applied to the visual observations, see for example <span id="id38">[<a class="reference internal" href="#id158" title="E.M. Bitner-Gregersen and Ø. Hagen. Uncertainties in data for the offshore environment. Structural Safety, 7:11-34, 1990.">19.032</a>]</span>.</p>
+<p>The Global Wave Statistics (GWS) visual observations of wave climate, see <span id="id39">[<a class="reference internal" href="#id160" title="N. Hogben, L.F. Da Cunha, and H.N. Oliver. Global Wave Statistics. Unwin Brothers Limited, London, England, 1986.">19.033</a>]</span>, represent the only truly global set of wave data with a sufficiently long observation history to give reliable global climatic statistics. <span id="id40">[<a class="reference internal" href="#id160" title="N. Hogben, L.F. Da Cunha, and H.N. Oliver. Global Wave Statistics. Unwin Brothers Limited, London, England, 1986.">19.033</a>]</span> states that it should not be necessary to apply any correction factors, usually used for estimating wave height and wave period from visual observations. However, the accuracy of the data is still questioned in the literature. The GWS data should be used with care, and if possible they should be checked against available instrumental or hindcast data for considered areas. For the North Pacific, the visual wave observations owing to <span id="id41">[<a class="reference internal" href="#id204" title="I. Watanabe and others. Winds and waves of the north pacific ocean 1974-1988. Papers of Ship Research Institute, 1992.">19.034</a>]</span> are probably of higher accuracy than the Global Wave Statistics data. The Global Wave Statistics data were collected from ships whose density of traffic in the North Pacific area was rather low.</p>
+<p>The World Meteorological Organisation’s accuracy requirements for waves, in terms of <span class="math notranslate nohighlight">\(95 \%\)</span> confidence interval limits, are <span id="id42">[<a class="reference internal" href="#id207" title="World Meteorological Organization. Guide to Meteorological Instruments and Methods of Observation. World Meteorological Organization, Geneva, Switzerland, 1983.">19.035</a>]</span>: <span class="math notranslate nohighlight">\(\pm 20 \%\)</span> for significant wave height and <span class="math notranslate nohighlight">\(\pm 1.0 ~s\)</span> for the average wave period. However, the accuracy of the actual wave data may be widely varying and is very much related to the observation mode.</p>
+<p>The instrumental accuracy depends on the type of instrument used. A study by <span id="id43">[<a class="reference internal" href="#id177" title="K. Hasselman and others. Measurements of wind-wave growth and swell decay during the joint north sea wave project (jonswap). Technical Report 12, Deutschen Hydrographischen Institut, Hamburg, Germany, 1973.">19.036</a>]</span> shows that properly calibrated instruments are in general equally accurate. Wave buoys are regarded as being highly accurate instruments, and error in the estimated significant wave height due to imperfections of the wave buoys may be considered as negligible for most sea states, <span id="id44">[<a class="reference internal" href="#id198" title="K. Steel and M.D. Earle. The status of data produced by ndbc wave data analyzer (wda) systems. In Proc. Ocean ’79, 212-220. 1979.">19.037</a>]</span>, <span id="id45">[<a class="reference internal" href="#id188" title="F. Monaldo. Expected differences between buoy and radar altimeter estimates of wind speed and significant wave height and their implication on buoy-altimeter comparisons. J. Geophys., pages 2285-2302, 1988.">19.038</a>]</span>. During the severe sea conditions, the buoy may be drawn through the crest of wave, causing a smoothing effect in the recorded data. In the presence of a strong surface current, the buoy will most likely underestimate high wave heights. External forces on the buoy (e.g., breaking waves, mooring) may cause violent accelerations, that will lead to overestimation of the waves. These uncertainties are difficult to quantify.</p>
+<p>In steep waves, the differences between sea surface oscillations recorded by a fixed (Eulerian) probe or laser, and those obtained by a free-floating (Lagrangian) buoy can be very marked. Reference is made to, Vartdal et al. (1989), <span id="id46">[<a class="reference internal" href="#id186" title="T. Marthinsen and S.R. Winterstein. On the skewness of random surface waves. In Proc. of the 2nd International Offshore and Polar Engineering Conference, 472-478. San Francisco, 1992. ISOPE.">19.039</a>]</span>. Thus the wave buoy data should not be used for estimation of wave profiles in steep waves.</p>
+<p>Platform mounted wave gages and other wave sensing devices have the advantage that they measure directly sea surface displacement rather than the acceleration as the buoys. For accuracy of the platform data see e.g. <span id="id47">[<a class="reference internal" href="#id161" title="C.J. Cardone, V.R. Shaw, and V.R. Swail. Uncertainties in metocean data. In Proceedings of the E&amp;P Forum Workshop. 1995.">19.040</a>]</span>.</p>
+<p>Several investigations carried out in the last years indicate very promising results that support use of the satellite data. <span id="id48">[<a class="reference internal" href="#id162" title="D.J.T. Carter, P.G. Challenor, and M.A. Srokosz. An assessment of geosat wave height and wind speed measurements. J. Geophys. Res., 1992.">19.041</a>]</span> demonstrated that over the range of wave heights 1m - 8m satellite altimeter derived significant wave heights were nearly as accurate as the ones obtained from surface buoy measurements. <span id="id49">[<a class="reference internal" href="#id165" title="C. Cooper and G.Z. Forristal. Title of the paper. In Proceedings of the 1995 Offshore Technology Conference. 1995.">19.042</a>]</span> have shown that the satellite data are suitable for analysing ocean areas dominated by large storms or monsoon flows (accuracy: <span class="math notranslate nohighlight">\(COV=10 \%\)</span> ).</p>
+<p>Modelled wave data are produced operationally by major national meteorological services and are filed by the data centers. The accuracy of these data may vary and depends strongly on the hindcast models applied to generate the data as well as the adopted wind field. To allow hindcast data to be used, the underlying hindcast models must be calibrated with measured data.</p>
+<p>As noted above neither measurements nor wave models can be entirely relied upon to provide unbiased and error-free estimates under all conditions. The best way of providing a reliable metocean database is to make use of both measurements and model data, and to quantify uncertainties related to them. Generally, the offshore industry regards the instrumentally measured data always superior to model derived data, and recommends to use them for evaluating the design and operational criteria. Note that for instrumentally recorded wave data sampling variability due to a limited registration time constitutes a significant part of the random errors.</p>
+<p>For the JONSWAP and Pierson-Moskowitz spectrum the sampling variability coefficient of variation of the significant wave height and zero-crossing wave period are approximately <span class="math notranslate nohighlight">\(4-6 \%\)</span> and <span class="math notranslate nohighlight">\(1.5-2.5 \%\)</span> respectively.</p>
+<p>An unbiased noise in the measurement system will increase the measured <span class="math notranslate nohighlight">\(H_{S}\)</span>. This sampling variability leads to extrapolations of extreme wave heights and periods that are biased. A review of data from 17 storms at Forties carried out by <span id="id50">[<a class="reference internal" href="#id169" title="W.D. Earle and L. Baer. Effects of uncertainties on extreme wave heights. J. Waterway, Port, Coastal and Ocean Division, 1982.">19.043</a>]</span> indicates that the storm-peak significant wave heights determined from a single 17 -minute record every three hours are biased by about <span class="math notranslate nohighlight">\(6 \%\)</span>, relative to threehour-average values.</p>
+<p><strong>Long-term Description</strong></p>
+<p>The following epistemic uncertainties are related to the long-term description: data uncertainty (instrumental/hindcast/forecast errors, sampling variability due to limited registration time of sea states), statistical uncertainty (due to limited long-term sample, fitting technique applied) and modelling uncertainty (due to choice of the statistical model, the effects of clustering, climatic uncertainty, fitting technique). Experience shows that the long-term wave description is sensitive to almost all types of uncertainties, even though their relative contribution to the response/structure reliability analysis may be different for various applications and various response calculation procedures.</p>
+<p>While both data uncertainty and statistical uncertainty is possible to quantify, and in some cases to eliminate, specification of model uncertainty is still difficult, especially as a theoretical basis for the probabilistic/deterministic models involved in the longterm description is most probably out of reach. However, it is possible to identify differences between predictions of different models, which can be used to give an idea of the model uncertainties involved. Lacking information, it is advisable to use information from various models in order to minimise the risk of wrong predictions, as suggested in <span id="id51">[<a class="reference internal" href="#id172" title="C. Guedes Soares. 1989.">19.044</a>]</span>.</p>
+<p>The global approach utilising all data from long series of regular observations introduces correlation among observations (e.g. clustering), and may obscure critical tail behaviour. However, the method is less sensitive to uncertainties in the few largest data points. In the alternative Peak Over Threshold method extreme observations may be nearly independent, but their scarceness increases the statistical uncertainty relative to the global approach. The method is also more sensitive to errors in the few highest data points. There is no general agreement on whether the global approach or the event method should be used. A choice between the methods should depend on the data set at hand as well as the application considered. However, for fatigue calculations for steel or steel welds all data should generally be preferred. Further, for extreme value analysis there are reasons for favouring event models (Winterstein et al., 2001).</p>
+<p>Sampling variability of measured wave data (due to registration time = 1024s and 3- hour spacing interval) will lead to a positive bias in long-term period extreme wave heights estimated either directly from measurements or from hindcast data calibrated with measurements, see <span id="id52">[<a class="reference internal" href="#id178" title="J. Heideman, O.T. Gudmestad, and C. Petrauskas. Environmental conditions and forces for use in requalification of offshore structures. In Proceedings a Requalification of Offshore Structures Conference. USA, 1994.">19.045</a>]</span>. Further, as shown by <span id="id53">[<a class="reference internal" href="#id179" title="J.C. Heideman, M. J. Santala, and R. Cuellar. Uncertainty and bias in metocean design criteria. In E&amp;F FORUM Workshop. London, England, November 2/3 1995.">19.046</a>]</span> the <span class="math notranslate nohighlight">\(H_{s}\)</span> distribution function is clearly negatively biased for storms with shorter duration and greater intervals between samples, and positively biased for storms with greater duration and more frequent samples. The bias in 100 -year Hs for 1-hour spacing and 3-hour spacing is not negligible. Furthermore, as demonstrated by <span id="id54">[<a class="reference internal" href="#id179" title="J.C. Heideman, M. J. Santala, and R. Cuellar. Uncertainty and bias in metocean design criteria. In E&amp;F FORUM Workshop. London, England, November 2/3 1995.">19.046</a>]</span>, uncertainty in design criteria increases rapidly as the data record length decreases below that which is required to achieve an acceptable COV of, say, 0.1 . Too short record has to be compensated by adopting more expensive safety margins by a designer. Thus it may be more desirable to have record with some uncertainty in the accuracy of the data than to have a very short data record of perfect accuracy.</p>
+<p>Climatic uncertainty appears when the observed data are obtained from a time interval that is not fully representative for the long-term variations of the environmental conditions. This may result in overestimation or underestimation of the design/operational wave. The database needs to cover at least 20 years of preferably 30 years or more in order to account for climatic variability. In regions where the predominating storm type is a hurricane, and the frequency of occurrence of extreme hurricanes at a site is low (such as in the Gulf of Mexico), the uncertainty in the 100year wave height might not reach a “comfortable” level until the data base coverage actually approaches 100 years, see <span id="id55">[<a class="reference internal" href="#id178" title="J. Heideman, O.T. Gudmestad, and C. Petrauskas. Environmental conditions and forces for use in requalification of offshore structures. In Proceedings a Requalification of Offshore Structures Conference. USA, 1994.">19.045</a>]</span>.</p>
+<p>In establishing very large data bases of wave data, there is the danger of joining in a sample data from different populations. <span id="id56">[<a class="reference internal" href="#id173" title="C. Guedes Soares and M.C. Nolasco. Spectral modelling of sea states with multiple wave systems. Journal of Offshore Mechanics and Arctic Engineering, 114:278-284, 1992.">19.09</a>]</span> examined the case of single peaked sea states being pooled with combined ones, while <span id="id57">[<a class="reference internal" href="#id174" title="C. Guedes Soares and A. C. Henriques. Statistical uncertainty in long-term distributions of significant wave height. Journal of Offshore Mechanics and Arctic Engineering, 118:284-291, 1996.">19.047</a>]</span> looked at the seasonal variability of the data and <span id="id58">[<a class="reference internal" href="#id175" title="C. Guedes Soares and J. A. Ferreira. Modelling long-term distributions of significant wave height. In C. Guedes Soares, editor, Proceedings of the 14th International Conference on Offshore Mechanics and Arctic Engineering, 51-61. New York, 1995. ASME.">19.048</a>]</span> studied the yearly variability of the data. The latter showed that the application of strict statistical criteria defining samples and population would not support pooling together data from different years. In fact, an explanation model was developed based on the concept of sampling from random populations.</p>
+<p>There is no industry consensus on how to apply directional criteria in design. Usually the length of the data record is too short to provide a proper directional description of waves. Therefore directional criteria exist only for a few discrete, large directional sectors and they use to be biased. As recommended by <span id="id59">[<a class="reference internal" href="#id170" title="G. Z. Forristal and C. J. Shaw. Uncertainties in the design process. In Proceedings of the E&amp;P Forum Workshop. 1995.">19.049</a>]</span>, directional effects need to be included in the reliability analysis with some care. A recent directional model is published by <span id="id60">[<a class="reference internal" href="#id199" title="M.J. Sterndorff and J.D. Sørensen. A rational procedure for determination of directional individual design wave heights. In Proc. OMAE 2001 Conference. Rio de Janeiro, June 2001.">19.050</a>]</span>.</p>
+<p>Further studies quantifying relative importance of different types of uncertainties for short-term and long-term wave prediction are also called for.</p>
+<p><strong>Wave models</strong></p>
+<p>All uncertainties related to wave models should where possible be quantified and accounted for when specifying design and operational conditions. The numbers depend on type of application and circumstances.</p>
+<p><strong>Wave loads</strong></p>
+<p>The values of the coefficients <span class="math notranslate nohighlight">\(C_{M}\)</span> and <span class="math notranslate nohighlight">\(C_{D}\)</span> are a source of model uncertainty. For common structural cross sections, typical values of <span class="math notranslate nohighlight">\(C_{D}\)</span> are found in the range between 0.6 and 1.3. Similarly, typical values of <span class="math notranslate nohighlight">\(C_{M}\)</span> are found in the range between 1.6 to 2.5 .</p>
+<p>The drag coefficient <span class="math notranslate nohighlight">\(C_{D}\)</span> is a function of Reynolds number. The inertia coefficient <span class="math notranslate nohighlight">\(C_{M}\)</span> can in many cases be evaluated theoretically, as the inertia force is essentially the same force as that evaluated by integrating the pressure over the cylinder surface in a velocity potential representation. Different values of the drag coefficient <span class="math notranslate nohighlight">\(C_{D}\)</span> and the inertia coefficient <span class="math notranslate nohighlight">\(C_{M}\)</span> below and above sea water level should be considered because of marine growth.</p>
+<p>In the reliability analysis it is recommended to adopt <span class="math notranslate nohighlight">\(C_{M}\)</span> as a lognormally distributed variable with <span class="math notranslate nohighlight">\(C O V=0.10\)</span>, and <span class="math notranslate nohighlight">\(C_{D}\)</span> as a lognormally distributed variable with <span class="math notranslate nohighlight">\(C O V=0.20-0.30\)</span>, <span id="id61">[<a class="reference internal" href="#id176" title="R.E. Haring and L.P. Spencer. Ocean test structure data base. In Proc., Intl. Conf. on Civ. Eng. in the Oceans IV, 669-683. ASCE, 1979.">19.051</a>]</span>, <span id="id62">[<a class="reference internal" href="#id166" title="R.G. Dean, Jen-Men Lo, and Johansson. Rare wave kinematics vs. design practice. In Proceedings, Civil Engineering in the Oceans 5, ASCE Specialty Conference. San Francisco, Cal., 1979.">19.052</a>]</span>.</p>
+<p>The model uncertainties of the Goda formula (last four lines) have been studied by <span id="id63">[<a class="reference internal" href="#id203" title="J.W. Van der Meer, K. D'Angremond, and J. Juhl. Probabilistic calculations of wave forces on vertical structures. In Coastal Engineering 1994, 1754-1767. 1994.">19.053</a>]</span>.</p>
+<p><strong>References</strong></p>
+<div class="docutils container" id="id64">
+<div role="list" class="citation-list">
+<div class="citation" id="id205" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">19.01</a><span class="fn-bracket">]</span></span>
+<p>J.D. Wheeler. Method for calculating forces produced by irregular waves. In <em>Proceedings 1st Offshore Technology Conference, OTC 1006</em>. Houston, 1969.</p>
+</div>
+<div class="citation" id="id194" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">19.02</a><span class="fn-bracket">]</span></span>
+<p>W.J. Pierson and L. Moskowitz. A proposed spectral form for fully developed wind seas based on similarity theory of s.a. kitaigorodskii. <em>J. Geoph. Res.</em>, 69:5181–5190, 1964.</p>
+</div>
+<div class="citation" id="id180" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">19.03</a><span class="fn-bracket">]</span></span>
+<p><em>Proceedings of International Ship Structures Congress</em>, Delft, the Netherlands, July 20-24 1964.</p>
+</div>
+<div class="citation" id="id195" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">19.04</a><span class="fn-bracket">]</span></span>
+<p>M. Prevosto, H.E. Krogstad, S.F. Barstow, and C. Guedes Soares. Observations of the high-frequency range of the wave spectrum. <em>J. Offshore Mechanics and Arctic Engineering</em>, 1996.</p>
+</div>
+<div class="citation" id="id156" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.05<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id15">2</a>,<a role="doc-backlink" href="#id25">3</a>)</span>
+<p>J. A. Battjes. Engineering aspects of ocean waves and currents. In <em>Seminar on Safety of Structures under Dynamic Loading</em>. Trondheim, Norway, 1978.</p>
+</div>
+<div class="citation" id="id157" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.06<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id23">2</a>)</span>
+<p>E.M. Bitner-Gregersen and S. Haver. Joint environmental model for reliability calculations. In <em>Proc. of the 1st International Offshore and Polar Engineering Conference</em>. Edinburgh, United Kingdom, August 11-15 1991.</p>
+</div>
+<div class="citation" id="id200" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">19.07</a><span class="fn-bracket">]</span></span>
+<p>S.S. Strekalov and S. Massel. On the spectral analysis of wind waves. <em>Arch. Hydrot.</em>, 18:457–485, 1971.</p>
+</div>
+<div class="citation" id="id193" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">19.08</a><span class="fn-bracket">]</span></span>
+<p>M.K. Ochi and E.N. Hubble. On six-parameters wave spectra. In <em>Proc. 15th Coastal Eng. Conf.</em>, volume 1, 301–328. 1976.</p>
+</div>
+<div class="citation" id="id173" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.09<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id9">1</a>,<a role="doc-backlink" href="#id56">2</a>)</span>
+<p>C. Guedes Soares and M.C. Nolasco. Spectral modelling of sea states with multiple wave systems. <em>Journal of Offshore Mechanics and Arctic Engineering</em>, 114:278–284, 1992.</p>
+</div>
+<div class="citation" id="id183" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">19.010</a><span class="fn-bracket">]</span></span>
+<p>M.S. Longuet-Higgins. The effects of non-linearities on statistical distributions in the theory of sea waves. <em>J. Fluid Mech.</em>, 1963.</p>
+</div>
+<div class="citation" id="id182" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">19.011</a><span class="fn-bracket">]</span></span>
+<p>M.S. Longuet-Higgins. On statistical distribution of the heights of sea waves. <em>J. Marine res.</em>, 11:245–266, 1952.</p>
+</div>
+<div class="citation" id="id163" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">19.012</a><span class="fn-bracket">]</span></span>
+<p>D.E. Cartwright and M.S. Longuet-Higgins. The statistical distribution of maxima of a random process. <em>Proc. Roy. Soc. London, Ser.A</em>, 1956.</p>
+</div>
+<div class="citation" id="id184" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">19.013</a><span class="fn-bracket">]</span></span>
+<p>M.S. Longuet-Higgins. On the distribution of heights of sea waves: some effects of non-linearities and finite band width. <em>Journal of Geophysical Research</em>, 85(C3):1519–1523, 1980.</p>
+</div>
+<div class="citation" id="id187" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">19.014</a><span class="fn-bracket">]</span></span>
+<p>S. Massel. <em>Ocean Waves in the Coastal Zone</em>. Elsevier, 1989.</p>
+</div>
+<div class="citation" id="id164" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id16">19.015</a><span class="fn-bracket">]</span></span>
+<p>A. Cavanie, M. Arhan, and R. Ezraty. A statistical relationship between individual heights and periods of storm waves. In <em>Behaviour of Offshore Structures (BOSS’ 76), The Norwegian Institute of Technology</em>. 1976.</p>
+</div>
+<div class="citation" id="id155" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">19.016</a><span class="fn-bracket">]</span></span>
+<p>M. Arhan and R. Ezraty. Statistical relations between successive wave heights. <em>Acta Oceanologica</em>, 1:151–158, 1978.</p>
+</div>
+<div class="citation" id="id201" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">19.017</a><span class="fn-bracket">]</span></span>
+<p>M.A. Tayfun. Distribution of crest-to-trough wave heights. <em>J. Wtrway, Port, Coastal and Ocean Engng.</em>, 107(3):149–158, 1981.</p>
+</div>
+<div class="citation" id="id202" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">19.018</a><span class="fn-bracket">]</span></span>
+<p>M.A. Tayfun. Distribution of large wave heights. <em>J. Wtrway, Port, Coastal and Ocean Engng.</em>, 116(6):686–707, 1990.</p>
+</div>
+<div class="citation" id="id197" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id20">19.019</a><span class="fn-bracket">]</span></span>
+<p>J. Skourup, N.-E. Ottesen Hansen, and K.K. Andreasen. Non-gaussian extreme waves in the central north sea. In <em>Proc. of the 15th Int. Conf. on Offshore Mechanics and Arctic Engineering, OMAE</em>, volume I-Part A, 25–32. ASME, 1996.</p>
+</div>
+<div class="citation" id="id190" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id21">19.020</a><span class="fn-bracket">]</span></span>
+<p>A. Næss. Estimation of long return period design values for wind speeds. <em>Journal of Engineering Mechanics</em>, 124:252–259, 1998.</p>
+</div>
+<div class="citation" id="id196" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id22">19.021</a><span class="fn-bracket">]</span></span>
+<p>R.G. Prince-Wright. Maximum likelihood models of joint environmental data for tlp design. In <em>Proc. of the 14th Int. Conf. on Offshore Mechanics and Arctic Engineering OMAE</em>, volume 2. Copenhagen, Denmark, 1995. ASME.</p>
+</div>
+<div class="citation" id="id167" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id24">19.022</a><span class="fn-bracket">]</span></span>
+<p>A. Der Kiureghian and P.-L. Liu. Structural reliability under incomplete probability information. <em>J. Eng. Mechanics</em>, 113(8):1208–1225, 1986.</p>
+</div>
+<div class="citation" id="id191" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.023<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id26">1</a>,<a role="doc-backlink" href="#id35">2</a>)</span>
+<p>A. Næss. Technical note: on the long-term statistics of extremes. <em>Applied Ocean Research</em>, 6(4):227–228, 1984.</p>
+</div>
+<div class="citation" id="id168" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id27">19.024</a><span class="fn-bracket">]</span></span>
+<p>O. Ditlevsen. Stochastic model for joint wave and wind loads on offshore structures. <em>Structural Safety</em>, 24:139–163, 2002.</p>
+</div>
+<div class="citation" id="id185" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.025<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id28">1</a>,<a role="doc-backlink" href="#id29">2</a>,<a role="doc-backlink" href="#id30">3</a>)</span>
+<p>H.O. Madsen, S. Krenk, and N. Lind. <em>Structural Safety</em>. Prentice-Hall, 1986.</p>
+</div>
+<div class="citation" id="id159" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id31">19.026</a><span class="fn-bracket">]</span></span>
+<p>L.E. Borgman. Spectral density of ocean wave forces. In <em>Journal ASCE, Waterways and Harbors Div.; Proceedings, ASCE Specialty Cong. on Coastal Engineering</em>. Santa Barbara, CA, 1965. October 1965.</p>
+</div>
+<div class="citation" id="id171" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id32">19.027</a><span class="fn-bracket">]</span></span>
+<p>Y. Goda. <em>Random seas and design of maritime structures</em>. University of Tokyo press, Tokyo, 1985.</p>
+</div>
+<div class="citation" id="id181" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id33">19.028</a><span class="fn-bracket">]</span></span>
+<p>M. Kac and A.J.F. Siegert. On the theory of noise in radio receivers with square law detectors. <em>Journal of Applied Physics</em>, pages 383–400, 1947.</p>
+</div>
+<div class="citation" id="id206" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id34">19.029</a><span class="fn-bracket">]</span></span>
+<p>S.R. Winterstein, E.M. Bitner-Gregersen, and K.O. Ronold. Statistical and physical models of nonlinear random waves. In <em>Proc. of the 10th Int. Conf. on Offshore Mechanics and Arctic Engineering</em>, volume II, 23–32. 1991.</p>
+</div>
+<div class="citation" id="id192" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id36">19.030</a><span class="fn-bracket">]</span></span>
+<p>A. Næss. The joint crossing frequency of stochastic processes and its application to wave theory. <em>Journal of Applied Ocean Research</em>, 1985.</p>
+</div>
+<div class="citation" id="id189" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id37">19.031</a><span class="fn-bracket">]</span></span>
+<p>S. Mizoguchi and K. Tanizawa. Impact wave loads due to slamming. <em>Ship Technology Research</em>, 43:139–154, 1996.</p>
+</div>
+<div class="citation" id="id158" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id38">19.032</a><span class="fn-bracket">]</span></span>
+<p>E.M. Bitner-Gregersen and Ø. Hagen. Uncertainties in data for the offshore environment. <em>Structural Safety</em>, 7:11–34, 1990.</p>
+</div>
+<div class="citation" id="id160" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.033<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id39">1</a>,<a role="doc-backlink" href="#id40">2</a>)</span>
+<p>N. Hogben, L.F. Da Cunha, and H.N. Oliver. <em>Global Wave Statistics</em>. Unwin Brothers Limited, London, England, 1986.</p>
+</div>
+<div class="citation" id="id204" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id41">19.034</a><span class="fn-bracket">]</span></span>
+<p>I. Watanabe and others. Winds and waves of the north pacific ocean 1974-1988. <em>Papers of Ship Research Institute</em>, 1992.</p>
+</div>
+<div class="citation" id="id207" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id42">19.035</a><span class="fn-bracket">]</span></span>
+<p>World Meteorological Organization. <em>Guide to Meteorological Instruments and Methods of Observation</em>. World Meteorological Organization, Geneva, Switzerland, 1983.</p>
+</div>
+<div class="citation" id="id177" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id43">19.036</a><span class="fn-bracket">]</span></span>
+<p>K. Hasselman and others. Measurements of wind-wave growth and swell decay during the joint north sea wave project (jonswap). Technical Report 12, Deutschen Hydrographischen Institut, Hamburg, Germany, 1973.</p>
+</div>
+<div class="citation" id="id198" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id44">19.037</a><span class="fn-bracket">]</span></span>
+<p>K. Steel and M.D. Earle. The status of data produced by ndbc wave data analyzer (wda) systems. In <em>Proc. Ocean ’79</em>, 212–220. 1979.</p>
+</div>
+<div class="citation" id="id188" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id45">19.038</a><span class="fn-bracket">]</span></span>
+<p>F. Monaldo. Expected differences between buoy and radar altimeter estimates of wind speed and significant wave height and their implication on buoy-altimeter comparisons. <em>J. Geophys.</em>, pages 2285–2302, 1988.</p>
+</div>
+<div class="citation" id="id186" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id46">19.039</a><span class="fn-bracket">]</span></span>
+<p>T. Marthinsen and S.R. Winterstein. On the skewness of random surface waves. In <em>Proc. of the 2nd International Offshore and Polar Engineering Conference</em>, 472–478. San Francisco, 1992. ISOPE.</p>
+</div>
+<div class="citation" id="id161" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id47">19.040</a><span class="fn-bracket">]</span></span>
+<p>C.J. Cardone, V.R. Shaw, and V.R. Swail. Uncertainties in metocean data. In <em>Proceedings of the E&amp;P Forum Workshop</em>. 1995.</p>
+</div>
+<div class="citation" id="id162" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id48">19.041</a><span class="fn-bracket">]</span></span>
+<p>D.J.T. Carter, P.G. Challenor, and M.A. Srokosz. An assessment of geosat wave height and wind speed measurements. <em>J. Geophys. Res.</em>, 1992.</p>
+</div>
+<div class="citation" id="id165" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id49">19.042</a><span class="fn-bracket">]</span></span>
+<p>C. Cooper and G.Z. Forristal. Title of the paper. In <em>Proceedings of the 1995 Offshore Technology Conference</em>. 1995.</p>
+</div>
+<div class="citation" id="id169" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id50">19.043</a><span class="fn-bracket">]</span></span>
+<p>W.D. Earle and L. Baer. Effects of uncertainties on extreme wave heights. <em>J. Waterway, Port, Coastal and Ocean Division</em>, 1982.</p>
+</div>
+<div class="citation" id="id172" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id51">19.044</a><span class="fn-bracket">]</span></span>
+<p>C. Guedes Soares. 1989.</p>
+</div>
+<div class="citation" id="id178" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.045<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id52">1</a>,<a role="doc-backlink" href="#id55">2</a>)</span>
+<p>J. Heideman, O.T. Gudmestad, and C. Petrauskas. Environmental conditions and forces for use in requalification of offshore structures. In <em>Proceedings a Requalification of Offshore Structures Conference</em>. USA, 1994.</p>
+</div>
+<div class="citation" id="id179" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>19.046<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id53">1</a>,<a role="doc-backlink" href="#id54">2</a>)</span>
+<p>J.C. Heideman, M. J. Santala, and R. Cuellar. Uncertainty and bias in metocean design criteria. In <em>E&amp;F FORUM Workshop</em>. London, England, November 2/3 1995.</p>
+</div>
+<div class="citation" id="id174" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id57">19.047</a><span class="fn-bracket">]</span></span>
+<p>C. Guedes Soares and A. C. Henriques. Statistical uncertainty in long-term distributions of significant wave height. <em>Journal of Offshore Mechanics and Arctic Engineering</em>, 118:284–291, 1996.</p>
+</div>
+<div class="citation" id="id175" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id58">19.048</a><span class="fn-bracket">]</span></span>
+<p>C. Guedes Soares and J. A. Ferreira. Modelling long-term distributions of significant wave height. In C. Guedes Soares, editor, <em>Proceedings of the 14th International Conference on Offshore Mechanics and Arctic Engineering</em>, 51–61. New York, 1995. ASME.</p>
+</div>
+<div class="citation" id="id170" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id59">19.049</a><span class="fn-bracket">]</span></span>
+<p>G. Z. Forristal and C. J. Shaw. Uncertainties in the design process. In <em>Proceedings of the E&amp;P Forum Workshop</em>. 1995.</p>
+</div>
+<div class="citation" id="id199" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id60">19.050</a><span class="fn-bracket">]</span></span>
+<p>M.J. Sterndorff and J.D. Sørensen. A rational procedure for determination of directional individual design wave heights. In <em>Proc. OMAE 2001 Conference</em>. Rio de Janeiro, June 2001.</p>
+</div>
+<div class="citation" id="id176" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id61">19.051</a><span class="fn-bracket">]</span></span>
+<p>R.E. Haring and L.P. Spencer. Ocean test structure data base. In <em>Proc., Intl. Conf. on Civ. Eng. in the Oceans IV</em>, 669–683. ASCE, 1979.</p>
+</div>
+<div class="citation" id="id166" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id62">19.052</a><span class="fn-bracket">]</span></span>
+<p>R.G. Dean, Jen-Men Lo, and Johansson. Rare wave kinematics vs. design practice. In <em>Proceedings, Civil Engineering in the Oceans 5, ASCE Specialty Conference</em>. San Francisco, Cal., 1979.</p>
+</div>
+<div class="citation" id="id203" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id63">19.053</a><span class="fn-bracket">]</span></span>
+<p>J.W. Van der Meer, K. D'Angremond, and J. Juhl. Probabilistic calculations of wave forces on vertical structures. In <em>Coastal Engineering 1994</em>, 1754–1767. 1994.</p>
+</div>
+</div>
+</div>
+<p><strong>Additional References</strong></p>
+<ol class="arabic simple">
+<li><p>Arhan, M. and R. Ezraty (1978), “Statistical Relations Between Successive Wave Heights”, Acta Oceanologica, 1, 151-158.</p></li>
+<li><p>Battjes, J. A. (1978), “Engineering Aspects of Ocean Waves and Currents”, Seminar on Safety of Structures under Dynamic Loading, Trondheim, Norway.</p></li>
+<li><p>Belverova, D. (1994), “Wind Waves”, PhD, Polish Academy of Sciences, Gdansk.</p></li>
+<li><p>Borgman, L.E. (1979), “Directional Wave Spectra from Wave Sensors”, Ocean Wave Climate, Plenum, New York, pp. 269-300</p></li>
+<li><p>Buoy-altimeter Comparisons”, J. Geophys., pp. 2285-2302</p></li>
+<li><p>Takahashi, S (1996): Design of vertical breakwaters. Port and Harbour Research Institute</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="thermal-actions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Thermal Actions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="earthquake.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Earthquake Load</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">19.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-short-term-random-wave-process">19.2. The short-term random wave process</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-spectrum-and-sea-state-parameters">19.2.1. Wave spectrum and sea state parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-moments">19.2.2. Spectral Moments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-peak-spectrum">19.2.3. Single peak spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-peak-spectrum">19.2.4. Double peak spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-wave-spectrum">19.2.5. Directional wave spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crest-distribution-for-gaussian-sea-state">19.2.6. Crest distribution for Gaussian Sea-State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crest-distribution-for-non-gaussian-sea-state">19.2.7. Crest distribution for Non-Gaussian Sea-State</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-for-wave-heights">19.2.8. Distribution for wave heights</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#long-term-wave-conditions">19.3. Long-term wave conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#marginal-distribution-of-significant-wave-height">19.3.1. Marginal distribution of significant wave height</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#joint-distribution-of-wave-height-and-period">19.3.2. Joint distribution of wave height and period</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extreme-individual-wave-height-and-crest-height">19.4. Extreme individual wave height and crest height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-load-models">19.5. Wave load models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slender-members">19.5.1. Slender members</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vertical-walls">19.5.2. Vertical walls</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-members">19.5.3. Volume members</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slamming-loads">19.5.4. Slamming loads</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties">19.6. Uncertainties</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

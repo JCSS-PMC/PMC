@@ -1,0 +1,1244 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>34. Fatigue Models For Metallic Structures &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-03/fatigue';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="35. How to Use" href="../help/how-to-use.html" />
+    <link rel="prev" title="33. Excentricities" href="excentricities.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/fatigue.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/fatigue.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-03/fatigue.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fatigue Models For Metallic Structures</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">34.1. Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-n-approach">34.2. S-N-approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fracture-mechanics-approach">34.3. Fracture Mechanics Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-models">34.4. Probabilistic models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-a-the-stress-intensity-correction-factor-y">34.5. Annex A: The stress intensity correction factor <span class="math notranslate nohighlight">\(Y\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-b-fatigue-loading-evaluation">34.6. Appendix B: Fatigue Loading evaluation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fatigue-models-for-metallic-structures">
+<h1><span class="section-number">34. </span>Fatigue Models For Metallic Structures<a class="headerlink" href="#fatigue-models-for-metallic-structures" title="Link to this heading">#</a></h1>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}f_{y} &amp; =\text { basic yield stress } \\ \sigma &amp; =\text { standard deviation }\end{array}\)</span></p>
+<p><strong>List of symbols (main text)</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}a \quad &amp; \text { crack depth } \\
+c \quad &amp; \text { half-length of the crack at the surface } \\
+f ()\quad &amp; \text { probability density function, resistance interaction criterion } \\
+g()\quad &amp; \text { limit state function } \\
+m \quad &amp; \text { parameter in the S-N-approach } \\
+m \quad &amp; \text { parameter in the Paris Law } \\
+n \quad &amp; \text { number of actual stress cycles } \\
+t\quad &amp; \text { time } \\
+A\quad &amp; \text { Paris Law parameter } \\
+C\quad &amp; \text { model uncertainty } \\
+B \quad &amp; \text { plate thickness } \\
+D\quad &amp; \text { damage according to Miner's Rule } \\
+E[~] \quad &amp; \text { expectation operator } \\
+K \quad &amp; \text { parameter in the } S-N-\text {model } \\
+K \quad &amp; \text { elastic stress intensity factor in the fracture mechanics model } \\
+K_{\text {mat}}\quad &amp; \text { material fracture toughness } \\
+K_{r} \quad &amp; \text { fracture ratio } \\
+K_{\text {res}} \quad &amp; \text { stress intensity factor for residual stresses } \\
+K_{s} \quad &amp; \text { stress intensity factor for the applied total stress }S \\ 
+L_{r} \quad &amp; \text { plastic collapse ratio } \\
+M_{k} \quad &amp; \text { stress intensity magnification factor accounting for the stress concentration due to the weld geometry } \\
+N \quad &amp; \text { number of stress cycles to failure at a constant amplitude stress range } \Delta S \\
+R_{S} \quad &amp; \text { stress ratio (minimum stress divided by maximum) } \\
+R \quad &amp; \text { normalised fracture toughness resistance parameter } \\
+T_{\min } \quad &amp; \text { minimum operating temperature } \\
+T_{0} \quad &amp; \text { temperature variability of } T_{27 \mathrm{~J}} \\
+T_{27 J} \quad &amp; \text { temperature corresponding to a } \mathrm{CVN} \text { of 27 }\mathrm{J} \\
+X\quad &amp; \text { random variable vector } \\
+Y \quad &amp; \text { stress intensity correction factor } \\
+\lambda \quad &amp; \text { Weibull shape parameter } \\
+\sigma \quad &amp; \text { Weibull scale parameter } \\
+\varepsilon \quad &amp; \text { statistical error in S-N curve } \\
+\rho \quad &amp; \text { plasticity correction factor } \\
+\eta \quad &amp; \text { parameter in fracture criterion } \\
+\xi \quad &amp; \text { thickness correction exponent } \\
+\sigma\quad &amp; \text { stress, including stress concentrations due to the joint geometry } \\
+\sigma_{\text {net }} \quad &amp; \text { net section stress (function of the crack size) } \\
+\sigma_{\text {res }} \quad &amp; \text { residual stresses } \\
+\sigma_{y} \quad &amp; \text { yield stress } \\
+\Delta \quad &amp; \text { range operator } \\
+\Phi \quad &amp; \text { complete elliptic integral of the second kind }\end{array}\)</span></p>
+<p><strong>Subscripts:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}cr \quad &amp; \text { limiting or critical value } \\
+o \quad &amp; \text { initial value } \\
+tr \quad &amp; \text { transition value } \\
+0 \quad &amp; \text { threshold value } \\
+glob \quad &amp; \text { global stress analysis } \\
+scf \quad &amp; \text { stress concentration factor } \\
+sif \quad &amp; \text { stress intensity factor } \\
+n \quad &amp; \text { number of cycles } \\
+m \quad &amp; \text { membrane } \\
+b \quad &amp; \text { bending } \\
+ref \quad &amp; \text { reference value }\end{array}\)</span></p>
+<section id="scope">
+<h2><span class="section-number">34.1. </span>Scope<a class="headerlink" href="#scope" title="Link to this heading">#</a></h2>
+<p>This chapter is concerned with the treatment of fatigue in metallic structures with particular emphasis on welded joints. The document is applicable to structures such as buildings, bridges, offshore structures, masts, cranes etc., in which the fatigue damage is caused by the cyclic action of wind, waves, traffic or mechanical vibrations. Low-cycle fatigue, which may occur for example due to an earthquake, is not treated.</p>
+<p>In this document three different approaches to the formulation of the fatigue limit state will be considered, respectively based on:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(S-N\)</span> lines in combination with Miner’s Damage accumulation rule;</p></li>
+<li><p>a fatigue crack growth model;</p></li>
+<li><p>a fatigue crack growth model in combination with fracture resistance.</p></li>
+</ol>
+<p>The models presented to not include the situation following a crack through situation of the wall thickness. The fatigue loading is characterised by the number of stress cycles and the magnitude of stress range for each cycle. A probabilistic description of stress ranges can be developed if the stochastic properties of the stress process over the entire lifetime of the structure are known. For some models the expectation of the <span class="math notranslate nohighlight">\(m^{\text {th }}\)</span> moment of the arbitrary point in time distribution of the stress is sufficient.</p>
+<p>This chapter is based on <span id="id1">[<a class="reference internal" href="#id178" title="British Standards Institution. Bs7910: guide on methods for assessing the acceptability of flaws in fusion welded structures. Standard, British Standards Institution, London, 2000.">34.01</a>]</span> as far as possible.</p>
+</section>
+<section id="s-n-approach">
+<h2><span class="section-number">34.2. </span>S-N-approach<a class="headerlink" href="#s-n-approach" title="Link to this heading">#</a></h2>
+<p><strong>Damage model</strong></p>
+<p>An <span class="math notranslate nohighlight">\(S - N\)</span> curve is a relation between the stress range under constant amplitude loading and the number of stress cycles to failure. The standard <span class="math notranslate nohighlight">\(S-N\)</span> curve can be expressed in the form of:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-2-1">
+<span class="eqno">(34.1)<a class="headerlink" href="#equation-eq-fatigue-2-1" title="Link to this equation">#</a></span>\[N \Delta \sigma^{m}=K\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of stress cycles to failure at a constant amplitude stress range <span class="math notranslate nohighlight">\(\Delta \sigma, K\)</span> and <span class="math notranslate nohighlight">\(m\)</span> are the material parameters. In order to deal with variable amplitude loading in the <span class="math notranslate nohighlight">\(S-N\)</span> approach, fatigue damage is quantified in terms of Miner’s damage summation. According to this rule all stress cycles cause proportional fatigue damage, which is linearly additive. For an ergodic variable stress process, the scatter in the stress history may be neglected and the damage <span class="math notranslate nohighlight">\(D_{n}\)</span> due to <span class="math notranslate nohighlight">\(n\)</span> cycles is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-2-2">
+<span class="eqno">(34.2)<a class="headerlink" href="#equation-eq-fatigue-2-2" title="Link to this equation">#</a></span>\[D_{n}=E(n)\left[\frac{1}{K} E\left[\Delta \sigma^{m}\right]\right]\]</div>
+<p><span class="math notranslate nohighlight">\(E[..]\)</span> denotes the expectation operator. Some elaborations are given in <a class="reference internal" href="#annex-b-fatigue"><span class="std std-ref">Annex B</span></a>. According to this model failure occurs nominally when <span class="math notranslate nohighlight">\(D_{n}\)</span> is equal to unity.</p>
+<p>In most cases a model with two lines is being used, having parameters <span class="math notranslate nohighlight">\(K_{1}, K_{2}, m_{1}\)</span> and <span class="math notranslate nohighlight">\(m_{2}\)</span>. The stress range level <span class="math notranslate nohighlight">\(\Delta \sigma_{t r}\)</span> at which the two lines intersect (transition point) is defined by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-2-3">
+<span class="eqno">(34.3)<a class="headerlink" href="#equation-eq-fatigue-2-3" title="Link to this equation">#</a></span>\[\Delta \sigma_{tr}=\left\lbrace\frac{K_{2}}{K_{1}}\right\rbrace^{1 /\left(m_{2}-m_{1}\right)}\]</div>
+<p>In case of two branches <a class="reference internal" href="#equation-eq-fatigue-2-2">(34.2)</a> is transformed into:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-2-4">
+<span class="eqno">(34.4)<a class="headerlink" href="#equation-eq-fatigue-2-4" title="Link to this equation">#</a></span>\[D_{n}=E(n)\left[\frac{1}{K_{1}} E\left[\Delta \sigma^{m_{1}}\right]_{\Delta \sigma_{0}}^{\Delta \sigma_{t r}} C_{g l o b}^{m_{1}}~C_{s c f}^{m_{1}}+\frac{1}{K_{2}} E\left[\Delta \sigma^{m_{2}}\right]_{\Delta \sigma_{t r}}^{\infty} C_{g l o b}^{m_{2}}~C_{s c f}^{m_{2}}\right]\]</div>
+<p>The expectation operator <span class="math notranslate nohighlight">\(E[..]\)</span> in this case is defined by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-2-5">
+<span class="eqno">(34.5)<a class="headerlink" href="#equation-eq-fatigue-2-5" title="Link to this equation">#</a></span>\[E\left[\Delta \sigma^{m}\right]_{A}^{B}=\int_{A}^{B} s^{m} f_{\Delta \sigma}(s) d s\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{\Delta \sigma}(s)\)</span> is the probability density function of the stress ranges <span class="math notranslate nohighlight">\(\Delta \sigma\)</span>. The integration limit <span class="math notranslate nohighlight">\(\Delta \sigma_{0}\)</span> represents the fatigue limit (if present) and <span class="math notranslate nohighlight">\(\Delta \sigma_{tr}\)</span> the transition point defined by <a class="reference internal" href="#equation-eq-fatigue-2-3">(34.3)</a>. Further, in this approach <span class="math notranslate nohighlight">\(C_{\text {glob }}\)</span> and <span class="math notranslate nohighlight">\(C_{s i f}\)</span> have been added as the model uncertainties in the global and local stress analysis, respectively.</p>
+<p>The effects of weld geometry, residual stresses and through thickness stress variation are implicitly included in the values of <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(m\)</span>. The effect of factors such as, plate thickness, environment, weld toe grinding and post-weld heat treatment, etc. is accounted through appropriate corrections to the basic <span class="math notranslate nohighlight">\(S-N\)</span> curve. For instance, a plate thickness correction factor may be given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-2-6">
+<span class="eqno">(34.6)<a class="headerlink" href="#equation-eq-fatigue-2-6" title="Link to this equation">#</a></span>\[a_{c o r}=\left[\frac{B}{B_{r e f}}\right]^{m \xi}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\xi\)</span> is the thickness correction exponent on stress, <span class="math notranslate nohighlight">\(B\)</span> is the thickness of the plate and <span class="math notranslate nohighlight">\(B_{ref}\)</span> is the reference plate thickness.</p>
+<p><strong>Limit state formulation for SN-approach:</strong></p>
+<p>The limit state function may be given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-2-7">
+<span class="eqno">(34.7)<a class="headerlink" href="#equation-eq-fatigue-2-7" title="Link to this equation">#</a></span>\[g(\boldsymbol{X}, t)=D_{cr}-D_{n}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{X}\)</span> is the vector of random variables, <span class="math notranslate nohighlight">\(t\)</span> the time, <span class="math notranslate nohighlight">\(D_{cr}\)</span> is Miner’s Damage sum at failure, which may deviate systematically and randomly from 1.0 and <span class="math notranslate nohighlight">\(D_{n}\)</span> is the damage due to <span class="math notranslate nohighlight">\(n\)</span> cycles.</p>
+</section>
+<section id="fracture-mechanics-approach">
+<h2><span class="section-number">34.3. </span>Fracture Mechanics Approach<a class="headerlink" href="#fracture-mechanics-approach" title="Link to this heading">#</a></h2>
+<p><strong>Crack Growth model</strong></p>
+<p>The fatigue crack growth model is the bi-linear version (see <a class="reference internal" href="#fig-crack-growth-rates-with-linear-and-bi-linear-approximations"><span class="std std-numref">Fig. 34.1</span></a>) of the model by <span id="id2">[<a class="reference internal" href="#id183" title="P.C. Paris and F.A. Erdogan. A critical analysis of crack propagation laws. J. Basic Engineering, 1963.">34.02</a>]</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-1">
+<span class="eqno">(34.8)<a class="headerlink" href="#equation-eq-fatigue-3-1" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \frac{d a}{d N}=A_{1}(\Delta K)^{m_{1}} \quad \text { for } \Delta K_{0}&lt;\Delta K \leq \Delta K_{t r} \\ \\
+&amp; \frac{d a}{d N}=A_{2}(\Delta K)^{m_{2}} \quad \text { for } \Delta K_{t r}&lt;\Delta K
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> is the crack depth, <span class="math notranslate nohighlight">\(d a / d N\)</span> is the instantaneous crack propagation rate and <span class="math notranslate nohighlight">\(\Delta K\)</span> is the stress intensity factor (SIF) range at the crack tip, <span class="math notranslate nohighlight">\(\Delta K_{0}\)</span> a threshold value below which the crack is assumed to be nonpropagating; <span class="math notranslate nohighlight">\(A_{i}\)</span> and <span class="math notranslate nohighlight">\(m_{i}\)</span> are material constants which can be determined from experiments. <span class="math notranslate nohighlight">\(\Delta K_{t r}\)</span> is the value at the transition point.</p>
+<figure class="align-default" id="fig-crack-growth-rates-with-linear-and-bi-linear-approximations">
+<img alt="../_images/crack-growth-rates-with-linear-and-bi-linear-approximations.jpg" src="../_images/crack-growth-rates-with-linear-and-bi-linear-approximations.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 34.1 </span><span class="caption-text">Schematic representation of typical crack growth rates with linear and bi-linear approximations</span><a class="headerlink" href="#fig-crack-growth-rates-with-linear-and-bi-linear-approximations" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The stress intensity factor <span class="math notranslate nohighlight">\(K\)</span> for a given applied (fluctuating) stress <span class="math notranslate nohighlight">\(\sigma\)</span> is given as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-2">
+<span class="eqno">(34.9)<a class="headerlink" href="#equation-eq-fatigue-3-2" title="Link to this equation">#</a></span>\[K=\sigma Y \sqrt{\pi a}\]</div>
+<p>The stress <span class="math notranslate nohighlight">\(\sigma\)</span> should be determined from the applied loading in the vicinity of the crack location (but not influenced by the crack or the details of the weld). It does, however, include the stress concentration, resulting from the global geometry of the joint. The stress intensity correction factor <span class="math notranslate nohighlight">\(Y\)</span> depends on the crack size normalised with respect to other relevant local dimensions (e.g. plate thickness) and the nature of stress distribution. For details on <span class="math notranslate nohighlight">\(Y\)</span>, see <a class="reference internal" href="#annex-a-fatigue"><span class="std std-ref">Annex A</span></a>.</p>
+<p>The through-thickness distribution of this stress is often assumed to consist of ‘membrane’ and ‘bending’ components and is characterised in terms of the ratio of the bending stress to the total stress, called ‘degree-of-bending’:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-3">
+<span class="eqno">(34.10)<a class="headerlink" href="#equation-eq-fatigue-3-3" title="Link to this equation">#</a></span>\[K=\left(\sigma_{m} Y_{m}+\sigma_{b} Y_{b}\right) \sqrt{\pi a}\]</div>
+<p>where the subscripts ‘ <span class="math notranslate nohighlight">\(m\)</span> ‘ and ‘ <span class="math notranslate nohighlight">\(b\)</span> ‘ refer to membrane and bending components respectively.</p>
+<p>For welded joints micro-cracks often initiate from surface-breaking defects at the toe of the weld. These microcracks tend to coalesce to form a single, dominant fatigue crack of roughly semi-elliptical shape. Hence, semielliptical cracks in plated structures are of interest in many practical applications (<a class="reference internal" href="#fig-semi-elliptical-crack-in-a-steel-plate-at-near-the-weld-toe"><span class="std std-numref">Fig. 34.2</span></a>). In this case, two crack dimensions, the depth <span class="math notranslate nohighlight">\(a\)</span> and the half-length at the surface <span class="math notranslate nohighlight">\(c\)</span>, become relevant both of which are functions of the fatigue loading process.</p>
+<figure class="align-default" id="fig-semi-elliptical-crack-in-a-steel-plate-at-near-the-weld-toe">
+<img alt="../_images/semi-elliptical-crack-in-a-steel-plate-at-near-the-weld-toe.jpg" src="../_images/semi-elliptical-crack-in-a-steel-plate-at-near-the-weld-toe.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 34.2 </span><span class="caption-text">A semi-elliptical crack in a steel plate at/near the weld toe</span><a class="headerlink" href="#fig-semi-elliptical-crack-in-a-steel-plate-at-near-the-weld-toe" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>For each principal direction of crack growth a Paris type expression may be formulated,</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-4">
+<span class="eqno">(34.11)<a class="headerlink" href="#equation-eq-fatigue-3-4" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \frac{d a}{d N}=A\left(\Delta K_{a}\right)^{m} \text { for } \Delta K_{a}&gt;\Delta K_{0} \\
+&amp; \frac{d c}{d N}=A\left(\Delta K_{c}\right)^{m} \text { for } \Delta K_{c}&gt;\Delta K_{0}
+\end{aligned}\end{split}\]</div>
+<p>where the first expression relates to point <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> and growth in the depth direction, whereas the second expression relates to point <span class="math notranslate nohighlight">\(\mathrm{C}\)</span> and growth in the length direction (see figure <a class="reference internal" href="#fig-semi-elliptical-crack-in-a-steel-plate-at-near-the-weld-toe"><span class="std std-numref">Fig. 34.2</span></a>). For each of these points, the stress intensity factor range, <span class="math notranslate nohighlight">\(\Delta K_{a}\)</span> and <span class="math notranslate nohighlight">\(\Delta K_{c}\)</span>, is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-5">
+<span class="eqno">(34.12)<a class="headerlink" href="#equation-eq-fatigue-3-5" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \Delta K_{a}=\Delta \sigma Y_{a} \sqrt{\pi a} \\
+&amp; \Delta K_{c}=\Delta \sigma Y_{c} \sqrt{\pi a}
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta \sigma\)</span> is the applied stress range and <span class="math notranslate nohighlight">\(Y_{a}, Y_{c}\)</span> are stress intensity correction factors for points <span class="math notranslate nohighlight">\(\mathrm{A}\)</span> and <span class="math notranslate nohighlight">\(\mathrm{C}\)</span> respectively.</p>
+<p>Once equations <a class="reference internal" href="#equation-eq-fatigue-3-5">(34.12)</a> are substituted into <a class="reference internal" href="#equation-eq-fatigue-3-4">(34.11)</a>, a pair of coupled differential equations is obtained. With the exception of the material parameters (<span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(m\)</span> ) and the applied stress range <span class="math notranslate nohighlight">\(\Delta \sigma\)</span>, all other terms are a function of the crack size <span class="math notranslate nohighlight">\((a, c)\)</span>, which clearly changes during the fatigue loading process.</p>
+<p><strong>Limit state formulations</strong></p>
+<p>Using the fracture mechanics approach, the time dependent limit state function can be formulated as</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-6">
+<span class="eqno">(34.13)<a class="headerlink" href="#equation-eq-fatigue-3-6" title="Link to this equation">#</a></span>\[g(\boldsymbol{X}, t)=a_{c r}-a(t)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{X}\)</span> is the vector of random variables, <span class="math notranslate nohighlight">\(a_{c r}\)</span> is a limiting crack depth (for example plate thickness) and <span class="math notranslate nohighlight">\(a(t)\)</span> is the crack depth after a service exposure of time <span class="math notranslate nohighlight">\(t\)</span>. At <span class="math notranslate nohighlight">\(t=0\)</span> the crack size has an initial value <span class="math notranslate nohighlight">\(a_{0}\)</span>. The calculation of the crack size at time <span class="math notranslate nohighlight">\(t\)</span> is not trivial as the stress is a random process. Assuming for <span class="math notranslate nohighlight">\(\Delta \sigma\)</span> a sufficiently mixing (ergodic) process we may use the expectation of the stress range to find the expectation of <span class="math notranslate nohighlight">\(d a / d N\)</span> (conditional upon the stress and fatigue model):</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-7">
+<span class="eqno">(34.14)<a class="headerlink" href="#equation-eq-fatigue-3-7" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+E\left(\frac{d a}{d N}\right)= &amp; A_{1} E\left[\Delta \sigma^{m_{1}}\right]_{\Delta \sigma_{0}}^{\Delta \sigma_{t r}}\left(C_{g l o b}~C_{s c f}~C_{s i f}~Y_{a}~\sqrt{\pi a}\right)^{m_{1}}+ \\
+&amp; +A_{2} E\left[\Delta \sigma^{m_{2}}\right]_{\Delta \sigma_{t r}}^{\infty}\left(C_{g l o b}~C_{s c f}~C_{s i f}~Y_{a}~\sqrt{\pi a}\right)^{m_{2}}
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(C\)</span> are model uncertainty factors for the various stress calculations (global analysis, stress concentration and stress intensity factor) and:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-8">
+<span class="eqno">(34.15)<a class="headerlink" href="#equation-eq-fatigue-3-8" title="Link to this equation">#</a></span>\[E\left[\Delta \sigma^{m}\right]_{A}^{B}=\int_{A}^{B} s^{m} f_{\Delta \sigma}(s) d s\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{\Delta \sigma}(s)\)</span> is the probability density function of the stress ranges <span class="math notranslate nohighlight">\(\Delta \sigma\)</span>.</p>
+<p>In general, the above integral is evaluated through an incremental numerical procedure, which involves subdivision of the total time into a number of steps. At each step, following the evaluation of equation <a class="reference internal" href="#equation-eq-fatigue-3-8">(34.15)</a> for the crack depth <span class="math notranslate nohighlight">\(a\)</span>, the second crack dimension <span class="math notranslate nohighlight">\(c\)</span> is computed as well, using a similar set of equations. In that case, however, the value <span class="math notranslate nohighlight">\(Y_{a}\)</span> is replaced by <span class="math notranslate nohighlight">\(Y_{c}\)</span>. As both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(c\)</span> are simultaneously present in <span class="math notranslate nohighlight">\(Y\)</span>, the two differential equations are coupled.</p>
+<p>When the fatigue life of a fatigue sensitive detail is required, the critical crack size may for instance be taken as the plate thickness, but also as a critical value <span class="math notranslate nohighlight">\(a_{cr}\)</span> determined through the application of a fracture criterion. In that case the maximum crack size, <span class="math notranslate nohighlight">\(a_{c r}\)</span> that can be sustained by the component will depend on the material’s yield strength and fracture toughness <span class="math notranslate nohighlight">\(K_{mat}\)</span>. The limit state function with respect to fracture can be formulated as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-9">
+<span class="eqno">(34.16)<a class="headerlink" href="#equation-eq-fatigue-3-9" title="Link to this equation">#</a></span>\[g(\mathbf{X}, t)=\min _{t} f\left(K_{r}, L_{r}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{X}\)</span> is the vector of random variables as a function of the time <span class="math notranslate nohighlight">\(t, K_{r}\)</span> is the fracture ratio, <span class="math notranslate nohighlight">\(L_{r}\)</span> is a measure of the proximity to plastic collapse and <span class="math notranslate nohighlight">\(f()\)</span> is an appropriate interaction criterion, as for example (see <a class="reference internal" href="#fig-kr-lr-interaction-cruves"><span class="std std-numref">Fig. 34.3</span></a>) given in <span id="id3">[<a class="reference internal" href="#id178" title="British Standards Institution. Bs7910: guide on methods for assessing the acceptability of flaws in fusion welded structures. Standard, British Standards Institution, London, 2000.">34.01</a>]</span> or (see <a class="reference internal" href="#fig-kr-lr-interaction-cruves"><span class="std std-numref">Fig. 34.3</span></a>) <span id="id4">[<a class="reference internal" href="#id180" title="O.D. Dijkstra and others. A fracture mechanics approach to the assessment of the remaining fatigue life of defective welded joints. In IABSE Workshop. Lausanne, April 1991. 1990.">34.03</a>]</span> as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-10">
+<span class="eqno">(34.17)<a class="headerlink" href="#equation-eq-fatigue-3-10" title="Link to this equation">#</a></span>\[f\left(K_{r}, L_{r}\right)=R-\sqrt{ }\left(K_{r}^{2}+L_{r}^{2}\right)\]</div>
+<p>In this approach failure occurs when a stress cycle arrives that causes the reduced load bearing capacity of the cross section to be exceeded. The residual load bearing capacity depends on the actual crack size <span class="math notranslate nohighlight">\(a\)</span> and the interaction between the plastic and the brittle fracture failure modes. To evaluate the failure probability on the basis of <a class="reference internal" href="#equation-eq-fatigue-3-9">(34.16)</a> a time variant reliability method like the out-crossing approach is needed.</p>
+<figure class="align-default" id="fig-kr-lr-interaction-cruves">
+<img alt="../_images/Kr-Lr-interaction-cruves.jpg" src="../_images/Kr-Lr-interaction-cruves.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 34.3 </span><span class="caption-text"><span class="math notranslate nohighlight">\(K_{r}-L_{r}\)</span> interaction curves according to <span id="id5">[<a class="reference internal" href="#id178" title="British Standards Institution. Bs7910: guide on methods for assessing the acceptability of flaws in fusion welded structures. Standard, British Standards Institution, London, 2000.">34.01</a>]</span> (above) and <span id="id6">[<a class="reference internal" href="#id180" title="O.D. Dijkstra and others. A fracture mechanics approach to the assessment of the remaining fatigue life of defective welded joints. In IABSE Workshop. Lausanne, April 1991. 1990.">34.03</a>]</span> (below)</span><a class="headerlink" href="#fig-kr-lr-interaction-cruves" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#equation-eq-fatigue-3-10">(34.17)</a> the variable <span class="math notranslate nohighlight">\(R\)</span> is a normalised resistance parameter (nominally equal to 1.0) and the quantities <span class="math notranslate nohighlight">\(K_{r}\)</span> and <span class="math notranslate nohighlight">\(L_{r}\)</span> are defined as follows:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-12">
+<span class="eqno">(34.18)<a class="headerlink" href="#equation-eq-fatigue-3-12" title="Link to this equation">#</a></span>\[K_{r}=\frac{K_{I}}{K_{m a t}}+\rho \text { and } L_{r}=\frac{\sigma_{n e t}}{\sigma_{y}}\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(K_{\text {mat }}\quad\)</span>  material toughness measured by stress intensity factor</p>
+<p><span class="math notranslate nohighlight">\(K_{I} \quad\)</span>  stress intensity factor: <span class="math notranslate nohighlight">\(K_{I}=(Y \sigma) \sqrt{\pi a}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\rho \quad\)</span>  plasticity correction factor</p>
+<p><span class="math notranslate nohighlight">\(\sigma_{\text {net }}\quad\)</span>  net section stress (function of the crack size)</p>
+<p><span class="math notranslate nohighlight">\(\sigma_{y} \quad\)</span> yield stress</p>
+<p>The factor <span class="math notranslate nohighlight">\(\rho\)</span> may be determined by the following procedure. For <span class="math notranslate nohighlight">\(\chi=K_{I}^{s}~L_{r} / K_{I}^{p}&gt;4\)</span> an interpolating technique need to be applied (see <span id="id7">[<a class="reference internal" href="#id178" title="British Standards Institution. Bs7910: guide on methods for assessing the acceptability of flaws in fusion welded structures. Standard, British Standards Institution, London, 2000.">34.01</a>]</span>). For <span class="math notranslate nohighlight">\(\chi \leq 4\)</span> we have:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-13">
+<span class="eqno">(34.19)<a class="headerlink" href="#equation-eq-fatigue-3-13" title="Link to this equation">#</a></span>\[\begin{split}\begin{array}{lll}
+\rho=\rho_{1} &amp; \text { for } &amp; L_{\mathrm{r}} \leq 0.8 \\
+\rho=4 \rho_{1}\left(1.05-\mathrm{L}_{\mathrm{r}}\right) &amp; \text { for } &amp; 0.8&lt;L_{r}&lt;1.05 \\
+\rho=0 &amp; \text { for } &amp; L_{\mathrm{r}} \geq 1.05
+\end{array}\end{split}\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-3-14">
+<span class="eqno">(34.20)<a class="headerlink" href="#equation-eq-fatigue-3-14" title="Link to this equation">#</a></span>\[\rho_{1}=0.1 \chi^{0.714}-0.007 \chi^{2}+3 * 10^{-5} \chi^{5}\]</div>
+<p>The crack size <span class="math notranslate nohighlight">\(a\)</span> may be determined from the fatigue crack growth models described above. The plasticity correction factor <span class="math notranslate nohighlight">\(\rho\)</span> reflects the interaction between the applied load (giving rise to the stress intensity factor <span class="math notranslate nohighlight">\(K\)</span>) and the residual stresses (giving rise to the stress intensity factor <span class="math notranslate nohighlight">\(K_{I}^{S}\)</span> ). Different residual stress profiles for various cracked geometries and restraint conditions may be assumed but their use implies that <span class="math notranslate nohighlight">\(K_{I}^{s}\)</span> would need to be evaluated using either finite element techniques or the weight function method. A simplified (and conservative) method would be to approximate the residual stress field via a linear stress field subtended from the surface and crack tip stress values. The corresponding <span class="math notranslate nohighlight">\(K_{I}^{s}\)</span> can then be obtained by superposition of the tensile and bending solutions for the geometry in question.</p>
+<p>Further details of this approximation are given by <span id="id8">[<a class="reference internal" href="#id185" title="H. Tada, P.C. Paris, and G.R. Irwin. The stress analysis of cracks handbook. ASME, New York, 2000.">34.04</a>]</span>. If the bending solution is not known, in which case the previously mentioned procedure cannot be applied, the residual stress field may be assumed to be uniform. This approach will, in general, yield very conservative results for deep cracks and less conservative results for shallow cracks.</p>
+</section>
+<section id="probabilistic-models">
+<h2><span class="section-number">34.4. </span>Probabilistic models<a class="headerlink" href="#probabilistic-models" title="Link to this heading">#</a></h2>
+<p><a class="reference internal" href="#table-probabilistic-models-for-the-random-variables"><span class="std std-numref">Table 34.1</span></a> gives an overview of all random variables and their probabilistic models. There are four blocks: one for the <span class="math notranslate nohighlight">\(S-N\)</span> parameters, one for the Fracture Mechanics parameters, one for the stress analysis and one for the Weibull stress process approximation. Additional commentary is given below:</p>
+<p><em><strong><span class="math notranslate nohighlight">\(S- N\)</span> curve parameters</strong></em></p>
+<p>The stochastic model for the parameters in the <span class="math notranslate nohighlight">\(S-N\)</span>-based approach can be estimated as follows:</p>
+<p>Step 1: For the fatigue detail considered, find (as good as possible) the corresponding detail and test data in the EC3 Background Document prEN 1993-1-9. RWTH, Aachen, 2002.</p>
+<p>Step 2: Fit test data to a linear <span class="math notranslate nohighlight">\(S-N\)</span>-model: <span class="math notranslate nohighlight">\(\log N=\log C-m \log \Delta \sigma+\varepsilon\)</span> where <span class="math notranslate nohighlight">\(N\)</span> is the number of cycles to failure with stress range <span class="math notranslate nohighlight">\(\Delta \sigma, \varepsilon\)</span> is normally distributed with expected value 0 and standard deviation <span class="math notranslate nohighlight">\(\sigma_{\varepsilon}\)</span>. The parameters <span class="math notranslate nohighlight">\(\log C, m\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\varepsilon}\)</span> are fitted to the test data using the Maximum Likelihood Method including run-outs (no-failure tests) in the likelihood.</p>
+<p>Step 3: The statistical uncertainty related to the parameter fits can be estimated using the Hessian of the Loglikelihhod function, and included in a reliability analysis.</p>
+<p>A bilinear <span class="math notranslate nohighlight">\(S-N\)</span>-model can be fitted in a similar way. Usually <span class="math notranslate nohighlight">\(m\)</span> can be assumed fixed to 3 or 5 .</p>
+<p><em><strong>Miner’s sum at failure</strong></em></p>
+<p>Due to the random nature of fatigue damage, Miner’s damage sum at failure <span class="math notranslate nohighlight">\(\left(D_{c r}\right)\)</span> is not necessarily always exactly unity. It should therefore be treated as a random variable expressing the shortcomings of Miner’s rule. Wirsching (1984) suggests that <span class="math notranslate nohighlight">\(D_{cr }\)</span> be modelled as a lognormal variable with a mean of unity and coefficient of variation of 0.3 .</p>
+<p><em><strong>Crack growth parameters</strong></em></p>
+<p>When a simple Paris type crack propagation model is used, a random variable description for <span class="math notranslate nohighlight">\(A\)</span>, is usually adequate. In this approach, the crack growth parameter <span class="math notranslate nohighlight">\(A\)</span> in the Paris law, can be used to describe the scatter in crack propagation data. The parameter <span class="math notranslate nohighlight">\(A\)</span> will in general depend on the applied stress ratio ( <span class="math notranslate nohighlight">\(=\sigma_{\min } / \sigma_{\max }\)</span> ) and the environmental conditions and is well described by a lognormal model with coefficient of variation typically in the range of 0.3 - 0.4. In the table the option to use a two branch model has been opened. For a one branch model one uses only <span class="math notranslate nohighlight">\(m_{2}\)</span> and <span class="math notranslate nohighlight">\(A_{2}\)</span>. When a cut-off to crack growth <span class="math notranslate nohighlight">\(\Delta K_{0}\)</span> is adopted, <span class="math notranslate nohighlight">\(\Delta K_{0}\)</span> is lognormally distributed with a mean of <span class="math notranslate nohighlight">\(140 \mathrm{Nmm}^{-3 / 2}\)</span> and a coefficient of variation <span class="math notranslate nohighlight">\(\mathrm{V}=0.4\)</span> (Austen, 1983). In the case of freely corroding steels <span class="math notranslate nohighlight">\(\Delta K_{0}=0\)</span>.</p>
+<p><em><strong>Initial defect size</strong></em></p>
+<p>The distribution of defect sizes should be based on defects existing in a structure entering service and includes those defects that are considered acceptable according to quality control standards, as well as those that remain undetected during fabrication. Thus defect occurrence rate, the amount and quality of NDE used, should be taken into account in developing a distribution for weld defect size. From the limited data available, the mean value and standard deviation of weld defect depth <span class="math notranslate nohighlight">\(a_{0}\)</span> can be estimated to be 0.15 mm and 0.10 mm for “sound” quality welds. Lognormal, exponential and Weibull distributions have been used by researchers to fit weld defect data. Similarly, initial defect aspect ratio, defined as the ratio of initial defect depth to defect semi-length ( <span class="math notranslate nohighlight">\(a / c\)</span> ) may also be modelled as a lognormal variable with a mean of 0.62 and coefficient of variation of 0.4 , Kountouris and Baker (1989).</p>
+<p><em><strong>Fatigue crack propagation model</strong></em></p>
+<p>The fatigue crack propagation model involves a number of parameters, which are subject to uncertainty. It is convenient to express all sources of uncertainty through a single basic variable <span class="math notranslate nohighlight">\(C_{\text {sif }}\)</span>, which gives the ratio of stress intensity geometry factor obtained by experiment to that computed using the proposed model. The statistics for this variable can be developed by comparison with experimental compliance function curves. The factor <span class="math notranslate nohighlight">\(C_{\text {sif }}\)</span> can be modelled as a lognormal variable with a mean of unity and coefficient of variation typically in the range of 0.15 - 0.25. Lower variability may be used if the stress intensity factors are computed using finite element models such as line-spring and weight function models.</p>
+<p><em><strong>Fracture Toughness</strong></em></p>
+<p>For the fracture toughness <span class="math notranslate nohighlight">\(K_{\text {mat }}\)</span> a three-parameter Weibull distribution is proposed to describe fracture toughness related to cleavage fracture (Burdekin &amp; Hamour, 2000; <span id="id9">[<a class="reference internal" href="#id181" title="M. Lukić and C. Cremona. Probabilistic assessment of welded joints versus fatigue and fracture. J. Struct. Engg., 2001.">34.05</a>]</span>; <span id="id10">[<a class="reference internal" href="#id184" title="T.D. Righiniotis and M.K. Chryssanthopoulos. Probabilistic fatigue analysis under constant amplitude loading. Journal of Constructional Steel Research, 59(7):867-886, 2003.">34.06</a>]</span>):</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-4-1">
+<span class="eqno">(34.21)<a class="headerlink" href="#equation-eq-fatigue-4-1" title="Link to this equation">#</a></span>\[F_{K_{\text {mat }}}(k)=1-\exp \left[-\left(\frac{k-K_{0}}{\sigma}\right)^{\lambda}\right]\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(\lambda\)</span> is the shape parameter, taken as 4 on the basis of experiments <span id="id11">[<a class="reference internal" href="#id186" title="K. Wallin. The scatter in k kc results. Eng. Fract. Mechs., 1984.">34.07</a>]</span>.</p>
+<p><span class="math notranslate nohighlight">\(K_{0}\)</span> is the threshold parameter, recommended is $20 \mathrm{MPa}~\mathrm{m}{ }^{1 / 2}<code class="docutils literal notranslate"> <span class="pre">{cite}</span></code>BurdekinHamour2000`.</p>
+<p><span class="math notranslate nohighlight">\(\sigma\)</span> is the scale parameter and may be obtained from the following correlation attributed to Wallin <span id="id12">[<a class="reference internal" href="#id179" title="F.M. Burdekin and W. Hamour. Partial safety factors for sintap procedure. Technical Report, Offshore Technology Report, OTO 2000 020, HSE, London, 2000.">34.08</a>]</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fatigue-4-2">
+<span class="eqno">(34.22)<a class="headerlink" href="#equation-eq-fatigue-4-2" title="Link to this equation">#</a></span>\[\sigma=\left\lbrace 11+77\left[\exp \left(\frac{T-T_{27 J}+T_{0}}{52}\right)\right]\right\rbrace \left(\frac{25}{B}\right)^{1 / 4}\left(\mathrm{~K}_{\mathrm{mat}}\right. \text{in} \left.\mathrm{MPa}~\mathrm{m}{ }^{1 / 2}\right)\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(T \quad\)</span> operating temperature <span class="math notranslate nohighlight">\(\left({ }^{\circ} \mathrm{C}\right)\)</span> (random FBC process: <span class="math notranslate nohighlight">\(\mu=10^{\circ} \mathrm{C}, \sigma=8^{\circ} \mathrm{C}, \Delta=10\)</span> days)</p>
+<p><span class="math notranslate nohighlight">\(T_{27 \mathrm{~J}} \quad\)</span> temperature (<span class="math notranslate nohighlight">\(\left({ }^{\circ} \mathrm{C}\right.\)</span> ) corresponding to a <span class="math notranslate nohighlight">\(\mathrm{CVN}\)</span> of <span class="math notranslate nohighlight">\(27 \mathrm{~J}\)</span> (safe value)</p>
+<p><span class="math notranslate nohighlight">\(T_{0} \quad\)</span> temperature (random variability of <span class="math notranslate nohighlight">\(\mathrm{T}_{27 \mathrm{~J}}: \mu=18^{\circ} \mathrm{C}, \sigma=15^{\circ} \mathrm{C}\)</span> )</p>
+<p><span class="math notranslate nohighlight">\(B \quad\)</span> plate thickness in <span class="math notranslate nohighlight">\([\mathrm{mm}]\)</span></p>
+<div class="math notranslate nohighlight">
+\[ \text{Units:}~\mathbf{m m}~\text{and}~\mathbf{N} \]</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-probabilistic-models-for-the-random-variables">
+<caption><span class="caption-number">Table 34.1 </span><span class="caption-text">Probabilistic models for the random variables</span><a class="headerlink" href="#table-probabilistic-models-for-the-random-variables" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Variable</p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Distribution</p></th>
+<th class="head text-center"><p>Mean</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\mathbf{V}\)</span></p></th>
+<th class="head text-center"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(C\)</span></p></td>
+<td class="text-center"><p>Material parameter S-N curve</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1.0 \cdot 10^{13}\)</span></p></td>
+<td class="text-center"><p>0.58</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td class="text-center"><p>Slope value</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\log C_{1}\)</span></p></td>
+<td class="text-center"><p>Material parameter 2 par <span class="math notranslate nohighlight">\(\mathrm{S}-\mathrm{N}\)</span> curve</p></td>
+<td class="text-center"><p>normal</p></td>
+<td class="text-center"><p>Depends</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(C_{1}\)</span> and <span class="math notranslate nohighlight">\(C_{2}\)</span> fully <br> correlated</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\log C_{2}\)</span></p></td>
+<td class="text-center"><p>Material parameter 2 par <span class="math notranslate nohighlight">\(\mathrm{S}-\mathrm{N}\)</span> curve</p></td>
+<td class="text-center"><p>normal</p></td>
+<td class="text-center"><p>Depends</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(C_{1}\)</span> and <span class="math notranslate nohighlight">\(C_{2}\)</span> fully <br> correlated</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(m_{1}\)</span> (air)</p></td>
+<td class="text-center"><p>Slope value <span class="math notranslate nohighlight">\(1^{\text {st }}\)</span> branch</p></td>
+<td class="text-center"><p>deterministic</p></td>
+<td class="text-center"><p>5</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(m_{2}\)</span> (air)</p></td>
+<td class="text-center"><p>Slope value <span class="math notranslate nohighlight">\(2^{\text {nd }}\)</span> branch</p></td>
+<td class="text-center"><p>deterministic</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(D_{c r}\)</span></p></td>
+<td class="text-center"><p>Miner’s sum at failure</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>0.3</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(A_{1}\)</span> (air) <span class="math notranslate nohighlight">\(^{*}\)</span></p></td>
+<td class="text-center"><p>Paris Law Parameter 1</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(4.80 \cdot 10^{-18}\)</span></p></td>
+<td class="text-center"><p>1.70</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(A_{2}\)</span> (air) <span class="math notranslate nohighlight">\(^{*}\)</span></p></td>
+<td class="text-center"><p>Paris Law Parameter 2</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(5.86 \cdot 10^{-13}\)</span></p></td>
+<td class="text-center"><p>0.60</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(m_{1}\)</span> (air)</p></td>
+<td class="text-center"><p>Slope value <span class="math notranslate nohighlight">\(1^{\text {st }}\)</span> branch</p></td>
+<td class="text-center"><p>deterministic</p></td>
+<td class="text-center"><p>5.10</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(m_{2}\)</span> (air)</p></td>
+<td class="text-center"><p>Slope value <span class="math notranslate nohighlight">\(2^{\text {nd }}\)</span> branch</p></td>
+<td class="text-center"><p>deterministic</p></td>
+<td class="text-center"><p>2.88</p></td>
+<td class="text-center"><p>- <br> -</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\Delta K_{0}\)</span> ( air )</p></td>
+<td class="text-center"><p>Threshold value for <span class="math notranslate nohighlight">\(\Delta K\)</span></p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>140</p></td>
+<td class="text-center"><p>0.40</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(A_{1}\)</span> (marine) <span class="math notranslate nohighlight">\(^{*}\)</span></p></td>
+<td class="text-center"><p>Paris Law Parameter 1</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(5.37 \cdot 10^{-14}\)</span></p></td>
+<td class="text-center"><p>1.10</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(A_{2}\)</span> (marine) <span class="math notranslate nohighlight">\(^{*}\)</span></p></td>
+<td class="text-center"><p>Paris Law Parameter 2</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(5.67 \cdot 10^{-7}\)</span></p></td>
+<td class="text-center"><p>0.16</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(m_{1}\)</span> (marine)</p></td>
+<td class="text-center"><p>Slope value <span class="math notranslate nohighlight">\(1^{\text {st }}\)</span> branch</p></td>
+<td class="text-center"><p>deterministic</p></td>
+<td class="text-center"><p>3.42</p></td>
+<td class="text-center"><p>- <br> -</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(m_{2}\)</span> (marine)</p></td>
+<td class="text-center"><p>Slope value <span class="math notranslate nohighlight">\(2^{\text {nd }}\)</span> branch</p></td>
+<td class="text-center"><p>deterministic</p></td>
+<td class="text-center"><p>1.11</p></td>
+<td class="text-center"><p>-</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\Delta K_{0}\)</span> (marine)</p></td>
+<td class="text-center"><p>Threshold value for <span class="math notranslate nohighlight">\(\Delta K\)</span></p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>0.0</p></td>
+<td class="text-center"><p>- <br> -</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(a_{0}\)</span></p></td>
+<td class="text-center"><p>Initial crack depth</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>0.15</p></td>
+<td class="text-center"><p>0.66</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(a_{0} / c_{0}\)</span></p></td>
+<td class="text-center"><p>Initial aspect ratio</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>0.62</p></td>
+<td class="text-center"><p>0.40</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(B_{\text {glob }}\)</span></p></td>
+<td class="text-center"><p>MU global stress model <span class="math notranslate nohighlight">\({ }^{*}\)</span></p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>0.10</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(B_{\text {scf }}\)</span></p></td>
+<td class="text-center"><p>MU stress concentration</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>0.20</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(B_{\text {sif }}\)</span></p></td>
+<td class="text-center"><p>MU stress intensity factor (hand)</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>0.20</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(B_{\text {sif }}\)</span></p></td>
+<td class="text-center"><p>MU stress intensity factor (FEM)</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>1.0</p></td>
+<td class="text-center"><p>0.07</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\sigma_{\text {res }}\)</span></p></td>
+<td class="text-center"><p>Residual stresses</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>300</p></td>
+<td class="text-center"><p>0.20</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(R\)</span></p></td>
+<td class="text-center"><p>Resistance fracture toughness</p></td>
+<td class="text-center"><p>lognormal</p></td>
+<td class="text-center"><p>1.7</p></td>
+<td class="text-center"><p>0.18</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(K_{\mathrm{mat}}\)</span></p></td>
+<td class="text-center"><p>Fracture toughness</p></td>
+<td class="text-center"><p>Weibull</p></td>
+<td class="text-center"><p>See <a class="reference internal" href="#equation-eq-fatigue-4-1">(34.21)</a></p></td>
+<td class="text-center"><p>See <a class="reference internal" href="#equation-eq-fatigue-4-1">(34.21)</a></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>*stress ratio <span class="math notranslate nohighlight">\(\sigma_{\min } / \sigma_{\max } \geq 0.5\)</span><br />
+<span class="math notranslate nohighlight">\({ }^{* *} \mathrm{MU}=\)</span> Model Uncertainty</p>
+</section>
+<section id="annex-a-the-stress-intensity-correction-factor-y">
+<span id="annex-a-fatigue"></span><h2><span class="section-number">34.5. </span>Annex A: The stress intensity correction factor <span class="math notranslate nohighlight">\(Y\)</span><a class="headerlink" href="#annex-a-the-stress-intensity-correction-factor-y" title="Link to this heading">#</a></h2>
+<p>The stress intensity correction factor <span class="math notranslate nohighlight">\(Y\)</span> for membrane loading is determined with the procedure of <span id="id13">[<a class="reference internal" href="#id182" title="J.C. Newman and I.S. Raju. An empirical stress intensity factor equation for the surface crack. Engg. Fract. Mechs., 1981.">34.09</a>]</span> and <span id="id14">[<a class="reference internal" href="#id178" title="British Standards Institution. Bs7910: guide on methods for assessing the acceptability of flaws in fusion welded structures. Standard, British Standards Institution, London, 2000.">34.01</a>]</span>. For the stress intensity correction factor in general they propose:</p>
+<div class="math notranslate nohighlight">
+\[Y=M f_{w} M_{m} M_{k}\]</div>
+<p>Factor <span class="math notranslate nohighlight">\(M_{k}\)</span> accounts for the local stress concentration and is provided in <a class="reference internal" href="#annex-a-2-fatigue"><span class="std std-ref">Annex A.2</span></a>. The other factors are provided in <a class="reference internal" href="#annex-a-1-fatigue"><span class="std std-ref">Annex A.1</span></a>. The resulting factors Ya and Yc (in height and width directions) are provided in <a class="reference internal" href="#annex-a-3-fatigue"><span class="std std-ref">Annex A.3</span></a></p>
+<p id="annex-a-1-fatigue"><strong>A1. The factors <span class="math notranslate nohighlight">\(M, M_{m}\)</span> and <span class="math notranslate nohighlight">\(f_{w}\)</span></strong></p>
+<p>The equations and values provided below apply to membrane loading on flat plates with semi-elliptical cracks.</p>
+<p>The factor <span class="math notranslate nohighlight">\(M\)</span> accounts for bulging effects. For flat plates, <span class="math notranslate nohighlight">\(M=1\)</span>.</p>
+<p>The finite-width correction function <span class="math notranslate nohighlight">\(f_{w}\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[f_{w}=\left[\sec \left(\frac{\pi c}{W} \sqrt{\frac{a}{B}}\right)\right]^{1 / 2} \quad \text { for }(2 c / W) \leq 0.8\]</div>
+<p>The stress intensity magnification factor for semi-elliptical cracks loaded in bending is equal to:</p>
+<div class="math notranslate nohighlight">
+\[M_{m}=\left[M_{1}+M_{2}\left(\frac{a}{B}\right)^{2}+M_{3}\left(\frac{a}{B}\right)^{4}\right] g f_{\theta} / \Phi\]</div>
+<p>Where:</p>
+<div class="math notranslate nohighlight">
+\[M_{m}=\left[M_{1}+M_{2}\left(\frac{a}{B}\right)^{2}+M_{3}\left(\frac{a}{B}\right)^{4}\right] g f_{\theta} / \Phi\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ll}
+M_{1}=1.13-0.09(a / c) &amp; \text { for } 0 \leq a / 2 c \leq 0.5 \\ \\
+M_{1}=\sqrt{(c / a)}[1+0.04(c / a)] &amp; \text { for } 0.5&lt;a / 2 c \leq 1.0 \\ \\
+M_{2}=\frac{0.89}{0.2+(a / c)}-0.54 &amp; \text { for } 0 \leq a / 2 c \leq 0.5 \\ \\
+M_{2}=0.2(c / a)^{4} &amp; \text { for } 0.5&lt;a / 2 c \leq 1.0 \\ \\
+M_{3}=0.5-\frac{1.0}{0.65+(a / c)}+14[1.0-(a / c)]^{24} &amp; \text { for } a / 2 c \leq 0.5 \\ \\
+M_{3}=-0.11(c / a)^{4} &amp; \text { for } 0.5&lt;a / 2 c \leq 1.0 \\ \\
+g=1+\left[0.1+0.35(a / B)^{2}\right](1-\sin \theta)^{2} &amp; \text { for } a / 2 c \leq 0.5 \\ \\
+g=1+\left[0.1+0.35(c / a)(a / B)^{2}\right](1-\sin \theta)^{2} &amp; \text { for } 0.5&lt;a / 2 c \leq 1.0
+\end{array}
+\end{split}\]</div>
+<p>The function <span class="math notranslate nohighlight">\(f_{\theta}\)</span>, an angular function from the embedded elliptical-crack solution, is:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ll}
+f_{\theta}=\left[(a / c)^{2} \cos ^{2} \theta+\sin ^{2} \theta\right]^{1 / 4} &amp; \text { for } 0 \leq a / 2 c \leq 0.5 \\
+f_{\theta}=\left[(c / a)^{2} \sin ^{2} \theta+\cos ^{2} \theta\right]^{1 / 4} &amp; \text { for } 0.5&lt;a / 2 c \leq 1.0
+\end{array}
+\end{split}\]</div>
+<p>The complete elliptic integral of the second kind <span class="math notranslate nohighlight">\(\Phi\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{ll}
+\Phi=\sqrt{1+1.464\left(\frac{a}{c}\right)^{1.65}} &amp; \text { for } 0 \leq a / 2 c \leq 0.5 \\
+\Phi=\sqrt{1+1.464\left(\frac{c}{a}\right)^{1.65}} &amp; \text { for } 0.5&lt;a / 2 c \leq 1.0
+\end{array}
+\end{split}\]</div>
+<p>The definitions of <span class="math notranslate nohighlight">\(a, c\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> are provided in <a class="reference internal" href="#fig-semi-elliptical-crack-geometry-near-weld-toe"><span class="std std-numref">Fig. 34.4</span></a>.</p>
+<figure class="align-default" id="fig-semi-elliptical-crack-geometry-near-weld-toe">
+<img alt="../_images/semi-elliptical-crack-geometry-near-weld-toe.jpg" src="../_images/semi-elliptical-crack-geometry-near-weld-toe.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 34.4 </span><span class="caption-text">Semi-elliptical crack geometry near weld toe</span><a class="headerlink" href="#fig-semi-elliptical-crack-geometry-near-weld-toe" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p id="annex-a-2-fatigue"><strong>A2. The weld geometry factor <span class="math notranslate nohighlight">\(M_{k}\)</span></strong></p>
+<p>The weld geometry <span class="math notranslate nohighlight">\(M_{k}\)</span> has to be incorporated if the crack is affected by a local stress concentration due to welding. The general formula is given by:</p>
+<div class="math notranslate nohighlight">
+\[M_{k}=D(a / B)^{k 1}~(L / B)^{k 2} \qquad M_{k}&gt;1\]</div>
+<p>The parameters <span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(k\)</span> depend on the structural and weld geometry as discribed by <span class="math notranslate nohighlight">\(a, B\)</span> and <span class="math notranslate nohighlight">\(L\)</span>. For butt welds and X-joints a set of formulas for <span class="math notranslate nohighlight">\(M_{\mathrm{ka}}\)</span> values was derived by Maddox et al. (1986). These formulas are valid for weld toe angle <span class="math notranslate nohighlight">\(\Theta=45^{\circ}\)</span> and weld toe radius <span class="math notranslate nohighlight">\(\rho=0\)</span>. The functions and the range of applicability are given in <a class="reference internal" href="#table-stress-intensity-concentration-factors-for-butt-welds-and-x-joints"><span class="std std-numref">Table 34.2</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stress-intensity-concentration-factors-for-butt-welds-and-x-joints">
+<caption><span class="caption-number">Table 34.2 </span><span class="caption-text">Stress intensity concentration factors <span class="math notranslate nohighlight">\((M_{\mathrm{ka}}\)</span> ) for butt welds and X-joints</span><a class="headerlink" href="#table-stress-intensity-concentration-factors-for-butt-welds-and-x-joints" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Loading <br> mode</p></th>
+<th class="head text-center"><p>Applicability</p></th>
+<th class="head text-center"><p></p></th>
+<th class="head text-center"><p>Stress intensity <br> concentration factor</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(L / B\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(a / B\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(M_{\mathrm{ka}}=\mathrm{f}_{\mathrm{L}}(a / B, L / B)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>axial</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 0.05(L / B)^{0.55}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.51(L / B)^{0.27}(a / B)^{-0.31}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>axial</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;0.05(L / B)^{0.55}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.83(a / B)^{-0.15(L / B)^{0.46}}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>axial</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 0.073\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.615(a / B)^{-0.31}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>axial</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;0.073\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.83(a / B)^{-0.20}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>bending</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 0.03(L / B)^{0.55}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.45(L / B)^{0.21}(a / B)^{-0.31}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>bending</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;0.03(L / B)^{0.55}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.68(a / B)^{-0.19(L / B)^{0.21}}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>bending</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\leq 0.03\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.45(a / B)^{-0.31}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>bending</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(&gt;0.03\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0.68(a / B)^{-0.19}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(a=\)</span> crack depth, <span class="math notranslate nohighlight">\(B=\)</span> plate thickness and <span class="math notranslate nohighlight">\(L=\)</span> size of the node, defined acc. to <a class="reference internal" href="#fig-definition-of-node-length-for-two-weld-details"><span class="std std-numref">Fig. 34.5</span></a>.</p>
+<p>For <span class="math notranslate nohighlight">\(M_{\mathrm{kc}}\)</span> we may use the same formulas, however substitute <span class="math notranslate nohighlight">\(a=0,15 \mathrm{~mm}\)</span> (See <span id="id15">[<a class="reference internal" href="#id178" title="British Standards Institution. Bs7910: guide on methods for assessing the acceptability of flaws in fusion welded structures. Standard, British Standards Institution, London, 2000.">34.01</a>]</span>).</p>
+<figure class="align-default" id="fig-definition-of-node-length-for-two-weld-details">
+<img alt="../_images/definition-of-node-length-for-two-weld-details.jpg" src="../_images/definition-of-node-length-for-two-weld-details.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 34.5 </span><span class="caption-text">Definition of node length L for two weld details</span><a class="headerlink" href="#fig-definition-of-node-length-for-two-weld-details" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p id="annex-a-3-fatigue"><strong>A3. The stress intensity correction factors <span class="math notranslate nohighlight">\(Y_{a}\)</span> and <span class="math notranslate nohighlight">\(Y_{c}\)</span></strong></p>
+<p>For the factor <span class="math notranslate nohighlight">\(Y_{a}\)</span> it holds that <span class="math notranslate nohighlight">\(\theta=\pi / 2\)</span>, therefore:</p>
+<div class="math notranslate nohighlight">
+\[g=1 \quad ; \quad f_{\theta}=1 \text { for } 0 \leq a / 2 c \leq 0.5 \text { and } f_{\theta}=\sqrt{(c / a)} \quad\text { for } 0.5&lt;(a / 2 c) \leq 1.0\]</div>
+<p>For <span class="math notranslate nohighlight">\(Y_{c}\)</span> with <span class="math notranslate nohighlight">\(\theta=0\)</span> it follows:</p>
+<div class="math notranslate nohighlight">
+\[g=1.1+0.35(a / \mathrm{B})^{2} ; \quad f_{\theta}=\sqrt{a / c} \quad \text { for } 0 \leq a / 2 c \leq 0.5 \quad \text { and } \quad f_{\theta}=1 \quad \text { for } 0.5&lt;(a / 2 c) \leq 1.0\]</div>
+<p>Both factors finally become:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{ll}
+Y_{a}=M_{k a}\left[M_{1}+M_{2}\left(\frac{a}{B}\right)^{2}+M_{3}\left(\frac{a}{B}\right)^{4}\right] f_{w} / \Phi &amp; \text { for } 0 \leq a / 2 c \leq 0.5 \\
+Y_{a}=M_{k a}\left[M_{1}+M_{2}\left(\frac{a}{B}\right)^{2}+M_{3}\left(\frac{a}{B}\right)^{4}\right] f_{w} \sqrt{(c / a)} / \Phi &amp; \text { for } 0.5&lt;(a / 2 c) \leq 1.0 \\
+Y_{c}=M_{k c}\left[M_{1}+M_{2}\left(\frac{a}{B}\right)^{2}+M_{3}\left(\frac{a}{B}\right)^{4}\right] f_{w}\left\lbrace 1.1+0.35(\mathrm{a} / \mathrm{B})^{2}\right\rbrace \sqrt{(c / a)} / \Phi &amp; \text { for } 0 \leq a / 2 c \leq 0.5 \\
+Y_{c}=M_{k c}\left[M_{1}+M_{2}\left(\frac{a}{B}\right)^{2}+M_{3}\left(\frac{a}{B}\right)^{4}\right] f_{w}\left\lbrace 1.1+0.35(\mathrm{a} / \mathrm{B})^{2}\right\rbrace / \Phi &amp; \text { for } 0.5&lt;(a / 2 c) \leq 1.0
+\end{array}\end{split}\]</div>
+</section>
+<section id="appendix-b-fatigue-loading-evaluation">
+<span id="annex-b-fatigue"></span><h2><span class="section-number">34.6. </span>Appendix B: Fatigue Loading evaluation<a class="headerlink" href="#appendix-b-fatigue-loading-evaluation" title="Link to this heading">#</a></h2>
+<p>In the <span class="math notranslate nohighlight">\(S-N\)</span> approach as well as in the Fracture Mechanics approach the loading term contains the expectation of the <span class="math notranslate nohighlight">\(m^{\text {th }}\)</span> moment of the (ergodic part) of the stress distribution.</p>
+<p><strong>B1 Narrow band</strong></p>
+<p><strong>Rayleigh distribution</strong></p>
+<p>If the stress spectrum is Gaussian and narrow-banded it can be shown that the peaks of the stress process, and hence the stress ranges, follow a Rayleigh distribution. For this case the <span class="math notranslate nohighlight">\(m^{\text {th }}\)</span> moment of the stress range density function can be obtained as:</p>
+<div class="math notranslate nohighlight">
+\[E\left[\Delta S^{m}\right]=(2 \sigma \sqrt{2})^{m} \Gamma\left(\frac{m}{2}+1\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the stress process and <span class="math notranslate nohighlight">\(\Gamma()\)</span> is the Gamma function.</p>
+<p>In case we have S-N-lines or fracture mechanics models with two branches:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; E\left(\Delta S^{m}\right)_{0}^{S o}=(2 \sigma \sqrt{2})^{m 1} \Gamma\left(\frac{m_{1}}{2}+1 ;\left(\frac{S_{0}}{2 \sigma \sqrt{2}}\right)^{2}\right) \\
+&amp; E\left(\Delta S^{m}\right)_{S o}^{\infty}=(2 \sigma \sqrt{2})^{m 2} \Gamma_{o}\left(\frac{m_{2}}{2}+1 ;\left(\frac{S_{0}}{2 \sigma \sqrt{2}}\right)^{2}\right)
+\end{aligned}\end{split}\]</div>
+<p><strong>Two parameter Weibull distribution</strong></p>
+<p>Assume that the stress ranges are Weibull distributed with distribution function:</p>
+<div class="math notranslate nohighlight">
+\[F_{\Delta s}(s)=1-\exp \left(-\left(\frac{s}{k}\right)^{\lambda}\right)\]</div>
+<p>In that case we have for the stress expectations</p>
+<div class="math notranslate nohighlight">
+\[E\left(\Delta S^{m}\right)=k^{m} \Gamma\left(\frac{m}{\lambda}+1\right)\]</div>
+<p>In case we have S-N-lines or fracture mechanics models with two branches:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; E\left(\Delta S^{m}\right)_{0}^{S o}=k^{m 1} \Gamma\left(\frac{m_{1}}{\lambda}+1 ;\left(\frac{S_{0}}{k}\right)^{\lambda}\right) \\
+&amp; E\left(\Delta S^{m}\right)_{S o}^{\infty}=k^{m 2} \Gamma_{o}\left(\frac{m_{2}}{\lambda}+1 ;\left(\frac{S_{0}}{k}\right)^{\lambda}\right)
+\end{aligned}\end{split}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\Gamma(a ; b)\)</span> denotes the Incomplete Gamma function and <span class="math notranslate nohighlight">\(\Gamma_{0}(a ; b)=\Gamma(a)-\Gamma(a ; b)\)</span> the complementary Gamma function</p>
+<p>Note that the Rayleigh distribution for the stress ranges corresponds to a Weibull distribution with <span class="math notranslate nohighlight">\(\lambda=2\)</span> and <span class="math notranslate nohighlight">\(\mathrm{k}=2 \sigma \sqrt{ } 2\)</span>, where <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the underlying Gaussian stress process.</p>
+<p><strong>B2 Broad banded processes:</strong></p>
+<p>When the stress process is broad-banded, the stress cycles cannot be easily distinguished, and a convention is required for defining stress cycles. Broadly, there are two approaches available for the modelling of stress cycles of a broad-banded stress process:</p>
+<p><em><strong>Cycle Counting Methods</strong></em></p>
+<p>The first approach is to simulate the time history of the stress process and use one of the peak, range or rain flow counting schemes to count the stress cycles, see Dowling (1972). The rain flow counting method is seen to give a good correlation with experimental results of fatigue tests under variable amplitude loading.</p>
+<p><em><strong>Semi-Analytical Probability Distributions</strong></em></p>
+<p>In the second approach, analytical distributions for stress ranges of a wide banded stress process are derived empirically, like the following 5-parameter mixed Weibull distribution by Zhao and Baker (1990):</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; f_{Y}(y)=\gamma \frac{b_{w}}{a_{w}}\left(\frac{y}{a_{w}}\right)^{b_{w}-1} \exp \left[-\left(\frac{y}{a_{w}}\right)^{b_{w}}\right]+(1-\gamma) \frac{d_{w}}{c_{w}}\left(\frac{y}{c_{w}}\right)^{d_{w}-1} \exp \left[-\left(\frac{y}{c_{w}}\right)^{d_{w}}\right] \\
+&amp; a_{w}=(8-7 \alpha)^{-1 / b} \\
+&amp; b_{w}=1.1 \quad \text { for } \quad \alpha \leq 0.9 \\
+&amp; b_{w}=1.1+9(\alpha-0.9) \quad \text { for } \quad \alpha&gt;0.9 \\
+&amp; c_{w}=\sqrt{2} \\
+&amp; d_{w}=2 \\
+&amp; \alpha=\frac{m_{2}}{\sqrt{m_{0} m_{4}}} \\
+&amp; \gamma=\frac{1-\alpha}{1-\sqrt{2 / \pi} a_{w} \Gamma\left(\frac{1}{b_{w}}+1\right)}
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(y=\Delta S / 2 \sigma\)</span> is the normalised stress range and <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation or ‘root mean squared’ (rms) value of the stress process; <span class="math notranslate nohighlight">\(m_{0}, m_{2}\)</span> and <span class="math notranslate nohighlight">\(m_{4}\)</span> are the zero, second and fourth moment of the stress process.</p>
+<p>For this distribution the <span class="math notranslate nohighlight">\(m^{\text {th }}\)</span> expected value of stress range <span class="math notranslate nohighlight">\(E\left[y^{m}\right]\)</span> can be calculated:</p>
+<div class="math notranslate nohighlight">
+\[E\left[y^{m}\right]=\gamma a_{w}^{m}~\Gamma\left(\frac{m+b_{w}}{b_{w}} ; y_{t h}\right)+(1-\gamma) c_{w}^{m}~\Gamma\left(\frac{m+d_{w}}{d_{w}} ; y_{t h}\right) \quad ; \quad y_{t h}=\frac{S_{t h}}{2 \sigma}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Gamma(\cdots ; \cdots)\)</span> is the incomplete Gamma function. When the expectation is over all stress cycles, this can be replaced by the complete Gamma function in the above expressions. In fracture mechanics <span class="math notranslate nohighlight">\(S_{t h}\)</span> is defined in terms of the stress range corresponding to <span class="math notranslate nohighlight">\(\Delta K_{t h}\)</span> via Eq <a class="reference internal" href="#equation-eq-fatigue-3-5">(34.12)</a> and can be seen as a function of the random crack depth <span class="math notranslate nohighlight">\(a\)</span> and random aspect ratio <span class="math notranslate nohighlight">\(a / c\)</span>. In the case of an S-N approach, the threshold may refer to some nonpropagating stress or cut off value.</p>
+<p><strong>References</strong></p>
+<div class="docutils container" id="id16">
+<div role="list" class="citation-list">
+<div class="citation" id="id178" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>34.01<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id3">2</a>,<a role="doc-backlink" href="#id5">3</a>,<a role="doc-backlink" href="#id7">4</a>,<a role="doc-backlink" href="#id14">5</a>,<a role="doc-backlink" href="#id15">6</a>)</span>
+<p>British Standards Institution. Bs7910: guide on methods for assessing the acceptability of flaws in fusion welded structures. Standard, British Standards Institution, London, 2000.</p>
+</div>
+<div class="citation" id="id183" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">34.02</a><span class="fn-bracket">]</span></span>
+<p>P.C. Paris and F.A. Erdogan. A critical analysis of crack propagation laws. <em>J. Basic Engineering</em>, 1963.</p>
+</div>
+<div class="citation" id="id180" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>34.03<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id6">2</a>)</span>
+<p>O.D. Dijkstra and others. A fracture mechanics approach to the assessment of the remaining fatigue life of defective welded joints. In <em>IABSE Workshop</em>. Lausanne, April 1991. 1990.</p>
+</div>
+<div class="citation" id="id185" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">34.04</a><span class="fn-bracket">]</span></span>
+<p>H. Tada, P.C. Paris, and G.R. Irwin. <em>The stress analysis of cracks handbook</em>. ASME, New York, 2000.</p>
+</div>
+<div class="citation" id="id181" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">34.05</a><span class="fn-bracket">]</span></span>
+<p>M. Lukić and C. Cremona. Probabilistic assessment of welded joints versus fatigue and fracture. <em>J. Struct. Engg.</em>, 2001.</p>
+</div>
+<div class="citation" id="id184" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">34.06</a><span class="fn-bracket">]</span></span>
+<p>T.D. Righiniotis and M.K. Chryssanthopoulos. Probabilistic fatigue analysis under constant amplitude loading. <em>Journal of Constructional Steel Research</em>, 59(7):867–886, 2003.</p>
+</div>
+<div class="citation" id="id186" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">34.07</a><span class="fn-bracket">]</span></span>
+<p>K. Wallin. The scatter in k kc results. <em>Eng. Fract. Mechs.</em>, 1984.</p>
+</div>
+<div class="citation" id="id179" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">34.08</a><span class="fn-bracket">]</span></span>
+<p>F.M. Burdekin and W. Hamour. Partial safety factors for sintap procedure. Technical Report, Offshore Technology Report, OTO 2000 020, HSE, London, 2000.</p>
+</div>
+<div class="citation" id="id182" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">34.09</a><span class="fn-bracket">]</span></span>
+<p>J.C. Newman and I.S. Raju. An empirical stress intensity factor equation for the surface crack. <em>Engg. Fract. Mechs.</em>, 1981.</p>
+</div>
+</div>
+</div>
+<p><strong>Additional References</strong></p>
+<ol class="arabic simple">
+<li><p>Hobbacher, A. (1993). “Stress intensity factors of welded joints”, Eng. Fract. Mech., Vol. 46(2).</p></li>
+<li><p>Newman, J.C. and Raju, I.S. (1986). “Stress-intensity factor equations for cracks in three-dimensional finite bodies subjected to tension and bending loads”, Computational Methods in the Mechanics of Fracture, S.N. Atluri (ed), Elsevier North Holland, New York.</p></li>
+<li><p>Righiniotis, T.D. and Chryssanthopoulos, M.K. (2004). “Fatigue and fracture simulation of welded bridge details through a bi-linear crack growth law”, Struct. Safety, Vol. 26.</p></li>
+<li><p>Shetty, N.K. and Baker, M.J. (1990). “Fatigue reliability of tubular joints in offshore structures: Crack propagation model”, Proc. 9th Offshore Mechanics and Arctic Engineering Conf., ASME.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="excentricities.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">33. </span>Excentricities</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../help/how-to-use.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>How to Use</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scope">34.1. Scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#s-n-approach">34.2. S-N-approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fracture-mechanics-approach">34.3. Fracture Mechanics Approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-models">34.4. Probabilistic models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-a-the-stress-intensity-correction-factor-y">34.5. Annex A: The stress intensity correction factor <span class="math notranslate nohighlight">\(Y\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-b-fatigue-loading-evaluation">34.6. Appendix B: Fatigue Loading evaluation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

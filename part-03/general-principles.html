@@ -1,0 +1,886 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>23. General Principles &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-03/general-principles';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="24. Concrete Properties" href="concrete-properties.html" />
+    <link rel="prev" title="22. Fire" href="../part-02/fire.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/general-principles.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/general-principles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-03/general-principles.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>General Principles</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">23.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-properties">23.2. Material properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-in-material-modelling">23.3. Uncertainties in material modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scales-of-modelling-variations">23.4. Scales of modelling variations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-modelling">23.5. Hierarchical modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-characteristic-value">23.6. Definition of characteristic value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-control-strategies">23.7. Quality control strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-strategies">23.7.1. <em>Types of strategies</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-testing-versus-sampling">23.7.2. <em>Total testing versus Sampling</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-versus-selecting">23.7.3. <em>Updating versus selecting</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-a-bayesian-evaluation-procedure-for-the-normal-and-lognormal-distribution-characteristic-values">23.8. Annex A: <em>Bayesian evaluation procedure for the normal and lognormal distribution - characteristic values</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-b-bayesian-evaluation-procedure-for-regression-characteristic-value">23.9. Annex B: <em>Bayesian evaluation procedure for regression - characteristic value</em></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="general-principles">
+<h1><span class="section-number">23. </span>General Principles<a class="headerlink" href="#general-principles" title="Link to this heading">#</a></h1>
+<p><strong>List of symbols:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}f_{x}(x \mid q) &amp;= \text { the variability of property} x \text { within a given lot}\\
+f_{q}(q) &amp;= \text { the variability of the parameters}~q \text { from lot to lot; statistical description of the production}\\
+f^{\prime}(q) &amp;= \text { prior distribution of}~q\\
+f^{\prime \prime}(q) &amp;= \text { posterior distribution of}~q\\
+L (\text { data} \mid q)  &amp;= \text { likelihood function}\\
+q &amp;= \text { vector of distribution parameters (e.g. mean and std. dev.)}\\
+C &amp;= \text { normalising constant}\\
+d &amp;= \text { decision rule}\end{array}\)</span></p>
+<section id="introduction">
+<h2><span class="section-number">23.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The description of each material property consists of a mathematical model (e.g. elastic-plastic model, creep model, etc.) and random variables or random fields (e.g. modulus of elasticity, creep coefficient). Functional relationships between the various variables may be part of the material model (e.g. the relation between tensile stress and compressive stress for concrete).</p>
+<p>In general, it is the response to static and time dependent mechanical loading that matters for structural design. However, also the response to physical, chemical and biological actions is important as it may affect the mechanical properties and behaviour.</p>
+<p>It is understood that modelling is an art of reasonable simplification of reality such that the outcome is sufficiently explanatory and predictive in an engineering sense. An important aspect of an engineering model is also its operationability, i.e. the ease in handling it in applications.</p>
+<p>Models and values should follow from (standardised) tests, representing the actual
+environmental and loading conditions as good as possible. The set of tested specimen should be representative for the production of the relevant fabrication sites, cover a sufficient long period of time
+and may include the effect of standard quality control measures. Allowance should be made for possible differences between test circumstances and structural environment (conversion).</p>
+<p>For the classical building materials, knowledge about the various properties is generally available from
+experience and from tests in the past. For new materials, models and values should be obtained from an
+extensive and well defined testing program.</p>
+</section>
+<section id="material-properties">
+<h2><span class="section-number">23.2. </span>Material properties<a class="headerlink" href="#material-properties" title="Link to this heading">#</a></h2>
+<p>Material properties are defined as the properties of material specimens of defined size and conditioning, sampled according to given rules, subjected to an agreed testing procedure, the results of which are evaluated according to specified procedures.</p>
+<p>The main characteristics of the mechanical behaviour is described by the one dimensional <span class="math notranslate nohighlight">\(\sigma-\varepsilon-\)</span> diagram, as presented in <a class="reference internal" href="#fig-stress-strain-diagram"><span class="std std-numref">Fig. 23.1</span></a>. As an absolute minimum for structural design the</p>
+<ul class="simple">
+<li><p>modulus of elasticity</p></li>
+<li><p>the strength of the material</p></li>
+</ul>
+<p>both for tensile and compression should be known. Other important parameters in the one-dimensional <span class="math notranslate nohighlight">\(\sigma-\varepsilon-\)</span> diagram are:</p>
+<ul class="simple">
+<li><p>yield stress (if present)</p></li>
+<li><p>limit of proportionality</p></li>
+<li><p>strain at rupture and strain at maximum stress</p></li>
+</ul>
+<p>The strain at rupture is a local phenomenon and the value obtained may heavily depend on the shape and dimensions of the test specimen.</p>
+<figure class="align-default" id="fig-stress-strain-diagram">
+<img alt="../_images/fig-stress-strain-diagram.jpg" src="../_images/fig-stress-strain-diagram.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 23.1 </span><span class="caption-text">Stress strain relationship</span><a class="headerlink" href="#fig-stress-strain-diagram" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Additional to the one dimensional <span class="math notranslate nohighlight">\(\sigma-\varepsilon-\)</span> diagram, information about a number of other quantities and effects is of importance, such as:</p>
+<ul class="simple">
+<li><p>Multi-axial stress condition</p></li>
+<li><p>Duration and strain rate effects</p></li>
+<li><p>Temperature effects</p></li>
+<li><p>Humidity effects</p></li>
+<li><p>Effects of notches and flaws</p></li>
+<li><p>Effects of chemical influences</p></li>
+</ul>
+<p>In general, the various properties of one material may be correlated.</p>
+<p>In the present version of this JCSS model code not all properties will be considered.</p>
+</section>
+<section id="uncertainties-in-material-modelling">
+<h2><span class="section-number">23.3. </span>Uncertainties in material modelling<a class="headerlink" href="#uncertainties-in-material-modelling" title="Link to this heading">#</a></h2>
+<p>Material properties vary randomly in space: The strength in one point of a structure will not be the same as the strength in another point of the same structure or another one. This item will be further developed in the sections <a class="reference internal" href="#section-3-04"><span class="std std-ref">23.4.</span></a> and <a class="reference internal" href="#section-3-05"><span class="std std-ref">23.5.</span></a>.</p>
+<p>Additional to spatial variations of materials, the following uncertainties between measured properties of specimen and properties of the real structure should be accounted for.</p>
+<ol class="arabic simple">
+<li><p>Systematic deviations identified in laboratory testing by relating the observed structural property to the predicted property, suggesting some bias in prediction.</p></li>
+<li><p>Random deviations between the observed and predicted structural property, generally suggesting some lack of completeness in the variables considered in the model.</p></li>
+<li><p>Uncertainties in the relation between the material incorporated in the structural sample and the corresponding material samples.</p></li>
+<li><p>Different qualities of workmanship affecting the properties of (fictitious) material samples, i.e. when modelling the material supply as a supply of material samples.</p></li>
+<li><p>The effect of different qualities of workmanship when incorporating the material in actual structures, not reflected in corresponding material samples.</p></li>
+<li><p>Uncertainties related to alterations in time, predictable only by laboratory testing, field observations, etc.</p></li>
+</ol>
+</section>
+<section id="scales-of-modelling-variations">
+<span id="section-3-04"></span><h2><span class="section-number">23.4. </span>Scales of modelling variations<a class="headerlink" href="#scales-of-modelling-variations" title="Link to this heading">#</a></h2>
+<p>Material properties vary locally in space and, possibly, in time. As far as the spacial variations are concerned, it is useful to distinguish between three hierarchical levels of variation: global (macro), local (meso) and micro (see <a class="reference internal" href="#table-heirarchial-scales-of-fluctuation"><span class="std std-numref">Table 23.1</span></a>).</p>
+<p>For example, the variability of the mean and standard deviation of concrete cylinder strength per job or construction unit as shown in <a class="reference internal" href="#fig-description-of-production-parameters-lots-and-total-supply"><span class="std std-numref">Fig. 23.2</span></a> is a typical form of global parameter variation. This variation primarily is the result of production technology and production strategy of the concrete producers. Parameter variations between objects are conveniently denoted as macroscale variations. The unit of that scale is in the order of a structure or a construction unit. Parameter variations may also be due to statistical uncertainties.</p>
+<p>Given a certain parameter realisation in a system the next step is to model the local variations within the system in terms of random processes or fields. Characteristically, spatial correlations (dependencies) become negligible at distances comparable to the size of the system. This is a direct consequence of the hierarchical modelling procedure where it is natural to assume that the variation within the system is conditional on the variations between systems and the first type of variation is conditionally independent of the second. At this level one may speak of meso-scale variations. Examples are the spatial variation of soils within a given (not too large) foundation site or the number, size and spatial distribution of flaws along welding lines given a welding factory (or welding operator). The unit of this scale is in the order of the size of the structural elements and probably most conveniently measured in meters.</p>
+<p>At the third level, the micro-level, one focuses on rapidly fluctuating variations and inhomogenities which basically are uncontrollable as they originate from physical facts such as the random distribution of spacing and size of aggregates, pores or particles in concrete, metals or other materials. The scale of these variations is measured in particle sizes, i.e. in centimeters down to the size of crystals.</p>
+<p>The modelling process normally uses physical arguments as far as possible. Quite generally, the object is taken as an arrangement of a large number of small elements. The statistical properties of these elements usually can only be assessed qualitatively as well as their type of interaction. This, however, is sufficient to perform some basic operations such as extreme value, summation or intersection operations which describe the overall performance. The large number of elements greatly facilitates such operations because one can make use of certain limit theorems in probability theory. The advantage of using asymptotic concepts rests on the fact that the description of the element properties can then be reduced to some few essential characteristics. The central limit theorem of probability theory, asymptotic extreme value concepts, convergence theorems to the Poisson distribution, etc. will play an important role. In particular, size effects have to be taken into account at this level.</p>
+<p>A useful concept is to introduce a reference volume of the material which in general is chosen on rather practical grounds. It most frequently corresponds to some specified test specimen volume at which material testing is carried out. This volume generally neither corresponds to the volume of the virtual strength elements introduced at the micro-scale modelling level nor to a characteristic volume for in situ strength. It eds to be related to the latter one and these operations can involve not only simple size scaling but more complicated functional relationships if the material produced is subject to further uncertain factors once put in place. Concrete is the most obvious example for the necessity of such additional consideration. Of course, scale effects may also be present at the meso-scale level of modelling.</p>
+<p>The reason for this concept of modelling at several levels (steps) is the requirement for operationability not only in the probabilistic manipulations but also in sampling, estimation and quality control. This way of modelling and the considerations below are, of course, only valid under certain technical standards for production and its control. At the macro-scale level it is assumed that the production process is under control. This simply means that the outcome of production is stationary in some sense. Should a trend develop, production control corrects for it immediately or with some sufficiently small delay. Therefore, it is assumed that at least for some time interval (or spatial region) whose length (size) is to be selected carefully, approximate stationarity on the meso- and micro-scale is guaranteed. Quite frequently, the operational, mathematical models available so far even require ergodicity. Variations at the macro scale level, therefore, can be described by stationary sequences. If the sequences are or can be assumed independent, it is possible to handle macro-scale variations by the concept of random variables. Stationarity is also assumed at the lower levels. However, it may be necessary to use the theory of random processes (fields) at the lower levels, especially in order to take into account of significant effects of dependencies in time or space.</p>
+</section>
+<section id="hierarchical-modelling">
+<span id="section-3-05"></span><h2><span class="section-number">23.5. </span>Hierarchical modelling<a class="headerlink" href="#hierarchical-modelling" title="Link to this heading">#</a></h2>
+<p>Consider a random material property <span class="math notranslate nohighlight">\(X\)</span> which is described by a probability density function <span class="math notranslate nohighlight">\(f_{x}(x \mid \mathbf{q})\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{q}=\left(q_{1}, q_{2}, \ldots\right)\)</span> is the statistical parameter vector, e.g. <span class="math notranslate nohighlight">\(q_{1}\)</span> is the mean and <span class="math notranslate nohighlight">\(q_{2}\)</span> the standard deviation. The density function <span class="math notranslate nohighlight">\(f_{x}(x \mid \mathbf{q})\)</span> applies to the property of a <em>finite reference volume</em>, identical with or clearly related to the volume of the test specimen within a given unit of material. Guidance on the type of distribution may be obtained by assessing the performance of the reference volume under testing conditions in terms of some <em>micro system</em> behaviour. The performance of test specimens, regarded as a system of micro elements, can usually be interpreted by one of the following strength models</p>
+<ul class="simple">
+<li><p>Weakest link model</p></li>
+<li><p>Full plasticity model</p></li>
+<li><p>Daniel’s bundle of threads model</p></li>
+</ul>
+<p>When applying these models to systems with increasing number of elements, they generally lead to specific distributions for the properties of the system at the meso-scale level. The weakest link model leads to a Weibull distribution, the other two models to a normal distribution. For larger coefficients of variation the normal distribution must be replaced by a lognormal distribution in order to avoid physically impossible, negative strength values.</p>
+<p>In the next step (see <a class="reference internal" href="#table-heirarchial-scales-of-fluctuation"><span class="std std-numref">Table 23.1</span></a>) a <em>unit</em> (a structural member) is considered as <em>meso-scale</em> (local variations). The respective unit is regarded as being constituted from a sequence of finite volumes. Hence, a property in this unit is modelled by a random sequence <span class="math notranslate nohighlight">\(X_{1}, X_{2}, X_{3} \ldots\)</span> of reference volume properties. The <span class="math notranslate nohighlight">\(X_{i}\)</span> may have to be considered as correlated, with a coefficient of correlation depending on the distance <span class="math notranslate nohighlight">\(\Delta r_{ij}\)</span> and a correlation parameters <span class="math notranslate nohighlight">\(\rho_{o}\)</span> and <span class="math notranslate nohighlight">\(d_{c}\)</span>, for example:</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-3-0-1">
+<span class="eqno">(23.1)<a class="headerlink" href="#equation-eq-general-principles-3-0-1" title="Link to this equation">#</a></span>\[\rho\left(\Delta r_{i j}\right)=\rho_{o}+\left(1-\rho_{o}\right) \exp \left[-\left(\Delta r_{i j} / d_{c}\right)^{2}\right]\]</div>
+<p>In general <span class="math notranslate nohighlight">\(\rho_{0}=0\)</span>.</p>
+<p>In the subsequent step the complete structure or some relevant part of it is considered as a lot. A lot is defined as a set of units, produced by one producer, in a relatively short period, with no obvious changes in production circumstances and intended for one building site. In practice lots correspond to e.g.:</p>
+<ul class="simple">
+<li><p>the production of ready-mix concrete for a set of elements</p></li>
+<li><p>structural steel from one melt processed according to the same conditions</p></li>
+<li><p>foundation piles for a specific site</p></li>
+</ul>
+<p>As a lot is a set of units it can also be conceived as a set of reference volumes <span class="math notranslate nohighlight">\(X_{i}\)</span>. Normally the parameters <span class="math notranslate nohighlight">\(q\)</span> defined before are defined on the lot level. The correlation between the <span class="math notranslate nohighlight">\(X_{i}\)</span> values within different members normally can be modelled by a single parameter</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-3-0-2">
+<span class="eqno">(23.2)<a class="headerlink" href="#equation-eq-general-principles-3-0-2" title="Link to this equation">#</a></span>\[\rho_{ij}=\rho_{0}\]</div>
+<p>Finally, at the highest <em>macro scale</em> level, we have a sequence of lots, represented by a random sequence of lot parameters (in space or in time). Here we are concerned with the estimation of the distribution of lot parameters, either from one source or several sources. The individual lots may be interpreted as random samples taken from the enlarged population or <em>gross supply</em>. The gross supply comprises all materials produced (and controlled) according to given specifications, within a country or groups of countries. The <em>macro-scale</em> model may be used if the number of producers and structures is large or differences between producers can be considered as approximately random.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-heirarchial-scales-of-fluctuation">
+<caption><span class="caption-number">Table 23.1 </span><span class="caption-text">Scales of fluctuation</span><a class="headerlink" href="#table-heirarchial-scales-of-fluctuation" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Scale</p></th>
+<th class="head text-left"><p>Population</p></th>
+<th class="head text-left"><p>Reference name</p></th>
+<th class="head text-left"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>macro (global)</p></td>
+<td class="text-left"><p>set of structures</p></td>
+<td class="text-left"><p>gross supply</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{X}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>meso</p></td>
+<td class="text-left"><p>set of elements</p></td>
+<td class="text-left"><p>lot</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{X} \mid \mathbf{q}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{\rho}_{\mathbf{o}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>meso (local)</p></td>
+<td class="text-left"><p>one element</p></td>
+<td class="text-left"><p>unit</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\mathbf{X} \mid \mathbf{q}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{\rho}(\Delta \mathbf{r})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>micro</p></td>
+<td class="text-left"><p>aggregate level</p></td>
+<td class="text-left"><p>reference volume</p></td>
+<td class="text-left"><p>type of distribution</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<figure class="align-default" id="fig-description-of-production-parameters-lots-and-total-supply">
+<img alt="../_images/Description-of-production-parameters-lots-and-total-supply.jpg" src="../_images/Description-of-production-parameters-lots-and-total-supply.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 23.2 </span><span class="caption-text">Figure a) production description <span class="math notranslate nohighlight">\(\mathrm{f}_{\mathrm{q}}(\mathrm{q})\)</span></span><a class="headerlink" href="#fig-description-of-production-parameters-lots-and-total-supply" title="Link to this image">#</a></p>
+<div class="legend">
+<p>Figure b) lot description <span class="math notranslate nohighlight">\(\mathrm{f}_{\mathrm{x}}(\mathrm{x} \mid \mathrm{q})\)</span></p>
+<p>Figure c) total supply <span class="math notranslate nohighlight">\(\mathrm{f_{x}(x)}\)</span></p>
+<p>Description of production parameters, lots and total supply</p>
+</div>
+</figcaption>
+</figure>
+<p>The gross supply is described by <span class="math notranslate nohighlight">\(f(q)\)</span>. Type and parameters should follow from a statistical survey of the fluctuations of the various lots which belong to the production under consideration. It will be assumed here that <span class="math notranslate nohighlight">\(f(q)\)</span> is known without statistical uncertainty. If statistical uncertainties cannot be neglected, they can be incorporated. The distribution <span class="math notranslate nohighlight">\(f(q)\)</span> should be monitored more or less continuously to find possible changes in production characteristics.</p>
+<p>The probability density function (predictive density function) for an arbitrary unit (arbitrary means that the lot is not explicitly identified) can be found from the total probability theorem:</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-3-0-3">
+<span class="eqno">(23.3)<a class="headerlink" href="#equation-eq-general-principles-3-0-3" title="Link to this equation">#</a></span>\[f_{x}(x)=\int f_{x}(x \mid q)~f_{q}(q)~d q\]</div>
+<p>The density function <span class="math notranslate nohighlight">\(f(x)\)</span> may be conceived as the statistical description of <span class="math notranslate nohighlight">\(x\)</span> within a large number of randomly selected lots. For some purposes one could also identify <span class="math notranslate nohighlight">\(f(x)\)</span> directly.</p>
+</section>
+<section id="definition-of-characteristic-value">
+<h2><span class="section-number">23.6. </span>Definition of characteristic value<a class="headerlink" href="#definition-of-characteristic-value" title="Link to this heading">#</a></h2>
+<p>The characteristic value of a material with respect to a given property <span class="math notranslate nohighlight">\(X\)</span> is defined as the <span class="math notranslate nohighlight">\(p_{x}\)</span> - quantile in the predictive distribution, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-3-0-4">
+<span class="eqno">(23.4)<a class="headerlink" href="#equation-eq-general-principles-3-0-4" title="Link to this equation">#</a></span>\[x_{c}=F_{x}^{-1}(p)\]</div>
+<p>Examples for predictive distributions can be found in <a class="reference internal" href="#section-part-3-general-principles-annex-a"><span class="std std-ref">Annex A</span></a>. Others may be found in <span id="id1">[<a class="reference internal" href="#id24" title="J. Aitchison and I.R. Dunsmore. Statistical Prediction Analysis. Cambridge University Press, Cambridge, 1975.">23.01</a>]</span>, <span id="id2">[<a class="reference internal" href="#id25" title="H. Raiffa and R. Schlaifer. Applied Statistical Decision Theory. MIT Press, Cambridge, 1968.">23.02</a>]</span> and <span id="id3">[<a class="reference internal" href="#id26" title="S. Engelund and R. Rackwitz. On predictive distribution functions for the three asymptotic extreme value distributions. Structural Safety, 11:255-258, 1992.">23.03</a>]</span>.</p>
+</section>
+<section id="quality-control-strategies">
+<h2><span class="section-number">23.7. </span>Quality control strategies<a class="headerlink" href="#quality-control-strategies" title="Link to this heading">#</a></h2>
+<section id="types-of-strategies">
+<h3><span class="section-number">23.7.1. </span><em>Types of strategies</em><a class="headerlink" href="#types-of-strategies" title="Link to this heading">#</a></h3>
+<p>Normally the statistical parameters of the material properties are based on general tests, taking into account standard production methods. For economic reasons it might be advantageous to have more specific forms of quality control for a particular work or a particular factory.</p>
+<p>Quality control may be of a total (all units are tested) or a statistical nature (a sample is tested). Quality control will lead to more economical solutions, but has in general the disadvantage that the result is not available at the time of design. In those cases, the design value has to be based on the combination of the unfiltered production characteristics and the expected effect of the quality control selection rules.</p>
+<p>Various quality control procedures can be activated, each one leading to a different design value. In <a class="reference internal" href="#fig-strategies-for-quality-control"><span class="std std-numref">Fig. 23.3</span></a> an overview is presented. The easiest procedure is to perform no additional activities (option “no tests”). This means that the units, lots, production should be defined, their descriptions <span class="math notranslate nohighlight">\(f(x \mid q)\)</span> and <span class="math notranslate nohighlight">\(f(q)\)</span> should be established and only <span class="math notranslate nohighlight">\(f(q)\)</span> should be checked for long term changes in production characteristics.</p>
+<p>If on the other hand tests are performed one may distinguish between a total (unit by unit) control and sampling on the one hand and between selection and updating on the other hand. The various options will be discussed.</p>
+<figure class="align-default" id="fig-strategies-for-quality-control">
+<img alt="../_images/Strategies-for-Quality-Control.jpg" src="../_images/Strategies-for-Quality-Control.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 23.3 </span><span class="caption-text">Strategies for Quality Control</span><a class="headerlink" href="#fig-strategies-for-quality-control" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="total-testing-versus-sampling">
+<h3><span class="section-number">23.7.2. </span><em>Total testing versus Sampling</em><a class="headerlink" href="#total-testing-versus-sampling" title="Link to this heading">#</a></h3>
+<p>Both for updating and for selection one may test all units which go into a structure (total testing) or one may test a (random) sample only (statistical testing).</p>
+<p>If the control is total, every produced unit is inspected. The acceptance rules imply that a unit is judged as good (accepted) or bad (not accepted). This type of control is also referred to as unit by unit control. Typically, testing all units requires a non-destructive testing technique. Therefore some kind of measurement error has to be included resulting in a smooth truncation of the distribution.</p>
+<p>If the control is statistical only a limited member of units is tested. The procedure generally consists of the following parts:</p>
+<ul class="simple">
+<li><p>batching the products;</p></li>
+<li><p>sampling within each lot;</p></li>
+<li><p>testing the samples;</p></li>
+<li><p>statistical judgement of the results;</p></li>
+<li><p>decision regarding acceptance.</p></li>
+</ul>
+<p>One normally takes a random sample. In a random sample each unit of the lot has the same probability of being sampled. Where knowledge on the inherent structure of the lot is available, this could be utilised, rendering more efficient sampling techniques, e.g.:</p>
+<ul class="simple">
+<li><p>sampling at weak points, when trends are known;</p></li>
+<li><p>sampling at specified intervals;</p></li>
+<li><p>stratified sampling;</p></li>
+</ul>
+<p>The larger efficiency results in smaller sample sizes for obtaining the same filtering capability of a test. No further guidance, however, will be given here.</p>
+</section>
+<section id="updating-versus-selecting">
+<h3><span class="section-number">23.7.3. </span><em>Updating versus selecting</em><a class="headerlink" href="#updating-versus-selecting" title="Link to this heading">#</a></h3>
+<p>Testing can be done with two purposes:</p>
+<ol class="arabic simple">
+<li><p>to update the probability density function <span class="math notranslate nohighlight">\(f(x)\)</span> or <span class="math notranslate nohighlight">\(f(q)\)</span> of some particular lot or item (updating);</p></li>
+<li><p>to identify and reject inadequate lots or units on the basis of predefined sampling procedures and selection rules (selection).</p></li>
+</ol>
+<p>The basic formula for the first option is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-3-0-5">
+<span class="eqno">(23.5)<a class="headerlink" href="#equation-eq-general-principles-3-0-5" title="Link to this equation">#</a></span>\[f^{\prime \prime}(q)=C~L(\text{data} \mid q) f^{\prime}(q)\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(f^{\prime \prime}(q)  =\)</span> posterior distribution of q</p>
+<p><span class="math notranslate nohighlight">\(f^{\prime}(q)  =\)</span> prior distribution of q</p>
+<p><span class="math notranslate nohighlight">\(L(\text { data/q })  =\)</span> likelihood of the data</p>
+<p><span class="math notranslate nohighlight">\(q  =\)</span> vector of distribution parameters (e.g. mean and std. dev.)</p>
+<p><span class="math notranslate nohighlight">\(C =\)</span> normalising constant = <span class="math notranslate nohighlight">\(\int L(\text { data } \mid q) f^{\prime}(q) d q\)</span></p>
+<p>For the normal case more detailed information is presented in <a class="reference internal" href="#section-part-3-general-principles-annex-a"><span class="std std-ref">Annex A</span></a>.</p>
+<p>The first option can only be used after production of the lot or item under consideration. This data may not be known at the time of the design (e.g. ready mix concrete). The second option, on the other hand, offers the possibility to predict the posterior <span class="math notranslate nohighlight">\(f^{\prime \prime}(q)\)</span> for the filtered supply for a given combination of <span class="math notranslate nohighlight">\(f(x \mid q), f(q)\)</span> and a selection rule <span class="math notranslate nohighlight">\(d\)</span>. In such a case the control may lead to two possible outcomes:</p>
+<ul class="simple">
+<li><p>the lot (or unit) is rejected <span class="math notranslate nohighlight">\(\qquad: d \notin A\)</span></p></li>
+<li><p>the lot (or unit) is accepted <span class="math notranslate nohighlight">\(\qquad: d \in A\)</span></p></li>
+</ul>
+<p>Here <span class="math notranslate nohighlight">\(d\)</span> is a function of the test result of a single unit or of the combined test result of the units in a sample and <span class="math notranslate nohighlight">\(A\)</span> is the acceptance domain.</p>
+<p>One may then calculate the posterior distributions for an arbitrary accepted lot:</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-3-0-6">
+<span class="eqno">(23.6)<a class="headerlink" href="#equation-eq-general-principles-3-0-6" title="Link to this equation">#</a></span>\[f^{\prime}(q \mid d \in A)=C~P(d \in A \mid q)~f^{\prime}(q)\]</div>
+<p>Here <span class="math notranslate nohighlight">\(f(q)\)</span> is the distribution function for the unfiltered supply and the acceptance probability <span class="math notranslate nohighlight">\(P(d \in A \mid q)\)</span> should be calculated from the decision rule.</p>
+<p>The updated distribution for <span class="math notranslate nohighlight">\(X\)</span> can be obtained through <a class="reference internal" href="#equation-eq-general-principles-3-0-3">(23.3)</a> with <span class="math notranslate nohighlight">\(f(q)\)</span> replaced by <span class="math notranslate nohighlight">\(f^{\prime \prime}(q)\)</span>.</p>
+<p>More information about the effect of quality cobntrol on the distribution of material properties can be found in <span id="id4">[<a class="reference internal" href="#id27" title="M. Kersken-Bradley and R. Rackwitz. Stochastic modeling of material properties and quality control. JCSS Working Document, Joint Committee on Structural Safety, March 1991. IABSE-publication.">23.04</a>]</span>.</p>
+</section>
+</section>
+<section id="annex-a-bayesian-evaluation-procedure-for-the-normal-and-lognormal-distribution-characteristic-values">
+<span id="section-part-3-general-principles-annex-a"></span><h2><span class="section-number">23.8. </span>Annex A: <em>Bayesian evaluation procedure for the normal and lognormal distribution - characteristic values</em><a class="headerlink" href="#annex-a-bayesian-evaluation-procedure-for-the-normal-and-lognormal-distribution-characteristic-values" title="Link to this heading">#</a></h2>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> has a normal distribution with parameters <span class="math notranslate nohighlight">\(q_{1}=\mu\)</span> and <span class="math notranslate nohighlight">\(q_{2}=\sigma\)</span> it is convenient to assume a prior distribution for <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\sigma\)</span> according to:</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-1">
+<span class="eqno">(23.7)<a class="headerlink" href="#equation-eq-general-principles-annex-a-1" title="Link to this equation">#</a></span>\[f^{\prime}(\mu, \sigma)=k \sigma^{-\left(v^{\prime}+\delta\left(n^{\prime}\right)+1\right)} \exp \left\lbrace-\frac{1}{2 \sigma^{2}}\left\lbrace v^{\prime} s^{\prime 2}+n^{\prime}\left(\mu-m^{\prime}\right)^{2}\right\rbrace \right\rbrace\]</div>
+<p><span class="math notranslate nohighlight">\(k=\)</span> normalizing constant<br />
+<span class="math notranslate nohighlight">\(\delta\left(n^{\prime}\right)=\)</span> 0 for <span class="math notranslate nohighlight">\(n^{\prime}=0\)</span><br />
+<span class="math notranslate nohighlight">\(\delta\left(n^{\prime}\right)=\)</span> for <span class="math notranslate nohighlight">\(n^{\prime}&gt;0\)</span></p>
+<p>This special choice enables a further analytical treatment of the various operations. The prior distribution <a class="reference internal" href="#equation-eq-general-principles-annex-a-1">(23.7)</a> contains four parameters: <span class="math notranslate nohighlight">\(m^{\prime}, n^{\prime}, s^{\prime 2}\)</span> and <span class="math notranslate nohighlight">\(v^{\prime}\)</span>.</p>
+<p>Using equation <a class="reference internal" href="#equation-eq-general-principles-3-0-4">(23.4)</a> one may combine the prior information characterised by <a class="reference internal" href="#equation-eq-general-principles-annex-a-1">(23.7)</a> and a test result of <span class="math notranslate nohighlight">\(n\)</span> observations with sample mean <span class="math notranslate nohighlight">\(m\)</span> and sample standard deviation <span class="math notranslate nohighlight">\(s\)</span>. The result is a posterior distribution for the unknown mean and standard deviation of <span class="math notranslate nohighlight">\(X\)</span>, which is again given by <a class="reference internal" href="#equation-eq-general-principles-annex-a-1">(23.7)</a>, but with parameters given by the following updating formula’s:</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-2">
+<span class="eqno">(23.8)<a class="headerlink" href="#equation-eq-general-principles-annex-a-2" title="Link to this equation">#</a></span>\[n^{\prime \prime}=n^{\prime}+n\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-3">
+<span class="eqno">(23.9)<a class="headerlink" href="#equation-eq-general-principles-annex-a-3" title="Link to this equation">#</a></span>\[v^{\prime \prime}=v^{\prime}+v+\delta\left(n^{\prime}\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-4">
+<span class="eqno">(23.10)<a class="headerlink" href="#equation-eq-general-principles-annex-a-4" title="Link to this equation">#</a></span>\[m^{\prime \prime}n^{\prime \prime} =n^{\prime} m^{\prime}+ nm\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-5">
+<span class="eqno">(23.11)<a class="headerlink" href="#equation-eq-general-principles-annex-a-5" title="Link to this equation">#</a></span>\[{\left[v^{\prime \prime} s^{\prime \prime 2}+n^{\prime \prime} m^{\prime \prime 2}\right]=\left[v^{\prime} s^{, 2}+n^{\prime} m^{\prime 2}\right]+\left[v s^{2}+n m^{2}\right]}\]</div>
+<p>Then, using equation <a class="reference internal" href="#equation-eq-general-principles-3-0-3">(23.3)</a> the predictive value of <span class="math notranslate nohighlight">\(X\)</span> can be found from:</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-6">
+<span class="eqno">(23.12)<a class="headerlink" href="#equation-eq-general-principles-annex-a-6" title="Link to this equation">#</a></span>\[X=m^{\prime \prime}+t_{v^{\prime \prime}}~s^{\prime \prime}\left(1+\frac{1}{n^{\prime \prime}}\right)^{0.5}\]</div>
+<p>where <span class="math notranslate nohighlight">\(t_{v^{\prime \prime}}\)</span> has a central t-distribution.</p>
+<p>In case of known standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span> eq. <a class="reference internal" href="#equation-eq-general-principles-3-0-2">(23.2)</a> and <a class="reference internal" href="#equation-eq-general-principles-3-0-4">(23.4)</a> still hold for the posterior mean. The predictive value of <span class="math notranslate nohighlight">\(X\)</span> is</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-7">
+<span class="eqno">(23.13)<a class="headerlink" href="#equation-eq-general-principles-annex-a-7" title="Link to this equation">#</a></span>\[X=m^{\prime \prime}+u \sigma\left(1+\frac{1}{n^{\prime \prime}}\right)^{0.5}\]</div>
+<p>where <span class="math notranslate nohighlight">\(u\)</span> has a standard normal distribution.</p>
+<p>The characteristic value is thus defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-general-principles-annex-a-8">
+<span class="eqno">(23.14)<a class="headerlink" href="#equation-eq-general-principles-annex-a-8" title="Link to this equation">#</a></span>\[\begin{split}x_{c}=\left\{\begin{array}{ccc}
+m^{\prime \prime}+u\left(p_{x}\right) \sigma\left(1+\frac{1}{n^{\prime \prime}}\right)^{0.5} &amp; \text { for } &amp; \sigma \text { known } \\ \\
+m^{\prime \prime}+t_{v^{\prime \prime}}\left(p_{x}\right) s^{\prime \prime}\left(1+\frac{1}{n^{\prime \prime}}\right)^{0.5} &amp; \text { for } &amp; \sigma \text { unknown }
+\end{array}\right.\end{split}\]</div>
+<p>For <span class="math notranslate nohighlight">\(n^{\prime \prime} v^{\prime \prime} \rightarrow \infty~~x_{c}=m^{\prime \prime} + u\left(p_{x}\right) s^{\prime \prime}\)</span> in both cases with <span class="math notranslate nohighlight">\(s^{\prime \prime}=\sigma\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(X\)</span> has a lognormal distribution, <span class="math notranslate nohighlight">\(Y=\ln (X)\)</span> has a normal distribution. One may then use the former formula’s on <span class="math notranslate nohighlight">\(Y\)</span> and use <span class="math notranslate nohighlight">\(X=\exp (Y)\)</span> for results on <span class="math notranslate nohighlight">\(X\)</span>.</p>
+</section>
+<section id="annex-b-bayesian-evaluation-procedure-for-regression-characteristic-value">
+<h2><span class="section-number">23.9. </span>Annex B: <em>Bayesian evaluation procedure for regression - characteristic value</em><a class="headerlink" href="#annex-b-bayesian-evaluation-procedure-for-regression-characteristic-value" title="Link to this heading">#</a></h2>
+<p>If only indirect measurements for the quantity of interest are possible and a linear regression model <span class="math notranslate nohighlight">\(y=a_{0}+a_{1} x\)</span> is suitable the predictive value of <span class="math notranslate nohighlight">\(y\)</span> has also a t-distribution given by</p>
+<div class="math notranslate nohighlight">
+\[y=a_{0}+a_{1} x+t_{v}~s \left(1 + \frac{1}{n}+\frac{\left(\bar{x}-x_{0}\right)^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right)^{1/2}\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(a_{0}=\bar{y}-a_{1} \bar{x}\)</span></p>
+<p><span class="math notranslate nohighlight">\(a_{1}=\frac{\sum_{i=1}^{n} x_{i} y_{i}-n \overline{x y}}{\sum_{i=1}^{n} x_{i}^{2}-n \bar{x}^{2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\bar{x}=\frac{1}{n} \sum_{i=1}^{n} x_{i}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\bar{y}=\frac{1}{n} \sum_{i=1}^{n} y_{i}\)</span></p>
+<p><span class="math notranslate nohighlight">\(s^{2}=\frac{1}{n-2} \sum_{i=1}^{n} \left(y_{i}-a_{0}-a_{1} x_{i} \right)^2\)</span></p>
+<p><span class="math notranslate nohighlight">\(v=n-2\)</span></p>
+<p>The characteristic value corresponding to the quantile <span class="math notranslate nohighlight">\(p\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[y_{c}=a_{0}+a_{1} x+T^{-1}(p, v)~s \left(1 + \frac{1}{n}+\frac{\left(\bar{x}-x_{0}\right)^{2}}{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}}\right)^{1/2}\]</div>
+<p>For example, for S-N curves, it is <span class="math notranslate nohighlight">\(y=\ln (N), x=\ln (\Delta \sigma), a_{1}=-m\)</span> and <span class="math notranslate nohighlight">\(a_{0}=\ln a\)</span>. The characteristic value of <span class="math notranslate nohighlight">\(N\)</span> for given <span class="math notranslate nohighlight">\(\ln \left(\Delta \sigma_{E}\right)=x_{0}\)</span> is <span class="math notranslate nohighlight">\(N_{c}=\exp \left[y_{c}\right]\)</span>.</p>
+<p><strong>References</strong></p>
+<div class="docutils container" id="id5">
+<div role="list" class="citation-list">
+<div class="citation" id="id24" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">23.01</a><span class="fn-bracket">]</span></span>
+<p>J. Aitchison and I.R. Dunsmore. <em>Statistical Prediction Analysis</em>. Cambridge University Press, Cambridge, 1975.</p>
+</div>
+<div class="citation" id="id25" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">23.02</a><span class="fn-bracket">]</span></span>
+<p>H. Raiffa and R. Schlaifer. <em>Applied Statistical Decision Theory</em>. MIT Press, Cambridge, 1968.</p>
+</div>
+<div class="citation" id="id26" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">23.03</a><span class="fn-bracket">]</span></span>
+<p>S. Engelund and R. Rackwitz. On predictive distribution functions for the three asymptotic extreme value distributions. <em>Structural Safety</em>, 11:255–258, 1992.</p>
+</div>
+<div class="citation" id="id27" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">23.04</a><span class="fn-bracket">]</span></span>
+<p>M. Kersken-Bradley and R. Rackwitz. Stochastic modeling of material properties and quality control. JCSS Working Document, Joint Committee on Structural Safety, March 1991. IABSE-publication.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../part-02/fire.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Fire</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="concrete-properties.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">24. </span>Concrete Properties</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">23.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material-properties">23.2. Material properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-in-material-modelling">23.3. Uncertainties in material modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scales-of-modelling-variations">23.4. Scales of modelling variations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-modelling">23.5. Hierarchical modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition-of-characteristic-value">23.6. Definition of characteristic value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-control-strategies">23.7. Quality control strategies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-strategies">23.7.1. <em>Types of strategies</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#total-testing-versus-sampling">23.7.2. <em>Total testing versus Sampling</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-versus-selecting">23.7.3. <em>Updating versus selecting</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-a-bayesian-evaluation-procedure-for-the-normal-and-lognormal-distribution-characteristic-values">23.8. Annex A: <em>Bayesian evaluation procedure for the normal and lognormal distribution - characteristic values</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-b-bayesian-evaluation-procedure-for-regression-characteristic-value">23.9. Annex B: <em>Bayesian evaluation procedure for regression - characteristic value</em></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

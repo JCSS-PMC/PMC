@@ -1,441 +1,509 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>8. General Principles &#8212; Probabilistic Model Code</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>12. General Principles &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-      
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-02/general-principles';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="9. Self Weight" href="self-weight.html" />
-    <link rel="prev" title="7. Target Reliability" href="../part-01/target-reliability.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="next" title="13. Self Weight" href="self-weight.html" />
+    <link rel="prev" title="11. Annex D:Bayesian Interpretation of Probabilities" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/jcss.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Probabilistic Model Code</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-00/intro.html">
-   JCSS Probabilistic Model Code
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Basis of Design
- </span>
-</p>
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/requirements.html">
-   2. Requirements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/principles-of-limit-state-design.html">
-   3. Principles of limit state design
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">
-   4. Basis of uncerainty modelling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/models-for-physical-behaviour.html">
-   5. Models for physical behaviour
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/reliability.html">
-   6. Reliability
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/target-reliability.html">
-   7. Target Reliability
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Load Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   8. General Principles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="self-weight.html">
-   9. Self Weight
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="live-load.html">
-   10. Live Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="loads-in-car-parks.html">
-   11. Loads In Car Parks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="snow-load.html">
-   12. Snow Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="wind.html">
-   13. Wind
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="impact-load.html">
-   14. Impact Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="fire.html">
-   15. Fire
-  </a>
- </li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fire.html">22. Fire</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Resistance Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/concrete-properties.html">
-   16. Concrete Properties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
-   17. Static Properties Of Reinforcing Steel
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/model-uncertainties.html">
-   18. Model Uncertainties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/dimensions.html">
-   19. Dimensions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/excentricities.html">
-   20. Excentricities
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  How to Use
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../help/how-to-use.html">
-   21. How to Use
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-</div>
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-02/general-principles.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/general-principles.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/general-principles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Source interaction buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/JCSS-PMC/PMC"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/general-principles.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/general-principles.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-02/general-principles.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>General Principles</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div>
+                <h2> Contents </h2>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
+            <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#introduction">
-   8.1. Introduction
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#classifications">
-   8.2. Classifications
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#modelling-of-actions">
-   8.3. Modelling of actions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#models-for-fluctuations-in-time">
-   8.4. Models for fluctuations in time
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#types-of-models">
-     8.4.1. Types of models
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-of-extremes-for-single-processes">
-     8.4.2. Distribution of extremes for single processes
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-of-extremes-for-hierarchical-processes">
-     8.4.3. Distribution of extremes for hierarchical processes
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#models-for-spatial-variability">
-   8.5. Models for Spatial variability
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#hierarchical-model">
-     8.5.1. Hierarchical model
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#equivalent-uniformly-distributed-load-eudl">
-     8.5.2. Equivalent uniformly distributed load (EUDL)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dependencies-between-different-actions">
-   8.6. Dependencies between different actions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#combination-of-actions">
-   8.7. Combination of actions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#annex-1-definitions">
-   8.8. ANNEX 1 - DEFINITIONS
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#annex-2-distributions-functions">
-   8.9. ANNEX 2 - DISTRIBUTIONS FUNCTIONS
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#annex-3-mathematical-combination-techniques">
-   8.10. ANNEX 3 - MATHEMATICAL COMBINATION TECHNIQUES
-  </a>
- </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifications">12.2. Classifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-of-actions">12.3. Modelling of actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-for-fluctuations-in-time">12.4. Models for fluctuations in time</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-models">12.4.1. Types of models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-extremes-for-single-processes">12.4.2. Distribution of extremes for single processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-extremes-for-hierarchical-processes">12.4.3. Distribution of extremes for hierarchical processes</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-for-spatial-variability">12.5. Models for Spatial variability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-model">12.5.1. Hierarchical model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-uniformly-distributed-load-eudl">12.5.2. Equivalent uniformly distributed load (EUDL)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions-and-correlations-between-actions">12.6. Interactions and correlations between actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-of-actions">12.7. Combination of actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-1-definitions">12.8. ANNEX 1 - DEFINITIONS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-function">12.8.1. Covariance function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-processes">12.8.2. Stationary processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ergodic-processes">12.8.3. Ergodic processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-correlation-function">12.8.4. The correlation function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectrum">12.8.5. Spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes">12.8.6. Gaussian processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-nataf-processes">12.8.7. Scalar Nataf Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-hermite-processes">12.8.8. Scalar Hermite Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-rectangular-wave-renewal-processes">12.8.9. Scalar Rectangular Wave Renewal Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-fields">12.8.10. Random fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-processes">12.8.11. Vector processes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-2-distributions-functions">12.9. ANNEX 2 - DISTRIBUTIONS FUNCTIONS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-3-mathematical-combination-techniques">12.10. ANNEX 3 - MATHEMATICAL COMBINATION TECHNIQUES</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-of-two-rectangular-processes-ferry-borges-castanheta-model">12.10.1. Combination of two rectangular processes (Ferry Borges-Castanheta model)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oucrossing-approach">12.10.2. Oucrossing approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermittent-processes">12.10.3. Intermittent processes</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="general-principles">
-<h1><span class="section-number">8. </span>General Principles<a class="headerlink" href="#general-principles" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2><span class="section-number">8.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="general-principles">
+<h1><span class="section-number">12. </span>General Principles<a class="headerlink" href="#general-principles" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">12.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p>The environment in which structural systems function gives rise to internal forces, deformations, material deterioration and other short-term or long-term effects in these systems. The causes of these effects are termed actions. The environment from which the actions originate can be of a natural
-character, for example, snow, wind and earthquake. lt can also be associated with human activities such as living in a domestic house, working in a factory, etc.
-The following concepts of actions are used in this document.</p>
-<ol class="simple">
+character, for example, snow, wind and earthquake. lt can also be associated with human activities such as living in a domestic house, working in a factory, etc.</p>
+<p>The following concepts of actions are used in this document.</p>
+<ol class="arabic simple">
 <li><p>An action is an assembly of concentrated or distributed forces acting on the structure. This kind of action is also denoted by “load”.</p></li>
 <li><p>An action is the cause of imposed displacements or thermal effects in the structure. This kind of action is often denoted by “indirect action”.</p></li>
 <li><p>An action is an environmental influence which may cause changes with time in the material properties or in the dimensions of a structure.</p></li>
 </ol>
 <p>Action descriptions are in most cases based on suitably simple mathematical models, describing the temporal, spatial and directional properties of the action across the structure. The choice of the level of richness of details is guided by a balance between the quality of the available or obtainable information and a reasonably accurate modelling of the action effect. The choice of the level of realism and accuracy in predicting the relevant action effects is, in time, guided by the sensitivity of the implied design decisions to variations of this level and the economical weight of these decisions.
 Thus the same action phenomenon may give rise to several very different action models dependent on the effect and structure under investigation.</p>
-</div>
-<div class="section" id="classifications">
-<h2><span class="section-number">8.2. </span>Classifications<a class="headerlink" href="#classifications" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="classifications">
+<h2><span class="section-number">12.2. </span>Classifications<a class="headerlink" href="#classifications" title="Link to this heading">#</a></h2>
 <p>Loads can be classified according to a number of characteristics. With respect to the type of the loads, the following subdivision can be made:</p>
 <ul class="simple">
 <li><p>self weight of structures</p></li>
 <li><p>occupancy loads in buildings, e.g. loads from persons and equipment</p></li>
 <li><p>actions caused by industrial activities, e.g. silo loads</p></li>
 <li><p>actions caused by transport: traffic, liquids in pipelines, cranes, impact, etc.</p></li>
-<li><p>climatic actions, e.g. snow. wind, outdoor temperature etc.</p></li>
+<li><p>climatic actions, e.g. snow, wind, outdoor temperature etc.</p></li>
 <li><p>hydraulic actions, e.g. water and ground water pressures</p></li>
 <li><p>actions from soil or rock, including earth quake</p></li>
 </ul>
-<p>This classification does not cover all possible actions hut most of the common types of actions can be included in one or more classes. Some of the classes belong as a whole either to uncontrollable actions or to controllable actions. Other actions may belong to both e.g. water pressure.</p>
+<p>This classification does not cover all possible actions but most of the common types of actions can be included in one or more classes. Some of the classes belong as a whole either to uncontrollable actions or to controllable actions. Other actions may belong to both e.g. water pressure.</p>
 <p>With respect to the variations in time the following classification can be made:</p>
 <ul class="simple">
-<li><p><strong>permanent</strong> actions, whose variations in time around their mean is small and slow (e.g. self weight, earth pressure) or which monotonically a limiting value (C.g. prestressing, imposed deformation from construction processes, effects from temperature, shrinkage, creep or settlements)</p></li>
+<li><p><strong>permanent actions</strong> , whose variations in time around their mean is small and slow (e.g. self weight, earth pressure) or which monotonically a limiting value (e.g. prestressing, imposed deformation from construction processes, effects from temperature, shrinkage, creep or settlements)</p></li>
 <li><p><strong>variable actions</strong>, whose variations in time are frequent and large (e.g. all actions caused by the use of the structure and by most of the external actions such as wind and snow)</p></li>
 <li><p><strong>exceptional actions</strong>, whose magnitude can be considerable but whose probability of occurrence for a given structure is small related to the anticipated time of use. Frequently the duration is short (e.g. impact loads, explosions, earth and snow avalanches).</p></li>
 </ul>
@@ -443,13 +511,13 @@ Thus the same action phenomenon may give rise to several very different action m
 actions. <strong>Fixed actions</strong> have a given spatial intensity distribution over the structure. They are
 completely defined if the intensity is specified in a particular point of the structure (e.g. earth or water
 pressure). For <strong>free actions</strong> the spatial intensity distribution is variable (e.g. regular occupancy
-loading, involved although they are variable actions.</p>
-</div>
-<div class="section" id="modelling-of-actions">
-<h2><span class="section-number">8.3. </span>Modelling of actions<a class="headerlink" href="#modelling-of-actions" title="Permalink to this headline">¶</a></h2>
+loading, involved although they are variable actions.)</p>
+</section>
+<section id="modelling-of-actions">
+<h2><span class="section-number">12.3. </span>Modelling of actions<a class="headerlink" href="#modelling-of-actions" title="Link to this heading">#</a></h2>
 <p>There are two main aspects of the description of an action: one is the physical aspect, the other is the
 statistical aspect. In most cases these aspects can be clearly separated. Then the physical description
-gives the types of physical data which characterise the action model, for example, vertical forces
+gives the type of physical data which characterise the action model, for example, vertical forces
 distributed over a given area. The statistical description gives the statistical properties of the
 variables, for example, a probability distribution function. In some cases the physical and statistical
 aspects are so integrated that they cannot be considered separately.</p>
@@ -458,32 +526,27 @@ the position, the direction, the duration etc. of the action. Sometimes there is
 the components. There may in certain cases also be an interaction between the action and the
 response of the structure.</p>
 <p>One can in many cases distinguish between two kinds of variables (constituents) <span class="math notranslate nohighlight">\(F_0\)</span> and <span class="math notranslate nohighlight">\(W\)</span> describing
-an action <span class="math notranslate nohighlight">\(F\)</span> (see also part 1, Basis of Design).</p>
+an action <span class="math notranslate nohighlight">\(F\)</span> (see also part 1, <a class="reference internal" href="../part-01/introduction.html"><span class="std std-doc">Basis of Design</span></a>).</p>
 <div class="math notranslate nohighlight" id="equation-eq-action-f">
-<span class="eqno">(8.1)<a class="headerlink" href="#equation-eq-action-f" title="Permalink to this equation">¶</a></span>\[
-F = φ (F_O, W)
-\]</div>
+<span class="eqno">(12.1)<a class="headerlink" href="#equation-eq-action-f" title="Link to this equation">#</a></span>\[F = \varphi (F_O, W)\]</div>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(F_O\)</span> is a basic action variable which is directly associated with the event causing the action and
 which should be defined so that it is, as far as possible, independent of the structure. For
-example, for snow load Fo is the snow load on ground, on a flat horizontal surface</p></li>
+example, for snow load <span class="math notranslate nohighlight">\(F_O\)</span> is the snow load on ground, on a flat horizontal surface</p></li>
 <li><p><span class="math notranslate nohighlight">\(W\)</span> is a kind of conversion factor or model parameter appearing in the transformation from the
-basic action to the action F which affects the particular structure. W may depend on the form
-and size of the structure etc. For the snow load example W is the factor which transforms the
-snow load on ground to the snow load on roof and which depends on the roof slope, the type
-of roof surface etc.</p></li>
+basic action to the action <span class="math notranslate nohighlight">\(F\)</span> which affects the particular structure. <span class="math notranslate nohighlight">\(W\)</span> may depend on the form and size of the structure etc. For the snow load example <span class="math notranslate nohighlight">\(W\)</span>  is the factor which transforms the snow load on ground to the snow load on roof and which depends on the roof slope, the type of roof surface etc.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\varphi\)</span> is a suitable function, often a simple product.</p></li>
 </ul>
 <p>The time variability is normally included in <span class="math notranslate nohighlight">\(F_O\)</span>, whereas <span class="math notranslate nohighlight">\(W\)</span> can often be considered as time
 independent. A systematic part of the space variability of an action is in most cases included in <span class="math notranslate nohighlight">\(W\)</span>,
-whereas a possible random part may be included in <span class="math notranslate nohighlight">\(F_O\)</span> or in <span class="math notranslate nohighlight">\(W\)</span>. Eq. <a class="reference internal" href="#equation-eq-action-f">(8.1)</a> should be regarded as a
+whereas a possible random part may be included in <span class="math notranslate nohighlight">\(F_O\)</span> or in <span class="math notranslate nohighlight">\(W\)</span>. Eq. <a class="reference internal" href="#equation-eq-action-f">(12.1)</a> should be regarded as a
 schematic equation. For one action there may be several variables <span class="math notranslate nohighlight">\(F_O\)</span> and several variables <span class="math notranslate nohighlight">\(W\)</span>.</p>
 <p>Any action model contains a set of parameters and variables that must be evaluated before the model
 can be used. In probabilistic modelling all action variables are in principle assumed to be random
 variables or processes while other parameters may be time or spatial co-ordinates, directions etc.
 Sometimes parameters may themselves be random variables, for example when the model allows for
 statistical uncertainty due to small sample sizes.</p>
-<p>An action model often includes two or more variables of different character as is described by eq. <a class="reference internal" href="#equation-eq-action-f">(8.1)</a>
+<p>An action model often includes two or more variables of different character as is described by eq. <a class="reference internal" href="#equation-eq-action-f">(12.1)</a>
 For each variable a suitable model should be chosen so that the complete action model
 consists of a number of models for the individual variables.</p>
 <p>These models may be described in terms of:</p>
@@ -493,46 +556,380 @@ consists of a number of models for the individual variables.</p>
 <li><p>individual random variables</p></li>
 <li><p>deterministic values or functions</p></li>
 </ul>
-<p>The definition of the models for these quantities require probability distributions (see annex 2) and a
+<p>The definition of the models for these quantities require probability distributions (see <a class="reference internal" href="#annex-2"><span class="std std-ref">annex 2</span></a>) and a
 description of the correlation patterns.</p>
+</section>
+<section id="models-for-fluctuations-in-time">
+<h2><span class="section-number">12.4. </span>Models for fluctuations in time<a class="headerlink" href="#models-for-fluctuations-in-time" title="Link to this heading">#</a></h2>
+<section id="types-of-models">
+<h3><span class="section-number">12.4.1. </span>Types of models<a class="headerlink" href="#types-of-models" title="Link to this heading">#</a></h3>
+<p>To describe time depended loads, one needs the probability distribution for the “arbitrary point in time values” and a description of the variations in time. Some typical process models are (see figure <a class="reference internal" href="#fig-various-types-of-load-models"><span class="std std-numref">Fig. 12.1</span></a>):</p>
+<ol class="arabic simple">
+<li><p>Continuous and differentiable process</p></li>
+<li><p>Random sequence</p></li>
+<li><p>Point pulse process with random intervals</p></li>
+<li><p>Rectangular wave process with random intervals</p></li>
+<li><p>Rectangular wave process with equidistant intervals <span class="math notranslate nohighlight">\(\Delta\)</span></p></li>
+</ol>
+<p>If the load intensities in subsequent time intervals of model (e) are independent, the model is referred to as a <strong>FBC model</strong> (Ferry Borges Castanheta model).</p>
+<p>In many applications a combination of models is used, e.g. for wind the long term average is often modelled as an FBC model while the short term gust process is a continuous Gaussian process. Such models are referred to as <strong>hierarchical models</strong> (see Part 1, Basis of Design, <a class="reference internal" href="../part-01/models-for-physical-behaviour.html#section-5-4"><span class="std std-ref">Section 5.4</span></a>). Each term in such a model describes a specific and independent part of the time variability. For a number of further definitions and notions, reference is made to <a class="reference internal" href="#annex-1"><span class="std std-ref">Annex 1</span></a>.</p>
+<figure class="align-default" id="fig-various-types-of-load-models">
+<img alt="../_images/Various-types-of-load-models.jpg" src="../_images/Various-types-of-load-models.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">Various types of load models</span><a class="headerlink" href="#fig-various-types-of-load-models" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="distribution-of-extremes-for-single-processes">
+<h3><span class="section-number">12.4.2. </span>Distribution of extremes for single processes<a class="headerlink" href="#distribution-of-extremes-for-single-processes" title="Link to this heading">#</a></h3>
+<p>At the design the main interest is normally directed to the maximum value of the load in some reference period of time <span class="math notranslate nohighlight">\(t_{0}\)</span>. A quite general and useful upperbound formula to calculate the distribution of the maximum is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-4-1">
+<span class="eqno">(12.2)<a class="headerlink" href="#equation-eq2-0-4-1" title="Link to this equation">#</a></span>\[F_{\max F}(a) \cong \exp \left[-t_{0}~v^{+}(a)\right]\]</div>
+<p>The upcrossing frequency <span class="math notranslate nohighlight">\(v^{+}(a)\)</span> is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-4-2">
+<span class="eqno">(12.3)<a class="headerlink" href="#equation-eq2-0-4-2" title="Link to this equation">#</a></span>\[v^{+} (a)= P \left \lbrace F_{t} &lt; a \text{ and } F_{t+dt}&gt;a\right\rbrace / dt\]</div>
+<p>For the FBC model <span class="math notranslate nohighlight">\(v^{+}(a)\)</span> is simply given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-4-3">
+<span class="eqno">(12.4)<a class="headerlink" href="#equation-eq2-0-4-3" title="Link to this equation">#</a></span>\[v^{+}(a)=\left(1-F_{F}(a)\right) F_{F}(a) / \Delta t \cong\left(1-F_{F}(a)\right) / \Delta t \]</div>
+<p>And for a continuous Gaussian process:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-4-4">
+<span class="eqno">(12.5)<a class="headerlink" href="#equation-eq2-0-4-4" title="Link to this equation">#</a></span>\[v^{+}(a)=\frac{1}{2 \pi} \sqrt{-\rho^{\prime \prime}(0)} \exp \left(-\beta^{2} / 2\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta=(a-\mu(F)) / F(F)\)</span> and <span class="math notranslate nohighlight">\(\rho=\)</span> the correlation function.</p>
+</section>
+<section id="distribution-of-extremes-for-hierarchical-processes">
+<h3><span class="section-number">12.4.3. </span>Distribution of extremes for hierarchical processes<a class="headerlink" href="#distribution-of-extremes-for-hierarchical-processes" title="Link to this heading">#</a></h3>
+<p>Consider the case that the load model contains slowly and rapidly varying parts, as well as random variables that are constant in time (see <a class="reference internal" href="#fig-hierarchical-model-for-time-dependent-loads"><span class="std std-numref">Fig. 12.2</span></a>).</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-4-5">
+<span class="eqno">(12.6)<a class="headerlink" href="#equation-eq2-0-4-5" title="Link to this equation">#</a></span>\[F=R+Q+S\]</div>
+<p><span class="math notranslate nohighlight">\(R =\)</span> random variables, constant in time</p>
+<p><span class="math notranslate nohighlight">\(Q =\)</span> slow rectangular process with mean renewal rate <span class="math notranslate nohighlight">\(\lambda\)</span></p>
+<p><span class="math notranslate nohighlight">\(S =\)</span> fast varying process</p>
+<p>In that case the following expression (see <a class="reference internal" href="#annex-3"><span class="std std-ref">Annex 3</span></a>, <a class="reference internal" href="#equation-eqa3-5a">(12.20)</a>) can be used:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-4-6">
+<span class="eqno">(12.7)<a class="headerlink" href="#equation-eq2-0-4-6" title="Link to this equation">#</a></span>\[F_{\max F}(a)=E_{R}\left[\exp \left[\lambda t_{0}\left[1-E_{Q} \exp \left(-\Delta t~v_{s}^{+}(a \mid R Q)\right)\right]\right]\right]\]</div>
+<p><span class="math notranslate nohighlight">\(v_{s}^{+}(a \mid RQ)=\)</span> upcrossing rate of level “<span class="math notranslate nohighlight">\(a\)</span>” for process <span class="math notranslate nohighlight">\(S\)</span>, conditional upon <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(Q\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Delta t=1 / \lambda=\)</span> time interval for the rectangular process <span class="math notranslate nohighlight">\(Q\)</span></p>
+<p><span class="math notranslate nohighlight">\(E_{R}\)</span> and <span class="math notranslate nohighlight">\(E_{Q}\)</span> denote the expectation operator over all variables <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(Q\)</span> respectively.</p>
+<figure class="align-default" id="fig-hierarchical-model-for-time-dependent-loads">
+<img alt="../_images/Hierarchical-model-for-time-dependent-loads.jpg" src="../_images/Hierarchical-model-for-time-dependent-loads.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 12.2 </span><span class="caption-text">Hierarchical model for time dependent loads</span><a class="headerlink" href="#fig-hierarchical-model-for-time-dependent-loads" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="models-for-spatial-variability">
+<h2><span class="section-number">12.5. </span>Models for Spatial variability<a class="headerlink" href="#models-for-spatial-variability" title="Link to this heading">#</a></h2>
+<section id="hierarchical-model">
+<span id="section-2-0-5-1"></span><h3><span class="section-number">12.5.1. </span>Hierarchical model<a class="headerlink" href="#hierarchical-model" title="Link to this heading">#</a></h3>
+<p>As an example for the spatial modelling of actions using a hierarchical model consider the live load in an office building:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-5-1">
+<span class="eqno">(12.8)<a class="headerlink" href="#equation-eq2-0-5-1" title="Link to this equation">#</a></span>\[F=m+\Delta F_{1}+\Delta F_{2}+\Delta F_{3}(x, y)\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(m\)</span> is a general mean value for the whole population</p>
+<p><span class="math notranslate nohighlight">\(\Delta F_{1}\)</span> is a stochastic variable which describes the variation <strong>between</strong> the load on different floors. The distribution function for <span class="math notranslate nohighlight">\(\Delta F_{1}\)</span> has the mean value zero and the standard deviation <span class="math notranslate nohighlight">\(\sigma_{1}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Delta F_{2}\)</span> is a stochastic variable which describes the variation <strong>between</strong> the load in rooms on the same floor but with different floor areas. The distribution function for <span class="math notranslate nohighlight">\(\Delta F_{2}\)</span> has the mean value zero and the standard deviation <span class="math notranslate nohighlight">\(\sigma_{2}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Delta F_{3}\)</span> is a random field which describes the spatial variability of the load <strong>within</strong> a room.</p>
+<p>The total variability of the samples taken from the total population is described by <span class="math notranslate nohighlight">\(\Delta F_{1}+\Delta F_{2}+\Delta F_{3}\)</span>. The variability <strong>within</strong> the subpopulation of floors is described by <span class="math notranslate nohighlight">\(\Delta F_{2}+\Delta F_{3}\)</span>.</p>
+</section>
+<section id="equivalent-uniformly-distributed-load-eudl">
+<h3><span class="section-number">12.5.2. </span>Equivalent uniformly distributed load (EUDL)<a class="headerlink" href="#equivalent-uniformly-distributed-load-eudl" title="Link to this heading">#</a></h3>
+<p>Consider a simple hierarchical distribution load model given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-5-0-2">
+<span class="eqno">(12.9)<a class="headerlink" href="#equation-eq2-5-0-2" title="Link to this equation">#</a></span>\[q(x, y)=q_{o}+q_{loc}(x, y)\]</div>
+<p><span class="math notranslate nohighlight">\(q_{o}=\)</span> the variability between the various structures or structural elements</p>
+<p><span class="math notranslate nohighlight">\(q_{\text {loc }}=\)</span> the small scale or point to point fluctuation.</p>
+<p>In many cases the random field <span class="math notranslate nohighlight">\(q\)</span> is replaced by a so called Equivalent Uniformly Distributed Load (EUDL). This load is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-5-0-3">
+<span class="eqno">(12.10)<a class="headerlink" href="#equation-eq2-5-0-3" title="Link to this equation">#</a></span>\[q_{\text {EUDL }}(t)=\frac{\int q(x, y, t) i(xy) dA}{\int i(xy) dA}\]</div>
+<p>when <span class="math notranslate nohighlight">\(i(x, y)\)</span> is the influence function for some specific load effect (e.g. the midspan bending moment).</p>
+<p>For given statistical properties of the load field <span class="math notranslate nohighlight">\(q(x, y)\)</span> the mean and standard deviation of <span class="math notranslate nohighlight">\(q_{EUDL}\)</span> can be evaluated. For a homogeneous field, that is a random field where the statistical properties of <span class="math notranslate nohighlight">\(q(x, y)\)</span> do not depend on the location, we give here the resulting formulas:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-5-0-4">
+<span class="eqno">(12.11)<a class="headerlink" href="#equation-eq2-5-0-4" title="Link to this equation">#</a></span>\[\mu(q_{EUDL})=\mu\left(q_{o}\right)\]</div>
+<div class="math notranslate nohighlight" id="equation-eq2-5-0-5">
+<span class="eqno">(12.12)<a class="headerlink" href="#equation-eq2-5-0-5" title="Link to this equation">#</a></span>\[\sigma^{2}\left(q_{EUDL}\right)=\sigma^{2}\left(q_{o}\right)+\sigma^{2}\left(q_{loc}\right) \int\int \int\int  i(x, y) i(\xi, \eta) \rho(d) dxdyd \xi d \eta~/\left[\iint i(x, y) dxdy\right]^{2}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\rho(d)\)</span> is the correlation function describing the correlation between the small scale load <span class="math notranslate nohighlight">\(q_{loc}\)</span>, on the two point <span class="math notranslate nohighlight">\((x, y)\)</span> and <span class="math notranslate nohighlight">\((\xi, \eta)\)</span>. This function may be of the form:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-5-0-6">
+<span class="eqno">(12.13)<a class="headerlink" href="#equation-eq2-5-0-6" title="Link to this equation">#</a></span>\[\rho(\Delta r)=\exp \left\lbrace-\Delta r^{2} / d_{c}^{2}\right\rbrace\]</div>
+<p>with <span class="math notranslate nohighlight">\(\Delta r^{2}=(x-\xi)^{2}+(y-\eta)^{2}, \Delta r\)</span> being the distance between the two points, and <span class="math notranslate nohighlight">\(d_{c}\)</span> some scale distance. The correlation function tends to zero for distances <span class="math notranslate nohighlight">\(\Delta r\)</span> much larger than <span class="math notranslate nohighlight">\(d_{c}\)</span>.</p>
+<p>If the field can be schematised as an FBC-field, the formula for <span class="math notranslate nohighlight">\(\sigma^{2}\left(q_{EUDL}\right)\)</span> can be simplified to:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-5-0-7">
+<span class="eqno">(12.14)<a class="headerlink" href="#equation-eq2-5-0-7" title="Link to this equation">#</a></span>\[\sigma^{2}\left(q_{EUDL}\right)=\sigma^{2}\left(q_{i}\right)+\sigma^{2}\left(q_{loc}\right) \kappa A_{o} / A\]</div>
+<p>Here <span class="math notranslate nohighlight">\(A_{o}\)</span> is the reference area of the FBC-field and A stands for the total area under consideration, the so called tributary area. The formula is valid only for <span class="math notranslate nohighlight">\(A&gt;A_{0}\)</span>.</p>
+<p>The parameter <span class="math notranslate nohighlight">\(\kappa\)</span> is a factor depending on the shape of the influence line <span class="math notranslate nohighlight">\(i(x, y)\)</span>. Values are presented in <a class="reference internal" href="#fig-random-fields-and-corresponding-kappa-values"><span class="std std-numref">Fig. 12.3</span></a>. The figure <span class="math notranslate nohighlight">\(\kappa=1\)</span> corresponds to a constant value of <span class="math notranslate nohighlight">\(i(x, y)\)</span>.</p>
+<figure class="align-default" id="fig-random-fields-and-corresponding-kappa-values">
+<img alt="../_images/Random-fields-and-corresponding-kappa-values.jpg" src="../_images/Random-fields-and-corresponding-kappa-values.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 12.3 </span><span class="caption-text">Random fields and corresponding <span class="math notranslate nohighlight">\(\kappa\)</span>-values</span><a class="headerlink" href="#fig-random-fields-and-corresponding-kappa-values" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="interactions-and-correlations-between-actions">
+<h2><span class="section-number">12.6. </span>Interactions and correlations between actions<a class="headerlink" href="#interactions-and-correlations-between-actions" title="Link to this heading">#</a></h2>
+<p>For describing dependencies between various actions it is useful to distinguish between:</p>
+<ul class="simple">
+<li><p>actions of the same nature</p></li>
+<li><p>actions of different nature</p></li>
+</ul>
+<p>Actions of the same nature are for instance floor loads on different floors in one building or the wind loads on the front and back wall. The combination of wind and snow is a typical example of the combination of action of a differente type. Note that sometimes it may be less clear: it may be difficult to decide whether floor loads of a completely different type in one building (say office loads and storage loads) are loads of the same nature or a different nature.</p>
+<p>If the actions are of the <em>same nature</em>, one might better consider them as components of one action, The various components are normally described by similar probabilistic models. The basic question is then to model the statistical dependency between the processes. In general this is a purely mathematical problem. Details of the mathematical description of the dependencies depend on the nature of the physical relationship and the nature of the processes themselves. One possibility is to construct a hierarchical model as has been explained in <a class="reference internal" href="#section-2-0-5-1"><span class="std std-ref">section 2.0.5.1</span></a>. For two stationary continuous Gaussian processes <span class="math notranslate nohighlight">\(x(t)\)</span> and <span class="math notranslate nohighlight">\(y(t)\)</span> the correlation alternatively may be described by the cross correlation function <span class="math notranslate nohighlight">\(R_{xy}(\tau)\)</span> or alternatively by the cross spectrum <span class="math notranslate nohighlight">\(S_{xy}(\omega)\)</span> (see <a class="reference internal" href="#annex-1"><span class="std std-ref">Annex 1</span></a>). For pulse type processes we may have to distinguish between the correlation in amplitude, arrival time and duration. Floor loads in multi-storey buildings are a good example where all three correlations are of importance.</p>
+<p>If the actions are <em>of a different nature</em>, they sometimes may show quite complex physical interactions. Typical examples are:</p>
+<p><em>Snow and wind</em><br />
+If snow and wind act together, the result may be that the wind reduces the accumulated snow load on the roof. For some building configuration, however, the combined action by wind and snow may result in much higher loads on some specific locations. This dependency between wind and snow is present even if wind and snow are statistically completely independent processes (which is not the case). In such cases we need a more complex model <a class="reference internal" href="#equation-eq-action-f">(12.1)</a> where the final load is calculated as a function of both wind speed and snow intensity. In addition one may need a statistical correlation between wind and snow as components of the same multicomponent atmospheric system.</p>
+<p><em>Earthquake and fire</em><br />
+Earthquakes are often followed by fire: due to the damage of the pipes and heating systems gas may come free and a fire may be started. The earth quake is said to act as a trigger mechanism for fire. In order to treat this interaction properly, one should consider</p>
+<ol class="arabic simple">
+<li><p>the probability of a fire starting given an earth quake has occured and</p></li>
+<li><p>the probability of collapse, given earth quake and fire</p></li>
+</ol>
+<p>The second analysis should take into account that all extinction devices may not be working and that the structure may already be damaged by the earth quake.</p>
+<p>Additional to that, of course, one still needs to consider the standard cases of collapse under earth quake alone and collapse under fire alone.</p>
+<p><em>Wind and traffic on bridges</em><br />
+Traffic on bridges enlarges the wind load, but heavy wind will reduce the traffic. One may need a model expressing the wind force given the traffic and wind speed and a model expressing the conditional probabability density of the traffic intensity as a function of wind speed.</p>
+<p>So in all above examples one need to build a more advanced physical model on the one hand and conditional probability models of one load given the (extreme) condition of the other. In most cases it may be convenient to define one of the processes as the “leading one” and describe arrival times and amplitudes of the second process conditional upon the occurrence and amplitude of the first one.</p>
+<p>In this model code none or little guidance is presented to this matter. However, the user of this model code is always entitled to be aware of these possible correlations and interactions. It is stressed that these interactions may be of great importance to the reliability of the structure.</p>
+</section>
+<section id="combination-of-actions">
+<h2><span class="section-number">12.7. </span>Combination of actions<a class="headerlink" href="#combination-of-actions" title="Link to this heading">#</a></h2>
+<p>From a mathematical modelling point of view the load on a structure is a joint set <span class="math notranslate nohighlight">\(F(t)\)</span> of time varying random fields. This set of loads give a rectorial load effect <span class="math notranslate nohighlight">\(E(t)\)</span> in a given cross section or point of the structure at time <span class="math notranslate nohighlight">\(t\)</span> as a function of <span class="math notranslate nohighlight">\(F(t)\)</span> (i.e. a random process). In the scalar case we have:</p>
+<div class="math notranslate nohighlight" id="equation-eq2-0-7-1">
+<span class="eqno">(12.15)<a class="headerlink" href="#equation-eq2-0-7-1" title="Link to this equation">#</a></span>\[E(t)=c_{1} ~F_{1}(t)+c_{2} ~F_{2}(t)+. .\]</div>
+<p>The reliability problem related to the considered point is to evaluate the probability <span class="math notranslate nohighlight">\(P_{f}\)</span> that <span class="math notranslate nohighlight">\(F_{\max }(t)~E~V\)</span> for all future time <span class="math notranslate nohighlight">\(V\)</span> is the nonfailure domain defined by the strength properties at the considered point and limit state.</p>
+<p>The load combination problem is to formulate a reasonably simple but for the considered engineering purpose sufficiently realistic mathematical model that defines <span class="math notranslate nohighlight">\(\mathbf{F}(t)\)</span>. The needed level of detailed modelling of <span class="math notranslate nohighlight">\(\mathbf{F}(t)\)</span> depends on the filtering effect of the function that maps <span class="math notranslate nohighlight">\(\mathbf{F}(t)\)</span> into the load effect <span class="math notranslate nohighlight">\(E(t)\)</span>. This filtering effect is judged under due consideration of the sensitivity of the probability <span class="math notranslate nohighlight">\(P_{f}\)</span> to the detailing of the models. The sensitivity question is tied to the last part of the load combination problem which is actually to compute the value of <span class="math notranslate nohighlight">\(P_{f}\)</span>. Thus, to be operational, the modelling of <span class="math notranslate nohighlight">\(\mathbf{F}(t)\)</span> should be simple enough to enable at least a computer simulation of the scalar process <span class="math notranslate nohighlight">\(E(t)\)</span> to an extent that allows an estimation of <span class="math notranslate nohighlight">\(P_{f}\)</span>.</p>
+<p>First the relevant set of different action types is identified. This identification defines the number of elements in the set <span class="math notranslate nohighlight">\(\mathbf{F}(t)\)</span> and the subdivision of <span class="math notranslate nohighlight">\(\mathbf{F}(t)\)</span> into stochastically independent subsets. The modelling is next concentrated on each of these subsets with dependent components.</p>
+<p>The mathematical difficulty to solve probabilities for outcrossing rates of processes of the type <a class="reference internal" href="#equation-eq2-0-7-1">(12.15)</a> is the possible very different nature of the various contributors <span class="math notranslate nohighlight">\(F_{i}\)</span>. Each of these processes may be of a completely different nature, including all kinds of continuos and intermittent processes. Numerical solutions will often prove to be necessary, but also analytical solutions may prove to be very helpful. Reference is made to <a class="reference internal" href="#annex-3"><span class="std std-ref">Annex 3</span></a> and to the literature.</p>
+</section>
+<section id="annex-1-definitions">
+<span id="annex-1"></span><h2><span class="section-number">12.8. </span>ANNEX 1 - DEFINITIONS<a class="headerlink" href="#annex-1-definitions" title="Link to this heading">#</a></h2>
+<section id="covariance-function">
+<h3><span class="section-number">12.8.1. </span>Covariance function<a class="headerlink" href="#covariance-function" title="Link to this heading">#</a></h3>
+<p>The covariance function <span class="math notranslate nohighlight">\(r\left(t_{1}, t_{2}\right)\)</span> is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; r\left(t_{1}, t_{2}\right)=E\left[\left(F(t=1)-m_{1}\right)\left(F\left(t_{2}\right)-m_{2}\right)\right] \\
+&amp; m_{1}=E\left[F\left(t_{1}\right)\right] \quad \quad \quad \quad  m_{2}=E\left[F\left(t_{2}\right)\right]
+\end{aligned}\end{split}\]</div>
+</section>
+<section id="stationary-processes">
+<h3><span class="section-number">12.8.2. </span>Stationary processes<a class="headerlink" href="#stationary-processes" title="Link to this heading">#</a></h3>
+<p>The process is defined for <span class="math notranslate nohighlight">\(-\infty&lt;t&lt;\infty\)</span>. If, for all values <span class="math notranslate nohighlight">\(t_{1}\)</span> and for all values <span class="math notranslate nohighlight">\(\tau\)</span>, chosen such that <span class="math notranslate nohighlight">\(0 \leq t_{i} \leq t_{o}\)</span> to and <span class="math notranslate nohighlight">\(0 \leq t_{i}+\tau \leq t_{o}\)</span>, the stochastic variable <span class="math notranslate nohighlight">\(x~\left( t_{i} +\tau\right)\)</span> has the same distribution function as the stochastic variable <span class="math notranslate nohighlight">\(x\left(t_{i}\right)\)</span> the stochastic process <span class="math notranslate nohighlight">\(x(t)\)</span> is stationary.</p>
+<p>If the mean value function <span class="math notranslate nohighlight">\(m(t)\)</span> is constant and the covariance function <span class="math notranslate nohighlight">\(r\left(t_{1}, t_{2}\right)\)</span> depends solely on the difference <span class="math notranslate nohighlight">\(\tau=\left(t_{2}-t_{1}\right)\)</span> the process is sold to be wide-sense stationary.</p>
+<p>Thus the covariance function for a stationary or a wide sense stationary process may be written as:</p>
+<div class="math notranslate nohighlight">
+\[r(\tau)=E[(F(t+\tau)-m)(F(t)-m)]\]</div>
+<p>The concept of stationary applied to action processes should in most cases be interpreted as widesense stationary.</p>
+</section>
+<section id="ergodic-processes">
+<h3><span class="section-number">12.8.3. </span>Ergodic processes<a class="headerlink" href="#ergodic-processes" title="Link to this heading">#</a></h3>
+<p>A process is ergodic if averaging over several realisations and averaging with respect to time (or another index parameter) give the same result.</p>
+<p>For ergodic processes a relation between the point-in-time value distribution function <span class="math notranslate nohighlight">\(F\)</span> and the excursion time <span class="math notranslate nohighlight">\(t\)</span> is determined for a chosen reference period <span class="math notranslate nohighlight">\(t_{o}\)</span>, by</p>
+<div class="math notranslate nohighlight">
+\[1-F_{F}(F)=t / t_{o}\]</div>
+</section>
+<section id="the-correlation-function">
+<h3><span class="section-number">12.8.4. </span>The correlation function<a class="headerlink" href="#the-correlation-function" title="Link to this heading">#</a></h3>
+<p>The correlation function for a stationary process is:</p>
+<div class="math notranslate nohighlight">
+\[\rho(\tau)=\frac{r(\tau)}{r(0)}\]</div>
+<p>For ergodic processes <span class="math notranslate nohighlight">\(\rho(\tau=\infty)=0\)</span></p>
+</section>
+<section id="spectrum">
+<h3><span class="section-number">12.8.5. </span>Spectrum<a class="headerlink" href="#spectrum" title="Link to this heading">#</a></h3>
+<p>A stationary stochastic process may be characterised with aid of a spectrum:</p>
+<div class="math notranslate nohighlight">
+\[S(n)=\int_{-\infty}^{\infty} e^{-i 2 \pi n \tau} r(\tau) d \tau\]</div>
+<p><span class="math notranslate nohighlight">\(S(n)\)</span> may be regarded as a measure of how the process is built up of components with different frequencies. The total variance of the process is:</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{Var} Q=2 \int_{0}^{\infty} S(n) d n\]</div>
+</section>
+<section id="gaussian-processes">
+<h3><span class="section-number">12.8.6. </span>Gaussian processes<a class="headerlink" href="#gaussian-processes" title="Link to this heading">#</a></h3>
+<p>A stochastic process <span class="math notranslate nohighlight">\(S(t)\)</span> is a Gaussian process if the multidimensional probability distribution functions for all the stochastic variables <span class="math notranslate nohighlight">\(S\left(t_{i}\right)\)</span> are Gaussian. The stochastic properties of a Gaussian process is completely determined by the mean value and the covariance function or by the spectrum.</p>
+</section>
+<section id="scalar-nataf-processes">
+<h3><span class="section-number">12.8.7. </span>Scalar Nataf Processes<a class="headerlink" href="#scalar-nataf-processes" title="Link to this heading">#</a></h3>
+<p>A special but important class of non-Gaussian, scalar and differentiable processes are built by a memoryless transformation from a normal process, i.e.</p>
+<div class="math notranslate nohighlight">
+\[S(t)=h(U(t))\]</div>
+<p>where <span class="math notranslate nohighlight">\(U(t)\)</span> is a standard normal process and <span class="math notranslate nohighlight">\(h(u)\)</span> is an arbitrary function. For <span class="math notranslate nohighlight">\(S(t)\)</span> any admissible (unimodal) distribution function can be chosen thus defining a certain class of functions <span class="math notranslate nohighlight">\(h(u)\)</span>. In addition the autocorrelation function <span class="math notranslate nohighlight">\(\rho_{s}\left(t_{1}, t_{2}\right)\)</span> has to be specific. However, there are some restrictions on the type of autocorrelation function.</p>
+</section>
+<section id="scalar-hermite-processes">
+<h3><span class="section-number">12.8.8. </span>Scalar Hermite Processes<a class="headerlink" href="#scalar-hermite-processes" title="Link to this heading">#</a></h3>
+<p>The Hermite process is a special case of the Nataf process. All marginal distribution must be of Hermite type. For this process the solution of the integral equation occurring for the autocorrelation function of the equivalent (or better generating) standard normal process is analytic. The standard Hermite process has the representation, i.e. a special case of the function <span class="math notranslate nohighlight">\(h(u)\)</span></p>
+<div class="math notranslate nohighlight">
+\[S(t)=\kappa\left(U(t)+\widetilde{h}_{3, i}\left(U(t)^{2}-1\right)+\widetilde{h}\left(U(t)^{3}-3 U(t)\right)\right)\]</div>
+<p>For the coefficients depending on the first four moments of the marginal distribution of the non-normal process. In addition, the Hermite process requires specification of the autocorrelation function of <span class="math notranslate nohighlight">\(S(t)\)</span>. Again, there are certain restrictions on the moments of the marginal distributions as well as on the autocorrelation function.</p>
+</section>
+<section id="scalar-rectangular-wave-renewal-processes">
+<h3><span class="section-number">12.8.9. </span>Scalar Rectangular Wave Renewal Processes<a class="headerlink" href="#scalar-rectangular-wave-renewal-processes" title="Link to this heading">#</a></h3>
+<p>Scalar rectangular wave renewal processes are useful models for processes changing their amplitude at random renewal points in a random fashion. A scalar rectangular wave renewal process is characterised by the jump rate <span class="math notranslate nohighlight">\(\lambda\)</span>, and the distribution function of the amplitude. The renewals occur independently of each other. No specific distribution is assigned to the interarrival times. Therefore, the renewal process characterised only by a jump rate captures only long term statistics. The mean duration of pulses is asymptotically equal to <span class="math notranslate nohighlight">\(1 / \lambda\)</span>.. For the special case of a Poisson rectangular wave process the interarrival times and so the durations of the pulses are exponentially distributed with parameter <span class="math notranslate nohighlight">\(1 / \lambda\)</span>.. In the special case of a Ferry Borges-Castanheta process the durations are constant and the repetition number <span class="math notranslate nohighlight">\(r=\left(t_{2}-t_{1}\right) / \Delta\)</span> with <span class="math notranslate nohighlight">\(\Delta\)</span> the duration of pulses is equal to <span class="math notranslate nohighlight">\(\lambda\left(t_{2}-t_{1}\right)\)</span>. Also, the sequence of amplitudes is an independent sequence. The jump rate can be a function of time as well as the parameters of the distribution function of the amplitudes.</p>
+<p>It is assumed that rectangular wave processes jump from a random value <span class="math notranslate nohighlight">\(S(t)\)</span> to a new value <span class="math notranslate nohighlight">\(S^{+}(t+\delta)\)</span> with <span class="math notranslate nohighlight">\(\delta \rightarrow\)</span> at a renewal without returning to zero. Rectangular wave renewal processes must be regular processes, i.e. the occurrence of any two or more renewals in a small time interval must be negligible (of o-order). Non-stationary rectangular wave renewal processes are processes which have either time-dependent parameters of the amplitude distributions and/or time-dependent jump rates.</p>
+</section>
+<section id="random-fields">
+<h3><span class="section-number">12.8.10. </span>Random fields<a class="headerlink" href="#random-fields" title="Link to this heading">#</a></h3>
+<p>A random field may be regarded as a one-, two- or three-dimensional stochastic process. The time <span class="math notranslate nohighlight">\(t\)</span> is substituted by the space co-ordinates <span class="math notranslate nohighlight">\(x, y, z\)</span>.</p>
+<p>For the two-dimensional case the covariance function is written (for a stationary random field)</p>
+<div class="math notranslate nohighlight">
+\[r\left(d_{x}, d_{y}\right)=E\left[\left(F\left(x+d_{x}, y+d_{y}\right)-m\right)(F(x, y)-m)\right]\]</div>
+<p>The concepts of stationary, ergodicy etc. are in principle the same as for the stochastic processes.</p>
+</section>
+<section id="vector-processes">
+<h3><span class="section-number">12.8.11. </span>Vector processes<a class="headerlink" href="#vector-processes" title="Link to this heading">#</a></h3>
+<p>Two stationary Gaussian processes F1 and F2 are statistically completely described by their mean values, auto-spectra and the cross spectrum. The latter is defined by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; r_{12}(\tau)=E\left[\left(F_{1}(t+\tau)-m_{1}\right)\left(F_{2}(t)-m_{2}\right)\right] \\
+&amp; S_{12}(n)=\int_{-\infty}^{\infty} e^{-i 2 \pi n \tau} r_{12}(\tau) d \tau
+\end{aligned}\end{split}\]</div>
+<p>A vector of <span class="math notranslate nohighlight">\(n\)</span> stationary Gaussian processes can be described by <span class="math notranslate nohighlight">\(n\)</span> mean values, <span class="math notranslate nohighlight">\(n\)</span> auto-spectra and <span class="math notranslate nohighlight">\(n(n-1)\)</span> cross spectra. Note that <span class="math notranslate nohighlight">\(S_{i j}\)</span> is the complex conjugate of <span class="math notranslate nohighlight">\(S_{j i}\)</span>.</p>
+</section>
+</section>
+<section id="annex-2-distributions-functions">
+<span id="annex-2"></span><h2><span class="section-number">12.9. </span>ANNEX 2 - DISTRIBUTIONS FUNCTIONS<a class="headerlink" href="#annex-2-distributions-functions" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table" id="tbl-annex-2">
+<thead>
+<tr class="row-odd"><th class="head"><p>Distribution type</p></th>
+<th class="head"><p>Parameters</p></th>
+<th class="head"><p>Moments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Rectangular</strong><br><span class="math notranslate nohighlight">\(\mathrm{a} \leq \mathrm{x} \leq \mathrm{b}\)</span> <br>  <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})=\frac{1}{\mathrm{b}-\mathrm{a}}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \mathrm{a}\)</span><br><span class="math notranslate nohighlight">\(2 = \mathrm{b}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \frac{\mathrm{a} + \mathrm{b}}{2}\)</span><br><span class="math notranslate nohighlight">\(\mathrm{s} = \frac{\mathrm{b} - \mathrm{a}}{\sqrt{12}}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Normal</strong><br><span class="math notranslate nohighlight">\(\sigma &gt; 0\)</span><br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})=\frac{1}{\sigma \sqrt{2\pi}}\mathrm{exp}\left(-\frac{1}{2}\left(\frac{\mathrm{x}-\mu}{\sigma}\right)^2\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \mu\)</span> <br> <span class="math notranslate nohighlight">\(2 = \sigma\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \mu\)</span><br><span class="math notranslate nohighlight">\(\mathrm{s} = \sigma\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Lognormal</strong><br><span class="math notranslate nohighlight">\(\mathrm{x} &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\zeta &gt; 0\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})=\frac{1}{\mathrm{x} \zeta \sqrt{2\pi}}\mathrm{exp}\left(-\frac{1}{2}\left(\frac{\ln\mathrm{x}-\lambda}{\zeta}\right)^2\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \lambda\)</span> <br> <span class="math notranslate nohighlight">\(2 = \zeta\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \mathrm{exp} \left(\lambda+\frac{\zeta^2}{2}\right)\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{s}= \mathrm{exp} \left(\lambda+\frac{\zeta^2}{2}\right) \sqrt{\mathrm{exp}\left(\zeta^2\right)-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Shifted Lognormal</strong><br><span class="math notranslate nohighlight">\(\mathrm{x} &gt; \varepsilon\)</span>, <span class="math notranslate nohighlight">\(\zeta &gt; 0\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})=\frac{1}{(\mathrm{x} - \varepsilon) \zeta \sqrt{2\pi}}\mathrm{exp}\left(-\frac{1}{2}\left(\frac{\mathrm{ln}(\mathrm{x}-\varepsilon)-\lambda}{\zeta}\right)^2\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \lambda\)</span><br><span class="math notranslate nohighlight">\(2 = \zeta\)</span><br><span class="math notranslate nohighlight">\(3 = \varepsilon\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \varepsilon + \mathrm{exp} \left(\lambda+\frac{\zeta^2}{2}\right) + \varepsilon\)</span><br><span class="math notranslate nohighlight">\(\mathrm{s}= \mathrm{exp} \left(\lambda+\frac{\zeta^2}{2}\right) \sqrt{\mathrm{exp}\left(\zeta^2\right)-1}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Shifted Exponential</strong><br><span class="math notranslate nohighlight">\(\mathrm{x} \geq \varepsilon\)</span>, <span class="math notranslate nohighlight">\(\lambda &gt; 0\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})= \lambda~\mathrm{exp}\left(-\lambda(\mathrm{x}-\varepsilon)\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \lambda\)</span><br><span class="math notranslate nohighlight">\(2 = \varepsilon\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m}=\frac{1}{\lambda} + \varepsilon\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{s}=\frac{1}{\lambda}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Shifted Gamma</strong><br><span class="math notranslate nohighlight">\(\mathrm{x} \geq 0\)</span>, <span class="math notranslate nohighlight">\(\mathrm{b} &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\mathrm{p} &gt; 0\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})= \frac{\mathrm{b}^\mathrm{p}}{\Gamma (\mathrm{p})}\mathrm{exp} \left(-b(\mathrm{x}-\varepsilon)\right)(\mathrm{x}-\varepsilon)^{\mathrm{p}-1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \mathrm{p}\)</span><br><span class="math notranslate nohighlight">\(2 = \mathrm{b}\)</span><br><span class="math notranslate nohighlight">\(3 = \varepsilon\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \frac{\mathrm{p}}{\mathrm{b}} + \varepsilon\)</span><br><span class="math notranslate nohighlight">\(\mathrm{s} = \frac{\sqrt{\mathrm{p}}}{\mathrm{b}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Beta</strong><br><span class="math notranslate nohighlight">\(\mathrm{a} \leq \mathrm{x} \leq \mathrm{b},~~ \mathrm{r}\)</span>, <span class="math notranslate nohighlight">\(\mathrm{t} \geq 1\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})= \frac{\left(\mathrm{x}-\mathrm{a}\right)^{\mathrm{r}-1} \left(\mathrm{b}-\mathrm{x} \right)^{\mathrm{t}-1}}{\left(\mathrm{b}-\mathrm{a}\right)^{\mathrm{r+t-1}} \mathrm{B} \left(\mathrm{r,t}\right)}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \mathrm{a}\)</span><br><span class="math notranslate nohighlight">\(2 = \mathrm{b}\)</span><br><span class="math notranslate nohighlight">\(3 = \mathrm{r}\)</span><br><span class="math notranslate nohighlight">\(4 = \mathrm{t}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \mathrm{a} + \left(\mathrm{b} - \mathrm{a}\right) \frac{\mathrm{r}}{\mathrm{r+t}}\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{s} = \frac{\mathrm{b - a}}{\mathrm{r+t}} \sqrt{\frac{\mathrm{rt}}{\mathrm{r+t+1}}} \)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Gumbel (Maximum)</strong><br><span class="math notranslate nohighlight">\(−\infty &lt; \mathrm{x} &lt; +\infty,~\alpha &gt; 0\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})=\alpha~\mathrm{exp}\left(-\alpha(\mathrm{x-u}) - \mathrm{exp}\left(-\alpha(\mathrm{x-u})\right)\right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \mathrm{u}\)</span><br><span class="math notranslate nohighlight">\(2 = \alpha\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \mathrm{u} + \frac{0.577216}{\alpha}\)</span><br><span class="math notranslate nohighlight">\(\mathrm{s} = \frac{\pi}{\alpha \sqrt{6}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Frechet (Maximum)</strong><br><span class="math notranslate nohighlight">\( \varepsilon \leq \mathrm{x} &lt; +\infty,~~\mathrm{u, k} &gt; 0\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})= \frac{\mathrm{k}}{\mathrm{u}-\varepsilon} \left(\frac{\mathrm{x} - \varepsilon}{\mathrm{u} - \varepsilon}\right)^{\mathrm{-k-1}} \mathrm{exp} \left(- \left(\frac{\mathrm{x} - \varepsilon}{\mathrm{u} - \varepsilon}\right)^{\mathrm{-k}} \right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \mathrm{u}\)</span><br><span class="math notranslate nohighlight">\(2 = \mathrm{k}\)</span><br><span class="math notranslate nohighlight">\(3 = \varepsilon\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \varepsilon + (\mathrm{u} - \varepsilon) \Gamma \left(1 - \frac{1}{\mathrm{k}}\right)\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{s} = (\mathrm{u} - \varepsilon) \sqrt{\Gamma \left(1 - \frac{2}{\mathrm{k}} \right) - \Gamma^2 \left(1 - \frac{1}{\mathrm{k}}\right)}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Weibull (Maximum)</strong><br><span class="math notranslate nohighlight">\(\varepsilon \leq \mathrm{x} &lt; +\infty,~~ \mathrm{u, k} &gt; 0\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{f}_\mathrm{x} (\mathrm{x})= \frac{\mathrm{k}}{\mathrm{u}-\varepsilon} \left(\frac{\mathrm{x} - \varepsilon}{\mathrm{u} - \varepsilon}\right)^{\mathrm{-k-1}} \mathrm{exp} \left(- \left(\frac{\mathrm{x} - \varepsilon}{\mathrm{u} - \varepsilon}\right)^{\mathrm{-k}} \right)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(1 = \mathrm{u}\)</span><br><span class="math notranslate nohighlight">\(2 = \mathrm{k}\)</span><br><span class="math notranslate nohighlight">\(3 = \varepsilon\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mathrm{m} = \varepsilon + (\mathrm{u} - \varepsilon) \Gamma \left(1 + \frac{1}{\mathrm{k}}\right)\)</span> <br> <span class="math notranslate nohighlight">\(\mathrm{s} = (\mathrm{u} - \varepsilon) \sqrt{\Gamma \left(1 + \frac{2}{\mathrm{k}} \right) - \Gamma^2 \left(1 + \frac{1}{\mathrm{k}}\right)}\)</span></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="models-for-fluctuations-in-time">
-<h2><span class="section-number">8.4. </span>Models for fluctuations in time<a class="headerlink" href="#models-for-fluctuations-in-time" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="types-of-models">
-<h3><span class="section-number">8.4.1. </span>Types of models<a class="headerlink" href="#types-of-models" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="distribution-of-extremes-for-single-processes">
-<h3><span class="section-number">8.4.2. </span>Distribution of extremes for single processes<a class="headerlink" href="#distribution-of-extremes-for-single-processes" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="distribution-of-extremes-for-hierarchical-processes">
-<h3><span class="section-number">8.4.3. </span>Distribution of extremes for hierarchical processes<a class="headerlink" href="#distribution-of-extremes-for-hierarchical-processes" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="models-for-spatial-variability">
-<h2><span class="section-number">8.5. </span>Models for Spatial variability<a class="headerlink" href="#models-for-spatial-variability" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="hierarchical-model">
-<h3><span class="section-number">8.5.1. </span>Hierarchical model<a class="headerlink" href="#hierarchical-model" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="equivalent-uniformly-distributed-load-eudl">
-<h3><span class="section-number">8.5.2. </span>Equivalent uniformly distributed load (EUDL)<a class="headerlink" href="#equivalent-uniformly-distributed-load-eudl" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-<div class="section" id="dependencies-between-different-actions">
-<h2><span class="section-number">8.6. </span>Dependencies between different actions<a class="headerlink" href="#dependencies-between-different-actions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="combination-of-actions">
-<h2><span class="section-number">8.7. </span>Combination of actions<a class="headerlink" href="#combination-of-actions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="annex-1-definitions">
-<h2><span class="section-number">8.8. </span>ANNEX 1 - DEFINITIONS<a class="headerlink" href="#annex-1-definitions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="annex-2-distributions-functions">
-<h2><span class="section-number">8.9. </span>ANNEX 2 - DISTRIBUTIONS FUNCTIONS<a class="headerlink" href="#annex-2-distributions-functions" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="annex-3-mathematical-combination-techniques">
-<h2><span class="section-number">8.10. </span>ANNEX 3 - MATHEMATICAL COMBINATION TECHNIQUES<a class="headerlink" href="#annex-3-mathematical-combination-techniques" title="Permalink to this headline">¶</a></h2>
-</div>
-</div>
+</section>
+<section id="annex-3-mathematical-combination-techniques">
+<span id="annex-3"></span><h2><span class="section-number">12.10. </span>ANNEX 3 - MATHEMATICAL COMBINATION TECHNIQUES<a class="headerlink" href="#annex-3-mathematical-combination-techniques" title="Link to this heading">#</a></h2>
+<section id="combination-of-two-rectangular-processes-ferry-borges-castanheta-model">
+<h3><span class="section-number">12.10.1. </span>Combination of two rectangular processes (Ferry Borges-Castanheta model)<a class="headerlink" href="#combination-of-two-rectangular-processes-ferry-borges-castanheta-model" title="Link to this heading">#</a></h3>
+<p>Consider the case that two actions <span class="math notranslate nohighlight">\(Q_{1}(t)\)</span> and <span class="math notranslate nohighlight">\(Q_{2}(t)\)</span> are to be combined. Assume that these actions can be described as rectangular or sqaure wave models (<a class="reference internal" href="#fig-square-wave-processes-for-two-actions"><span class="std std-numref">Fig. 12.4</span></a>). The following assumptions are made about the processes:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(Q_{1}(t)\)</span> and <span class="math notranslate nohighlight">\(Q_{2}(t)\)</span> are stationary ergodic processes</p></li>
+<li><p>All intervals <span class="math notranslate nohighlight">\(`\tau_{1}\)</span> are equal; all intervals <span class="math notranslate nohighlight">\(\tau_{2}\)</span> are equal and <span class="math notranslate nohighlight">\(\tau_{1} \geq \tau_{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_{1}\)</span> and <span class="math notranslate nohighlight">\(Q_{2}\)</span> are constant during each interval <span class="math notranslate nohighlight">\(\tau_{1}\)</span> and <span class="math notranslate nohighlight">\(\tau_{2}\)</span> respectively</p></li>
+<li><p>The values of <span class="math notranslate nohighlight">\(Q_{1}\)</span> for the different intervals are mutually independent; same for <span class="math notranslate nohighlight">\(Q_{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(Q_{1}\)</span> and <span class="math notranslate nohighlight">\(Q_{2}\)</span> are independent</p></li>
+</ul>
+<figure class="align-default" id="fig-square-wave-processes-for-two-actions">
+<img alt="../_images/square-wave-processes-for-two-actions.jpg" src="../_images/square-wave-processes-for-two-actions.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 12.4 </span><span class="caption-text">Square wave processes for <span class="math notranslate nohighlight">\(Q_{1}(t)\)</span> and <span class="math notranslate nohighlight">\(Q_{2}(t)\)</span></span><a class="headerlink" href="#fig-square-wave-processes-for-two-actions" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Define <span class="math notranslate nohighlight">\(Q_{2 c}\)</span> as the maximum value of <span class="math notranslate nohighlight">\(Q_{2}\)</span> occurring during the interval <span class="math notranslate nohighlight">\(\tau_{1}\)</span> with the probability distribution function:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-1">
+<span class="eqno">(12.16)<a class="headerlink" href="#equation-eqa3-1" title="Link to this equation">#</a></span>\[F_{Q 2 C}(Q)=\left[F_{Q^{*}}(Q)\right]^{\tau 2 / \tau 1}\]</div>
+<p><span class="math notranslate nohighlight">\(F_{Q}{ }^{*}=\)</span> the arbitrary point in time distribution for <span class="math notranslate nohighlight">\(Q_{2}\)</span></p>
+<p>Assume a linear relationship between the actions effect <span class="math notranslate nohighlight">\(E\)</span> and the actions:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-2">
+<span class="eqno">(12.17)<a class="headerlink" href="#equation-eqa3-2" title="Link to this equation">#</a></span>\[E=c_{1} Q_{1}+c_{2} Q_{2}\]</div>
+<p>The maximum action effect <span class="math notranslate nohighlight">\(E_{\max }\)</span> from <span class="math notranslate nohighlight">\(Q_{1}\)</span> and <span class="math notranslate nohighlight">\(Q_{2}\)</span> during the reference period <span class="math notranslate nohighlight">\(t_{O}\)</span> can then be written as:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-3">
+<span class="eqno">(12.18)<a class="headerlink" href="#equation-eqa3-3" title="Link to this equation">#</a></span>\[E_{\max }=\max \left\lbrace c_{1} Q_{1}+c_{2} Q_{2 c}\right\rbrace\]</div>
+<p>The maximum should be taken over all intervals <span class="math notranslate nohighlight">\(\tau_{1}\)</span> within the reference period <span class="math notranslate nohighlight">\(t_{o}\)</span>.</p>
+<p>As an approximation, the resulting action effects could be calculated as the maximum of the following two combinations (Turkstra’s rule):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\quad E\left\lbrace Q_{1 \max }, Q_{2 c}\right\rbrace \quad\)</span> if <span class="math notranslate nohighlight">\(Q_{1}\)</span> is considered as the dominating action</p></li>
+<li><p><span class="math notranslate nohighlight">\(\quad E\left\lbrace Q_{2 \max }, Q_{1 c}\right\rbrace \quad\)</span> if <span class="math notranslate nohighlight">\(Q_{2}\)</span> is considered as the dominating action</p></li>
+</ul>
+<p>Written as a formula for the case <span class="math notranslate nohighlight">\(E=c_{1} Q_{1}+c_{2} Q_{2}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eqa3-4">
+<span class="eqno">(12.19)<a class="headerlink" href="#equation-eqa3-4" title="Link to this equation">#</a></span>\[E_{\max }=\max \left\lbrace c_{1} Q_{\max }+c_{2} Q_{2 c}~; c_{1} Q_{1 c}+c_{2} Q_{2, \max }\right\rbrace\]</div>
+<p>It should be noted that the Turkstra Rule gives a lower bound for the failure probability.</p>
+</section>
+<section id="oucrossing-approach">
+<h3><span class="section-number">12.10.2. </span>Oucrossing approach<a class="headerlink" href="#oucrossing-approach" title="Link to this heading">#</a></h3>
+<p>Consider the more general event that random state vector <span class="math notranslate nohighlight">\(Z(\tau)\)</span> representative for a given problem, enters the failure domain</p>
+<div class="math notranslate nohighlight">
+\[V = \left \lbrace Z(\tau) \mid g(z(\tau), \tau)&lt;0,0&lt;\tau&lt;t \right \rbrace;\]</div>
+<p>where <span class="math notranslate nohighlight">\(g(.)\)</span> is the limit state function. <span class="math notranslate nohighlight">\(Z(\tau)\)</span> may conveniently be separated into three components as:</p>
+<div class="math notranslate nohighlight">
+\[Z(\tau)^{T}=\left(R^{T}, Q(\tau)^{T}, S(\tau)^{T}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> is a vector of random variables independent of time <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(Q(\tau)\)</span> is a slowly varying random vector sequence and <span class="math notranslate nohighlight">\(S(\tau)\)</span> is a vector of not necessarily stationary but sufficiently mixing random process variables having fast flunctuations as compared to <span class="math notranslate nohighlight">\(Q(t)\)</span>.</p>
+<p>In the general case where all the different types of random variables <span class="math notranslate nohighlight">\(R, Q(\tau)\)</span> and <span class="math notranslate nohighlight">\(S(\tau)\)</span> are present, the failure probability <span class="math notranslate nohighlight">\(P_{f}(t)\)</span> not only must be integrated over the time invariant variables <span class="math notranslate nohighlight">\(R\)</span>, but an expectation operation must also be performed over the slowly varying variables <span class="math notranslate nohighlight">\(Q(\tau)\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-5a">
+<span class="eqno">(12.20)<a class="headerlink" href="#equation-eqa3-5a" title="Link to this equation">#</a></span>\[P_{f}\left(t_{\text {min }}, t_{\text {max }}\right) \approx 1-E_{R}\left[\exp \left[nE_{Q}\left[1-\exp \left(-E\left[N^{+}(\Delta t, R, Q)\right)\right]\right]\right]\right]\]</div>
+<p><span class="math notranslate nohighlight">\(\Delta t\)</span> is the characteristic fluctuation time of <span class="math notranslate nohighlight">\(Q\)</span> and <span class="math notranslate nohighlight">\(n=\left(t_{\max }-t_{\min }\right) / \Delta t\)</span></p>
+<p>Or, one step further simplified:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-5b">
+<span class="eqno">(12.21)<a class="headerlink" href="#equation-eqa3-5b" title="Link to this equation">#</a></span>\[P_{f}\left(t_{\text {min }}, t_{\max }\right) \approx 1-E_{R}\left[\exp \left[-E_{Q}\left[E\left[N^{+}\left(t_{\text {min }}, t_{\max } ; R, Q\right)\right]\right]\right]\right]\]</div>
+<p>It should be observed that the expectation operation with respect to <span class="math notranslate nohighlight">\(Q\)</span> is performed inside the exponent, whereas the expectation operation with respect to <span class="math notranslate nohighlight">\(R\)</span> is performed outside the exponent operator. If the point process of exits is a regular process which can be assumed in most cases, the conditional expectation of the number of exits in the time interval <span class="math notranslate nohighlight">\(\left[t_{\min }, t_{\max }\right]\)</span> can be determined from:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-6">
+<span class="eqno">(12.22)<a class="headerlink" href="#equation-eqa3-6" title="Link to this equation">#</a></span>\[E\left[N^{+}\left(t_{\min }, t_{\max } ; r, q\right)\right]=\int_{t_{\min }}^{t_{\max }} v^{+}(\tau ; r, q) d \tau\]</div>
+<p>where <span class="math notranslate nohighlight">\(v^{+}(\tau ; p,r.q)\)</span> is the outcrossing rate defined by:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-7">
+<span class="eqno">(12.23)<a class="headerlink" href="#equation-eqa3-7" title="Link to this equation">#</a></span>\[v^{+}(\tau ; r, q)=\lim _{\Delta \rightarrow 0} \frac{1}{\Delta} P\left(N^{+}(\{S(\tau) \in \overline{V}\} \cap\{S(\tau+\Delta) \in V\} \mid r, q\right)\]</div>
+<p>If the vector <span class="math notranslate nohighlight">\(\underline{S}\)</span> consists out of <span class="math notranslate nohighlight">\(n\)</span> components <span class="math notranslate nohighlight">\(\left(S_{1}, \ldots . . S_{n}\right)\)</span>, all of rectangular wave type, the following formula can be used:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-8">
+<span class="eqno">(12.24)<a class="headerlink" href="#equation-eqa3-8" title="Link to this equation">#</a></span>\[\left.v^{+}=\sum_{i=1}^{n} v_{i} P\left\lbrace \left( S_{1}, ~S_{2}, \ldots S_{i}, \ldots S_{n}\right) \in \overline{V}\right) \cap\left(S_{1}, ~S_{2}, \ldots S_{i}^{+}, \ldots S_{n}\right) \in V\right\rbrace\]</div>
+<p>where <span class="math notranslate nohighlight">\(S_{i}^{-}\)</span> and <span class="math notranslate nohighlight">\(S_{i}^{+}\)</span> are two realisations of <span class="math notranslate nohighlight">\(S_{i}\)</span>, one before and one after some particular jump and <span class="math notranslate nohighlight">\(v_{i}\)</span> is the jump rate of <span class="math notranslate nohighlight">\(S_{i}\)</span>.</p>
+</section>
+<section id="intermittent-processes">
+<h3><span class="section-number">12.10.3. </span>Intermittent processes<a class="headerlink" href="#intermittent-processes" title="Link to this heading">#</a></h3>
+<p>Intermittent processes are a practically important generalisation for all types of random processes. Although more general forms are known only the simplest type of intermittancies are discussed below. The renewals of times where the process is “on” follow a Poisson renewal process with rate <span class="math notranslate nohighlight">\(\kappa\)</span> (or mean interarrival time <span class="math notranslate nohighlight">\(l / \kappa\)</span> ). At a renewal the process activates an “on”-state (state “1”). The “off”-states are denoted by “0”. The initial durations of “on”-states will have exponential distribution with mean <span class="math notranslate nohighlight">\(1 / \mu\)</span> independent of the arrival times. However, we will assume that a “on”-time is also finished if a next renewal occurs so that the durations have a truncated distribution. By assuming random initial conditions the probabilities of the “on/off’-states are then determined by</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-9">
+<span class="eqno">(12.25)<a class="headerlink" href="#equation-eqa3-9" title="Link to this equation">#</a></span>\[p_{\text {off }}(t)=\frac{\mu}{\kappa+\mu}+\frac{\kappa-\mu}{\kappa+\mu} \exp [-(\kappa+\mu) t]\]</div>
+<div class="math notranslate nohighlight" id="equation-eqa3-10">
+<span class="eqno">(12.26)<a class="headerlink" href="#equation-eqa3-10" title="Link to this equation">#</a></span>\[p_{\text {on }}(t)=\frac{\mu}{\kappa+\mu}+\frac{\kappa-\mu}{\kappa+\mu} \exp [-(\kappa+\mu) t]\]</div>
+<p>In general it is assumed that the “on/off”-process is already in its stationary state where the last terms in these equations vanish. In contrast to rectangular wave renewal processes where the duration of the rectangular pulse is exactly until the next renewal and the duration of the rectangular pulse is exponentially distributed with mean <span class="math notranslate nohighlight">\(1 / \lambda\)</span> for a Poissonian renewal process the “on”-times are now truncated at the next renewal. It is easily shown that the effective duration of the “on”-times then are also exponential but with mean <span class="math notranslate nohighlight">\(`1 /(\kappa+\mu)\)</span>. The so-called interarrival-duration intensity is defined by <span class="math notranslate nohighlight">\(\rho=\)</span> <span class="math notranslate nohighlight">\(\kappa / \mu\)</span>. For <span class="math notranslate nohighlight">\(\rho=\kappa / \mu \rightarrow \infty\)</span> the processes are almost always active. For <span class="math notranslate nohighlight">\(\kappa / \mu \rightarrow 0\)</span> one obtains spike-like processes.</p>
+<p>Intermittancies can also be defined for differentiable processes. If this is a dependent vector process the entire vector process must have a common <span class="math notranslate nohighlight">\(\rho\)</span>, that is all components of the vector must have the same <span class="math notranslate nohighlight">\(\kappa\)</span> and <span class="math notranslate nohighlight">\(\mu\)</span>. Independent differentiable vector processes, however, can have different <span class="math notranslate nohighlight">\(\rho\)</span> ‘s.</p>
+<p>In the case of a single intermittent process with <span class="math notranslate nohighlight">\(\kappa t_{o}&gt;1\)</span> and <span class="math notranslate nohighlight">\(\mu t_{o}&lt;&lt;1\)</span> the periods where the intermittent load are present can conveniently be put together. The failure probability is then approximately given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-11">
+<span class="eqno">(12.27)<a class="headerlink" href="#equation-eqa3-11" title="Link to this equation">#</a></span>\[P_{f}\left(t_{\min }, t_{\max }\right)=v_{\text {on }} T+v_{\text {off }}\left(t_{o}-T\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(T=\kappa t_{o} / \mu=\)</span> the total expected time that the intermittent load is active and <span class="math notranslate nohighlight">\(t_{o}=t_{\max }-t_{\min } ; v_{\text {on }}\)</span> and <span class="math notranslate nohighlight">\(v_{\text {off }}\)</span> are the failure rates for present and absent intermittent load respectively.</p>
+<p>In the case of two mostly absent uncorrelated intermittent loads, the same approximation principle can be applied, leading to:</p>
+<div class="math notranslate nohighlight" id="equation-eqa3-12">
+<span class="eqno">(12.28)<a class="headerlink" href="#equation-eqa3-12" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+P_{f}\left(t_{\text {min }}, t_{\text {max }}\right)= &amp; \left(\frac{\kappa_{1}}{\mu_{1}}\right)\left(\frac{\kappa_{2}}{\mu_{2}}\right) v_{\text {on,on }} t_{o}+ \\
+&amp; \left(\frac{\kappa_{1}}{\mu_{1}}\right)\left(1-\frac{\kappa_{2}}{\mu_{2}}\right) v_{\text {on, off }} t_{o}+ \\
+&amp; \left(1-\frac{\kappa_{1}}{\mu_{1}}\right)\left(\frac{\kappa_{2}}{\mu_{2}}\right) v_{\text {off ,on }} t_{o}+ \\
+&amp; \left(1-\frac{\kappa_{1}}{\mu_{1}}\right)\left(1-\frac{\kappa_{2}}{\mu_{2}}\right) v_{\text {off ,off }} t_{o}
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(v_{on, on}\)</span> is the failure rate for both intermittent loads present, etc.</p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -546,7 +943,7 @@ description of the correlation patterns.</p>
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./part-02"
         },
         predefinedOutput: true
@@ -554,46 +951,140 @@ description of the correlation patterns.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../part-01/target-reliability.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">7. </span>Target Reliability</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Annex D:Bayesian Interpretation of Probabilities</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="self-weight.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="self-weight.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Self Weight</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+        <p class="prev-next-title"><span class="section-number">13. </span>Self Weight</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Joint Committee on Structural Safety<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#classifications">12.2. Classifications</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling-of-actions">12.3. Modelling of actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-for-fluctuations-in-time">12.4. Models for fluctuations in time</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-models">12.4.1. Types of models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-extremes-for-single-processes">12.4.2. Distribution of extremes for single processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-of-extremes-for-hierarchical-processes">12.4.3. Distribution of extremes for hierarchical processes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#models-for-spatial-variability">12.5. Models for Spatial variability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-model">12.5.1. Hierarchical model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#equivalent-uniformly-distributed-load-eudl">12.5.2. Equivalent uniformly distributed load (EUDL)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactions-and-correlations-between-actions">12.6. Interactions and correlations between actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-of-actions">12.7. Combination of actions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-1-definitions">12.8. ANNEX 1 - DEFINITIONS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#covariance-function">12.8.1. Covariance function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-processes">12.8.2. Stationary processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ergodic-processes">12.8.3. Ergodic processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-correlation-function">12.8.4. The correlation function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectrum">12.8.5. Spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-processes">12.8.6. Gaussian processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-nataf-processes">12.8.7. Scalar Nataf Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-hermite-processes">12.8.8. Scalar Hermite Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-rectangular-wave-renewal-processes">12.8.9. Scalar Rectangular Wave Renewal Processes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-fields">12.8.10. Random fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-processes">12.8.11. Vector processes</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-2-distributions-functions">12.9. ANNEX 2 - DISTRIBUTIONS FUNCTIONS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-3-mathematical-combination-techniques">12.10. ANNEX 3 - MATHEMATICAL COMBINATION TECHNIQUES</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-of-two-rectangular-processes-ferry-borges-castanheta-model">12.10.1. Combination of two rectangular processes (Ferry Borges-Castanheta model)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#oucrossing-approach">12.10.2. Oucrossing approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#intermittent-processes">12.10.3. Intermittent processes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -1,0 +1,1811 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>18. Thermal Actions &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-02/thermal-actions';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="19. Wave loads" href="wave-loads.html" />
+    <link rel="prev" title="17. Wind" href="wind.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wind.html">17. Wind</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/thermal-actions.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/thermal-actions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-02/thermal-actions.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Thermal Actions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">18.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-models-for-temperature-effects-in-structures">18.2. Basic Models For Temperature Effects In Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-variables">18.2.1. <em>Basic variables</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanism-of-temperature-development-in-the-structure">18.2.2. <em>Mechanism of temperature development in the structure</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-thermal-actions">18.2.3. <em>Components of thermal actions</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deformation-and-stress-effects">18.2.4. <em>Deformation and stress effects</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-models-for-radiation-and-temperature">18.3. Probabilistic models for radiation and temperature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shade-air-temperature">18.3.1. <em>Shade air temperature</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-bridge-temperature-component">18.3.2. <em>Uniform bridge temperature component</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solar-radiation">18.3.3. <em>Solar radiation</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-bridge-temperature-component">18.3.4. <em>Difference bridge temperature component</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#action-effects">18.4. Action Effects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficients-of-linear-expansion">18.4.1. <em>Coefficients of linear expansion</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-uncertainities">18.5. Model Uncertainities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-a-probabilistic-models-based-on-direct-bridge-measurements-examples-from-uk-germany-and-czech-republic">18.6. ANNEX A Probabilistic Models Based On Direct Bridge Measurements (examples from UK, Germany and Czech Republic)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">18.6.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-temperature-component">18.6.2. Uniform temperature component</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-uniform-temperature-in-bridges-in-uk-and-germany">18.6.2.1. <em>Measurements of uniform temperature in bridges in UK and Germany</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-uniform-temperature-in-the-czech-republic">18.6.2.2. <em>Measurements of uniform temperature in the Czech Republic</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-shade-air-temperature-and-uniform-temperature-component">18.6.2.3. <em>Relationship between shade air temperature and uniform temperature component</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-difference-components">18.6.3. Temperature difference components</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-temperature-difference-component-in-bridges-in-uk-and-germany">18.6.3.1. <em>Measurements of temperature difference component in bridges in UK and Germany</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-temperature-difference-component-in-the-czech-republic">18.6.3.2. <em>Measurements of temperature difference component in the Czech Republic</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solar-radiation-for-koberovice-bridge">18.6.4. Solar radiation for Koberovice bridge</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="thermal-actions">
+<h1><span class="section-number">18. </span>Thermal Actions<a class="headerlink" href="#thermal-actions" title="Link to this heading">#</a></h1>
+<p><strong>List of symbols:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}A &amp;= \text { cross-sectional area of the structural member}\\ 
+C &amp;= \text { coefficient for atmospheric clearness}\\ 
+D &amp;= \text { the intensity of diffused solar radiation}\\ 
+I_y &amp;= \text { main moment of inertia, direction of axis} y\\
+I_z &amp;= \text { main moment of inertia, direction of axis} z\\
+Q &amp;= \text { the intensity of total radiation}\\ 
+S &amp;= \text { the intensity of direct solar radiation}\\  
+T &amp;= \text { temperature} \\ 
+T_0 &amp;= \text { initial temperature when structural member is restrained}\\  
+T_E &amp;= \text { residual no-linear self-equilibrated component}\\  
+T_N &amp;= \text { uniform temperature component} \\ 
+\Delta T_N &amp;= \text { range of uniform bridge temperature component} \\
+\Delta T_M &amp;= \text { linear temperature difference component} \\
+\Delta T_{M,\text{heat}} &amp;= \text { linear temperature difference component (heating)} \\
+\Delta T_{M,\text{cool}} &amp;= \text { linear temperature difference component (cooling)} \\
+T_s &amp;= \text { temperature of the bridge surface}  \\
+T_v &amp;= \text { temperature of surrounding environment}  \\
+T_{eq} &amp;= \text { equivalent temperature}  \\
+c &amp;= \text { specific heat capacity}  \\
+h &amp;= \text { altitude of sun}\\ 
+h_c &amp;= s\text { urface transfer coefficient} \\
+k_s &amp;= \text { absorption factor}\\
+m &amp;= \text { mean; number of optical masses of the atmosphere}\\  
+n &amp;= \text { number of measurements}\\  
+s &amp;= \text { standard deviation} \\ 
+q &amp;= \text { heat energy}\\  
+q_s &amp;= \text { heat due to solar radiation}\\  
+q_r &amp;= \text { heat due to re-radiation}\\  
+q_c &amp;= \text { heat due to thermal transfer}\\  
+t &amp;= \text { time} \\ 
+\alpha &amp;= \text { coefficient of linear expansion}\\   
+\alpha_e &amp;= \text { exchange factor}\\  
+\gamma &amp;= \text { hour angle of the sun} \\
+\delta &amp;= \text { angle of the sun declination}\\  
+\varepsilon &amp;= \text { coefficient of emissivity; strain}\\  
+\lambda &amp;= \text { heat conduction coefficient}\\
+\rho &amp;= \text { mass density}\\  
+\sigma &amp;= \text { the Stephan-Boltzmann constant }\\ 
+\varphi &amp;= \text { geographical latitude of the locality}\end{array}\)</span></p>
+<p><em>Conversion of units for temperatures considering °C, K and °F</em></p>
+<p>°C = K – 273,15</p>
+<p>°F = °C×1,8 + 32</p>
+<section id="introduction">
+<h2><span class="section-number">18.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The structure exposed to climatic temperatures and operating process temperatures is subjected to non-stationary and spatially non-linear temperature fields causing strains or stresses. The same general principles may be applied for specification of temperatures and thermal effects on various types of construction works like buildings, industrial structures and bridges.</p>
+</section>
+<section id="basic-models-for-temperature-effects-in-structures">
+<h2><span class="section-number">18.2. </span>Basic Models For Temperature Effects In Structures<a class="headerlink" href="#basic-models-for-temperature-effects-in-structures" title="Link to this heading">#</a></h2>
+<section id="basic-variables">
+<h3><span class="section-number">18.2.1. </span><em>Basic variables</em><a class="headerlink" href="#basic-variables" title="Link to this heading">#</a></h3>
+<p>The basic variables influencing effects of thermal actions on structures include climatic agents, operating process temperatures, characteristics of construction works, geographical location of site, properties of atmosphere and terrain. Random properties of these variables may significantly affect the probabilistic structural analysis. Following aspects should be considered when analysing thermal effects on structures:</p>
+<p>climatic characteristics</p>
+<ul class="simple">
+<li><p>shade air temperature (daily and seasonal changes)</p></li>
+<li><p>solar radiation (direct and diffused)</p></li>
+<li><p>wind speed (influenced by regional wind climate of the specific country and local factors as terrain roughness or orography in the location of the structure),</p></li>
+</ul>
+<p>operating process temperature</p>
+<ul class="simple">
+<li><p>inner environment of the structure depending on its function,</p></li>
+</ul>
+<p>characteristics of construction works</p>
+<ul class="simple">
+<li><p>space orientation of the structure (direction and height over the terrain)</p></li>
+<li><p>shape of the structure, dimensions and cross-sectional geometry</p></li>
+<li><p>joints of the structure, types of materials and used colours</p></li>
+<li><p>structural system</p></li>
+<li><p>thermal properties of materials (heat transfer coefficient at the surfaces, coefficient of absorptivity, coefficient of emissivity, specific heat, density, coefficient of linear expansion)</p></li>
+<li><p>other parameters such as moisture content, thickness of surfacing, building cladding</p></li>
+<li><p>initial temperature at which the structure is restrained,</p></li>
+</ul>
+<p>properties of atmosphere and terrain</p>
+<ul class="simple">
+<li><p>emissivity of the atmosphere and terrain, location near some water source.</p></li>
+</ul>
+</section>
+<section id="mechanism-of-temperature-development-in-the-structure">
+<h3><span class="section-number">18.2.2. </span><em>Mechanism of temperature development in the structure</em><a class="headerlink" href="#mechanism-of-temperature-development-in-the-structure" title="Link to this heading">#</a></h3>
+<p>The thermal exchange between the structure and its environment is influenced by three basic factors which may appear simultaneously</p>
+<ul class="simple">
+<li><p>the solar radiation and irradiation</p></li>
+<li><p>thermal convection</p></li>
+<li><p>thermal conduction.</p></li>
+</ul>
+<p>In general, the heat flow process is a three-dimensional phenomenon. For structures having one dominating dimension such as bridges or beams, the variation of temperatures in the direction of the longitudinal axis is not usually significant and may be assumed constant along the
+length of a structure <span id="id1">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>. In these cases the temperature distribution can be considered as two-dimensional.</p>
+<p>In many cases the transversal direction of temperature effects may also be neglected and one dimensional problem might be considered only in the direction of structural height (thickness).</p>
+<p>For the solution of heat conduction problems in a structure, the Fourier heat conduction differential equation may be applied</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-1">
+<span class="eqno">(18.1)<a class="headerlink" href="#equation-eq-thermal-actions-1" title="Link to this equation">#</a></span>\[\frac{\partial T(z, t)}{\partial t}=\frac{\lambda}{c \rho} \frac{\partial^{2} T}{\partial z^{2}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is the time, <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(c\)</span> is the specific heat capacity of material, <span class="math notranslate nohighlight">\(\rho\)</span> is the mass density and <span class="math notranslate nohighlight">\(\lambda\)</span> is the heat conduction coefficient of material <span id="id2">[<a class="reference internal" href="#id46" title="E. Mirambell and A. Aguado. Modelo de obtencion de distribuciones de temperaturas y de tensiones longitudinales autoequilibradas en puentes de hormigon. Revista internacional de métodos numéricos para cálculo y diseňo en ingeniería, 3(2):205-230, 1987.">18.02</a>, <a class="reference internal" href="#id47" title="I. Mangerig. Klimatische temperaturbeansppruchung von stahl-und stahlverbund-brucken. Technical Report, Universitat Bochum, 1986.">18.03</a>]</span>!. It should be noted that in some cases the properties of several materials may need to be considered. Recommended ranges of some thermophysical coefficients can be found in e.g. <span id="id3">[<a class="reference internal" href="#id55" title="I. Mangerig. Klimatische temperaturbeansppruchung von stahl-und stahlverbund-brucken. Technical Report, Universitat Bochum, 1986.">18.04</a>, <a class="reference internal" href="#id56" title="A.M. Neville. Properties of Concrete. Longman, London, 1986.">18.05</a>]</span>!. Some parameters may be considered as random variables represented by their probabilistic distribution functions.</p>
+<p>Equation <a class="reference internal" href="#equation-eq-thermal-actions-1">(18.1)</a> is solved for the initial condition <span class="math notranslate nohighlight">\(T=T_{0}\)</span> in time <span class="math notranslate nohighlight">\(t=t_{0}\)</span> and boundary conditions on top and bottom structural surface with respect to the type of heat transmission between two adjacent mediums (surrounding environment and structure). The boundary conditions may be expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-2">
+<span class="eqno">(18.2)<a class="headerlink" href="#equation-eq-thermal-actions-2" title="Link to this equation">#</a></span>\[\frac{\lambda}{c \rho} \frac{\partial T}{\partial z} \eta_{z}+q=0\]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta_{z}\)</span> is the directional cosine of the normal vector and <span class="math notranslate nohighlight">\(q\)</span> is the heat energy exchange between the structure and its surrounding.</p>
+<p>The heat energy <span class="math notranslate nohighlight">\(q\)</span> is composed of</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-3">
+<span class="eqno">(18.3)<a class="headerlink" href="#equation-eq-thermal-actions-3" title="Link to this equation">#</a></span>\[q=q_{s}+q_{r}+q_{c}\]</div>
+<p>where <span class="math notranslate nohighlight">\(q_{s}\)</span> represents the heat due to solar radiation (direct and diffused), <span class="math notranslate nohighlight">\(q_{r}\)</span> the re-radiation and <span class="math notranslate nohighlight">\(q_{c}\)</span> the thermal transfer.</p>
+<p>The heat due to solar radiation is given as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-4">
+<span class="eqno">(18.4)<a class="headerlink" href="#equation-eq-thermal-actions-4" title="Link to this equation">#</a></span>\[q_{s}=k_{s} m Q\]</div>
+<p>where <span class="math notranslate nohighlight">\(k_{s}\)</span> is the coefficient of surface absorptivity, <span class="math notranslate nohighlight">\(m\)</span> is the parameter dependent on cloudiness and <span class="math notranslate nohighlight">\(Q\)</span> is the intensity of total solar radiation (see <a class="reference internal" href="#section-2-14-3"><span class="std std-ref">Clause 18.3</span></a>).</p>
+<p>The re-radiation may be expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-5">
+<span class="eqno">(18.5)<a class="headerlink" href="#equation-eq-thermal-actions-5" title="Link to this equation">#</a></span>\[q_{r}=\varepsilon \sigma\left(T_{s}^{4}-T_{v}^{4}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the bridge surface emissivity (in a range from 0,85 to 0,98 ), <span class="math notranslate nohighlight">\(\sigma\)</span> is Stephan Boltzmann constant <span class="math notranslate nohighlight">\(\left(5,67 \times 10^{-8} W^{-2} ~K^{-4}\right), T_{s}\)</span> is the temperature of the bridge surface and <span class="math notranslate nohighlight">\(T_{v}\)</span> is the temperature of surrounding environment.</p>
+<p>The heat transfer due to conduction and convection is expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-6">
+<span class="eqno">(18.6)<a class="headerlink" href="#equation-eq-thermal-actions-6" title="Link to this equation">#</a></span>\[q_{c}=h_{c}\left(T_{s}-T_{v}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(h_{c}\)</span> is the surface transfer coefficient depending on the wind velocity.</p>
+<p>For example the top surface heat transfer coefficient <span class="math notranslate nohighlight">\(h_{s, t}\)</span> includes both the radiation and convection losses (and gains) from the structural surface. The values of the coefficient <span class="math notranslate nohighlight">\(h_{s, t}\)</span> for concrete vary from <span class="math notranslate nohighlight">\(14 Wm^{-2} ~K^{-1}\)</span> to <span class="math notranslate nohighlight">\(57 Wm^{-2} ~K^{-1}\)</span> according to the exposure of the surface and the wind speed. For common exposure (considered <span class="math notranslate nohighlight">\(`3^{\text {rd }}\)</span> to <span class="math notranslate nohighlight">\(5^{\text {th }}\)</span> storeys of buildings in the
+interior of towns) and a wind speed of <span class="math notranslate nohighlight">\(2,2 ~m / s\)</span> to <span class="math notranslate nohighlight">\(3,1 ~m / s\)</span>, the value of <span class="math notranslate nohighlight">\(h_{s, t}\)</span> is <span class="math notranslate nohighlight">\(23 Wm^{-2} ~K^{-1}\)</span>. For the same exposure and a wind speed of almost zero, the value of <span class="math notranslate nohighlight">\(h_{s, t}\)</span> is <span class="math notranslate nohighlight">\(19 Wm^{-2} ~K^{-1}\)</span> <span id="id4">[<a class="reference internal" href="#id58" title="M. Emerson. The calculation of the distribution of temperature in bridges. Technical Report 561, TRRL Laboratory, Crowthorne, 1973.">18.06</a>]</span>.</p>
+</section>
+<section id="components-of-thermal-actions">
+<h3><span class="section-number">18.2.3. </span><em>Components of thermal actions</em><a class="headerlink" href="#components-of-thermal-actions" title="Link to this heading">#</a></h3>
+<p>The temperature <span class="math notranslate nohighlight">\(T(z, t)\)</span> for a considered one dimensional problem of a structural member with the cross-sectional area <span class="math notranslate nohighlight">\(A\)</span>, the centroid with principal axis of inertia <span class="math notranslate nohighlight">\(y\)</span> in the transversal direction and axis <span class="math notranslate nohighlight">\(z\)</span> in the direction of cross-sectional height may be decomposed to three temperature components on the basis of the following expression</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-7">
+<span class="eqno">(18.7)<a class="headerlink" href="#equation-eq-thermal-actions-7" title="Link to this equation">#</a></span>\[T(z, t)=T_{N}(z, t)+z \Delta T_{M z}(z, t)+T_{E}(z, t)\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{N}\)</span> denotes the uniform temperature component (effective bridge temperature), <span class="math notranslate nohighlight">\(\Delta T_{M z}\)</span> the temperature difference component and <span class="math notranslate nohighlight">\(T_{E}\)</span> the residual non-linear self-equilibrated component.</p>
+<p>The temperature components may be determined on the basis of integration of equation <a class="reference internal" href="#equation-eq-thermal-actions-7">(18.7)</a> across the area <span class="math notranslate nohighlight">\(A\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-8">
+<span class="eqno">(18.8)<a class="headerlink" href="#equation-eq-thermal-actions-8" title="Link to this equation">#</a></span>\[\int_{A} T(z, t) d A=T_{N}(t) \int_{A} d A+\Delta T_{M z}(t) \int_{A} z d A+\int_{A} T_{E}(z, t) d A\]</div>
+<p>where <span class="math notranslate nohighlight">\(\int_{A} d A=A\)</span>, and <span class="math notranslate nohighlight">\(\int_{A} z d A=0\)</span> for the principal axis of inertia. It is considered <span class="math notranslate nohighlight">\(\int_{A} T_{E}(z, t) d A=0\)</span> for the self-equilibrated temperature component. The equation <a class="reference internal" href="#equation-eq-thermal-actions-8">(18.8)</a> may be rewritten under these assumptions as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-9">
+<span class="eqno">(18.9)<a class="headerlink" href="#equation-eq-thermal-actions-9" title="Link to this equation">#</a></span>\[\int_{A} T(z, t) d A=T_{N}(t) A\]</div>
+<p>and the uniform temperature component may be expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-10">
+<span class="eqno">(18.10)<a class="headerlink" href="#equation-eq-thermal-actions-10" title="Link to this equation">#</a></span>\[T_{N}(z, t)=\frac{1}{A} \int_{A} T(z, t) d A\]</div>
+<p>Similarly the temperature difference component may be derived on the basis of the multiplication of equation <a class="reference internal" href="#equation-eq-thermal-actions-7">(18.7)</a> by variable <span class="math notranslate nohighlight">\(z\)</span> and its integration across the cross-sectional area <span class="math notranslate nohighlight">\(A\)</span> given as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-11">
+<span class="eqno">(18.11)<a class="headerlink" href="#equation-eq-thermal-actions-11" title="Link to this equation">#</a></span>\[\Delta T_{M z}(z, t)=\frac{1}{I_{y}} \int_{A} T(z, t) z d A\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_{y}\)</span> is the main moment of inertia of a member cross-section with respect to the principal axis <span class="math notranslate nohighlight">\(y\)</span> of the cross-section and where the requirement <span class="math notranslate nohighlight">\(\int_{A} T_{E}(z, t) z d A=0\)</span> is considered.</p>
+<p>The non-equilibrated component is expressed from equation <a class="reference internal" href="#equation-eq-thermal-actions-7">(18.7)</a> as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-12">
+<span class="eqno">(18.12)<a class="headerlink" href="#equation-eq-thermal-actions-12" title="Link to this equation">#</a></span>\[T_(z, t)=T(z, t)-\left[T_{N}(t)+z \Delta T_{M z}(t)\right]\]</div>
+<p>and for equations <a class="reference internal" href="#equation-eq-thermal-actions-10">(18.10)</a> and <a class="reference internal" href="#equation-eq-thermal-actions-11">(18.11)</a></p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-13">
+<span class="eqno">(18.13)<a class="headerlink" href="#equation-eq-thermal-actions-13" title="Link to this equation">#</a></span>\[T_{E}(z, t)=T(z, t)-\left[\frac{1}{A} \int_{A} T(z, t) d A+\frac{1}{I_{y}} \int_{A} T(z, t) z d A\right]\]</div>
+<p>Presently all temperature components <span class="math notranslate nohighlight">\(T_{N}, \Delta T_{M z}\)</span> and <span class="math notranslate nohighlight">\(T_{E}\)</span> are based on temperature <span class="math notranslate nohighlight">\(T(t, z)\)</span> which was previously solved in equation <a class="reference internal" href="#equation-eq-thermal-actions-1">(18.1)</a>.</p>
+</section>
+<section id="deformation-and-stress-effects">
+<h3><span class="section-number">18.2.4. </span><em>Deformation and stress effects</em><a class="headerlink" href="#deformation-and-stress-effects" title="Link to this heading">#</a></h3>
+<p>The uniform temperature component leads to the longitudinal movements of a structure. In case the structure is restrained, tensile or compressive stresses should be taken into account.</p>
+<p>The temperature difference components lead to the cross-sectional curvatures, in case that the structure is restrained they evoke moments.</p>
+<p>The residual non-linear self-equilibrated component leads to the deplanation of structure and in case of its restrain to self-equilibrated stresses.</p>
+<p>The temperature induced strains and therefore any resulting stresses, are dependent on the geometry and boundary conditions of the structural member being considered and on the physical properties of the material used.</p>
+</section>
+</section>
+<section id="probabilistic-models-for-radiation-and-temperature">
+<span id="section-2-14-3"></span><h2><span class="section-number">18.3. </span>Probabilistic models for radiation and temperature<a class="headerlink" href="#probabilistic-models-for-radiation-and-temperature" title="Link to this heading">#</a></h2>
+<p>Development of temperatures in a structure may be obtained either theoretically by means of the heat conduction method or experimentally by measuring the temperatures in many points of relevant structure with adequate frequency. A reliable theoretical prediction of the temperature fields in a structure is a quite difficult problem because it needs the integration of the Fourier heat conduction equation on a generally complex shaped domain under appropriate initial conditions, and with non-linear and time-dependent boundary conditions.</p>
+<p>An important factor is the initial temperature of the structure in the relevant stage of its restraint <span id="id5">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>, <a class="reference internal" href="#id42" title="International Organization for Standardization. Iso/tr 9492: basis for design of structures – temperature climatic actions. Technical Report ISO/TR 9492, International Organization for Standardization, 1987.">18.07</a>, <a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>! which should be measured and recorded.</p>
+<section id="shade-air-temperature">
+<h3><span class="section-number">18.3.1. </span><em>Shade air temperature</em><a class="headerlink" href="#shade-air-temperature" title="Link to this heading">#</a></h3>
+<p>Shade air temperature has considerable effect on uniform temperature component <span id="id6">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>, <a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>! being mainly influenced by</p>
+<ul class="simple">
+<li><p>the daily and seasonal changes,</p></li>
+<li><p>the location of the site (altitude above the sea level, configuration of terrain)</p></li>
+<li><p>the wind velocity.</p></li>
+</ul>
+<p>Information on the shade air temperature may be obtained from the National Meteorological Institute. The confidence on statistical evaluation of air parameters is dependent on the duration of observation. For statistical analysis of these parameters, the observation data for not less than 25 years should be applied <span id="id7">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>, <a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>!. However, different values of shade air temperature can be obtained by measuring in the location of site, dependent on specific local climatic conditions, e.g. frost pockets, where the difference can be more than 5°C. The extreme value probabilistic distributions may be applied for modelling the extremes of shade air temperature.</p>
+</section>
+<section id="uniform-bridge-temperature-component">
+<h3><span class="section-number">18.3.2. </span><em>Uniform bridge temperature component</em><a class="headerlink" href="#uniform-bridge-temperature-component" title="Link to this heading">#</a></h3>
+<p>The uniform bridge temperature component may be specified on the basis of shade air temperatures and expression <a class="reference internal" href="#equation-eq-thermal-actions-10">(18.10)</a>. For modelling the uniform temperature component, the extreme value probabilistic distribution may be applied. The uniform temperature component is commonly based on the three-day maxima of shade air temperature for concrete bridges and on one-day maxima for steel and composite bridges.</p>
+<p>The skewness of the uniform bridge temperature component determined from experimental bridge measurements <span id="id8">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> is considerably less (between 0,2 to 0,6 ) than the skewness of the Gumbel distribution which is commonly recommended in prescriptive documents <span id="id9">[<a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>. Therefore, the Weibull distribution may be preferably applied for the bridge uniform
+temperature component. However, the disadvantage of the Weibull distribution is its upper bound which is rather difficult to be estimated. More convenient seems to apply the skewness instead of trying to specify the upper bound of the distribution.</p>
+<p>Three types of the extreme values distributions which may be applied for the probabilistic modelling of basic variables are illustrated in <a class="reference internal" href="#fig-extreme-values-distribution-versus-skewness"><span class="std std-numref">Fig. 18.1</span></a>.</p>
+<figure class="align-default" id="fig-extreme-values-distribution-versus-skewness">
+<img alt="../_images/extreme-values-distribution-versus-skewness.jpg" src="../_images/extreme-values-distribution-versus-skewness.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 18.1 </span><span class="caption-text">Types of the extreme values distribution versus the skewness <span class="math notranslate nohighlight">\(\alpha\)</span></span><a class="headerlink" href="#fig-extreme-values-distribution-versus-skewness" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The variation of the upper bound <span class="math notranslate nohighlight">\(x_{\text {sup }}(m, s, a)\)</span> with skewness <span class="math notranslate nohighlight">\(a\)</span> is illustrated in <a class="reference internal" href="#fig-upper-bound-versus-skewness-for-weibull-distribution"><span class="std std-numref">Fig. 18.2</span></a> for the mean temperature <span class="math notranslate nohighlight">\(m\)</span> from 30 to 36 °C and standard deviation <span class="math notranslate nohighlight">\(s\)</span> from 5 to 6 °C (with equal coefficient of variation 1/6).</p>
+<figure class="align-default" id="fig-upper-bound-versus-skewness-for-weibull-distribution">
+<img alt="../_images/Upper-bound-versus-skewness-for-Weibull-distribution.jpg" src="../_images/Upper-bound-versus-skewness-for-Weibull-distribution.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 18.2 </span><span class="caption-text">Upper bound <span class="math notranslate nohighlight">\(x_{\text {sup }}(m, s, a)\)</span> of temperatures (in °C) versus skewness <span class="math notranslate nohighlight">\(a\)</span> for Weibull distribution</span><a class="headerlink" href="#fig-upper-bound-versus-skewness-for-weibull-distribution" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The document <span id="id10">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> introduces an estimated upper bound of extreme temperatures which is based on measurements of bridges in UK and Germany.</p>
+<p>The upper bound of temperatures depends on the national climatic conditions of each country. It is influenced by number of days per year in which the extreme temperature may occur (a period of three months from June to August is considered). In some countries less or more days per year should be considered. The upper bound values in the document <span id="id11">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> may be not suitable for some other countries and should be based on statistically evaluated data.</p>
+<p>The background document <span id="id12">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> gives several tables with statistically assessed parameters of uniform temperature component (mean, standard deviation and upper bound) of three-day maxima (Weibull maximum distribution) for concrete bridges, and one-day maxima for steel and composite bridges.</p>
+<p>Statistical parameters of one-year maxima for uniform bridge temperature <span class="math notranslate nohighlight">\(T_{N, \max }\)</span> for steel and composite bridges are given in <a class="reference internal" href="#table-statistical-parameters-of-1-year-maxima-for-uniform-bridge-temperature-for-steel-and-composite-bridges"><span class="std std-numref">Table 18.1</span></a> based on the measurements of bridges in UK and Germany given in document <span id="id13">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-1-year-maxima-for-uniform-bridge-temperature-for-steel-and-composite-bridges">
+<caption><span class="caption-number">Table 18.1 </span><span class="caption-text">Statistical parameters of one-year maxima for uniform bridge temperature <span class="math notranslate nohighlight">\(T_{N,max}\)</span> for steel and composite bridges, in K (°C) (based on [<a class="reference internal" href="#references"><span class="std std-ref">1</span></a>])</span><a class="headerlink" href="#table-statistical-parameters-of-1-year-maxima-for-uniform-bridge-temperature-for-steel-and-composite-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge position and depth of surfacing</p></th>
+<th class="head text-center"><p>Mean in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Steel bridge</p></td>
+<td class="text-center"><p>313,15 (40)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Composite bridge</p></td>
+<td class="text-center"><p>308,15 (35)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The mean values of uniform temperatures are slightly decreasing with increasing thickness of bridge surfacing while the value of standard deviation remains unchanged.</p>
+<p>Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, <span class="math notranslate nohighlight">\(\Delta T_{N, \text { exp }}\)</span> for concrete bridges are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component-for-concrete-bridges"><span class="std std-numref">Table 18.2</span></a> based on the measurements of bridges in UK and Germany given in document <span id="id14">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component-for-concrete-bridges">
+<caption><span class="caption-number">Table 18.2 </span><span class="caption-text">Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, <span class="math notranslate nohighlight">\(\Delta T_{N,exp}\)</span> = <span class="math notranslate nohighlight">\(T_{N,max}\)</span> – 10°C for concrete bridges, in K (°C)  (based on [<a class="reference internal" href="#references"><span class="std std-ref">1</span></a>])</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-for-expansion-range-of-uniform-bridge-temperature-component-for-concrete-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Depth [m]</p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>Standard deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Box girder</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>296,15 (23)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>4,7</p></td>
+<td class="text-center"><p>295,15 (22)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td class="text-center"><p>T girder</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>298,15 (25)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2,4</p></td>
+<td class="text-center"><p>296,15 (23)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Slab</p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>0,6</p></td>
+<td class="text-center"><p>297,15 (24)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>294,15 (21)</p></td>
+<td class="text-center"><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To avoid possible inaccuracies from having a deterministic upper bound, local data may also be tuned to a three parameter lognormal distribution as it has no upper bound for positive skewness.</p>
+</section>
+<section id="solar-radiation">
+<h3><span class="section-number">18.3.3. </span><em>Solar radiation</em><a class="headerlink" href="#solar-radiation" title="Link to this heading">#</a></h3>
+<p>Solar radiation has considerable influence on the temperature difference component and partly also on the uniform temperature component. The intensity of solar radiation depends on</p>
+<ul class="simple">
+<li><p>the geographical latitude of the site, on the clearness of the sky and the environment,</p></li>
+<li><p>the season,</p></li>
+<li><p>the orientation of the structural surface with respect to the sun,</p></li>
+<li><p>the colour and surface properties of the structure.</p></li>
+</ul>
+<p>The observation data of solar radiation may be obtained from the National Meteorological Institute. The probabilistic model of solar radiation for the site location should be based on the statistical assessment of data.</p>
+<p>When observation data are not available, an estimate of direct and diffused radiation can be obtained e.g. from ISO/TR 9492 <span id="id15">[<a class="reference internal" href="#id42" title="International Organization for Standardization. Iso/tr 9492: basis for design of structures – temperature climatic actions. Technical Report ISO/TR 9492, International Organization for Standardization, 1987.">18.07</a>]</span>. The records of measurements of direct radiation <span class="math notranslate nohighlight">\(S\)</span> on the surface perpendicular to sun rays, diffused radiation <span class="math notranslate nohighlight">\(D\)</span> and total radiation <span class="math notranslate nohighlight">\(Q\)</span> are available in special reports of the Meteorological Institute, averaged for some time period (week, month).</p>
+<p>Where observation data are not available, the intensity <span class="math notranslate nohighlight">\(S_{m}\)</span> of direct solar radiation under clear sky and non-varying clearness of atmosphere during the day may be approximately expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-14">
+<span class="eqno">(18.14)<a class="headerlink" href="#equation-eq-thermal-actions-14" title="Link to this equation">#</a></span>\[S_{m}=S_{0} /(1+C m)\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(S_{0}\)</span> is the meteorological solar constant equal to <span class="math notranslate nohighlight">\(1256 Wm^{-2}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(C\)</span> is the coefficient which depends on atmospheric clearness, for normal clearness it may be assumed as <span class="math notranslate nohighlight">\(C=0,31\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(m\)</span> is the number of optical masses of the atmosphere to be assumed according to the altitude of the sun <span class="math notranslate nohighlight">\(h\)</span>, see <a class="reference internal" href="#table-optical-masses-for-altitude-of-sun"><span class="std std-numref">Table 18.3</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-optical-masses-for-altitude-of-sun">
+<caption><span class="caption-number">Table 18.3 </span><span class="caption-text">The optical masses <span class="math notranslate nohighlight">\(m\)</span> for the altitude of sun <span class="math notranslate nohighlight">\(h\)</span> [<a class="reference internal" href="#references"><span class="std std-ref">7</span></a>])</span><a class="headerlink" href="#table-optical-masses-for-altitude-of-sun" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Altitude of the sun <span class="math notranslate nohighlight">\(h\)</span>, <br> in degrees</p></th>
+<th class="head text-center"><p>Number of optical <br> masses, <span class="math notranslate nohighlight">\(m\)</span></p></th>
+<th class="head text-center"><p>Altitude of the sun <span class="math notranslate nohighlight">\(h\)</span>, <br> in degrees</p></th>
+<th class="head text-center"><p>Number of optical <br> masses, <span class="math notranslate nohighlight">\(m\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>90</p></td>
+<td class="text-center"><p>1</p></td>
+<td class="text-center"><p>16,4</p></td>
+<td class="text-center"><p>3,5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>41,7</p></td>
+<td class="text-center"><p>1,5</p></td>
+<td class="text-center"><p>14,3</p></td>
+<td class="text-center"><p>4</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>30</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>12,6</p></td>
+<td class="text-center"><p>4,5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>23,5</p></td>
+<td class="text-center"><p>2,5</p></td>
+<td class="text-center"><p>11,3</p></td>
+<td class="text-center"><p>5</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>19,3</p></td>
+<td class="text-center"><p>3</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The altitude of the sun above the horizon <span class="math notranslate nohighlight">\(h\)</span> may be determined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-15">
+<span class="eqno">(18.15)<a class="headerlink" href="#equation-eq-thermal-actions-15" title="Link to this equation">#</a></span>\[\sin h=\sin \varphi \sin \delta+\cos \varphi \cos \delta \cos \gamma\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(\varphi\)</span> is the geographical latitude of the locality,</p>
+<p><span class="math notranslate nohighlight">\(\delta\)</span> is the angle of the sun declination,</p>
+<p><span class="math notranslate nohighlight">\(\gamma\)</span> is the hour angle of the sun, in degrees, <span class="math notranslate nohighlight">\(\gamma=15 \tau\)</span>, where <span class="math notranslate nohighlight">\(\tau\)</span> is time in hours starting at noon.</p>
+<p>The intensity of direct solar radiation on a horizontal surface is given as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-16">
+<span class="eqno">(18.16)<a class="headerlink" href="#equation-eq-thermal-actions-16" title="Link to this equation">#</a></span>\[S^{\prime}=S \sin h\]</div>
+<p>the intensity of diffused solar radiation on the horizontal surface is given as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-17">
+<span class="eqno">(18.17)<a class="headerlink" href="#equation-eq-thermal-actions-17" title="Link to this equation">#</a></span>\[D=0,38~CS\]</div>
+<p>and the intensity of total radiation on the horizontal surface is given as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-18">
+<span class="eqno">(18.18)<a class="headerlink" href="#equation-eq-thermal-actions-18" title="Link to this equation">#</a></span>\[Q=S^{\prime}+D\]</div>
+<p>Data on intensity of direct solar radiation on the surface normal to the sun rays can be used for evaluation of the intensity of radiation on vertical <span class="math notranslate nohighlight">\(S_{v}\)</span>, and inclined surfaces of any orientation <span class="math notranslate nohighlight">\(S_{\alpha}\)</span> by the formulae</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-19">
+<span class="eqno">(18.19)<a class="headerlink" href="#equation-eq-thermal-actions-19" title="Link to this equation">#</a></span>\[S_{v}=S \cos \theta \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-20">
+<span class="eqno">(18.20)<a class="headerlink" href="#equation-eq-thermal-actions-20" title="Link to this equation">#</a></span>\[S_{\alpha}=S_{v} \sin \alpha+S^{\prime} \cos \alpha\]</div>
+<p>where
+<span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the direction of the sun ray and the normal to the surface at the given point of latitude <span class="math notranslate nohighlight">\(\varphi\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(\alpha\)</span> is the angle of inclination between the surface and the horizon.</p>
+<p>The values of <span class="math notranslate nohighlight">\(\cos \theta\)</span> for surfaces of different orientation may be determined by the formulae</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-21">
+<span class="eqno">(18.21)<a class="headerlink" href="#equation-eq-thermal-actions-21" title="Link to this equation">#</a></span>\[\cos \theta_{S}=\cos \delta \sin \varphi \cos \gamma-\sin \delta \cos \varphi\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-22">
+<span class="eqno">(18.22)<a class="headerlink" href="#equation-eq-thermal-actions-22" title="Link to this equation">#</a></span>\[\cos \theta_{N}=\sin \delta \cos \varphi-\cos \delta \sin \varphi \cos \gamma\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-23">
+<span class="eqno">(18.23)<a class="headerlink" href="#equation-eq-thermal-actions-23" title="Link to this equation">#</a></span>\[\cos \theta_{E, W}=\cos \delta \sin \gamma\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-24">
+<span class="eqno">(18.24)<a class="headerlink" href="#equation-eq-thermal-actions-24" title="Link to this equation">#</a></span>\[\cos \theta_{NSE, SW}=\sqrt{ } 2 / 2(\cos \delta \sin \varphi \cos \gamma-\sin \delta \cos \varphi+\cos \delta \sin \gamma)\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-25">
+<span class="eqno">(18.25)<a class="headerlink" href="#equation-eq-thermal-actions-25" title="Link to this equation">#</a></span>\[\cos \theta_{NSE, NW}=\sqrt{ } 2 / 2(\cos \delta \sin \gamma+\sin \delta \cos \varphi-\cos \delta \sin \varphi \cos \gamma)\]</div>
+<p>Using these formulae it may be calculated the intensity of direct solar radiation under a clear sky on the horizontal as well as vertical and inclined surfaces of different orientation for each hour of the day in any season corresponding to the latitude of the locality.</p>
+<p>The intensity of diffused solar radiation on a vertical surface can be determined by an indirect method using the data of pyrheliometric observations for the diffused radiation of the horizontal surface and experimental data for the value of the relative illuminance of vertical surfaces of different orientation.</p>
+<p>Due to a significant variety of influencing factors, an accurate description of the influence of the solar radiation on structure is complicated. Therefore, the equivalent temperature <span class="math notranslate nohighlight">\(`T_{s}\)</span> may be applied <span id="id16">[<a class="reference internal" href="#id42" title="International Organization for Standardization. Iso/tr 9492: basis for design of structures – temperature climatic actions. Technical Report ISO/TR 9492, International Organization for Standardization, 1987.">18.07</a>]</span> for the assessment of solar radiation effects given as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-26">
+<span class="eqno">(18.26)<a class="headerlink" href="#equation-eq-thermal-actions-26" title="Link to this equation">#</a></span>\[T_{s}=\frac{k_{s}}{\alpha_{e}} Q\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(Q\)</span> is the intensity of the total (i.e. direct and diffused) solar radiation, <span class="math notranslate nohighlight">\(Wm^{-2}\)</span>,</p>
+<p><span class="math notranslate nohighlight">\(k_{s}\)</span> is the absorption factor of solar radiation by the structure surface,</p>
+<p><span class="math notranslate nohighlight">\(\alpha_{e}\)</span> is the exchange factor as a result of convection and radiation, <span class="math notranslate nohighlight">\(Wm^{-2} ~K^{-1}\)</span>.</p>
+<p>The coefficient <span class="math notranslate nohighlight">\(\alpha_{e}\)</span> depends on the material and colour of the structure and on the wind velocity <span id="id17">[<a class="reference internal" href="#id47" title="I. Mangerig. Klimatische temperaturbeansppruchung von stahl-und stahlverbund-brucken. Technical Report, Universitat Bochum, 1986.">18.03</a>]</span>. The equivalent temperature <span class="math notranslate nohighlight">\(T_{s}\)</span> is added during the structural analysis to the outdoor air temperatures. Both the daily distribution of <span class="math notranslate nohighlight">\(T_{s}\)</span> and the daily variation of outdoor air temperature can be expanded into Fourier series. The values of absorption factor <span class="math notranslate nohighlight">\(k_{s}\)</span> of solar radiation are given in <a class="reference internal" href="#table-absorption-factor-of-solar-radiation-by-structure-surface"><span class="std std-numref">Table 18.4</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-absorption-factor-of-solar-radiation-by-structure-surface">
+<caption><span class="caption-number">Table 18.4 </span><span class="caption-text">The absorption factor of solar radiation <span class="math notranslate nohighlight">\(k_{s}\)</span> by the structure surface</span><a class="headerlink" href="#table-absorption-factor-of-solar-radiation-by-structure-surface" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Material of structure</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(k_{s}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Asphalt</p></td>
+<td class="text-left"><p>0,8 to 0,9</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Clay brick</p></td>
+<td class="text-left"><p>0,7 to 0,8</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Concrete</p></td>
+<td class="text-left"><p>0,6 to 0,7</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Aluminium</p></td>
+<td class="text-left"><p>0,4 to 0,5</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Silica brick</p></td>
+<td class="text-left"><p>0,3 to 0,4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Rendered, faced or coloured surfaces of materials and structures:</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\quad\)</span>- white and light grey</p></td>
+<td class="text-left"><p>0,3 to 0,4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\quad\)</span>- grey</p></td>
+<td class="text-left"><p>0,4 to 0,5</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\quad\)</span>- red, brown, green</p></td>
+<td class="text-left"><p>0,5 to 0,7</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\quad\)</span>- blue</p></td>
+<td class="text-left"><p>0,7 to 0,8</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\quad\)</span>- dark-blue, black</p></td>
+<td class="text-left"><p>0,8 to 0,9</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The solar radiation is the leading variable for the temperature differences Here are multiple citations <span id="id18">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>, <a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>!. Information on short-wave solar radiation can be obtained from pyrheliometric observations, including direct radiation on the surface perpendicular to sun rays, diffused radiation and total radiation on the horizontal surfaces of the structure <span id="id19">[<a class="reference internal" href="#id42" title="International Organization for Standardization. Iso/tr 9492: basis for design of structures – temperature climatic actions. Technical Report ISO/TR 9492, International Organization for Standardization, 1987.">18.07</a>]</span>.</p>
+</section>
+<section id="difference-bridge-temperature-component">
+<h3><span class="section-number">18.3.4. </span><em>Difference bridge temperature component</em><a class="headerlink" href="#difference-bridge-temperature-component" title="Link to this heading">#</a></h3>
+<p>For the determination of the vertical difference temperature component, the expression <a class="reference internal" href="#equation-eq-thermal-actions-11">(18.11)</a> should be solved taking into account the measurements of shade air temperatures and effects of solar radiation.</p>
+<p>The statistical characteristics of the model of temperature difference component may be assessed on the basis of the extreme value probabilistic distribution. The skewness of the temperature difference component determined from the experimental measurements seems to be considerably less than the skewness of the Gumbel distribution. It appears that the Weibull or three parameter lognormal distributions may be preferably applied for modelling the temperature difference component.</p>
+<p>Statistical parameters of one-year maxima for temperature differences <span class="math notranslate nohighlight">\(\Delta T_{M \text {,heat }}\)</span> (heating) for steel and composite bridges are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridges"><span class="std std-numref">Table 18.5</span></a> and for temperature differences <span class="math notranslate nohighlight">\(\Delta T_{M, \text { cool }}\)</span> (cooling) are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges"><span class="std std-numref">Table 18.6</span></a> based on the measurements of bridges in UK and Germany given in the background document <span id="id20">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridges">
+<caption><span class="caption-number">Table 18.5 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature differences <span class="math notranslate nohighlight">\(\Delta T_{M,heat}\)</span> for steel and composite bridges in K (°C) (based on [<a class="reference internal" href="#references"><span class="std std-ref">1</span></a>])</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-steel-and-composite-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge</p></th>
+<th class="head text-center"><p>Mean in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Steel</p></td>
+<td class="text-center"><p>284,15 (11)</p></td>
+<td class="text-center"><p>0,5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Composite</p></td>
+<td class="text-center"><p>288,15 (15)</p></td>
+<td class="text-center"><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges">
+<caption><span class="caption-number">Table 18.6 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature difference <span class="math notranslate nohighlight">\(\Delta T_{M,cool}\)</span> in K (°C) for steel and composite bridges (based on [<a class="reference internal" href="#references"><span class="std std-ref">1</span></a>])</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-cooling-for-steel-and-composite-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge</p></th>
+<th class="head text-center"><p>Mean in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Steel</p></td>
+<td class="text-center"><p>290,15 (17)</p></td>
+<td class="text-center"><p>0,5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Composite</p></td>
+<td class="text-center"><p>293,15 (20)</p></td>
+<td class="text-center"><p>0,5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Statistical parameters of one-year maxima for temperature differences <span class="math notranslate nohighlight">\(\Delta T_{M \text {,heat }}\)</span> for concrete bridge are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-concrete-bridges"><span class="std std-numref">Table 18.7</span></a> based on the measurements of bridges in UK and Germany given in the document <span id="id21">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>. The mean of temperature difference is slightly decreasing with increasing thickness of the bridge surfacing while the value of standard deviation remains unchanged.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-concrete-bridges">
+<caption><span class="caption-number">Table 18.7 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature differences <span class="math notranslate nohighlight">\(\Delta T_{M,heat}\)</span> in K (°C) for concrete bridges (based on [<a class="reference internal" href="#references"><span class="std std-ref">1</span></a>])</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-of-heating-for-concrete-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type</p></th>
+<th class="head text-center"><p>Depth [m]</p></th>
+<th class="head text-center"><p>Mean in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Box girder</p></td>
+<td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>297,15 (24)</p></td>
+<td class="text-center"><p>0,5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>T-girder</p></td>
+<td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>288,15 (15)</p></td>
+<td class="text-center"><p>1,5</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>slab</p></td>
+<td class="text-center"><p>0,6</p></td>
+<td class="text-center"><p>289,15 (16)</p></td>
+<td class="text-center"><p>1,0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="action-effects">
+<h2><span class="section-number">18.4. </span>Action Effects<a class="headerlink" href="#action-effects" title="Link to this heading">#</a></h2>
+<p>For the determination of action effects due to temperature components, the coefficient of linear expansion should be known.</p>
+<section id="coefficients-of-linear-expansion">
+<h3><span class="section-number">18.4.1. </span><em>Coefficients of linear expansion</em><a class="headerlink" href="#coefficients-of-linear-expansion" title="Link to this heading">#</a></h3>
+<p>Following relationship may be applied for determination of longitudinal displacements</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-27">
+<span class="eqno">(18.27)<a class="headerlink" href="#equation-eq-thermal-actions-27" title="Link to this equation">#</a></span>\[\varepsilon=\alpha T\]</div>
+<p>where the coefficient of linear thermal expansion <span class="math notranslate nohighlight">\(\alpha\)</span> have influence on the resulting thermal effects. The coefficient <span class="math notranslate nohighlight">\(\alpha\)</span> changes partly systematically (due to the type of material) and partly randomly (due to the physical and chemical properties of material). For the determination of statistical characteristics of the coefficient <span class="math notranslate nohighlight">\(\alpha\)</span>, it is necessary to evaluate data of the relevant material.</p>
+<p>The coefficient <span class="math notranslate nohighlight">\(\alpha\)</span> for concrete may be expected in the range <span id="id22">[<a class="reference internal" href="#id45" title="Technical handbook 45. Actions on structures. Prague, 1987. Technical handbook 45.">18.09</a>]</span></p>
+<ul class="simple">
+<li><p>concrete with common aggregate <span class="math notranslate nohighlight">\(\alpha_{\min }=7 \times 10^{-6}\)</span> to <span class="math notranslate nohighlight">\(\alpha_{\max }=13 \times 10^{-6}\)</span></p></li>
+<li><p>concrete with lightweight aggregate <span class="math notranslate nohighlight">\(\alpha_{\min }=5 \times 10^{-6}\)</span> to <span class="math notranslate nohighlight">\(\alpha_{\max }=11 \times 10^{-6}\)</span></p></li>
+</ul>
+<p>depending on the type of cement, the composition of aggregate, on the humidity and the size of the structural cross-section. The humidity of material decreases with the increasing temperature of concrete influencing the value of coefficient <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</section>
+</section>
+<section id="model-uncertainities">
+<h2><span class="section-number">18.5. </span>Model Uncertainities<a class="headerlink" href="#model-uncertainities" title="Link to this heading">#</a></h2>
+<p>Basic variables involved in the assessment of thermal actions on structures contain many uncertainties. Several factors influence the magnitude of resulting temperatures and their effects on structures including structural materials, their thermal properties, used colours, surfacing, geometry of a structure, its exposition to sun, shading by objects, air humidity, geographical and geomorphological position of site etc. It is also necessary to consider the accuracy of measurements (selected cross-sections, instrumentation), time period and procedure of evaluation. Daily temperatures (instantaneous part) and seasonal temperatures (long-term part) influence the thermal course within the structure.</p>
+<p>For the assessment of the model uncertainty, it should be known model uncertainties of its individual variables. Some prior basic information concerning model uncertainties from other types of climatic actions (snow, wind) might be accepted.</p>
+<p>The mean and coefficient of variation of the variables (for boundary conditions) entering the components of the heat energy <span class="math notranslate nohighlight">\(q\)</span> in eq. <a class="reference internal" href="#equation-eq-thermal-actions-3">(18.3)</a> may be expressed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-28">
+<span class="eqno">(18.28)<a class="headerlink" href="#equation-eq-thermal-actions-28" title="Link to this equation">#</a></span>\[E(q)=E\left(q_{s}\right)+E\left(q_{r}\right)+E\left(q_{c}\right) \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-thermal-actions-29">
+<span class="eqno">(18.29)<a class="headerlink" href="#equation-eq-thermal-actions-29" title="Link to this equation">#</a></span>\[\sigma=\sqrt{\sigma\left(q_{s}\right)^{2}+\sigma\left(q_{r}\right)^{2}+\sigma\left(q_{c}\right)^{2}}\]</div>
+<p>where uncorrelated variables are considered.</p>
+<p>The model uncertainties of the basic variables for individual components of the heat energy <span class="math notranslate nohighlight">\(q_{s}, q_{r}\)</span> and <span class="math notranslate nohighlight">\(q_{c}\)</span> should also be considered.</p>
+<p>The coefficients of variations of temperature components for several bridges based on the background document <span id="id23">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> and for measurements in three bridges in the Czech Republic (two prestressed concrete bridges and one composite steel concrete bridge <span id="id24">[<a class="reference internal" href="#id59" title="J. Markova, M. Holicky, and J. Kral. Optimisation of safety and working life of existing bridges. Research report, CTU in Prague Klokner Institute, 2013.">18.010</a>]</span>) are given in <a class="reference internal" href="#section-annex-a"><span class="std std-ref">Annex A</span></a>.</p>
+</section>
+<section id="annex-a-probabilistic-models-based-on-direct-bridge-measurements-examples-from-uk-germany-and-czech-republic">
+<span id="section-annex-a"></span><h2><span class="section-number">18.6. </span>ANNEX A Probabilistic Models Based On Direct Bridge Measurements (examples from UK, Germany and Czech Republic)<a class="headerlink" href="#annex-a-probabilistic-models-based-on-direct-bridge-measurements-examples-from-uk-germany-and-czech-republic" title="Link to this heading">#</a></h2>
+<section id="id25">
+<h3><span class="section-number">18.6.1. </span>Introduction<a class="headerlink" href="#id25" title="Link to this heading">#</a></h3>
+<p>The basic information concerning the statistical characteristics of temperature components based on the measurements in several bridges in UK and Germany given in the background document <span id="id26">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> and in three bridges the Czech Republic given in the research report <span id="id27">[<a class="reference internal" href="#id59" title="J. Markova, M. Holicky, and J. Kral. Optimisation of safety and working life of existing bridges. Research report, CTU in Prague Klokner Institute, 2013.">18.010</a>]</span> are presented in Annex A. The type III maximum extreme value distribution is applied and the annual statistical parameters are specified in all presented cases.</p>
+<p>The background document <span id="id28">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> includes information on five year measurements on steel and composite bridges (from 1981 to 1985) and on four year measurements on concrete bridge (1984-1988). The software Therm was also applied in <span id="id29">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span> for specification of temperatures in various types of cross-sections in concrete bridges considering 10 year simulation of bridge temperatures.</p>
+<p>The research report <span id="id30">[<a class="reference internal" href="#id59" title="J. Markova, M. Holicky, and J. Kral. Optimisation of safety and working life of existing bridges. Research report, CTU in Prague Klokner Institute, 2013.">18.010</a>]</span> gives measurements on D1 highway prestressed concrete box girder bridge in Koberovice (South-East part of Bohemia), on D8 highway prestressed concrete two beam bridge across river Ohre (West part of Bohemia) and composite steel concrete bridge across Slavici valley in Prague ring.</p>
+<p>Additional information may be found in documents given in bibliography.</p>
+</section>
+<section id="uniform-temperature-component">
+<h3><span class="section-number">18.6.2. </span>Uniform temperature component<a class="headerlink" href="#uniform-temperature-component" title="Link to this heading">#</a></h3>
+<section id="measurements-of-uniform-temperature-in-bridges-in-uk-and-germany">
+<h4><span class="section-number">18.6.2.1. </span><em>Measurements of uniform temperature in bridges in UK and Germany</em><a class="headerlink" href="#measurements-of-uniform-temperature-in-bridges-in-uk-and-germany" title="Link to this heading">#</a></h4>
+<p>The one-year maxima of uniform bridge temperature component <span class="math notranslate nohighlight">\(T_{N, \max }\)</span> for steel bridges is given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge"><span class="std std-numref">Table 18.8</span></a> and for composite bridges in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-uniform-bridge-temperature-for-composite-bridges"><span class="std std-numref">Table 18.9</span></a>. The one-year maxima of uniform temperature ranges <span class="math notranslate nohighlight">\(\Delta T_{N, \exp }\)</span> for concrete bridges are given in <a class="reference internal" href="#id32"><span class="std std-numref">Table 18.10</span></a>. <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge"><span class="std std-numref">Table 18.8</span></a> to <a class="reference internal" href="#id32"><span class="std std-numref">Table 18.10</span></a> gives information on selected bridges of the background document <span id="id31">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>.</p>
+<p>The model of uniform (effective) temperature component <span class="math notranslate nohighlight">\(T_{N}\)</span> may be based on the national isotherms of minimum and maximum shade air temperatures, or determined from evaluated data from the site location. The extreme value distribution may be applied.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge">
+<caption><span class="caption-number">Table 18.8 </span><span class="caption-text">Statistical parameters of one-year maxima for uniform temperature <span class="math notranslate nohighlight">\(T_{N,max}\)</span> for steel bridge in K (°C) (web plate 20×4000 mm, bottom flange 600×40 mm, width of the bridge 15000 mm, length of cantilever 3000 mm)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-for-uniform-temperature-for-steel-bridge" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge position and depth of surfacing</p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>North-south direction, east side of the <br> cross-section, 50mm surfacing</p></td>
+<td class="text-center"><p>313,25 (40,1)</p></td>
+<td class="text-center"><p>1,1</p></td>
+<td class="text-center"><p>-0,19</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>East-west direction, south side of the <br> cross-section, 80mm surfacing</p></td>
+<td class="text-center"><p>311,95 (38,8)</p></td>
+<td class="text-center"><p>0,9</p></td>
+<td class="text-center"><p>-0,30</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-uniform-bridge-temperature-for-composite-bridges">
+<caption><span class="caption-number">Table 18.9 </span><span class="caption-text">Statistical parameters of one-year maxima of uniform bridge temperature <span class="math notranslate nohighlight">\(T_{N,max}\)</span> for composite bridges in K (°C) (concrete slab 300 mm, web plate 20×400 mm, top flange 400×40, bottom flange 600×40 mm, width of bridge 15000 mm, length of cantilever 3000 mm)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-uniform-bridge-temperature-for-composite-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge position and depth of surfacing</p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>North/south direction, east side of the <br> cross-section, 50mm surfacing, <br> coefficient <span class="math notranslate nohighlight">\(\alpha=1,0 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>303,65 (30,5)</p></td>
+<td class="text-center"><p>0,9</p></td>
+<td class="text-center"><p>-0,16</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>North/south direction, east side of the <br> cross-section, 50mm surfacing, <br> coefficient <span class="math notranslate nohighlight">\(\alpha=1,2 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>308,15 (35,0)</p></td>
+<td class="text-center"><p>1,1</p></td>
+<td class="text-center"><p>-0,14</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>East-west direction, south side cross- <br> section, 80mm surfacing, <span class="math notranslate nohighlight">\(\alpha=1,0 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>303,05 (29,9)</p></td>
+<td class="text-center"><p>0,9</p></td>
+<td class="text-center"><p>-0,12</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="id32">
+<caption><span class="caption-number">Table 18.10 </span><span class="caption-text">Statistical parameters of one-year maxima for expansion range of uniform bridge temperature component, <span class="math notranslate nohighlight">\(T_{N,exp}\)</span> = <span class="math notranslate nohighlight">\(T_{N,max} – 10\)</span>°C for concrete bridges, expressed in K and °C</span><a class="headerlink" href="#id32" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Depth [m]</p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>Standard deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Box girder</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>296,35 (23,2)</p></td>
+<td class="text-center"><p>2,1</p></td>
+<td class="text-center"><p>0,44</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>3,3</p></td>
+<td class="text-center"><p>295,85 (22,7)</p></td>
+<td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>0,49</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>4,7</p></td>
+<td class="text-center"><p>295,05 (21,9)</p></td>
+<td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>0,53</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>T girder</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>298,45 (25,3)</p></td>
+<td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>0,34</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>1,8</p></td>
+<td class="text-center"><p>297,45 (24,3)</p></td>
+<td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>0,41</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2,4</p></td>
+<td class="text-center"><p>296,25 (23,1)</p></td>
+<td class="text-center"><p>1,9</p></td>
+<td class="text-center"><p>0,49</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>Slab</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>0,6</p></td>
+<td class="text-center"><p>296,65 (23,5)</p></td>
+<td class="text-center"><p>2,1</p></td>
+<td class="text-center"><p>0,40</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>0,9</p></td>
+<td class="text-center"><p>294,75 (21,6)</p></td>
+<td class="text-center"><p>2,1</p></td>
+<td class="text-center"><p>0,52</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>293,65 (20,5)</p></td>
+<td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>0,58</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="measurements-of-uniform-temperature-in-the-czech-republic">
+<h4><span class="section-number">18.6.2.2. </span><em>Measurements of uniform temperature in the Czech Republic</em><a class="headerlink" href="#measurements-of-uniform-temperature-in-the-czech-republic" title="Link to this heading">#</a></h4>
+<p>One-year maxima of uniform bridge temperature component <span class="math notranslate nohighlight">\(\Delta T_{N, \max }\)</span> in the Koberovice bridge (prestressed concrete box girder, three spans <span class="math notranslate nohighlight">\(54 ~m+74 ~m+54 ~m\)</span>, cross-section of <span class="math notranslate nohighlight">\(4,2 ~m\)</span>, depth of surfacing <span class="math notranslate nohighlight">\(0,12 ~m\)</span>) are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-koberovice-bridge"><span class="std std-numref">Table 18.11</span></a>. The uniform bridge temperature is based on the one year maxima derived from 3-day extremes of temperatures (period from June to August, 1999 - 2002) which was obtained from averaged morning measurements of bridge in four points (in walls, in top and bottom sides) of the box girder.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-koberovice-bridge">
+<caption><span class="caption-number">Table 18.11 </span><span class="caption-text">Statistical parameters of one-year maxima for uniform bridge temperature <span class="math notranslate nohighlight">\(T_{N,max}\)</span> for Koberovice bridge, in K (°C).</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-koberovice-bridge" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>Standard deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>298,45 (25,3)</p></td>
+<td class="text-center"><p>1,1</p></td>
+<td class="text-center"><p>-0,04</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>NOTE The characteristic value of uniform temperature component obtained on the basis of measurements in Koberovice bridge is compared with the characteristic value of uniform temperature component given in EN 1991-1-5 <span id="id33">[<a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>. The characteristic value of uniform temperature component based on measurements in Koberovice bridge (see <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-for-uniform-bridge-temperature-for-koberovice-bridge"><span class="std std-numref">Table 18.11</span></a>) is specified as</p>
+<div class="math notranslate nohighlight">
+\[T_{N k, \max }=37,5^{\circ} C\]</div>
+<p>The characteristic value of uniform temperature component based on EN 1991-1-5 <span id="id34">[<a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span> and Czech national map of isotherms is given as</p>
+<p><span class="math notranslate nohighlight">\(T_{Nk, \max , EN}=T_{Nk, EN}+1,5^{\circ} C=38+1,5=39,5^{\circ} C \quad\)</span> (for lower bound of isotherms <span class="math notranslate nohighlight">\(T_{Nk, \max }=36+1,5=\)</span> <span class="math notranslate nohighlight">\(\left.37,5^{\circ} C\right)\)</span></p>
+<p>It could be noted that obtained characteristic values of the uniform temperature component are in a good agreement.</p>
+<p>One-year maxima of uniform bridge temperature component <span class="math notranslate nohighlight">\(\Delta T_{N, \max }\)</span> in the Doksany 11 span prestressed concrete two beam bridge in Highway D8 (across river Ohre, 2011-2013) are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-for-doksany-prestressed-concrete-bridge"><span class="std std-numref">Table 18.12</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-for-doksany-prestressed-concrete-bridge">
+<caption><span class="caption-number">Table 18.12 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature difference component <span class="math notranslate nohighlight">\(T_{N,heat}\)</span> for Doksany prestressed concrete bridge, in K (°C)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-for-doksany-prestressed-concrete-bridge" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>295,45 (22,3)</p></td>
+<td class="text-center"><p>2,5</p></td>
+<td class="text-center"><p>0,6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>One-year maxima of uniform bridge temperature component <span class="math notranslate nohighlight">\(\Delta T_{N, \max }\)</span> for the three span composite steel concrete Slavici bridge in Prague ring (close to exit of Lochkov tunnel, 2011-2013), are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-uniform-temperature-range-for-composite-steel-concrete-slavici-bridge"><span class="std std-numref">Table 18.13</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-uniform-temperature-range-for-composite-steel-concrete-slavici-bridge">
+<caption><span class="caption-number">Table 18.13 </span><span class="caption-text">Statistical parameters of one-year maxima of uniform temperature range <span class="math notranslate nohighlight">\(T_{N,heat}\)</span> for the composite steel concrete Slavici bridge, in K (°C)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-uniform-temperature-range-for-composite-steel-concrete-slavici-bridge" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>299,95 (26,8)</p></td>
+<td class="text-center"><p>3,3</p></td>
+<td class="text-center"><p>0,55</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="relationship-between-shade-air-temperature-and-uniform-temperature-component">
+<h4><span class="section-number">18.6.2.3. </span><em>Relationship between shade air temperature and uniform temperature component</em><a class="headerlink" href="#relationship-between-shade-air-temperature-and-uniform-temperature-component" title="Link to this heading">#</a></h4>
+<p>The relationship between the extreme shade air temperature and uniform temperature component for the three types of bridge superstructure is recommended in EN 1991-1-5 <span id="id35">[<a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>.</p>
+<p>Note: The maximum uniform temperature component <span class="math notranslate nohighlight">\(T_{N, \max }\)</span> and minimum uniform temperature component <span class="math notranslate nohighlight">\(T_{N, \text { min }}\)</span> considered in <span id="id36">[<a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span> for three types of bridges (in °C ) can be expressed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left.
+\begin{array}{ll}
+\text{Type 1,} &amp; T_{N, \max} = T_{\max} + 16^\circ C \\
+\text{Type 2,} &amp; T_{N, \max} = T_{\max} + 4.5^\circ C \\
+\text{Type 3,} &amp; T_{N, \max} = T_{\max} + 1.5^\circ C
+\end{array}
+\right\} \text{for } 30^\circ C \leq T_{\max} \leq 50^\circ C
+\left.
+\begin{array}{ll}
+T_{N, \text { min }}=T_{\text {min }}-3^{\circ} C \\
+T_{N, \text { min }}=T_{\text {min }}+4,5^{\circ} C \\
+T_{N, \text { min }}=T_{\text {min }}+8^{\circ} C
+\end{array}
+\right\} \text { for }-50^{\circ} C \leq T_{\text {min }} \leq 0^{\circ} C\end{split}\]</div>
+<p>based on the daily range of 10°C. For other daily ranges of temperature, the adjustment of temperature components <span class="math notranslate nohighlight">\(T_{N, \max }\)</span> and <span class="math notranslate nohighlight">\(T_{N, \min }\)</span> is indicated in the following Table based on the Background document <span id="id37">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>.</p>
+<p>Adjustment of the uniform temperature component for temperature daily ranges, in °C</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type of bridge deck</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(T_{N, \max }\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(T_{N, \text { min }}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1. Steel</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(T_{N, \max }+\left(10-\Delta_{2}\right) / 3\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(T_{N, \min }\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2. Composite deck</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(T_{N, \max }+\left(10-\Delta_{2}\right) / 2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(T_{N, \min }+\left(\Delta_{1}-10\right) / 2\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3. Concrete deck</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(T_{N, \max }+\left(10-\Delta_{2}\right) / 2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(T_{N, \text { min }}+\left(\Delta_{1}-10\right) / 4\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(\Delta_{1}\)</span>, resp. <span class="math notranslate nohighlight">\(\Delta_{2}\)</span> is the shade air temperature range for minimum, resp. maximum temperature conditions appropriate to the site location</p>
+</section>
+</section>
+<section id="temperature-difference-components">
+<h3><span class="section-number">18.6.3. </span>Temperature difference components<a class="headerlink" href="#temperature-difference-components" title="Link to this heading">#</a></h3>
+<section id="measurements-of-temperature-difference-component-in-bridges-in-uk-and-germany">
+<h4><span class="section-number">18.6.3.1. </span><em>Measurements of temperature difference component in bridges in UK and Germany</em><a class="headerlink" href="#measurements-of-temperature-difference-component-in-bridges-in-uk-and-germany" title="Link to this heading">#</a></h4>
+<p>The results of statistical analysis of temperature differences <span class="math notranslate nohighlight">\(\Delta T_{M z}\)</span> for steel bridges based on one-year maxima (type III maximum value distribution) are indicated in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-steel-bridges"><span class="std std-numref">Table 18.14</span></a> and <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-cool-for-steel-bridges"><span class="std std-numref">Table 18.15</span></a>, for composite bridges in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-heat-for-composite-bridges"><span class="std std-numref">Table 18.16</span></a> and <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-cool-for-composite-bridges"><span class="std std-numref">Table 18.17</span></a>, and for concrete bridges in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-concrete-bridges"><span class="std std-numref">Table 18.18</span></a> based on the document <span id="id38">[<a class="reference internal" href="#id44" title="New european code for thermal actions. 1999. Background document.">18.01</a>]</span>.</p>
+<p>Table A.3.1 Statistical parameters of one-year maxima of temperature differences <span class="math notranslate nohighlight">\(\Delta T_{M, \text { heat }}\)</span> for steel bridges (top warmer than bottom), in <span class="math notranslate nohighlight">\(\mathrm{K}\left({ }^{\circ} \mathrm{C}\right)\)</span></p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-steel-bridges">
+<caption><span class="caption-number">Table 18.14 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature differences <span class="math notranslate nohighlight">\(T_{M,heat}\)</span> for steel bridges (top warmer than bottom), in K (°C)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-steel-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge position and depth of surfacing</p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 50 mm surfacing</p></td>
+<td class="text-center"><p>283,95 (10,8)</p></td>
+<td class="text-center"><p>0,4</p></td>
+<td class="text-center"><p>-0,08</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 80 mm surfacing</p></td>
+<td class="text-center"><p>281,75 (8,6)</p></td>
+<td class="text-center"><p>0,4</p></td>
+<td class="text-center"><p>-0,19</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>East-west direction, south side of <br> the cross-section, 80 mm surfacing</p></td>
+<td class="text-center"><p>281,85 (8,7)</p></td>
+<td class="text-center"><p>0,4</p></td>
+<td class="text-center"><p>-0,19</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-differences-cool-for-steel-bridges">
+<caption><span class="caption-number">Table 18.15 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature differences <span class="math notranslate nohighlight">\(T_{M,cool}\)</span> for steel bridges (bottom warmer than top), in K (°C)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-cool-for-steel-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge position, depth of surfacing <br> and coefficient <span class="math notranslate nohighlight">\(\alpha\)</span></p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 50mm surfacing</p></td>
+<td class="text-center"><p>288,55 (15,4)</p></td>
+<td class="text-center"><p>0,5</p></td>
+<td class="text-center"><p>-0,14</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 80mm surfacing</p></td>
+<td class="text-center"><p>289,95 (16,8)</p></td>
+<td class="text-center"><p>0,5</p></td>
+<td class="text-center"><p>-0,30</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-difference-heat-for-composite-bridges">
+<caption><span class="caption-number">Table 18.16 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature difference <span class="math notranslate nohighlight">\(T_{M,heat}\)</span> in K (°C) for composite bridges (top warmer than bottom)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-heat-for-composite-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge position, depth of surfacing <br> and coefficient <span class="math notranslate nohighlight">\(\alpha\)</span></p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 50 mm surfacing, <br> <span class="math notranslate nohighlight">\(\alpha=1,0 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>283,95 (10,8)</p></td>
+<td class="text-center"><p>1,1</p></td>
+<td class="text-center"><p>0,54</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 50 mm surfacing, <br> <span class="math notranslate nohighlight">\(\alpha=1,2 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>288,15 (15,0)</p></td>
+<td class="text-center"><p>0,8</p></td>
+<td class="text-center"><p>0,15</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>North/south or East/west directions, <br> east side of the cross-section, <br> 80mm surfacing, <span class="math notranslate nohighlight">\(\alpha=1,0 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>282,85 (9,7)</p></td>
+<td class="text-center"><p>0,4</p></td>
+<td class="text-center"><p>-0,14</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-difference-cool-for-composite-bridges">
+<caption><span class="caption-number">Table 18.17 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature difference <span class="math notranslate nohighlight">\(T_{M,cool}\)</span> in K (°C) for composite bridges (bottom warmer than top)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-cool-for-composite-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Bridge position, depth of surfacing <br> and coefficient <span class="math notranslate nohighlight">\(\alpha\)</span></p></th>
+<th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>North/South direction, east side of <br> the cross-section, 50mm surfacing, <br> <span class="math notranslate nohighlight">\(\alpha=1,0 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>292,85 (19,7)</p></td>
+<td class="text-center"><p>0,5</p></td>
+<td class="text-center"><p>-0,28</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 50mm surfacing, <br> <span class="math notranslate nohighlight">\(\alpha=1,2 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>290,15 (17,0)</p></td>
+<td class="text-center"><p>1,0</p></td>
+<td class="text-center"><p>0,18</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>North/south direction, east side of <br> the cross-section, 80mm surfacing, <br> <span class="math notranslate nohighlight">\(\alpha=1,0 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>292,85 (19,7)</p></td>
+<td class="text-center"><p>0,6</p></td>
+<td class="text-center"><p>-0,27</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>East-west direction, south side of the <br> cross-section, 80mm surfacing, <br> <span class="math notranslate nohighlight">\(\alpha=\)</span>  <span class="math notranslate nohighlight">\(1,0 \times 10^{-5}\)</span></p></td>
+<td class="text-center"><p>289,15 (16,7)</p></td>
+<td class="text-center"><p>1,0</p></td>
+<td class="text-center"><p>0,13</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-concrete-bridges">
+<caption><span class="caption-number">Table 18.18 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature differences <span class="math notranslate nohighlight">\(T_{M,heat}\)</span> in K (°C) for concrete bridges.</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-concrete-bridges" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Depth [m]</p></th>
+<th class="head text-center"><p>Mean, in °K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>box girder</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2,0</p></td>
+<td class="text-center"><p>282,95 (9,8)</p></td>
+<td class="text-center"><p>0,4</p></td>
+<td class="text-center"><p>0,34</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>3,3</p></td>
+<td class="text-center"><p>281,75 (8,6)</p></td>
+<td class="text-center"><p>0,4</p></td>
+<td class="text-center"><p>0,36</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>4,7</p></td>
+<td class="text-center"><p>281,85 (8,7)</p></td>
+<td class="text-center"><p>0,4</p></td>
+<td class="text-center"><p>0,37</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>T-girder</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>288,55 (15,4)</p></td>
+<td class="text-center"><p>1,6</p></td>
+<td class="text-center"><p>0,49</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>1,8</p></td>
+<td class="text-center"><p>286,05 (12,9)</p></td>
+<td class="text-center"><p>1,4</p></td>
+<td class="text-center"><p>0,22</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2,4</p></td>
+<td class="text-center"><p>284,45 (11,3)</p></td>
+<td class="text-center"><p>1,4</p></td>
+<td class="text-center"><p>0,60</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td class="text-center"><p>slab</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>0,6</p></td>
+<td class="text-center"><p>288,95 (15,8)</p></td>
+<td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>0,25</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>0,9</p></td>
+<td class="text-center"><p>285,25 (12,1)</p></td>
+<td class="text-center"><p>0,9</p></td>
+<td class="text-center"><p>0,23</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>282,55 (9,4)</p></td>
+<td class="text-center"><p>0,8</p></td>
+<td class="text-center"><p>0,29</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="measurements-of-temperature-difference-component-in-the-czech-republic">
+<h4><span class="section-number">18.6.3.2. </span><em>Measurements of temperature difference component in the Czech Republic</em><a class="headerlink" href="#measurements-of-temperature-difference-component-in-the-czech-republic" title="Link to this heading">#</a></h4>
+<p>The results of measurements of temperature differences in the Koberovice bridge (concrete box girders, cross-section A of left bridge, cross-section D of right bridge) are shown in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-koberovice-bridge"><span class="std std-numref">Table 18.19</span></a> and <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-doksany-prestressed-concrete-bridge"><span class="std std-numref">Table 18.20</span></a>. The temperature differences are based on the 3 day extremes of the concrete box girder (measured in top and bottom of the box girder). The statistical characteristics for annual extremes of type III are given in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-koberovice-bridge"><span class="std std-numref">Table 18.19</span></a> and <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-doksany-prestressed-concrete-bridge"><span class="std std-numref">Table 18.20</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-koberovice-bridge">
+<caption><span class="caption-number">Table 18.19 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature differences <span class="math notranslate nohighlight">\(T_{M,heat}\)</span> for Koberovice bridge, concrete box girder A, in K (°C)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-differences-heat-for-koberovice-bridge" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>281,35(8,2)</p></td>
+<td class="text-center"><p>1,2</p></td>
+<td class="text-center"><p>0,95</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>NOTE The characteristic value of temperature difference component obtained on the basis of measurements in Koberovice bridge is compared with the characteristic value of temperature difference component given in EN 1991-1-5 <span id="id39">[<a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span>.</p>
+<p>The characteristic value of temperature difference component based on measurements in Koberovice bridge is specified as</p>
+<div class="math notranslate nohighlight">
+\[\Delta T_{M , \text { heat }}=10,75^{\circ} \]</div>
+<p>The characteristic value of temperature difference component based on EN 1991-1-5 <span id="id40">[<a class="reference internal" href="#id43" title="Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.">18.08</a>]</span> is given as</p>
+<div class="math notranslate nohighlight">
+\[\Delta T_{M , \text { heat,EN }}=12,5-2,5=10^{\circ} \]</div>
+<p>It could be noted that obtained characteristic values of the temperature difference component are in a good agreement.</p>
+<p>The results of three year measurements of Doksany bridge on Highway D8 (across river Ohre) are given for temperature difference component in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-doksany-prestressed-concrete-bridge"><span class="std std-numref">Table 18.20</span></a> (2011-2013).</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-doksany-prestressed-concrete-bridge">
+<caption><span class="caption-number">Table 18.20 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature difference component <span class="math notranslate nohighlight">\(T_{M,heat}\)</span> for Doksany prestressed concrete bridge, in K (°C)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-doksany-prestressed-concrete-bridge" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Mean, in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>279,55(6,4)</p></td>
+<td class="text-center"><p>1,1</p></td>
+<td class="text-center"><p>0,1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Results of three year measurements of Slavici composite steel concrete bridge in Prague ring is given for temperature difference component in <a class="reference internal" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-slavici-composite-steel-concrete-bridge"><span class="std std-numref">Table 18.21</span></a> (2011-2013).</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-slavici-composite-steel-concrete-bridge">
+<caption><span class="caption-number">Table 18.21 </span><span class="caption-text">Statistical parameters of one-year maxima of temperature difference component <span class="math notranslate nohighlight">\(T_{M,heat}\)</span> for Slavici composite steel concrete bridge, in K (°C)</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-of-temperature-difference-component-heat-for-slavici-composite-steel-concrete-bridge" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Mean in K (°C)</p></th>
+<th class="head text-center"><p>St. deviation</p></th>
+<th class="head text-center"><p>Skewness</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>277,05(3,9)</p></td>
+<td class="text-center"><p>0,6</p></td>
+<td class="text-center"><p>0,6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="solar-radiation-for-koberovice-bridge">
+<h3><span class="section-number">18.6.4. </span>Solar radiation for Koberovice bridge<a class="headerlink" href="#solar-radiation-for-koberovice-bridge" title="Link to this heading">#</a></h3>
+<p>The daily solar radiation was measured in the Meteorological station in Košetice (about <span class="math notranslate nohighlight">\(12 ~km\)</span> from the Koberovice bridge in the Czech Republic) from June to August 1999 -2001 (No. of observations <span class="math notranslate nohighlight">\(n=276\)</span>). Statistical parameters of daily global solar radiation and its components are given in <a class="reference internal" href="#table-statistical-parameters-of-global-solar-radiation-and-its-components-provided-by-meteorological-station-kosetice"><span class="std std-numref">Table 18.22</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-global-solar-radiation-and-its-components-provided-by-meteorological-station-kosetice">
+<caption><span class="caption-number">Table 18.22 </span><span class="caption-text">Statistical parameters of global solar radiation and its components (diffused and direct) from June to August 1999-2001 provided by the Meteorological station Košetice, in kJ/m2.</span><a class="headerlink" href="#table-statistical-parameters-of-global-solar-radiation-and-its-components-provided-by-meteorological-station-kosetice" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Statistical parameters</p></th>
+<th class="head text-center"><p>Global radiation</p></th>
+<th class="head text-center"><p>Diffused radiation</p></th>
+<th class="head text-center"><p>Direct radiation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Minimum</p></td>
+<td class="text-center"><p>1832</p></td>
+<td class="text-center"><p>1832</p></td>
+<td class="text-center"><p>0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Maximum</p></td>
+<td class="text-center"><p>29837</p></td>
+<td class="text-center"><p>14342</p></td>
+<td class="text-center"><p>25704</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Mean</p></td>
+<td class="text-center"><p>17696</p></td>
+<td class="text-center"><p>8852,7</p></td>
+<td class="text-center"><p>8802,9</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Stand. deviation</p></td>
+<td class="text-center"><p>6577</p></td>
+<td class="text-center"><p>2622,8</p></td>
+<td class="text-center"><p>7150,5</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Coef. of variation</p></td>
+<td class="text-center"><p>0,37</p></td>
+<td class="text-center"><p>0,296</p></td>
+<td class="text-center"><p>0,81</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Skewness</p></td>
+<td class="text-center"><p>-0,22</p></td>
+<td class="text-center"><p>-0,46</p></td>
+<td class="text-center"><p>0,52</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The one-year maxima of global solar radiation is assessed on the basis of 3-day maxima based on the measurements provided by Meteorological station Košetice from June to August 1999 - 2001. The statistical parameters are indicated in {numref}`table-Statistical-parameters-of-one-year-maxima-for-global-solar-radiation-and-its-components-from-the-station-Košetice.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-statistical-parameters-of-one-year-maxima-for-global-solar-radiation-and-its-components-from-the-station-kosetice">
+<caption><span class="caption-number">Table 18.23 </span><span class="caption-text">Statistical parameters of one-year maxima for global solar radiation and its components (diffused and direct) from the station Košetice, in kJ/m2.</span><a class="headerlink" href="#table-statistical-parameters-of-one-year-maxima-for-global-solar-radiation-and-its-components-from-the-station-kosetice" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Statistical parameters</p></th>
+<th class="head text-center"><p>Global radiation</p></th>
+<th class="head text-center"><p>Diffused radiation</p></th>
+<th class="head text-center"><p>Direct radiation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Mean</p></td>
+<td class="text-center"><p>30790</p></td>
+<td class="text-center"><p>13620</p></td>
+<td class="text-center"><p>17290</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Standard deviation</p></td>
+<td class="text-center"><p>1479</p></td>
+<td class="text-center"><p>370</p></td>
+<td class="text-center"><p>672</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Coef. of variation</p></td>
+<td class="text-center"><p>0,05</p></td>
+<td class="text-center"><p>0,03</p></td>
+<td class="text-center"><p>0,04</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Skewness</p></td>
+<td class="text-center"><p>-0,16</p></td>
+<td class="text-center"><p>-0,55</p></td>
+<td class="text-center"><p>-0,05</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Upper limit</p></td>
+<td class="text-center"><p>34890</p></td>
+<td class="text-center"><p>14370</p></td>
+<td class="text-center"><p>19370</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For the global solar radiation and its components, the type III extreme value distribution may be applied.</p>
+<p>The daily total and diffused solar radiation from June to August 2002 is illustrated in <a class="reference internal" href="#fig-daily-total-and-diffused-solar-radiation-from-june-to-august-2002"><span class="std std-numref">Fig. 18.3</span></a>.</p>
+<figure class="align-default" id="fig-daily-total-and-diffused-solar-radiation-from-june-to-august-2002">
+<img alt="../_images/daily-total-and-diffused-solar-radiation-from-June-to-August-2002.jpg" src="../_images/daily-total-and-diffused-solar-radiation-from-June-to-August-2002.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 18.3 </span><span class="caption-text">The daily total and diffused solar radiation from June to August 2002 based on information from Meteorological Institute near Koberovice bridge</span><a class="headerlink" href="#fig-daily-total-and-diffused-solar-radiation-from-june-to-august-2002" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The daily course of measured temperatures in the Koberovice concrete box girder (left and right walls, top and bottom, outside temperatures (out) and inside temperatures (in) of the box girder) from 01/07 to 10/07/2002 is for illustration shown in <a class="reference internal" href="#fig-daily-course-of-measured-temperatures-in-the-koberovice-concrete-box-girder"><span class="std std-numref">Fig. 18.4</span></a>.</p>
+<figure class="align-default" id="fig-daily-course-of-measured-temperatures-in-the-koberovice-concrete-box-girder">
+<img alt="../_images/daily-course-of-measured-temperatures-in-the-Koberovice-concrete-box-girder.jpg" src="../_images/daily-course-of-measured-temperatures-in-the-Koberovice-concrete-box-girder.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 18.4 </span><span class="caption-text">The daily course of measured temperatures in the Koberovice concrete box girder in °C (left and right walls, top and bottom slabs, outside and inside temperatures) from 01/07 to 10 / 07 / 2002.</span><a class="headerlink" href="#fig-daily-course-of-measured-temperatures-in-the-koberovice-concrete-box-girder" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p id="references"><strong>References</strong></p>
+<div class="docutils container" id="id41">
+<div role="list" class="citation-list">
+<div class="citation" id="id44" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>18.01<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id5">2</a>,<a role="doc-backlink" href="#id6">3</a>,<a role="doc-backlink" href="#id7">4</a>,<a role="doc-backlink" href="#id8">5</a>,<a role="doc-backlink" href="#id10">6</a>,<a role="doc-backlink" href="#id11">7</a>,<a role="doc-backlink" href="#id12">8</a>,<a role="doc-backlink" href="#id13">9</a>,<a role="doc-backlink" href="#id14">10</a>,<a role="doc-backlink" href="#id18">11</a>,<a role="doc-backlink" href="#id20">12</a>,<a role="doc-backlink" href="#id21">13</a>,<a role="doc-backlink" href="#id23">14</a>,<a role="doc-backlink" href="#id26">15</a>,<a role="doc-backlink" href="#id28">16</a>,<a role="doc-backlink" href="#id29">17</a>,<a role="doc-backlink" href="#id31">18</a>,<a role="doc-backlink" href="#id37">19</a>,<a role="doc-backlink" href="#id38">20</a>)</span>
+<p>New european code for thermal actions. 1999. Background document.</p>
+</div>
+<div class="citation" id="id46" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">18.02</a><span class="fn-bracket">]</span></span>
+<p>E. Mirambell and A. Aguado. Modelo de obtencion de distribuciones de temperaturas y de tensiones longitudinales autoequilibradas en puentes de hormigon. <em>Revista internacional de métodos numéricos para cálculo y diseňo en ingeniería</em>, 3(2):205–230, 1987.</p>
+</div>
+<div class="citation" id="id47" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>18.03<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id2">1</a>,<a role="doc-backlink" href="#id17">2</a>)</span>
+<p>I. Mangerig. Klimatische temperaturbeansppruchung von stahl-und stahlverbund-brucken. Technical Report, Universitat Bochum, 1986.</p>
+</div>
+<div class="citation" id="id55" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">18.04</a><span class="fn-bracket">]</span></span>
+<p>I. Mangerig. Klimatische temperaturbeansppruchung von stahl-und stahlverbund-brucken. Technical Report, Universitat Bochum, 1986.</p>
+</div>
+<div class="citation" id="id56" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">18.05</a><span class="fn-bracket">]</span></span>
+<p>A.M. Neville. <em>Properties of Concrete</em>. Longman, London, 1986.</p>
+</div>
+<div class="citation" id="id58" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">18.06</a><span class="fn-bracket">]</span></span>
+<p>M. Emerson. The calculation of the distribution of temperature in bridges. Technical Report 561, TRRL Laboratory, Crowthorne, 1973.</p>
+</div>
+<div class="citation" id="id42" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>18.07<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id15">2</a>,<a role="doc-backlink" href="#id16">3</a>,<a role="doc-backlink" href="#id19">4</a>)</span>
+<p>International Organization for Standardization. Iso/tr 9492: basis for design of structures – temperature climatic actions. Technical Report ISO/TR 9492, International Organization for Standardization, 1987.</p>
+</div>
+<div class="citation" id="id43" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>18.08<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id6">2</a>,<a role="doc-backlink" href="#id7">3</a>,<a role="doc-backlink" href="#id9">4</a>,<a role="doc-backlink" href="#id18">5</a>,<a role="doc-backlink" href="#id33">6</a>,<a role="doc-backlink" href="#id34">7</a>,<a role="doc-backlink" href="#id35">8</a>,<a role="doc-backlink" href="#id36">9</a>,<a role="doc-backlink" href="#id39">10</a>,<a role="doc-backlink" href="#id40">11</a>)</span>
+<p>Eurocode 1: actions on structures - part 1-5: general actions – thermal actions. 2003.</p>
+</div>
+<div class="citation" id="id45" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id22">18.09</a><span class="fn-bracket">]</span></span>
+<p><em>Technical handbook 45. Actions on structures</em>. Prague, 1987. Technical handbook 45.</p>
+</div>
+<div class="citation" id="id59" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>18.010<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id24">1</a>,<a role="doc-backlink" href="#id27">2</a>,<a role="doc-backlink" href="#id30">3</a>)</span>
+<p>J. Markova, M. Holicky, and J. Kral. Optimisation of safety and working life of existing bridges. Research report, CTU in Prague Klokner Institute, 2013.</p>
+</div>
+</div>
+</div>
+<p><strong>Additional References</strong></p>
+<ol class="arabic simple">
+<li><p>Froli M., Barsotti R., Statistical analysis of thermal actions on a concrete segmental boxgirder bridge Structural Engineering International, 2000</p></li>
+<li><p>TRRL Laboratory Report 696 Bridge temperatures estimated from shade temperatures, Crowthorne, 1976</p></li>
+<li><p>TRRL Laboratory Report 748, W. Black et al., Bridge temperatures derived from measurement of movement, Crowthorne, 1976</p></li>
+<li><p>TRRL Laboratory Report 783, M. Emerson, Temperatures in bridges during the hot summer of 1976, Crowthorne, 1977</p></li>
+<li><p>TRRL Laboratory Report 641, J.D.Mortlock, The instrumentation of bridges for the measurement of temperature and movement, Crowthorne, 1974</p></li>
+<li><p>White I.G., Non-linear differential temperature distributions in concrete bridge structures: a review of the current literature, Cement and concrete association, Technical report, 1979</p></li>
+<li><p>Jones MR, Calculated deck plate temperatures for a steel box bridge, TRRL laboratory report, Crowthorne, 1977</p></li>
+<li><p>TRRL Laboratory Report 783, M. Emerson, Extreme values bridge temperatures for design purposes, Crowthorne, 1996</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="wind.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Wind</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="wave-loads.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Wave loads</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">18.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-models-for-temperature-effects-in-structures">18.2. Basic Models For Temperature Effects In Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-variables">18.2.1. <em>Basic variables</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mechanism-of-temperature-development-in-the-structure">18.2.2. <em>Mechanism of temperature development in the structure</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#components-of-thermal-actions">18.2.3. <em>Components of thermal actions</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deformation-and-stress-effects">18.2.4. <em>Deformation and stress effects</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-models-for-radiation-and-temperature">18.3. Probabilistic models for radiation and temperature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shade-air-temperature">18.3.1. <em>Shade air temperature</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-bridge-temperature-component">18.3.2. <em>Uniform bridge temperature component</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solar-radiation">18.3.3. <em>Solar radiation</em></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-bridge-temperature-component">18.3.4. <em>Difference bridge temperature component</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#action-effects">18.4. Action Effects</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#coefficients-of-linear-expansion">18.4.1. <em>Coefficients of linear expansion</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-uncertainities">18.5. Model Uncertainities</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#annex-a-probabilistic-models-based-on-direct-bridge-measurements-examples-from-uk-germany-and-czech-republic">18.6. ANNEX A Probabilistic Models Based On Direct Bridge Measurements (examples from UK, Germany and Czech Republic)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">18.6.1. Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-temperature-component">18.6.2. Uniform temperature component</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-uniform-temperature-in-bridges-in-uk-and-germany">18.6.2.1. <em>Measurements of uniform temperature in bridges in UK and Germany</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-uniform-temperature-in-the-czech-republic">18.6.2.2. <em>Measurements of uniform temperature in the Czech Republic</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#relationship-between-shade-air-temperature-and-uniform-temperature-component">18.6.2.3. <em>Relationship between shade air temperature and uniform temperature component</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-difference-components">18.6.3. Temperature difference components</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-temperature-difference-component-in-bridges-in-uk-and-germany">18.6.3.1. <em>Measurements of temperature difference component in bridges in UK and Germany</em></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#measurements-of-temperature-difference-component-in-the-czech-republic">18.6.3.2. <em>Measurements of temperature difference component in the Czech Republic</em></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solar-radiation-for-koberovice-bridge">18.6.4. Solar radiation for Koberovice bridge</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

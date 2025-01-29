@@ -1,5 +1,4 @@
-JCSS Probabilistic Model Code
-=============================
+# JCSS Probabilistic Model Code
 
  This document is a first attempt to put together in a consistent way
  some - certainly not all - of the rules, regulations, and explanations
@@ -59,3 +58,7 @@ JCSS Probabilistic Model Code
  JCSS hopes that this document - the most recent of its
  pre-codification work since its creation in 1972 - will find its way
  into the practical work of structural engineers.
+
+ The Reporter of the JCSS $\hspace{5.5em}$ The President of the JCSS  
+ Michael Faber $\hspace{9.5em}$ Ton Vrouwenvelder 
+

@@ -1,14 +1,10 @@
 # Models for physical behaviour
 
-here are my edits
-
 ## General
 
  Calculation models shall describe the structure and its behaviour up
  to the limit state under consideration, accounting for relevant
- actions and environmental influences. Models should
-
- generally be regarded as simplifications which take account of
+ actions and environmental influences. Models should generally be regarded as simplifications which take account of
  decisive factors and neglect the less important ones.
 
  One can often distinguish between:
@@ -43,7 +39,10 @@ here are my edits
 :label: eq4
 F = \varphi(F_0,W)
 ```
- where $\varphi$ is an appropriate function and
+
+ where, 
+
+ $\varphi$ is an appropriate function and
 
  $F_0$ is a basic action variable, often with time and space dependent
  variations (random or non-random) and is generally independent of the
@@ -52,17 +51,15 @@ F = \varphi(F_0,W)
  $W$ is a random or non-random variable or a random field which may
  depend on the structural properties and which transformes $F_0$ to $F$.
 
- Eq. {eq}`eq4` should be regarded as a symbolic expression where $F_0$ and $W$ may
+ {eq}`eq4` should be regarded as a symbolic expression where $F_0$ and $W$ may
  represent several variables.
 
  One example may be snow load where $F_0$ is the time dependent snow load
  on ground and $W$ is the conversion factor for snow load on ground to
  snow load on roof which normally is assumed to to be time independent.
 
- Further information on action models is provided in part 2. It is
- noted that action models may include material properties (earthquake
- action depends for example on material damping).
-
+ Further information on action models is provided in [part 2](../part-02/general-principles.md). It is noted that action models may include material properties (earthquake action depends for example on material damping). 
+ 
 ## Geometrical models
 
  A structure can generally be described by a model consisting of
@@ -71,9 +68,7 @@ F = \varphi(F_0,W)
  three-dimensional elements.
 
  The geometrical quantities which are included in the model generally
- refer to nominal values,
-
- i.e. the values given in drawings, descriptions etc. Normally, the
+ refer to nominal values, i.e. the values given in drawings, descriptions etc. Normally, the
  geometrical quantities of a real structure differ from their nominal
  values, i.e. the structure has geometrical imperfections. If the
  structural behaviour is sensitive to such imperfections, these shall
@@ -87,6 +82,7 @@ F = \varphi(F_0,W)
  *geometrically nonlinear* or *second order effects* and should be
  accounted for.
 
+(section-5.4)=
 ## Material models
 
  When strength or stiffness is considered the material model normally
@@ -94,7 +90,7 @@ F = \varphi(F_0,W)
  *costitutive relationships*. The parameters of such relations are
  modulus of elasticity, yield limit, ultimate strength etc. which
  generally are considered as random variables, Sometimes they are time
- dependent or space dependent. There is often an correlation between
+ dependent or space dependent. There is often a correlation between
  the parameters e.g. the modulus of elasticity and the ultimate
  strength of concrete.
 
@@ -104,17 +100,15 @@ F = \varphi(F_0,W)
  considered.
 
  Further information related to models of several material types is
- given in part 3.
+ given in [part 3](../part-03/general-principles.md).
 
 ## Mechanical models
 
  The following mechanical models may be classified
 
-1.  models describing static response
-
-2.  models decribing dynamic response
-
-3.  models for fatigue
+a)  models describing static response  
+b)  models decribing dynamic response  
+c)  models for fatigue
 
 a)  *models describing static response*
 
@@ -153,7 +147,7 @@ a)  *models describing static response*
 b)  *models for dynamic response*
 
  In most cases dynamic response of a structure is caused by a rapid
- variation of the magnitude, position or direction of an action
+ variation of the magnitude, position or direction of an action.
  However, a sudden change of the stiffness or resistance of a
  structural element may also cause dynamic behaviour.
 
@@ -170,14 +164,15 @@ c)  *models for fatigue*
  Fatigue models are used for the description of fatigue failures caused
  by fluctuating actions. Two types of models are distinguished:
 
-a)  S-N model based on experiments
+1)  S-N model based on experiments
 
-b)  fracture mechanics model
+2)  fracture mechanics model
 
  It is further noted here, that other types of degradation such as
  chemical attack or fire can modify the parameters entering the
  aforementioned models or the models themselves.
 
+(section-5.6)=
 ## Model uncertainties
 
  A calculation model is a physically based or empirical relation
@@ -200,8 +195,8 @@ Y = f(X_1,X_2,\dots ,X_n)
  simplification of the model, for the convenience of the designer. The
  difference between the model prediction and the real outcome of the
  experiment can be written down as:
-
-```{math}
+ 
+ ```{math}
 :label: eq6
 Y = f'(X_1\dots X_n,\theta_1\dots\theta_m)
 ```

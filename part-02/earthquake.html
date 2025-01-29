@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>20. Earthquake Load &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-02/earthquake';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="21. Impact Load" href="impact-load.html" />
+    <link rel="prev" title="19. Wave loads" href="wave-loads.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/earthquake.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/earthquake.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-02/earthquake.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Earthquake Load</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general">20.1. General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-seismic-hazard-assessment-psha">20.2. Probabilistic seismic hazard assessment (PSHA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-methodology-for-psha">20.2.1. General Methodology for PSHA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude-model">20.2.2. Magnitude model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attenuation-laws">20.2.3. Attenuation laws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-geometry-model">20.2.4. Source geometry model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-approach">20.2.5. Overall approach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ground-motions-ground-histories-and-associated-response">20.3. Ground motions ground histories and associated response</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-ground-acceleration-and-peak-ground-velocity">20.3.1. Peak ground acceleration and peak ground velocity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-motion-duration">20.3.2. Strong motion duration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-content">20.3.3. Frequency content</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-spectra">20.3.4. Response spectra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kanai-tajimi-spectrum">20.3.5. Kanai - Tajimi spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-magnitude-and-correlation-between-excitation-components">20.3.6. Relative Magnitude and Correlation between Excitation Components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-a-bayesian-updating-of-earthquake-occurrence-rates-and-magnitudes">20.4. Appendix A: Bayesian Updating of Earthquake Occurrence Rates and Magnitudes</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="earthquake-load">
+<h1><span class="section-number">20. </span>Earthquake Load<a class="headerlink" href="#earthquake-load" title="Link to this heading">#</a></h1>
+<section id="general">
+<h2><span class="section-number">20.1. </span>General<a class="headerlink" href="#general" title="Link to this heading">#</a></h2>
+<p>The two orthogonal horizontal components and the vertical component of the ground motion produced at a site by an earthquake provide the characterisation of the shaking.</p>
+<p>The ground motion representation for structural design may be one of the following:</p>
+<ol class="arabic simple">
+<li><p>Time histories</p></li>
+<li><p>Power spectral density</p></li>
+<li><p>Response spectra.</p></li>
+</ol>
+<p>Any of these representations can be site-dependent.</p>
+<p>A site dependent representation of the seismic input must be appropriate for the soil characteristic where the structure is located, as well as for the source mechanism and the geologic path from the source to the site.</p>
+<p>The time histories can be recorded or simulated. The power spectral density is the most representative function to describe the frequency content of the ground motion.</p>
+<p>The response spectra for a specified ground motion represents the maximum response of the single degree of freedom (SDOF) structure to that motion.</p>
+</section>
+<section id="probabilistic-seismic-hazard-assessment-psha">
+<h2><span class="section-number">20.2. </span>Probabilistic seismic hazard assessment (PSHA)<a class="headerlink" href="#probabilistic-seismic-hazard-assessment-psha" title="Link to this heading">#</a></h2>
+<section id="general-methodology-for-psha">
+<h3><span class="section-number">20.2.1. </span>General Methodology for PSHA<a class="headerlink" href="#general-methodology-for-psha" title="Link to this heading">#</a></h3>
+<p>Probabilistic seismic hazard assessment (PSHA) is related to the prediction of the strong ground motion likely to occur at a particular site. The general PSHA is based on the following methodology:</p>
+<ol class="arabic simple">
+<li><p>Identification of the independent sources of seismic activity and determination of the magnitude model (Gutenberg - Richter relationship) from contribution of each sources;</p></li>
+<li><p>Fitting the attenuation relationship on peak ground motion (or structural response) parameter, properly classified according to the soil category;</p></li>
+<li><p>Calculating the peak ground motion (or structural response) parameter at the site with probability of non-exceedance during a specified time period.</p></li>
+</ol>
+</section>
+<section id="magnitude-model">
+<h3><span class="section-number">20.2.2. </span>Magnitude model<a class="headerlink" href="#magnitude-model" title="Link to this heading">#</a></h3>
+<p>The usual expression relating earthquake magnitudes with their rates of occurrence is due to <span id="id1">[<a class="reference internal" href="#id172" title="B. Gutenberg and C. Richter. Frequencies of earthquakes in california. Bull. Seism Soc. Amer., 34:185-188, 1944.">20.01</a>]</span>. This relation is called “magnitude-frequency formula” and states that in a certain region and in a given period of time given an earthquake event:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-1">
+<span class="eqno">(20.1)<a class="headerlink" href="#equation-eq-earthquake-2-17-1" title="Link to this equation">#</a></span>\[\log N(M)=a-b~M\]</div>
+<p>where <span class="math notranslate nohighlight">\(N(M)\)</span> is the mean number of earthquakes per unit volume and per unit time having magnitude greater than <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are zone dependent constants. The parameter <span class="math notranslate nohighlight">\(a\)</span> depends on the period of observation and on the level of seismicity of the region, and consequently, varies widely from region to region, while <span class="math notranslate nohighlight">\(b\)</span> remains within a relatively narrow range (usually <span class="math notranslate nohighlight">\(b=1.0\)</span>).</p>
+<p>It follows that the magnitude <span class="math notranslate nohighlight">\(M\)</span> in a region has a truncated exponential distribution, i.e. for <span class="math notranslate nohighlight">\(M_{1} \leq M \leq M_{2}\)</span> the cumulative probability distribution (conditional upon <span class="math notranslate nohighlight">\(M&gt;M_{1}\)</span> ) is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-2">
+<span class="eqno">(20.2)<a class="headerlink" href="#equation-eq-earthquake-2-17-2" title="Link to this equation">#</a></span>\[F(M)=\frac{1-\exp \left[-\beta\left(M-M_{1}\right)\right]}{1-\exp \left[-\beta\left(M_{2}-M_{1}\right)\right]}\]</div>
+<p>in which:</p>
+<p><span class="math notranslate nohighlight">\(\beta=b \cdot \ln 10 \approx 2.30\)</span> (if <span class="math notranslate nohighlight">\(b=1.0\)</span>)</p>
+<p><span class="math notranslate nohighlight">\(M_{1}\)</span> is the smallest magnitude of engineering interest considered in the model (here <span class="math notranslate nohighlight">\(M_{1}=4.0\)</span> ). <span class="math notranslate nohighlight">\(M_{2}\)</span> is the largest magnitude event which can be expected in the region (here <span class="math notranslate nohighlight">\(M_{2}=8.0\)</span> ). Geophysical theories relate the upper value of the magnitude to the depth of the solid earth crust and some of its properties. Therefore, different (possibly uncertain) upper values may be assigned in different regions. <span class="math notranslate nohighlight">\(M_{2}\)</span> can be consequently considered also as a random variable or approximately obtained by the following relationship:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-3">
+<span class="eqno">(20.3)<a class="headerlink" href="#equation-eq-earthquake-2-17-3" title="Link to this equation">#</a></span>\[M_{2}=\left(1+r^{-1}\right) Y_{1}-r^{-1} Y_{r}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the number of considered earthquakes, <span class="math notranslate nohighlight">\(Y_{1}\)</span> is the largest value of magnitude till now and <span class="math notranslate nohighlight">\(Y_{r}\)</span> is the r-largest value</p>
+</section>
+<section id="attenuation-laws">
+<h3><span class="section-number">20.2.3. </span>Attenuation laws<a class="headerlink" href="#attenuation-laws" title="Link to this heading">#</a></h3>
+<p>There is a strong correlation between what happens at the source and at the site, specifically at the base of the structure. Generally, the intensity of the motion-at-the-site decreases with increasing distance <span class="math notranslate nohighlight">\(\Delta\)</span> between the site and the source and with decreasing magnitude. This is reflected in so-called attenuation laws which are based primarily on instrumental and other observed data. The general type of an attenuation law can be established from the theory of propagation of the various types of waves in elastic solid media. A rather general formulation of an attenuation law for the horizontal peak ground acceleration <span class="math notranslate nohighlight">\(A\)</span> in fraction of <span class="math notranslate nohighlight">\(g\)</span> in firm ground is the following:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-4">
+<span class="eqno">(20.4)<a class="headerlink" href="#equation-eq-earthquake-2-17-4" title="Link to this equation">#</a></span>\[A=b_{1} \cdot e^{b_{2}-M} \cdot(\Delta+k)^{-b_{3}} \cdot \varepsilon_{A}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta, k\)</span> are in <span class="math notranslate nohighlight">\(km, A\)</span> in fraction of <span class="math notranslate nohighlight">\(g, b_{1}, ~b_{2}, ~b_{3}\)</span> and <span class="math notranslate nohighlight">\(k\)</span> are constants which are varying in each seismic region. <span class="math notranslate nohighlight">\(\varepsilon_{A}\)</span> is a lognormal error term which takes into account the variability of the attenuation law. Relations of the above type present generally rather large dispersions and are not universally accepted. <a class="reference internal" href="#table-attenuation-laws-for-the-peak-ground-acceleration"><span class="std std-numref">Table 20.1</span></a> collects the proposed coefficients of some attenuation laws relevant for the indicated region. Unfortunately, for the most of them no information related to the residual error is given, but <span class="math notranslate nohighlight">\(\mu\left(\varepsilon_{A}\right)=1` and the coefficient of variation \)</span>V\left(\varepsilon_{A}\right)` can be presumed not to be less than 0.20 .</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-attenuation-laws-for-the-peak-ground-acceleration">
+<caption><span class="caption-number">Table 20.1 </span><span class="caption-text">Attenuation Laws for the peak ground acceleration A (in fraction of g )</span><a class="headerlink" href="#table-attenuation-laws-for-the-peak-ground-acceleration" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Region</p></th>
+<th class="head text-center"><p>Literature</p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(b_{1}\)</span> <br> <span class="math notranslate nohighlight">\([g]\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(b_{2}\)</span> <br> <span class="math notranslate nohighlight">\([-]\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(b_{3}\)</span> <br> <span class="math notranslate nohighlight">\([-]\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(k\)</span> <br> <span class="math notranslate nohighlight">\([km]\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(V\left(\varepsilon_{A}\right)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>California <br> USA</p></td>
+<td class="text-center"><p><span id="id2">[<a class="reference internal" href="#id169" title="N.C. Donovan. A statistical evaluation of strong motion data including the february 9. 1971, san fernando earthquake. In Proc. of 5th WCEE, 1252-1261. Rome, Italy, 1973.">20.02</a>]</span></p></td>
+<td class="text-center"><p>1.1</p></td>
+<td class="text-center"><p>0.51</p></td>
+<td class="text-center"><p>1.32</p></td>
+<td class="text-center"><p>25</p></td>
+<td class="text-center"><p>0.71</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>California</p></td>
+<td class="text-center"><p><span id="id3">[<a class="reference internal" href="#id176" title="R.K. Mc Guire. Seismic structural response risk analysis, incorporating peak response regressions on earthquake magnitude and distance. Massachusets Inst of Technol., Dep. of Civ. Eng. Res. Rpt., 1974.">20.03</a>]</span></p></td>
+<td class="text-center"><p>0.48</p></td>
+<td class="text-center"><p>0.64</p></td>
+<td class="text-center"><p>1.3</p></td>
+<td class="text-center"><p>25</p></td>
+<td class="text-center"><p>0.22</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>California and <br> Central America</p></td>
+<td class="text-center"><p><span id="id4">[<a class="reference internal" href="#id171" title="L. Esteva and R. Villaverde. Seismic risk, design spectra and structural reliability. In Proc 5 WCEE, 2586-2597. Rome, 1973.">20.04</a>]</span></p></td>
+<td class="text-center"><p>5.7</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>2</p></td>
+<td class="text-center"><p>40</p></td>
+<td class="text-center"><p>0.64</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>California <span class="math notranslate nohighlight">\({ }^{* 1}\)</span></p></td>
+<td class="text-center"><p><span id="id5">[<a class="reference internal" href="#id165" title="K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. BSSA, 1981.">20.05</a>]</span></p></td>
+<td class="text-center"><p>0.016</p></td>
+<td class="text-center"><p>0.868</p></td>
+<td class="text-center"><p>1.09</p></td>
+<td class="text-center"><p>2.007</p></td>
+<td class="text-center"><p>0.24</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Canada</p></td>
+<td class="text-center"><p><span id="id6">[<a class="reference internal" href="#id177" title="W.G. Milne and A.G. Davenport. Distribution of earthquake risk in canada. Bull Seism. Soc. Amer., 59(2):754-799, 1969.">20.06</a>]</span></p></td>
+<td class="text-center"><p>0.04</p></td>
+<td class="text-center"><p>0.99</p></td>
+<td class="text-center"><p>1.39</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Canada</p></td>
+<td class="text-center"><p>Davenport (1972)</p></td>
+<td class="text-center"><p>0.279</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>1.64</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Japan</p></td>
+<td class="text-center"><p><span id="id7">[<a class="reference internal" href="#id173" title="T. Katayama and M. Saeki. Statistical analysis of earthquake acceleration response spectra. In Proc. of ISCE, number 275. 1978. in Japanese.">20.07</a>]</span></p></td>
+<td class="text-center"><p>0.02</p></td>
+<td class="text-center"><p>0.7</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Taiwan</p></td>
+<td class="text-center"><p><span id="id8">[<a class="reference internal" href="#id175" title="S.T. Mau and C.S Kao. A risk model for seismic zoning in taiwan. In Proc. of 2 Intern. Conf. on Microzonation, volume 1, 367-378. San Francisco, 1978.">20.08</a>]</span></p></td>
+<td class="text-center"><p>0.38</p></td>
+<td class="text-center"><p>0.876</p></td>
+<td class="text-center"><p>1.836</p></td>
+<td class="text-center"><p>20</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>South Africa</p></td>
+<td class="text-center"><p><span id="id9">[<a class="reference internal" href="#id170" title="N.C. Donovan and A.E. Bornstein. The problems of uncertainties in the use of seismic risk procedures in use of probabilities in earthquake engineering. In ASCE, Spec. Publ., 1-36. 1977.">20.09</a>]</span></p></td>
+<td class="text-center"><p>0.073</p></td>
+<td class="text-center"><p>0.756</p></td>
+<td class="text-center"><p>1.01</p></td>
+<td class="text-center"><p>25</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Central Europe</p></td>
+<td class="text-center"><p><span id="id10">[<a class="reference internal" href="#id163" title="L. Ahorner and W. Rosenhauer. Probability distribution of earthquake accelerations with applications to sites in the northern rhine area, central europe. Journ. Geophys., 41:581-594, 1975.">20.010</a>]</span></p></td>
+<td class="text-center"><p>1.28</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>2.0</p></td>
+<td class="text-center"><p>13</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Greece</p></td>
+<td class="text-center"><p><span id="id11">[<a class="reference internal" href="#id174" title="K. Makropoulos. The Statistics of Large Earthquake Magnitude and an Evaluation of Greek Seismicity. PhD thesis, University of Edinburgh, Scotland, 1978.">20.011</a>]</span></p></td>
+<td class="text-center"><p>2.2</p></td>
+<td class="text-center"><p>0.7</p></td>
+<td class="text-center"><p>1.8</p></td>
+<td class="text-center"><p>20</p></td>
+<td class="text-center"><p>0.50</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>Switzerland <span class="math notranslate nohighlight">\({ }^{* 1}\)</span></p></td>
+<td class="text-center"><p><span id="id12">[<a class="reference internal" href="#id179" title="A. Ziegler. Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.">20.012</a>]</span></p></td>
+<td class="text-center"><p>0.016</p></td>
+<td class="text-center"><p>0.868</p></td>
+<td class="text-center"><p>0.95</p></td>
+<td class="text-center"><p>2.649</p></td>
+<td class="text-center"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>Italy <span class="math notranslate nohighlight">\({ }^{* 2}\)</span></p></td>
+<td class="text-center"><p><span id="id13">[<a class="reference internal" href="#id178" title="F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. Bull Seismol. Soc. Amer., 77:1491-15233, 1987.">20.013</a>]</span></p></td>
+<td class="text-center"><p>0.014</p></td>
+<td class="text-center"><p>0.363</p></td>
+<td class="text-center"><p>0.5</p></td>
+<td class="text-center"><p>25</p></td>
+<td class="text-center"><p>0.20</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<p>*1) In difference to eq. <a class="reference internal" href="#equation-eq-earthquake-2-17-4">(20.4)</a>, the attenuation laws proposed by <span id="id14">[<a class="reference internal" href="#id165" title="K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. BSSA, 1981.">20.05</a>]</span> and <span id="id15">[<a class="reference internal" href="#id179" title="A. Ziegler. Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.">20.012</a>]</span> are defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-5">
+<span class="eqno">(20.5)<a class="headerlink" href="#equation-eq-earthquake-2-17-5" title="Link to this equation">#</a></span>\[A=b_{1} \cdot e^{b_{2}-M} \cdot(R+k)^{-b_{3}} \cdot \varepsilon_{A}\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> is the epicentral distance in <span class="math notranslate nohighlight">\(km\)</span>.</p>
+<p>*2) The attenuation law by <span id="id16">[<a class="reference internal" href="#id178" title="F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. Bull Seismol. Soc. Amer., 77:1491-15233, 1987.">20.013</a>]</span> is the following:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-6">
+<span class="eqno">(20.6)<a class="headerlink" href="#equation-eq-earthquake-2-17-6" title="Link to this equation">#</a></span>\[A=b_{1} \cdot e^{b_{2}-M} \cdot\left(\Delta^{2}+k\right)^{-b_{3}} \cdot \varepsilon_{A}\]</div>
+</section>
+<section id="source-geometry-model">
+<h3><span class="section-number">20.2.4. </span>Source geometry model<a class="headerlink" href="#source-geometry-model" title="Link to this heading">#</a></h3>
+<p>The source may generally be taken as a spatial random variable. The focus is the point where earthquake motion starts to be generated in the event. The focal distance is taken as the distance between focus and site.</p>
+<p>If there are well-defined fault-lines it may be assumed that the focus occurs anywhere along the fault-line with equal probability. The focus may be understood as the center of the rupture zone. The focal distance can also be taken as the closest distance between rupture zone and site. The rupture length <span class="math notranslate nohighlight">\(l\)</span> may be taken as a fraction of the earthquake magnitude according to: <span class="math notranslate nohighlight">\(l=\exp \left(c_{1} . M-c_{2}\right)\)</span> with <span class="math notranslate nohighlight">\(c_{1}\)</span> and <span class="math notranslate nohighlight">\(c_{2}\)</span> coefficients characteristic for the fault <span id="id17">[<a class="reference internal" href="#id167" title="A. Der Kiureghian and A. Ang. A fault rupture model for seismic risk analysis. Ball. Seis. Soc. Amer., 67(4):1173-1194, 1977.">20.014</a>]</span>.</p>
+<p>In many geographical regions fault locations and their activity are not known; existing data are so sparse that a division of a seismic region into faults or other active zones would be meaningless and unreliable. In addition one should consider that in regions with very high seismicity earthquakes occur practically everywhere.</p>
+<p>The focal distance <span class="math notranslate nohighlight">\(\Delta\)</span> is a function of the horizontal distance <span class="math notranslate nohighlight">\(R\)</span> from focus to site and of the epicentral depth <span class="math notranslate nohighlight">\(H\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-7">
+<span class="eqno">(20.7)<a class="headerlink" href="#equation-eq-earthquake-2-17-7" title="Link to this equation">#</a></span>\[\Delta=\left(R^{2}+H^{2}\right)^{1 / 2}\]</div>
+<p>The distribution of the horizontal distance <span class="math notranslate nohighlight">\(R\)</span> from the focus can be calculated under the assumption that focus locations are uniformly distributed over identified regions of homogeneous seismicity (seismotectonic province). For the focal depth a lognormal distribution is considered.</p>
+</section>
+<section id="overall-approach">
+<h3><span class="section-number">20.2.5. </span>Overall approach<a class="headerlink" href="#overall-approach" title="Link to this heading">#</a></h3>
+<p><span class="math notranslate nohighlight">\(\underline{\text{Life time probability distributions}}\)</span></p>
+<p>In good approximation, earthquakes occur according to a poisson process with mean occurrence rate <span class="math notranslate nohighlight">\(\nu\)</span>. Although physical considerations suggest certain dependence between consecutive events. The exceedance probability <span class="math notranslate nohighlight">\(P[A \geq a]\)</span> in a reference period <span class="math notranslate nohighlight">\(T\)</span> per unit area can be then estimated by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-8">
+<span class="eqno">(20.8)<a class="headerlink" href="#equation-eq-earthquake-2-17-8" title="Link to this equation">#</a></span>\[P[~A \geq a]=1-\exp \left(-\nu \cdot T P^{\prime}[A \geq a]\right)\]</div>
+<p><span class="math notranslate nohighlight">\(\nu=\)</span> number of earthquakes with <span class="math notranslate nohighlight">\(M&gt;M_{1}\)</span> per unit of time (occurrence rate)</p>
+<p><span class="math notranslate nohighlight">\(T=\)</span> period of time</p>
+<p><span class="math notranslate nohighlight">\(P^{\prime}[A&gt;a]=\)</span> probability of <span class="math notranslate nohighlight">\(A&gt;a\)</span> given an earthquake with <span class="math notranslate nohighlight">\(M&gt;M_{1}\)</span> in one source area</p>
+<p>The statistical uncertainty in the estimate of <span class="math notranslate nohighlight">\(\nu\)</span> is very important, particularly if the observation records cover only a short period of time or the seismicity is relative small and consequently a Bayesian model to the description of the uncertainties of <span class="math notranslate nohighlight">\(\nu\)</span> is recommended (see <a class="reference internal" href="#section-appendix-a"><span class="std std-ref">Appendix A</span></a>). The following simplified expression is proposed by <span id="id18">[<a class="reference internal" href="#id164" title="J.R. Benjamin. Probabilistic models for seismic force design. Journ. Struc. Div ASCE, 94(ST5):1174-1195, 1968.">20.015</a>]</span> for the mean occurrence rate <span class="math notranslate nohighlight">\(\nu\)</span> derived from Bayes’ theorem:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-9">
+<span class="eqno">(20.9)<a class="headerlink" href="#equation-eq-earthquake-2-17-9" title="Link to this equation">#</a></span>\[-\nu \cdot T=\ln \left(\frac{1}{\left(1+\frac{T}{\tau}\right)^{n+1}}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of earthquakes observed in the passed time <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\underline{\text { Different potential earthquake sources }}\)</span></p>
+<p>In general, different potential earthquake sources must be considered simultaneously. If, for example, a site is affected by more than one ring segment then the probability <span class="math notranslate nohighlight">\(P[A \geq a]\)</span> is obtained by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-10">
+<span class="eqno">(20.10)<a class="headerlink" href="#equation-eq-earthquake-2-17-10" title="Link to this equation">#</a></span>\[P[A \geq a]=1-\prod_{i=l}^{m}\left(1-P_{i}[A \geq a]\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the number of the earthquake sources and <span class="math notranslate nohighlight">\(P_{i}[A \geq a]\)</span> the exceedance probability for each source.</p>
+</section>
+</section>
+<section id="ground-motions-ground-histories-and-associated-response">
+<h2><span class="section-number">20.3. </span>Ground motions ground histories and associated response<a class="headerlink" href="#ground-motions-ground-histories-and-associated-response" title="Link to this heading">#</a></h2>
+<section id="peak-ground-acceleration-and-peak-ground-velocity">
+<h3><span class="section-number">20.3.1. </span>Peak ground acceleration and peak ground velocity<a class="headerlink" href="#peak-ground-acceleration-and-peak-ground-velocity" title="Link to this heading">#</a></h3>
+<p>The earthquake ground motion at a given site can be assumed on a stationary Gaussian process.</p>
+<p>Recorded ground motions should be digitised at a time interval of <span class="math notranslate nohighlight">\(0.005 \mathrm{~s}\)</span>. Afterwards the correction procedure apply zero base-line, instrument correction and filters. The corrected accelerograms are integrated to find velocity and displacement time-histories.</p>
+<p>The main characteristics of the ground motion time history are:</p>
+<ol class="arabic simple">
+<li><p>Peak ground acceleration (PGA) and corresponding peak velocity (PGV) and peak displacement (PGD);</p></li>
+<li><p>Frequency content;</p></li>
+<li><p>Motion duration.</p></li>
+</ol>
+<p>The peak ground acceleration is the amplitude of ground acceleration. The peak ground velocity is the amplitude of ground velocity. Both parameters are very simple measures of severity of the ground shaking.</p>
+<p>PGA and PGV recorded at a site during an earthquake are random variables and they should be defined with a specified probability to be exceeded on a certain area during a specified time interval.</p>
+</section>
+<section id="strong-motion-duration">
+<h3><span class="section-number">20.3.2. </span>Strong motion duration<a class="headerlink" href="#strong-motion-duration" title="Link to this heading">#</a></h3>
+<p>The strong motion duration is defined as the time interval between two specified fractions of the total energy of accelerogram:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-11">
+<span class="eqno">(20.11)<a class="headerlink" href="#equation-eq-earthquake-2-17-11" title="Link to this equation">#</a></span>\[E_{\text {tot }}=\int_{0}^{t_d}[a(t)]^{2} d t\]</div>
+<p>The cumulative energy of accelerogram monotonically increases from zero toward the total energy accumulated during the total duration of the motion <span class="math notranslate nohighlight">\(t_{d}\)</span>. The specified fractions can be: <span class="math notranslate nohighlight">\(0.05 \div 0.95,0.15 \div 0.85,0.05 \div 0.75,0.10 \div 0.90\)</span>, etc.</p>
+<p>The strong motion duration represents the time interval over which the motion power is almost constant and near its maximum (the power is the slope of the cumulative energy plot). Hence different strong motion duration definitions can be used for different seismic records.</p>
+<p>For simulated accelerograms, the durations of the strong phase of the motion and of the transient motions can be described by linear duration enveloping functions, <span class="math notranslate nohighlight">\(I(t)\)</span> multiplying the stationary acceleration:</p>
+<p>Rise time <span class="math notranslate nohighlight">\(t_{r}\)</span> <span class="math notranslate nohighlight">\(\hspace{10em}\)</span> <span class="math notranslate nohighlight">\(t \leq t_{r}\)</span> <span class="math notranslate nohighlight">\(\hspace{10em}\)</span> <span class="math notranslate nohighlight">\(I(t)=t / t_{r}\)</span></p>
+<p>Strong motion duration, <span class="math notranslate nohighlight">\(t_{m}\)</span> <span class="math notranslate nohighlight">\(\hspace{4.3em}\)</span> <span class="math notranslate nohighlight">\(t_{r}&lt;t&lt;t_{r}+t_{m}\)</span> <span class="math notranslate nohighlight">\(\hspace{5.8em}\)</span> <span class="math notranslate nohighlight">\(I(t)=1.0\)</span></p>
+<p>Decay time <span class="math notranslate nohighlight">\(\hspace{10.4em}\)</span> <span class="math notranslate nohighlight">\(t \geq t_{r}-t_{m}\)</span> <span class="math notranslate nohighlight">\(\hspace{7.8em}\)</span> <span class="math notranslate nohighlight">\(I(t)=-t / t_{r}+t_{d} /\left(t_{r}+t_{m}\right)\)</span></p>
+<p>The above time intervals depend on the intensity of the ground shaking. For rock conditions and magnitudes of order of <span class="math notranslate nohighlight">\(M=5.5 \div 7.5\)</span>, one may assume <span class="math notranslate nohighlight">\(t_{r}=1-3 ~s, t_{m}=5-15 ~s\)</span> and <span class="math notranslate nohighlight">\(\text{decay time}~4-10 ~s\)</span>.</p>
+</section>
+<section id="frequency-content">
+<h3><span class="section-number">20.3.3. </span>Frequency content<a class="headerlink" href="#frequency-content" title="Link to this heading">#</a></h3>
+<p>The frequency content of ground motion is the crucial concept for the understanding of the mechanism of ground motion to damage structures. The maximum values of structure response are when the structure frequency and the major part of the frequency content of ground motion fall in the same frequency band.</p>
+<p>The frequency content can be described:</p>
+<ol class="arabic simple">
+<li><p>Directly, by density of the variance spectrum (PSD), obtained from stochastic modelling of the acceleration process;</p></li>
+<li><p>Indirectly, by the response spectra obtained from numerical integration of the motion equation for the SDOF structure;</p></li>
+</ol>
+<p>The stochastic measures of frequency content are related to the power spectral density function of stationary segment of the ground motion. They are:</p>
+<ol class="arabic simple">
+<li><p>The dimensionless indicators <span class="math notranslate nohighlight">\(\varepsilon\)</span> (Cartwright &amp; Longuet - Higgins) and <span class="math notranslate nohighlight">\(q\)</span> (Vanmarcke);</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(f_{10} f_{50}\)</span> and <span class="math notranslate nohighlight">\(f_{90}\)</span> fractile frequencies below which <span class="math notranslate nohighlight">\(10 \%, 50 \%\)</span> and <span class="math notranslate nohighlight">\(90 \%\)</span> of the total cumulative power of PSD occur and the frequencies <span class="math notranslate nohighlight">\(f_{1} f_{2}\)</span> and <span class="math notranslate nohighlight">\(f_{3}\)</span> corresponding to the highest 1, 2, 3 peaks of the PSD.</p></li>
+</ol>
+<p>The <span class="math notranslate nohighlight">\(\varepsilon\)</span> and frequency bandwidth measures are defined as functions of the spectral moments of the one-side spectral density of the stationary process of ground acceleration, <span class="math notranslate nohighlight">\(G(\varpi)\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-12">
+<span class="eqno">(20.12)<a class="headerlink" href="#equation-eq-earthquake-2-17-12" title="Link to this equation">#</a></span>\[\begin{split}\begin{array}{ll}
+\varepsilon=\left(1-\lambda_{2}^{2} / \lambda_{0}~\lambda_{4}\right)^{1 / 2} &amp; \qquad 0 \leq \varepsilon \leq 1 \\
+q=\left(1-\lambda_{1}^{2} / \lambda_{0}~\lambda_{2}\right)^{1 / 2} &amp; \qquad 0 \leq q \leq 1
+\end{array}\end{split}\]</div>
+<p>where the spectral moment of order <span class="math notranslate nohighlight">\(i~(i=1,2 \ldots\ldots)\)</span> is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-13">
+<span class="eqno">(20.13)<a class="headerlink" href="#equation-eq-earthquake-2-17-13" title="Link to this equation">#</a></span>\[\lambda=\int_{0}^{\varpi} \varpi^{1} G(\varpi) d \varpi\]</div>
+<p>Wide frequency band processes have <span class="math notranslate nohighlight">\(\varepsilon\)</span> values close to 2/3 and smaller than 0.85 .</p>
+<p>Narrow frequency band seismic - processes of long predominant period (i.e. superposition of a single harmonic process at a short predominant frequency, <span class="math notranslate nohighlight">\(f_{p}\)</span> and a wide band process) are characterised by <span class="math notranslate nohighlight">\(\varepsilon\)</span> values greater than 0.95 .</p>
+<p>The RMS value of the ground acceleration process is the square root of a 0 -order spectral moment <span class="math notranslate nohighlight">\(\lambda_{0}{ }^{1 / 2}\)</span> and is very sensitive to the strong motion duration definition.</p>
+<p>Cumulative power of the PSD is defined by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-14">
+<span class="eqno">(20.14)<a class="headerlink" href="#equation-eq-earthquake-2-17-14" title="Link to this equation">#</a></span>\[\operatorname{Cum} G\left(\varpi_{1}\right)=\int_{0}^{\varpi \text { cut-off }} G(\varpi) d \varpi\]</div>
+<p>where the cut-off frequency is the reverse of the double of time internal used in process digitisation.</p>
+<p>The duration for computing PSD of the stationary segment of the acceleration process should be selected as <span class="math notranslate nohighlight">\(D=T_{0,9}-T_{0,1}\)</span>, where <span class="math notranslate nohighlight">\(T_{0,9}\)</span> and <span class="math notranslate nohighlight">\(T_{0,1}\)</span> are the times at which <span class="math notranslate nohighlight">\(90 \%\)</span> and <span class="math notranslate nohighlight">\(10 \%\)</span> of the total cumulative energy of the accelerogram are reached. Alternative duration definitions are: <span class="math notranslate nohighlight">\(D=T_{0.95}-T_{0.05}\)</span> or <span class="math notranslate nohighlight">\(D=T_{0.9}-T_{0.05}\)</span>.</p>
+<p>For simulating time-histories, a minimum power spectral density compatible with a specified response spectra functions must be recommended.</p>
+<p>The deterministic measures of frequency content are related to the structure maximum response to the ground motion. They are the control frequencies and corresponding control periods:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-15">
+<span class="eqno">(20.15)<a class="headerlink" href="#equation-eq-earthquake-2-17-15" title="Link to this equation">#</a></span>\[f_{C}=\frac{1}{T_{C}}=\frac{1 S A_{\text {max }}}{2 \pi S V_{\text {max }}}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-16">
+<span class="eqno">(20.16)<a class="headerlink" href="#equation-eq-earthquake-2-17-16" title="Link to this equation">#</a></span>\[f_{D}=\frac{1}{T_{D}}=\frac{1 S V \text { max }}{2 \pi S D_{\text {max }}}\]</div>
+<p><span class="math notranslate nohighlight">\(f_{C}\)</span> is the border between the maximum acceleration branch and the maximum velocity branch of response spectra and <span class="math notranslate nohighlight">\(f_{D}\)</span> is the border between the maximum velocity branch and maximum displacement branch of response spectra.</p>
+<p>SD, SV and SA are respectively the relative displacement, relative velocity and absolute acceleration spectra of the SDOF structure response.</p>
+<p>For classifying the frequency content of the accelerogram the most significant measures are:</p>
+<ol class="arabic simple">
+<li><p>the control frequency <span class="math notranslate nohighlight">\(f_{c}\)</span></p></li>
+<li><p>the indicator <span class="math notranslate nohighlight">\(\varepsilon\)</span> and</p></li>
+<li><p>the frequency bandwidth <span class="math notranslate nohighlight">\(f_{10}-f_{50}-f_{90}\)</span></p></li>
+<li><p>the first peak of PSD <span class="math notranslate nohighlight">\(f_{1}\)</span></p></li>
+</ol>
+<p>The correlation between median frequency <span class="math notranslate nohighlight">\(f_{50}\)</span> and the control frequency <span class="math notranslate nohighlight">\(f_{C}\)</span> was found very strong but the stability of control frequency is better than that of the median frequency.</p>
+</section>
+<section id="response-spectra">
+<h3><span class="section-number">20.3.4. </span>Response spectra<a class="headerlink" href="#response-spectra" title="Link to this heading">#</a></h3>
+<p>Response spectra from the time history must be completed at sufficient frequency (period) intervals to have a good fit to the solution of spectral ordinates.</p>
+<p>Since the PGA and PGV are not sufficiently consistent scaling factors for the spectral values of the both acceleration and velocity, the effective peak acceleration (EPA) and effective peak velocity (EPV) are recommended to be considered as normalizing factors for response spectra.</p>
+<p>The EPA is defined as the average of the maximum ordinates of acceleration spectra in the period range of 0.1 to 0.5 seconds, devided by a standard (mean) value of 2.5 (for 5% damping):</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-17">
+<span class="eqno">(20.17)<a class="headerlink" href="#equation-eq-earthquake-2-17-17" title="Link to this equation">#</a></span>\[EPA=\frac{\text { mean of } S A_{0.1+0.5}(\xi=0.05)}{2.5}\]</div>
+<p>The EPA is defined as the average of the maximum ordinates of velocity spectra in the period range of 0.8 to 1.2 seconds, divided by the same standard value of 2.5 (for 5% damping).</p>
+</section>
+<section id="kanai-tajimi-spectrum">
+<h3><span class="section-number">20.3.5. </span>Kanai - Tajimi spectrum<a class="headerlink" href="#kanai-tajimi-spectrum" title="Link to this heading">#</a></h3>
+<p>A powerful concept of explaining the mechanism of earthquakes is the so-called elasticrebound theory where gradually built-up strains and stresses in the crustal structure of the earth suddenly exceed the strength of material in a fault and so causing a sequence of rapid global and local displacements along a certain length of the fault. It is then assumed that this sequence of displacements form a Gaussian while noise generating two types of body waves (dilatation waves or primary waves and shear waves or secondary waves) but also surface waves. Clearly, the variance of the white noise process should be directly related to the magnitude. P- (primary) waves travel faster than S- (secondly) waves which, at a given site, are followed by the slower surface waves. In the contrary, the frequencies decrease from Pwaves over S- waves to surface waves while acceleration amplitudes appear to be largest for S- waves. During their travel through the various crustal layers the various earthquake waves are modified differently by multiple filterings, reflections, refractions and attenuations so that the dominating frequency of acceleration at the site decreases with increasing focal distance and increasing magnitude. On the other hand, the duration of an earthquake increases with focal distance and magnitude according to the physical model.</p>
+<p>Among others Kanai and Tajimi assumed that the earthquake accelerations process at a given site can be taken as the outcome of a simple one-degree-of-freedom oscillator driven by stationary Gaussian while noise in the so-called strong motion phase and damping properties depending on the soil surrounding the site under investigation. In particular, if (one-sided) spectral density has form</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-18">
+<span class="eqno">(20.18)<a class="headerlink" href="#equation-eq-earthquake-2-17-18" title="Link to this equation">#</a></span>\[G_{A}(\omega)=\frac{G_{o}\left[1+4 \zeta_{g}^{2}\left(\omega / \omega_{g}\right)^{2}\right]}{\left[1-\left(\omega / \omega_{g}\right)^{2}\right]^{2}+4 \zeta_{g}^{2}\left(\omega / \omega_{g}\right)^{2}}\]</div>
+<p>in which <span class="math notranslate nohighlight">\(G_{o}\)</span> is a scaling factor, <span class="math notranslate nohighlight">\(\omega_{g}\)</span> the dominating incoming natural frequency and representative <span class="math notranslate nohighlight">\(\zeta_{g}\)</span> the damping ratio of the surrounding soil and whose variance can be determined to be</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-19">
+<span class="eqno">(20.19)<a class="headerlink" href="#equation-eq-earthquake-2-17-19" title="Link to this equation">#</a></span>\[\lambda_{o}=\sigma_{A}^{2}=\int_{0}^{\infty} G_{A}(\varpi) d \varpi=\frac{\pi G_{0} \omega_{g}}{4 \zeta_{g}}\left(1+4 \zeta_{g}^{2}\right)\]</div>
+<p>while higher spectral moments may be evaluated from <a class="reference internal" href="#equation-eq-earthquake-2-17-11">(20.11)</a></p>
+<p>The scaling factor is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-20">
+<span class="eqno">(20.20)<a class="headerlink" href="#equation-eq-earthquake-2-17-20" title="Link to this equation">#</a></span>\[G_{0}=\frac{A^{2} 2 \zeta_{g} \omega_{g}^{3}}{\pi \ln \left(2.8 \frac{\omega_{g} s}{2 \pi}\right)}\]</div>
+</section>
+<section id="relative-magnitude-and-correlation-between-excitation-components">
+<h3><span class="section-number">20.3.6. </span>Relative Magnitude and Correlation between Excitation Components<a class="headerlink" href="#relative-magnitude-and-correlation-between-excitation-components" title="Link to this heading">#</a></h3>
+<p>Rotational excitations generally can be neglected. Horizontal and vertical accelerations can be assumed independent as well as any two orthogonal horizontal components which is exactly true for the radial and tangential components for shear waves. The intensity parameter for vertical accelerations is roughly equal to the corresponding one for horizontal motions for small epicentral distances (≈ 20 km) and falls off down to 50 to 30% for larger epicentral distances on firm grounds. On soft grounds vertical motions can generally be disregarded. For all translational components the same type of spectral density function can be used.</p>
+<p>Given an earthquake ground accelerations are spatially correlated at any point in time. The following form of the auto-correlation function is suggested: <span class="math notranslate nohighlight">\(\rho(r)=\exp \left[-\alpha r^{2}\right]\)</span> where <span class="math notranslate nohighlight">\(r\)</span> is the distance in <span class="math notranslate nohighlight">\([m]\)</span> between <span class="math notranslate nohighlight">\(10^{-6}\)</span> (for firm ground) and <span class="math notranslate nohighlight">\(10^{-7}\)</span> (for soft ground). For <span class="math notranslate nohighlight">\(r&lt;100 ~m\)</span> full correlation may be assumed.</p>
+<p><strong>References</strong></p>
+<div class="docutils container" id="id19">
+<div role="list" class="citation-list">
+<div class="citation" id="id172" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">20.01</a><span class="fn-bracket">]</span></span>
+<p>B. Gutenberg and C. Richter. Frequencies of earthquakes in california. <em>Bull. Seism Soc. Amer.</em>, 34:185–188, 1944.</p>
+</div>
+<div class="citation" id="id169" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">20.02</a><span class="fn-bracket">]</span></span>
+<p>N.C. Donovan. A statistical evaluation of strong motion data including the february 9. 1971, san fernando earthquake. In <em>Proc. of 5th WCEE</em>, 1252–1261. Rome, Italy, 1973.</p>
+</div>
+<div class="citation" id="id176" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">20.03</a><span class="fn-bracket">]</span></span>
+<p>R.K. Mc Guire. Seismic structural response risk analysis, incorporating peak response regressions on earthquake magnitude and distance. <em>Massachusets Inst of Technol., Dep. of Civ. Eng. Res. Rpt.</em>, 1974.</p>
+</div>
+<div class="citation" id="id171" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">20.04</a><span class="fn-bracket">]</span></span>
+<p>L. Esteva and R. Villaverde. Seismic risk, design spectra and structural reliability. In <em>Proc 5 WCEE</em>, 2586–2597. Rome, 1973.</p>
+</div>
+<div class="citation" id="id165" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>20.05<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id14">2</a>)</span>
+<p>K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. <em>BSSA</em>, 1981.</p>
+</div>
+<div class="citation" id="id177" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">20.06</a><span class="fn-bracket">]</span></span>
+<p>W.G. Milne and A.G. Davenport. Distribution of earthquake risk in canada. <em>Bull Seism. Soc. Amer.</em>, 59(2):754–799, 1969.</p>
+</div>
+<div class="citation" id="id173" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">20.07</a><span class="fn-bracket">]</span></span>
+<p>T. Katayama and M. Saeki. Statistical analysis of earthquake acceleration response spectra. In <em>Proc. of ISCE</em>, number 275. 1978. in Japanese.</p>
+</div>
+<div class="citation" id="id175" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">20.08</a><span class="fn-bracket">]</span></span>
+<p>S.T. Mau and C.S Kao. A risk model for seismic zoning in taiwan. In <em>Proc. of 2 Intern. Conf. on Microzonation</em>, volume 1, 367–378. San Francisco, 1978.</p>
+</div>
+<div class="citation" id="id170" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">20.09</a><span class="fn-bracket">]</span></span>
+<p>N.C. Donovan and A.E. Bornstein. The problems of uncertainties in the use of seismic risk procedures in use of probabilities in earthquake engineering. In <em>ASCE, Spec. Publ.</em>, 1–36. 1977.</p>
+</div>
+<div class="citation" id="id163" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">20.010</a><span class="fn-bracket">]</span></span>
+<p>L. Ahorner and W. Rosenhauer. Probability distribution of earthquake accelerations with applications to sites in the northern rhine area, central europe. <em>Journ. Geophys.</em>, 41:581–594, 1975.</p>
+</div>
+<div class="citation" id="id174" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">20.011</a><span class="fn-bracket">]</span></span>
+<p>K. Makropoulos. <em>The Statistics of Large Earthquake Magnitude and an Evaluation of Greek Seismicity</em>. PhD thesis, University of Edinburgh, Scotland, 1978.</p>
+</div>
+<div class="citation" id="id179" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>20.012<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id12">1</a>,<a role="doc-backlink" href="#id15">2</a>)</span>
+<p>A. Ziegler. <em>Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum</em>. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.</p>
+</div>
+<div class="citation" id="id178" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>20.013<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id13">1</a>,<a role="doc-backlink" href="#id16">2</a>)</span>
+<p>F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. <em>Bull Seismol. Soc. Amer.</em>, 77:1491–15233, 1987.</p>
+</div>
+<div class="citation" id="id167" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">20.014</a><span class="fn-bracket">]</span></span>
+<p>A. Der Kiureghian and A. Ang. A fault rupture model for seismic risk analysis. <em>Ball. Seis. Soc. Amer.</em>, 67(4):1173–1194, 1977.</p>
+</div>
+<div class="citation" id="id164" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">20.015</a><span class="fn-bracket">]</span></span>
+<p>J.R. Benjamin. Probabilistic models for seismic force design. <em>Journ. Struc. Div ASCE</em>, 94(ST5):1174–1195, 1968.</p>
+</div>
+</div>
+</div>
+<p><strong>Additional References</strong></p>
+<ol class="arabic simple">
+<li><p>Cornell, C.A., 1971, Probabilistic Analysis of Damage to Structures under Seismic Loads, Dynamic Waves in Civil Engineering, Wiley-Interscience (edited by D.A. Howells, I.P. Haigh and C. Taylor), Great Britain.</p></li>
+<li><p>Der Kiureghian, A., 1981, Seismic Risk Analysis of Structural Systems, Journ. Eng. Mech. Div., ASCE, 107, No. EM6, 1133-1153.</p></li>
+<li><p>Tajimi, H.: A Statistical Method of Determining the Maximum Response of a Building Structure during an Earthquake, Proc. <span class="math notranslate nohighlight">\(2^{\text {nd }}\)</span> WCEE, Tokyo,2,pp. 781.797, Science Council of Japan, Japan.</p></li>
+</ol>
+</section>
+</section>
+<section id="appendix-a-bayesian-updating-of-earthquake-occurrence-rates-and-magnitudes">
+<span id="section-appendix-a"></span><h2><span class="section-number">20.4. </span>Appendix A: Bayesian Updating of Earthquake Occurrence Rates and Magnitudes<a class="headerlink" href="#appendix-a-bayesian-updating-of-earthquake-occurrence-rates-and-magnitudes" title="Link to this heading">#</a></h2>
+<p>The seismology in a given region as being characterized by the Poissonian occurrence rate and the distribution of magnitudes generally is known only approximately due to scarcity of data. Statistical uncertainties need to be considered.</p>
+<p>Furthermore, a consistent way to incorporate non - statistical geological information usually is desirable. Assuming a Poisson process for earthquake occurrences and a gamma distribution as the (natural conjugate) prior distribution on the probability mass function of the number of future earthquakes in a given time interval <span class="math notranslate nohighlight">\([0, t]\)</span> is <span class="math notranslate nohighlight">\((/ A 1 /, / A 2 /)\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-a-1">
+<span class="eqno">(20.21)<a class="headerlink" href="#equation-eq-earthquake-a-1" title="Link to this equation">#</a></span>\[p\left(n / n^{\prime \prime}, t^{\prime \prime}, t\right)=\frac{T\left(n+n^{\prime \prime}\right)}{n ! T\left(n^{\prime \prime}\right)}\left(\frac{t^{\prime \prime}}{t+t^{\prime \prime}}\right)^{n^{\prime \prime}}\left(\frac{t}{t+t^{\prime \prime}}\right)^{n}\]</div>
+<p>with mean</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-a-2">
+<span class="eqno">(20.22)<a class="headerlink" href="#equation-eq-earthquake-a-2" title="Link to this equation">#</a></span>\[E[N(0, T)]=\frac{n^{\prime \prime}}{t^{\prime \prime}} t\]</div>
+<p>and where</p>
+<div class="math notranslate nohighlight">
+\[n^{\prime \prime}=n_{o}+\left(\frac{\overline{\nu^{\prime}}}{\sigma_{\nu}^{\prime}}\right)^{2} \qquad t^{\prime \prime}=t_{o}+\frac{\overline{\nu^{\prime}}}{\left(\sigma_{\nu}^{\prime}\right)^{2}}\]</div>
+<p><span class="math notranslate nohighlight">\(n_{o}=\)</span> number of earthquakes observed in the past period <span class="math notranslate nohighlight">\(t_{o}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\overline{\nu^{\prime}}, \sigma^{\prime}{ }_{\nu}=\)</span> prior geological assessments on mean and standard of <span class="math notranslate nohighlight">\(\nu\)</span> which become non-informative if formally <span class="math notranslate nohighlight">\(\sigma^{\prime}{ }_{\nu} \rightarrow \infty\)</span></p>
+<p>The posterior probability density of <span class="math notranslate nohighlight">\(\nu\)</span> is</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-a-3">
+<span class="eqno">(20.23)<a class="headerlink" href="#equation-eq-earthquake-a-3" title="Link to this equation">#</a></span>\[f^{\prime \prime}\left(\nu \mid n^{\prime \prime}, t^{\prime \prime}\right)=\frac{t^{\prime \prime}\left(t^{\prime \prime} \nu\right)^{n^{\prime \prime}-1}}{\Gamma\left(n^{\prime \prime}\right)} \exp \left[-\nu t^{\prime \prime}\right]\]</div>
+<p>whereas the conditional probability mass function of the number of earthquakes is</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-a-4">
+<span class="eqno">(20.24)<a class="headerlink" href="#equation-eq-earthquake-a-4" title="Link to this equation">#</a></span>\[p\left(N(O, t)=n \mid \nu \right)=\frac{(\nu t)^{n}}{n !} \exp [-\nu t]\]</div>
+<p>Similarly, if the value of <span class="math notranslate nohighlight">\(\beta\)</span> in eq. <a class="reference internal" href="#equation-eq-earthquake-2-17-1">(20.1)</a> is subject to statistical uncertainty and geological judgement, the predictive distribution function of earthquake magnitudes is:</p>
+<div class="math notranslate nohighlight" id="equation-eq-earthquake-a-5">
+<span class="eqno">(20.25)<a class="headerlink" href="#equation-eq-earthquake-a-5" title="Link to this equation">#</a></span>\[F\left(m, m^{\prime \prime}, \eta^{\prime \prime}\right)=\frac{1-\left(\frac{m^{\prime \prime}}{m^{\prime \prime}+m-m_{o}}\right)^{\eta^{\prime \prime}}}{1-\left(\frac{m^{\prime \prime}}{m^{\prime \prime}+m_{u}-m_{o}}\right)^{\eta^{\prime \prime}}}$ for $m_{o} \leq m \leq m_{u}\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\eta^{\prime}=n_{o}+\left(\frac{\overline{\beta}}{\sigma^{\prime}{ }_{\beta}}\right)^{2}\]</div>
+<div class="math notranslate nohighlight">
+\[m^{\prime \prime}=n_{o}\left(\overline{m}-m_{o}\right)+\frac{\overline{\beta^{\prime}}}{\left(\sigma^{\prime}{ }_{\beta}\right)^{2}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_{o}\)</span> the number of earthquakes with magnitude <span class="math notranslate nohighlight">\(M \geq m_{o}\)</span> and arithmetic mean <span class="math notranslate nohighlight">\(\overline{m}\)</span> and <span class="math notranslate nohighlight">\(\beta^{\prime}\)</span>, <span class="math notranslate nohighlight">\(\sigma_{\beta}^{\prime}\)</span> the prior (geological) assessments on the mean and standard deviation of the magnitude frequency parameter <span class="math notranslate nohighlight">\(\beta\)</span>. As before the posterior probability density of <span class="math notranslate nohighlight">\(\beta\)</span> is gamma-distributed with parameters <span class="math notranslate nohighlight">\(\eta^{\prime \prime}\)</span> and <span class="math notranslate nohighlight">\(m^{\prime \prime}\)</span>.</p>
+<p><span class="math notranslate nohighlight">\(\underline{\text {References}}\)</span></p>
+<ol class="arabic simple">
+<li><p>Benjamin, J.R., Cornell, C.A., Probability, Statistics and Decision for Civil Engineers, McGraw-Hill, ,New York, 1970.</p></li>
+<li><p>Campbell, K.W., Bayesian Analysis of Extreme Earthquake Occurrences, Part I: Probabilistic Hazard Models, BSSA, 72, 1982, 5. pp. 1689-1705.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-02"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="wave-loads.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Wave loads</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="impact-load.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Impact Load</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general">20.1. General</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-seismic-hazard-assessment-psha">20.2. Probabilistic seismic hazard assessment (PSHA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-methodology-for-psha">20.2.1. General Methodology for PSHA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magnitude-model">20.2.2. Magnitude model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#attenuation-laws">20.2.3. Attenuation laws</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-geometry-model">20.2.4. Source geometry model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#overall-approach">20.2.5. Overall approach</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ground-motions-ground-histories-and-associated-response">20.3. Ground motions ground histories and associated response</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peak-ground-acceleration-and-peak-ground-velocity">20.3.1. Peak ground acceleration and peak ground velocity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-motion-duration">20.3.2. Strong motion duration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frequency-content">20.3.3. Frequency content</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-spectra">20.3.4. Response spectra</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kanai-tajimi-spectrum">20.3.5. Kanai - Tajimi spectrum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-magnitude-and-correlation-between-excitation-components">20.3.6. Relative Magnitude and Correlation between Excitation Components</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix-a-bayesian-updating-of-earthquake-occurrence-rates-and-magnitudes">20.4. Appendix A: Bayesian Updating of Earthquake Occurrence Rates and Magnitudes</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

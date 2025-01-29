@@ -1,383 +1,692 @@
 
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="../" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Fire &#8212; Probabilistic Model Code</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>22. Fire &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
 
-    
-      
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-02/fire';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="16. Concrete Properties" href="../part-03/concrete-properties.html" />
-    <link rel="prev" title="14. Impact Load" href="impact-load.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+    <link rel="next" title="23. General Principles" href="../part-03/general-principles.html" />
+    <link rel="prev" title="21. Impact Load" href="impact-load.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-    <div class="container-xl">
-      <div class="row">
-          
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+  
+  <dialog id="pst-search-dialog">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../_static/jcss.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Probabilistic Model Code</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-00/intro.html">
-   JCSS Probabilistic Model Code
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Basis of Design
- </span>
-</p>
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/introduction.html">
-   1. Introduction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/requirements.html">
-   2. Requirements
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/principles-of-limit-state-design.html">
-   3. Principles of limit state design
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">
-   4. Basis of uncerainty modelling
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/models-for-physical-behaviour.html">
-   5. Models for physical behaviour
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/reliability.html">
-   6. Reliability
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-01/target-reliability.html">
-   7. Target Reliability
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Load Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="general-principles.html">
-   8. General Principles
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="self-weight.html">
-   9. Self Weight
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="live-load.html">
-   10. Live Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="loads-in-car-parks.html">
-   11. Loads In Car Parks
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="snow-load.html">
-   12. Snow Load
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="wind.html">
-   13. Wind
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="impact-load.html">
-   14. Impact Load
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   15. Fire
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Fire</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Resistance Models
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/concrete-properties.html">
-   16. Concrete Properties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">
-   17. Static Properties Of Reinforcing Steel
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/model-uncertainties.html">
-   18. Model Uncertainties
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/dimensions.html">
-   19. Dimensions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../part-03/excentricities.html">
-   20. Excentricities
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  How to Use
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../help/how-to-use.html">
-   21. How to Use
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
 
-</div>
 
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/part-02/fire.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
     </div>
-</div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
 
-            <!-- Source interaction buttons -->
+<div class="article-header-buttons">
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/JCSS-PMC/PMC"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/fire.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/fire.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
 
-        </div>
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fire-ignition-model">
-   15.1. Fire ignition model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#flashover-occurrence">
-   15.2. Flashover occurrence
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#combustible-material-modelling">
-   15.3. Combustible material modelling
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#temperature-time-relationship">
-   15.4. Temperature-time relationship
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#scientific-models">
-     15.4.1. Scientific models
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#engineering-models">
-     15.4.2. Engineering models
-    </a>
-   </li>
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-02/fire.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-02/fire.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
   </ul>
- </li>
-</ul>
+</div>
 
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-02/fire.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fire</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fire-ignition-model">22.1. Fire ignition model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flashover-occurrence">22.2. Flashover occurrence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combustible-material-modelling">22.3. Combustible material modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-time-relationship">22.4. Temperature-time relationship</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-models">22.4.1. Scientific models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-models">22.4.2. Engineering models</a></li>
+</ul>
+</li>
+</ul>
             </nav>
         </div>
     </div>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
-              <div>
+
+              
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="fire">
-<h1><span class="section-number">15. </span>Fire<a class="headerlink" href="#fire" title="Permalink to this headline">¶</a></h1>
-<p>2.20 FIRE</p>
-<div class="section" id="fire-ignition-model">
-<h2><span class="section-number">15.1. </span>Fire ignition model<a class="headerlink" href="#fire-ignition-model" title="Permalink to this headline">¶</a></h2>
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fire">
+<h1><span class="section-number">22. </span>Fire<a class="headerlink" href="#fire" title="Link to this heading">#</a></h1>
+<p><strong>List of symbols:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}A_{f} &amp;= \text { floor area}\\
+A_{i} &amp;= \text { area of the vertical opening i in the fire compartment} \left[m^{2}\right]\\
+A_{t} &amp;= \text { total internal surface area}\\
+f &amp;= \text { ventilation opening}\\
+H_{i}  &amp;= \text { specific combustible energy for material}~i\\
+m_{i} &amp;= \text { derating factor between 0 and 1 , describing the degree of combustion}\\
+M_{ki} &amp;= \text { combustible mass present at} \Delta A \text { for material}~i\\
+q_{o} &amp;= \text { fire load density per unit floor area}\\
+t &amp;= \text { time}\\
+t_{eq} &amp;= \text { equivalent time of fire duration}\\
+\alpha &amp;= \text { parameter}\\
+\beta_{f} &amp;= \text { coefficient (model uncertainty)}\\
+\theta &amp;= \text { temperature in the compartment}\\
+\theta_{0} &amp;= \text { temperature at the start of the fire}\\
+\theta_{A} &amp;= \text { parameter}\end{array}\)</span></p>
+<section id="fire-ignition-model">
+<h2><span class="section-number">22.1. </span>Fire ignition model<a class="headerlink" href="#fire-ignition-model" title="Link to this heading">#</a></h2>
+<p>The probability of a fire starting in a given building or area is modelled as a Poisson process with constant occurrence rate:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-1">
+<span class="eqno">(22.1)<a class="headerlink" href="#equation-eq-fire-2-20-1" title="Link to this equation">#</a></span>\[P \left\lbrace \text{ignition in} (t, t+dt) \text{in a compartment} \right\rbrace = v_{\text {fire }} dt\]</div>
+<p>The occurrence rate <span class="math notranslate nohighlight">\(v_{fire}\)</span> can be written as a summation of local values over the floor area:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-2">
+<span class="eqno">(22.2)<a class="headerlink" href="#equation-eq-fire-2-20-2" title="Link to this equation">#</a></span>\[v_{fire}=\iint_{A_{f}} \lambda(x, y)~ dx~dy\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda(x, y)\)</span> corresponds to the probability of fire ignition per year per <span class="math notranslate nohighlight">\(m^{2}\)</span> for a given occupancy type; <span class="math notranslate nohighlight">\(A_{f}\)</span> is the floor area of the fire compartment. As in most applications <span class="math notranslate nohighlight">\(\lambda(x, y)\)</span> can be simplied as a constant, and <a class="reference internal" href="#equation-eq-fire-2-20-2">(22.2)</a> can be simplified to:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-3">
+<span class="eqno">(22.3)<a class="headerlink" href="#equation-eq-fire-2-20-3" title="Link to this equation">#</a></span>\[v_{fire}=A_{f} \lambda\]</div>
+<p>Values for <span class="math notranslate nohighlight">\(\lambda\)</span> are presented in <a class="reference internal" href="#table-annual-fire-probabilities-per-unit-floor-area"><span class="std std-numref">Table 22.1</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-annual-fire-probabilities-per-unit-floor-area">
+<caption><span class="caption-number">Table 22.1 </span><span class="caption-text">Example values of annual fire probabilities λ per unit floor area for several types of occupancy</span><a class="headerlink" href="#table-annual-fire-probabilities-per-unit-floor-area" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type of building</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\lambda\)</span> [m<span class="math notranslate nohighlight">\(^{-2}\)</span> year<span class="math notranslate nohighlight">\(^{-1}\)</span>]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>dwelling/school</p></td>
+<td class="text-left"><p>0.5 to 4 * 10<span class="math notranslate nohighlight">\(^{-6}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>shop/office</p></td>
+<td class="text-left"><p>1 to * 10<span class="math notranslate nohighlight">\(^{-6}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>industrial building</p></td>
+<td class="text-left"><p>2 to 10 * 10<span class="math notranslate nohighlight">\(^{-6}\)</span></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="flashover-occurrence">
-<h2><span class="section-number">15.2. </span>Flashover occurrence<a class="headerlink" href="#flashover-occurrence" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="flashover-occurrence">
+<h2><span class="section-number">22.2. </span>Flashover occurrence<a class="headerlink" href="#flashover-occurrence" title="Link to this heading">#</a></h2>
+<p>After ignition there are various ways in which a fire can develop. The fire might extinguish itself after a certain period of time because no other combustible material is present. The fire may be detected very early and be extinguished by hand. An automatic sprinkler system may operate or the fire brigade may arrive in time to prevent flash over. Only in a minority of cases does a fire develop into a fully developed room or compartment fire; sometimes the fire may break through a barrier and start a fire in another compartment. From the structural point of view only these fully developed or post flashover fires (see <a class="reference internal" href="#fig-schematic-presentation-of-a-temperature-time-curve"><span class="std std-numref">Fig. 22.1</span></a>) may lead to failure. For very large fire compartments having a very large concentration of fire loads, e.g. industrial buildings, a local fire of high intensity also may lead to (localised) structural damage.</p>
+<p>The occurrence rate of flashover is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-4">
+<span class="eqno">(22.4)<a class="headerlink" href="#equation-eq-fire-2-20-4" title="Link to this equation">#</a></span>\[v_{\text {flash over}} = P \left\lbrace \text{flash over} \mid \text{ignition} \right\rbrace v_fire\]</div>
+<p>The probability of a flashover once a fire has taken place, can obviously be influenced by the presence of sprinklers and fire brigades. Numerical values for the analysis are presented in <a class="reference internal" href="#table-probability-of-flashover-for-given-ignition"><span class="std std-numref">Table 22.2</span></a>.</p>
+<figure class="align-default" id="fig-schematic-presentation-of-a-temperature-time-curve">
+<img alt="../_images/schematic-presentation-of-a-temperature-time-curve.jpg" src="../_images/schematic-presentation-of-a-temperature-time-curve.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.1 </span><span class="caption-text">Schematic presentation of a temperature-time curve</span><a class="headerlink" href="#fig-schematic-presentation-of-a-temperature-time-curve" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Curve (a) represents the temperature-time curve when a sprinkler system or a timely fire brigade action is successful.</p></li>
+<li><p>Curve (b) presents the temperature-time relation for a fully developed fire.</p></li>
+<li><p>Curve (c) indicates the limited influence of a fire brigade arriving after flashover has taken place.</p></li>
+<li><p>Curve (d) indicates the ISO-standard temperature curve (see section <a class="reference internal" href="#section-2-20-4-2"><span class="std std-ref">19.4.2.</span></a>).</p></li>
+</ul>
+<div class="pst-scrollable-table-container"><table class="table" id="table-probability-of-flashover-for-given-ignition">
+<caption><span class="caption-number">Table 22.2 </span><span class="caption-text">Probability of flashover for given ignition, depending on the type of active protection measures</span><a class="headerlink" href="#table-probability-of-flashover-for-given-ignition" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Protection method</p></th>
+<th class="head text-left"><p>P {flashover <span class="math notranslate nohighlight">\(\mid\)</span> ignition}</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Public fire brigade</p></td>
+<td class="text-left"><p>10<span class="math notranslate nohighlight">\(^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Sprinkler</p></td>
+<td class="text-left"><p>10<span class="math notranslate nohighlight">\(^{-2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>High standard fire brigade on site, combined with alarm system (industries only)</p></td>
+<td class="text-left"><p>10<span class="math notranslate nohighlight">\(^{-3}\)</span> to 10<span class="math notranslate nohighlight">\(^{-2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Both sprinkler and high standard residential fire brigade</p></td>
+<td class="text-left"><p>10<span class="math notranslate nohighlight">\(^{-4}\)</span></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="combustible-material-modelling">
-<h2><span class="section-number">15.3. </span>Combustible material modelling<a class="headerlink" href="#combustible-material-modelling" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="combustible-material-modelling">
+<h2><span class="section-number">22.3. </span>Combustible material modelling<a class="headerlink" href="#combustible-material-modelling" title="Link to this heading">#</a></h2>
+<p>The available combustible material can be considered as a random field, which in general might be nonhomogeneous as well as nonstationary. The intensity of the field <span class="math notranslate nohighlight">\(q\)</span> at some point in space and time is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-5">
+<span class="eqno">(22.5)<a class="headerlink" href="#equation-eq-fire-2-20-5" title="Link to this equation">#</a></span>\[q=\frac{\Sigma m_{i}~M_{ki}~H_{i}}{A_{f}}\]</div>
+<p><span class="math notranslate nohighlight">\(m_{i}=\)</span> derating factor between 0 and 1 , describing the degree of combustion</p>
+<p><span class="math notranslate nohighlight">\(M_{ki}=\)</span> combustible mass present at <span class="math notranslate nohighlight">\(A_{f}\)</span> for material <span class="math notranslate nohighlight">\(i\)</span></p>
+<p><span class="math notranslate nohighlight">\(H_{i}\)</span> = specific combustible energy for material <span class="math notranslate nohighlight">\(i\)</span></p>
+<p><span class="math notranslate nohighlight">\(A_{f}=\)</span> considered floor area</p>
+<p>In some cases the intensity <span class="math notranslate nohighlight">\(q\)</span> may also depend on a vertical ordinate.</p>
+<p>The non-dimensional factor <span class="math notranslate nohighlight">\(\mu_{i}\)</span> is a function of the fuel type, the geometrical properties of the fuel, and the position of the fuel in the fire compartment, among other things. For some types of fire load components, <span class="math notranslate nohighlight">\(m_{i}\)</span> depends on the time of fire duration and on the gas temperature-time characteristics of the compartment fire. Probabilistic models for <span class="math notranslate nohighlight">\(q\)</span> are presented in <a class="reference internal" href="#table-recommended-values-for-the-average-fire-load-intensity"><span class="std std-numref">Table 22.3</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-recommended-values-for-the-average-fire-load-intensity">
+<caption><span class="caption-number">Table 22.3 </span><span class="caption-text">Recommended values for the average fire load intensity <span class="math notranslate nohighlight">\(q_o\)</span></span><a class="headerlink" href="#table-recommended-values-for-the-average-fire-load-intensity" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type of fire compartment</p></th>
+<th class="head text-left"><p>Mean value <br> <span class="math notranslate nohighlight">\(\mu\left(q_{0}\right)\left[MJm^{-2}\right]\)</span></p></th>
+<th class="head text-left"><p>Coefficient of variation <br> <span class="math notranslate nohighlight">\(V\left(q_{0}\right)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1: Dwellings</p></td>
+<td class="text-left"><p>500</p></td>
+<td class="text-left"><p>0.20</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2: Offices</p></td>
+<td class="text-left"><p>600</p></td>
+<td class="text-left"><p>0.30</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3: Schools</p></td>
+<td class="text-left"><p>350</p></td>
+<td class="text-left"><p>0.20</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>4: Hospitals</p></td>
+<td class="text-left"><p>450</p></td>
+<td class="text-left"><p>0.30</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>5: Hotels</p></td>
+<td class="text-left"><p>300</p></td>
+<td class="text-left"><p>0.25</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="temperature-time-relationship">
-<h2><span class="section-number">15.4. </span>Temperature-time relationship<a class="headerlink" href="#temperature-time-relationship" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="scientific-models">
-<h3><span class="section-number">15.4.1. </span>Scientific models<a class="headerlink" href="#scientific-models" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="temperature-time-relationship">
+<h2><span class="section-number">22.4. </span>Temperature-time relationship<a class="headerlink" href="#temperature-time-relationship" title="Link to this heading">#</a></h2>
+<section id="scientific-models">
+<h3><span class="section-number">22.4.1. </span>Scientific models<a class="headerlink" href="#scientific-models" title="Link to this heading">#</a></h3>
+<p>For known characteristics of both the combustible material and the compartment, the post flash over period of the temperature time curve can be calculated from energy and mass balance equations.</p>
+<p>Many variables can be introduced as random in the model, for instance:</p>
+<ul class="simple">
+<li><p>the amount and spatial distributions of combustible material;</p></li>
+<li><p>the effective energy value;</p></li>
+<li><p>the rate of combustion;</p></li>
+<li><p>the ventilation characteristics;</p></li>
+<li><p>air use and gas production parameters;</p></li>
+<li><p>thermal conductivity properties;</p></li>
+<li><p>model uncertainties.</p></li>
+</ul>
+<p>In addition, the development of the fire may depend on events like collapse of windows or containments, which may change the ventilation conditions or the available amount of combustible material respectively.</p>
+<p>As a simplification the following assumptions may be used.</p>
+<ol class="arabic simple">
+<li><p>the combustible material is wood;</p></li>
+<li><p>the wood is spread uniformly over the floor area;</p></li>
+<li><p>the fire compartment is of a standard building material (brick, concrete);</p></li>
+<li><p>the fire is controlled by ventilation and not by the amount of fuel load (this is conservative);</p></li>
+<li><p>the initial temperature is 20<span class="math notranslate nohighlight">\(^{\circ} c\)</span>.</p></li>
+</ol>
+<p>In this case the temperature time curve depends on two parameters:</p>
+<ul class="simple">
+<li><p>the floor averaged fire load density <span class="math notranslate nohighlight">\(q_{o}\)</span>;</p></li>
+<li><p>the opening factor <span class="math notranslate nohighlight">\(f\)</span>.</p></li>
+</ul>
+<p>The opening factor <span class="math notranslate nohighlight">\(f\)</span> is defined as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-7">
+<span class="eqno">(22.6)<a class="headerlink" href="#equation-eq-fire-2-20-7" title="Link to this equation">#</a></span>\[f=\frac{A_{v}}{A_{t}} \sqrt{h} ; \quad with~h=\frac{\sum A_{i} h_{i}}{A_{v}} ; A_{v}=\sum A_{i}\]</div>
+<p>where:</p>
+<p><span class="math notranslate nohighlight">\(A_{t}=\)</span> total internal surface area of the fire compartment, i.e. the area of the walls, floor and ceiling, including the openings <span class="math notranslate nohighlight">\(\left[m^{2}\right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(A_{i}=\)</span> area of the vertical opening <span class="math notranslate nohighlight">\(i\)</span> in the fire compartment <span class="math notranslate nohighlight">\(\left[m^{2}\right]\)</span></p>
+<p><span class="math notranslate nohighlight">\(h_{i}\)</span> value of the height of opening <span class="math notranslate nohighlight">\(i[m]\)</span></p>
+<p>For a fire compartment which also contains horizontal openings, the opening factor can be calculated from a similar expression. In calculating the opening factor, it is assumed that ordinary window glass is immediately destroyed when fire breaks out.</p>
+<p>In many cases it will be possible to indicate a physical maximum <span class="math notranslate nohighlight">\(f_{\max }\)</span>. The actual value of <span class="math notranslate nohighlight">\(f\)</span> in a fire should be modelled as a random quantity according to:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-8">
+<span class="eqno">(22.7)<a class="headerlink" href="#equation-eq-fire-2-20-8" title="Link to this equation">#</a></span>\[f=f_{\max }(1-\zeta)\]</div>
+<p><span class="math notranslate nohighlight">\(\zeta=\)</span> random parameter (see <a class="reference internal" href="#table-numerical-values-for-random-variables"><span class="std std-numref">Table 22.4</span></a>)</p>
+<p>To avoid negative values of <span class="math notranslate nohighlight">\(f\)</span>, this lognormal distribution should be cut off at <span class="math notranslate nohighlight">\(\zeta=1\)</span>. In addition one should multiply the resulting temperatures by an overall model uncertainty factor <span class="math notranslate nohighlight">\(\theta_{\text {model }}\)</span>.</p>
+</section>
+<section id="engineering-models">
+<span id="section-2-20-4-2"></span><h3><span class="section-number">22.4.2. </span>Engineering models<a class="headerlink" href="#engineering-models" title="Link to this heading">#</a></h3>
+<p>In many engineering applications, use is made of equivalent standard temperature-time-relationship according to ISO 834:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-9">
+<span class="eqno">(22.8)<a class="headerlink" href="#equation-eq-fire-2-20-9" title="Link to this equation">#</a></span>\[\theta=\theta_{o}+\theta_{A} \log _{10}\{\alpha t+1\}~\text{for}~0&lt;t&lt;t_{eq}\]</div>
+<p>with:</p>
+<div class="math notranslate nohighlight" id="equation-eq-fire-2-20-10">
+<span class="eqno">(22.9)<a class="headerlink" href="#equation-eq-fire-2-20-10" title="Link to this equation">#</a></span>\[t_{eq}=\frac{\beta_{f}~q_{o}~A_{f}}{A_{t} \sqrt{f}}\]</div>
+<p><span class="math notranslate nohighlight">\(\theta=\)</span> temperature in the compartment</p>
+<p><span class="math notranslate nohighlight">\(\theta_{o}=\)</span> temperature at the start of the fire</p>
+<p><span class="math notranslate nohighlight">\(\theta_{A}=\)</span> parameter</p>
+<p><span class="math notranslate nohighlight">\(\alpha=\)</span> parameter</p>
+<p><span class="math notranslate nohighlight">\(t=\)</span> time</p>
+<p><span class="math notranslate nohighlight">\(t_{eq}=\)</span> equivalent time of fire duration</p>
+<p><span class="math notranslate nohighlight">\(\beta_{f}=\)</span> coefficient (model uncertainty)</p>
+<p><span class="math notranslate nohighlight">\(q_{o}=\)</span> fire load density per unit floor area</p>
+<p><span class="math notranslate nohighlight">\(A_{f}=\)</span> floor area</p>
+<p><span class="math notranslate nohighlight">\(A_{t}=\)</span> total internal surface area</p>
+<p><span class="math notranslate nohighlight">\(f=\)</span> ventilation opening (see <a class="reference internal" href="#equation-eq-fire-2-20-7">(22.6)</a>, <a class="reference internal" href="#equation-eq-fire-2-20-8">(22.7)</a>)</p>
+<p>Numerical values and probabilistic models are given in <a class="reference internal" href="#table-numerical-values-for-random-variables"><span class="std std-numref">Table 22.4</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-numerical-values-for-random-variables">
+<caption><span class="caption-number">Table 22.4 </span><span class="caption-text">Numerical values for random variables</span><a class="headerlink" href="#table-numerical-values-for-random-variables" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Variable</p></th>
+<th class="head text-left"><p>Distribution</p></th>
+<th class="head text-left"><p>Mean</p></th>
+<th class="head text-left"><p>Standard deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\zeta\)</span></p></td>
+<td class="text-left"><p>truncated lognormal <span class="math notranslate nohighlight">\(^{1)}\)</span></p></td>
+<td class="text-left"><p>0.2</p></td>
+<td class="text-left"><p>0.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\beta_{f}\)</span></p></td>
+<td class="text-left"><p>lognormal</p></td>
+<td class="text-left"><p>4.0 sm<span class="math notranslate nohighlight">\(^{2.25}\)</span>/MJ</p></td>
+<td class="text-left"><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta_{o}\)</span></p></td>
+<td class="text-left"><p>deterministic</p></td>
+<td class="text-left"><p>20<span class="math notranslate nohighlight">\(^{\circ}\)</span>c</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(\theta_{A}\)</span></p></td>
+<td class="text-left"><p>deterministic</p></td>
+<td class="text-left"><p>345 K</p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
+<td class="text-left"><p>deterministic</p></td>
+<td class="text-left"><p>0.13 s<span class="math notranslate nohighlight">\(^{-1}\)</span></p></td>
+<td class="text-left"><p>-</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="section" id="engineering-models">
-<h3><span class="section-number">15.4.2. </span>Engineering models<a class="headerlink" href="#engineering-models" title="Permalink to this headline">¶</a></h3>
-</div>
-</div>
-</div>
+<p><span class="math notranslate nohighlight">\({ }^{1)}\)</span> values of <span class="math notranslate nohighlight">\(\zeta&gt;1\)</span> should be supressed</p>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -391,7 +700,7 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./part-02"
         },
         predefinedOutput: true
@@ -399,46 +708,111 @@
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-        
-            <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="impact-load.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">14. </span>Impact Load</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="impact-load.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Impact Load</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../part-03/concrete-properties.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../part-03/general-principles.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Concrete Properties</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+        <p class="prev-next-title"><span class="section-number">23. </span>General Principles</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-        
-        </div>
-    </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By Joint Committee on Structural Safety<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
-    </div>
-  </footer>
-</main>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-      </div>
-    </div>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fire-ignition-model">22.1. Fire ignition model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flashover-occurrence">22.2. Flashover occurrence</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combustible-material-modelling">22.3. Combustible material modelling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temperature-time-relationship">22.4. Temperature-time relationship</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scientific-models">22.4.1. Scientific models</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-models">22.4.2. Engineering models</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

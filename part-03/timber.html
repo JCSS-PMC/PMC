@@ -1,0 +1,1399 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>28. Properties of Timber &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-03/timber';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="29. Soil Properties" href="soil-properties.html" />
+    <link rel="prev" title="27. Static Properties Of Prestressing Steel (Prestressed Concrete)" href="static-properties-of-prestressing-steel.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/timber.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/timber.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-03/timber.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Properties of Timber</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">28.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">28.2. Basic Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-strain-relationship">28.2.1. Stress-strain relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-material-properties">28.2.2. Basic Material Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-model">28.3. Probabilistic model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-values-and-cov">28.3.1. Expected values and COV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-types">28.3.2. Distribution types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-coefficients">28.3.3. Correlation coefficients</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#failure-types">28.3.4. Failure types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strength-and-stiffness-modification-functions">28.3.5. Strength and Stiffness Modification Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glued-laminated-timber">28.3.6. Glued laminated timber</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-uncertainties-for-different-ultimate-limit-states">28.3.7. Model Uncertainties for Different Ultimate Limit States</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refinements-of-the-probabilistic-model">28.4. Refinements of the probabilistic model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-the-spatial-variation-of-timber-properties">28.4.1. Modeling the Spatial Variation of Timber Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duration-of-load-effect">28.4.2. Duration of Load Effect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-scheme-for-the-basic-properties">28.4.3. Updating Scheme for the Basic Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-direct-information">28.4.4. Updating - Direct Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-indirect-information-i-machine-grading">28.4.5. Updating - Indirect Information I - machine grading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-indirect-information-ii-calibration-of-grading-rules">28.4.6. Updating - Indirect Information II - calibration of grading rules</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">28.5. Remarks</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="properties-of-timber">
+<h1><span class="section-number">28. </span>Properties of Timber<a class="headerlink" href="#properties-of-timber" title="Link to this heading">#</a></h1>
+<p><strong>List of most important symbols:</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}R_{m} \quad &amp; \text { bending strength } \\ 
+E_{m} \quad &amp; \text { bending MOE } \\
+\rho_{\text {den }} \quad &amp; \text { density } \\
+R_{t, 0 / 90} \quad &amp; \text { tension strength } \\
+E_{t, 0 / 90} \quad &amp; \text { tension MOE } \\
+R_{c, 0 / 90} \quad &amp; \text { compression strength } \\
+E_{c, 0 / 90} &amp; \text { compression MOE } \\
+R_{v} \quad &amp; \text { shear strength } \\
+G_{v} \quad &amp; \text { shear modulus } \\
+R_{h, 0 / 90} \quad &amp; \text { embedding strength } \\
+\sigma \quad &amp; \text { stress } \\
+\varepsilon \quad &amp; \text { strain } \\
+E_{t} &amp; \text { tension MOE } \\
+E_{c} &amp; \text { compression MOE } \\
+R_{c} \quad &amp; \text { compression strength } \\
+R_{c, y} \quad &amp; \text { asymptotic final compression strength } \\
+R_{t} \quad &amp; \text { tension strength } \\
+\varepsilon_{u} \quad &amp; \text { ultimate strain } \\
+S(t) \quad &amp; \text { load history } \\
+\omega &amp; \text { humidity } \\
+\tau \quad &amp; \text { temperature } \\
+T \quad &amp; \text { time } \\
+\alpha \quad &amp; \text { strength modification function } \\
+\alpha_{D}, \alpha_{\kappa} \quad &amp; \text { damage state } \\
+\delta \quad &amp; \text { stiffness modification function } \\
+R_{0} \quad &amp; \text { failure stress under short term ramp loading } \\
+X_{M} \quad &amp; \text { model uncertainty } \\
+\hat{x} \quad &amp; \text { tests data } \\
+i \quad &amp; \text { strength indicator }\end{array}\)</span></p>
+<section id="introduction">
+<h2><span class="section-number">28.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Timber is a rather complex building material. Its properties are highly variable, spatially and in time. In structural engineering, material properties of timber are the stress and stiffness related properties of standard test specimen under given (standard) loading and climate conditions and the timber density. Timber is a graded material. Due to the grading process, the material properties are associated with some control scheme, whereas only the so-called reference material properties are considered explicitly. The so-called other material properties are only assessed implicitly. The distinction between reference properties and other properties is made as illustrated in <a class="reference internal" href="#fig-timber-reference-material-properties-and-other-material-properties"><span class="std std-numref">Fig. 28.1</span></a> . The bending strength <span class="math notranslate nohighlight">\(R_{m}\)</span>, the bending modulus of elasticity <span class="math notranslate nohighlight">\(E_{m}\)</span> and the timber density <span class="math notranslate nohighlight">\(\rho_{d e n}\)</span> are referred to as the reference material properties.</p>
+<figure class="align-default" id="fig-timber-reference-material-properties-and-other-material-properties">
+<img alt="../_images/timber-reference-material-properties-and-other-material-properties.jpg" src="../_images/timber-reference-material-properties-and-other-material-properties.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.1 </span><span class="caption-text">Reference material properties and other material properties.</span><a class="headerlink" href="#fig-timber-reference-material-properties-and-other-material-properties" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-outline-of-modelling-timber-material-properties">
+<img alt="../_images/outline-of-modelling-timber-material-properties.jpg" src="../_images/outline-of-modelling-timber-material-properties.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.2 </span><span class="caption-text">Outline of the modelling of timber material properties.</span><a class="headerlink" href="#fig-outline-of-modelling-timber-material-properties" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>When modelling timber material properties in a structure, i.e. at any generic point, in time and in space, several issues have to be taken into account. As illustrated in <a class="reference internal" href="#fig-outline-of-modelling-timber-material-properties"><span class="std std-numref">Fig. 28.2</span></a> the cornerstone of the modelling of timber material properties are the reference material properties under test conditions. The material property of interest at any generic point may deviate in terms of type (‘other material properties’), of dimensions (‘scale’) and of specific loading and climate conditions (‘time (load/moisture)’).</p>
+<p>The models in this model code relate to solid structural timber and are predominantly based on test programs and investigations considering European and North American softwoods. For some other softwoods and especially for hardwood the underlying assumptions are less appropriate.</p>
+</section>
+<section id="basic-model">
+<h2><span class="section-number">28.2. </span>Basic Model<a class="headerlink" href="#basic-model" title="Link to this heading">#</a></h2>
+<section id="stress-strain-relationship">
+<h3><span class="section-number">28.2.1. </span>Stress-strain relationship<a class="headerlink" href="#stress-strain-relationship" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="fig-stress-strain-relation-for-small-clear-timber-specimens">
+<a class="reference internal image-reference" href="../_images/stress-strain-relation-for-small-clear-timber-specimens.jpg"><img alt="../_images/stress-strain-relation-for-small-clear-timber-specimens.jpg" src="../_images/stress-strain-relation-for-small-clear-timber-specimens.jpg" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 28.3 </span><span class="caption-text">Stress-strain relation according to Glos <span id="id1">[<a class="reference internal" href="#id63" title="P. Glos. Zur modellierung des festigkeitsverhaltens von bauholz bei druck-, zug- und biegebeanspruchung. Technical Report, Berichte zur Zuverlässigkeitstheorie der Bauwerke, SFB 96, Munich, Germany, 1981.">28.01</a>]</span>. A simplified linear elastic-plastic stressstrain curve is shown with thin line.</span><a class="headerlink" href="#fig-stress-strain-relation-for-small-clear-timber-specimens" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>In <a class="reference internal" href="#fig-stress-strain-relation-for-small-clear-timber-specimens"><span class="std std-numref">Fig. 28.3</span></a> an idealised stress-strain relationship under axial load is shown for <span class="math notranslate nohighlight">\(\underline{\text{small clear timber specimens}}\)</span>, according to Glos, <span id="id2">[<a class="reference internal" href="#id63" title="P. Glos. Zur modellierung des festigkeitsverhaltens von bauholz bei druck-, zug- und biegebeanspruchung. Technical Report, Berichte zur Zuverlässigkeitstheorie der Bauwerke, SFB 96, Munich, Germany, 1981.">28.01</a>]</span>. In tension there is a linear relationship described by the modulus of elasticity <span class="math notranslate nohighlight">\(E_{t}\)</span>. In compression the relation is described by the initial modulus of elasticity <span class="math notranslate nohighlight">\(E_{c}\)</span>, the compression strength <span class="math notranslate nohighlight">\(R_{c}\)</span>, the asymptotic final compression strength <span class="math notranslate nohighlight">\(R_{c, y}\)</span>, the strain <span class="math notranslate nohighlight">\(\varepsilon_{c}\)</span> at maximum stress and the ultimate strain <span class="math notranslate nohighlight">\(\varepsilon_{u}\)</span>. The following empirical relation is assumed:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-1">
+<span class="eqno">(28.1)<a class="headerlink" href="#equation-eq-timber-1" title="Link to this equation">#</a></span>\[\begin{split}\sigma(\varepsilon)=\left\lbrace \begin{array}{ccc}\frac{\varepsilon+k_{1} \varepsilon^{N}}{k_{2}+k_{3} \varepsilon+k_{4} \varepsilon^{N}} &amp; \text { for } &amp; -\varepsilon_{u} \leq \varepsilon \leq 0 \\ \\ E_{t} \varepsilon &amp; \text { for } &amp; 0 \leq \varepsilon \leq \varepsilon_{t}\end{array}\right.\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-2">
+<span class="eqno">(28.2)<a class="headerlink" href="#equation-eq-timber-2" title="Link to this equation">#</a></span>\[k_{1}=\frac{R_{c, y}}{(N-1) \cdot E_{c} \cdot \varepsilon_{c}^{(N-1)}\left(1-R_{c, y} / R_{c}\right)}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-timber-3">
+<span class="eqno">(28.3)<a class="headerlink" href="#equation-eq-timber-3" title="Link to this equation">#</a></span>\[k_{2}=\frac{1}{E_{c}}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-timber-4">
+<span class="eqno">(28.4)<a class="headerlink" href="#equation-eq-timber-4" title="Link to this equation">#</a></span>\[k_{3}=\frac{1}{R_{c}}-\frac{N}{(N-1) \cdot E_{c} \cdot \varepsilon_{c}}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-timber-5">
+<span class="eqno">(28.5)<a class="headerlink" href="#equation-eq-timber-5" title="Link to this equation">#</a></span>\[k_{4}=\frac{k_{1}}{R_{c, y}}\]</div>
+<p>Conditions for <a class="reference internal" href="#equation-eq-timber-1">(28.1)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-6">
+<span class="eqno">(28.6)<a class="headerlink" href="#equation-eq-timber-6" title="Link to this equation">#</a></span>\[R_{c, y} \leq R_{c}-1[\mathrm~{\text{MPa}}] \qquad \varepsilon_{c} \geq \frac{N}{(N-1)} \frac{R_{c}}{E_{c}}\]</div>
+<p>Typical values for the parameters are:<br />
+<span class="math notranslate nohighlight">\(R_{c, y} / R_{c} \approx 0.8 \qquad \varepsilon_{c}=0.8-1.2 \% \qquad \varepsilon_{u} \approx 3 \varepsilon_{c \qquad }N=7\)</span></p>
+<p>For <span class="math notranslate nohighlight">\(\underline{\text{structural timber}}\)</span>, the force-deformation relationship can be different.</p>
+</section>
+<section id="basic-material-properties">
+<h3><span class="section-number">28.2.2. </span>Basic Material Properties<a class="headerlink" href="#basic-material-properties" title="Link to this heading">#</a></h3>
+<p>The reference properties of structural timber determined from standard tests are:</p>
+<ul class="simple">
+<li><p>the bending strength <span class="math notranslate nohighlight">\(R_{m, t}\)</span> in [MPa] and the</p></li>
+<li><p>bending modulus of elasticity <span class="math notranslate nohighlight">\(E_{m, t}\)</span> in [MPa], <br> both measured on short-term standard test specimens evaluated according to ISO 8375 <span id="id3">[<a class="reference internal" href="#id65" title="International Organisation for Standardisation. Solid timber in structural sizes – determination of some physical and mechanical properties. Standard ISO 8375, International Organisation for Standardisation, 1985.">28.02</a>]</span> with symmetrical 4-point bending test, span <span class="math notranslate nohighlight">\(18 h(3 \cdot 6 \cdot h)\)</span> with <span class="math notranslate nohighlight">\(h \approx 150 \mathrm{~mm}\)</span>, ramp load test duration <span class="math notranslate nohighlight">\(300 \pm 120 \mathrm{~s}\)</span>, specimen conditioned at nominal climate, <span class="math notranslate nohighlight">\(20 \pm 2^{\circ} \mathrm{C}, 65 \pm 5 \%\)</span> relative humidity.</p></li>
+<li><p>timber density <span class="math notranslate nohighlight">\(\rho_{d e n, t}\)</span> in <span class="math notranslate nohighlight">\(\left[\mathrm{kg} / \mathrm{m}^{3}\right]\)</span>, measured according to ISO 3131 <span id="id4">[<a class="reference internal" href="#id66" title="International Organisation for Standardisation. Wood - determination of density for physical and mechanical tests. Standard ISO 3131, International Organisation for Standardisation, 1975.">28.03</a>]</span> from a disc of full cross section, free of knots and resin pockets.</p></li>
+</ul>
+<p>The reference material properties are sensitive to the deviations from the standard test conditions. The reference material properties of a cross section in situ (i.e. at any generic point in time and in space) are estimated as:</p>
+<p>Bending moment capacity in situ, <span class="math notranslate nohighlight">\(R_{m}\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-7">
+<span class="eqno">(28.7)<a class="headerlink" href="#equation-eq-timber-7" title="Link to this equation">#</a></span>\[R_{m}=\alpha(E x(S, \omega, \tau, T)) R_{m, 0}\]</div>
+<p>Bending MOE in bending in situ, <span class="math notranslate nohighlight">\(E_{m}\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-8">
+<span class="eqno">(28.8)<a class="headerlink" href="#equation-eq-timber-8" title="Link to this equation">#</a></span>\[E_{m}=E_{m, 0} /(1+\delta(E x(S, \omega, \tau, T)))\]</div>
+<p>Density in situ, <span class="math notranslate nohighlight">\(\rho_{\text {den }}\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-9">
+<span class="eqno">(28.9)<a class="headerlink" href="#equation-eq-timber-9" title="Link to this equation">#</a></span>\[\rho_{d e n}=\rho_{\text {den }, 0}\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(\operatorname{Ex}(S, \omega, \tau, T)\)</span> is the exposure of the structure to loads <span class="math notranslate nohighlight">\(S\)</span>, humidity <span class="math notranslate nohighlight">\(\omega\)</span> and temperature <span class="math notranslate nohighlight">\(\tau\)</span>, in the time interval <span class="math notranslate nohighlight">\([0, T]\)</span></p>
+<p><span class="math notranslate nohighlight">\(\alpha(E x(.))\)</span>  is a strength modification function, in general defined for a particular set of exposures</p>
+<p><span class="math notranslate nohighlight">\(\delta(E x(.))\)</span>  is a stiffness modification function, in general defined for a particular set of exposures.</p>
+<p><span class="math notranslate nohighlight">\(R_{m, 0}, E_{m, 0}\)</span> and <span class="math notranslate nohighlight">\(\rho_{\text {den, } 0}\)</span> are the bending moment capacity, the modulus of elasticity and the density of a cross section under test conditions. It is assumed that these properties are equal to the properties of the corresponding standard test specimen; i.e. it is assumed that within test specimen and within structural components these properties are constant.</p>
+<p>Other material properties are estimated based on the reference material properties, see next section.</p>
+</section>
+</section>
+<section id="probabilistic-model">
+<h2><span class="section-number">28.3. </span>Probabilistic model<a class="headerlink" href="#probabilistic-model" title="Link to this heading">#</a></h2>
+<section id="expected-values-and-cov">
+<h3><span class="section-number">28.3.1. </span>Expected values and COV<a class="headerlink" href="#expected-values-and-cov" title="Link to this heading">#</a></h3>
+<p>Expressions for the expected values <span class="math notranslate nohighlight">\(E[.]\)</span> and the coefficient of variation <span class="math notranslate nohighlight">\(\operatorname{COV}[.]\)</span> are given in <a class="reference internal" href="#table-nordic-softwood-relation-between-reference-properties-and-other-properties"><span class="std std-numref">Table 28.1</span></a> for Nordic softwood.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-nordic-softwood-relation-between-reference-properties-and-other-properties">
+<caption><span class="caption-number">Table 28.1 </span><span class="caption-text">Relation reference properties - other properties</span><a class="headerlink" href="#table-nordic-softwood-relation-between-reference-properties-and-other-properties" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Property</p></th>
+<th class="head text-center"><p>Expected Values <span class="math notranslate nohighlight">\(E[X]\)</span></p></th>
+<th class="head text-center"><p>Coefficient of variation <span class="math notranslate nohighlight">\(\operatorname{COV}[X]\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Tension strength par. to the <br> grain, <span class="math notranslate nohighlight">\(R_{t, 0}:\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(E\left[R_{t, 0}\right]=0.6 E\left[R_{m}\right]\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[R_{t, 0}\right]=1.2 \operatorname{COV}\left[R_{m}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Tension strength perpendicular <br> to the grain, <span class="math notranslate nohighlight">\(R_{t, 90}:\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(E\left[R_{t, 90}\right]=0.015 E\left[\rho_{\text {den }}\right]\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[R_{t, 90}\right]=2.5 \operatorname{COV}\left[\rho_{\text {den }}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>MOE - tension par. to the <br> grain, <span class="math notranslate nohighlight">\(E_{t, 0}\)</span> :</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\( E\left[ E_{t, 0}\right]=E\left[E_{m}\right]\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[ E_{t, 0}\right]=\operatorname{COV}\left[E_{m}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>MOE - tension perpendicular <br> to the grain, <span class="math notranslate nohighlight">\(E_{t, 90}\)</span> :</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(E\left[E_{t, 90}\right]=E\left[E_{m}\right] / 30\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[E_{t, 90}\right]=\operatorname{COV}\left[E_{m}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Compression strength parallel <br> to the grain, <span class="math notranslate nohighlight">\(R_{c, 0}\)</span> :</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(E\left[R_{c, 0}\right]=5 E\left[R_{m}\right]^{0.45}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[R_{c, 0}\right]=0.8 \operatorname{COV}\left[R_{m}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Compression strength perpendicular <br> to the grain, <span class="math notranslate nohighlight">\(R_{c, 90}:\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(E\left[R_{c, 90}\right]=0.008 E\left[\rho_{d e n}\right]\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[R_{c, 90}\right]=\operatorname{COV}\left[\rho_{\text {den }}\right]\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Shear modulus, <span class="math notranslate nohighlight">\(G_{v}:\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(E\left[G_{v}\right]=E\left[E_{m}\right] / 16\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[G_{v}\right]=\operatorname{COV}\left[E_{m}\right]\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Shear strength, <span class="math notranslate nohighlight">\(R_{v}:\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(E\left[R_{v}\right]=0.2 E\left[R_{m}\right]^{0.8}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\operatorname{COV}\left[R_{v}\right]=\operatorname{COV}\left[R_{m}\right]\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The relations are derived for standard test specimen properties tested under reference conditions. However, it is assumed that the relations can be used at any level, i.e. for components of any size and/or for other climate and load conditions.</p>
+</section>
+<section id="distribution-types">
+<h3><span class="section-number">28.3.2. </span>Distribution types<a class="headerlink" href="#distribution-types" title="Link to this heading">#</a></h3>
+<p>The distribution type and the recommended coefficient of variation ( <span class="math notranslate nohighlight">\(\text{COV}\)</span> ) of the basic material properties for European softwood are given in <a class="reference internal" href="#table-probabilistic-models-for-reference-properties-for-structural-timber"><span class="std std-numref">Table 28.2</span></a> as prior values corresponding to a number of tests equal to 10 .</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-probabilistic-models-for-reference-properties-for-structural-timber">
+<caption><span class="caption-number">Table 28.2 </span><span class="caption-text">Probabilistic models for reference properties for structural timber</span><a class="headerlink" href="#table-probabilistic-models-for-reference-properties-for-structural-timber" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-left"><p>Distribution</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(\text{COV}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Bending strength <span class="math notranslate nohighlight">\(R_{m}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p>0.25</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Bending MOE: <span class="math notranslate nohighlight">\(E_{m}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p>0.13</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Density <span class="math notranslate nohighlight">\(\rho_{\text {den }}\)</span></p></td>
+<td class="text-left"><p>Normal</p></td>
+<td class="text-left"><p>0.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The distribution types for the other basic material properties are given in <a class="reference internal" href="#table-distribution-functions-for-other-material-properties-for-structural-timber"><span class="std std-numref">Table 28.3</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-distribution-functions-for-other-material-properties-for-structural-timber">
+<caption><span class="caption-number">Table 28.3 </span><span class="caption-text">Distribution functions for other material properties for structural timber</span><a class="headerlink" href="#table-distribution-functions-for-other-material-properties-for-structural-timber" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Property</p></th>
+<th class="head text-left"><p>Distribution Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Tension strength par. to the grain, <span class="math notranslate nohighlight">\(R_{t, 0}:\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Tension strength perpendicular to the grain, <span class="math notranslate nohighlight">\(R_{t, 90}:\)</span></p></td>
+<td class="text-left"><p>2-p Weibull</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>MOE - tension par. to the grain, <span class="math notranslate nohighlight">\(E_{t, 0}:\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>MOE - tension perpendicular to the grain, <span class="math notranslate nohighlight">\(E_{t, 90}:\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Compression strength parallel to the grain, <span class="math notranslate nohighlight">\(R_{c, 0}:\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Compression strength perpendicular to the grain, <span class="math notranslate nohighlight">\(R_{c, 90}:\)</span></p></td>
+<td class="text-left"><p>Normal</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Shear modulus, <span class="math notranslate nohighlight">\(G_{v}:\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Shear strength, <span class="math notranslate nohighlight">\(R_{v}:\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="correlation-coefficients">
+<h3><span class="section-number">28.3.3. </span>Correlation coefficients<a class="headerlink" href="#correlation-coefficients" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table" id="table-correlation-coefficient-matrix">
+<caption><span class="caption-number">Table 28.4 </span><span class="caption-text">Correlation coefficient matrix</span><a class="headerlink" href="#table-correlation-coefficient-matrix" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(E_{m}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\rho_{\text {den }}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(R_{t, 0}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(R_{t, 90}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(E_{t, 0}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(E_{t, 90}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(R_{c, 0}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(R_{c, 90}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(G_{v}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(R_{v}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(R_{m}\)</span></p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(E_{m}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.4</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\rho_{d e n}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(R_{t, 0}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.2</p></td>
+<td class="text-center"><p>0.8</p></td>
+<td class="text-center"><p>0.2</p></td>
+<td class="text-center"><p>0.5</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.6</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(R_{t, 90}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.2</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(E_{t, 0}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.4</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(E_{t, 90}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.2</p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.6</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(R_{c, 0}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.6</p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(R_{c, 90}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.4</p></td>
+<td class="text-center"><p>0.4</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(G_{v}\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>0.6</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The relations to other material properties are given in <a class="reference internal" href="#table-nordic-softwood-relation-between-reference-properties-and-other-properties"><span class="std std-numref">Table 28.1</span></a>. Indicative values of the correlation coefficient matrix are given in <a class="reference internal" href="#table-correlation-coefficient-matrix"><span class="std std-numref">Table 28.4</span></a> . The values in <a class="reference internal" href="#table-correlation-coefficient-matrix"><span class="std std-numref">Table 28.4</span></a> are quantified by judgment (COST E24 <span id="id5">[<a class="reference internal" href="#id64" title="Reliability of timber structures. \\urlhttp://www.km.fgg.uni-lj.si/coste24/coste24.htm, 2005.">28.04</a>]</span>), such that <span class="math notranslate nohighlight">\(0.8 \leftrightarrow\)</span> high correlation, <span class="math notranslate nohighlight">\(0.6 \leftrightarrow\)</span> medium correlation, <span class="math notranslate nohighlight">\(0.4 \leftrightarrow\)</span> low correlation, <span class="math notranslate nohighlight">\(0.2 \leftrightarrow\)</span> very low correlation.</p>
+</section>
+<section id="failure-types">
+<h3><span class="section-number">28.3.4. </span>Failure types<a class="headerlink" href="#failure-types" title="Link to this heading">#</a></h3>
+<p>Failure modes related to the different strength parameters are characterized as brittle, ductile or ductile with reserve strength, see <a class="reference internal" href="#table-failure-types-for-different-failure-modes-for-structural-timber"><span class="std std-numref">Table 28.5</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-failure-types-for-different-failure-modes-for-structural-timber">
+<caption><span class="caption-number">Table 28.5 </span><span class="caption-text">Failure types for different failure modes for structural timber</span><a class="headerlink" href="#table-failure-types-for-different-failure-modes-for-structural-timber" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Property</p></th>
+<th class="head text-left"><p>Failure type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Bending, <span class="math notranslate nohighlight">\(R_{m}:\)</span></p></td>
+<td class="text-left"><p>Ductile <span class="math notranslate nohighlight">\({ }^{1)}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Tension parallel to the grain, <span class="math notranslate nohighlight">\(R_{t, 0}:\)</span></p></td>
+<td class="text-left"><p>Brittle</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Tension perpendicular to the grain, <span class="math notranslate nohighlight">\(R_{t, 90}:\)</span></p></td>
+<td class="text-left"><p>Brittle</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Compression parallel to the grain, <span class="math notranslate nohighlight">\(R_{c, 0}:\)</span></p></td>
+<td class="text-left"><p>Ductile</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Compression perpendicular to the grain, <span class="math notranslate nohighlight">\(R_{c, 90}:\)</span></p></td>
+<td class="text-left"><p>Ductile with reserve</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Shear, <span class="math notranslate nohighlight">\(R_{v}:\)</span></p></td>
+<td class="text-left"><p>Brittle</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><span class="math notranslate nohighlight">\(1)\)</span> for lower grade timber the failure mode can be brittle.</p>
+</section>
+<section id="strength-and-stiffness-modification-functions">
+<h3><span class="section-number">28.3.5. </span>Strength and Stiffness Modification Functions<a class="headerlink" href="#strength-and-stiffness-modification-functions" title="Link to this heading">#</a></h3>
+<p>Values for the strength modification function <span class="math notranslate nohighlight">\(\alpha(.)\)</span> are quantified for discrete exposures <span class="math notranslate nohighlight">\(\operatorname{Ex}(S, \omega, \tau, T)\)</span> as specified in <a class="reference internal" href="#table-strength-modification-function-table-for-constant-loads-with-different-duration"><span class="std std-numref">Table 28.6</span></a>. The particular sets of exposures are defined as in EC 5 <span id="id6">[<a class="reference internal" href="#id67" title="Eurocode 5: design of timber structures; part 1-1: general rules and rules for buildings. Comité Européen de Normalisation, Brussels, Belgium, 2004.">28.05</a>]</span>; different load duration classes and different service classes (sc) depending on the expected moisture content (mc) of the timber (sc 1, 2, 3 is associated with mc <span class="math notranslate nohighlight">\(&lt;12 \%,&lt;20 \%\)</span> and <span class="math notranslate nohighlight">\(&gt;20 \%\)</span>). The values for <span class="math notranslate nohighlight">\(\alpha(.)\)</span> are taken from EC 5.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-strength-modification-function-table-for-constant-loads-with-different-duration">
+<caption><span class="caption-number">Table 28.6 </span><span class="caption-text">Strength modification function table for constant loads with different duration</span><a class="headerlink" href="#table-strength-modification-function-table-for-constant-loads-with-different-duration" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>sc</p></th>
+<th class="head text-left"><p>Permanent <br> <span class="math notranslate nohighlight">\((T&gt;10~\text{years} )\)</span></p></th>
+<th class="head text-left"><p>Long term <br> <span class="math notranslate nohighlight">\((10&gt;T&gt;0.5~\text{years})\)</span></p></th>
+<th class="head text-left"><p>Medium term <br> <span class="math notranslate nohighlight">\((6&gt;T&gt;0.25~\text{month})\)</span></p></th>
+<th class="head text-left"><p>Short term <br> <span class="math notranslate nohighlight">\((T&lt;~\text{1 week})\)</span></p></th>
+<th class="head text-left"><p>Instantaneous</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(1 / 2\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.6\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.70\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.80\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.9\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=1.1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span class="math notranslate nohighlight">\(3\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.5\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.55\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.65\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.7\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\alpha=0.9\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Values for the stiffness modification function <span class="math notranslate nohighlight">\(\delta(.)\)</span> are quantified for discrete exposures <span class="math notranslate nohighlight">\(\operatorname{Ex}(S, \omega, \tau, T)\)</span> as specified in <a class="reference internal" href="#table-stiffness-modification-function-table-for-constant-loads-with-different-duration"><span class="std std-numref">Table 28.7</span></a>. The particular sets of exposures are defined as in EC 5 <span id="id7">[<a class="reference internal" href="#id67" title="Eurocode 5: design of timber structures; part 1-1: general rules and rules for buildings. Comité Européen de Normalisation, Brussels, Belgium, 2004.">28.05</a>]</span>. The values for <span class="math notranslate nohighlight">\(\delta(.)\)</span> are taken from EC 5.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-stiffness-modification-function-table-for-constant-loads-with-different-duration">
+<caption><span class="caption-number">Table 28.7 </span><span class="caption-text">Stiffness modification function table for constant loads with different duration</span><a class="headerlink" href="#table-stiffness-modification-function-table-for-constant-loads-with-different-duration" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>sc</p></th>
+<th class="head text-left"><p>Permanent <br> <span class="math notranslate nohighlight">\((T&gt;10~\text{years} )\)</span></p></th>
+<th class="head text-left"><p>Long term <br> <span class="math notranslate nohighlight">\((10&gt;T&gt;0.5~\text{years})\)</span></p></th>
+<th class="head text-left"><p>Medium term <br> <span class="math notranslate nohighlight">\((6&gt;T&gt;0.25~\text{month})\)</span></p></th>
+<th class="head text-left"><p>Short term <br> <span class="math notranslate nohighlight">\((T&lt;~\text{1 week})\)</span></p></th>
+<th class="head text-left"><p>Instantaneous</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.6\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.5\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.25\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.0\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.8\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.5\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.25\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.0\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=2.0\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=1.5\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.75\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.3\)</span></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=0.0\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="glued-laminated-timber">
+<h3><span class="section-number">28.3.6. </span>Glued laminated timber<a class="headerlink" href="#glued-laminated-timber" title="Link to this heading">#</a></h3>
+<p>The stochastic model for glued laminated timber is related to the strength parameters for whole structural elements, and not to the strength parameters for the single laminates and the glue. In <a class="reference internal" href="#table-probabilistic-models-for-properties-for-glued-laminated-timber"><span class="std std-numref">Table 28.8</span></a> a prior probabilistic model for the material strength properties is given corresponding to a number of tests equal to 10. In <a class="reference internal" href="#table-failure-types-for-different-failure-modes-for-glued-laminated-timber"><span class="std std-numref">Table 28.9</span></a> failure types for different failure modes are shown.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-probabilistic-models-for-properties-for-glued-laminated-timber">
+<caption><span class="caption-number">Table 28.8 </span><span class="caption-text">Probabilistic models for properties for glued laminated timber</span><a class="headerlink" href="#table-probabilistic-models-for-properties-for-glued-laminated-timber" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-left"><p>Distribution</p></th>
+<th class="head text-left"><p><span class="math notranslate nohighlight">\(COV\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Bending strength: <span class="math notranslate nohighlight">\(R_{m}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p>0.15</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Bending MOE: <span class="math notranslate nohighlight">\(E_{m}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p>0.13</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Tension strength par. to the grain: <span class="math notranslate nohighlight">\(R_{t, 0}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Tension strength perpendicular to the grain: <span class="math notranslate nohighlight">\(R_{t, 90}\)</span></p></td>
+<td class="text-left"><p>2-p Weibull</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>MOE - tension par. to the grain: <span class="math notranslate nohighlight">\(E_{t, 0}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>MOE - tension perpendicular to the grain: <span class="math notranslate nohighlight">\(E_{t, 90}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Compression strength parallel to the grain: <span class="math notranslate nohighlight">\(R_{c, 0}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Compression strength perpendicular to the grain: <span class="math notranslate nohighlight">\(R_{c, 90}\)</span></p></td>
+<td class="text-left"><p>Normal</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Shear modulus: <span class="math notranslate nohighlight">\(G_{v}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Shear strength: <span class="math notranslate nohighlight">\(R_{v}\)</span></p></td>
+<td class="text-left"><p>Lognormal</p></td>
+<td class="text-left"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Density: <span class="math notranslate nohighlight">\(\rho_{d e n}\)</span></p></td>
+<td class="text-left"><p>Normal</p></td>
+<td class="text-left"><p>0.1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-failure-types-for-different-failure-modes-for-glued-laminated-timber">
+<caption><span class="caption-number">Table 28.9 </span><span class="caption-text">Failure types for different failure modes for glued laminated timber</span><a class="headerlink" href="#table-failure-types-for-different-failure-modes-for-glued-laminated-timber" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Property</p></th>
+<th class="head text-left"><p>Failure type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Bending: <span class="math notranslate nohighlight">\(R_{m}\)</span></p></td>
+<td class="text-left"><p>Brittle</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Tension parallel to the grain: <span class="math notranslate nohighlight">\(R_{t, 0}\)</span></p></td>
+<td class="text-left"><p>Brittle</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Tension perpendicular to the grain: <span class="math notranslate nohighlight">\(R_{t, 90}\)</span></p></td>
+<td class="text-left"><p>Brittle</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Compression parallel to the grain: <span class="math notranslate nohighlight">\(R_{c, 0}\)</span></p></td>
+<td class="text-left"><p>Ductile</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Compression perpendicular to the grain: <span class="math notranslate nohighlight">\(R_{c, 90}\)</span></p></td>
+<td class="text-left"><p>Ductile with reserve</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Shear: <span class="math notranslate nohighlight">\(R_{v}\)</span></p></td>
+<td class="text-left"><p>Brittle</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="model-uncertainties-for-different-ultimate-limit-states">
+<h3><span class="section-number">28.3.7. </span>Model Uncertainties for Different Ultimate Limit States<a class="headerlink" href="#model-uncertainties-for-different-ultimate-limit-states" title="Link to this heading">#</a></h3>
+<p>The model uncertainties cover deviations and simplifications related to the probabilistic modelling and the limit state equations. The reference properties are determined by standardized tests. Therefore, model uncertainties related to estimation of other material parameters (e.g. tension and compression strengths) have to be accounted for. Geometrical deviations from specified dimensions, durations of load and moisture effects (damage accumulation) also contribute to model uncertainties if not explicitly accounted for in the probabilistic modelling. Furthermore, the idealized and simplified limit state equations introduce model uncertainties. In <a class="reference internal" href="#table-model-uncertainties-for-component-load-bearing-capacity"><span class="std std-numref">Table 28.10</span></a> values for model uncertainties are shown. The model uncertainty depends on the limit state (bending or e.g. combined stress effects) and how much the actual condition deviates from the standard test conditions.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-model-uncertainties-for-component-load-bearing-capacity">
+<caption><span class="caption-number">Table 28.10 </span><span class="caption-text">Model uncertainties for component load bearing capacity</span><a class="headerlink" href="#table-model-uncertainties-for-component-load-bearing-capacity" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-left"><p>Mean</p></th>
+<th class="head text-left"><p>Standard deviation</p></th>
+<th class="head text-left"><p>Distribution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Without load duration effects</p></td>
+<td class="text-left"><p>1</p></td>
+<td class="text-left"><p>0.05 - 0.10</p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>With load duration effects, eq. <a class="reference internal" href="#equation-eq-timber-16">(28.16)</a>-<a class="reference internal" href="#equation-eq-timber-17">(28.17)</a></p></td>
+<td class="text-left"><p>1</p></td>
+<td class="text-left"><p>0.10</p></td>
+<td class="text-left"><p>Lognormal</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="refinements-of-the-probabilistic-model">
+<h2><span class="section-number">28.4. </span>Refinements of the probabilistic model<a class="headerlink" href="#refinements-of-the-probabilistic-model" title="Link to this heading">#</a></h2>
+<section id="modeling-the-spatial-variation-of-timber-properties">
+<h3><span class="section-number">28.4.1. </span>Modeling the Spatial Variation of Timber Properties<a class="headerlink" href="#modeling-the-spatial-variation-of-timber-properties" title="Link to this heading">#</a></h3>
+<p><strong>Bending moment capacity</strong></p>
+<p>Following a model proposed by Isaksson <span id="id8">[<a class="reference internal" href="#id68" title="T. Isaksson. Modelling the Variability of Bending Strength in Structural Timber. PhD Thesis, Lund Institute of Technology, 1999. Report TVBK-1015.">28.06</a>]</span>, the bending strength <span class="math notranslate nohighlight">\(R_{m, i j}\)</span> at a particular point <span class="math notranslate nohighlight">\(j\)</span> in the component <span class="math notranslate nohighlight">\(i\)</span> of a structure/batch is given as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-10">
+<span class="eqno">(28.10)<a class="headerlink" href="#equation-eq-timber-10" title="Link to this equation">#</a></span>\[R_{m, i j}=\exp \left(v+\varpi_{i}+\chi_{i j}\right)\]</div>
+<p>where</p>
+<p><span class="math notranslate nohighlight">\(v\)</span> is the unknown logarithm of the mean strength of all sections in all components, see <a class="reference internal" href="#fig-section-model-for-the-longitudinal-variation-of-bending-strength"><span class="std std-numref">Fig. 28.4</span></a></p>
+<p><span class="math notranslate nohighlight">\(\varpi_{i}\)</span> is the difference between the logarithm of the mean strength of the sections within a component <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(v ; \varpi_{i}\)</span> is normal distributed with mean value equal to zero and standard deviation <span class="math notranslate nohighlight">\(\sigma_{\sigma}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\chi_{i j}\)</span> is the difference between the strength weak section <span class="math notranslate nohighlight">\(j\)</span> in the beam <span class="math notranslate nohighlight">\(i\)</span> and the value <span class="math notranslate nohighlight">\(v+\varpi_{i} ; \chi_{i j}\)</span> is normal distributed with mean value equal to zero and standard deviation <span class="math notranslate nohighlight">\(\sigma_{\chi}\)</span>. <span class="math notranslate nohighlight">\(\varpi_{i}\)</span> and <span class="math notranslate nohighlight">\(\chi_{i j}\)</span> are statistically independent.</p>
+<p>The bending strength <span class="math notranslate nohighlight">\(R_{m, i j}\)</span> is the bending strength of a particular cross section. <span class="math notranslate nohighlight">\(R_{m, i j}\)</span> is lognormal distributed.</p>
+<figure class="align-default" id="fig-section-model-for-the-longitudinal-variation-of-bending-strength">
+<img alt="../_images/section-model-for-the-longitudinal-variation-of-bending-strength.jpg" src="../_images/section-model-for-the-longitudinal-variation-of-bending-strength.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 28.4 </span><span class="caption-text">Section model for the longitudinal variation of bending strength</span><a class="headerlink" href="#fig-section-model-for-the-longitudinal-variation-of-bending-strength" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>It is assumed that the bending strength of a cross section is related with the bending strength of a test specimen <span class="math notranslate nohighlight">\(R_{m, t}\)</span> as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-11">
+<span class="eqno">(28.11)<a class="headerlink" href="#equation-eq-timber-11" title="Link to this equation">#</a></span>\[R_{m, 0}=R_{m, t}^{\vartheta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\vartheta\)</span> is a constant depending on the applied bending test standard and the type of timber.</p>
+<p>The bending moment capacity <span class="math notranslate nohighlight">\(R_{m, 0}\)</span> is assumed to be constant within one section. The discrete section transition is assumed to be Poisson distributed, thus the section length <span class="math notranslate nohighlight">\(X\)</span> follows an exponential distribution with mean value <span class="math notranslate nohighlight">\(1 / \lambda\)</span>. A realization of <span class="math notranslate nohighlight">\(X, x_{j}\)</span> is illustrated in <a class="reference internal" href="#fig-section-model-for-the-longitudinal-variation-of-bending-strength"><span class="std std-numref">Fig. 28.4</span></a>.</p>
+<p>For Nordic spruce the following information basis can be given (Isaksson <span id="id9">[<a class="reference internal" href="#id68" title="T. Isaksson. Modelling the Variability of Bending Strength in Structural Timber. PhD Thesis, Lund Institute of Technology, 1999. Report TVBK-1015.">28.06</a>]</span>): The variation of the logarithm of the bending capacity <span class="math notranslate nohighlight">\(\ln \left(R_{m, 0}\right)\)</span> is related by <span class="math notranslate nohighlight">\(40 \%\)</span> to the variable <span class="math notranslate nohighlight">\(\varpi\)</span> and by <span class="math notranslate nohighlight">\(60 \%\)</span> to the variable <span class="math notranslate nohighlight">\(\chi\)</span>. The expected length of a section is <span class="math notranslate nohighlight">\(1 / \lambda=480 \text{~mm}\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-values-for-the-estimation-of-the-strength-of-weak-sections-for-nordic-spruce">
+<caption><span class="caption-number">Table 28.11 </span><span class="caption-text">ϑ -values for the estimation of the strength of weak sections (for Nordic Spruce)</span><a class="headerlink" href="#table-values-for-the-estimation-of-the-strength-of-weak-sections-for-nordic-spruce" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p></p></th>
+<th class="head text-left"><p>EN</p></th>
+<th class="head text-left"><p>US</p></th>
+<th class="head text-left"><p>AUS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span class="math notranslate nohighlight">\(\vartheta=\)</span></p></td>
+<td class="text-left"><p>1.05</p></td>
+<td class="text-left"><p>1.03</p></td>
+<td class="text-left"><p>1.02</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note: <span class="math notranslate nohighlight">\(\vartheta\)</span>-values should be used in connection with strength values in [MPa].</p>
+<p>The different values for <span class="math notranslate nohighlight">\(\vartheta\)</span> given in <a class="reference internal" href="#table-values-for-the-estimation-of-the-strength-of-weak-sections-for-nordic-spruce"><span class="std std-numref">Table 28.11</span></a> are due to the different definitions of bending strength of test specimen. The values are derived by simulations, see Köhler <span id="id10">[<a class="reference internal" href="#id69" title="J. Köhler. Reliability of Timber Structures. PhD thesis, Swiss Federal Institute of Technology, 2005. Submitted for approval.">28.07</a>]</span>.</p>
+<p>For the bending modulus of elasticity and the density no within component variation is assumed.</p>
+</section>
+<section id="duration-of-load-effect">
+<h3><span class="section-number">28.4.2. </span>Duration of Load Effect<a class="headerlink" href="#duration-of-load-effect" title="Link to this heading">#</a></h3>
+<p>The mechanism leading to strength reduction of a timber member under sustained load is referred to as creep rupture and is modelled by so-called cumulative damage models with the general form:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-12">
+<span class="eqno">(28.12)<a class="headerlink" href="#equation-eq-timber-12" title="Link to this equation">#</a></span>\[\frac{d \alpha_{D}}{d t}=h\left(S(t), R_{0}, \alpha_{D}, \boldsymbol{\theta}\right) \quad \text { for } \quad 0 \leq \alpha_{D} \leq 1\]</div>
+<p>where <span class="math notranslate nohighlight">\(t\)</span> is time, <span class="math notranslate nohighlight">\(\alpha_{D}\)</span> is the damage state variable which commonly ranges from 0 (no damage) to 1 (failure), the function <span class="math notranslate nohighlight">\(h(.)\)</span> contains parameters <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> that must be determined from experiment observations, <span class="math notranslate nohighlight">\(S(t)\)</span> is the applied stress and <span class="math notranslate nohighlight">\(R_{0}\)</span> the failure stress under short term ramp loading.</p>
+<p>Three different models are proposed:</p>
+<ol class="arabic simple">
+<li><p>The model referred to as the Gerhards model <span id="id11">[<a class="reference internal" href="#id70" title="C. C. Gerhards. Time-related effects of loads of wood strength. a linear cumulative damage theory. Wood Science, 19(2):139-144, 1979.">28.08</a>]</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-eq-timber-13">
+<span class="eqno">(28.13)<a class="headerlink" href="#equation-eq-timber-13" title="Link to this equation">#</a></span>\[\frac{d \alpha_{D}}{d t}=\exp \left(-a_{D}+b_{D} \frac{S(t)}{R_{0}}\right) \quad \text{for} \quad 0 \leq \alpha_{D} \leq 1\]</div>
+<ol class="arabic simple" start="2">
+<li><p>The model referred to as the Foschi and Yao model <span id="id12">[<a class="reference internal" href="#id71" title="R. O. Foschi and Z. C. Yao. Another look at three duration of load models. In Proceedings of the 19th Meeting, International Council for Research and Innovation in Building and Construction, Working Commission W18 – Timber Structures. Florence, Italy, 1986.">28.09</a>]</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-eq-timber-14">
+<span class="eqno">(28.14)<a class="headerlink" href="#equation-eq-timber-14" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\frac{d \alpha_{D}}{d t} &amp; =a_{D}\left(\frac{S(t)}{R_{0}}-\eta_{D}\right)^{b_{D}}+c_{D}\left(\frac{S(t)}{R_{0}}-\eta_{D}\right)^{d_{D}} \alpha_{D}(\mathrm{t}) &amp; &amp; \text { for } \frac{S(t)}{R_{0}} \geq \eta_{D} \\ \\
+\frac{d \alpha_{D}}{d t} &amp; =0 &amp; &amp; \text { for } \frac{S(t)}{R_{0}}&lt;\eta_{D}
+\end{aligned}\end{split}\]</div>
+<ol class="arabic simple" start="3">
+<li><p>The model referred to as the Nielsen model <span id="id13">[<a class="reference internal" href="#id72" title="L.F. Nielsen. Lifetime and residual strength of wood subjected to static and variable load – part i +ii. Holz als Roh- und Werkstoff, 58:81-90 and 141-152, 2000.">28.010</a>]</span>:</p></li>
+</ol>
+<div class="math notranslate nohighlight" id="equation-eq-timber-15">
+<span class="eqno">(28.15)<a class="headerlink" href="#equation-eq-timber-15" title="Link to this equation">#</a></span>\[\frac{d \alpha_{\kappa}}{d t}=\alpha_{\kappa}\left(\frac{S(t)}{R_{0}}\right)^{2}\left(\left(\alpha_{\kappa}\left(\frac{S(t)}{R_{0}}\right)^{2}\right)^{-1}-1\right)^{-\frac{1}{\mathrm{~b}_{\mathrm{D}}}} \text { for } 0 \leq \alpha_{\kappa} \leq\left(\frac{S(t)}{R_{0}}\right)^{-2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha_{D}, \alpha_{\kappa}\)</span> are the damage state variables, <span class="math notranslate nohighlight">\(a_{D}, b_{D}, c_{D}, d_{D}, \eta_{D}\)</span> are model parameters fitted to experimental results e.g. as in Sørensen et al. <span id="id14">[<a class="reference internal" href="#id73" title="J.D. Sørensen, S. Svensson, and B.D. Stang. Reliability-based calibration of load duration factors for timber structures. Structural Safety, 27:153-169, 2005.">28.011</a>]</span> and Köhler and Svensson <span id="id15">[<a class="reference internal" href="#id74" title="J. Köhler and S. Svensson. Probabilistic modeling of duration of load effects in timber structures. In Proceedings of the 35th Meeting, International Council for Research and Innovation in Building and Construction, Working Commission W18 – Timber Structures. Kyoto, Japan, 2002. Paper No. 35-17-1.">28.012</a>]</span>.</p>
+<p>For model 1) and 2) a time invariant limit state function can be formulated:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-16">
+<span class="eqno">(28.16)<a class="headerlink" href="#equation-eq-timber-16" title="Link to this equation">#</a></span>\[g(T)=1-X_{M} \alpha_{D}(S(T))\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_{M}\)</span> is the model uncertainty, see <a class="reference internal" href="#table-model-uncertainties-for-component-load-bearing-capacity"><span class="std std-numref">Table 28.10</span></a>. <span class="math notranslate nohighlight">\(\alpha_{D}(S(T))\)</span> at time <span class="math notranslate nohighlight">\(T\)</span> is obtained using the damage accumulation models 1 ) or 2) with the load time history <span class="math notranslate nohighlight">\(S(t), 0 \leq t \leq T\)</span>.</p>
+<p>For model 3) a time variant limit state function has to be used:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-17">
+<span class="eqno">(28.17)<a class="headerlink" href="#equation-eq-timber-17" title="Link to this equation">#</a></span>\[g(T)=\min _{0 \leq t \leq T}\left\lbrace \left(S(t) / R_{0}\right)^{-2}-X_{M} \alpha_{\kappa}\left(S(t) / R_{0}\right)\right\rbrace\]</div>
+<p>where <span class="math notranslate nohighlight">\(X_{M}\)</span> is the model uncertainty, see <a class="reference internal" href="#table-model-uncertainties-for-component-load-bearing-capacity"><span class="std std-numref">Table 28.10</span></a> .</p>
+</section>
+<section id="updating-scheme-for-the-basic-properties">
+<h3><span class="section-number">28.4.3. </span>Updating Scheme for the Basic Properties<a class="headerlink" href="#updating-scheme-for-the-basic-properties" title="Link to this heading">#</a></h3>
+<p>When information has been collected about the basic material properties the new knowledge implicit in that information might be applied to improve any previous (prior) estimate of the material property. Dependent on the type of information, it can be differentiated between direct and indirect information. Direct information can e.g. be in the form of test results of a material property. Indirect information can be in the form of measurements of some indicator of the property, e.g. information from grading indications. In the following updating is illustrated with three different methods based on Bayesian updating as described in JCSS Probabilistic Model Code, <a class="reference internal" href="general-principles.html#section-part-3-general-principles-annex-a"><span class="std std-ref">section 23.</span></a>.</p>
+</section>
+<section id="updating-direct-information">
+<h3><span class="section-number">28.4.4. </span>Updating - Direct Information<a class="headerlink" href="#updating-direct-information" title="Link to this heading">#</a></h3>
+<p>The bending strength <span class="math notranslate nohighlight">\(R_{m}\)</span> and the bending modulus of elasticity <span class="math notranslate nohighlight">\(E_{m}\)</span> are modelled by lognormal distributed random variables which can be represented through the normal distributed random variables <span class="math notranslate nohighlight">\(R_{m}^{*}=\ln \left(R_{m}\right)\)</span> and <span class="math notranslate nohighlight">\(E_{m}^{*}=\ln \left(E_{m}\right)\)</span>. All basic properties may be represented with the uncertain mean value <span class="math notranslate nohighlight">\(M\)</span> and standard deviation <span class="math notranslate nohighlight">\(\Sigma\)</span> as illustrated by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-18">
+<span class="eqno">(28.18)<a class="headerlink" href="#equation-eq-timber-18" title="Link to this equation">#</a></span>\[R_{m}=\exp \left(R_{m}^{*}\right) \rightarrow R_{m}^{*}: N\left(M_{R}, \Sigma_{R}\right) \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-timber-19">
+<span class="eqno">(28.19)<a class="headerlink" href="#equation-eq-timber-19" title="Link to this equation">#</a></span>\[E_{m}=\exp \left(E_{m}^{*}\right) \rightarrow E_{m}^{*}: N\left(M_{E}, \Sigma_{E}\right) \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-timber-20">
+<span class="eqno">(28.20)<a class="headerlink" href="#equation-eq-timber-20" title="Link to this equation">#</a></span>\[\rho_{d e n}: N\left(M_{\rho}, \Sigma_{\rho}\right)\]</div>
+<p>The parameters <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(\Sigma\)</span> of <span class="math notranslate nohighlight">\(R_{m}^{*}, E_{m}^{*}\)</span> and <span class="math notranslate nohighlight">\(\rho_{\text {den }}\)</span> are quantified with a Normal-Inverse-Gamma-2 distribution with the parameters <span class="math notranslate nohighlight">\(m, s, n, v\)</span> which is equivalent to the natural conjugate prior of a normal distribution with unknown mean and standard deviation. Given the parameters <span class="math notranslate nohighlight">\(m, s, n, v\)</span> the predictive distribution of <span class="math notranslate nohighlight">\(R_{m}^{*}, E_{m}^{*}\)</span> and <span class="math notranslate nohighlight">\(\rho_{d e n}\)</span> can be derived as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-21">
+<span class="eqno">(28.21)<a class="headerlink" href="#equation-eq-timber-21" title="Link to this equation">#</a></span>\[F_{X \mid \hat{\mathbf{x}}}(x \mid m, n, s, v)=T_{v}\left(\frac{x-m}{s} \sqrt{\frac{n}{n+1}}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(T_{v}(.)\)</span> is the student-t-distribution with <span class="math notranslate nohighlight">\(v\)</span> degrees of freedom.</p>
+<p>The prior predictive distribution can be quantified with parameters <span class="math notranslate nohighlight">\((m, s, n, v)=\left(m^{\prime}, s^{\prime}, n^{\prime}, v^{\prime}\right)\)</span></p>
+<p>New measurements on the material properties can be used for updating the parameters given above. For a sample of <span class="math notranslate nohighlight">\(n\)</span> observations <span class="math notranslate nohighlight">\(\left(\hat{x}_{1}, \hat{x}_{2}, \ldots, \hat{x}_{n}\right)\)</span>, the posterior predictive distribution function of <span class="math notranslate nohighlight">\(X\)</span> is obtained using the JCSS Probabilistic Model Code, <a class="reference internal" href="general-principles.html"><span class="std std-doc">section 23.</span></a>.</p>
+</section>
+<section id="updating-indirect-information-i-machine-grading">
+<h3><span class="section-number">28.4.5. </span>Updating - Indirect Information I - machine grading<a class="headerlink" href="#updating-indirect-information-i-machine-grading" title="Link to this heading">#</a></h3>
+<p>In this section a simple model for updating the statistical parameters of the Lognormal distribution for e.g. the bending strength of a given timber grade when new information becomes available in the form of machine grading results is described.</p>
+<p>The Lognormal distributed strength parameter <span class="math notranslate nohighlight">\(R\)</span> is assumed to have a coefficient of variation <span class="math notranslate nohighlight">\(C O V_{R}\)</span>. Then <span class="math notranslate nohighlight">\(X=\ln R\)</span> is Normal distributed with expected value <span class="math notranslate nohighlight">\(M_{X}\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma_{X}^{2}=\ln \left(C O V_{R}^{2}+1\right) . \sigma_{X}\)</span> is assumed to be known and <span class="math notranslate nohighlight">\(M_{X}\)</span> is assumed to be Normal distributed with expected value <span class="math notranslate nohighlight">\(\mu_{0}\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma_{0}\)</span>.</p>
+<p>When machine grading is based on a measured indicator <span class="math notranslate nohighlight">\(i\)</span>, typically related to the stiffness of a timber test specimen, the following relation between the indicator <span class="math notranslate nohighlight">\(i\)</span> and the strength parameter can initially be fitted to tests results where both the indicator value and the strength <span class="math notranslate nohighlight">\(R\)</span> are measured:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-22">
+<span class="eqno">(28.22)<a class="headerlink" href="#equation-eq-timber-22" title="Link to this equation">#</a></span>\[i=b_{0} \cdot R^{b_{1}} \cdot \varepsilon\]</div>
+<p>where <span class="math notranslate nohighlight">\(b_{0}\)</span> and <span class="math notranslate nohighlight">\(b_{1}\)</span> are constants and <span class="math notranslate nohighlight">\(\varepsilon\)</span> is an error term which is assumed Lognormal distributed. <span class="math notranslate nohighlight">\(\ln (\varepsilon)\)</span> is then Normal distributed and is assumed to have zero mean value and standard deviation <span class="math notranslate nohighlight">\(\sigma_{\ln (\varepsilon)}\)</span>. The parameters <span class="math notranslate nohighlight">\(b_{0}, b_{1}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\ln (\varepsilon)}\)</span> can be estimated from the tests using the Maximum Likelihood method.</p>
+<p>Next, it is assumed that <span class="math notranslate nohighlight">\(n\)</span> new observations <span class="math notranslate nohighlight">\(\hat{i}_{1}, \hat{i}_{2}, \ldots, \hat{i}_{n}\)</span> of the indicator is obtained from <span class="math notranslate nohighlight">\(n\)</span> specimens from a given timber grade. The mean value of these can be estimated as <span class="math notranslate nohighlight">\(\ln \bar{i}=1 / n \sum_{i=1}^{n} \ln \hat{i}_{i}\)</span> and the updated (predictive) distribution function for <span class="math notranslate nohighlight">\(X=\ln R\)</span> is then Normal with expected value <span class="math notranslate nohighlight">\(\mu^{\prime \prime}\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma^{\prime \prime \prime}\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-23">
+<span class="eqno">(28.23)<a class="headerlink" href="#equation-eq-timber-23" title="Link to this equation">#</a></span>\[\mu^{\prime \prime}=\frac{\frac{n}{\ln b_{1}}\left(\ln \bar{i}-b_{0}\right) \sigma_{0}^{2}+\mu_{0} \sigma_{X}^{2}}{n \sigma_{0}^{2}+\sigma_{X}^{2}}$ and $\sigma^{\prime \prime \prime}=\sqrt{\sigma_{X}^{2}+\frac{\sigma_{0}^{2} \sigma_{X}^{2}}{n \sigma_{0}^{2}+\sigma_{X}^{2}}+\left(\frac{\left(n / \ln b_{1}\right) \sigma_{0}^{2}}{n \sigma_{0}^{2}+\sigma_{X}^{2}}\right)^{2} \sigma_{\ln (\varepsilon)}^{2}}\]</div>
+<p>The updated predictive distribution for the strength <span class="math notranslate nohighlight">\(R\)</span> is then Lognormal with expected value <span class="math notranslate nohighlight">\(\mu_{R}^{\prime \prime}=\exp \left(\mu^{\prime \prime}+0.5 \sigma^{\prime \prime \prime 2}\right)\)</span> and standard deviation <span class="math notranslate nohighlight">\(\sigma_{R}^{\prime \prime \prime}=\mu_{R}^{\prime \prime} \sqrt{\exp \left(\sigma^{\prime \prime 2}\right)-1}\)</span>.</p>
+</section>
+<section id="updating-indirect-information-ii-calibration-of-grading-rules">
+<h3><span class="section-number">28.4.6. </span>Updating - Indirect Information II - calibration of grading rules<a class="headerlink" href="#updating-indirect-information-ii-calibration-of-grading-rules" title="Link to this heading">#</a></h3>
+<p>The probabilistic model for bending strength described in this section can be used for machine graded timber and is based on the model described in Faber et al. <span id="id16">[<a class="reference internal" href="#id75" title="M. H. Faber, J. Köhler, and J. D. Sørensen. Probabilistic modelling of graded timber material properties. Journal of Structural Safety, 26(3):295-309, 2004.">28.013</a>]</span>. The probabilistic model can be described by the following steps:</p>
+<p>For a given geographic region and a given type of specie (e.g. Nordic Spruce) an initial (prior) distribution function <span class="math notranslate nohighlight">\(F_{R_{m}}(x)\)</span> can be established for the bending strength <span class="math notranslate nohighlight">\(R_{m}\)</span> for non-graded timber. The recommended distribution function is Lognormal. The statistical parameters in the distribution function can be obtained using e.g. the Maximum Likelihood method. For the identification of lower grades it is recommended to fit the initial (prior) distribution function <span class="math notranslate nohighlight">\(F_{R_{m}}(x)\)</span> to the data in the lower end (e.g. <span class="math notranslate nohighlight">\(30 \%\)</span> of the data with lowest strengths); in order to obtain good models in the lower tail of the distribution function for the graded timber strength. This can be done using the Maximum Likelihood method, see e.g. in Faber et al. <span id="id17">[<a class="reference internal" href="#id75" title="M. H. Faber, J. Köhler, and J. D. Sørensen. Probabilistic modelling of graded timber material properties. Journal of Structural Safety, 26(3):295-309, 2004.">28.013</a>]</span>.</p>
+<p>Machine grading is based on a measured indicator <span class="math notranslate nohighlight">\(i\)</span>, typically related to the stiffness of a timber test specimen. For each grading technique the following linear relation with the bending strength is assumed:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-24">
+<span class="eqno">(28.24)<a class="headerlink" href="#equation-eq-timber-24" title="Link to this equation">#</a></span>\[i(r)=a_{0}+a_{1} r+\varepsilon\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_{0}\)</span> and <span class="math notranslate nohighlight">\(a_{1}\)</span> are constants and <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the lack-of-fit quantity which is assumed Normal distributed with zero mean value and standard deviation <span class="math notranslate nohighlight">\(\sigma_{\varepsilon}\)</span>. The parameters <span class="math notranslate nohighlight">\(a_{0}, a_{1}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\varepsilon}\)</span> can be estimated using the Maximum Likelihood method which also gives the statistical uncertainty in form of standard deviations and correlation coefficients of the parameters <span class="math notranslate nohighlight">\(a_{0}, a_{1}\)</span> and <span class="math notranslate nohighlight">\(\sigma_{\varepsilon}\)</span>. It is noted that in <a class="reference internal" href="#equation-eq-timber-22">(28.22)</a> the logarithms are fitted with a Lognormal distributed lack-of-fit error, whereas in <a class="reference internal" href="#equation-eq-timber-24">(28.24)</a> a linear model with a Normal distributed lack-of-fir error is used.</p>
+<p>After grading the updated (predictive) distribution function for the bending strength in grade no. <span class="math notranslate nohighlight">\(j\)</span> is obtained from:</p>
+<div class="math notranslate nohighlight" id="equation-eq-timber-25">
+<span class="eqno">(28.25)<a class="headerlink" href="#equation-eq-timber-25" title="Link to this equation">#</a></span>\[F_{R_{m, j}}^{U}(x)=P\left(R_{m} \leq x \mid b_{L, j} \leq i(x) \leq b_{U, j}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(b_{L, j}\)</span> and <span class="math notranslate nohighlight">\(b_{U, j}\)</span> are lower and upper limits of the grading indicator <span class="math notranslate nohighlight">\(i\)</span> for grading no. <span class="math notranslate nohighlight">\(j\)</span>. The updated distribution function <span class="math notranslate nohighlight">\(F_{R_{m, j}}^{U}(x)\)</span> can then be used in reliability analyses. A detailed description of the method can be found in Faber et al. <span id="id18">[<a class="reference internal" href="#id75" title="M. H. Faber, J. Köhler, and J. D. Sørensen. Probabilistic modelling of graded timber material properties. Journal of Structural Safety, 26(3):295-309, 2004.">28.013</a>]</span> and Köhler <span id="id19">[<a class="reference internal" href="#id76" title="J. Köhler and M. H. Faber. A probabilistic approach to cost optimal timber grading. In Proceedings of the 36th Meeting, International Council for Research and Innovation in Building and Construction, Working Commission W18 – Timber Structures. Colorado, USA, 2003. Paper No. 36-5-2.">28.014</a>]</span>.</p>
+</section>
+</section>
+<section id="remarks">
+<h2><span class="section-number">28.5. </span>Remarks<a class="headerlink" href="#remarks" title="Link to this heading">#</a></h2>
+<p>The presented document does not cover all aspects of the design of timber structures. For timber structures, the structural performance depends to a considerable part on the connections between different timber structural members; connections can govern the overall strength, serviceability and fire resistance. Beside solid timber other timber materials are utilized in timber engineering.</p>
+<p><strong>References</strong></p>
+<div class="docutils container" id="id20">
+<div role="list" class="citation-list">
+<div class="citation" id="id63" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>28.01<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>P. Glos. Zur modellierung des festigkeitsverhaltens von bauholz bei druck-, zug- und biegebeanspruchung. Technical Report, Berichte zur Zuverlässigkeitstheorie der Bauwerke, SFB 96, Munich, Germany, 1981.</p>
+</div>
+<div class="citation" id="id65" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">28.02</a><span class="fn-bracket">]</span></span>
+<p>International Organisation for Standardisation. Solid timber in structural sizes – determination of some physical and mechanical properties. Standard ISO 8375, International Organisation for Standardisation, 1985.</p>
+</div>
+<div class="citation" id="id66" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">28.03</a><span class="fn-bracket">]</span></span>
+<p>International Organisation for Standardisation. Wood - determination of density for physical and mechanical tests. Standard ISO 3131, International Organisation for Standardisation, 1975.</p>
+</div>
+<div class="citation" id="id64" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">28.04</a><span class="fn-bracket">]</span></span>
+<p>Reliability of timber structures. \\urlhttp://www.km.fgg.uni-lj.si/coste24/coste24.htm, 2005.</p>
+</div>
+<div class="citation" id="id67" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>28.05<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id6">1</a>,<a role="doc-backlink" href="#id7">2</a>)</span>
+<p>Eurocode 5: design of timber structures; part 1-1: general rules and rules for buildings. Comité Européen de Normalisation, Brussels, Belgium, 2004.</p>
+</div>
+<div class="citation" id="id68" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>28.06<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id8">1</a>,<a role="doc-backlink" href="#id9">2</a>)</span>
+<p>T. Isaksson. <em>Modelling the Variability of Bending Strength in Structural Timber</em>. PhD Thesis, Lund Institute of Technology, 1999. Report TVBK-1015.</p>
+</div>
+<div class="citation" id="id69" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">28.07</a><span class="fn-bracket">]</span></span>
+<p>J. Köhler. <em>Reliability of Timber Structures</em>. PhD thesis, Swiss Federal Institute of Technology, 2005. Submitted for approval.</p>
+</div>
+<div class="citation" id="id70" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">28.08</a><span class="fn-bracket">]</span></span>
+<p>C. C. Gerhards. Time-related effects of loads of wood strength. a linear cumulative damage theory. <em>Wood Science</em>, 19(2):139–144, 1979.</p>
+</div>
+<div class="citation" id="id71" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id12">28.09</a><span class="fn-bracket">]</span></span>
+<p>R. O. Foschi and Z. C. Yao. Another look at three duration of load models. In <em>Proceedings of the 19th Meeting, International Council for Research and Innovation in Building and Construction, Working Commission W18 – Timber Structures</em>. Florence, Italy, 1986.</p>
+</div>
+<div class="citation" id="id72" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id13">28.010</a><span class="fn-bracket">]</span></span>
+<p>L.F. Nielsen. Lifetime and residual strength of wood subjected to static and variable load – part i +ii. <em>Holz als Roh- und Werkstoff</em>, 58:81–90 and 141–152, 2000.</p>
+</div>
+<div class="citation" id="id73" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id14">28.011</a><span class="fn-bracket">]</span></span>
+<p>J.D. Sørensen, S. Svensson, and B.D. Stang. Reliability-based calibration of load duration factors for timber structures. <em>Structural Safety</em>, 27:153–169, 2005.</p>
+</div>
+<div class="citation" id="id74" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id15">28.012</a><span class="fn-bracket">]</span></span>
+<p>J. Köhler and S. Svensson. Probabilistic modeling of duration of load effects in timber structures. In <em>Proceedings of the 35th Meeting, International Council for Research and Innovation in Building and Construction, Working Commission W18 – Timber Structures</em>. Kyoto, Japan, 2002. Paper No. 35-17-1.</p>
+</div>
+<div class="citation" id="id75" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>28.013<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id16">1</a>,<a role="doc-backlink" href="#id17">2</a>,<a role="doc-backlink" href="#id18">3</a>)</span>
+<p>M. H. Faber, J. Köhler, and J. D. Sørensen. Probabilistic modelling of graded timber material properties. <em>Journal of Structural Safety</em>, 26(3):295–309, 2004.</p>
+</div>
+<div class="citation" id="id76" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id19">28.014</a><span class="fn-bracket">]</span></span>
+<p>J. Köhler and M. H. Faber. A probabilistic approach to cost optimal timber grading. In <em>Proceedings of the 36th Meeting, International Council for Research and Innovation in Building and Construction, Working Commission W18 – Timber Structures</em>. Colorado, USA, 2003. Paper No. 36-5-2.</p>
+</div>
+</div>
+</div>
+<p><strong>Additional References</strong></p>
+<ol class="arabic simple">
+<li><p>Raiffa H. and Schlaifer R. Applied statistical decision theory. John Wiley &amp; Sons Ltd. Chichester, UK, 1960.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="static-properties-of-prestressing-steel.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">27. </span>Static Properties Of Prestressing Steel (Prestressed Concrete)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="soil-properties.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Soil Properties</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">28.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">28.2. Basic Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stress-strain-relationship">28.2.1. Stress-strain relationship</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-material-properties">28.2.2. Basic Material Properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-model">28.3. Probabilistic model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-values-and-cov">28.3.1. Expected values and COV</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribution-types">28.3.2. Distribution types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-coefficients">28.3.3. Correlation coefficients</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#failure-types">28.3.4. Failure types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strength-and-stiffness-modification-functions">28.3.5. Strength and Stiffness Modification Functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glued-laminated-timber">28.3.6. Glued laminated timber</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-uncertainties-for-different-ultimate-limit-states">28.3.7. Model Uncertainties for Different Ultimate Limit States</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refinements-of-the-probabilistic-model">28.4. Refinements of the probabilistic model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-the-spatial-variation-of-timber-properties">28.4.1. Modeling the Spatial Variation of Timber Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duration-of-load-effect">28.4.2. Duration of Load Effect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-scheme-for-the-basic-properties">28.4.3. Updating Scheme for the Basic Properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-direct-information">28.4.4. Updating - Direct Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-indirect-information-i-machine-grading">28.4.5. Updating - Indirect Information I - machine grading</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-indirect-information-ii-calibration-of-grading-rules">28.4.6. Updating - Indirect Information II - calibration of grading rules</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remarks">28.5. Remarks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

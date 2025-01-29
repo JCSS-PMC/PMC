@@ -1,0 +1,1052 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10. Annex C: Reliability Analysis Principles &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-01/annex-C-Reliability-Analysis-Principles';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11. Annex D:Bayesian Interpretation of Probabilities" href="annex-D-Bayesian-Interpretation-of-Probabilities.html" />
+    <link rel="prev" title="9. Annex B: Durability" href="annex-B-durability.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-01/annex-C-Reliability-Analysis-Principles.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-01/annex-C-Reliability-Analysis-Principles.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-01/annex-C-Reliability-Analysis-Principles.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Annex C: Reliability Analysis Principles</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">10.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">10.2. Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-limit-states">10.2.1. <span class="math notranslate nohighlight">\(\underline{\text {Limit States}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-structural-reliability">10.2.2. <span class="math notranslate nohighlight">\(\underline{\text{Structural Reliability}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-system-concepts">10.2.3. <span class="math notranslate nohighlight">\(\underline{\text{System Concepts}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#component-reliability-analysis">10.3. Component Reliability Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-general-steps">10.3.1. <span class="math notranslate nohighlight">\(\underline{\text{General Steps}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-probabilistic-modelling">10.3.2. <span class="math notranslate nohighlight">\(\underline{\text{Probabilistic Modelling}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-computation-of-failure-probability">10.3.3. <span class="math notranslate nohighlight">\(\underline{\text{Computation of Failure Probability}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-recommendations">10.3.4. <span class="math notranslate nohighlight">\(\underline{\text{Recommendations}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-reliability-analysis">10.4. System Reliability Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-series-systems">10.4.1. <span class="math notranslate nohighlight">\(\underline{\text{Series systems}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-parallel-systems">10.4.2. <span class="math notranslate nohighlight">\(\underline{\text{Parallel systems}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-dependent-reliability">10.5. Time-Dependent Reliability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-general-remarks">10.5.1. <span class="math notranslate nohighlight">\(\underline{\text{General Remarks}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-transformation-to-time-independent-formulations">10.5.2. <span class="math notranslate nohighlight">\(\underline{\text{Transformation to Time-Independent Formulations}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-introduction-to-crossing-theory">10.5.3. <span class="math notranslate nohighlight">\(\underline{\text{Introduction to Crossing Theory}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">10.6. Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">10.7. Bibliography</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="annex-c-reliability-analysis-principles">
+<h1><span class="section-number">10. </span>Annex C: Reliability Analysis Principles<a class="headerlink" href="#annex-c-reliability-analysis-principles" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">10.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>In recent years, practical reliability methods have been developed to help engineers tackle the analysis, quantification, monitoring and assessment of structural risks, undertake sensitivity analysis of inherent uncertainties and make appropriate decisions about the performance of a structure. The structure may be at the design stage, under construction or in actual use.</p>
+<p>This Annex C summarizes the principles and procedures used in formulating and solving risk related problems via reliability analysis. It is neither as broad nor as detailed as available textbooks on this subject, some of which are included in the bibliography. Its purpose is to underpin the updating and decision-making methodologies presented in <a class="reference internal" href="../part-02/general-principles.html"><span class="std std-doc">part 2</span></a> of this document.</p>
+<p>Starting from the principles of limit state analysis and its application to codified design, the link is made between unacceptable performance and probability of failure. It is important, especially in assessment, to distinguish between components and systems. System concepts are introduced and important results are summarized. The steps involved in carrying out a reliability analysis, whose main objective is to estimate the failure probability, are outlined and alternative techniques available for such an analysis are presented. Some recommendations on formulating stochastic models for commonly used variables are also included.</p>
+</section>
+<section id="concepts">
+<h2><span class="section-number">10.2. </span>Concepts<a class="headerlink" href="#concepts" title="Link to this heading">#</a></h2>
+<section id="underline-text-limit-states">
+<h3><span class="section-number">10.2.1. </span><span class="math notranslate nohighlight">\(\underline{\text {Limit States}}\)</span><a class="headerlink" href="#underline-text-limit-states" title="Link to this heading">#</a></h3>
+<p>The structural performance of a whole structure or part of it may be described with reference to a set of limit states which separate acceptable states of the structure from unacceptable states. The limit states are divided into the following two categories:</p>
+<ul class="simple">
+<li><p>ultimate limit states, which relate to the maximum load carrying capacity.</p></li>
+<li><p>serviceability limit states, which relate to normal use.</p></li>
+</ul>
+<p>The boundary between acceptable (safe) and unacceptable (failure) states may be distinct or diffuse but, at present, deterministic codes of practice assume the former. Thus, verification of a structure with respect to a particular limit state is carried out via a model describing the limit state in terms of a function (called the limit state function) whose value depends on all relevant design parameters. In general terms, attainment of the limit state can be expressed as:</p>
+<div class="math notranslate nohighlight" id="equation-eqc1">
+<span class="eqno">(10.1)<a class="headerlink" href="#equation-eqc1" title="Link to this equation">#</a></span>\[g(\mathbf{s}, \mathbf{r})=0\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{s}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> represent sets of load (actions) and resistance variables. Conventionally, <span class="math notranslate nohighlight">\(g(\mathbf{s}, \mathbf{r}) \leq 0\)</span> represents failure; in other words, an adverse state.</p>
+<p>The limit state function, <span class="math notranslate nohighlight">\(g(\mathbf{s}, \mathbf{r})\)</span>, can often be separated into one resistance function, <span class="math notranslate nohighlight">\(r(.)\)</span>, and one loading (or action effect) function, <span class="math notranslate nohighlight">\(s(.)\)</span> , in which case equation <a class="reference internal" href="#equation-eqc1">(10.1)</a> can be expressed as:</p>
+<div class="math notranslate nohighlight" id="equation-eqc2">
+<span class="eqno">(10.2)<a class="headerlink" href="#equation-eqc2" title="Link to this equation">#</a></span>\[r(\mathbf{r})-s(\mathbf{s})=0\]</div>
+</section>
+<section id="underline-text-structural-reliability">
+<h3><span class="section-number">10.2.2. </span><span class="math notranslate nohighlight">\(\underline{\text{Structural Reliability}}\)</span><a class="headerlink" href="#underline-text-structural-reliability" title="Link to this heading">#</a></h3>
+<p>Load, material and geometry parameters are subject to uncertainties, which can be classified according to their nature, see <a class="reference internal" href="../part-03/general-principles.html"><span class="std std-doc">section 3</span></a>. They can, thus, be represented by random variables (this being the simplest possible probabilistic representation, whereas more advanced models might be appropriate in certain situations, such as random fields). The variables <span class="math notranslate nohighlight">\(\mathbf{S}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> are often referred to as “basic random variables” (where the upper case letter is used for denoting random variables) and may be collectively represented by a random vector <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
+<p>In this context, failure is a probabilistic event and its probability of occurrence, <span class="math notranslate nohighlight">\(P_{f}\)</span>, is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eqc3a">
+<span class="eqno">(10.3)<a class="headerlink" href="#equation-eqc3a" title="Link to this equation">#</a></span>\[P_{f}=\text{Prob}~ \left\lbrace g(\mathbf{X}) \leq 0 \right\rbrace =\text{Prob}~ \left\lbrace M \leq 0 \right\rbrace\]</div>
+<p>where, <span class="math notranslate nohighlight">\(M=g(\mathbf{X})\)</span>. Note that <span class="math notranslate nohighlight">\(M\)</span> is also a random variable, called the safety margin.</p>
+<p>If the limit state function is expressed in the form of <a class="reference internal" href="#equation-eqc2">(10.2)</a>, <a class="reference internal" href="#equation-eqc3a">(10.3)</a> can be written as</p>
+<div class="math notranslate nohighlight">
+\[
+P_{f}=\text{Prob}~ \left\lbrace r~(\mathbf{R}) \leq s~(\mathbf{S})\right\rbrace =\text{Prob}~ \left\lbrace R \leq S\right\rbrace
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(R=r~(\mathbf{R})\)</span> and <span class="math notranslate nohighlight">\(S=s~(\mathbf{S})\)</span> are random variables associated with resistance and loading respectively. This expression is useful in the context of the discussion in <a class="reference internal" href="requirements.html#section-2-2"><span class="std std-ref">section 2.2</span></a> on code formats and partial safety factors but will not be further used herein.</p>
+<p>The failure probability defined in eqn <a class="reference internal" href="#equation-eqc3a">(10.3)</a> can also be expressed as follows:</p>
+<div class="math notranslate nohighlight" id="equation-eqc3b">
+<span class="eqno">(10.4)<a class="headerlink" href="#equation-eqc3b" title="Link to this equation">#</a></span>\[P_{f}=\int_{g(\mathbf{x}) \leq 0} f_{\mathbf{X}}(\mathbf{x}) d \mathbf{x}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{\mathbf{X}}(\mathbf{x})\)</span> is the joint probability density function of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
+<p>The reliability, <span class="math notranslate nohighlight">\(P_{S}\)</span>, associated with the particular limit state considered is the complementary event, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-eqc4">
+<span class="eqno">(10.5)<a class="headerlink" href="#equation-eqc4" title="Link to this equation">#</a></span>\[P_{S}=1-P_{f}\]</div>
+<p>In recent years, a standard reliability measure, the reliability index <span class="math notranslate nohighlight">\(\beta\)</span>, has been adopted which has the following relationship with the failure probability</p>
+<div class="math notranslate nohighlight" id="equation-eqc5">
+<span class="eqno">(10.6)<a class="headerlink" href="#equation-eqc5" title="Link to this equation">#</a></span>\[\beta=-\Phi^{-1}(P_f)=\Phi^{-1}\left(P_{S}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi^{-1}(.)\)</span> is the inverse of the standard normal distribution function, see <a class="reference internal" href="#tbl-relationship-between-beta-and-prob-of-failure"><span class="std std-numref">Table 10.1</span></a></p>
+<div class="pst-scrollable-table-container"><table class="table" id="tbl-relationship-between-beta-and-prob-of-failure">
+<caption><span class="caption-number">Table 10.1 </span><span class="caption-text">Relationship between <span class="math notranslate nohighlight">\(\beta\)</span> and <span class="math notranslate nohighlight">\(P_{f}\)</span></span><a class="headerlink" href="#tbl-relationship-between-beta-and-prob-of-failure" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(P_{f}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(10^{-1}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(10^{-2}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(10^{-3}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(10^{-4}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(10^{-5}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(10^{-6}\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(10^{-7}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\beta\)</span></p></td>
+<td class="text-center"><p>1.3</p></td>
+<td class="text-center"><p>2.3</p></td>
+<td class="text-center"><p>3.1</p></td>
+<td class="text-center"><p>3.7</p></td>
+<td class="text-center"><p>4.2</p></td>
+<td class="text-center"><p>4.7</p></td>
+<td class="text-center"><p>5.2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In most engineering applications, complete statistical information about the basic random variables <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is not available and, furthermore, the function <span class="math notranslate nohighlight">\(g(.)\)</span> is a mathematical model which idealizes the limit state. In this respect, the probability of failure evaluated from eqn <a class="reference internal" href="#equation-eqc3a">(10.3)</a> or <a class="reference internal" href="#equation-eqc3b">(10.4)</a> is a point estimate given a particular set of assumptions regarding probabilistic modelling and a particular mathematical model for <span class="math notranslate nohighlight">\(g(.)\)</span>. The uncertainties associated with these models can be represented in terms of a vector of random parameters <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span>, and hence the limit state function may be re-written as <span class="math notranslate nohighlight">\(g(\mathbf{X}, \mathbf{Q})\)</span>. It is important to note that the nature of uncertainties represented by the basic random variables <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and the parameters <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> is different. Whereas uncetainties in <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> cannot be influenced without changing the physical characteristics of the problem (e.g. changing the steel grade), uncertainties in <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> can be influenced by the use of alternative methods and collection of additional data.</p>
+<p>In this context, eqn <a class="reference internal" href="#equation-eqc3b">(10.4)</a> may be recast as follows</p>
+<div class="math notranslate nohighlight" id="equation-eqc6">
+<span class="eqno">(10.7)<a class="headerlink" href="#equation-eqc6" title="Link to this equation">#</a></span>\[P_{f}(\boldsymbol{\theta})=\int_{g(\mathbf{x}, \theta) \leq 0} f_{\mathbf{X} \mid \Theta}~(\mathbf{x} \mid \boldsymbol{\theta}) d \mathbf{x}\]</div>
+<p>where <span class="math notranslate nohighlight">\(P_{f}(\boldsymbol{\theta})\)</span> is the conditional probability of failure for a given set of values of the parameters <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> and <span class="math notranslate nohighlight">\(f_{\mathbf{X} \mid \Theta}~(\mathbf{x} \mid \boldsymbol{\theta})\)</span> is the conditional probability density function of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> for given <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span>.</p>
+<p>In order to account for the influence of parameter uncertainty on failure probability, one may evaluate the expected value of the conditional probability of failure, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-eqc7a">
+<span class="eqno">(10.8)<a class="headerlink" href="#equation-eqc7a" title="Link to this equation">#</a></span>\[\overline{P_{f}}=E\left[P_{f}(\boldsymbol{\theta})\right]=\int_{\theta} P_{f}(\boldsymbol{\theta}) f_{\Theta}(\boldsymbol{\theta}) d \boldsymbol{\theta}\]</div>
+<p>where <span class="math notranslate nohighlight">\(f_{\theta}(\theta)\)</span> is the joint probability density function of <span class="math notranslate nohighlight">\(\theta\)</span>. The corresponding reliability index is given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc7b">
+<span class="eqno">(10.9)<a class="headerlink" href="#equation-eqc7b" title="Link to this equation">#</a></span>\[\bar{\beta}=-\Phi^{-1}\left(\overline{P_{f}}\right)\]</div>
+<p>The main objective of reliability analysis is to estimate the failure probability (or, the reliability index). Hence, it replaces the deterministic safety check with a probabilistic assessment of the safety of the structure, e.g. eqn <a class="reference internal" href="#equation-eqc3a">(10.3)</a> or eqn <a class="reference internal" href="#equation-eqc7a">(10.8)</a>. Depending on the nature of the limit state considered, the uncertainty sources and their implications for probabilistic modeling, the characteristics of the calculation model and the degree of accuracy required, an appropriate methodology has to be developed. In many respects, this is similar to the considerations made in formulating a methodology for deterministic structural analysis but the problem is now set in a probabilistic framework.</p>
+</section>
+<section id="underline-text-system-concepts">
+<h3><span class="section-number">10.2.3. </span><span class="math notranslate nohighlight">\(\underline{\text{System Concepts}}\)</span><a class="headerlink" href="#underline-text-system-concepts" title="Link to this heading">#</a></h3>
+<p>Structural design is, at present, primarily concerned with component behaviour. Each limit state equation is, in most cases, related to a single mode of failure of a single component.</p>
+<p>However, most structures are an assembly of structural components and even individual components may be susceptible to a number of possible failure modes. In deterministic terms, the former can be tackled through a progressive collapse analysis (particularly appropriate in redundant structures), whereas the latter is usually dealt with by checking a number of limit state equations.</p>
+<p>However, the system behaviour of structures is not well quantified in limit state codes and requires considerable innovation and initiative from the engineer. A probabilistic approach provides a better platform from which system behaviour can be explored and utilised. This can be of benefit in assessment of existing structures where strength reserves due to system effects can alleviate the need for expensive strengthening.</p>
+<p>There are two fundamental systems, see <a class="reference internal" href="#fig-schematic-representation-of-series-and-parallel-systems"><span class="std std-numref">Fig. 10.1</span></a>:</p>
+<ol class="arabic simple">
+<li><p>A series system is a system which fails if one or more of its components fail.</p></li>
+<li><p>A parallel system is a system which fails when all its components have failed.</p></li>
+</ol>
+<p>The probability of system failure is given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc8a">
+<span class="eqno">(10.10)<a class="headerlink" href="#equation-eqc8a" title="Link to this equation">#</a></span>\[P_{f, sys}=P \left[E_1 \cup E_2 \cup \ldots \cup E_n \right] \quad \text{for a series system}\]</div>
+<div class="math notranslate nohighlight" id="equation-eqc8b">
+<span class="eqno">(10.11)<a class="headerlink" href="#equation-eqc8b" title="Link to this equation">#</a></span>\[P_{f, sys}=P \left[E_1 \cap E_2 \cap \ldots \cap E_n \right] \quad \text{for a parallel system}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{E}_{i}(i=1, \ldots n)\)</span> is the event corresponding to failure of the <span class="math notranslate nohighlight">\(i\)</span> th component. In the case of parallel systems, which are designed to provide some redundancy, it is important to define the state of the component after failure. In structures, this can be described in terms of a characteristic load-displacement response, see <a class="reference internal" href="#fig-load-displacement-response-of-structural-elements"><span class="std std-numref">Fig. 10.2</span></a>, for which two convenient idealisations are the ‘brittle’ and the ‘fully ductile’ case. Intermediate, often more realistic, cases can also be defined.</p>
+<p>The above expressions can be difficult to evaluate in the case of large systems with stochastically dependent components and, for this reason, upper and lower bounds have been developed, which may be used in practical applications. In order to appreciate the effect of system behaviour on failure probabilities, results for two special systems comprising equally correlated components with the same failure probability for each component are shown in <a class="reference internal" href="#fig-effect-of-element-correlation-and-system-size-on-failure-probability"><span class="std std-ref">Fig. 10.3(a)</span></a> and <a class="reference internal" href="#fig-effect-of-element-correlation-and-system-size-on-failure-probability"><span class="std std-ref">Fig. 10.3(b)</span></a>. Note that in the case of the parallel system, it is assumed that the components are fully ductile.</p>
+<p>More general systems can be constructed by combining the two fundamental types. It is fair to say that system methods are more developed for skeletal rather than continuous structures. Important results from system reliability theory are summarized in <a class="reference internal" href="basis-of-uncerainty-modelling.html"><span class="std std-doc">section 4</span></a>.</p>
+</section>
+</section>
+<section id="component-reliability-analysis">
+<h2><span class="section-number">10.3. </span>Component Reliability Analysis<a class="headerlink" href="#component-reliability-analysis" title="Link to this heading">#</a></h2>
+<p>The framework for probabilistic modeling and reliability evaluation is outlined in this section. The focus is on the procedure to be followed in assessing the reliability of a critical component with respect to a particular failure mode.</p>
+<section id="underline-text-general-steps">
+<h3><span class="section-number">10.3.1. </span><span class="math notranslate nohighlight">\(\underline{\text{General Steps}}\)</span><a class="headerlink" href="#underline-text-general-steps" title="Link to this heading">#</a></h3>
+<p>The main steps in a component reliability analysis are the following:</p>
+<ol class="arabic simple">
+<li><p>select appropriate limit state function</p></li>
+<li><p>specify appropriate time reference</p></li>
+<li><p>identify basic variables and develop appropriate probabilistic models</p></li>
+<li><p>compute reliability index and failure probability</p></li>
+<li><p>perform sensitivity studies</p></li>
+</ol>
+<p>Step (1) is essentially the same as for deterministic analysis. Step (2) should be considered carefully, since it affects the probabilistic modeling of many variables, particularly live loading. Step (3) is perhaps the most important because the considerations made in developing the probabilistic models have a major effect on the results obtained, see <a class="reference internal" href="principles-of-limit-state-design.html#section-3-2"><span class="std std-ref">section 3.2</span></a>. Step (4) should be undertaken with one of the methods summarized in <a class="reference internal" href="principles-of-limit-state-design.html#section-3-3"><span class="std std-ref">section 3.3</span></a>, depending on the application. Step (5) is necessary insofar as the sensitivity of any results (deterministic or probabilistic) should be assessed before a decision is taken.</p>
+</section>
+<section id="underline-text-probabilistic-modelling">
+<h3><span class="section-number">10.3.2. </span><span class="math notranslate nohighlight">\(\underline{\text{Probabilistic Modelling}}\)</span><a class="headerlink" href="#underline-text-probabilistic-modelling" title="Link to this heading">#</a></h3>
+<p>For the particular failure mode under consideration, uncertainty modeling must be undertaken with respect to those variables in the corresponding limit state function whose variability is judged to be important (basic random variables). Most engineering structures are affected by the following types of uncertainty:</p>
+<ul class="simple">
+<li><p>intrinsic physical or mechanical uncertainty; when considered at a fundamental level, this uncertainty source is often best described by stochastic processes in time and space, although it is often modelled more simply in engineering applications through random variables.</p></li>
+<li><p>measurement uncertainty; this may arise from random and systematic errors in the measurement of these physical quantities</p></li>
+<li><p>statistical uncertainty; due to reliance on limited information and finite samples</p></li>
+<li><p>model uncertainty; related to the predictive accuracy of calculation models used</p></li>
+</ul>
+<p>The physical uncertainty in a basic random variable is represented by adopting a suitable probability distribution, described in terms of its type and relevant distribution parameters. The results of the reliability analysis can be very sensitive to the tail of the probability distribution, which depends primarily on the type of distribution adopted. A proper choice of distribution type is therefore important.</p>
+<p>For most commonly encountered basic random variables there have been studies (of varying detail) that contain guidance on the choice of distribution and its parameters. If direct measurements of a particular quantity are available, then existing, so-called <em>a priori</em>, information (e.g. probabilistic models found in published studies) should be used as prior statistics with a relatively large equivalent sample size <span class="math notranslate nohighlight">\(`\left(n^{\prime} \approx 50\right)\)</span>.</p>
+<p>The following comments may also be helpful in selecting a suitable probabilistic model.</p>
+<p><span class="math notranslate nohighlight">\(\underline{\text{Material properties}}\)</span></p>
+<ul class="simple">
+<li><p>frequency of negative values is normally zero</p></li>
+<li><p>log-normal distribution can often be used</p></li>
+<li><p>distribution type and parameters should, in general, be derived from large homogeneous samples and with due account of established distributions for similar variables (e.g. for a new high strength steel grade, the information on properties of existing grades should be consulted); tests should be planned so that they are, as far as possible, a realistic description of the potential use of the material in real applications.</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\underline{\text{Geometric parameters}}\)</span></p>
+<ul class="simple">
+<li><p>variability in structural dimensions and overall geometry tends to be small</p></li>
+<li><p>dimensional variables can be adequately modelled by the normal or log-normal distribution</p></li>
+<li><p>if the variable is physically bounded, a truncated distribution may be appropriate (e.g. location of reinforcement); such bounds should always be carefully considered to avoid entering into physically inadmissible ranges</p></li>
+<li><p>variables linked to manufacturing can have large coefficients of variation (e.g. imperfections, misalignments, residual stresses, weld defects).</p></li>
+</ul>
+<p><span class="math notranslate nohighlight">\(\underline{\text{Load variables}}\)</span></p>
+<ul class="simple">
+<li><p>loads should be divided according to their time variation (permanent, variable, accidental)</p></li>
+<li><p>in certain cases, permanent loads consist of the sum of many individual elements; they may be represented by a normal distribution</p></li>
+<li><p>for single variable loads, the form of the point-in-time distribution is seldom of immediate relevance; often the important random variable is the magnitude of the largest extreme load that occurs during a specified reference period for which the probability of failure is calculated (e.g. annual, lifetime)</p></li>
+<li><p>the probability distribution of the largest extreme could be approximated by one of the asymptotic extreme-value distributions (Gumbel, sometimes Frechet)</p></li>
+<li><p>when more than one variable loads act in combination, load modelling is often undertaken using simplified rules suitable for FORM/SORM analysis.</p></li>
+</ul>
+<p>In selecting a distribution type to account for physical uncertainty of a basic random variable afresh, the following procedure may be followed:</p>
+<ul class="simple">
+<li><p>based on experience from similar type of variables and physical knowledge, choose a set of possible distributions</p></li>
+<li><p>obtain a reasonable sample of observations ensuring that, as far as possible, the sample points are from a homogeneous group (i.e. avoid systematic variations within the sample) and that the sampling reflects potential uses and applications</p></li>
+<li><p>evaluate by an appropriate method the parameters of the candidate distributions using the sample data; the method of maximum likelihood is recommended but evaluation by alternative methods (moment estimates, least-square fit, graphical methods) may also be carried out for comparison.</p></li>
+<li><p>compare the sample data with the resulting distributions; this can be done graphically (histogram vs. pdf, probability paper plots) or through the use of goodness-of-fit tests (Chi-square, Kolmogorov-Smirnov tests)</p></li>
+</ul>
+<p>If more than one distribution gives equally good results (or if the goodness-of-fit tests are acceptable to the same significance level), it is recommended to choose the distribution that will result in the smaller reliability. This implies choosing distributions with heavy left tails for resistance variables (material properties, geometry excluding tolerances) and heavy right tails for loading variables (manufacturing tolerances, defects and loads).</p>
+<p>Capturing the essential features of physical uncertainty in a load or in a structure property through a random variable model is perhaps the simplest way of modeling uncertainty and quantifying its effect on failure probability. In general, loads are functions of both time and position on any particular structure. Equally, material properties and dimensions of even a single structural member, e.g. a RC floor slab, are functions which vary both in time and in space. Such random functions are usually denoted as random (or stochastic) processes when time variation is the most important factor and as random fields when spatial variation is considered.</p>
+<p><a class="reference internal" href="#fig-schematic-representations-of-random-process-and-random-field"><span class="std std-ref">Fig. 10.4(a)</span></a> shows schematically a continuous stochastic process, e.g. wind pressure at a particular point on a wall of a structure. The trace of this process over time is obtained through successive realisations of the underlying phenomenon, in this case wind speed, which is clearly a random variable taking on different values within each infinitesimally small time interval, <span class="math notranslate nohighlight">\(\delta t\)</span>.</p>
+<p><a class="reference internal" href="#fig-schematic-representations-of-random-process-and-random-field"><span class="std std-ref">Fig. 10.4(b)</span></a> depicts a two-dimensional random field, e.g. the spatial variation of concrete strength in a floor slab just after construction. Once again, a random variable, in this case describing the possible outcomes of, say, a core test obtained from any given small area, <span class="math notranslate nohighlight">\(\delta A\)</span>, is the basic kernel from which the random field is built up.</p>
+<p>In considering either a random process or a random field, it is clear that, apart from the characteristics associated with the random variable describing uncertainty within a small unit (interval or area), laws describing stochastic dependence (or, in simpler terms, correlation) between outcomes in time and/or in space are very important.</p>
+<p>The other three types of uncertainty mentioned above (measurement, statistical, model) also play an important role in the evaluation of reliability. As mentioned in <a class="reference internal" href="requirements.html#section-2-3"><span class="std std-ref">section 2.3</span></a>, these uncertainties are influenced by the particular method used in, for example, strength analysis and by the collection of additional (possibly, directly obtained) data. These uncertainties could be rigorously analysed by adopting the approach outlined by eqns <a class="reference internal" href="#equation-eqc8a">(10.10)</a>, <a class="reference internal" href="#equation-eqc8b">(10.11)</a> and <a class="reference internal" href="#equation-eqc9">(10.12)</a>. However, in many practical applications a simpler approach has been adopted insofar as model (and measurement) uncertainty is concerned based on the differences between results predicted by the mathematical model adopted for <span class="math notranslate nohighlight">\(g(x)\)</span> and some more elaborate model believed to be a closer representation of actual conditions. In such cases, a model uncertainty basic random variable <span class="math notranslate nohighlight">\(X_{m}\)</span> is introduced where</p>
+<div class="math notranslate nohighlight">
+\[X_{m}=\frac{\text { actual value }}{\text { predicted value }}\]</div>
+<p>and the following comments offer some general guidance in estimating the statistics of <span class="math notranslate nohighlight">\(X_{m}\)</span> :</p>
+<ul class="simple">
+<li><p>the mean value of the model uncertainty associated with code calculation models can be larger than unity, reflecting the in-built conservatism of code models</p></li>
+<li><p>the model uncertainty parameters of a particular calculation model may be evaluated vis-à-vis physical experiments or by comparing the calculation model with a more detailed model (e.g. finite element model)</p></li>
+<li><p>when experimental results are used, use of measured rather than nominal or characteristic quantities is preferred in calculating the predicted value</p></li>
+<li><p>the use of numerical experiments (e.g. finite element models) has some advantages over physical experiments, since the former ensures well-controlled input.</p></li>
+<li><p>the choice of a suitable probability distribution for <span class="math notranslate nohighlight">\(X_{m}\)</span> is often governed by mathematical convenience and a normal distribution has been used extensively.</p></li>
+</ul>
+</section>
+<section id="underline-text-computation-of-failure-probability">
+<h3><span class="section-number">10.3.3. </span><span class="math notranslate nohighlight">\(\underline{\text{Computation of Failure Probability}}\)</span><a class="headerlink" href="#underline-text-computation-of-failure-probability" title="Link to this heading">#</a></h3>
+<p>As mentioned above, the failure probability of a structural component with respect to a single failure mode is given by</p>
+<div class="math notranslate nohighlight">
+\[
+P_{f}=\int_{g(\mathbf{x}) \leq 0} f_{\mathbf{X}}(\mathbf{x}) \mathrm{d} \mathbf{x} \tag{10.4}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> is the vector of basic random variables, <span class="math notranslate nohighlight">\(g(\boldsymbol{x})\)</span> is the limit state (or failure) function for the failure mode considered and <span class="math notranslate nohighlight">\(f_{\mathbf{X}}(\mathbf{x})\)</span> is the joint probability density function of <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>.</p>
+<p>An important class of limit states are those for which all the variables are treated as time independent, either by neglecting time variations in cases where this is considered acceptable or by transforming time-dependent processes into time-invariant variables (e.g. by using extreme value distributions). The methods commonly used for calculating <span class="math notranslate nohighlight">\(P_{f}\)</span> in such cases are outlined below. Guidelines on how to deal with time-dependent problems are given in <a class="reference internal" href="models-for-physical-behaviour.html"><span class="std std-doc">section 5</span></a>. Note that after calculating <span class="math notranslate nohighlight">\(P_{f}\)</span> via one of the methods outlined below, or any other valid method, a reliability index may be obtained from equation <a class="reference internal" href="#equation-eqc5">(10.6)</a>, for comparative or other purposes.</p>
+<p><span class="math notranslate nohighlight">\(\underline{\text{Asymptotic approximate methods}}\)</span></p>
+<p>Although these methods first emerged with basic random variables described through ‘second-moment’ information (i.e. with their mean value and standard deviation, but without assigning any probability distributions), it is nowadays possible in many cases to have a full description of the random vector <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> (as a result of data collection and probabilistic modelling studies). In such cases, the probability of failure could be calculated via first or second order reliability methods (FORM and SORM respectively). Their implementation relies on:</p>
+<p><em>(1) Transformation techniques</em>:</p>
+<div class="math notranslate nohighlight" id="equation-eqc9">
+<span class="eqno">(10.12)<a class="headerlink" href="#equation-eqc9" title="Link to this equation">#</a></span>\[\mathbf{T}: \quad \mathbf{X}=\left(X_{1}, X_{2}, \ldots X_{n}\right) \quad \rightarrow \quad \mathbf{U}=\left(U_{1}, U_{2}, \ldots U_{n}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(U_{1}, U_{2}, \ldots U_{n}\)</span> are independent standard normal variables (i.e. with zero mean value and unit standard deviation). Hence, the basic variable space (including the limit state function) is transformed into a standard normal space, see <a class="reference internal" href="#fig-limit-state-surface-in-basic-variable-and-standard-normal-space"><span class="std std-numref">Fig. 10.5</span></a>. The special properties of the standard normal space lead to several important results, as discussed below.</p>
+<p><em>(2) Search techniques</em>:</p>
+<p>In standard normal space, the objective is to determine a suitable checking point: this is shown to be the point on the limit-state surface which is closest to the origin, the so-called ‘design point’. In this rotationally symmetric space, it is the most likely failure point, in other words its co-ordinates define the combination of variables that are most likely to cause failure. This is because the joint standard normal density function, whose bell-shaped peak lies directly above the origin, decreases exponentially as the distance from the origin increases. To determine this point, a search procedure is required in all but the most simple of cases (the Rackwitz-Fiessler algorithm is commonly used).</p>
+<p>Denoting the co-ordinates of this point by</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{u}^{*}=\left(u_{1}^{*}, u_{2}^{*}, \ldots u_{n}^{*}\right)\]</div>
+<p>its distance from the origin is clearly equal to</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\sum_{i=1}^{n} u_{i}^{*2}\right)^{1 / 2}
+\]</div>
+<p>This scalar quantity is known as the Hasofer-Lind reliability index, <span class="math notranslate nohighlight">\(\beta_{HL}\)</span>, i.e.</p>
+<div class="math notranslate nohighlight" id="equation-eqc10">
+<span class="eqno">(10.13)<a class="headerlink" href="#equation-eqc10" title="Link to this equation">#</a></span>\[\beta_{H L}=\left(\sum_{i=1}^{n} u_{i}^{* 2}\right)^{1 / 2}\]</div>
+<p>Note that <span class="math notranslate nohighlight">\(\mathbf{u}^{*}\)</span> can also be written as</p>
+<div class="math notranslate nohighlight" id="equation-eqc11a">
+<span class="eqno">(10.14)<a class="headerlink" href="#equation-eqc11a" title="Link to this equation">#</a></span>\[\mathbf{u}^{*}=\beta_{HL}~ \mathbf{\alpha}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha=\left(\alpha_{1}, \alpha_{2}, \ldots \alpha_{n}\right)\)</span> is the unit normal vector to the limit state surface at <span class="math notranslate nohighlight">\(\mathbf{u}^{*}\)</span>, and, hence, <span class="math notranslate nohighlight">\(\alpha_{i}(i=1, \ldots n)\)</span> represent the direction cosines at the design point. These are also known as the sensitivity factors, as they provide an indication of the relative importance of the uncertainty in basic random variables on the computed reliability. Their absolute value ranges between zero and unity and the closer this is to the upper limit, the more significant the influence of the respective random variable is to the reliability. The following expression is valid for independent variables</p>
+<div class="math notranslate nohighlight" id="equation-eqc11b">
+<span class="eqno">(10.15)<a class="headerlink" href="#equation-eqc11b" title="Link to this equation">#</a></span>\[\sum_{i=1}^{n} \alpha_{1}^{2}=1\]</div>
+<p><em>(3) Approximation techniques</em>:</p>
+<p>Once the checking point is determined, the failure probability can be approximated using results applicable to the standard normal space. Thus, in a first-order approximation, the limit state surface is approximated by its tangent hyperplane at the design point. The probability content of the failure set is then given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc12a">
+<span class="eqno">(10.16)<a class="headerlink" href="#equation-eqc12a" title="Link to this equation">#</a></span>\[P_{f FORM}=\Phi\left(-\beta_{HL}\right)\]</div>
+<p>In some cases, a higher order approximation of the limit state surface at the design point is merited, if only to check the accuracy of FORM. The result for the probability of failure assuming a quadratic (second-order) approximation of the limit state surface is asymptotically given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc12b">
+<span class="eqno">(10.17)<a class="headerlink" href="#equation-eqc12b" title="Link to this equation">#</a></span>\[P_{f S O R M}=\Phi\left(-\beta_{H L}\right) \prod_{j=1}^{n-1}\left(1-\beta_{H L}~ \kappa_{j}\right)^{-1 / 2}\]</div>
+<p>for <span class="math notranslate nohighlight">\(\beta_{HL} \rightarrow \infty\)</span>, where <span class="math notranslate nohighlight">\(\kappa_{j}\)</span> are the principal curvatures of the limit state surface at the design point. An expression applicable to finite values of <span class="math notranslate nohighlight">\(\beta_{HL}\)</span> is also available.</p>
+<p><span class="math notranslate nohighlight">\(\underline{\text{Simulation Methods}}\)</span></p>
+<p>In this approach, random sampling is employed to simulate a large number of (usually numerical) experiments and to observe the result. In the context of structural reliability, this means, in the simplest approach, sampling the random vector <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> to obtain a set of sample values. The limit state function is then evaluated to ascertain whether, for this set, failure (i.e. <span class="math notranslate nohighlight">\(g(\mathbf{x}) \leq 0\)</span> ) has occurred. The experiment is repeated many times and the probability of failure, <span class="math notranslate nohighlight">\(P_{f}\)</span>, is estimated from the fraction of trials leading to failure divided by the total number of trials. This so-called Direct or Crude Monte Carlo method is not likely to be of use in practical problems because of the large number of trials required in order to estimate with a certain degree of confidence the failure probability. Note that the number of trials increases as the failure probability decreases. Simple rules may be found, of the form <span class="math notranslate nohighlight">\(N&gt;C~/~P_{f}\)</span>, where <span class="math notranslate nohighlight">\(N\)</span> is the required sample size and <span class="math notranslate nohighlight">\(C\)</span> is a constant related to the confidence level and the type of function being evaluated.</p>
+<p>Thus, the objective of more advanced simulation methods, currently used for reliability evaluation, is to reduce the variance of the estimate of <span class="math notranslate nohighlight">\(P_{f}\)</span>. Such methods can be divided into two categories, namely indicator function methods and conditional expectation methods. An example of the former is Importance Sampling, where the aim is to concentrate the distribution of the sample points in the vicinity of likely failure points, such as the design point obtained from FORM/SORM analysis. This is done by introducing a sampling function, whose choice would depend on <em>a priori</em> information available, such as the co-ordinates of the design point and/or any estimates of the failure probability. In this way, the success rate (defined here as a probability of obtaining a result in the failure region in any particular trial) is improved compared to Direct Monte Carlo. Importance Sampling is often used following an initial FORM/SORM analysis. A variant of this method is Adaptive Sampling, in which the sampling density is updated as the simulation proceeds. Importance Sampling could be performed in basic variable or standard normal space, depending on the problem and the form of prior information.</p>
+<p>A powerful method belonging to the second category is Directional Simulation. It achieves variance reduction using conditional expectation in the standard normal space, where a special result applies pertaining to the probability bounded by a hypersphere centred at the origin. Its efficiency lies in that each random trial generates precise information on where the boundary between safety and failure lies. However, the method does generally require some iterative calculations. It is particularly suited to problems where it is difficult to identify ‘important’ regions (perhaps due to the presence of multiple local design points).</p>
+<p>The two methods outlined above have also been used in combination, which indicates that when simulation is chosen as the basic approach for reliability assessment, there is scope to adapt the detailed methodology to suit the particular problem in hand.</p>
+</section>
+<section id="underline-text-recommendations">
+<h3><span class="section-number">10.3.4. </span><span class="math notranslate nohighlight">\(\underline{\text{Recommendations}}\)</span><a class="headerlink" href="#underline-text-recommendations" title="Link to this heading">#</a></h3>
+<p>As with any other analysis, choosing a particular method must be justified through experience and/or verification. Experience shows that FORM/SORM estimates are adequate for a wide range of problems. However, these approximate methods have the disadvantage of not being quantified by error estimates, except for few special cases. As indicated, simulation may be used to verify FORM/SORM results, particularly in situations where multiple design points might be suspected. Simulation results should include the variance of the estimated probability of failure, though good estimates of the variance could increase the computations required. When using FORM/SORM, attention should be given to the ordering of dependent random variables and the choice of initial points for the search algorithm. Not least, the results for the design point should be assessed to ensure that they do not contradict physical reasoning.</p>
+</section>
+</section>
+<section id="system-reliability-analysis">
+<h2><span class="section-number">10.4. </span>System Reliability Analysis<a class="headerlink" href="#system-reliability-analysis" title="Link to this heading">#</a></h2>
+<p>As discussed in <a class="reference internal" href="principles-of-limit-state-design.html"><span class="std std-doc">section 3</span></a>, individual component failure events can be represented by failure boundaries in basic variable or standard normal space. System failure events can be similarly represented, see <a class="reference internal" href="#fig-failure-region-as-union-of-component-failure-events-for-series-system"><span class="std std-numref">Fig. 10.6</span></a> and <a class="reference internal" href="#fig-failure-region-as-intersection-of-component-failure-events-for-parallel-system"><span class="std std-numref">Fig. 10.7</span></a>, and, once more, certain approximate results may be derived as an extension to FORM/SORM analysis of individual components. In addition, system analysis is sometimes performed using bounding techniques and some relevant results are given below.</p>
+<section id="underline-text-series-systems">
+<h3><span class="section-number">10.4.1. </span><span class="math notranslate nohighlight">\(\underline{\text{Series systems}}\)</span><a class="headerlink" href="#underline-text-series-systems" title="Link to this heading">#</a></h3>
+<p>The probability of failure of a series system with <span class="math notranslate nohighlight">\(m\)</span> components is defined as</p>
+<div class="math notranslate nohighlight" id="equation-eqc13">
+<span class="eqno">(10.18)<a class="headerlink" href="#equation-eqc13" title="Link to this equation">#</a></span>\[P_{f s y s}=P\left[\bigcup_{j=1}^{m} F_{j}\right]\]</div>
+<p>where, <span class="math notranslate nohighlight">\(F_{j}\)</span> is the event corresponding to the failure of the <span class="math notranslate nohighlight">\(j\)</span> th component. By describing this event in terms of a safety margin <span class="math notranslate nohighlight">\(M_{j}\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eqc14">
+<span class="eqno">(10.19)<a class="headerlink" href="#equation-eqc14" title="Link to this equation">#</a></span>\[P\left[F_{j}\right]=P\left[M_{j} \leq 0\right] \approx \Phi\left(-\beta_{j}\right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\beta_{j}\)</span> is its corresponding FORM reliability index, it can be shown that in a first-order approximation</p>
+<div class="math notranslate nohighlight" id="equation-eqc15a">
+<span class="eqno">(10.20)<a class="headerlink" href="#equation-eqc15a" title="Link to this equation">#</a></span>\[P_{f s y s}=1-\Phi_{m}[\widetilde{\beta} ; \widetilde{\widetilde{\rho}}]\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Phi_{m}[.]\)</span> is the multi-variate standard normal distribution function, <span class="math notranslate nohighlight">\(\widetilde{\boldsymbol{\beta}}\)</span> is the <span class="math notranslate nohighlight">\((m \times 1)\)</span> vector of component reliability indices and <span class="math notranslate nohighlight">\(\widetilde{\widetilde{\rho}}{ }\)</span> is the <span class="math notranslate nohighlight">\((m \times m)\)</span> correlation matrix between safety margins with elements given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc15b">
+<span class="eqno">(10.21)<a class="headerlink" href="#equation-eqc15b" title="Link to this equation">#</a></span>\[\rho_{j k}=\sum_{i=1}^{n} \alpha_{i j} \alpha_{i k} \quad, j, k=1,2, \ldots, m\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha_{i j}\)</span> is the sensitivity factor corresponding to the <span class="math notranslate nohighlight">\(i\)</span> th random variable in the <span class="math notranslate nohighlight">\(j\)</span> th margin. In some cases, especially when the number of components becomes large, evaluation of equation <a class="reference internal" href="#equation-eqc15a">(10.20)</a> becomes cumbersome and bounds to the system failure probability may prove sufficient.</p>
+<p>Simple first-order linear bounds are given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc16a">
+<span class="eqno">(10.22)<a class="headerlink" href="#equation-eqc16a" title="Link to this equation">#</a></span>\[\overset{m}{\underset{j=1}{Max}}\left[P\left(F_{j}\right)\right] \leq P_{f s y s} \leq Min \left[\left(\sum_{j=1}^{m} P\left(F_{j}\right)\right), 1\right]\]</div>
+<p>but these are likely to be rather wide, especially for large <span class="math notranslate nohighlight">\(m\)</span>, in which case second-order linear bounds (Ditlevsen bounds) may be needed. These are given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc16b">
+<span class="eqno">(10.23)<a class="headerlink" href="#equation-eqc16b" title="Link to this equation">#</a></span>\[\begin{split}P\left[F_{1}\right]+\sum_{j=2}^{m} Max \left\lbrace\left[P\left(F_{j}\right)-\sum_{k=1}^{j-1} P\left(F_{j} \cap F_{k}\right)\right], 0\right\rbrace \leq P_{f s y s} \leq \\ P\left[F_{1}\right]+\sum_{j=2}^{m}\left\lbrace P \left(F_{j} \right) - \underset{k &lt; j}{Max} \left[P\left(F_{j} \cap F_{k}\right)\right] \right\rbrace \end{split}\]</div>
+<p>The narrowness of these bounds depends in part on the ordering of the events. The optimal ordering may differ between the lower and the upper bound. In general, these bounds are much narrower than the simple first-order linear bounds given by equation <a class="reference internal" href="#equation-eqc16a">(10.22)</a>. The bisections of events may be calculated using a first-order approximation, which appears below in the presentation of results for parallel systems.</p>
+</section>
+<section id="underline-text-parallel-systems">
+<h3><span class="section-number">10.4.2. </span><span class="math notranslate nohighlight">\(\underline{\text{Parallel systems}}\)</span><a class="headerlink" href="#underline-text-parallel-systems" title="Link to this heading">#</a></h3>
+<p>Following the same approach and notation as above, the failure probability of a parallel system with <span class="math notranslate nohighlight">\(m\)</span> components is given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc17">
+<span class="eqno">(10.24)<a class="headerlink" href="#equation-eqc17" title="Link to this equation">#</a></span>\[P_{\text {fsys }}=P\left[\overset{m}{\underset{j=1}{\cap}}\left(F_{j}\right)\right]=P\left[\overset{m}{\underset{j=1}{\cap}}\left(M_{j} \leq 0\right)\right]\]</div>
+<p>and the corresponding first-order approximation is</p>
+<div class="math notranslate nohighlight" id="equation-eqc18">
+<span class="eqno">(10.25)<a class="headerlink" href="#equation-eqc18" title="Link to this equation">#</a></span>\[P_{f sys}=\Phi_{m}[-\widetilde{\beta} ; \widetilde{\widetilde{\rho}}]\]</div>
+<p>Simple bounds are given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc19a">
+<span class="eqno">(10.26)<a class="headerlink" href="#equation-eqc19a" title="Link to this equation">#</a></span>\[0 \leq P_{f s y s} \leq \overset{m}{\underset{j=1}{Min}}\left[P\left(F_{j}\right)\right]\]</div>
+<p>These are usually too wide for practical applications. An improved upper bound is</p>
+<div class="math notranslate nohighlight" id="equation-eqc19b">
+<span class="eqno">(10.27)<a class="headerlink" href="#equation-eqc19b" title="Link to this equation">#</a></span>\[P_{f sys} \leq \overset{m}{\underset{j, k=1}{Min}}\left[P\left(F_{j} \cap F_{k}\right)\right]\]</div>
+<p>The error involved in the first-order evaluation of the intersections, <span class="math notranslate nohighlight">\(P\left[F_{j} \cap F_{k}\right]\)</span>, is, to a large extent, influenced by the non-linearity of the margins at their respective design points. In order to obtain a better estimate of the intersection probabilities, an improvement on the selection of linearisation points has been suggested.</p>
+</section>
+</section>
+<section id="time-dependent-reliability">
+<h2><span class="section-number">10.5. </span>Time-Dependent Reliability<a class="headerlink" href="#time-dependent-reliability" title="Link to this heading">#</a></h2>
+<section id="underline-text-general-remarks">
+<h3><span class="section-number">10.5.1. </span><span class="math notranslate nohighlight">\(\underline{\text{General Remarks}}\)</span><a class="headerlink" href="#underline-text-general-remarks" title="Link to this heading">#</a></h3>
+<p>Even in considering a relatively simple safety margin for component reliability analysis such as <span class="math notranslate nohighlight">\(M=R-S\)</span>, where <span class="math notranslate nohighlight">\(R\)</span> is the resistance at a critical section in a structural member and <span class="math notranslate nohighlight">\(S\)</span> is the corresponding load effect at the same section, it is generally the case that both <span class="math notranslate nohighlight">\(S\)</span> and resistance <span class="math notranslate nohighlight">\(R\)</span> are functions of time. Changes in both mean values and standard deviations could occur for either <span class="math notranslate nohighlight">\(R(t)\)</span> or <span class="math notranslate nohighlight">\(S(t)\)</span>. For example, the mean value of <span class="math notranslate nohighlight">\(R(t)\)</span> may change as a result of deterioration (e.g. corrosion of reinforcement in an RC bridge implies loss of area, hence a reduction in the mean resistance) and its standard deviation may also change (e.g. uncertainty in predicting the effect of corrosion on loss of area may increase as the periods considered become longer). On the other hand, the mean value of <span class="math notranslate nohighlight">\(S(t)\)</span> may increase over time (e.g. due to higher traffic flow and/or higher individual vehicle weights) and, equally, the estimate of its standard deviation may increase due to lower confidence in predicting the correct mix of traffic for longer periods. A time-dependent reliability problem could thus be schematically represented as in <a class="reference internal" href="#fig-general-time-dependent-reliability-problem"><span class="std std-numref">Fig. 10.8</span></a>, the diagram implying that, on average, the reliability decreases with time. Although this situation is usual, the converse could also occur in reliability assessment of existing structures, for example through strengthening or favourable change in use.</p>
+<p>Thus, the elementary reliability problem described through equations <a class="reference internal" href="#equation-eqc3a">(10.3)</a> and <a class="reference internal" href="#equation-eqc3b">(10.4)</a> may now be formulated as:</p>
+<div class="math notranslate nohighlight" id="equation-eqc20a">
+<span class="eqno">(10.28)<a class="headerlink" href="#equation-eqc20a" title="Link to this equation">#</a></span>\[P_{f}(t)=Prob~\left\lbrace\mathbf{R}(t) \leq \boldsymbol{S}(t)\right\rbrace=Prob~\left\lbrace g(\mathbf{X}(t)) \leq 0 ~00,0 \right\rbrace\]</div>
+<p>where <span class="math notranslate nohighlight">\(g(\mathbf{X}(t))=M(t)\)</span> is a time-dependent safety margin, and</p>
+<div class="math notranslate nohighlight" id="equation-eqc20b">
+<span class="eqno">(10.29)<a class="headerlink" href="#equation-eqc20b" title="Link to this equation">#</a></span>\[P_{f}(t)=\int_{g(\mathbf{x}(t)) \leq 0} f_{\mathbf{X}(t)}~(\mathbf{x}(t))~d \mathbf{x}(t)\]</div>
+<p>is the instantaneous failure probability at time <span class="math notranslate nohighlight">\(t\)</span>, assuming that the structure was safe at time less than <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>In time-dependent reliability problems, interest often lies in estimating the probability of failure over a time interval, say from 0 to <span class="math notranslate nohighlight">\(t_{L}\)</span>. This could be obtained by integrating <span class="math notranslate nohighlight">\(P_{f}(t)\)</span> over the interval <span class="math notranslate nohighlight">\(\left[0, t_{L}\right]\)</span>, bearing in mind the correlation characteristics in time of the process <span class="math notranslate nohighlight">\(\mathbf{X}(t)\)</span> or, sometimes more conveniently, the process <span class="math notranslate nohighlight">\(\mathbf{R}(t)\)</span>, the process <span class="math notranslate nohighlight">\(\mathbf{S}(t)\)</span>, as well as any cross correlation between <span class="math notranslate nohighlight">\(\mathbf{R}(t)\)</span> and <span class="math notranslate nohighlight">\(\mathbf{S}(t)\)</span>. Note that the load effect process <span class="math notranslate nohighlight">\(\mathbf{S}(t)\)</span> is often composed of additive components, <span class="math notranslate nohighlight">\(S_{1}(t), S_{2}(t), \ldots\)</span>, for each of which the time fluctuations may have different features (e.g. continuous variation, pulse-type variation, spikes).</p>
+<p>Interest may also lie in predicting when <span class="math notranslate nohighlight">\(S(t)\)</span> crosses <span class="math notranslate nohighlight">\(R(t)\)</span> for the first time, see  <a class="reference internal" href="#fig-schematic-representation-of-crossing-problems"><span class="std std-numref">Fig. 10.9</span></a>, or the probability that such an event would occur within a specified time interval. These considerations give rise to so-called ‘crossing’ problems, which are treated using stochastic process theory. A key concept for such problems is the rate at which a random process <span class="math notranslate nohighlight">\(X(t)\)</span> ‘upcrosses’ (or crosses with a positive slope) a barrier or level <span class="math notranslate nohighlight">\(\xi\)</span>, as shown in <a class="reference internal" href="#fig-fundamental-barrier-crossing-problem"><span class="std std-numref">Fig. 10.10</span></a>. This upcrossing rate is a function of the joint probability density function of the process and its derivative, and is given by Rice’s formula</p>
+<div class="math notranslate nohighlight" id="equation-eqc21">
+<span class="eqno">(10.30)<a class="headerlink" href="#equation-eqc21" title="Link to this equation">#</a></span>\[v_{\xi}^{+}=\int_{0}^{\infty} \dot{x} f_{X \dot{X}}(\xi, \dot{x}) d \dot{x}\]</div>
+<p>where the rate in general represents an ensemble average at time <span class="math notranslate nohighlight">\(t\)</span>. For a number of common stochastic processes, useful results have been obtained starting from Equation <a class="reference internal" href="#equation-eqc21">(10.30)</a>. An important simplification can be introduced if individual crossings can be treated as independent events and the occurences may be approximated by a Poisson distribution, which might be a reasonable assumption for certain rare load events.</p>
+<p>Another class of problems calling for a time-dependent reliability analysis are those related to damage accumulation, such as fatigue and fracture. This case is depicted in <a class="reference internal" href="#fig-damage-accumulation-problem"><span class="std std-numref">Fig. 10.11</span></a> via a fixed threshold (e.g. critical crack size) and a monotonically increasing time-dependent load effect or damage function (e.g. actual crack size at any given time).</p>
+<p>It is evident from the above remarks that the best approach for solving a time-dependent reliability problem would depend on a number of considerations, including the time frame of interest, the nature of the load and resistance processes involved, their correlation properties in time, and the confidence required in the probability estimates. All these issues may be important in determining the appropriate idealisations and approximations.</p>
+</section>
+<section id="underline-text-transformation-to-time-independent-formulations">
+<h3><span class="section-number">10.5.2. </span><span class="math notranslate nohighlight">\(\underline{\text{Transformation to Time-Independent Formulations}}\)</span><a class="headerlink" href="#underline-text-transformation-to-time-independent-formulations" title="Link to this heading">#</a></h3>
+<p>Although time variations are likely to be present in most structural reliability problems, the methods outlined in Sections <a class="reference internal" href="principles-of-limit-state-design.html"><span class="std std-doc">3</span></a> and <a class="reference internal" href="basis-of-uncerainty-modelling.html"><span class="std std-doc">4</span></a> have gained wide acceptance, partly due to the fact that, in many cases, it is possible to transform a time dependent failure mode into a corresponding time independent mode. This is especially so in the case of overload failure, where individual time-varying actions, which are essentially random processes, <span class="math notranslate nohighlight">\(p(t)\)</span>, can be modelled by the distribution of the maximum value within a given reference period T, i.e. <span class="math notranslate nohighlight">\(X=\max _{T}\left\lbrace p(t)\right\rbrace\)</span> rather than the point-in-time distribution. For continuous processes, the probability distribution of the maximum value (i.e. the largest extreme) is often approximated by one of the asymptotic extreme value distributions. Hence, for structures subjected to a single time-varying action, a random process model is replaced by a random variable model and the principles and methods given previously may be applied.</p>
+<p>The theory of stochastic load combination is used in situations where a structure is subjected to two or more time-varying actions acting simultaneously. When these actions are independent, perhaps the most important observation is that it is highly unlikely that each action will reach its peak lifetime value at the same moment in time. Thus, considering two time-varying load processes <span class="math notranslate nohighlight">\(p_{1}(t), p_{2}(t), 0 \leq t \leq T\)</span>, acting simultaneously, for which their combined effect may be expressed as a linear combination <span class="math notranslate nohighlight">\(p_{1}(t)+p_{2}(t)\)</span>, the random variable of interest is:</p>
+<div class="math notranslate nohighlight" id="equation-eqc22a">
+<span class="eqno">(10.31)<a class="headerlink" href="#equation-eqc22a" title="Link to this equation">#</a></span>\[X=\text{max}_{T}\left\lbrace p_{1}(t)+p_{2}(t)\right\rbrace\]</div>
+<p>If the loads are independent, replacing <span class="math notranslate nohighlight">\(X\)</span> by <span class="math notranslate nohighlight">\(\max _{T}\left\{p_{1}(t)\right\}+\max _{T}\left\{p_{2}(t)\right\}\)</span> leads to very conservative results. However, the distribution of <span class="math notranslate nohighlight">\(X\)</span> can be derived in few cases only. One possible way of dealing with this problem, which also leads to a relatively simple deterministic code format, is to replace <span class="math notranslate nohighlight">\(X\)</span> with the following</p>
+<div class="math notranslate nohighlight" id="equation-eqc22b">
+<span class="eqno">(10.32)<a class="headerlink" href="#equation-eqc22b" title="Link to this equation">#</a></span>\[\begin{split}X' = \text{max}_T \left\lbrace
+\begin{array}{l}
+\max_T\left\lbrace p_1(t) \right\rbrace + p_2(t) \\ \\ 
+p_1(t) + \max_T\left\lbrace p_2(t) \right\rbrace
+\end{array}
+\right.\end{split}\]</div>
+<p>This rule (Turkstra’s rule) suggests that the maximum value of the sum of two independent load processes occurs when one of the processes attains its maximum value. This result may be generalised for several independent time-varying loads. The conditions which render this rule adequate for failure probability estimation are discussed in standard texts. Note that the failure probability associated with the sum of a special type of independent identically distributed processes (so-called FBC process) can be calculated in a more accurate way, as will be outlined below. Other results have been obtained for combinations of a number of other processes, starting from Rice’s barrier crossing formula.</p>
+<p>The FBC (Ferry Borges-Castanheta) process is generated by a sequence of independent identically distributed random variables, each acting over a given (deterministic) time interval. This is shown in <a class="reference internal" href="#fig-realization-of-an-fbc-process"><span class="std std-numref">Fig. 10.12</span></a> where the total reference period T is made up of <span class="math notranslate nohighlight">\(n_{i}\)</span> repetitions where <span class="math notranslate nohighlight">\(n_{i} / \tau_{i}\)</span>. Hence, the FBC process is a rectangular pulse process with changes in amplitude occurring at equal intervals. Because of independence, the maximum value in the reference period <span class="math notranslate nohighlight">\(T\)</span> is given by</p>
+<div class="math notranslate nohighlight" id="equation-eqc23">
+<span class="eqno">(10.33)<a class="headerlink" href="#equation-eqc23" title="Link to this equation">#</a></span>\[F_{\max _{T} X_{i}}\left(x_{i}\right)=\left[F_{X_{i}}\left(x_{i}\right)\right]^{n_{i}}\]</div>
+<p>When a number of FBC processes act in combination and the ratios of their repetition numbers within a given reference period are given by positive integers it is, in principle, possible to obtain the extreme value distribution of the combination through a recursive formula. More importantly, it is possible to deal with the sum of FBC processes by implementing the Rackwitz-Fiessler algorithm in a FORM/SORM analysis.</p>
+<p>A deterministic code format, compatible with the above rules, leads to the introduction of combination factors, <span class="math notranslate nohighlight">\(\psi_{oi}\)</span>, for each time-varying load <span class="math notranslate nohighlight">\(i\)</span>. In principle, these factors express ratios between fractiles in the extreme value and point-in-time distributions so that the probability of exceeding the design value arising from a combination of loads is of the same order as the probability of exceeding the design value caused by one load. For time-varying loads, they would depend on distribution parameters, target reliability and FORM/SORM sensitivity factors and on the frequency characteristics (i.e. the base period assumed for stationary events) of loads considered within any particular combination.</p>
+</section>
+<section id="underline-text-introduction-to-crossing-theory">
+<h3><span class="section-number">10.5.3. </span><span class="math notranslate nohighlight">\(\underline{\text{Introduction to Crossing Theory}}\)</span><a class="headerlink" href="#underline-text-introduction-to-crossing-theory" title="Link to this heading">#</a></h3>
+<p>In considering a time-dependent safety margin, i.e. <span class="math notranslate nohighlight">\(M(t)=g(\mathbf{X}(t))\)</span>, the problem is to establish the probability that <span class="math notranslate nohighlight">\(M(t)\)</span> becomes zero or less in a reference time period, <span class="math notranslate nohighlight">\(t_{L}\)</span>. As mentioned previously, this constitutes a so-called ‘crossing’ problem. The time at which <span class="math notranslate nohighlight">\(M(t)\)</span> becomes less than zero for the first time is called the ‘time to failure’ and is a random variable, see <a class="reference internal" href="#fig-time-dependent-safety-margin-and-schematic-representation-of-vector-outcrossing"><span class="std std-ref">Fig. 10.13(a)</span></a>, or, in a basic variable space, <a class="reference internal" href="#fig-time-dependent-safety-margin-and-schematic-representation-of-vector-outcrossing"><span class="std std-ref">Fig. 10.13(b)</span></a>. The probability that <span class="math notranslate nohighlight">\(M(t) \leq 0\)</span> occurs during <span class="math notranslate nohighlight">\(t_{L}\)</span> is called the ‘first-passage’ probability. Clearly, it is identical to the probability of failure during time <span class="math notranslate nohighlight">\(t_{L}\)</span>.</p>
+<p>The determination of the first passage probability requires an understanding of the theory of random processes. Herein, only some basic concepts are introduced in order to see how the methods described above have to be modified in dealing with crossing problems.</p>
+<p>The first-passage probability, <span class="math notranslate nohighlight">\(P_{f}(t)\)</span> during a period <span class="math notranslate nohighlight">\(\left[0, t_{L}\right]\)</span> is</p>
+<div class="math notranslate nohighlight" id="equation-eqc24a">
+<span class="eqno">(10.34)<a class="headerlink" href="#equation-eqc24a" title="Link to this equation">#</a></span>\[P_{f}\left(t_{L}\right)=1-P\left[N\left(t_{L}\right)=0 \mid \mathbf{X}(0) \in D\right] P[\mathbf{X}(0) \in D]\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{X}(0) \in D\)</span> signifies that the process <span class="math notranslate nohighlight">\(\mathbf{X}(t)\)</span> starts in the safe domain and <span class="math notranslate nohighlight">\(N\left(t_{L}\right)\)</span> is the number of outcrossings in the interval <span class="math notranslate nohighlight">\(\left[0, t_{L}\right]\)</span>. The second probability term is equivalent to <span class="math notranslate nohighlight">\(1-P_{f}(0)\)</span>, where <span class="math notranslate nohighlight">\(P_{f}(0)\)</span> is the probability of failure at <span class="math notranslate nohighlight">\(t=0\)</span>. Equation <a class="reference internal" href="#equation-eqc24a">(10.34)</a> can be re-written as</p>
+<div class="math notranslate nohighlight" id="equation-eqc24b">
+<span class="eqno">(10.35)<a class="headerlink" href="#equation-eqc24b" title="Link to this equation">#</a></span>\[P_{f}(t_L)=P_{f}(0)+\left(1-P_{f}(0)\right)(1-P[N(t_L)=0])\]</div>
+<p>from which different approximations may be derived depending on the relative magnitude of the terms. A useful bound is</p>
+<div class="math notranslate nohighlight" id="equation-eqc25">
+<span class="eqno">(10.36)<a class="headerlink" href="#equation-eqc25" title="Link to this equation">#</a></span>\[P_{f}\left(t_{L}\right) \leq P_{f}(0)+E\left[N\left(t_{L}\right)\right]\]</div>
+<p>where the first term may be calculated by FORM/SORM and the expected number of outcrossings, <span class="math notranslate nohighlight">\(E\left[N\left(t_{L}\right)\right]\)</span>, is calculated by Rice’s formula or one of its generalisations. Alternatively, parallel system concepts can be employed.</p>
+</section>
+</section>
+<section id="figures">
+<h2><span class="section-number">10.6. </span>Figures<a class="headerlink" href="#figures" title="Link to this heading">#</a></h2>
+<figure class="align-default" id="fig-schematic-representation-of-series-and-parallel-systems">
+<img alt="../_images/Schematic-representation-of-series-and-parallel-systems.jpg" src="../_images/Schematic-representation-of-series-and-parallel-systems.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.1 </span><span class="caption-text">Schematic representation of series and parallel systems</span><a class="headerlink" href="#fig-schematic-representation-of-series-and-parallel-systems" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-load-displacement-response-of-structural-elements">
+<img alt="../_images/load-displacement-response-of-structural-elements.jpg" src="../_images/load-displacement-response-of-structural-elements.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.2 </span><span class="caption-text">Idealised load-displacement response of structural elements</span><a class="headerlink" href="#fig-load-displacement-response-of-structural-elements" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-effect-of-element-correlation-and-system-size-on-failure-probability">
+<img alt="../_images/Effect-of-element-correlation-and-system-size-on-failure-probability.jpg" src="../_images/Effect-of-element-correlation-and-system-size-on-failure-probability.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.3 </span><span class="caption-text">Effect of element correlation and system size on failure probability
+(a) series system
+(b) parallel system</span><a class="headerlink" href="#fig-effect-of-element-correlation-and-system-size-on-failure-probability" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-schematic-representations-of-random-process-and-random-field">
+<img alt="../_images/Schematic-representations-of-random-process-and-random-field.jpg" src="../_images/Schematic-representations-of-random-process-and-random-field.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.4 </span><span class="caption-text">Schematic representations
+(a) random process
+(b) random field</span><a class="headerlink" href="#fig-schematic-representations-of-random-process-and-random-field" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-limit-state-surface-in-basic-variable-and-standard-normal-space">
+<img alt="../_images/Limit-state-surface-in-basic-variable-and-standard-normal-space.jpg" src="../_images/Limit-state-surface-in-basic-variable-and-standard-normal-space.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.5 </span><span class="caption-text">Limit state surface in basic variable and standard normal space</span><a class="headerlink" href="#fig-limit-state-surface-in-basic-variable-and-standard-normal-space" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-failure-region-as-union-of-component-failure-events-for-series-system">
+<img alt="../_images/Failure-region-as-union-of-component-failure-events-for-series-system.jpg" src="../_images/Failure-region-as-union-of-component-failure-events-for-series-system.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.6 </span><span class="caption-text">Failure region as union of component failure events for series system</span><a class="headerlink" href="#fig-failure-region-as-union-of-component-failure-events-for-series-system" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-failure-region-as-intersection-of-component-failure-events-for-parallel-system">
+<img alt="../_images/Failure-region-as-intersection-of-component-failure-events-for-parallel-system.jpg" src="../_images/Failure-region-as-intersection-of-component-failure-events-for-parallel-system.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.7 </span><span class="caption-text">Failure region as intersection of component failure events for parallel system</span><a class="headerlink" href="#fig-failure-region-as-intersection-of-component-failure-events-for-parallel-system" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-general-time-dependent-reliability-problem">
+<img alt="../_images/General-time-dependent-reliability-problem.jpg" src="../_images/General-time-dependent-reliability-problem.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.8 </span><span class="caption-text">General time-dependent reliability problem</span><a class="headerlink" href="#fig-general-time-dependent-reliability-problem" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-schematic-representation-of-crossing-problems">
+<img alt="../_images/Schematic-representation-of-crossing-problems.jpg" src="../_images/Schematic-representation-of-crossing-problems.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.9 </span><span class="caption-text">Schematic representation of crossing problems
+(a) slowly varying resistance
+(b) rapidly varying resistance</span><a class="headerlink" href="#fig-schematic-representation-of-crossing-problems" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-fundamental-barrier-crossing-problem">
+<img alt="../_images/Fundamental-barrier-crossing-problem.jpg" src="../_images/Fundamental-barrier-crossing-problem.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.10 </span><span class="caption-text">Fundamental barrier crossing problem</span><a class="headerlink" href="#fig-fundamental-barrier-crossing-problem" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-damage-accumulation-problem">
+<img alt="../_images/Damage-accumulation-problem.jpg" src="../_images/Damage-accumulation-problem.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.11 </span><span class="caption-text">Damage accumulation problem</span><a class="headerlink" href="#fig-damage-accumulation-problem" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-realization-of-an-fbc-process">
+<img alt="../_images/Realization-of-an-FBC-process.jpg" src="../_images/Realization-of-an-FBC-process.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.12 </span><span class="caption-text">Realization of an FBC process</span><a class="headerlink" href="#fig-realization-of-an-fbc-process" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-time-dependent-safety-margin-and-schematic-representation-of-vector-outcrossing">
+<img alt="../_images/fig-Time-dependent-safety-margin-and-schematic-representation-of-vector-outcrossing.jpg" src="../_images/fig-Time-dependent-safety-margin-and-schematic-representation-of-vector-outcrossing.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 10.13 </span><span class="caption-text">Time-dependent safety margin and schematic representation of vector outcrossing</span><a class="headerlink" href="#fig-time-dependent-safety-margin-and-schematic-representation-of-vector-outcrossing" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="bibliography">
+<h2><span class="section-number">10.7. </span>Bibliography<a class="headerlink" href="#bibliography" title="Link to this heading">#</a></h2>
+<p>[C1] Ang A H S and Tang W H, Probability Concepts in Engineering Planning and Design, Vol. I &amp; II, John Wiley, 1984.</p>
+<p>[C2] Augusti G, Baratta A and Casciati F, Probabilistic Methods in Structural Engineering, Chapman and Hall, 1984.</p>
+<p>[C3] Benjamin J R and Cornell C A, Probability, Statistics and Decision for Civil Engineers, McGraw Hill, 1970.</p>
+<p>[C4] Bolotin V V, Statistical Methods in Structural Mechanics, Holden-Day, 1969.</p>
+<p>[C5] Borges J F and Castanheta M, Structural Safety, Laboratorio Nacional de Engenharia Civil, Lisboa, 1985.</p>
+<p>[C6] Ditlevsen O, Uncertainty Modelling, McGraw Hill, 1981.</p>
+<p>[C7] Ditlevsen O and Madsen H O, Structural Reliability Methods, J Wiley, 1996.</p>
+<p>[C8] Madsen H O, Krenk S and Lind N C, Methods of Structural Safety, Prentice-Hall, 1986.</p>
+<p>[C9] Melchers R E, Structural Reliability: Analysis and Prediction, 2nd edition, J Wiley, 1999.</p>
+<p>[C10] Thoft-Christensen P and Baker M J, Structural Reliability Theory and its Applications, Springer-Verlag, 1982.</p>
+<p>[C11] Thoft-Christensen P and Murotsu Y, Application of Structural Systems Reliability Theory, Springer-Verlag, 1986.</p>
+<p>[C12] CEB, First Order Concepts for Design Codes, CEB Bulletin No. 112, 1976.</p>
+<p>[C13] CEB, Common Unified Rules for Different Types of Construction and Materials, Vol. 1, CEB Bulletin No. 116, 1976.</p>
+<p>[C14] Construction Industry Research and Information Association (CIRIA), Rationalisation of Safety and Serviceability Factors in Structural Codes, Report 63, London, 1977.</p>
+<p>[C15] International Organization for Standardization (ISO), General Principles on Reliability for Structures, ISO 2394, Third edition.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-01"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="annex-B-durability.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Annex B: Durability</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="annex-D-Bayesian-Interpretation-of-Probabilities.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Annex D:Bayesian Interpretation of Probabilities</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">10.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">10.2. Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-limit-states">10.2.1. <span class="math notranslate nohighlight">\(\underline{\text {Limit States}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-structural-reliability">10.2.2. <span class="math notranslate nohighlight">\(\underline{\text{Structural Reliability}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-system-concepts">10.2.3. <span class="math notranslate nohighlight">\(\underline{\text{System Concepts}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#component-reliability-analysis">10.3. Component Reliability Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-general-steps">10.3.1. <span class="math notranslate nohighlight">\(\underline{\text{General Steps}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-probabilistic-modelling">10.3.2. <span class="math notranslate nohighlight">\(\underline{\text{Probabilistic Modelling}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-computation-of-failure-probability">10.3.3. <span class="math notranslate nohighlight">\(\underline{\text{Computation of Failure Probability}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-recommendations">10.3.4. <span class="math notranslate nohighlight">\(\underline{\text{Recommendations}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-reliability-analysis">10.4. System Reliability Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-series-systems">10.4.1. <span class="math notranslate nohighlight">\(\underline{\text{Series systems}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-parallel-systems">10.4.2. <span class="math notranslate nohighlight">\(\underline{\text{Parallel systems}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-dependent-reliability">10.5. Time-Dependent Reliability</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-general-remarks">10.5.1. <span class="math notranslate nohighlight">\(\underline{\text{General Remarks}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-transformation-to-time-independent-formulations">10.5.2. <span class="math notranslate nohighlight">\(\underline{\text{Transformation to Time-Independent Formulations}}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#underline-text-introduction-to-crossing-theory">10.5.3. <span class="math notranslate nohighlight">\(\underline{\text{Introduction to Crossing Theory}}\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#figures">10.6. Figures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bibliography">10.7. Bibliography</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

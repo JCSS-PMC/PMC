@@ -7,12 +7,14 @@
 
 ```{math}
 :label: eq7
-\beta = \Phi^{-1}(P_f)
+\beta = - \Phi^{-1}(P_f)
 ```
 
- where $P_f$ is the probability of failure
+ where  
+ 
+$P_f$ is the probability of failure
 
- $\Phi^{-1}(\cdot)$ is the inverse Gaussian distribution
+$\Phi^{-1}(\cdot)$ is the inverse Gaussian distribution
 
  Another equivalent reliability measure is the probability of the
  complement of the adverse event
@@ -33,7 +35,7 @@ P_s = 1 - P_f
  set of observation data.
 
  Reliability analysis principles including time-dependent reliability
- problems are described in Annex C.
+ problems are described in [Annex C](../part-01/annex-C-Reliability-Analysis-Principles.md).
 
 ## Component reliability and system reliability
 
@@ -68,12 +70,13 @@ P_s = 1 - P_f
 -   the redundancy (alternate load-carrying paths)
 
 -   the state and complexity of the structure (multiple failure modes).
-     Furher aspects on system reliability are provided in Annex C.
+
+Furher aspects on system reliability are provided in [Annex C](../part-01/annex-C-Reliability-Analysis-Principles.md).
 
 ##  Methods for reliability analysis and calculation
 
  The numerical value of the reliability measure is obtained by a
- reliability analysis and calculation method (see Annex C). The
+ reliability analysis and calculation method (see [Annex C](../part-01/annex-C-Reliability-Analysis-Principles.md)). The
  reliability method used should be capable of producing a sensitivity
  analysis including importance factors for uncertain parameters. The
  choice of the method should be in general justified. The justification

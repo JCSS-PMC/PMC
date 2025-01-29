@@ -1,0 +1,1400 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>29. Soil Properties &#8212; Probabilistic Model Code</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'part-03/soil-properties';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="30. Masonry Properties" href="masonry.html" />
+    <link rel="prev" title="28. Properties of Timber" href="timber.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../part-00/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/jcss.png" class="logo__image only-light" alt="Probabilistic Model Code - Home"/>
+    <img src="../_static/jcss.png" class="logo__image only-dark pst-js-only" alt="Probabilistic Model Code - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../part-00/intro.html">
+                    JCSS Probabilistic Model Code
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basis of Design</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-01/introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/requirements.html">2. Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/principles-of-limit-state-design.html">3. Principles of limit state design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/basis-of-uncerainty-modelling.html">4. Basis of uncertainty modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/models-for-physical-behaviour.html">5. Models for physical behaviour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/reliability.html">6. Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/target-reliability.html">7. Target Reliability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-A-the-robust-requirement.html">8. Annex A: The Robustness Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-B-durability.html">9. Annex B: Durability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-C-Reliability-Analysis-Principles.html">10. Annex C: Reliability Analysis Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-01/annex-D-Bayesian-Interpretation-of-Probabilities.html">11. Annex D:Bayesian Interpretation of Probabilities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Load Models</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../part-02/general-principles.html">12. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/self-weight.html">13. Self Weight</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/live-load.html">14. Live Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/loads-in-car-parks.html">15. Loads In Car Parks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/snow-load.html">16. Snow Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wind.html">17. Wind</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/thermal-actions.html">18. Thermal Actions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/wave-loads.html">19. Wave loads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">23. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">24. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timber.html">28. Properties of Timber</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">29. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masonry.html">30. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">31. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensions.html">32. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excentricities.html">33. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/edit/master/part-03/soil-properties.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JCSS-PMC/PMC/issues/new?title=Issue%20on%20page%20%2Fpart-03/soil-properties.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/part-03/soil-properties.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Soil Properties</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">29.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-of-soil-properties">29.2. Uncertainties of Soil Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-stochastic-models-for-spatial-fluctuations">29.3. Continuous Stochastic Models for Spatial Fluctuations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-stationary-random-field-modeling">29.3.1. Concept of stationary random field modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-of-fluctuation">29.3.2. Scale of fluctuation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-averaging">29.3.3. Spatial averaging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-among-soil-properties">29.3.4. Correlation among soil properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-inference">29.4. Statistical Inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-uncertainties-of-average-trend">29.4.1. Statistical uncertainties of average trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-spatial-correlation-uncoupled-approach">29.4.2. Estimating spatial correlation, uncoupled approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-information-on-soil-properties-bayesian-updating">29.4.3. Prior information on soil properties; Bayesian updating</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-due-to-test-imperfections">29.4.4. Uncertainties due to test imperfections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-reliability-analysis-of-geotechnical-structures">29.5. Probabilistic Reliability Analysis of Geotechnical Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-due-to-fluctuation-of-continuum-properties">29.5.1. Uncertainties due to fluctuation of continuum properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-model-uncertainties">29.5.2. Computation model uncertainties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-of-soil-stratigraphy">29.5.3. Uncertainties of soil stratigraphy</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="soil-properties">
+<h1><span class="section-number">29. </span>Soil Properties<a class="headerlink" href="#soil-properties" title="Link to this heading">#</a></h1>
+<p><strong>Symbols used</strong></p>
+<p><span class="math notranslate nohighlight">\(\begin{array}{ll}\underline{a}  \quad &amp; \text { vector of average trend coefficients } \\ 
+\underline{\hat{a}}  \quad &amp; \text { estimator of } \underline{a} \\ 
+b  \quad &amp; \text { field correlation parameter } \\ 
+C_{f}(\Delta \underline{x})  \quad &amp; \text { auto covariance function } \\ 
+\cos ()  \quad &amp; \text { cosine function } \\ 
+\operatorname{cov}()  \quad &amp; \text { covariance } \\ 
+\operatorname{COV}()  \quad &amp; \text { covariance matrix } \\ 
+D  \quad &amp; \text { field correlation parameter } \\ 
+\underline{D}  \quad &amp; \text { vector of field correlation parameters } \\ 
+\operatorname{det}()  \quad &amp; \text { determinant of a matrix } \\ 
+E[~]  \quad &amp; \text { expected mean value } \\ 
+\exp ()  \quad &amp; \text { exponent function } \\
+F()  \quad &amp; \text { polynomial shape function } \\ 
+\underline{F}()  \quad &amp; \text { vector of polynomial shape functions } \\ 
+f_{p}()  \quad &amp; \text { zero mean fluctuation field of (soil) property } p  \\
+I()  \quad &amp; \text { integral / average } \\
+I_{0}(), J_{0}()  \quad &amp; \text { Bessel functions } ( 1^{\text {st }} \text { kind, order zero) } \\
+L, L_{j}  \quad &amp; \text { dimension (length), directional dimension } \\
+L_{f}()  \quad &amp; \text { likelihood function } \\
+m_{p}()  \quad &amp; \text { average trend of (soil) property } p\\ 
+P[e]  \quad &amp; \text { probability of some event } e \\
+P[F]  \quad &amp; \text { probability of failure } \\
+P\left[e_{1} \mid e_{2}\right]  \quad &amp; \text { conditional probability of event } e_{1} \text { given event } e_{2} \\
+P_{j}  \quad &amp; \text { observed value } \\
+p d f^{\prime \prime}()  \quad &amp; \text { posterior probability density function } \\
+p d f^{\prime}()  \quad &amp; \text { prior probability density function } \\
+R  \quad &amp; \text { correlation matrix } \\
+r()  \quad &amp; \text { auto correlation function } \\
+S  \quad &amp; \text { surface or volume affected by geotechnical mechanism (generic) }\\
+S_{j}  \quad &amp; \text { scenario of subsoil stratigraphy } \\
+\tan ()  \quad &amp; \text { tangent function } \\
+\underline{x}=(x, y, z)  \quad &amp; \text { vector of spatial coordinates, horizontal: }~x~\text{and}~y ;~\text{vertical} ~z\\
+\operatorname{var}()  \quad &amp; \text { variance } \\
+\alpha  \quad &amp; \text { ratio of variances } \\
+\alpha_{j}  \quad &amp; \text { correlation radius } \\
+\gamma(\tau)  \quad &amp; \text { semivariogram; semivariance as function of separation distance } \\
+\Gamma^{2}()  \quad &amp; \text { variance reduction factor } \\
+\Delta \underline{x}=(\Delta x, \Delta y, \Delta z)^{T} \quad &amp; \text { vector of separation distances (lag components) }\\ 
+\delta  \quad &amp; \text { scale of fluctuation } \\
+\delta_{j}  \quad &amp; \text { directional scale of fluctuation } \\
+\delta_{e q}  \quad &amp; \text { equivalent scale of fluctuation } \\
+\rho_{f}()  \quad &amp; \text { normalized auto covariance function (auto correlation function) } \\
+\sigma  \quad &amp; \text { standard deviation of random variable or random field (generic) } \\
+\sigma^{2}  \quad &amp; \text { variance of random variable or random field (generic) } \\
+\sigma_{p}^{2}  \quad &amp; \text { variance of property } p \\
+\sigma_{r p}{ }^{2}  \quad &amp; \text { variance of testing imperfections } \\
+\tau  \quad &amp; \text { separation distance (lag) }\end{array}\)</span></p>
+<section id="introduction">
+<h2><span class="section-number">29.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The term Soil Properties refers to a collection of characteristics of a soil body, which affect the response to loading or other actions. Soil properties include:</p>
+<ul class="simple">
+<li><p>soil stratigraphy, i.e. boundaries for subvolumes containing a single soil type - denoted as a soil unit in the following</p></li>
+<li><p>continuum properties, such as physical or mechanical parameters or state properties within each of the soil units, e.g. stiffness, compressibility, shear strength, permeability, overconsolidation ratio, initial pore pressures, etc.</p></li>
+</ul>
+<p>Together with basic characteristics of behaviour of each soil unit, e.g. drained, undrained or partially drained behaviour, these items constitute the basic components of a soil model. Distinction of soil units is usually made on the basis of lithologal and geotechnical classification (sand, clay, organic material, or mixtures, compaction and consistency) and basic characteristics of response to loading.</p>
+<p>Although reliability of foundations or other structures in soils is also controlled by uncertainties of applied loads and other construction materials (concrete or steel), a characteristic feature of geotechnical structures is the dominating role of the uncertainties of soil properties. This chapter focusses on probabilistic models to take these uncertainties of soil properties into account.</p>
+</section>
+<section id="uncertainties-of-soil-properties">
+<h2><span class="section-number">29.2. </span>Uncertainties of Soil Properties<a class="headerlink" href="#uncertainties-of-soil-properties" title="Link to this heading">#</a></h2>
+<p>Various sources of uncertainty of soil properties may be distinguished:</p>
+<ul class="simple">
+<li><p>spatial variability of soil properties. Patterns of variability may be either continuous or discrete</p></li>
+<li><p>limited soil survey and laboratory or in situ testing</p></li>
+<li><p>inaccuracy of soil investigation methods and erroneous interpretation of investigation results.</p></li>
+</ul>
+<p><strong>Continuous spatial variability:</strong></p>
+<p>Continuum properties of a soil unit may vary continuously from one spot to another throughout the unit. The pattern of variability may be characterized by an average trend of variation, e.g. increase with depth, and continuous fluctuations around the average trend. This type of characterization also applies to continuously varying boundaries of soil units, e.g. depth level and thickness of a soil layer. Usually, this type of variability is modeled as a continuous stationary random field. In <a class="reference internal" href="#section-soil-propereties-3-7-3"><span class="std std-ref">section 29.3.</span></a> the basics of such models will be further outlined.</p>
+<p>Parameters in a geotechnical analysis usually refer to averages of continuum properties over some surface area or some volume; e.g. average shear strength along a sliding surface or average stiffness of a volume affected by loading. Hence, relevant uncertainties of soil parameters in a geotechnical analysis concern usually uncertainties of its averages over affected surfaces of volumes. Random field modeling of “point to point” variations forms the basis for quantitative assessment of uncertainties of averaged soil parameters.</p>
+<p><strong>Discrete spatial variability:</strong></p>
+<p>Soil units with continuous spatial variability may be mixed with dislocations such as faults, lenses or fills, depending on the geological and morphologial history. Though local of nature, these phenomena may have a large effect on behaviour of structures built on or in the ground. Often exact locations and sizes of local phenomena are difficult to infer from, if at all revealed by, soil survey campaigns.</p>
+<p><strong>Limited soil survey and testing:</strong></p>
+<p>Information about subsurface conditions is acquired by field investigation in discrete survey points (tested samples from borings, SPT-records) or at discrete survey lines (CPT or geophysical records). Soil data is therefore generally only available for a small part of the relevant soil volume which implies, as a consequence, uncertainties which are somehow statistical of nature. Two types may be distinguished:</p>
+<ul class="simple">
+<li><p>inaccurate statistics of soil property distributions (continuum parameters and continuous soil layer boundaries)</p></li>
+<li><p>potential errors in the soil stratigraphy (e.g. missing local phenomena, anomalies).</p></li>
+</ul>
+<p>Both types of uncertainties may be reduced at the expense of additional survey or testing. Considering continuous soil properties, the effect of additional survey and testing is the reduction of the error of estimated statistics by means of statistical sample theory or geostatistical approaches.</p>
+<p>Considering potential errors of soil stratigraphy, the effect of additional survey is likely to be a reduction of the probability of occurrence of such errors. However, the process of assessment of soil stratigraphy from available soil data is for a significant part based on subjective engineering judgement. Hence, quantification of probabilities of stratigraphical errors, and its reduction due to additional survey, is also subject of engineering judgement. Probabilistic approaches to assess probabilities of occurrence of potential errors in the soil stratigraphy, related to type, extent and intensity of soil investigation, are far from well developed. Yet it seems that the effects of such errors can be more drastic than the effects of inaccurate statistics of continuous soil properties. In <a class="reference internal" href="#section-soil-propereties-3-7-5"><span class="std std-ref">section 29.5.</span></a>, some hints will be provided concerning how to get along with this kind of uncertainties.</p>
+<p><strong>Inaccuracy of soil investigation method:</strong></p>
+<p>Inaccuracies may be caused by sample disturbance, test imperfections, such as poor reproducibility of tests or poor correlation between in situ test results and basic soil parameters, and human factors in conducting tests and interpretation of soil investigation results. Though this type of inaccuracies is often not the least important source of uncertainty, only part of it can be taken into account explicitly in probabilistic analyses. Gross errors of test equipment and in conducting tests must be avoided by appropriate quality assurance procedures. Gross errors in interpretation of soil investigation must be avoided by a thorough control scheme and an expert review.</p>
+</section>
+<section id="continuous-stochastic-models-for-spatial-fluctuations">
+<span id="section-soil-propereties-3-7-3"></span><h2><span class="section-number">29.3. </span>Continuous Stochastic Models for Spatial Fluctuations<a class="headerlink" href="#continuous-stochastic-models-for-spatial-fluctuations" title="Link to this heading">#</a></h2>
+<section id="concept-of-stationary-random-field-modeling">
+<h3><span class="section-number">29.3.1. </span>Concept of stationary random field modeling<a class="headerlink" href="#concept-of-stationary-random-field-modeling" title="Link to this heading">#</a></h3>
+<p><strong>Field representation</strong></p>
+<p>A random field is a conceivable model to characterize continuous spatial fluctuations of a soil property within a soil unit. In this concept, the actual value of a soil property at each location within the unit is assumed to be a realisation of a random variable. Usually, parameters of the random field model have to be determined from only one realisation. Therefore the random field model should satisfy certain ergodicity conditions at least locally.</p>
+<p>Stationarity (or homogeneity) in a strict sense means that the entire joint probability density function (jpdf) of soil property values at an arbitrary number of locations within the soil unit is invariable under an arbitrary common translation of the locations. A more relaxed criterion is that expected mean value and variance of the soil property is constant throughout the soil unit and that the covariance of the soil property values at two locations is a function of the separation distance, or distance components, between the locations only. Random fields satisfying only the relaxed criteria are called stationary in a weak sense.</p>
+<p>In the sequel only weak stationarity criteria will be considered. Normal (Gaussian) or log-normal random fields fulfilling the weak stationarity conditions are also stationary in a strict sense. For most soil properties the assumption of normality or log-normality is adequate.</p>
+<p>A straightforward extension of the constant mean field model is that the expected mean value may vary, for example with depth, reflecting an average trend. The spatial model then reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-1a">
+<span class="eqno">(29.1)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-1a" title="Link to this equation">#</a></span>\[p(\underline{x})=m_{p}(\underline{x})+f_{p}(\underline{x})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\underline{x}\)</span> denotes a vector of spatial coordinates <span class="math notranslate nohighlight">\(\underline{x}=(x, y, z)^{T}, p(\underline{x})\)</span> the soil property value at location <span class="math notranslate nohighlight">\(\underline{x}\)</span>, <span class="math notranslate nohighlight">\(m_{p}(\underline{x})\)</span> the average trend and <span class="math notranslate nohighlight">\(f_{p}(\underline{x})\)</span> a zero mean, (weakly) stationary, random field. Unless stated otherwise, in the sequel <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> will be considered horizontal coordinates and <span class="math notranslate nohighlight">\(z\)</span> the vertical one.</p>
+<p>Usually the average trend function will be chosen as a linear composition of shape functions, for example low degree polynomials, and trend coefficients, i.e. <span class="math notranslate nohighlight">\(m_{p}(\underline{x})=\underline{a}^{T} \underline{F}(z)\)</span>, where the transposed vector <span class="math notranslate nohighlight">\(\underline{a}^{T}=\left(a_{1}, a_{2}, \ldots a_{m}\right)\)</span> represents trend coefficients and <span class="math notranslate nohighlight">\(\underline{F}(z)\)</span> is a vector <span class="math notranslate nohighlight">\(\left(F_{1}(z), F_{2}(z), \ldots F_{m}(z)\right)^{T}\)</span> of polynomial shape functions of degree <span class="math notranslate nohighlight">\(\leq(m-1)\)</span>.</p>
+<p>More general, the average trend function may be a function of the location vector <span class="math notranslate nohighlight">\(\underline{x}\)</span>, instead of the depth coordinate <span class="math notranslate nohighlight">\(z\)</span> only. In that case the polynomial shape functions change accordingly into <span class="math notranslate nohighlight">\(F_{j}(\underline{x})\)</span> <span class="math notranslate nohighlight">\((j=1 \ldots m)\)</span>. Note that a constant mean field may be considered as a special case of a field with average trend and constant trend coefficients. In that case the trend coefficient vector is a simple scalar which is constant throughout the field and the corresponding shape function <span class="math notranslate nohighlight">\(F_{1}(\underline{x})=1\)</span>. The concept of (weak) stationarity can be straightforwardly extended to fields with average trend. Such a field is (weakly) stationary when the trend coefficients are constant througout the field and the centered, i.e. zero mean, field of random fluctuations is (weakly) stationary.</p>
+<p>A further extension concerns location dependency of the field variance. For example when the variance increases with depth, according to some specifically assumed pattern, the field representation changes into:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-1b">
+<span class="eqno">(29.2)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-1b" title="Link to this equation">#</a></span>\[p(\underline{x})=m_{p}(\underline{x})+s(z) f_{p}(\underline{x})\]</div>
+<p>where the shape function <span class="math notranslate nohighlight">\(s(z)\)</span> reflects the pattern of change of the standard deviation with depth. In the sequel, this case will not be elaborated further.</p>
+<p><strong>Covariance structure of zero mean random field</strong></p>
+<p>Intensity and type of fluctuations of the zero mean field is characterized by its autocovariance function:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-2">
+<span class="eqno">(29.3)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-2" title="Link to this equation">#</a></span>\[C_{f_{p}}(\Delta \underline{x})=E\left[f_{p}(\underline{x}+\Delta \underline{x}) f_{p}(\underline{x})\right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta \underline{x}=(\Delta x, \Delta y, \Delta z)^{T}\)</span> is the vector of separation distances (“lag components”) and <span class="math notranslate nohighlight">\(C_{f p}(\Delta \underline{x})\)</span> the autocovariance function. Note that <span class="math notranslate nohighlight">\(C_{f p}(0)=\sigma_{f p}^{2}\)</span>, the variance of the field. For real valued fields there is symmetry with respect to arguments, i.e. <span class="math notranslate nohighlight">\(C_{f p}(\Delta x, \Delta y, \Delta z)=C_{f p}(|\Delta x|,|\Delta y|,|\Delta z|)\)</span>.</p>
+<p>The function <span class="math notranslate nohighlight">\(\rho_{f p}(\Delta\underline{x})=C_{f p}(\Delta \underline{x}) / \sigma_{f p}^{2}\)</span> is called the normalized autocovariance function (autocorrelation function).</p>
+<p>For field modeling purposes parameterized shape functions may be assumed to model the normalized autocovariance function. These shape functions should satisfy certain conditions in order to be admissible.</p>
+<p>Some important modeling concepts regarding the autocovariance structure will be discussed briefly.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Separability}:\)</span></p>
+<p>The autocovariance structure of a random field is called separable if the normalized autocovariance function can be written as a multiplication of normalized autocovariance functions for each of the field directions, i.e. <span class="math notranslate nohighlight">\(\rho_{f p}(\Delta x, \Delta y, \Delta z)=\rho_{f p ; x}(\Delta x)~\rho_{f p ; y}(\Delta y)~\rho_{f p ; z}(\Delta z)\)</span>. The autocovariance structure may be partly separable, for example w.r.t. horizontal and vertical dimensions, i.e. <span class="math notranslate nohighlight">\(\rho_{f p}(\Delta x, \Delta y, \Delta z)=\rho_{f p ; x y}(\Delta x, \Delta y)\)</span> <span class="math notranslate nohighlight">\(\rho_{f p ; z}(\Delta z)\)</span>.</p>
+<p>Quite generally, if <span class="math notranslate nohighlight">\(\rho_{1}\left(\Delta \underline{x}^{(m)}\right)\)</span> and <span class="math notranslate nohighlight">\(\rho_{2}\left(\Delta \underline{x}^{(k)}\right)\)</span> are admissible normalized autocovariance functions for an m and k-dimensional field respectively, then <span class="math notranslate nohighlight">\(\rho_{3}\left(\Delta \underline{x}^{(m)}, \Delta \underline{x}^{(k)}\right)=\rho_{1}\left(\Delta \underline{x}^{(m)}\right) \rho_{2}\left(\Delta \underline{x}^{(k)}\right)\)</span> is an admissible normalized autocovariance function for an (m+k)-dimensional field.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Isotropy}:\)</span></p>
+<p>The autocovariance structure is called isotropic if the normalized autocovariance depends on the Euclidian distances between field points only, instead of the axis directional distance components, i.e . <span class="math notranslate nohighlight">\(\rho_{f p}(\Delta x, \Delta y, \Delta z)=\rho_{f p ; i}\left(\left(\Delta x^{2}+\Delta y^{2}+\Delta z^{2}\right)^{1 / 2}\right)\)</span>. Also the autocovariance structure may be partly isotropical, for example w.r.t. horizontal field directions: <span class="math notranslate nohighlight">\(\rho_{f p}(\Delta x, \Delta y, \Delta z)=\rho_{f p ; i}\left(\left(\Delta x^{2}+\Delta y^{2}\right)^{1 / 2}, \Delta z\right)\)</span>.<br />
+Isotropy implies that the autocovariance function is invariant to orthonormal transformation of the field coordinates.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Ergodicity}:\)</span></p>
+<p>An important modeling concept regarding statistical inference of field statistics is ergodicity. Ergodicity implies stationarity. A random field is ergodic (in a wide sense) if every one of the statistical parameters can be inferred from one single realization of the field. Usually one is interested in not all, but only some of the field statistics. The ergodicity concept may then be defined with respect to these parameters. For example, ergodicity w.r.t. the expected mean value and ergodicity w.r.t. the autocovariance structure.</p>
+<p>For ergodicity w.r.t. the mean (in case of constant mean fields) or ergodicity w.r.t. average trend coefficients (in case the average trend coefficients are constant throughout the field), this implies that the autocovariance function must tend to zero for large lag, however this condition is not sufficient.</p>
+<p><span class="math notranslate nohighlight">\(\underline{Positive~definiteness}:\)</span></p>
+<p>The variance of any finite linear combination of values at any locations in the field must always be positive. This condition leads to the requirement that the covariance function must be positive definite. Verifying the positive definiteness of a parameterized autocovariance function can be done using Fourier transforms, but the procedure is difficult, and so in practice this requirement is usually met by
+selecting the function from one of those listed below (all of which have been shown to be positive definite).</p>
+<p><strong>One dimensional fields</strong></p>
+<p><a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a> shows some admissible types of (normalized) autocovariance functions, as suggested in geotechnical and geohydrological literature, in a one dimensional representation.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-some-admissible-types-of-normalized-autocovariance-functions">
+<caption><span class="caption-number">Table 29.1 </span><span class="caption-text">Some admissible types of normalized autocovariance functions</span><a class="headerlink" href="#table-some-admissible-types-of-normalized-autocovariance-functions" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Normalized autocovariance function: <br> <span class="math notranslate nohighlight">\(\rho_{f p}(\tau)=C_{f p}(\tau) / C_{f p}(0)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1. Exponential</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\exp \left(-\frac{|\tau|}{D}\right)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2. Exponential, <br> oscillatory</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\exp \left(-\frac{|\tau|}{D}\right) \cos (b \tau)\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3. Quadratic <br> exponential <br> (Gaussian)</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\exp \left(-\left(\frac{\tau}{D}\right)^{2}\right)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>4 Quadratic <br> exponential <br> oscillatory</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\exp \left(-\left(\frac{\tau}{D}\right)^{2}\right) J_{0}(b \tau)\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>5. Bilinear <br> note: <br> applicability <br> restricted to 1-D <br> fields</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\left(1-\frac{\mid \tau \mid}{D}\right) \qquad \text{for} \mid \tau \mid \leq D\)</span> <br> <br> <span class="math notranslate nohighlight">\(0 \hspace{5.8em} \text{for} \mid \tau \mid &gt; D\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Remarks:<br />
+<span class="math notranslate nohighlight">\(J_{0}(.)\)</span> is Bessel function of first kind and order zero<br />
+<span class="math notranslate nohighlight">\(D\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are correlation parameters</p>
+<p>One dimensional random fields with normalized autocovariance functions of type 1,2 or 5 are “almost surely” (a.s.) continuous but not differentiable (i.e. non-smooth), random fields with a normalized autocovariance function which is twice differentiable at zero lag <span class="math notranslate nohighlight">\((\tau=0)\)</span> are a.s. differentiable (i.e. smooth).</p>
+<figure class="align-default" id="fig-admissible-normalized-covariance-functions">
+<img alt="../_images/admissible-normalized-covariance-functions.jpg" src="../_images/admissible-normalized-covariance-functions.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.1 </span><span class="caption-text">Admissible normalized covariance functions of <a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a></span><a class="headerlink" href="#fig-admissible-normalized-covariance-functions" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p><strong>2- and 3-dimensional fields</strong></p>
+<p>Based on the types in <a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a>, admissible normalized autocovariance functions for 2- or 3-dimensional fields can be derived, e.g.:</p>
+<p><span class="math notranslate nohighlight">\(\underline{Exponential}:\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-3">
+<span class="eqno">(29.4)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-3" title="Link to this equation">#</a></span>\[\rho_{f_{p}}(\Delta x, \Delta y, \Delta z)=\exp \left(-\frac{|\Delta x|}{D_{x}}-\frac{|\Delta y|}{D_{y}}-\frac{|\Delta z|}{D_{z}}\right)\]</div>
+<p>or in the case of horizontal isotropy:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-4">
+<span class="eqno">(29.5)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-4" title="Link to this equation">#</a></span>\[\rho_{f_{p}}(\Delta x, \Delta y, \Delta z)=\exp \left(-\frac{\sqrt{\Delta x^{2}+\Delta y^{2}}}{D_{h}}-\frac{|\Delta z|}{D_{z}}\right)\]</div>
+<p><span class="math notranslate nohighlight">\(\underline{Gaussian}:\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-5">
+<span class="eqno">(29.6)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-5" title="Link to this equation">#</a></span>\[\rho_{f_{p}}(\Delta x, \Delta y, \Delta z)=\exp \left(-\left(\frac{\Delta x}{D_{x}}\right)^{2}-\left(\frac{\Delta y}{D_{y}}\right)^{2}-\left(\frac{\Delta z}{D_{z}}\right)^{2}\right)\]</div>
+<p>or in the case of horizontal isotropy:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-6">
+<span class="eqno">(29.7)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-6" title="Link to this equation">#</a></span>\[\rho_{f_{p}}(\Delta x, \Delta y, \Delta z)=\exp \left(-\left(\frac{\sqrt{\Delta x^{2}+\Delta y^{2}}}{D_{h}}\right)^{2}-\left(\frac{\Delta z}{D_{z}}\right)^{2}\right)\]</div>
+<p>Note that the Bilinear autocovariance function (Type 5 in <a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a>) is not admissible for 2- and 3-dimensional fields, because it does not fulfil the positive-definiteness criterion.</p>
+</section>
+<section id="scale-of-fluctuation">
+<h3><span class="section-number">29.3.2. </span>Scale of fluctuation<a class="headerlink" href="#scale-of-fluctuation" title="Link to this heading">#</a></h3>
+<p>The scale of fluctuation (or correlation radius) for a one dimensional real valued field is defined as, c.f. <span id="id1">[<a class="reference internal" href="#id87" title="E.H. Vanmarcke. Probabilistic modeling of soil profiles. ASCE Journal of the Geotechnical Engineering Division, 1977. Also: E.H. Vanmarcke, Random Fields – Analysis and Synthesis, MIT Press, Cambridge, 1983.">29.01</a>]</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-7">
+<span class="eqno">(29.8)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-7" title="Link to this equation">#</a></span>\[\delta=2 \int_{0}^{\infty} \rho_{f p}(\tau) d \tau\]</div>
+<p><a class="reference internal" href="#table-relation-between-the-scale-of-fluctuation-and-the-correlation-parameters"><span class="std std-numref">Table 29.2</span></a> shows the relation between the scale of fluctuation and the correlation parameters for the normalized covariance function types in <a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-relation-between-the-scale-of-fluctuation-and-the-correlation-parameters">
+<caption><span class="caption-number">Table 29.2 </span><span class="caption-text">Scales of Fluctuation</span><a class="headerlink" href="#table-relation-between-the-scale-of-fluctuation-and-the-correlation-parameters" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type</p></th>
+<th class="head text-left"><p>Scale of fluctuation <span class="math notranslate nohighlight">\(\delta\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>1.</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=2 D\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>2.</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=\frac{2 D}{1+b^{2} D^{2}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>3.</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=D \sqrt{\pi}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>4</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=D \sqrt{\pi} \exp \left(-\frac{1}{8} b^{2} D^{2}\right) I_{0}\left(\frac{1}{8} b^{2} D^{2}\right)\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>5.</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta=D\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Remarks:<br />
+<span class="math notranslate nohighlight">\(I_{0}( )\)</span> is Bessel function of first kind and order zero</p>
+<p>More generally, the scale of fluctuation <span class="math notranslate nohighlight">\(\delta\)</span> is defined as the radius of an equivalent “unit step” normalized covariance function, i.e. <span class="math notranslate nohighlight">\(\rho(\tau)=1\)</span> for <span class="math notranslate nohighlight">\(\tau \leq \delta\)</span> and <span class="math notranslate nohighlight">\(=0\)</span> for <span class="math notranslate nohighlight">\(\tau&gt;\delta\)</span>, <span class="math notranslate nohighlight">\(\tau\)</span> being the Euclidian lag, which contains the same volume <span class="math notranslate nohighlight">\(\alpha\)</span> of correlation as the normalized covariance function for the <span class="math notranslate nohighlight">\(\mathrm{n}(=1,2,3)\)</span> dimensional field.</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-7a">
+<span class="eqno">(29.9)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-7a" title="Link to this equation">#</a></span>\[\alpha_{n}=2^{n} \int_{0}^{\infty} \int_{0}^{\infty} \ldots \int_{0}^{\infty} \rho_{f_{p}}\left(\tau_{1}, \tau_{2}, \ldots \tau_{n}\right)~d \tau_{1}~d \tau_{2} \ldots . d \tau_{n}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{n}=1,2,3\)</span>. In case of a 2-dimensional field:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-7b">
+<span class="eqno">(29.10)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-7b" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \alpha_{2}=2^{2} \int_{0}^{\infty} \int_{0}^{\infty} \rho_{f_{p}}\left(\tau_{1}, \tau_{2}\right) d \tau_{1}~d \tau_{2} \\
+&amp; \delta_{e q}=\sqrt{\frac{\alpha_{2}}{\pi}}
+\end{aligned}\end{split}\]</div>
+<p>In case of a 2-dimensional isotropical field <span class="math notranslate nohighlight">\(\left(\tau_{12}=\sqrt{ }\left(\tau_{I}^{2}+\tau_{2}^{2}\right) \right )\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-7c">
+<span class="eqno">(29.11)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-7c" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \alpha_{2}=2 \pi \int_{0}^{\infty} \tau_{12} \rho_{f_{p}}\left(\tau_{12}\right) d \tau_{12} \\
+&amp; \delta_{2}=\sqrt{\frac{\alpha_{2}}{\pi}}
+\end{aligned}\end{split}\]</div>
+<p>and, analogously in the case of spherical isotropy : <span class="math notranslate nohighlight">\(\tau_{123}=\sqrt{ }\left(\tau_{1}{ }^{2}+\tau_{2}{ }^{2}+\tau_{3}{ }^{2}\right)\)</span> :</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-7d">
+<span class="eqno">(29.12)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-7d" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \alpha_{3}=2 \pi^{2} \int_{0}^{\infty} \tau_{123}^{2}~\rho_{f_{p}}\left(\tau_{123}\right) d \tau_{123} \\
+&amp; \delta_{3}=\sqrt[3]{\frac{3 \alpha_{3}}{4 \pi}}
+\end{aligned}\end{split}\]</div>
+<p>The correlation radius can be interpreted as a scalar measure, reflecting the average spatial extension of the field where strong correlation is present.</p>
+<p>Measurements of horizontal scales of fluctuation of shearing strength in fluvial clays range range from 60 up to 200m  and more, whereas vertical scales of fluctuation in these soil types range from some decimeters up to some metres. Indications of horizontal scales of fluctuation of average cone resistance, based on CPT records in deep glacial sand, range from 40 to 80 m, whereas the vertical scale of fluctuation in these tests ranged from 0.5 to 0.8 m. <a class="reference internal" href="#appendix-soil-propereties-3-7-a"><span class="std std-ref">Appendix 29.7.A</span></a> gives an impression of scales of fluctuation of soil parameters, as derived from reported experimental data in literature.</p>
+</section>
+<section id="spatial-averaging">
+<span id="section-soil-propereties-3-7-3-3"></span><h3><span class="section-number">29.3.3. </span>Spatial averaging<a class="headerlink" href="#spatial-averaging" title="Link to this heading">#</a></h3>
+<p>Parameters in geotechnical analyses usually refer to averages of a soil property over a sliding surface or a rupture zone in an ultimate failure analysis or significantly strained volumes in a deformation analysis. If the dimensions of such surfaces or volumes exceed the scales of fluctuation of the soil property, spatial averaging of fluctuations is substantial. This implies that the variance of an averaged soil property over a sliding surface or affected vlume is likely to be substantially less than the field variance, which is mainly based on small sample tests (e.g. triaxial tests) or small affected volumes in insitu tests (e.g. CPT’s, vane tests etc.).</p>
+<p>Consider a soil property, c.f. eq. <a class="reference internal" href="#equation-eq-soil-properties-3-7-3-1a">(29.1)</a>, in which <span class="math notranslate nohighlight">\(m_{p}(\underline{x})\)</span> is a constant <span class="math notranslate nohighlight">\(m_{p}\)</span>. Its average over a vertical plane surface ( <span class="math notranslate nohighlight">\(x, z\)</span>-plane) with height <span class="math notranslate nohighlight">\(h\)</span> and width <span class="math notranslate nohighlight">\(b\)</span> reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-8">
+<span class="eqno">(29.13)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-8" title="Link to this equation">#</a></span>\[I_{b h}(p)=\frac{1}{b h} \int_{0}^{b} \int_{0}^{h} p(\underline{x}) d x d z=\frac{1}{b h} \int_{0}^{b} \int_{0}^{h}\left(m_{p}+f_{p}(\underline{x})\right) d x d z\]</div>
+<p>The mean expected value equals: <span class="math notranslate nohighlight">\(E\left[I_{b h}\right]=m_{p}\)</span>, the variance of <span class="math notranslate nohighlight">\(I_{b h}(p)\)</span> reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-9">
+<span class="eqno">(29.14)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-9" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \operatorname{var}\left(I_{b h}(p)\right)=\frac{1}{b^{2} h^{2}} \int_{0}^{b} \int_{0}^{b} \int_{0}^{h} \int_{0}^{h} E\left[f_{p}(x, z) f_{p}(\xi, \eta)\right] d x~d \xi~d z~ d \eta \\ \\ 
+&amp; =\frac{\sigma_{f_{p}}^{2}}{b^{2} h^{2}} \int_{0}^{b} \int_{0}^{b} \int_{0}^{h} \int_{0}^{h} \rho_{f_{p}}(x-\xi, z-\eta) d x~d \xi~d z~d \eta \\ \\
+&amp; =\frac{4 \sigma_{f_{p}}^{2}}{b h} \int_{0}^{b} \int_{0}^{h}\left(1-\frac{\tau_{1}}{b}\right)\left(1-\frac{\tau_{2}}{h}\right) \rho_{f_{p}}\left(\tau_{1}, \tau_{2}\right) d \tau_{1}~d \tau_{2} \\ \\
+&amp; =\sigma_{f_{p}}^{2} \Gamma^{2}(b, h)
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\tau_{1}=x-\xi, \tau_{2}=z-\eta\)</span>, and <span class="math notranslate nohighlight">\(\Gamma^{2}(b, h)\)</span> is referred to as variance reduction factor.</p>
+<p>If the normalized covariance function one of the separable type then eq. <a class="reference internal" href="#equation-eq-soil-properties-3-7-3-9">(29.14)</a> can be written as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-10">
+<span class="eqno">(29.15)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-10" title="Link to this equation">#</a></span>\[\operatorname{var}\left(I_{b h}(p)\right)=\sigma_{f_{p}}^{2} \Gamma^{2}(b) \Gamma^{2}(h)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Gamma^{2}(b)\)</span> and <span class="math notranslate nohighlight">\(\Gamma^{2}(h)\)</span> are variance reduction factors:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-11">
+<span class="eqno">(29.16)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-11" title="Link to this equation">#</a></span>\[\Gamma^{2}(b)=\frac{2}{b} \int_{0}^{b}\left(1-\frac{\tau}{b}\right) \rho_{f_{p}}(\tau) d \tau\]</div>
+<p>For large <span class="math notranslate nohighlight">\(b\)</span> compared to the correlation radius <span class="math notranslate nohighlight">\(\alpha_{l}\)</span> equation <a class="reference internal" href="#equation-eq-soil-properties-3-7-3-11">(29.16)</a> tends to:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-12">
+<span class="eqno">(29.17)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-12" title="Link to this equation">#</a></span>\[\Gamma^{2}(b) \approx \frac{\alpha_{1}}{b}\]</div>
+<p>Similar expressions are valid for <span class="math notranslate nohighlight">\(\Gamma^{2}(h)\)</span>. <a class="reference internal" href="#fig-variance-reduction-factors-for-normalized-covariance-functions"><span class="std std-numref">Fig. 29.2</span></a> shows variance reduction factors for the normalized covariance functions of <a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a>.</p>
+<figure class="align-default" id="fig-variance-reduction-factors-for-normalized-covariance-functions">
+<img alt="../_images/variance-reduction-factors-for-normalized-covariance-functions.jpg" src="../_images/variance-reduction-factors-for-normalized-covariance-functions.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.2 </span><span class="caption-text">Variance reduction factors for normalized covariance functions of <a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a></span><a class="headerlink" href="#fig-variance-reduction-factors-for-normalized-covariance-functions" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Realistic estimates of <span class="math notranslate nohighlight">\(b / D_{h}\)</span> for sliding surfaces in dike or road embankments range in the order of 0.5 to 2 , so variance reduction due to averaging in a horizontal direction may range between 0.95 to 0.4 . Realistic estimates of <span class="math notranslate nohighlight">\(h / D_{v}\)</span> for potential sliding modes in dike or road embankments on soft soil range from 5 and up. From <a class="reference internal" href="#fig-variance-reduction-factors-for-normalized-covariance-functions"><span class="std std-numref">Fig. 29.2</span></a> it can be seen that averaging in the vertical direction significantly reduces the variances of spatial fluctuations.</p>
+<p>Quite generally the variance reduction factor for averaging in one, two or three dimensions may be approximated as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-13">
+<span class="eqno">(29.18)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-13" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\Gamma^{2}\left(L_{1} \ldots L_{n}\right)=1 &amp; \qquad \text { for }\left(L_{1} \ldots L_{n}\right) \leq \alpha_{n} \\
+=\frac{\alpha_{n}}{\left(L_{1} \ldots L_{n}\right)} &amp; \qquad \text { for } \left(L_{1} \ldots L_{n}\right)&gt;\alpha_{n} \quad(n=1,2,3)
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(L_{1}, L_{2}\)</span> and <span class="math notranslate nohighlight">\(L_{3}\)</span> are the lengthes over which averaging takes place and <span class="math notranslate nohighlight">\(\alpha_{1}, \alpha_{2}, \alpha_{3}\)</span> are the correlation radii, as defined in eq. <a class="reference internal" href="#equation-eq-soil-properties-3-7-3-7a">(29.9)</a>. In case of “separable” normalized autocovariance functions, i.e. which can be written as a multiplication of factors for each of the dimensions of a 2- or 3-D surface or volume, the total variance reduction factor can, for the 3-D case. be written as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-14">
+<span class="eqno">(29.19)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-14" title="Link to this equation">#</a></span>\[\Gamma^{2}\left(L_{1} L_{2} L_{3}\right)=\Gamma^{2}\left(L_{1}\right) \Gamma^{2}\left(L_{2}\right) \Gamma^{2}\left(L_{3}\right)\]</div>
+<p><strong>Numerical approach</strong></p>
+<p>In general, averaging surfaces or volumes may not be parallel to the coordinate axes. A rough approach, as suggested by <span id="id2">[<a class="reference internal" href="#id87" title="E.H. Vanmarcke. Probabilistic modeling of soil profiles. ASCE Journal of the Geotechnical Engineering Division, 1977. Also: E.H. Vanmarcke, Random Fields – Analysis and Synthesis, MIT Press, Cambridge, 1983.">29.01</a>]</span>, is to assess the averaging dimensions by orthogonal projection of the averaging surface or volume at the coordinate axes, and proceed with the approximation <a class="reference internal" href="#equation-eq-soil-properties-3-7-3-13">(29.18)</a> or <a class="reference internal" href="#equation-eq-soil-properties-3-7-3-14">(29.19)</a> for the projected dimensions. This is a fairly good approach for averages over volumes. However, a more sophisticated approach is desirable for averages over surfaces (e.g. failure surfaces in limit state equilibrium analyses), as outlined by Rackwitz <span id="id3">[<a class="reference internal" href="#id78" title="R. Rackwitz. Reviewing probabilistic soils modelling. Computers and Geotechnics, 26(3-4):199-223, 2000.">29.02</a>]</span>. To
+that purpose surface integrals need to be computed. For example, assume that the surface <span class="math notranslate nohighlight">\(S\)</span> has the following parametric representation:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-15">
+<span class="eqno">(29.20)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-15" title="Link to this equation">#</a></span>\[S:\lbrace(x, y, z)\rbrace \quad \text { with } \quad z=h(x, y), \quad(x, y) \in B\]</div>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> is the projection of surface <span class="math notranslate nohighlight">\(S\)</span> onto the <span class="math notranslate nohighlight">\((x, y)\)</span>-plane. Then the average along surface <span class="math notranslate nohighlight">\(S\)</span> of some property <span class="math notranslate nohighlight">\(p(\underline{x})=m_{p}+f_{p}(\underline{x})\)</span>, where <span class="math notranslate nohighlight">\(f_{p}(\underline{x})\)</span> is a zero mean homogeneous fluctuation field, reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-16">
+<span class="eqno">(29.21)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-16" title="Link to this equation">#</a></span>\[I_{S}(p)=\frac{1}{A(S)} \int_{S}\left(m_{p}+f_{p}(\underline{x})\right) d S(\underline{x})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathrm{A}(S)\)</span> is the area of the surface <span class="math notranslate nohighlight">\(S\)</span>. The expected mean value <span class="math notranslate nohighlight">\(E\left[I_{S}(p)\right]=m_{p}\)</span> and the variance equals:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-17">
+<span class="eqno">(29.22)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-17" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+&amp; \operatorname{var}\left(I_{S}(p)\right)=\frac{\sigma_{f_{p}}^{2}}{A(S)^{2}} \int_{S(\underline{x})} \int_{S(\underline{\zeta})} \rho_{f_{p}}(\underline{x}-\underline{\zeta})~d S(\underline{x})~d S(\underline{\zeta}) \\ \\
+&amp; =\frac{\sigma_{f_{p}}^{2}}{A(S)^{2}} \int_{B(x, y)} \int_{ B(\eta, \xi)} \rho_{f_{p}}(x-\eta, y-\xi, h(x, y)-h(\eta, \xi)) \ldots
+\end{aligned} \\
+\qquad \cdots \sqrt{1+\left(\frac{\partial h(x, y)}{\partial x}\right)^{2}+\left(\frac{\partial h(x, y)}{\partial y}\right)^{2}} \sqrt{1+\left(\frac{\partial h(\eta, \xi)}{\partial \eta}\right)^{2}+\left(\frac{\partial h(\eta, \xi)}{\partial \xi}\right)^{2}} d x~d y~d \eta~d \xi\end{split}\]</div>
+<p>Covariances of averages of the soil property along different surfaces <span class="math notranslate nohighlight">\(S_{j}\)</span> and <span class="math notranslate nohighlight">\(S_{k}\)</span> can be expressed as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-18">
+<span class="eqno">(29.23)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-18" title="Link to this equation">#</a></span>\[\begin{split}\begin{gathered}
+\operatorname{cov}\left(I_{S_{j}}(p), I_{S_{k}}(p)\right)=\frac{\sigma_{f_{p}}^{2}}{A\left(S_{j}\right) A\left(S_{k}\right)} \int_{B_{j}(x, y)} \int_{B_{k}(\eta, \xi)} \rho_{f_{p}}\left(x-\eta, y-\xi, h_{j}(x, y)-h_{k}(\eta, \xi)\right) \\
+\cdots \sqrt{1+\left(\frac{\partial h_{j}}{\partial x}\right)^{2}+\left(\frac{\partial h_{j}}{\partial y}\right)^{2}} \sqrt{1+\left(\frac{\partial h_{k}}{\partial \eta}\right)^{2}+\left(\frac{\partial h_{k}}{\partial \xi}\right)^{2}} d x~d y~d \eta~d \xi
+\end{gathered}\end{split}\]</div>
+<p>The area of surface <span class="math notranslate nohighlight">\(S\)</span> follows from the integration:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-19">
+<span class="eqno">(29.24)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-19" title="Link to this equation">#</a></span>\[A(S)=\int_{B} \sqrt{1+\left(\frac{\partial h}{\partial x}\right)^{2}+\left(\frac{\partial h}{\partial y}\right)^{2}} d x~d y\]</div>
+<p>Substantial simplifications of the integral expressions are possible in the case of plane surfaces, in the case of separable fields and if the surface is parallel to one of the coordinate axes. Yet, analytical solutions will be hard to find and the integrations will have to be performed numerically.</p>
+<p>The variance reduction factors follows from:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-20">
+<span class="eqno">(29.25)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-20" title="Link to this equation">#</a></span>\[\Gamma^{2}(S)=\frac{\operatorname{var}\left(I_{S}(p)\right)}{\sigma_{f_{p}}^{2}}\]</div>
+<p>and correlation among averages of property <span class="math notranslate nohighlight">\(p\)</span> along different surfaces <span class="math notranslate nohighlight">\(S_{j}\)</span> and <span class="math notranslate nohighlight">\(S_{k}\)</span> follows from:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-21">
+<span class="eqno">(29.26)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-21" title="Link to this equation">#</a></span>\[\rho\left(I_{S_{j}}(p), I_{S_{k}}(p)\right)=\frac{\operatorname{cov}\left(I_{S_{j}}(p), I_{S_{k}}(p)\right)}{\Gamma\left(S_{j}\right) \Gamma\left(S_{k}\right) \sigma_{f_{p}}^{2}}\]</div>
+</section>
+<section id="correlation-among-soil-properties">
+<span id="section-soil-propereties-3-7-3-4"></span><h3><span class="section-number">29.3.4. </span>Correlation among soil properties<a class="headerlink" href="#correlation-among-soil-properties" title="Link to this heading">#</a></h3>
+<p>Soil properties greatly depend on the type of soil, deposition conditions and loading history. Different soil properties of a soil unit may therefore be strongly correlated, for example compression or shear strength parameters and deformation parameters. On the other hand, estimates of different soil parameter may be derived from a common set of in situ or laboratory test data. This may imply positive or negative correlation among these parameter estimates, which is purely due to numerical processing of the test data. Correlation should be taken into account in stochastic field model. To that purpose the field model representation of the previous sections may be extended, in the sense that the field variable is a vector of soil properties:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-22">
+<span class="eqno">(29.27)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-22" title="Link to this equation">#</a></span>\[\underline{p}(\underline{x})=\underline{m}_{p}(\underline{x})+\underline{f}_{p}(\underline{x})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\underline{p}, \underline{m}_{\underline{p}}\)</span> and <span class="math notranslate nohighlight">\(\underline{f}_{p}\)</span> are n-vector functions. The covariance matrix reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-23">
+<span class="eqno">(29.28)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-23" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\operatorname{cov}_{\underline{p}}(\underline{x}, \underline{x}+\Delta \underline{x}) &amp; =E\left[\left(\underline{p}(\underline{x})-\underline{m}_{\underline{p}}(\underline{x})\right)\left(\underline{p}(\underline{x}+\Delta \underline{x})-\underline{m}_{\underline{p}}(\underline{x}+\Delta \underline{x})\right)^{T}\right] \\
+&amp; =\left[\operatorname{cov}_{i j}(\Delta \underline{x})\right]_{i=1 \ldots n}^{j=1 \ldots n}
+\end{aligned}\end{split}\]</div>
+<p>The covariance matrix may be of the form:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-24">
+<span class="eqno">(29.29)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-24" title="Link to this equation">#</a></span>\[\left[\operatorname{cov}_{i j}\right]=C(0)~\rho(\Delta \underline{x})\]</div>
+<p>where <span class="math notranslate nohighlight">\(C(0)\)</span> is the matrix of variances and covariances of the soil properties at some specific location and <span class="math notranslate nohighlight">\(\rho(\Delta \underline{x})\)</span> is a separation distance dependent normalized auto covariance fuction. The matrix <span class="math notranslate nohighlight">\(C(0)\)</span> equals:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-3-25">
+<span class="eqno">(29.30)<a class="headerlink" href="#equation-eq-soil-properties-3-7-3-25" title="Link to this equation">#</a></span>\[C(0)=\underline{\sigma}_{\underline{p}}\left[\rho_{i j}\right] \underline{\sigma}_{\underline{p}}^{T}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\underline{\sigma}_{\underline{p}}\)</span> is the vector of standard deviations of <span class="math notranslate nohighlight">\(\underline{p}\)</span> and <span class="math notranslate nohighlight">\(\rho_{i j}(i \neq j)\)</span> are cross correlations at zero lag, which may be established from scatter diagrams. This form implies that all soil properties, contained in vector <span class="math notranslate nohighlight">\(\underline{p}\)</span> have the same spatial correlation structure. From observations and geological considerations this seems to be a reasonable approximation.</p>
+</section>
+</section>
+<section id="statistical-inference">
+<h2><span class="section-number">29.4. </span>Statistical Inference<a class="headerlink" href="#statistical-inference" title="Link to this heading">#</a></h2>
+<section id="statistical-uncertainties-of-average-trend">
+<span id="section-soil-propereties-3-7-4-1"></span><h3><span class="section-number">29.4.1. </span>Statistical uncertainties of average trend<a class="headerlink" href="#statistical-uncertainties-of-average-trend" title="Link to this heading">#</a></h3>
+<p>The constants which characterize the mean value trend as well as the field statistics of the random field must be inferred from statistical analysis of field observations (in situ measurements or laboratory tests). Suppose a set of observations of the field value at sample locations <span class="math notranslate nohighlight">\(\left\lbrace\underline{x}_{1}, \underline{x}_{2}, \ldots \underline{x}_{n}\right\rbrace\)</span> is available. The set of observed values is denoted as vector <span class="math notranslate nohighlight">\(\underline{P}=\left(P_{1}, P_{2}, \ldots P_{n}\right)^{T}\)</span> where <span class="math notranslate nohighlight">\(P_{i}=p\left(\underline{x}_{i}\right)\)</span>. Suppose some initial choice of the normalized autocovariance function has been assessed: <span class="math notranslate nohighlight">\(r(\Delta\underline{x} ; \underline{D})\)</span> where <span class="math notranslate nohighlight">\(\underline{D}\)</span> is a symbolic notation for the chosen correlation parameters. Suppose the observations are subject to trend in the depth direction, i.e. the mean value gradually changes with depth. Then trend coefficient estimation can be obtained from generalized linear regression analysis:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-1">
+<span class="eqno">(29.31)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-1" title="Link to this equation">#</a></span>\[\underline{\hat{a}}=\left(F^{T} R^{-1} F\right)^{-1} F^{T} R^{-1} \underline{P}\]</div>
+<p>where: <span class="math notranslate nohighlight">\(\underline{\hat{a}}\)</span> is the estimator of trend coefficient vector <span class="math notranslate nohighlight">\(\underline{a}, F\)</span> the <em>(nxm)</em> matrix of shape function values, <span class="math notranslate nohighlight">\(F_{i j}=F_{j}\left(z_{i}\right), z_{i}\)</span> being the depth coordinate of <span class="math notranslate nohighlight">\(\underline{x}_{i}\)</span>, and <span class="math notranslate nohighlight">\(R\)</span> the <em>(nxn)</em> correlation matrix, <span class="math notranslate nohighlight">\(R_{i j}=r\left(\left(\underline{x}_{i}-\underline{x}_{j}\right) ; \underline{D}\right)\)</span>. The covariance matrix of the trend coefficients reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-2">
+<span class="eqno">(29.32)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-2" title="Link to this equation">#</a></span>\[\operatorname{COV}(\underline{\hat{a}})=E\left[(\underline{\hat{a}}-E[\underline{a}])(\underline{\hat{a}}-E[\underline{a}])^{T}\right]=\left(F^{T} R^{-1} F\right)^{-1} \sigma_{f_{p}}^{2}\]</div>
+<p>An estimator of the field variance <span class="math notranslate nohighlight">\(\sigma_{f p}^{2}\)</span> is obtained from:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-3">
+<span class="eqno">(29.33)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-3" title="Link to this equation">#</a></span>\[\hat{\sigma}_{f_{p}}^{2}=\frac{1}{n-m} \quad(\underline{P}-E \underline{\hat{a}})^{T} R^{-1}(\underline{P}-E \underline{\hat{a}})\]</div>
+<p>These estimates are conditional to the choice of the correlation parameters <span class="math notranslate nohighlight">\(\underline{D}\)</span> and, of course, to the choice of the normalized covariance function type. Assuming that the fluctuation field is normally distributed, estimates of the correlation parameters based on the sample results might be obtained from the likelihood expression:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-4">
+<span class="eqno">(29.34)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-4" title="Link to this equation">#</a></span>\[L_{f_{p}}(\underline{P} ; \underline{D})=\frac{\exp (-\frac{1}{2} (n-m))(n-m)^{\frac{n}{2}}}{(2 \pi)^{\frac{n}{2}} \sqrt{\operatorname{det}(R)}\left(\underline{P}^{T}\left(R^{-1}-R^{-1} F\left(F^{T} R^{-1} F\right)^{-1} F^{T} R^{-1}\right) \underline{P}\right)^{\frac{n}{2}}}\]</div>
+<p>either by maximum likelihood estimation or in the framework of a Bayesian analysis, assuming a vague prior distribution of the correlation parameters.</p>
+<p>From the covariance matrix eq. <a class="reference internal" href="#equation-eq-soil-properties-3-7-4-2">(29.32)</a> uncertainty estimates regarding the mean field values can be obtained. The expected mean value in any arbitrary field point <span class="math notranslate nohighlight">\(\underline{x}=(x, y, z)^{T}\)</span>, which reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-5">
+<span class="eqno">(29.35)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-5" title="Link to this equation">#</a></span>\[m_{p}(\underline{x})=\underline{\hat{a}}^{T}~\underline{F}(z)\]</div>
+<p>and its variance:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-6">
+<span class="eqno">(29.36)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-6" title="Link to this equation">#</a></span>\[\sigma_{m_{p}}^{2}(\underline{x})=\underline{F}^{T}(z) \operatorname{COV}(\underline{\hat{a}}) \underline{F}(z)\]</div>
+<p>must be taken into account in when conducting a probabilistic reliability analysis. Uncertainties of the mean field values are correlated throughout the field.</p>
+</section>
+<section id="estimating-spatial-correlation-uncoupled-approach">
+<h3><span class="section-number">29.4.2. </span>Estimating spatial correlation, uncoupled approach<a class="headerlink" href="#estimating-spatial-correlation-uncoupled-approach" title="Link to this heading">#</a></h3>
+<p>From the previous section it is concluded that estimations of trend and spatial correlation from measured data are basically interdependent. To establish trend coefficients one needs to know the spatial covariance structure and vice versa. The likelihood expression <a class="reference internal" href="#equation-eq-soil-properties-3-7-4-5">(29.35)</a> allows for inference of estimates of autocorrelation parameters, taking trend into account. Such analysis requires preselection of the shape functions for trend and the autocorrelation function type, e.g. selected from <a class="reference internal" href="#table-some-admissible-types-of-normalized-autocovariance-functions"><span class="std std-numref">Table 29.1</span></a>. An example has been elaborated in <span id="id4">[<a class="reference internal" href="#id88" title="T. Vrouwenvelder and E. Calle. Measuring spatial correlation of soil properties. Heron, 48(nr 4):297–311, 2003. www.heron.tudelft.nl.">29.03</a>]</span>. In this example the “trend” is limited to a constant mean value. In this paper it was demonstrated that “true”scales of fluctuation can accurately be inferred from a limited number of samples, taken from pseudo realizations of random functions. As, however the number of (correlated) samples increases, say beyond some 50, the computational effort involved makes this approach intractable.</p>
+<p>In the case of large sample sets, empirical determination of spatial dependence from observations is often performed using tools from geostatistics (e.g., <span id="id5">[<a class="reference internal" href="#id74" title="P. Goovaerts. Geostatistics for natural resources evaluation. Oxford University Press, New York, 1997.">29.04</a>]</span>). Here a brief discussion of Simple Kriging is presented. This approach uses the assumption of a known and constant mean value for the underlying random field, but other kriging approaches allow for local variations in mean values, or for mean values which vary smoothly over the study site, and can also be utilized if deemed appropriate.</p>
+<p>The stochastic dependence between soil properties at any two points is modeled using a covariance function. For Gaussian data, this fully describes the joint dependence between properties at two points, and the analytical equations are very tractable. If the soil properties of interest do not have Gaussian distributions, the data of interest may be first transformed using a normal-score mapping in order to take advantage of the useful properties of Gaussian fields. This transform requires the cumulative probability function of the true soil values, which is obtained using either an empirical distribution from observed data values or an appropriate parametric distribution. Each potential value of a soil property, say <span class="math notranslate nohighlight">\(q(\underline{x})\)</span>, is then mapped to a value, say <span class="math notranslate nohighlight">\(p(\underline{x})\)</span>, such that the probability function of the original soil property has the same fractile value as the transformed value does with regard to a standard Gaussian probability function. This is expressed mathematically by</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-7">
+<span class="eqno">(29.37)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-7" title="Link to this equation">#</a></span>\[p(\underline{x})=\Phi^{-1}(F(q(\underline{x})))\]</div>
+<p>where <span class="math notranslate nohighlight">\(F(q)\)</span> is the probability function of the original data and <span class="math notranslate nohighlight">\(\Phi^{-1}(.)\)</span> is the inverse of the standard Gaussian probability function. This transformation by definition produces variables that marginally have a standard Gaussian distribution. After verifying that the transformed data is reasonably represented by a multivariate Gaussian distribution, this transformed data is used for statistical estimation and simulation.</p>
+<p>Spatial dependence of normal, zero mean or constant mean, data <span class="math notranslate nohighlight">\(p(\underline{x})\)</span> can be established using an empirical semivariogram. The semivariogram, denoted as <span class="math notranslate nohighlight">\(\gamma(\tau)\)</span>, is equal to half of the variance of the increment in data points separated by a distance <span class="math notranslate nohighlight">\(\tau\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-8">
+<span class="eqno">(29.38)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-8" title="Link to this equation">#</a></span>\[\gamma(\boldsymbol{\tau})=\frac{1}{2} \operatorname{Var}(p(\underline{x})-p(\underline{x}+\boldsymbol{\tau}))\]</div>
+<p>The vector distance <span class="math notranslate nohighlight">\(\boldsymbol{\tau}\)</span> accounts for both length and direction. If isotropy is assumed, then the semivariogram is a function of separation length <span class="math notranslate nohighlight">\((|\boldsymbol{\tau}|)\)</span> only. The semivariogram is often used in geostatistics instead of a correlation coefficient, because it requires stationarity of only the increments and not of the underlying process, but the two are interchangeable if the variance of the underlying field is stationary. The relation between semivariances and autocorrelation function, in case the random function is stationary with variance <span class="math notranslate nohighlight">\(\sigma_{p}^{2}\)</span> and autocorrelation function <span class="math notranslate nohighlight">\(\rho_{p}(\tau)\)</span>, is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-9">
+<span class="eqno">(29.39)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-9" title="Link to this equation">#</a></span>\[\gamma(\boldsymbol{\tau})=\left(1-\rho_{p}(\boldsymbol{\tau})\right) \sigma_{p}^{2}\]</div>
+<p>To develop an empirical estimate of the semivariance, the data is be grouped into pairs having comparable separation distances <span class="math notranslate nohighlight">\(|\boldsymbol{\tau}|\)</span>, and variances estimated from these datasets, using the following equation</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-10">
+<span class="eqno">(29.40)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-10" title="Link to this equation">#</a></span>\[\hat{\gamma}(\boldsymbol{\tau})=\frac{1}{2 n(\tau)} \sum_{i}^{n(\tau)}\left(p\left(\underline{x}_{i}\right)-p\left(\underline{x}_{i}+\boldsymbol{\tau}\right)\right)^{2}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(n(\tau)\)</span> is the number of pairs of locations <span class="math notranslate nohighlight">\(\left\lbrace \underline{x}_{i}, \underline{x}_{i}+\boldsymbol{\tau}\right\rbrace\)</span> separated by distance <span class="math notranslate nohighlight">\(\tau\)</span> (with some tolerance around <span class="math notranslate nohighlight">\(\tau\)</span> included to ensure a suitable number of data points in each distance bin). An example result is shown in <a class="reference internal" href="#fig-empirical-semivariogram-and-fitted-semivariance-function-for-example-soil-data"><span class="std std-numref">Fig. 29.3</span></a> along with a fitted analytic function for the semivariance.. Tools for empirical semivariogram analysis are available in many GIS software packages, as well as stand-alone geostatistics tools (e.g., <span id="id6">[<a class="reference internal" href="#id84" title="The Stanford Geostatistical Modeling Software (S-GeMS). S-GeMS. http://sgems.sourceforge.net/, 2006.">29.05</a>]</span>).</p>
+<figure class="align-default" id="fig-empirical-semivariogram-and-fitted-semivariance-function-for-example-soil-data">
+<img alt="../_images/empirical-semivariogram-and-fitted-semivariance-function-for-example-soil-data.jpg" src="../_images/empirical-semivariogram-and-fitted-semivariance-function-for-example-soil-data.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 29.3 </span><span class="caption-text">Empirical semivariogram and fitted semivariance function for example soil data</span><a class="headerlink" href="#fig-empirical-semivariogram-and-fitted-semivariance-function-for-example-soil-data" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Once an empirical semivariogram is produced, a predictive equation can be fitted to the data (see <a class="reference internal" href="#fig-empirical-semivariogram-and-fitted-semivariance-function-for-example-soil-data"><span class="std std-numref">Fig. 29.3</span></a>), and used as a model for spatial correlation in the applications described in this document.</p>
+</section>
+<section id="prior-information-on-soil-properties-bayesian-updating">
+<span id="section-soil-propereties-3-7-4-3"></span><h3><span class="section-number">29.4.3. </span>Prior information on soil properties; Bayesian updating<a class="headerlink" href="#prior-information-on-soil-properties-bayesian-updating" title="Link to this heading">#</a></h3>
+<p><strong>Prior Information</strong></p>
+<p>In general, field parameters such as expected mean value, standard deviation and correlation parameters must be inferred from in situ tests. Usually prior information, especially regarding mean values, is available if classification into soil types is possible, based on collection of previous soil investigations on these soil types. In <a class="reference internal" href="#table-prior-indications-of-soil-properties-of-non-cohesive-soils"><span class="std std-numref">Table 29.3</span></a> and <a class="reference internal" href="#table-prior-indications-of-soil-properties-of-cohesive-soils"><span class="std std-numref">Table 29.4</span></a> a compilation is made of indicative prior estimates of soil properties for some selected soil categories, based on literature. Some national or regional geotechnical codes contain tables with prior indications on soil properties, which may differ from the indications in table <a class="reference internal" href="#table-prior-indications-of-soil-properties-of-non-cohesive-soils"><span class="std std-numref">Table 29.3</span></a> and <a class="reference internal" href="#table-prior-indications-of-soil-properties-of-cohesive-soils"><span class="std std-numref">Table 29.4</span></a>, often due to differences of soil type classification and the regional geological characteristics.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-prior-indications-of-soil-properties-of-non-cohesive-soils">
+<caption><span class="caption-number">Table 29.3 </span><span class="caption-text">Prior indications of Soil properties of non cohesive soils</span><a class="headerlink" href="#table-prior-indications-of-soil-properties-of-non-cohesive-soils" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Non cohesive <br> Soil type</p></th>
+<th class="head text-left"><p>Density</p></th>
+<th class="head text-left"><p>Dry Unit Weight <br> <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{3}\right]\)</span></p></th>
+<th class="head text-left"><p>Saturated Unit <br> Weight <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{3}\right]\)</span></p></th>
+<th class="head text-left"><p>Internal Friction <br> <span class="math notranslate nohighlight">\(\tan \left(\varphi^{\prime}\right)\)</span></p></th>
+<th class="head text-left"><p>Stiffness <br> <span class="math notranslate nohighlight">\(\left[\mathrm{MN} / \mathrm{m}^{2}\right]\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Coarse gravel, <br> Boulders</p></td>
+<td class="text-left"><p>loose <br> medium <br> dense</p></td>
+<td class="text-left"><p>15 - 17 <br> 17 - 18 <br> 18 - 20</p></td>
+<td class="text-left"><p>19 - 20 <br> 20 - 21 <br> 21 - 23</p></td>
+<td class="text-left"><p>0.65 - 0.73 <br> 0.70 - 0.83 <br> 0.78 - 0.90</p></td>
+<td class="text-left"><p>150 - 300 <br> 150 - 300 <br> 250 - 350</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Sand, gravel <br> Uniform grain <br> Size</p></td>
+<td class="text-left"><p>loose <br> medium <br> dense</p></td>
+<td class="text-left"><p>15 - 16 <br> 17- 18 <br> 18 - 19</p></td>
+<td class="text-left"><p>19 - 20 <br> 20 - 21 <br> 21 - 22</p></td>
+<td class="text-left"><p>0.58 - 0.65 <br> 0.65 - 0.73 <br> 0.70 - 0.83</p></td>
+<td class="text-left"><p>30 - 100 <br> 50 - 150 <br> 100 - 200</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Sand, gravel <br> Non-uniform <br> Grain size</p></td>
+<td class="text-left"><p>loose <br> medium <br> dense</p></td>
+<td class="text-left"><p>17 - 19 <br> 18 - 20 <br> 20 - 21</p></td>
+<td class="text-left"><p>20 - 22 <br> 21 - 23 <br> 22 - 24</p></td>
+<td class="text-left"><p>0.57 - 0.70 <br> 0.62 - 0.75 <br> 0.70 - 0.85</p></td>
+<td class="text-left"><p>30 - 100 <br> 50 - 150 <br> 150 - 250</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Sand <br> Slightly Silty <br> Silty</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p><br> 18 - 20 <br> 18 - 20</p></td>
+<td class="text-left"><p><br> 20 - 21.5 <br> 19.5 - 20.5</p></td>
+<td class="text-left"><p><br> 0.50 - 0.65 <br> 0.45 - 0.60</p></td>
+<td class="text-left"><p><br> 25 - 50 <br> 20 - 40</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table" id="table-prior-indications-of-soil-properties-of-cohesive-soils">
+<caption><span class="caption-number">Table 29.4 </span><span class="caption-text">Prior indications of soil properties of cohesive soils</span><a class="headerlink" href="#table-prior-indications-of-soil-properties-of-cohesive-soils" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Cohesive <br> Soil type</p></th>
+<th class="head text-left"><p>Consistency</p></th>
+<th class="head text-left"><p>Saturated <br> Unit <br> Weight <br> <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{3}\right]\)</span></p></th>
+<th class="head text-left"><p>Internal <br> friction <br> <span class="math notranslate nohighlight">\(\tan (\varphi ’)\)</span> <br> (drained)</p></th>
+<th class="head text-left"><p>Cohesion <br> (drained) <br> <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{2}\right]\)</span></p></th>
+<th class="head text-left"><p>Undrained <br> Shearing Strength <br> <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{2}\right]\)</span></p></th>
+<th class="head text-left"><p>Stiffness <br> (normally <br> consolidated) <br> <span class="math notranslate nohighlight">\(\left[\mathrm{MN} / \mathrm{m}^{2}\right]\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Inorganic <br> cohesive soils, <br> Plastic</p></td>
+<td class="text-left"><p>soft <br> stiff <br> very stiff</p></td>
+<td class="text-left"><p>16 - 18 <br> 17 - 19 <br> 20 - 22</p></td>
+<td class="text-left"><p>0.27 - 0.36 <br> 0.27 - 0.36 <br> 0.27 - 0.36</p></td>
+<td class="text-left"><p>0 - 5 <br> 5 - 15 <br> 15 - 30</p></td>
+<td class="text-left"><p>10 - 20 <br> 20 - 50 <br> 50 - 100</p></td>
+<td class="text-left"><p>1 - 2 <br> 2 - 4 <br> 4 - 10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Inorganic <br> cohesive soils, <br> Medium plastic</p></td>
+<td class="text-left"><p>soft <br> stiff <br> very stiff</p></td>
+<td class="text-left"><p>17 - 19 <br> 18 - 20 <br> 19 - 21</p></td>
+<td class="text-left"><p>0.35 - 0.42 <br> 0.35 - 0.42 <br> 0.35 - 0.42</p></td>
+<td class="text-left"><p>0 - 5 <br> 5 - 10 <br> 10 - 20</p></td>
+<td class="text-left"><p>0 - 10 <br> 15 - 30 <br> 40 - 100</p></td>
+<td class="text-left"><p>1 - 2 <br> 2 - 4 <br> 4 - 10</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Inorganic <br> cohesive soils, <br> Weakly plastic</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>18 - 20</p></td>
+<td class="text-left"><p>0.40 - 0.60</p></td>
+<td class="text-left"><p>0 - 5</p></td>
+<td class="text-left"><p>0 - 10</p></td>
+<td class="text-left"><p>2 - 5</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Boulder clay</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>20 - 24</p></td>
+<td class="text-left"><p>0.52 - 0.64</p></td>
+<td class="text-left"><p>20 - 30</p></td>
+<td class="text-left"><p>-</p></td>
+<td class="text-left"><p>200 - 700</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Organic cohesive <br> soils, <br> Silt</p></td>
+<td class="text-left"><p>soft <br> <br> stiff</p></td>
+<td class="text-left"><p>13 - 18 <br> <br> 14 - 19</p></td>
+<td class="text-left"><p>0.24 - 0.28 <br> <br> 0.24 - 0.28</p></td>
+<td class="text-left"><p>0 - 5 <br> <br> 5 - 10</p></td>
+<td class="text-left"><p>5 - 20 <br> <br> 15 - 30</p></td>
+<td class="text-left"><p>0.2 - 0.5 <br> <br> 0.5 - 1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><a class="reference internal" href="#table-indicative-standard-deviations-of-soil-properties"><span class="std std-numref">Table 29.5</span></a> gives some indications of standard deviations of soil properties. These quantities refer to volumes affected by the testing device, with characteristic dimensions of some centimeters for laboratory test devices up to a few decimeters for field test devices. As these characteristic dimensions are small relative to characteristic dimensions of affected surfaces or volumes in geotechnical mechanisms, these standard deviations may be interpreted as standard deviations of soil property fluctuations “from point to point”.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-indicative-standard-deviations-of-soil-properties">
+<caption><span class="caption-number">Table 29.5 </span><span class="caption-text">Indicative standard deviations of soil properties</span><a class="headerlink" href="#table-indicative-standard-deviations-of-soil-properties" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Soil property</p></th>
+<th class="head text-left"><p>Standard deviation <br> [% of expected mean value ]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Unit weight <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{3}\right]\)</span></p></td>
+<td class="text-left"><p>5 - 10 %</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Internal Friction <span class="math notranslate nohighlight">\(\tan \left(\varphi^{\prime}\right)\)</span> <br> (drained)</p></td>
+<td class="text-left"><p>10 - 20 %</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Drained Cohesion <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{2}\right]\)</span></p></td>
+<td class="text-left"><p>10 - 50 %</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Undrained Shearing Strength <br> <span class="math notranslate nohighlight">\(\left[\mathrm{kN} / \mathrm{m}^{2}\right]\)</span></p></td>
+<td class="text-left"><p>10 - 40 %</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Stiffness <span class="math notranslate nohighlight">\(\left[\mathrm{MN} / \mathrm{m}^{2}\right]\)</span></p></td>
+<td class="text-left"><p>20 - 100 %</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Distribution types</strong></p>
+<p>The assumption of normal (Gaussian) probability distributions for soil properties is most usual in geotechnical reliability analysis. Partly, this is supported by experimental evidence (e.g. <span id="id7">[<a class="reference internal" href="#id76" title="P. Lumb. The variability of natural soils. Canadian Geotechnical Journal, III(2):74-94, 1966.">29.06</a>]</span>, <span id="id8">[<a class="reference internal" href="#id82" title="E. Schultze. Frequency distribution and correlation of soil properties. In Proceedings of the 1st International Conference on Applications of Statistics And Probability to Soil and Structural Engineering, 371–387. Hong Kong, 1971.">29.07</a>]</span>) indicating that the normal distribution cannot be rejected for a wide variety of soil properties. Likely, however, this practice is also inspired by convenience of modeling. When performing probabilistic reliability analyses of soil structures the assumption of normality may lead to physical inconsistencies, e.g. negative design point values of shearing strengths. In order to avoid such inconsistencies it is recommended to assume log-normal distributions for soil properties which are strictly positive.</p>
+<p>A log-normal field may be related to a normal field by appropriate transformation. The log normal field is represented by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-11">
+<span class="eqno">(29.41)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-11" title="Link to this equation">#</a></span>\[p(\underline{x})=e^{u(\underline{x})}\]</div>
+<p>where <span class="math notranslate nohighlight">\(p(\underline{x})\)</span> is the log-normal field, with expected mean value <span class="math notranslate nohighlight">\(m_{p}\)</span> and coefficient of variation <span class="math notranslate nohighlight">\(V_{p}\)</span>, and where <span class="math notranslate nohighlight">\(u(\underline{x})\)</span> is a normal field with variance <span class="math notranslate nohighlight">\(\sigma_{u}^{2}=\ln \left(1+V_{p}^{2}\right)\)</span> and with expected mean value <span class="math notranslate nohighlight">\(E[u]=\ln \left(m_{p}\right) -\frac{1}{2} \sigma_{u}{ }^{2}\)</span>. Then the equivalent normalized autocovariance function for the normal field is [Rackwitz, 2000]:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-12">
+<span class="eqno">(29.42)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-12" title="Link to this equation">#</a></span>\[\rho_{u}(\tau)=\frac{\ln \left(1+\rho_{p}(\tau) V_{p}^{2}\right)}{\ln \left(1+V_{p}^{2}\right)} \quad\left(\approx \rho_{p}(\tau) \quad \text { for } V_{p}^{2}&lt;&lt;1\right)\]</div>
+<p>This implies the restriction <span class="math notranslate nohighlight">\(\rho_{p}(\tau) V_{p}^{2}&gt;-1\)</span>, in order to retain an admissible normalized autocovariance function <span class="math notranslate nohighlight">\(\rho_{u}(\tau)\)</span>.</p>
+<p>Consequently, log-normality of some (strictly positive) soil parameter <span class="math notranslate nohighlight">\(p\)</span> can be treated in a reliability analysis by replacing the field <span class="math notranslate nohighlight">\(p(\underline{x})\)</span> by <span class="math notranslate nohighlight">\(\exp (u(\underline{x}))\)</span>, where statistics of the normal field <span class="math notranslate nohighlight">\(u(\underline{x})\)</span> are related to the statistics of <span class="math notranslate nohighlight">\(p(\underline{x})\)</span> according to the above given expressions.</p>
+<p><strong>Bayesian updating of prior information</strong></p>
+<p>Actual observations of a field property can be combined with prior information in order to update estimates of the field property statistics. Suppose prior information indicates a probability density distribution <span class="math notranslate nohighlight">\(p d f^{\prime}\left(\underline{S_{p}}\right)\)</span> for the statistics <span class="math notranslate nohighlight">\(\underline{S_{p}}\)</span> of the field property <span class="math notranslate nohighlight">\(p\)</span>. Suppose further that a vector of observations <span class="math notranslate nohighlight">\(\underline{P}\)</span> is available. Then the Bayesian update reads (in generic form):</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-13">
+<span class="eqno">(29.43)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-13" title="Link to this equation">#</a></span>\[p d f^{\prime \prime}\left(\underline{S}_{p} \mid \underline{P}\right)=C~p d f^{\prime}\left(\underline{S}_{p}\right) L\left(\underline{P} \mid p d f^{\prime}\left(\underline{S}_{p}\right)\right.\]</div>
+<p>where <span class="math notranslate nohighlight">\(p d f^{\prime \prime}\left(S_{p} \mid \underline{P}\right)\)</span> is the posterior distribution of <span class="math notranslate nohighlight">\(\underline{S}_{p}\)</span> given the observations, <span class="math notranslate nohighlight">\(L\left(\underline{P} \mid p d f^{\prime}\right.\left.\left(\underline{S}_{p}\right)\right)\)</span> the likelihood function (the likelihood of the observations, given the prior pdf) and <span class="math notranslate nohighlight">\(C\)</span> a normalizing constant.</p>
+</section>
+<section id="uncertainties-due-to-test-imperfections">
+<h3><span class="section-number">29.4.4. </span>Uncertainties due to test imperfections<a class="headerlink" href="#uncertainties-due-to-test-imperfections" title="Link to this heading">#</a></h3>
+<p>The results of laboratory or in situ tests are genrally affected by measurement related uncertainties, resulting from sample acquisition, specimen preparation and test imperfections. Thus the observed variability in test results originate from both intrinsic spatial varability of the soil, as well as from sampling disturbances and test imperfections. Assuming that no structural bias is introduced by sampling and testing procedures, one may proceed as follows.</p>
+<p>Let <span class="math notranslate nohighlight">\(\sigma_{r p}\)</span> be the standard deviation related to sampling and test imperfections an <span class="math notranslate nohighlight">\(\sigma_{p}\)</span> the standard deviation related to intrinsic spatial variability. Assuming that sampling and testing imperfections are independent from intrinsic spatial variability, the total variance, as “read” from the tests equals:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-14">
+<span class="eqno">(29.44)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-14" title="Link to this equation">#</a></span>\[\sigma^{2}=\sigma_{r p}^{2}+\sigma_{p}^{2}\]</div>
+<p>The standard deviation <span class="math notranslate nohighlight">\(\sigma_{r p}\)</span> is roughly to estimated in the order of 25 to 30 percents of the total standard deviation <span class="math notranslate nohighlight">\(\sigma\)</span> <span id="id9">[<a class="reference internal" href="#id72" title="C. Cherubini. Data and considerations on the variability of geotechnical properties of soils. In C. Guedes Soares, editor, Advances in Safety and Reliability, Proceedings of the ESREL '97, volume 2, 1583-1591. Lisbon, 1997.">29.08</a>]</span>.</p>
+<p>Sampling and test imperfections may be accounted for in the probabilistic field model by replacing the (intrinsic) field variance by the variance as “read” from the tests and replacing the theoretical normalized autocovariance function by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-4-15">
+<span class="eqno">(29.45)<a class="headerlink" href="#equation-eq-soil-properties-3-7-4-15" title="Link to this equation">#</a></span>\[\begin{split}\begin{aligned}
+r_{p}(\Delta \underline{x}) &amp; =1 &amp; &amp; \text { for } \Delta \underline{x}=\underline{0} \\
+&amp; =\alpha \rho_{f_{p}}(\Delta \underline{x}) &amp; &amp; \text { for } \Delta \underline{x} \neq \underline{0}
+\end{aligned}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is the estimated ratio of intrinsic field variance and the apparent field variance, as inferred from field observations, and <span class="math notranslate nohighlight">\(r_{p}\)</span> is the normalized autocovariance function for measured soil properties. According to the previously quoted magnitude of the standard deviation of sampling and test imperfections, <span class="math notranslate nohighlight">\(\alpha\)</span> will be in the order of 0.9 to 0.95. Consequently, sampling and test imperfections may be accounted for in the estimation of field statistics by using the normalized autocovariance function <a class="reference internal" href="#equation-eq-soil-properties-3-7-4-15">(29.45)</a> for the evaluation of the covariance matrix <span class="math notranslate nohighlight">\(\mathrm{R}\)</span> in the statistical estimation procedure in <a class="reference internal" href="#section-soil-propereties-3-7-4-1"><span class="std std-ref">sec. 29.4.1.</span></a> and the Bayesian updating procedure in <a class="reference internal" href="#section-soil-propereties-3-7-4-3"><span class="std std-ref">sec. 29.4.3.</span></a>.</p>
+<p>Note that the function of <a class="reference internal" href="#equation-eq-soil-properties-3-7-4-15">(29.45)</a> should be used only for modelling of measurements soil properties. If one is modelling the joint distribution of intrinsic soil properties, then the original <span class="math notranslate nohighlight">\(\rho_{f_{p}}(\Delta \underline{x})\)</span> function should be used. Note also that function <a class="reference internal" href="#equation-eq-soil-properties-3-7-4-15">(29.45)</a> assumes the measurement errors to be independent; if this is not the case, then modifications to the equation will be neccessary.</p>
+</section>
+</section>
+<section id="probabilistic-reliability-analysis-of-geotechnical-structures">
+<span id="section-soil-propereties-3-7-5"></span><h2><span class="section-number">29.5. </span>Probabilistic Reliability Analysis of Geotechnical Structures<a class="headerlink" href="#probabilistic-reliability-analysis-of-geotechnical-structures" title="Link to this heading">#</a></h2>
+<section id="uncertainties-due-to-fluctuation-of-continuum-properties">
+<h3><span class="section-number">29.5.1. </span>Uncertainties due to fluctuation of continuum properties<a class="headerlink" href="#uncertainties-due-to-fluctuation-of-continuum-properties" title="Link to this heading">#</a></h3>
+<p>In order to apply soil models and soil model parameters, as defined in the previous sections, to geotechnical probabilistic analysis, the soil model must be fitted into the computation model for geotechnical analysis. Basically two categories of approaches can be distinguished, namely:</p>
+<ul class="simple">
+<li><p>full integration of the spatial fluctuation model for soil properties in the geotechnical computation model and</p></li>
+<li><p>reduction of the spatial fluctuation model for soil properties to dicrete parameters which fit directly into the (analytical) formulae of the geotechnical computation model.</p></li>
+</ul>
+<p><strong>Full integration:</strong></p>
+<p>This requires a revision of the underlying assumptions of the geotechnical computation model. For example, analytical formulas for bearing capacity are based on evaluation of limit state equilibrium along assumed rupture lines or surfaces. The spatial model for shear strength must be applied to these rupture figures. Equilibrium evaluation follows from integration or, more usual, discrete summation of the (stochastic) shear strengths along the rupture surface.<br />
+Stochastic Finite Element analysis belongs to this category.</p>
+<p><strong>Reduction of the Spatial Fluctuation Model:</strong></p>
+<p>This requires that the spatial fluctuation model is reduced to an expected mean value and a standard deviation which fits directly into the formulae framework of the geotechnical computation model. For example, the shear strength in a bearing capacity formula represents the average shear strengths along a rupture surface. Consequently the spatial model must be reduced to a single random variable, reflecting the average shear strength along this surface. In this case, variance reduction due to averaging, as described in <a class="reference internal" href="#section-soil-propereties-3-7-3-4"><span class="std std-ref">sec. 29.3.4</span></a>, must be taken into account. The variance of the single random variable reads:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-5-1">
+<span class="eqno">(29.46)<a class="headerlink" href="#equation-eq-soil-properties-3-7-5-1" title="Link to this equation">#</a></span>\[\sigma_{p}^{2}=\alpha \sigma^{2} \Gamma^{2}(S)+\sigma_{m_{p}}^{2}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\alpha\)</span> is the (estimated) ratio of the intrinsic field fluctuation variance and the apparent field fluctuation variance (see eq. <a class="reference internal" href="#equation-eq-soil-properties-3-7-4-15">(29.45)</a>), <span class="math notranslate nohighlight">\(\sigma^{2}\)</span> the apparent field fluctuation variance, <span class="math notranslate nohighlight">\(\Gamma^{2}\)</span> the variance reduction factor (see <a class="reference internal" href="#section-soil-propereties-3-7-3-3"><span class="std std-ref">section 29.3.3.</span></a>) and <span class="math notranslate nohighlight">\(\sigma_{m p}^{2}\)</span> is the variance of statistical uncertainty of the mean value (see section <a class="reference internal" href="#section-soil-propereties-3-7-4-1"><span class="std std-ref">29.4.1.</span></a>).</p>
+</section>
+<section id="computation-model-uncertainties">
+<h3><span class="section-number">29.5.2. </span>Computation model uncertainties<a class="headerlink" href="#computation-model-uncertainties" title="Link to this heading">#</a></h3>
+<p>Computation models, especially in the geotechnical field, may itself contain considerable uncertainties. Uncertainties may be due to various reasons, e.g.(over)simplification of the equilibrium or deformation analysis and neglecting to account for 3-D effects.</p>
+<p>A simple way of taking computation model uncertainties into account is by multiplication of the computed responses of the soil or the foundation with additional random variables. Expected mean values and standard deviations of these factors may be assessed on the basis of empirical or experimental data, on comparison with more advanced computation models or, in case of lack of specific and explicit data, on engineering judgement (expert opinion).</p>
+<p><a class="reference internal" href="#table-indicative-computation-model-uncertainty-factors"><span class="std std-numref">Table 29.6</span></a> gives some rough figures for expected means and standard deviations for some frequently used geotechnical computation models. These factors relate to the resistance component in the computation model. Generally computation model uncertainty may depend on the situation at hand, e.g. homogeneous or heterogeneous soil profiles, type of tests for the assessment of soil property data, etc.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="table-indicative-computation-model-uncertainty-factors">
+<caption><span class="caption-number">Table 29.6 </span><span class="caption-text">Indicative computation model uncertainty factors</span><a class="headerlink" href="#table-indicative-computation-model-uncertainty-factors" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Type of problem</p></th>
+<th class="head text-left"><p>Type of calculation model</p></th>
+<th class="head text-left"><p>Expected <br> mean</p></th>
+<th class="head text-left"><p>Standard <br> deviation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>Embankment slope stability <br> Homogeneous soils <br> Non homogeneous soils</p></td>
+<td class="text-left"><p>Failure arc analysis (e.g. <br> Bishop, Spencer, etc.), 2-D <br> FEM</p></td>
+<td class="text-left"><p><br> 1.1 <br> 1.1</p></td>
+<td class="text-left"><p><br> 0.05 <br> 0.10</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Stability of retaining (sheetpiled) <br> walls</p></td>
+<td class="text-left"><p>Brinch Hansen, <br> Blum, Elastic/plastic spring <br> supported beam model</p></td>
+<td class="text-left"><p>1.0</p></td>
+<td class="text-left"><p>0.10</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Shallow Foundations <br> Stability: <br> Homogeneous soil profile <br> Non homogeneous soil profile <br> Settlement:prediction</p></td>
+<td class="text-left"><p>Brinch Hansen</p></td>
+<td class="text-left"><p>1.0 <br> 1.0 <br> 1.0</p></td>
+<td class="text-left"><p>0.15 <br> 0.20 <br> 0.20 - 0.30</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Foundation piles (driven) <br> Point bearing capacity <br> Shaft resistance</p></td>
+<td class="text-left"><p>CPT based empirical design <br> rules</p></td>
+<td class="text-left"><p><br> 1.0 <br> 1.0</p></td>
+<td class="text-left"><p><br> 0.25 <br> 0.15</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p>Embankment settlement prediction</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>1.0</p></td>
+<td class="text-left"><p>0.20</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Instead of one uncertainty factor for the computational model as a whole, one may consider the use of partial uncertainty factors related to components of the computation model. For example uncertainty factors related to active and passive earth pressure and related to stress distribution in the analysis of stability of retaining walls. Such approach allows for differentiation of uncertainty factors and better transparency of the effects of uncertain aspects in the analysis.</p>
+</section>
+<section id="uncertainties-of-soil-stratigraphy">
+<h3><span class="section-number">29.5.3. </span>Uncertainties of soil stratigraphy<a class="headerlink" href="#uncertainties-of-soil-stratigraphy" title="Link to this heading">#</a></h3>
+<p>A soil stratigraphy must be defined on the basis of data from geotechnical survey. This consists of:</p>
+<ul class="simple">
+<li><p>assessment of the main pattern of (statistically) homogeneous layers</p></li>
+<li><p>assessment of locally present smaller soil units</p></li>
+<li><p>assessment of other local phenomena, such as discontinuities</p></li>
+<li><p>classification of each soil unit</p></li>
+</ul>
+<p>As geotechnical data reflects spatial point or line information, boundaries of soil units in between survey point or lines must be estimated by interpolation. Uncertainties regarding the position of layer boundaries at interpolated locations may be of importance in a geotechnical analysis. Sometimes a geostatistical approach may be helpfull to estimate inaccuracies of layer boundary positions. However, in many occasions the available soil data is insufficient to infer the spatial covariance structure of fluctuations of layer boundaries, needed for such approach.</p>
+<p>A different kind of uncertainty results from the fact that small size soil units or other local phenomena, though not revealed by the soil data, may nonetheless be present. Based on knowledge of the regional geology (and the way local phenomena may affect functional performance of the structure to be designed) it must be decided whether or not such a local phenomenon may be disregarded. If not, it must be assumed to be present and it must be taken into account in the design of the structure. The detection of this type of feature using a finite number of soil samples is addressed in the field of search theory <span id="id10">[<a class="reference internal" href="#id70" title="G.B. Baecher and J.T. Christian. Reliability and statistics in geotechnical engineering. J. Wiley, Chichester, West Sussex, England; Hoboken, NJ, 2003.">29.09</a>]</span>, <span id="id11">[<a class="reference internal" href="#id71" title="S.J. Benkoski, M.G. Monticino, and J.R. Weisinger. A survey of the search theory literature. Naval Research Logistics, 38:469-494, 1991.">29.010</a>]</span>.</p>
+<p>Both types of uncertainty can be accounted for in a probabilistic geotechnical analysis, assuming a sequence of potential scenario’s of the soil stratigraphy. Based on soft information, i.e. geological background information, and hard soil data of the site different scenario’s of the soil stratigraphy can be developed, each one of which fully matches the available hard soil data, however with generally different degrees of belief. Assessment of degrees of belief, i.e. estimated probabilities that a particular soil stratigraphical scenario is correct, is up to (subjective) estimation by the geologist.</p>
+<p>Starting from each of the stratigraphical scenario’s, a conditional probabilistic reliability analysis of some soil property related event, <span class="math notranslate nohighlight">\(F\)</span>, e.g. failure, may be performed, using stochastic soil parameter models as discussed previously. The total prior probability of failure equals:</p>
+<div class="math notranslate nohighlight" id="equation-eq-soil-properties-3-7-5-2">
+<span class="eqno">(29.47)<a class="headerlink" href="#equation-eq-soil-properties-3-7-5-2" title="Link to this equation">#</a></span>\[P[F]=\sum_{i=1}^{N} P\left[F \mid S_{i}\right]~P\left[S_{i}\right]\]</div>
+<p>where <span class="math notranslate nohighlight">\(P\left[F \mid S_{i}\right]\)</span> denotes the conditional probability of failure, assuming that the stratigraphic scenario <span class="math notranslate nohighlight">\(S_{i}\)</span> is correct, and <span class="math notranslate nohighlight">\(P\left[S_{i}\right]\)</span> the estimated probability that the scenario is correct. <span class="math notranslate nohighlight">\(`\mathrm{N}\)</span> is the number of scenario’s of the soil stratigraphy.</p>
+<p>In cases with unlikely but very unfavorable scenario’s of the stratigraphy, significant overdimensioning of the design of the structure may be the result. The alternative option is to conduct additional soil investigation, which either reveals that an unfavorable scenario is a true scenario, or yields better confidence that it is not present. In the latter case this results in reduction of the probabilities, <span class="math notranslate nohighlight">\(P\left[S_{i}\right]\)</span>, of unfavorable scenario’s.</p>
+<p><strong>References</strong></p>
+<div class="docutils container" id="id12">
+<div role="list" class="citation-list">
+<div class="citation" id="id87" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>29.01<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id1">1</a>,<a role="doc-backlink" href="#id2">2</a>)</span>
+<p>E.H. Vanmarcke. Probabilistic modeling of soil profiles. <em>ASCE Journal of the Geotechnical Engineering Division</em>, 1977. Also: E.H. Vanmarcke, Random Fields – Analysis and Synthesis, MIT Press, Cambridge, 1983.</p>
+</div>
+<div class="citation" id="id78" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">29.02</a><span class="fn-bracket">]</span></span>
+<p>R. Rackwitz. Reviewing probabilistic soils modelling. <em>Computers and Geotechnics</em>, 26(3-4):199–223, 2000.</p>
+</div>
+<div class="citation" id="id88" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>29.03<span class="fn-bracket">]</span></span>
+<span class="backrefs">(<a role="doc-backlink" href="#id4">1</a>,<a role="doc-backlink" href="#id193">2</a>)</span>
+<p>T. Vrouwenvelder and E. Calle. Measuring spatial correlation of soil properties. <em>Heron</em>, 48(nr 4):297–311, 2003. <a class="reference external" href="www.heron.tudelft.nl">www.heron.tudelft.nl</a>.</p>
+</div>
+<div class="citation" id="id74" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id5">29.04</a><span class="fn-bracket">]</span></span>
+<p>P. Goovaerts. <em>Geostatistics for natural resources evaluation</em>. Oxford University Press, New York, 1997.</p>
+</div>
+<div class="citation" id="id84" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">29.05</a><span class="fn-bracket">]</span></span>
+<p>The Stanford Geostatistical Modeling Software (S-GeMS). S-GeMS. <a class="reference external" href="http://sgems.sourceforge.net/">http://sgems.sourceforge.net/</a>, 2006.</p>
+</div>
+<div class="citation" id="id76" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">29.06</a><span class="fn-bracket">]</span></span>
+<p>P. Lumb. The variability of natural soils. <em>Canadian Geotechnical Journal</em>, III(2):74–94, 1966.</p>
+</div>
+<div class="citation" id="id82" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">29.07</a><span class="fn-bracket">]</span></span>
+<p>E. Schultze. Frequency distribution and correlation of soil properties. In <em>Proceedings of the 1st International Conference on Applications of Statistics And Probability to Soil and Structural Engineering</em>, 371–387. Hong Kong, 1971.</p>
+</div>
+<div class="citation" id="id72" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">29.08</a><span class="fn-bracket">]</span></span>
+<p>C. Cherubini. Data and considerations on the variability of geotechnical properties of soils. In C. Guedes Soares, editor, <em>Advances in Safety and Reliability, Proceedings of the ESREL '97</em>, volume 2, 1583–1591. Lisbon, 1997.</p>
+</div>
+<div class="citation" id="id70" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">29.09</a><span class="fn-bracket">]</span></span>
+<p>G.B. Baecher and J.T. Christian. <em>Reliability and statistics in geotechnical engineering</em>. J. Wiley, Chichester, West Sussex, England; Hoboken, NJ, 2003.</p>
+</div>
+<div class="citation" id="id71" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">29.010</a><span class="fn-bracket">]</span></span>
+<p>S.J. Benkoski, M.G. Monticino, and J.R. Weisinger. A survey of the search theory literature. <em>Naval Research Logistics</em>, 38:469–494, 1991.</p>
+</div>
+<div class="citation" id="id85" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id183">29.011</a><span class="fn-bracket">]</span></span>
+<p>W.H. Tang. Probabilistic evaluation of penetration resistances. <em>ASCE Journal of the Geotechnical Engineering Division</em>, 105(GT 10):1173–1191, 1979.</p>
+</div>
+<div class="citation" id="id69" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id184">29.012</a><span class="fn-bracket">]</span></span>
+<p>A. Asoaka and D.A. Grivas. Spatial variability of the undrained strength of clays. <em>ASCE Journal of the Geotechnical Engineering Division</em>, 108(GT5):743–756, 1982.</p>
+</div>
+<div class="citation" id="id77" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id185">29.013</a><span class="fn-bracket">]</span></span>
+<p>D.J. Mulla. Estimating spatial patterns in water content, matric suction and hydraulic conductivity. <em>Soil Science Society of America Journal</em>, 52:1547–1553, 1988.</p>
+</div>
+<div class="citation" id="id80" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id186">29.014</a><span class="fn-bracket">]</span></span>
+<p>M. Ronold. Random field modeling of foundation failure modes. <em>Journal of Geotechnical Engineering</em>, April 1990.</p>
+</div>
+<div class="citation" id="id86" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id187">29.015</a><span class="fn-bracket">]</span></span>
+<p>K. Unlu, D.R. Nielsen, J.W. Biggar, and F. Morkoc. Statistical parameters characterizing variability of selected soil hydraulic properties. <em>Soil Science Society of America Journal</em>, 54:1537–1547, 1990.</p>
+</div>
+<div class="citation" id="id83" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id188">29.016</a><span class="fn-bracket">]</span></span>
+<p>M. Soulié, P. Montes, and V. Silvestri. Modeling spatial variability of soil parameters. <em>Canadian Geotechnical Journal</em>, 27:617–630, 1990.</p>
+</div>
+<div class="citation" id="id79" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id189">29.017</a><span class="fn-bracket">]</span></span>
+<p>K.R. Rehfeldt, J.M. Boggs, and L.W. Gelhar. Field study of dispersion in a heterogeneous aquifer, 3-d geostatistical analysis of hydraulic conductivity. <em>Water Resources Research</em>, 28(12):3309–3324, 1992.</p>
+</div>
+<div class="citation" id="id81" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id190">29.018</a><span class="fn-bracket">]</span></span>
+<p>M.S. Rosenbaum. The use of stochastic models in the assessment of a geological database. <em>Quarterly Journal of Engineering Geology</em>, 20:31–40, 1987.</p>
+</div>
+<div class="citation" id="id75" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id191">29.019</a><span class="fn-bracket">]</span></span>
+<p>K.M. Hess, S.H. Wolf, and M.A. Celia. Large scale natural gradient tracer test in sand and gravel, cape cod, massachusetts 3. hydraulic conductivity variability and calculated macrodispersivities. <em>Water Resources Research</em>, 28(8):2011–2017, 1992.</p>
+</div>
+<div class="citation" id="id73" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id192">29.020</a><span class="fn-bracket">]</span></span>
+<p>P. Chiasson, J. Lafleur, M. Soulié, and K.T. Haw. Characterizing spatial variability of clay by geostatistics. <em>Canadian Geotechnical Journal</em>, 32:1–10, 1995.</p>
+</div>
+</div>
+</div>
+<p id="appendix-soil-propereties-3-7-a"><strong>Appendix 35.7.A: Scales of Fluctuation</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Source</p></th>
+<th class="head text-left"><p>Soil Property</p></th>
+<th class="head text-left"><p>Purpose</p></th>
+<th class="head text-left"><p>Applied Spatial model type</p></th>
+<th class="head text-left"><p>Correlation radius</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><span id="id183">[<a class="reference internal" href="#id85" title="W.H. Tang. Probabilistic evaluation of penetration resistances. ASCE Journal of the Geotechnical Engineering Division, 105(GT 10):1173–1191, 1979.">29.011</a>]</span></p></td>
+<td class="text-left"><p>Marine clay, average cone <br> resistance (CPT) from 0 - 3m below <br> sea bottom. <br> Different levels</p></td>
+<td class="text-left"><p>Design skirts offshore <br> platform</p></td>
+<td class="text-left"><p>Gaussian</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 55 m <br> <br> <br> <br> <span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 35 - 60 m</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span id="id184">[<a class="reference internal" href="#id69" title="A. Asoaka and D.A. Grivas. Spatial variability of the undrained strength of clays. ASCE Journal of the Geotechnical Engineering Division, 108(GT5):743-756, 1982.">29.012</a>]</span></p></td>
+<td class="text-left"><p>Undrained shear strength</p></td>
+<td class="text-left"><p>Modeling vertical spatial <br> variability</p></td>
+<td class="text-left"><p>Exponential</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> 2.5 - 6 m</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span id="id185">[<a class="reference internal" href="#id77" title="D.J. Mulla. Estimating spatial patterns in water content, matric suction and hydraulic conductivity. Soil Science Society of America Journal, 52:1547-1553, 1988.">29.013</a>]</span></p></td>
+<td class="text-left"><p>Surface temperature <br> Water content <br> Penetrometer resistance <br> Sand content (sandy clay) <br> Clay content</p></td>
+<td class="text-left"><p>Prediction of water <br> content</p></td>
+<td class="text-left"><p>Variogram, spherical</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 50 - 70 m <br> <span class="math notranslate nohighlight">\(\qquad\)</span> 40 - 60 m <br> <span class="math notranslate nohighlight">\(\qquad\)</span> 40 - 70 m <br> <span class="math notranslate nohighlight">\(\qquad\)</span> 60 - 80 m  <span class="math notranslate nohighlight">\(\qquad\)</span> 40 - 60 m</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span id="id186">[<a class="reference internal" href="#id80" title="M. Ronold. Random field modeling of foundation failure modes. Journal of Geotechnical Engineering, April 1990.">29.014</a>]</span></p></td>
+<td class="text-left"><p>Shearing strength (clay)</p></td>
+<td class="text-left"><p>Capacity of tension piles</p></td>
+<td class="text-left"><p>Gaussian</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> 2 m</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span id="id187">[<a class="reference internal" href="#id86" title="K. Unlu, D.R. Nielsen, J.W. Biggar, and F. Morkoc. Statistical parameters characterizing variability of selected soil hydraulic properties. Soil Science Society of America Journal, 54:1537–1547, 1990.">29.015</a>]</span></p></td>
+<td class="text-left"><p>ln(K<span class="math notranslate nohighlight">\(_{\text{unsaturated}}\)</span>) <br> Soil parameter (unspec) <br> Water capacity</p></td>
+<td class="text-left"><p>Comparison of methods <br> for assesment of scale of <br> correlation</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{h,\ln K}=\)</span> 12 – 16 m <br> <span class="math notranslate nohighlight">\(\delta_\mathrm{h,par}=\)</span> 40 m <br> <span class="math notranslate nohighlight">\(\delta_\mathrm{h,cap}=\)</span> 12 – 16 m</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span id="id188">[<a class="reference internal" href="#id83" title="M. Soulié, P. Montes, and V. Silvestri. Modeling spatial variability of soil parameters. Canadian Geotechnical Journal, 27:617–630, 1990.">29.016</a>]</span></p></td>
+<td class="text-left"><p>Shear strength</p></td>
+<td class="text-left"><p>Modeling spatial <br> variability for dam design</p></td>
+<td class="text-left"><p>Exponential</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> 2 m, <span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 20 m</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span id="id189">[<a class="reference internal" href="#id79" title="K.R. Rehfeldt, J.M. Boggs, and L.W. Gelhar. Field study of dispersion in a heterogeneous aquifer, 3-d geostatistical analysis of hydraulic conductivity. Water Resources Research, 28(12):3309-3324, 1992.">29.017</a>]</span></p></td>
+<td class="text-left"><p>ln Permeability</p></td>
+<td class="text-left"><p>Modeling spatial <br> variability, tracer tests</p></td>
+<td class="text-left"><p>Exponential</p></td>
+<td class="text-left"><p>Flowmeter: <br> <span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> 3.2 m, <span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 25 m <br> Several tests: <br> <span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> 1.5 - 3 m, <span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 25 – 50 m</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>Honjo et al 1991</p></td>
+<td class="text-left"><p>Unconf. compr. strength</p></td>
+<td class="text-left"><p>Slope stability evaluation</p></td>
+<td class="text-left"><p>Exponential</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> 4 m, <span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 80 m</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span id="id190">[<a class="reference internal" href="#id81" title="M.S. Rosenbaum. The use of stochastic models in the assessment of a geological database. Quarterly Journal of Engineering Geology, 20:31–40, 1987.">29.018</a>]</span></p></td>
+<td class="text-left"><p>Thickness of natural deposit</p></td>
+<td class="text-left"><p></p></td>
+<td class="text-left"><p>Variogram, spherical</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 750 m</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span id="id191">[<a class="reference internal" href="#id75" title="K.M. Hess, S.H. Wolf, and M.A. Celia. Large scale natural gradient tracer test in sand and gravel, cape cod, massachusetts 3. hydraulic conductivity variability and calculated macrodispersivities. Water Resources Research, 28(8):2011-2017, 1992.">29.019</a>]</span></p></td>
+<td class="text-left"><p>ln Permeability</p></td>
+<td class="text-left"><p>Contaminant migration</p></td>
+<td class="text-left"><p>Exponential</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> = 0.2 – 1.0 m, <span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 2 – 10 m</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><span id="id192">[<a class="reference internal" href="#id73" title="P. Chiasson, J. Lafleur, M. Soulié, and K.T. Haw. Characterizing spatial variability of clay by geostatistics. Canadian Geotechnical Journal, 32:1-10, 1995.">29.020</a>]</span></p></td>
+<td class="text-left"><p>CPT, vane shear strength</p></td>
+<td class="text-left"><p>Modeling spatial <br> variability</p></td>
+<td class="text-left"><p>Variogram, spherical</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{v}=\)</span> 1.5 m</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><span id="id193">[<a class="reference internal" href="#id88" title="T. Vrouwenvelder and E. Calle. Measuring spatial correlation of soil properties. Heron, 48(nr 4):297–311, 2003. www.heron.tudelft.nl.">29.03</a>]</span></p></td>
+<td class="text-left"><p>CPT, cone resistance deep glacial sands</p></td>
+<td class="text-left"><p>Modeling spatial <br> variability</p></td>
+<td class="text-left"><p>Gaussian</p></td>
+<td class="text-left"><p><span class="math notranslate nohighlight">\(\delta_\mathrm{h}=\)</span> 20 – 35 m</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./part-03"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="timber.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">28. </span>Properties of Timber</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="masonry.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">30. </span>Masonry Properties</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">29.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-of-soil-properties">29.2. Uncertainties of Soil Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continuous-stochastic-models-for-spatial-fluctuations">29.3. Continuous Stochastic Models for Spatial Fluctuations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-of-stationary-random-field-modeling">29.3.1. Concept of stationary random field modeling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-of-fluctuation">29.3.2. Scale of fluctuation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spatial-averaging">29.3.3. Spatial averaging</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-among-soil-properties">29.3.4. Correlation among soil properties</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-inference">29.4. Statistical Inference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-uncertainties-of-average-trend">29.4.1. Statistical uncertainties of average trend</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estimating-spatial-correlation-uncoupled-approach">29.4.2. Estimating spatial correlation, uncoupled approach</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prior-information-on-soil-properties-bayesian-updating">29.4.3. Prior information on soil properties; Bayesian updating</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-due-to-test-imperfections">29.4.4. Uncertainties due to test imperfections</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-reliability-analysis-of-geotechnical-structures">29.5. Probabilistic Reliability Analysis of Geotechnical Structures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-due-to-fluctuation-of-continuum-properties">29.5.1. Uncertainties due to fluctuation of continuum properties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#computation-model-uncertainties">29.5.2. Computation model uncertainties</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainties-of-soil-stratigraphy">29.5.3. Uncertainties of soil stratigraphy</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joint Committee on Structural Safety
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

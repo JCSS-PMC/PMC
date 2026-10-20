@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>26. Static Properties Of Reinforcing Steel &#8212; Probabilistic Model Code</title>
+    <title>27. Static Properties Of Reinforcing Steel &#8212; Probabilistic Model Code</title>
   
   
   
@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -63,27 +63,34 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'part-03/static-properties-of-reinforcing-steel';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="27. Static Properties Of Prestressing Steel (Prestressed Concrete)" href="static-properties-of-prestressing-steel.html" />
-    <link rel="prev" title="25. Static Properties of Structural Steel (Rolled Sections)" href="static-properties-of-structural-steel.html" />
+    <link rel="next" title="28. Static Properties Of Prestressing Steel (Prestressed Concrete)" href="static-properties-of-prestressing-steel.html" />
+    <link rel="prev" title="26. Static Properties of Structural Steel (Rolled Sections)" href="static-properties-of-structural-steel.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -109,7 +116,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -197,25 +248,26 @@
 <li class="toctree-l1"><a class="reference internal" href="../part-02/earthquake.html">20. Earthquake Load</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../part-02/impact-load.html">21. Impact Load</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../part-02/fire.html">22. Fire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-02/environmental-exposure-for-reinforced-concrete.html">23. Environmental Exposure for Reinforced Concrete</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="general-principles.html">23. General Principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">24. Concrete Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">26. Static Properties Of Reinforcing Steel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="timber.html">28. Properties of Timber</a></li>
-<li class="toctree-l1"><a class="reference internal" href="soil-properties.html">29. Soil Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="masonry.html">30. Masonry Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">31. Model Uncertainties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dimensions.html">32. Dimensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="excentricities.html">33. Excentricities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general-principles.html">24. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="concrete-properties.html">25. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-structural-steel.html">26. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">27. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="static-properties-of-prestressing-steel.html">28. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timber.html">29. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="soil-properties.html">30. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="masonry.html">31. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-uncertainties.html">32. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dimensions.html">33. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excentricities.html">34. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fatigue.html">35. Fatigue Models For Metallic Structures</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">36. How to Use</a></li>
 </ul>
 
     </div>
@@ -378,7 +430,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -402,7 +454,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -424,11 +476,11 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">26.1. Basic Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-model">26.2. Probabilistic Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-prior-investigations-and-statistical-quality-control">26.3. Effect of Prior Investigations and Statistical Quality Control</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strength-of-bundles-of-bars">26.4. Strength of Bundles of Bars</a></li>
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">27.1. Basic Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-model">27.2. Probabilistic Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-prior-investigations-and-statistical-quality-control">27.3. Effect of Prior Investigations and Statistical Quality Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strength-of-bundles-of-bars">27.4. Strength of Bundles of Bars</a></li>
 </ul>
             </nav>
         </div>
@@ -441,21 +493,21 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="static-properties-of-reinforcing-steel">
-<h1><span class="section-number">26. </span>Static Properties Of Reinforcing Steel<a class="headerlink" href="#static-properties-of-reinforcing-steel" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">27. </span>Static Properties Of Reinforcing Steel<a class="headerlink" href="#static-properties-of-reinforcing-steel" title="Link to this heading">#</a></h1>
 <p><strong>List of symbols:</strong></p>
 <p><span class="math notranslate nohighlight">\(\begin{array}{ll}f_{y} &amp; =\text { basic yield stress } \\ \sigma &amp; =\text { standard deviation }\end{array}\)</span></p>
 <section id="basic-model">
-<h2><span class="section-number">26.1. </span>Basic Model<a class="headerlink" href="#basic-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.1. </span>Basic Model<a class="headerlink" href="#basic-model" title="Link to this heading">#</a></h2>
 <p>Reinforcing steel generally is classified and produced according to grades, for example S300, S400 and S500, the numbers denoting a specified (minimum) yield stress limit. The basic mechanical property is the static yield strength <span class="math notranslate nohighlight">\(f_{y}\)</span> defined at strain <span class="math notranslate nohighlight">\(0.2 \%\)</span>. The stress-strain curve for hot rolled steels can be approximated by a bi-linear relationship up to strains of <span class="math notranslate nohighlight">\(1 \%\)</span> to <span class="math notranslate nohighlight">\(2 \%\)</span>. The (initial) modulus of elasticity can be taken as constant <span class="math notranslate nohighlight">\(E_{a}=205[\text{Gpa}]\)</span>. The stress-strain relationship for cold worked steel can also be represented by a bi-linear law but more realistically by a continuous curve for which several convenient analytical forms exist.</p>
 </section>
 <section id="probabilistic-model">
-<h2><span class="section-number">26.2. </span>Probabilistic Model<a class="headerlink" href="#probabilistic-model" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.2. </span>Probabilistic Model<a class="headerlink" href="#probabilistic-model" title="Link to this heading">#</a></h2>
 <p>The yield stress, denoted by <span class="math notranslate nohighlight">\(X_{1}\)</span>, can be taken as the sum of three independent Gaussian variables</p>
 <div class="math notranslate nohighlight" id="equation-eq-static-properties-of-reinforcing-steel-1">
-<span class="eqno">(26.1)<a class="headerlink" href="#equation-eq-static-properties-of-reinforcing-steel-1" title="Link to this equation">#</a></span>\[X_{1}(d)=X_{11}+X_{12}+X_{13} \hspace{20em} [\text{MPa}]\]</div>
+<span class="eqno">(27.1)<a class="headerlink" href="#equation-eq-static-properties-of-reinforcing-steel-1" title="Link to this equation">#</a></span>\[X_{1}(d)=X_{11}+X_{12}+X_{13} \hspace{20em} [\text{MPa}]\]</div>
 <p>where <span class="math notranslate nohighlight">\(X_{11} \sim N\left(\mu_{11}(d), \sigma_{11}\right)\)</span> represents the variations in the global mean of different mills, <span class="math notranslate nohighlight">\(X_{12} \sim N\left(0, \sigma_{12}\right)\)</span> the variations in a mill from batch(melt) to bath and <span class="math notranslate nohighlight">\(X_{13} \sim N\left(0, \sigma_{13}\right)\)</span> the variations within a melt. <span class="math notranslate nohighlight">\(D\)</span> is the nominal bar diameter in [mm]. For high standard steel production the following values have been found: <span class="math notranslate nohighlight">\(\sigma_{11}=19~[\text{MPa}]\)</span>, <span class="math notranslate nohighlight">\(\sigma_{12}=22~[\text{MPa}]\)</span>, <span class="math notranslate nohighlight">\(\sigma_{13}=8~[\text{MPa}]\)</span> resulting in an overall standard deviation <span class="math notranslate nohighlight">\(\sigma_{1}\)</span> of about <span class="math notranslate nohighlight">\(30~[\text{MPa}]\)</span>. The mean <span class="math notranslate nohighlight">\(\mu_{11}=\mu_{1}\)</span> is under controlled conditions <span class="math notranslate nohighlight">\(\mathrm{Sxxx}\)</span> <span class="math notranslate nohighlight">\(+2 \sigma_{1}\)</span>. Strength fluctuations along bars are negligible. The value of <span class="math notranslate nohighlight">\(\mu_{1}(d)\)</span> is defined as the overall mean from the entire production given a particular bar diameter.</p>
 <div class="math notranslate nohighlight" id="equation-eq-static-properties-of-reinforcing-steel-2">
-<span class="eqno">(26.2)<a class="headerlink" href="#equation-eq-static-properties-of-reinforcing-steel-2" title="Link to this equation">#</a></span>\[\mu_{1}(d)=\mu_{1}\left(0.87+0.13 \exp [-0.08 d])^{-1}\right. \hspace{14.2em} [\text{MPa}]\]</div>
+<span class="eqno">(27.2)<a class="headerlink" href="#equation-eq-static-properties-of-reinforcing-steel-2" title="Link to this equation">#</a></span>\[\mu_{1}(d)=\mu_{1}\left(0.87+0.13 \exp [-0.08 d])^{-1}\right. \hspace{14.2em} [\text{MPa}]\]</div>
 <p>Statistical parameters of some other relevant properties are given in the following table:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -512,11 +564,11 @@
 <p>For these quantities a normal distribution can be adopted.</p>
 </section>
 <section id="effect-of-prior-investigations-and-statistical-quality-control">
-<h2><span class="section-number">26.3. </span>Effect of Prior Investigations and Statistical Quality Control<a class="headerlink" href="#effect-of-prior-investigations-and-statistical-quality-control" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.3. </span>Effect of Prior Investigations and Statistical Quality Control<a class="headerlink" href="#effect-of-prior-investigations-and-statistical-quality-control" title="Link to this heading">#</a></h2>
 <p>Tests of the lot of reinforcing steel to be used can considerably diminish steel variations, if the lot is known to belong to the production of a specific mill and if it originates from the same batch. Very few direct tests are necessary. Acceptance control for a given lot can be very efficient to eliminate bad quality lots.</p>
 </section>
 <section id="strength-of-bundles-of-bars">
-<h2><span class="section-number">26.4. </span>Strength of Bundles of Bars<a class="headerlink" href="#strength-of-bundles-of-bars" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">27.4. </span>Strength of Bundles of Bars<a class="headerlink" href="#strength-of-bundles-of-bars" title="Link to this heading">#</a></h2>
 <p>The yield forces of bundles of bars under static loading is the sum of the yield forces of each contributing bar (full plasticity model). In general, it can be assumed that all reinforcing steel used at a job originates from a single (but unknown) mill. The correlation coefficient between yield forces of individual bars of the same diameter can then be taken as 0.9. The correlation coefficient between yield forces of bars of different diameter and between the yield forces in different cross-sections in different beams in a structure can be taken as 0.4 . Along structural members the correlation is unity within distances of roughly 10m (representative for bar length) and vanishes outside.</p>
 </section>
 </section>
@@ -557,7 +609,7 @@
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">25. </span>Static Properties of Structural Steel (Rolled Sections)</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>Static Properties of Structural Steel (Rolled Sections)</p>
       </div>
     </a>
     <a class="right-next"
@@ -565,7 +617,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">27. </span>Static Properties Of Prestressing Steel (Prestressed Concrete)</p>
+        <p class="prev-next-title"><span class="section-number">28. </span>Static Properties Of Prestressing Steel (Prestressed Concrete)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -580,16 +632,17 @@
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">26.1. Basic Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-model">26.2. Probabilistic Model</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-prior-investigations-and-statistical-quality-control">26.3. Effect of Prior Investigations and Statistical Quality Control</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strength-of-bundles-of-bars">26.4. Strength of Bundles of Bars</a></li>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-model">27.1. Basic Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-model">27.2. Probabilistic Model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#effect-of-prior-investigations-and-statistical-quality-control">27.3. Effect of Prior Investigations and Statistical Quality Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strength-of-bundles-of-bars">27.4. Strength of Bundles of Bars</a></li>
 </ul>
   </nav></div>
 
@@ -638,8 +691,8 @@ By Joint Committee on Structural Safety
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -27,33 +27,33 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -63,6 +63,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'part-02/earthquake';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="21. Impact Load" href="impact-load.html" />
@@ -70,20 +71,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
+  
+  
+  
   
   <dialog id="pst-search-dialog">
     
@@ -109,7 +116,51 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -197,25 +248,26 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Earthquake Load</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impact-load.html">21. Impact Load</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fire.html">22. Fire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="environmental-exposure-for-reinforced-concrete.html">23. Environmental Exposure for Reinforced Concrete</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Resistance Models</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">23. General Principles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">24. Concrete Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">25. Static Properties of Structural Steel (Rolled Sections)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">26. Static Properties Of Reinforcing Steel</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">27. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">28. Properties of Timber</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">29. Soil Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">30. Masonry Properties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">31. Model Uncertainties</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">32. Dimensions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">33. Excentricities</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">34. Fatigue Models For Metallic Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/general-principles.html">24. General Principles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/concrete-properties.html">25. Concrete Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-structural-steel.html">26. Static Properties of Structural Steel (Rolled Sections)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-reinforcing-steel.html">27. Static Properties Of Reinforcing Steel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/static-properties-of-prestressing-steel.html">28. Static Properties Of Prestressing Steel (Prestressed Concrete)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/timber.html">29. Properties of Timber</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/soil-properties.html">30. Soil Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/masonry.html">31. Masonry Properties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/model-uncertainties.html">32. Model Uncertainties</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/dimensions.html">33. Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/excentricities.html">34. Excentricities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../part-03/fatigue.html">35. Fatigue Models For Metallic Structures</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to Use</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">35. How to Use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help/how-to-use.html">36. How to Use</a></li>
 </ul>
 
     </div>
@@ -378,7 +430,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -402,7 +454,7 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -424,7 +476,7 @@
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general">20.1. General</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-seismic-hazard-assessment-psha">20.2. Probabilistic seismic hazard assessment (PSHA)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-methodology-for-psha">20.2.1. General Methodology for PSHA</a></li>
@@ -484,7 +536,7 @@
 </section>
 <section id="magnitude-model">
 <h3><span class="section-number">20.2.2. </span>Magnitude model<a class="headerlink" href="#magnitude-model" title="Link to this heading">#</a></h3>
-<p>The usual expression relating earthquake magnitudes with their rates of occurrence is due to <span id="id1">[<a class="reference internal" href="#id172" title="B. Gutenberg and C. Richter. Frequencies of earthquakes in california. Bull. Seism Soc. Amer., 34:185-188, 1944.">20.01</a>]</span>. This relation is called “magnitude-frequency formula” and states that in a certain region and in a given period of time given an earthquake event:</p>
+<p>The usual expression relating earthquake magnitudes with their rates of occurrence is due to <span class="bibtex-citation" id="id1">[<a class="reference internal" href="#id172" title="B. Gutenberg and C. Richter. Frequencies of earthquakes in california. Bull. Seism Soc. Amer., 34:185-188, 1944.">20.1</a>]</span>. This relation is called “magnitude-frequency formula” and states that in a certain region and in a given period of time given an earthquake event:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-1">
 <span class="eqno">(20.1)<a class="headerlink" href="#equation-eq-earthquake-2-17-1" title="Link to this equation">#</a></span>\[\log N(M)=a-b~M\]</div>
 <p>where <span class="math notranslate nohighlight">\(N(M)\)</span> is the mean number of earthquakes per unit volume and per unit time having magnitude greater than <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are zone dependent constants. The parameter <span class="math notranslate nohighlight">\(a\)</span> depends on the period of observation and on the level of seismicity of the region, and consequently, varies widely from region to region, while <span class="math notranslate nohighlight">\(b\)</span> remains within a relatively narrow range (usually <span class="math notranslate nohighlight">\(b=1.0\)</span>).</p>
@@ -518,7 +570,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p>California <br> USA</p></td>
-<td class="text-center"><p><span id="id2">[<a class="reference internal" href="#id169" title="N.C. Donovan. A statistical evaluation of strong motion data including the february 9. 1971, san fernando earthquake. In Proc. of 5th WCEE, 1252-1261. Rome, Italy, 1973.">20.02</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id2">[<a class="reference internal" href="#id169" title="N.C. Donovan. A statistical evaluation of strong motion data including the february 9. 1971, san fernando earthquake. In Proc. of 5th WCEE, 1252-1261. Rome, Italy, 1973.">20.2</a>]</span></p></td>
 <td class="text-center"><p>1.1</p></td>
 <td class="text-center"><p>0.51</p></td>
 <td class="text-center"><p>1.32</p></td>
@@ -526,7 +578,7 @@
 <td class="text-center"><p>0.71</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>California</p></td>
-<td class="text-center"><p><span id="id3">[<a class="reference internal" href="#id176" title="R.K. Mc Guire. Seismic structural response risk analysis, incorporating peak response regressions on earthquake magnitude and distance. Massachusets Inst of Technol., Dep. of Civ. Eng. Res. Rpt., 1974.">20.03</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id3">[<a class="reference internal" href="#id176" title="R.K. Mc Guire. Seismic structural response risk analysis, incorporating peak response regressions on earthquake magnitude and distance. Massachusets Inst of Technol., Dep. of Civ. Eng. Res. Rpt., 1974.">20.3</a>]</span></p></td>
 <td class="text-center"><p>0.48</p></td>
 <td class="text-center"><p>0.64</p></td>
 <td class="text-center"><p>1.3</p></td>
@@ -534,7 +586,7 @@
 <td class="text-center"><p>0.22</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>California and <br> Central America</p></td>
-<td class="text-center"><p><span id="id4">[<a class="reference internal" href="#id171" title="L. Esteva and R. Villaverde. Seismic risk, design spectra and structural reliability. In Proc 5 WCEE, 2586-2597. Rome, 1973.">20.04</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id4">[<a class="reference internal" href="#id171" title="L. Esteva and R. Villaverde. Seismic risk, design spectra and structural reliability. In Proc 5 WCEE, 2586-2597. Rome, 1973.">20.4</a>]</span></p></td>
 <td class="text-center"><p>5.7</p></td>
 <td class="text-center"><p>0.8</p></td>
 <td class="text-center"><p>2</p></td>
@@ -542,7 +594,7 @@
 <td class="text-center"><p>0.64</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>California <span class="math notranslate nohighlight">\({ }^{* 1}\)</span></p></td>
-<td class="text-center"><p><span id="id5">[<a class="reference internal" href="#id165" title="K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. BSSA, 1981.">20.05</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id5">[<a class="reference internal" href="#id165" title="K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. BSSA, 1981.">20.5</a>]</span></p></td>
 <td class="text-center"><p>0.016</p></td>
 <td class="text-center"><p>0.868</p></td>
 <td class="text-center"><p>1.09</p></td>
@@ -550,7 +602,7 @@
 <td class="text-center"><p>0.24</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Canada</p></td>
-<td class="text-center"><p><span id="id6">[<a class="reference internal" href="#id177" title="W.G. Milne and A.G. Davenport. Distribution of earthquake risk in canada. Bull Seism. Soc. Amer., 59(2):754-799, 1969.">20.06</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id6">[<a class="reference internal" href="#id177" title="W.G. Milne and A.G. Davenport. Distribution of earthquake risk in canada. Bull Seism. Soc. Amer., 59(2):754-799, 1969.">20.6</a>]</span></p></td>
 <td class="text-center"><p>0.04</p></td>
 <td class="text-center"><p>0.99</p></td>
 <td class="text-center"><p>1.39</p></td>
@@ -566,7 +618,7 @@
 <td class="text-center"><p>-</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Japan</p></td>
-<td class="text-center"><p><span id="id7">[<a class="reference internal" href="#id173" title="T. Katayama and M. Saeki. Statistical analysis of earthquake acceleration response spectra. In Proc. of ISCE, number 275. 1978. in Japanese.">20.07</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id7">[<a class="reference internal" href="#id173" title="T. Katayama and M. Saeki. Statistical analysis of earthquake acceleration response spectra. In Proc. of ISCE, number 275. 1978. in Japanese.">20.7</a>]</span></p></td>
 <td class="text-center"><p>0.02</p></td>
 <td class="text-center"><p>0.7</p></td>
 <td class="text-center"><p>0.8</p></td>
@@ -574,7 +626,7 @@
 <td class="text-center"><p>-</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Taiwan</p></td>
-<td class="text-center"><p><span id="id8">[<a class="reference internal" href="#id175" title="S.T. Mau and C.S Kao. A risk model for seismic zoning in taiwan. In Proc. of 2 Intern. Conf. on Microzonation, volume 1, 367-378. San Francisco, 1978.">20.08</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id8">[<a class="reference internal" href="#id175" title="S.T. Mau and C.S Kao. A risk model for seismic zoning in taiwan. In Proc. of 2 Intern. Conf. on Microzonation, volume 1, 367-378. San Francisco, 1978.">20.8</a>]</span></p></td>
 <td class="text-center"><p>0.38</p></td>
 <td class="text-center"><p>0.876</p></td>
 <td class="text-center"><p>1.836</p></td>
@@ -582,7 +634,7 @@
 <td class="text-center"><p>-</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>South Africa</p></td>
-<td class="text-center"><p><span id="id9">[<a class="reference internal" href="#id170" title="N.C. Donovan and A.E. Bornstein. The problems of uncertainties in the use of seismic risk procedures in use of probabilities in earthquake engineering. In ASCE, Spec. Publ., 1-36. 1977.">20.09</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id9">[<a class="reference internal" href="#id170" title="N.C. Donovan and A.E. Bornstein. The problems of uncertainties in the use of seismic risk procedures in use of probabilities in earthquake engineering. In ASCE, Spec. Publ., 1-36. 1977.">20.9</a>]</span></p></td>
 <td class="text-center"><p>0.073</p></td>
 <td class="text-center"><p>0.756</p></td>
 <td class="text-center"><p>1.01</p></td>
@@ -590,7 +642,7 @@
 <td class="text-center"><p>-</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Central Europe</p></td>
-<td class="text-center"><p><span id="id10">[<a class="reference internal" href="#id163" title="L. Ahorner and W. Rosenhauer. Probability distribution of earthquake accelerations with applications to sites in the northern rhine area, central europe. Journ. Geophys., 41:581-594, 1975.">20.010</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id10">[<a class="reference internal" href="#id163" title="L. Ahorner and W. Rosenhauer. Probability distribution of earthquake accelerations with applications to sites in the northern rhine area, central europe. Journ. Geophys., 41:581-594, 1975.">20.10</a>]</span></p></td>
 <td class="text-center"><p>1.28</p></td>
 <td class="text-center"><p>0.8</p></td>
 <td class="text-center"><p>2.0</p></td>
@@ -598,7 +650,7 @@
 <td class="text-center"><p>-</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Greece</p></td>
-<td class="text-center"><p><span id="id11">[<a class="reference internal" href="#id174" title="K. Makropoulos. The Statistics of Large Earthquake Magnitude and an Evaluation of Greek Seismicity. PhD thesis, University of Edinburgh, Scotland, 1978.">20.011</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id11">[<a class="reference internal" href="#id174" title="K. Makropoulos. The Statistics of Large Earthquake Magnitude and an Evaluation of Greek Seismicity. PhD thesis, University of Edinburgh, Scotland, 1978.">20.11</a>]</span></p></td>
 <td class="text-center"><p>2.2</p></td>
 <td class="text-center"><p>0.7</p></td>
 <td class="text-center"><p>1.8</p></td>
@@ -606,7 +658,7 @@
 <td class="text-center"><p>0.50</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p>Switzerland <span class="math notranslate nohighlight">\({ }^{* 1}\)</span></p></td>
-<td class="text-center"><p><span id="id12">[<a class="reference internal" href="#id179" title="A. Ziegler. Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.">20.012</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id12">[<a class="reference internal" href="#id179" title="A. Ziegler. Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.">20.12</a>]</span></p></td>
 <td class="text-center"><p>0.016</p></td>
 <td class="text-center"><p>0.868</p></td>
 <td class="text-center"><p>0.95</p></td>
@@ -614,7 +666,7 @@
 <td class="text-center"><p>-</p></td>
 </tr>
 <tr class="row-even"><td class="text-center"><p>Italy <span class="math notranslate nohighlight">\({ }^{* 2}\)</span></p></td>
-<td class="text-center"><p><span id="id13">[<a class="reference internal" href="#id178" title="F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. Bull Seismol. Soc. Amer., 77:1491-15233, 1987.">20.013</a>]</span></p></td>
+<td class="text-center"><p><span class="bibtex-citation" id="id13">[<a class="reference internal" href="#id178" title="F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. Bull Seismol. Soc. Amer., 77:1491-15233, 1987.">20.13</a>]</span></p></td>
 <td class="text-center"><p>0.014</p></td>
 <td class="text-center"><p>0.363</p></td>
 <td class="text-center"><p>0.5</p></td>
@@ -625,18 +677,18 @@
 </table>
 </div>
 <p>Notes:</p>
-<p>*1) In difference to eq. <a class="reference internal" href="#equation-eq-earthquake-2-17-4">(20.4)</a>, the attenuation laws proposed by <span id="id14">[<a class="reference internal" href="#id165" title="K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. BSSA, 1981.">20.05</a>]</span> and <span id="id15">[<a class="reference internal" href="#id179" title="A. Ziegler. Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.">20.012</a>]</span> are defined as:</p>
+<p>*1) In difference to eq. <a class="reference internal" href="#equation-eq-earthquake-2-17-4">(20.4)</a>, the attenuation laws proposed by <span class="bibtex-citation" id="id14">[<a class="reference internal" href="#id165" title="K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. BSSA, 1981.">20.5</a>]</span> and <span class="bibtex-citation" id="id15">[<a class="reference internal" href="#id179" title="A. Ziegler. Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.">20.12</a>]</span> are defined as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-5">
 <span class="eqno">(20.5)<a class="headerlink" href="#equation-eq-earthquake-2-17-5" title="Link to this equation">#</a></span>\[A=b_{1} \cdot e^{b_{2}-M} \cdot(R+k)^{-b_{3}} \cdot \varepsilon_{A}\]</div>
 <p>where <span class="math notranslate nohighlight">\(R\)</span> is the epicentral distance in <span class="math notranslate nohighlight">\(km\)</span>.</p>
-<p>*2) The attenuation law by <span id="id16">[<a class="reference internal" href="#id178" title="F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. Bull Seismol. Soc. Amer., 77:1491-15233, 1987.">20.013</a>]</span> is the following:</p>
+<p>*2) The attenuation law by <span class="bibtex-citation" id="id16">[<a class="reference internal" href="#id178" title="F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. Bull Seismol. Soc. Amer., 77:1491-15233, 1987.">20.13</a>]</span> is the following:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-6">
 <span class="eqno">(20.6)<a class="headerlink" href="#equation-eq-earthquake-2-17-6" title="Link to this equation">#</a></span>\[A=b_{1} \cdot e^{b_{2}-M} \cdot\left(\Delta^{2}+k\right)^{-b_{3}} \cdot \varepsilon_{A}\]</div>
 </section>
 <section id="source-geometry-model">
 <h3><span class="section-number">20.2.4. </span>Source geometry model<a class="headerlink" href="#source-geometry-model" title="Link to this heading">#</a></h3>
 <p>The source may generally be taken as a spatial random variable. The focus is the point where earthquake motion starts to be generated in the event. The focal distance is taken as the distance between focus and site.</p>
-<p>If there are well-defined fault-lines it may be assumed that the focus occurs anywhere along the fault-line with equal probability. The focus may be understood as the center of the rupture zone. The focal distance can also be taken as the closest distance between rupture zone and site. The rupture length <span class="math notranslate nohighlight">\(l\)</span> may be taken as a fraction of the earthquake magnitude according to: <span class="math notranslate nohighlight">\(l=\exp \left(c_{1} . M-c_{2}\right)\)</span> with <span class="math notranslate nohighlight">\(c_{1}\)</span> and <span class="math notranslate nohighlight">\(c_{2}\)</span> coefficients characteristic for the fault <span id="id17">[<a class="reference internal" href="#id167" title="A. Der Kiureghian and A. Ang. A fault rupture model for seismic risk analysis. Ball. Seis. Soc. Amer., 67(4):1173-1194, 1977.">20.014</a>]</span>.</p>
+<p>If there are well-defined fault-lines it may be assumed that the focus occurs anywhere along the fault-line with equal probability. The focus may be understood as the center of the rupture zone. The focal distance can also be taken as the closest distance between rupture zone and site. The rupture length <span class="math notranslate nohighlight">\(l\)</span> may be taken as a fraction of the earthquake magnitude according to: <span class="math notranslate nohighlight">\(l=\exp \left(c_{1} . M-c_{2}\right)\)</span> with <span class="math notranslate nohighlight">\(c_{1}\)</span> and <span class="math notranslate nohighlight">\(c_{2}\)</span> coefficients characteristic for the fault <span class="bibtex-citation" id="id17">[<a class="reference internal" href="#id167" title="A. Der Kiureghian and A. Ang. A fault rupture model for seismic risk analysis. Ball. Seis. Soc. Amer., 67(4):1173-1194, 1977.">20.14</a>]</span>.</p>
 <p>In many geographical regions fault locations and their activity are not known; existing data are so sparse that a division of a seismic region into faults or other active zones would be meaningless and unreliable. In addition one should consider that in regions with very high seismicity earthquakes occur practically everywhere.</p>
 <p>The focal distance <span class="math notranslate nohighlight">\(\Delta\)</span> is a function of the horizontal distance <span class="math notranslate nohighlight">\(R\)</span> from focus to site and of the epicentral depth <span class="math notranslate nohighlight">\(H\)</span> :</p>
 <div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-7">
@@ -652,7 +704,7 @@
 <p><span class="math notranslate nohighlight">\(\nu=\)</span> number of earthquakes with <span class="math notranslate nohighlight">\(M&gt;M_{1}\)</span> per unit of time (occurrence rate)</p>
 <p><span class="math notranslate nohighlight">\(T=\)</span> period of time</p>
 <p><span class="math notranslate nohighlight">\(P^{\prime}[A&gt;a]=\)</span> probability of <span class="math notranslate nohighlight">\(A&gt;a\)</span> given an earthquake with <span class="math notranslate nohighlight">\(M&gt;M_{1}\)</span> in one source area</p>
-<p>The statistical uncertainty in the estimate of <span class="math notranslate nohighlight">\(\nu\)</span> is very important, particularly if the observation records cover only a short period of time or the seismicity is relative small and consequently a Bayesian model to the description of the uncertainties of <span class="math notranslate nohighlight">\(\nu\)</span> is recommended (see <a class="reference internal" href="#section-appendix-a"><span class="std std-ref">Appendix A</span></a>). The following simplified expression is proposed by <span id="id18">[<a class="reference internal" href="#id164" title="J.R. Benjamin. Probabilistic models for seismic force design. Journ. Struc. Div ASCE, 94(ST5):1174-1195, 1968.">20.015</a>]</span> for the mean occurrence rate <span class="math notranslate nohighlight">\(\nu\)</span> derived from Bayes’ theorem:</p>
+<p>The statistical uncertainty in the estimate of <span class="math notranslate nohighlight">\(\nu\)</span> is very important, particularly if the observation records cover only a short period of time or the seismicity is relative small and consequently a Bayesian model to the description of the uncertainties of <span class="math notranslate nohighlight">\(\nu\)</span> is recommended (see <a class="reference internal" href="#section-appendix-a"><span class="std std-ref">Appendix A</span></a>). The following simplified expression is proposed by <span class="bibtex-citation" id="id18">[<a class="reference internal" href="#id164" title="J.R. Benjamin. Probabilistic models for seismic force design. Journ. Struc. Div ASCE, 94(ST5):1174-1195, 1968.">20.15</a>]</span> for the mean occurrence rate <span class="math notranslate nohighlight">\(\nu\)</span> derived from Bayes’ theorem:</p>
 <div class="math notranslate nohighlight" id="equation-eq-earthquake-2-17-9">
 <span class="eqno">(20.9)<a class="headerlink" href="#equation-eq-earthquake-2-17-9" title="Link to this equation">#</a></span>\[-\nu \cdot T=\ln \left(\frac{1}{\left(1+\frac{T}{\tau}\right)^{n+1}}\right)\]</div>
 <p>where <span class="math notranslate nohighlight">\(n\)</span> is the number of earthquakes observed in the passed time <span class="math notranslate nohighlight">\(\tau\)</span>.</p>
@@ -769,66 +821,66 @@ q=\left(1-\lambda_{1}^{2} / \lambda_{0}~\lambda_{2}\right)^{1 / 2} &amp; \qquad 
 <div class="docutils container" id="id19">
 <div role="list" class="citation-list">
 <div class="citation" id="id172" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">20.01</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">20.1</a><span class="fn-bracket">]</span></span>
 <p>B. Gutenberg and C. Richter. Frequencies of earthquakes in california. <em>Bull. Seism Soc. Amer.</em>, 34:185–188, 1944.</p>
 </div>
 <div class="citation" id="id169" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">20.02</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">20.2</a><span class="fn-bracket">]</span></span>
 <p>N.C. Donovan. A statistical evaluation of strong motion data including the february 9. 1971, san fernando earthquake. In <em>Proc. of 5th WCEE</em>, 1252–1261. Rome, Italy, 1973.</p>
 </div>
 <div class="citation" id="id176" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">20.03</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id3">20.3</a><span class="fn-bracket">]</span></span>
 <p>R.K. Mc Guire. Seismic structural response risk analysis, incorporating peak response regressions on earthquake magnitude and distance. <em>Massachusets Inst of Technol., Dep. of Civ. Eng. Res. Rpt.</em>, 1974.</p>
 </div>
 <div class="citation" id="id171" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">20.04</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id4">20.4</a><span class="fn-bracket">]</span></span>
 <p>L. Esteva and R. Villaverde. Seismic risk, design spectra and structural reliability. In <em>Proc 5 WCEE</em>, 2586–2597. Rome, 1973.</p>
 </div>
 <div class="citation" id="id165" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>20.05<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>20.5<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id5">1</a>,<a role="doc-backlink" href="#id14">2</a>)</span>
 <p>K.W. Campbell. Near-source-attenuation of peak horizontal acceleration. <em>BSSA</em>, 1981.</p>
 </div>
 <div class="citation" id="id177" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">20.06</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id6">20.6</a><span class="fn-bracket">]</span></span>
 <p>W.G. Milne and A.G. Davenport. Distribution of earthquake risk in canada. <em>Bull Seism. Soc. Amer.</em>, 59(2):754–799, 1969.</p>
 </div>
 <div class="citation" id="id173" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">20.07</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">20.7</a><span class="fn-bracket">]</span></span>
 <p>T. Katayama and M. Saeki. Statistical analysis of earthquake acceleration response spectra. In <em>Proc. of ISCE</em>, number 275. 1978. in Japanese.</p>
 </div>
 <div class="citation" id="id175" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">20.08</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id8">20.8</a><span class="fn-bracket">]</span></span>
 <p>S.T. Mau and C.S Kao. A risk model for seismic zoning in taiwan. In <em>Proc. of 2 Intern. Conf. on Microzonation</em>, volume 1, 367–378. San Francisco, 1978.</p>
 </div>
 <div class="citation" id="id170" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">20.09</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id9">20.9</a><span class="fn-bracket">]</span></span>
 <p>N.C. Donovan and A.E. Bornstein. The problems of uncertainties in the use of seismic risk procedures in use of probabilities in earthquake engineering. In <em>ASCE, Spec. Publ.</em>, 1–36. 1977.</p>
 </div>
 <div class="citation" id="id163" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">20.010</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id10">20.10</a><span class="fn-bracket">]</span></span>
 <p>L. Ahorner and W. Rosenhauer. Probability distribution of earthquake accelerations with applications to sites in the northern rhine area, central europe. <em>Journ. Geophys.</em>, 41:581–594, 1975.</p>
 </div>
 <div class="citation" id="id174" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">20.011</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id11">20.11</a><span class="fn-bracket">]</span></span>
 <p>K. Makropoulos. <em>The Statistics of Large Earthquake Magnitude and an Evaluation of Greek Seismicity</em>. PhD thesis, University of Edinburgh, Scotland, 1978.</p>
 </div>
 <div class="citation" id="id179" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>20.012<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>20.12<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id12">1</a>,<a role="doc-backlink" href="#id15">2</a>)</span>
 <p>A. Ziegler. <em>Bemessungsbeben für Stauanlagen im schweizerischen Alpenraum</em>. Dissertation, Eidgenössischen Technischen Hochschule Zürich, Schweiz, 1985.</p>
 </div>
 <div class="citation" id="id178" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>20.013<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>20.13<span class="fn-bracket">]</span></span>
 <span class="backrefs">(<a role="doc-backlink" href="#id13">1</a>,<a role="doc-backlink" href="#id16">2</a>)</span>
 <p>F. Sabetta and A. Pugliese. Attenuation of peak horizontal acceleration and velocity from italian strong-motion records. <em>Bull Seismol. Soc. Amer.</em>, 77:1491–15233, 1987.</p>
 </div>
 <div class="citation" id="id167" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">20.014</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id17">20.14</a><span class="fn-bracket">]</span></span>
 <p>A. Der Kiureghian and A. Ang. A fault rupture model for seismic risk analysis. <em>Ball. Seis. Soc. Amer.</em>, 67(4):1173–1194, 1977.</p>
 </div>
 <div class="citation" id="id164" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">20.015</a><span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id18">20.15</a><span class="fn-bracket">]</span></span>
 <p>J.R. Benjamin. Probabilistic models for seismic force design. <em>Journ. Struc. Div ASCE</em>, 94(ST5):1174–1195, 1968.</p>
 </div>
 </div>
@@ -937,12 +989,13 @@ q=\left(1-\lambda_{1}^{2} / \lambda_{0}~\lambda_{2}\right)^{1 / 2} &amp; \qquad 
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general">20.1. General</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilistic-seismic-hazard-assessment-psha">20.2. Probabilistic seismic hazard assessment (PSHA)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-methodology-for-psha">20.2.1. General Methodology for PSHA</a></li>
@@ -1010,8 +1063,8 @@ By Joint Committee on Structural Safety
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -30,6 +30,7 @@ parts:
   - file: part-02/earthquake.md
   - file: part-02/impact-load.md 
   - file: part-02/fire.md
+  - file: part-02/environmental-exposure-for-reinforced-concrete.md
 - caption: Resistance Models
   numbered: true
   chapters:

@@ -1,5 +1,7 @@
 # Annex D:Bayesian Interpretation of Probabilities
 
+Updated: 03.2001
+
 ## Introduction
 
 This JCSS Probabilistic Model Code offers distribution functions and corresponding parameter models for loads and structural properties in order to carry out failure probability calculations for comparison with specified reliability targets. This annex gives guidance on the interpretation of both input and results of those calculations.

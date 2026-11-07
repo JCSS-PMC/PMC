@@ -1,5 +1,7 @@
 # Reliability
 
+Updated: 03.2001
+
 ## Reliability measures
 
  A standard reliability measure may be chosen to be the *generalized

@@ -1,5 +1,7 @@
 # Basis of uncertainty modelling
 
+Updated: 03.2001
+
 (section-4.1)=
 ## Basic variables
 

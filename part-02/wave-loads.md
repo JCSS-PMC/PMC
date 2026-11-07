@@ -1,5 +1,7 @@
 # Wave loads
 
+Updated: 05.2006
+
 **List of symbols:**
 
 $\begin{array}{ll}c &=  \text { phase velocity} ( c=\omega / k) \\

@@ -1,5 +1,7 @@
 # Earthquake Load
 
+Updated: 09.2002
+
 ## General
 
 The two orthogonal horizontal components and the vertical component of the ground motion produced at a site by an earthquake provide the characterisation of the shaking.

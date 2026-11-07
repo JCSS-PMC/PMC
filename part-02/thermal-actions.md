@@ -1,5 +1,7 @@
 # Thermal Actions
 
+Updated: 07.2015
+
 **List of symbols:**
 
 $\begin{array}{ll}A &= \text { cross-sectional area of the structural member}\\ 

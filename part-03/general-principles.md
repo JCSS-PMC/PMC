@@ -1,5 +1,7 @@
 # General Principles
 
+Updated: 03.2001
+
 **List of symbols:**
 
 $\begin{array}{ll}f_{x}(x \mid q) &= \text { the variability of property} x \text { within a given lot}\\

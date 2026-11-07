@@ -1,5 +1,7 @@
 # General Principles
 
+Updated: 06.2001
+
 ## Introduction
 
 The environment in which structural systems function gives rise to internal forces, deformations, material deterioration and other short-term or long-term effects in these systems. The causes of these effects are termed actions. The environment from which the actions originate can be of a natural

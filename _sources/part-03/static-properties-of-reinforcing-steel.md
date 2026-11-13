@@ -1,5 +1,7 @@
 # Static Properties Of Reinforcing Steel
 
+Updated: 03.2001
+
 **List of symbols:**
 
 $\begin{array}{ll}f_{y} & =\text { basic yield stress } \\ \sigma & =\text { standard deviation }\end{array}$

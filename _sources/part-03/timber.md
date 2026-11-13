@@ -1,5 +1,7 @@
 # Properties of Timber
 
+Updated: 05.2006
+
 
 **List of most important symbols:**
 

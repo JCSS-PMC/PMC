@@ -1,5 +1,7 @@
 # Live Load
 
+Updated: 05.2001
+
 **List of symbols:**
 
 $\begin{array}{ll} A &= \text {area} \left[m^{2}\right]\\

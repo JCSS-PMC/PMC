@@ -1,7 +1,19 @@
 # How to Use
 
+Updated: 11.2026
+
 This guide gives an overview of how to install [jupyterbook](https://jupyterbook.org/intro.html) locally on your computer (for advanced users) as well as how to edit the PMC directly online without needing a local installation (recommended option).
 
+
+## Chapter update dates
+
+Place a plain-text `Updated: MM.YYYY` line immediately below each chapter or section title, separated by blank lines. Use a two-digit month and a four-digit year. The same line is retained in HTML and PDF outputs from the Markdown source.
+
+The date records the latest substantive content revision accepted by the editors. Change it when the technical content changes, and explain the revision in the pull request. Formatting, repository migration, and website rebuilds do not change this date.
+
+For the initial dates, confirm that the cited publication or editorial record represents the current chapter content. The published-PDF catalogue can identify candidate dates, but later changes to the online text require a separate check. Do not infer a content-update date from a Git commit timestamp or a file upload date. Record unresolved dates in the pull request and obtain editor confirmation before merging.
+
+An update date does not establish publication or approval status. Keep that status explicit elsewhere, and use the same update date in HTML and PDF editions that contain the same revision.
 
 ## Local set-up
 

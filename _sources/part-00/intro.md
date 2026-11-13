@@ -1,5 +1,7 @@
 # JCSS Probabilistic Model Code
 
+Updated: 03.2001
+
  This document is a first attempt to put together in a consistent way
  some - certainly not all - of the rules, regulations, and explanations
  that are necessary for the design of new structures, or the assessment

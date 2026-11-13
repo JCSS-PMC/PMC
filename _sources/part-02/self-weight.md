@@ -1,5 +1,7 @@
 # Self Weight
 
+Updated: 05.2001
+
 **List of symbols:**
 
 $\begin{array}{ll} d &= \text {correlation length} \\

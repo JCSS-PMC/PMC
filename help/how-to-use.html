@@ -36,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -55,7 +55,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -474,19 +474,20 @@
             </div>
             <nav aria-label="Page">
                 <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-set-up">36.1. Local set-up</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">36.1.1. Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-command-line-interface">36.1.2. Build command line interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-update-dates">36.1. Chapter update dates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-set-up">36.2. Local set-up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">36.2.1. Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-command-line-interface">36.2.2. Build command line interface</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-set-up">36.2. Online set-up</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-account">36.2.1. GitHub Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-set-up">36.3. Online set-up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-account">36.3.1. GitHub Account</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-editing">36.3. Online editing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-steps">36.3.1. First Steps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sugesst-edits">36.3.2. Sugesst Edits</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-issues">36.3.3. Open Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-editing">36.4. Online editing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-steps">36.4.1. First Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sugesst-edits">36.4.2. Sugesst Edits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-issues">36.4.3. Open Issues</a></li>
 </ul>
 </li>
 </ul>
@@ -502,15 +503,23 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-use">
 <h1><span class="section-number">36. </span>How to Use<a class="headerlink" href="#how-to-use" title="Link to this heading">#</a></h1>
+<p>Updated: 11.2026</p>
 <p>This guide gives an overview of how to install <a class="reference external" href="https://jupyterbook.org/intro.html">jupyterbook</a> locally on your computer (for advanced users) as well as how to edit the PMC directly online without needing a local installation (recommended option).</p>
+<section id="chapter-update-dates">
+<h2><span class="section-number">36.1. </span>Chapter update dates<a class="headerlink" href="#chapter-update-dates" title="Link to this heading">#</a></h2>
+<p>Place a plain-text <code class="docutils literal notranslate"><span class="pre">Updated:</span> <span class="pre">MM.YYYY</span></code> line immediately below each chapter or section title, separated by blank lines. Use a two-digit month and a four-digit year. The same line is retained in HTML and PDF outputs from the Markdown source.</p>
+<p>The date records the latest substantive content revision accepted by the editors. Change it when the technical content changes, and explain the revision in the pull request. Formatting, repository migration, and website rebuilds do not change this date.</p>
+<p>For the initial dates, confirm that the cited publication or editorial record represents the current chapter content. The published-PDF catalogue can identify candidate dates, but later changes to the online text require a separate check. Do not infer a content-update date from a Git commit timestamp or a file upload date. Record unresolved dates in the pull request and obtain editor confirmation before merging.</p>
+<p>An update date does not establish publication or approval status. Keep that status explicit elsewhere, and use the same update date in HTML and PDF editions that contain the same revision.</p>
+</section>
 <section id="local-set-up">
-<h2><span class="section-number">36.1. </span>Local set-up<a class="headerlink" href="#local-set-up" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">36.2. </span>Local set-up<a class="headerlink" href="#local-set-up" title="Link to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This setup is only recommended for advanced users who have basic knowledge of <code class="docutils literal notranslate"><span class="pre">git</span></code>, <code class="docutils literal notranslate"><span class="pre">python</span></code> and <code class="docutils literal notranslate"><span class="pre">markdown</span></code>.</p>
 </div>
 <section id="installation">
-<h3><span class="section-number">36.1.1. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">36.2.1. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
 <p>This chapter gives an introduction how to set-up and use jupyterbook on your local machine. Jupyterbook uses <code class="docutils literal notranslate"><span class="pre">python</span></code>, hence you need a local python environment to install jupyterbook.</p>
 <p>In your local python environment install the following packages:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">matplotlib</span> <span class="n">numpy</span>
@@ -518,7 +527,7 @@
 </div>
 </section>
 <section id="build-command-line-interface">
-<h3><span class="section-number">36.1.2. </span>Build command line interface<a class="headerlink" href="#build-command-line-interface" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">36.2.2. </span>Build command line interface<a class="headerlink" href="#build-command-line-interface" title="Link to this heading">#</a></h3>
 <p>When you’ve written your book’s content, it is now time to build outputs for your book so that you may share them with others. For example, you may wish to build HTML files to host as a static website, or a PDF to share with colleagues.</p>
 <p>he basic way to build your book is via the following command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="o">&lt;</span><span class="n">path</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">book</span><span class="o">&gt;</span>
@@ -532,13 +541,13 @@
 </section>
 </section>
 <section id="online-set-up">
-<h2><span class="section-number">36.2. </span>Online set-up<a class="headerlink" href="#online-set-up" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">36.3. </span>Online set-up<a class="headerlink" href="#online-set-up" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The PMC was designed in such a way that editing, moderation and publication of the content can be carried out online without local installations of the required programmes.</p>
 </div>
 <section id="github-account">
-<h3><span class="section-number">36.2.1. </span>GitHub Account<a class="headerlink" href="#github-account" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">36.3.1. </span>GitHub Account<a class="headerlink" href="#github-account" title="Link to this heading">#</a></h3>
 <p>To edit the PMC, you need a GitHub user account. If you don’t have such an account yet, go to <a class="reference external" href="https://github.com/">github.com</a> and click the sign up button. Please follow the instructions to create an account.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
@@ -548,9 +557,9 @@
 </section>
 </section>
 <section id="online-editing">
-<h2><span class="section-number">36.3. </span>Online editing<a class="headerlink" href="#online-editing" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">36.4. </span>Online editing<a class="headerlink" href="#online-editing" title="Link to this heading">#</a></h2>
 <section id="first-steps">
-<h3><span class="section-number">36.3.1. </span>First Steps<a class="headerlink" href="#first-steps" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">36.4.1. </span>First Steps<a class="headerlink" href="#first-steps" title="Link to this heading">#</a></h3>
 <p>You also can edit the content of the <a class="reference external" href="https://jcss-pmc.github.io/PMC/part-00/intro.html">PMC online</a>, when you do not want to set-up jupyterbook on your local machine. Therefore a github account is needed (see XXX).</p>
 <p>You have two options for online editing:</p>
 <ol class="arabic simple">
@@ -559,7 +568,7 @@
 </ol>
 </section>
 <section id="sugesst-edits">
-<h3><span class="section-number">36.3.2. </span>Sugesst Edits<a class="headerlink" href="#sugesst-edits" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">36.4.2. </span>Sugesst Edits<a class="headerlink" href="#sugesst-edits" title="Link to this heading">#</a></h3>
 <p>If you want to suggest direct changes to the text, you can do so using the <code class="docutils literal notranslate"><span class="pre">sugesst</span> <span class="pre">edits</span></code> function. To do this, go to the corresponding page of the PMC and move the mouse over the <img alt="GitHubLogo" src="https://fr.wikipedia.org/wiki/GitHub#/media/Fichier:Octicons-mark-github.svg" /> button.  In the menu below, you can select option <code class="docutils literal notranslate"><span class="pre">sugesst</span> <span class="pre">edits</span></code>. Click on this option.</p>
 <img alt="../_images/edit-online.png" id="image-edit-online" src="../_images/edit-online.png" />
 <p>After that, an edit field opens in your browser where you can make the corresponding changes in the text directly. Jupyterbook uses Markdown as a simplified markup language for the text, i.e. the text is formatted using punctuation symbols (e.g. <code class="docutils literal notranslate"><span class="pre">**</span></code> for bold -&gt; <code class="docutils literal notranslate"><span class="pre">**bold**</span></code> = <strong>bold</strong>) and command sequences. An overview of the most essential formatting commands for the PMC can be found in section XXX. The formatted version of the text can be viewed under the <code class="docutils literal notranslate"><span class="pre">Preview</span></code> tab.</p>
@@ -583,7 +592,7 @@
 <img alt="../_images/new-published.png" id="image-new-published" src="../_images/new-published.png" />
 </section>
 <section id="open-issues">
-<h3><span class="section-number">36.3.3. </span>Open Issues<a class="headerlink" href="#open-issues" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">36.4.3. </span>Open Issues<a class="headerlink" href="#open-issues" title="Link to this heading">#</a></h3>
 </section>
 </section>
 </section>
@@ -645,19 +654,20 @@
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-set-up">36.1. Local set-up</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">36.1.1. Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-command-line-interface">36.1.2. Build command line interface</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-update-dates">36.1. Chapter update dates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-set-up">36.2. Local set-up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">36.2.1. Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#build-command-line-interface">36.2.2. Build command line interface</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-set-up">36.2. Online set-up</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-account">36.2.1. GitHub Account</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-set-up">36.3. Online set-up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-account">36.3.1. GitHub Account</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-editing">36.3. Online editing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-steps">36.3.1. First Steps</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sugesst-edits">36.3.2. Sugesst Edits</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-issues">36.3.3. Open Issues</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#online-editing">36.4. Online editing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-steps">36.4.1. First Steps</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sugesst-edits">36.4.2. Sugesst Edits</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-issues">36.4.3. Open Issues</a></li>
 </ul>
 </li>
 </ul>

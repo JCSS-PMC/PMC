@@ -1,5 +1,7 @@
 # Impact Load
 
+Updated: 05.2001
+
 **List of symbols:**
 
 $\begin{array}{ll}a &= \text { deceleration}\\

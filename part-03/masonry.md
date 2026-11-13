@@ -1,5 +1,7 @@
 # Masonry Properties
 
+Updated: 11.2011
+
 **List of symbols:**
 
 $\begin{array}{ll}f_{m}  & = \text { compressive strength of masonry } \\

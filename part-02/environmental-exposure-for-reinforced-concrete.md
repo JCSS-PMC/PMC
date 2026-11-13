@@ -1,5 +1,7 @@
 # Environmental Exposure for Reinforced Concrete
 
+Updated: 11.2026
+
 ```{admonition} Authors
 :class: note
 This chapter was prepared by **Dimitri Val**, **Carmen Andrade** and **Ton Vrouwenvelder**. The JCSS gratefully acknowledges their work.

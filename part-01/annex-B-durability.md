@@ -1,5 +1,7 @@
 # Annex B: Durability
 
+Updated: 03.2001
+
 ## Probabilistic Formulations
 
 Loads as well as material properties may vary in time as stationary or non-stationary

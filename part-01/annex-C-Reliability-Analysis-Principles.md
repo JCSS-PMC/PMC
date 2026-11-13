@@ -1,5 +1,7 @@
 # Annex C: Reliability Analysis Principles
 
+Updated: 03.2001
+
 ## Introduction
 
 In recent years, practical reliability methods have been developed to help engineers tackle the analysis, quantification, monitoring and assessment of structural risks, undertake sensitivity analysis of inherent uncertainties and make appropriate decisions about the performance of a structure. The structure may be at the design stage, under construction or in actual use.

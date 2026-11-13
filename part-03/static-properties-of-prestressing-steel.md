@@ -1,5 +1,7 @@
 # Static Properties Of Prestressing Steel (Prestressed Concrete)
 
+Updated: 04.2005
+
 **List of symbols:**
 
 $\begin{array}{ll}E_{p} &= \text { modulus of elasticity}\\

@@ -1,5 +1,7 @@
 # Wind
 
+Updated: 05.2001
+
 **List of symbols:**
 
 $\begin{array}{ll}f_c &= \text { Coriolis parameter} (= 2 \Omega \sin \phi)\\

@@ -1,5 +1,7 @@
 # Static Properties of Structural Steel (Rolled Sections)
 
+Updated: 03.2001
+
 ## Properties Considered
 
 The following properties of structural steel are dealt with herein:

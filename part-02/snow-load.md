@@ -1,5 +1,7 @@
 # Snow Load
 
+Updated: 05.2001
+
 **List of symbols:**
 
 $\begin{array}{ll}C_{e}  &= \text { exposure coefficient}\\

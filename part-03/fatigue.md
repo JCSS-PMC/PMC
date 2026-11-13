@@ -1,5 +1,7 @@
 # Fatigue Models For Metallic Structures
 
+Updated: 03.2013
+
 $\begin{array}{ll}f_{y} & =\text { basic yield stress } \\ \sigma & =\text { standard deviation }\end{array}$
 
 **List of symbols (main text)**

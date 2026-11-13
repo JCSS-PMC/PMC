@@ -1,5 +1,7 @@
 # Principles of limit state design
 
+Updated: 03.2001
+
 (section-3.1)=
 ## Limit states and adverse states
 

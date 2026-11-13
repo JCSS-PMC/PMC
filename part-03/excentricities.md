@@ -1,5 +1,7 @@
 # Excentricities
 
+Updated: 03.2001
+
 **List of symbols:**
 
 $\begin{array}{ll}\rho(i, j) & = \text { coefficient of correlation for two columns } i \text { and } j \\

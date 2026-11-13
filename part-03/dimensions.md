@@ -1,5 +1,7 @@
 # Dimensions
 
+Updated: 03.2001
+
 ## External dimensions of concrete components
 
 In the following the only time independent effects are considered. Dimensional deviations of a dimension $X$ is described by statistical characteristics of its deviations $Y$ from the nominal value $X_{\text {nom }}$ :

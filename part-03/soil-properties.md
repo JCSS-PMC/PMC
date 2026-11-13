@@ -1,5 +1,7 @@
 # Soil Properties
 
+Updated: 08.2006
+
 **Symbols used**
 
 

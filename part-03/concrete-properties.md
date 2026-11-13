@@ -1,5 +1,7 @@
 # Concrete Properties
 
+Updated: 05.2002
+
 ## List of symbols:
 
 $\begin{array}{ll}f_{co} &= \text { basic concrete compression strength}\\

@@ -1,5 +1,7 @@
 # Model Uncertainties
 
+Updated: 03.2001
+
 **List of Symbols**
 
 $\begin{array}{ll}Y  & = \text { response of the structure according to the model } \\

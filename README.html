@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>PMC &#8212; Probabilistic Model Code</title>
+    <title>JCSS Probabilistic Model Code &#8212; Probabilistic Model Code</title>
   
   
   
@@ -150,6 +150,10 @@
     </div>
   
 
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
   
 </div>
 
@@ -448,7 +452,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -459,11 +465,23 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>PMC</h1>
+    <h1>JCSS Probabilistic Model Code</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-pmc">Read the PMC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-the-pmc">Cite the PMC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute">Contribute</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-locally">Build locally</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -473,10 +491,83 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="pmc">
-<h1>PMC<a class="headerlink" href="#pmc" title="Link to this heading">#</a></h1>
-<p>Probabilistic Model Code</p>
-<p>This is a test version!</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="jcss-probabilistic-model-code">
+<h1>JCSS Probabilistic Model Code<a class="headerlink" href="#jcss-probabilistic-model-code" title="Link to this heading">#</a></h1>
+<p>The <strong>Probabilistic Model Code (PMC)</strong> is developed by the <a class="reference external" href="https://www.jcss-lc.org/">Joint Committee on Structural Safety (JCSS)</a>. It provides a basis for probabilistic modelling and reliability assessment in the design of new structures and the assessment of existing structures. This repository contains the Markdown sources, figures, and references used to build the online book with Jupyter Book.</p>
+<section id="read-the-pmc">
+<h2>Read the PMC<a class="headerlink" href="#read-the-pmc" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://jcss-pmc.github.io/PMC/part-00/intro.html">Online book</a>: browse the chapters and their references.</p></li>
+<li><p><a class="reference external" href="https://www.jcss-lc.org/jcss-probabilistic-model-code/">Published PDFs</a>: download the published parts and individual sections, with their listed update dates.</p></li>
+<li><p><a class="reference external" href="https://www.jcss-lc.org/">JCSS website</a>: information about JCSS, its activities, and other publications.</p></li>
+</ol>
+</section>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Subject</p></th>
+<th class="head"><p>Source directory</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>I</p></td>
+<td><p>Basis of Design</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">part-01/</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>II</p></td>
+<td><p>Load Models</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">part-02/</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>III</p></td>
+<td><p>Resistance Models</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">part-03/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cite-the-pmc">
+<h2>Cite the PMC<a class="headerlink" href="#cite-the-pmc" title="Link to this heading">#</a></h2>
+<p>Cite the part or chapter consulted and use its own publication or update date. For an online chapter, include the access date because its content can change. The following examples use JCSS as the institutional author.</p>
+<ol class="arabic">
+<li><p><strong>Published PDF section</strong></p>
+<p>Joint Committee on Structural Safety (JCSS). (2026). <em>Environmental Exposure for Reinforced Concrete</em>. Probabilistic Model Code, Part II: Load Models, Section 2.21. Updated November 2026. <a class="reference external" href="https://www.jcss-lc.org/wp-content/uploads/2026/11/jcss-pmc-2026-11-environmental-exposure-for-reinforced-concrete.pdf">PDF</a>.</p>
+</li>
+<li><p><strong>Online chapter</strong></p>
+<p>Joint Committee on Structural Safety (JCSS). (2026). <em>Environmental Exposure for Reinforced Concrete</em>. Probabilistic Model Code, Part II: Load Models, Chapter 23. Updated November 2026. Accessed 13 November 2026. <a class="reference external" href="https://jcss-pmc.github.io/PMC/part-02/environmental-exposure-for-reinforced-concrete.html">Online chapter</a>.</p>
+</li>
+</ol>
+<p>Use the numbering shown in the version consulted: this chapter is Section 2.21 in the published PDF and Chapter 23 in the online book. Replace the example’s access date with the date of your own consultation.</p>
+</section>
+<section id="contribute">
+<h2>Contribute<a class="headerlink" href="#contribute" title="Link to this heading">#</a></h2>
+<p>The <a class="reference internal" href="help/how-to-use.html"><span class="std std-doc">editing guide</span></a> explains how to propose changes through GitHub.</p>
+<ol class="arabic simple">
+<li><p><strong>Report an error or propose a change</strong> through <a class="reference external" href="https://github.com/JCSS-PMC/PMC/issues">Issues</a>. Identify the chapter, the relevant passage or equation, and any supporting references.</p></li>
+<li><p><strong>Suggest an edit</strong> using the online book’s GitHub menu or by editing a fork of this repository. Submit a pull request against <code class="docutils literal notranslate"><span class="pre">JCSS-PMC/PMC:master</span></code> for the maintainers to review.</p></li>
+<li><p><strong>Check the rendered result</strong> when changing text, equations, figures, or references. Keep each pull request focused and explain the reason for the change.</p></li>
+</ol>
+<p>Each chapter carries an <code class="docutils literal notranslate"><span class="pre">Updated:</span> <span class="pre">MM.YYYY</span></code> line below its title. The date records the latest substantive content revision accepted by the editors. Follow the <a class="reference internal" href="help/how-to-use.html#chapter-update-dates"><span class="std std-ref">update-date convention</span></a> when proposing a revision, and keep corresponding HTML and PDF versions consistent.</p>
+</section>
+<section id="build-locally">
+<h2>Build locally<a class="headerlink" href="#build-locally" title="Link to this heading">#</a></h2>
+<details>
+<summary>Repository structure and build instructions</summary>
+<p>The introduction is in <code class="docutils literal notranslate"><span class="pre">part-00/</span></code> and the editing guide is in <code class="docutils literal notranslate"><span class="pre">help/</span></code>. Chapter order is defined in <a class="reference download internal" download="" href="_downloads/056806de8da745a0c59599887088495d/_toc.yml"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">_toc.yml</span></code></span></a>, book settings in <a class="reference download internal" download="" href="_downloads/aeb42283af8ef8e9da40ededd3ae2ab2/_config.yml"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">_config.yml</span></code></span></a>, and bibliographic references in <a class="reference download internal" download="" href="_downloads/33e59b5ca9ec342068223d604c3f8d55/references.bib"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">references.bib</span></code></span></a>.</p>
+<p>Install Python 3.11, as used by the repository’s build workflow, and download or clone this repository. Create and activate a Python virtual environment before installing the dependencies from <a class="reference download internal" download="" href="_downloads/b4ef698db8ca845e5845c4618278f29a/requirements.txt"><span class="xref download myst"><code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></span></a>, which specifies Jupyter Book 1.x. From the repository root, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+jupyter-book<span class="w"> </span>build<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Open <code class="docutils literal notranslate"><span class="pre">_build/html/index.html</span></code> to inspect the generated book. To preview it through a local web server, run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>http.server<span class="w"> </span><span class="m">8000</span><span class="w"> </span>--bind<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--directory<span class="w"> </span>_build/html
+</pre></div>
+</div>
+<p>Then open <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8000/</span></code> in your browser. Generated files are written to <code class="docutils literal notranslate"><span class="pre">_build/</span></code> and are excluded from version control. The existing <a class="reference download internal" download="" href="_downloads/cd42d7915fea37e5af1df86ab843e0b9/book.yml"><span class="xref download myst">GitHub Actions workflow</span></a> builds and publishes the online book when changes are pushed to <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+</details>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -515,6 +606,27 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-the-pmc">Read the PMC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cite-the-pmc">Cite the PMC</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contribute">Contribute</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#build-locally">Build locally</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -5,7 +5,7 @@ The **Probabilistic Model Code (PMC)** is developed by the [Joint Committee on S
 ## Read the PMC
 
 1. [Online book](https://jcss-pmc.github.io/PMC/part-00/intro.html): browse the chapters and their references.
-2. [Published PDFs](https://www.jcss-lc.org/jcss-probabilistic-model-code/): download the published parts and individual sections, with their listed update dates.
+2. [Published PDFs](pdfs.md): download the complete parts, individual sections, and examples stored in this repository, with their listed update dates.
 3. [JCSS website](https://www.jcss-lc.org/): information about JCSS, its activities, and other publications.
 
 Use Search to find text across the online book. The Downloads menu provides the original PDF, Markdown source, and a separate option to print the current page. PDF section numbers and dates follow the JCSS catalogue and can differ from those in the online chapter. Part I chapters share the complete Basis of Design PDF. The sun/moon button switches between light and dark appearance.
@@ -24,7 +24,7 @@ Cite the part or chapter consulted and use its own publication or update date. F
 
 1. **Published PDF section**
 
-   Joint Committee on Structural Safety (JCSS). (2026). *Environmental Exposure for Reinforced Concrete*. Probabilistic Model Code, Part II: Load Models, Section 2.21. Updated November 2026. [PDF](https://www.jcss-lc.org/wp-content/uploads/2026/11/jcss-pmc-2026-11-environmental-exposure-for-reinforced-concrete.pdf).
+   Joint Committee on Structural Safety (JCSS). (2026). *Environmental Exposure for Reinforced Concrete*. Probabilistic Model Code, Part II: Load Models, Section 2.21. Updated November 2026. [PDF](_static/pdfs/jcss-pmc-2026-11-environmental-exposure-for-reinforced-concrete.pdf).
 
 2. **Online chapter**
 
@@ -49,7 +49,9 @@ Each chapter carries an `Updated: MM.YYYY` line below its title. The date record
 
 The introduction is in `part-00/` and the editing guide is in `help/`. Chapter order is defined in [`_toc.yml`](_toc.yml), book settings in [`_config.yml`](_config.yml), and bibliographic references in [`references.bib`](references.bib).
 
-Published PDF links are maintained in `_static/original-pdfs.json` and added to the download menu by `_ext/reader_controls.py`. Check the linked document and the official PDF catalogue when updating a link, then rebuild with `jupyter-book build . --all`. The reader uses the pages listed in `_toc.yml`, leaving this repository README outside its navigation and search.
+Original PDFs are stored in [`_static/pdfs/`](_static/pdfs/). Their source URLs, catalogue dates, filenames, sizes, and SHA-256 checksums are recorded in `_static/original-pdfs.json`, alongside the chapter mapping. The build checks the file sizes and checksums before adding local download links through `_ext/reader_controls.py`.
+
+Keep the original file bytes unchanged and give a new edition a new dated filename. After updating the PDF metadata, run `python scripts/build_pdf_catalogue.py` and rebuild with `jupyter-book build . --all`. Use `python scripts/build_pdf_catalogue.py --check` to verify that the catalogue page agrees with the metadata. The reader uses the pages listed in `_toc.yml`, leaving this repository README outside its navigation and search.
 
 Install Python 3.11, as used by the repository's build workflow, and download or clone this repository. Create and activate a Python virtual environment before installing the dependencies from [`requirements.txt`](requirements.txt), which specifies Jupyter Book 1.x. From the repository root, run:
 

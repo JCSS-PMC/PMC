@@ -1,0 +1,2 @@
+# Retain published PDF bytes without text conversion or textual diffs.
+_static/pdfs/*.pdf -text -diff

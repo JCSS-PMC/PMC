@@ -45,7 +45,6 @@ def add_download_context(app, pagename, templatename, context, doctree):
             'url': posixpath.relpath(file, posixpath.dirname(pagename) or '.'),
             'filename': Path(file).name,
         }
-    context['pmc_pdf_catalogue'] = app.builder.get_relative_uri(pagename, 'pdfs')
     for group in context.get('header_buttons', []):
         if group.get('label') != 'download-buttons':
             continue

@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=6a604523" />
+    <link rel="stylesheet" type="text/css" href="../_static/reader-controls.css?v=688807e7" />
   
   <!-- So that users can add custom icons -->
   <script defer src="../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
@@ -56,14 +57,13 @@
     <script src="../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script data-sd-tabs-storage-prefix="sphinx-design-tab-id-" src="../_static/design-tabs.js?v=fcb327ea"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'part-01/annex-B-durability';</script>
     <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <script src="../_static/reader-theme.js?v=2c709629"></script>
+    <script src="../_static/reader-navigation.js?v=e6305c5a"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="10. Annex C: Reliability Analysis Principles" href="annex-C-Reliability-Analysis-Principles.html" />
@@ -314,9 +314,11 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
-
-
-
+  
+    
+      
+      
+      
 
 
 <div class="dropdown dropdown-source-buttons">
@@ -378,20 +380,32 @@
   </ul>
 </div>
 
-
-
-
-
-
-<div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
-    <i class="fas fa-download"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="../_sources/part-01/annex-B-durability.md" target="_blank"
+    
+  
+    
+    <div class="dropdown dropdown-download-buttons">
+      <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" aria-label="Downloads" title="Downloads">
+        <i class="fas fa-download" aria-hidden="true"></i>
+      </button>
+      <ul class="dropdown-menu">
+        
+        <li><a class="btn btn-sm dropdown-item pmc-original" href="https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf"
+               aria-label="Original PDF: Part I, complete text (Draft 12), catalogue date 03.2001">
+          <span class="btn__icon-container"><i class="fas fa-file-pdf" aria-hidden="true"></i></span>
+          <span class="btn__text-container">Original PDF
+            <small title="Section and update date listed in the JCSS PDF catalogue">Part I, complete text (Draft 12) · 03.2001</small>
+          </span>
+        </a></li>
+        
+        <li><a class="btn btn-sm dropdown-item" href="https://www.jcss-lc.org/jcss-probabilistic-model-code/">
+          <span class="btn__icon-container"><i class="fas fa-book" aria-hidden="true"></i></span>
+          <span class="btn__text-container">Published PDFs</span>
+        </a></li>
+        
+          
+          
+          <li><a href="../_sources/part-01/annex-B-durability.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,14 +415,13 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">Markdown source</span>
 </a>
 </li>
-      
-      
-      
-      
-      <li>
+        
+          
+          
+          <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
   title="Print to PDF"
@@ -419,16 +432,18 @@
 <span class="btn__icon-container">
   <i class="fas fa-file-pdf"></i>
   </span>
-<span class="btn__text-container">.pdf</span>
+<span class="btn__text-container">Print this page</span>
 </button>
 </li>
+        
+      </ul>
+    </div>
+    
+  
+    
       
-  </ul>
-</div>
-
-
-
-
+      
+      
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
@@ -442,19 +457,20 @@
 
 </button>
 
-
-
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+    
+  
+  
+<button type="button" class="btn btn-sm nav-link pst-navbar-icon pmc-theme-switch pst-js-only"
+        aria-label="Switch to dark mode" title="Switch to dark mode">
+  <i class="fa-solid fa-moon fa-lg" data-pmc-theme-icon="dark" aria-hidden="true"></i>
+  <i class="fa-solid fa-sun fa-lg" data-pmc-theme-icon="light" aria-hidden="true" hidden></i>
 </button>
-
+  
 
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>

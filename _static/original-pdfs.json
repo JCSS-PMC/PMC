@@ -1,0 +1,186 @@
+{
+  "catalogue_url": "https://www.jcss-lc.org/jcss-probabilistic-model-code/",
+  "checked_on": "2026-11-16",
+  "chapters": {
+    "part-00/intro": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/preface.pdf",
+      "scope": "Preface",
+      "date": "03.2001"
+    },
+    "part-01/annex-A-the-robust-requirement": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/annex-B-durability": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/annex-C-Reliability-Analysis-Principles": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/annex-D-Bayesian-Interpretation-of-Probabilities": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/basis-of-uncerainty-modelling": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/introduction": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/models-for-physical-behaviour": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/principles-of-limit-state-design": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/reliability": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/requirements": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-01/target-reliability": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "scope": "Part I, complete text (Draft 12)",
+      "date": "03.2001"
+    },
+    "part-02/earthquake": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/earthquake1b.pdf",
+      "scope": "Section 2.17",
+      "date": "09.2002"
+    },
+    "part-02/environmental-exposure-for-reinforced-concrete": {
+      "url": "https://www.jcss-lc.org/wp-content/uploads/2026/11/jcss-pmc-2026-11-environmental-exposure-for-reinforced-concrete.pdf",
+      "scope": "Section 2.21",
+      "date": "11.2026"
+    },
+    "part-02/fire": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/fire.pdf",
+      "scope": "Section 2.20",
+      "date": "05.2001"
+    },
+    "part-02/general-principles": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/general_principles.pdf",
+      "scope": "Section 2.00",
+      "date": "06.2001"
+    },
+    "part-02/impact-load": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/impact.pdf",
+      "scope": "Section 2.18",
+      "date": "05.2001"
+    },
+    "part-02/live-load": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/live_load.pdf",
+      "scope": "Section 2.02",
+      "date": "05.2001"
+    },
+    "part-02/loads-in-car-parks": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/loads_in_car_parks.pdf",
+      "scope": "Section 2.06",
+      "date": "05.2001"
+    },
+    "part-02/self-weight": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/self_weight.pdf",
+      "scope": "Section 2.01",
+      "date": "05.2001"
+    },
+    "part-02/snow-load": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/snow.pdf",
+      "scope": "Section 2.12",
+      "date": "05.2001"
+    },
+    "part-02/thermal-actions": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/JCSS-PMC-II-Thermal_loads_01_2015.pdf",
+      "scope": "Section 2.14",
+      "date": "07.2015"
+    },
+    "part-02/wave-loads": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/waves.pdf",
+      "scope": "Section 2.15",
+      "date": "05.2006"
+    },
+    "part-02/wind": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/wind.pdf",
+      "scope": "Section 2.13",
+      "date": "05.2001"
+    },
+    "part-03/concrete-properties": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/concrete.pdf",
+      "scope": "Section 3.01",
+      "date": "05.2002"
+    },
+    "part-03/dimensions": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/dimen00.pdf",
+      "scope": "Section 3.10",
+      "date": "03.2001"
+    },
+    "part-03/excentricities": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/excentricities.pdf",
+      "scope": "Section 3.11",
+      "date": "03.2001"
+    },
+    "part-03/fatigue": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/JCSS-3-12-Fatigue.pdf",
+      "scope": "Section 3.12",
+      "date": "03.2013"
+    },
+    "part-03/general-principles": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/general.pdf",
+      "scope": "Section 3.00",
+      "date": "03.2001"
+    },
+    "part-03/masonry": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/PMC-3-08-MASONRY-PROPERTIES.pdf",
+      "scope": "Section 3.08",
+      "date": "11.2011"
+    },
+    "part-03/model-uncertainties": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/modeluncertainties.pdf",
+      "scope": "Section 3.09",
+      "date": "03.2001"
+    },
+    "part-03/soil-properties": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/soilproperties_2006.pdf",
+      "scope": "Section 3.07",
+      "date": "08.2006"
+    },
+    "part-03/static-properties-of-prestressing-steel": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/jcssprestress_final.pdf",
+      "scope": "Section 3.04",
+      "date": "04.2005"
+    },
+    "part-03/static-properties-of-reinforcing-steel": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/rebar.pdf",
+      "scope": "Reinforcing steel",
+      "date": "03.2001"
+    },
+    "part-03/static-properties-of-structural-steel": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/steelpr.pdf",
+      "scope": "Section 3.02",
+      "date": "03.2001"
+    },
+    "part-03/timber": {
+      "url": "https://www.jcss-lc.org/publications/jcsspmc/timber.pdf",
+      "scope": "Section 3.05",
+      "date": "05.2006"
+    }
+  }
+}

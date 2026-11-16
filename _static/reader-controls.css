@@ -1,0 +1,6 @@
+/* Retain the book theme's layout, colours, and heading destinations. */
+a.headerlink { display: none; }
+.pmc-theme-switch [hidden] { display: none; }
+.pmc-original small { display: block; font-size: 0.875rem; white-space: normal; }
+.dropdown-download-buttons .dropdown-menu { max-width: min(22rem, calc(100vw - 2rem)); }
+.pmc-original:focus-visible { outline: 2px solid var(--pst-color-primary); outline-offset: -2px; }

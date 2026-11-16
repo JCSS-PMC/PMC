@@ -182,5 +182,307 @@
       "scope": "Section 3.05",
       "date": "05.2006"
     }
-  }
+  },
+  "files": [
+    {
+      "title": "Part I: Basis of Design",
+      "section": "",
+      "group": "Complete parts",
+      "date": "08.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-08-part-1-basis-of-design-complete-part.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/part_i.pdf",
+      "bytes": 438125,
+      "sha256": "8c220fb453d6cc4b8337a7319ab9042870cb8203ac9c3316acd07dbc7f6ff846"
+    },
+    {
+      "title": "Part II: Load Models",
+      "section": "",
+      "group": "Complete parts",
+      "date": "08.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-08-part-2-load-models-complete-part.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/part_ii.pdf",
+      "bytes": 321756,
+      "sha256": "28159bdf26c74b2de8655d791f35b9a36204a5e96fc5e660b2d8911877654b8c"
+    },
+    {
+      "title": "Part III: Resistance Models",
+      "section": "",
+      "group": "Complete parts",
+      "date": "05.2002",
+      "file": "_static/pdfs/jcss-pmc-2002-05-part-3-resistance-models-complete-part.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/part_iii.pdf",
+      "bytes": 366272,
+      "sha256": "8785e12c43fdef6c91ffa8d1817eff4e2c48636ae8af3e8c714718455e977132"
+    },
+    {
+      "title": "Preface",
+      "section": "",
+      "group": "Part I: Basis of Design",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-preface.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/preface.pdf",
+      "bytes": 62800,
+      "sha256": "97b4bf9f73000e62dace254adc638f55eb0ef276d7cf2022be4c9aadf291de95"
+    },
+    {
+      "title": "Basis of design (Draft 12)",
+      "section": "1.00",
+      "group": "Part I: Basis of Design",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-part-1-basis-of-design-draft-12.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/desbasis2a.pdf",
+      "bytes": 434808,
+      "sha256": "770481c2c86bac5ef42a5e9c1a97fe69aa196c4c1fc12f24417e44b34eccadd6"
+    },
+    {
+      "title": "General principles",
+      "section": "2.00",
+      "group": "Part II: Load Models",
+      "date": "06.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-06-part-2-general-principles-load-models.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/general_principles.pdf",
+      "bytes": 108322,
+      "sha256": "ef582016f1c89810a76d21e356f4bc49384e440e226cf59354d060bb0c189e7c"
+    },
+    {
+      "title": "Self weight",
+      "section": "2.01",
+      "group": "Part II: Load Models",
+      "date": "05.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-05-self-weight.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/self_weight.pdf",
+      "bytes": 24764,
+      "sha256": "ef592062047d9ccf74bb745d732e3b9242c2926b43cc9b511bc5c3d7cd0a0c44"
+    },
+    {
+      "title": "Live load",
+      "section": "2.02",
+      "group": "Part II: Load Models",
+      "date": "05.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-05-live-load.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/live_load.pdf",
+      "bytes": 37226,
+      "sha256": "e2f09438b9869564c3b1802eee8746a80ab5d8a39076f37a68b2e11e69e2b5ef"
+    },
+    {
+      "title": "Load in car parks",
+      "section": "2.06",
+      "group": "Part II: Load Models",
+      "date": "05.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-05-loads-in-car-parks.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/loads_in_car_parks.pdf",
+      "bytes": 22470,
+      "sha256": "86ace3fec5b4ff692657249e6e3cc317997d84c182b64978e16a659de3a75c8e"
+    },
+    {
+      "title": "Snow load",
+      "section": "2.12",
+      "group": "Part II: Load Models",
+      "date": "05.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-05-snow-load.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/snow.pdf",
+      "bytes": 29988,
+      "sha256": "49f205ff2841456d28051f1d438a5e7cdd6a1980b385681b5ef91a8e392f26e0"
+    },
+    {
+      "title": "Wind load",
+      "section": "2.13",
+      "group": "Part II: Load Models",
+      "date": "05.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-05-wind-load.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/wind.pdf",
+      "bytes": 91961,
+      "sha256": "ae74090d2c4b0206ba46c1ea9affc677363bfab0a3f9b3d7079111d3f6cc8559"
+    },
+    {
+      "title": "Thermal actions",
+      "section": "2.14",
+      "group": "Part II: Load Models",
+      "date": "07.2015",
+      "file": "_static/pdfs/jcss-pmc-2015-07-thermal-actions.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/JCSS-PMC-II-Thermal_loads_01_2015.pdf",
+      "bytes": 152189,
+      "sha256": "ccb13ee18700ef65e8a1068c228badcdd41737112fb2e0f9eed67c526b3d96a5"
+    },
+    {
+      "title": "Wave load",
+      "section": "2.15",
+      "group": "Part II: Load Models",
+      "date": "05.2006",
+      "file": "_static/pdfs/jcss-pmc-2006-05-wave-loads.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/waves.pdf",
+      "bytes": 223806,
+      "sha256": "c817a4cfc5e4caea2a490078dc4a272a17109a7bd7358eef2178750e8fad41de"
+    },
+    {
+      "title": "Earthquake",
+      "section": "2.17",
+      "group": "Part II: Load Models",
+      "date": "09.2002",
+      "file": "_static/pdfs/jcss-pmc-2002-09-earthquake.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/earthquake1b.pdf",
+      "bytes": 183660,
+      "sha256": "8377e5d73e6a8dce1c47c1542d71b149fd9e1e594a30cb6f3dc1d9bc02ca959e"
+    },
+    {
+      "title": "Impact load",
+      "section": "2.18",
+      "group": "Part II: Load Models",
+      "date": "05.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-05-impact-load.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/impact.pdf",
+      "bytes": 60780,
+      "sha256": "325b7bfa65606419bc373c4abd9dc68f1648b807cb63013da3b59a1dcddc8457"
+    },
+    {
+      "title": "Fire",
+      "section": "2.20",
+      "group": "Part II: Load Models",
+      "date": "05.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-05-fire.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/fire.pdf",
+      "bytes": 38120,
+      "sha256": "c535e6e0baf292b68e61d6b6242764a5da0e1ba12f6198e02f00f574574a820a"
+    },
+    {
+      "title": "Environmental exposure for reinforced concrete",
+      "section": "2.21",
+      "group": "Part II: Load Models",
+      "date": "11.2026",
+      "file": "_static/pdfs/jcss-pmc-2026-11-environmental-exposure-for-reinforced-concrete.pdf",
+      "source_url": "https://www.jcss-lc.org/wp-content/uploads/2026/11/jcss-pmc-2026-11-environmental-exposure-for-reinforced-concrete.pdf",
+      "bytes": 1054781,
+      "sha256": "2d511c27a85d5dcb5cb4bc0600de8c8b951f71dc6ed21491db06643cc00067cf"
+    },
+    {
+      "title": "General principles",
+      "section": "3.00",
+      "group": "Part III: Resistance Models",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-part-3-general-principles-resistance-models.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/general.pdf",
+      "bytes": 135023,
+      "sha256": "e98b37a00b74cc84b3b048ee50dc1cd7ab908fbd8e881509f9efe9eb798fa9b6"
+    },
+    {
+      "title": "Concrete",
+      "section": "3.01",
+      "group": "Part III: Resistance Models",
+      "date": "05.2002",
+      "file": "_static/pdfs/jcss-pmc-2002-05-concrete-properties.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/concrete.pdf",
+      "bytes": 101873,
+      "sha256": "753391fa1859751bb0b53395da746103bbd7397d731112ad2fdfacedd6ab0f6d"
+    },
+    {
+      "title": "Structural steel",
+      "section": "3.02",
+      "group": "Part III: Resistance Models",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-static-properties-of-structural-steel-rolled-sections.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/steelpr.pdf",
+      "bytes": 35606,
+      "sha256": "a0ad2d0127ef526430b864e507a5b5c51eee32f8a6db111709168cbe9b63f706"
+    },
+    {
+      "title": "Reinforcing steel",
+      "section": "3.0*",
+      "group": "Part III: Resistance Models",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-static-properties-of-reinforcing-steel.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/rebar.pdf",
+      "bytes": 37912,
+      "sha256": "1858569c078b62549badfdb1aadf0f516c4e43f2e197e47a115be84119e95792"
+    },
+    {
+      "title": "Prestressing steel",
+      "section": "3.04",
+      "group": "Part III: Resistance Models",
+      "date": "04.2005",
+      "file": "_static/pdfs/jcss-pmc-2005-04-static-properties-of-prestressing-steel.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/jcssprestress_final.pdf",
+      "bytes": 160721,
+      "sha256": "b77349a0d725c28397f3fbf54124434bcf0f0abfa33f2fa579459affa0c75496"
+    },
+    {
+      "title": "Timber",
+      "section": "3.05",
+      "group": "Part III: Resistance Models",
+      "date": "05.2006",
+      "file": "_static/pdfs/jcss-pmc-2006-05-properties-of-timber.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/timber.pdf",
+      "bytes": 200247,
+      "sha256": "82a1ec5825d597729fa43457ec5d299f37b5c12ba3f153d9e9ab57da6f3537a7"
+    },
+    {
+      "title": "Soil properties",
+      "section": "3.07",
+      "group": "Part III: Resistance Models",
+      "date": "08.2006",
+      "file": "_static/pdfs/jcss-pmc-2006-08-soil-properties-revised-version.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/soilproperties_2006.pdf",
+      "bytes": 380727,
+      "sha256": "66f5b7f08cf12d0322cb8edff5ada5a2d7d4d3f3b3c2c8dcf887b22a5ade85ee"
+    },
+    {
+      "title": "Masonry",
+      "section": "3.08",
+      "group": "Part III: Resistance Models",
+      "date": "11.2011",
+      "file": "_static/pdfs/jcss-pmc-2011-11-masonry-properties.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/PMC-3-08-MASONRY-PROPERTIES.pdf",
+      "bytes": 242644,
+      "sha256": "3dee1c81e16f9b411ee5d4dd192854f042157c5ae9f822db27d7dcc06e911469"
+    },
+    {
+      "title": "Model uncertainties",
+      "section": "3.09",
+      "group": "Part III: Resistance Models",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-model-uncertainties.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/modeluncertainties.pdf",
+      "bytes": 23221,
+      "sha256": "33e3f4faaf709e4b3abff4925389b186d162875ea42ae1c4d6643516e2961cc2"
+    },
+    {
+      "title": "Dimensions",
+      "section": "3.10",
+      "group": "Part III: Resistance Models",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-dimensions-draft-3.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/dimen00.pdf",
+      "bytes": 38690,
+      "sha256": "9c67ff6e21362f876a516345b311165ee2eca156d24dfaffb27d7eb32b4404c8"
+    },
+    {
+      "title": "Excentricities",
+      "section": "3.11",
+      "group": "Part III: Resistance Models",
+      "date": "03.2001",
+      "file": "_static/pdfs/jcss-pmc-2001-03-excentricities.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/excentricities.pdf",
+      "bytes": 20979,
+      "sha256": "60012bd75e0f57fa099c68c0c3ea6ad8e0dd12a3b2e6635f310a988e106615e1"
+    },
+    {
+      "title": "Fatigue",
+      "section": "3.12",
+      "group": "Part III: Resistance Models",
+      "date": "03.2013",
+      "file": "_static/pdfs/jcss-pmc-2013-03-fatigue-models-for-metallic-structures.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/JCSS-3-12-Fatigue.pdf",
+      "bytes": 264446,
+      "sha256": "6e728d268526c3fae8bc8b20d1396ef17a3282747ebc29ab68e15d28d70aa27d"
+    },
+    {
+      "title": "Examples",
+      "section": "",
+      "group": "Examples",
+      "date": "05.2012",
+      "file": "_static/pdfs/jcss-pmc-2012-05-example-applications.pdf",
+      "source_url": "https://www.jcss-lc.org/publications/jcsspmc/examplesmodelcode2001.pdf",
+      "bytes": 206282,
+      "sha256": "3113bd80fece1661e664d892c20650387190b5e8d9aa849afcd0078951666673"
+    }
+  ]
 }

@@ -51,5 +51,10 @@ parts:
   chapters:
   - file: help/how-to-use.md
 
+- caption: Published PDFs
+  numbered: false
+  chapters:
+  - file: pdfs.md
+
 
   

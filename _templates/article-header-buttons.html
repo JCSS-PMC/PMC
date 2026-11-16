@@ -10,7 +10,7 @@
       </button>
       <ul class="dropdown-menu">
         {% if pmc_original %}
-        <li><a class="btn btn-sm dropdown-item pmc-original" href="{{ pmc_original.url|e }}"
+        <li><a class="btn btn-sm dropdown-item pmc-original" href="{{ pmc_original.url|e }}" download="{{ pmc_original.filename|e }}"
                aria-label="Original PDF: {{ pmc_original.scope|e }}, catalogue date {{ pmc_original.date|e }}">
           <span class="btn__icon-container"><i class="fas fa-file-pdf" aria-hidden="true"></i></span>
           <span class="btn__text-container">Original PDF

@@ -8,6 +8,8 @@ The **Probabilistic Model Code (PMC)** is developed by the [Joint Committee on S
 2. [Published PDFs](https://www.jcss-lc.org/jcss-probabilistic-model-code/): download the published parts and individual sections, with their listed update dates.
 3. [JCSS website](https://www.jcss-lc.org/): information about JCSS, its activities, and other publications.
 
+Use Search to find text across the online book. The Downloads menu provides the original PDF, Markdown source, and a separate option to print the current page. PDF section numbers and dates follow the JCSS catalogue and can differ from those in the online chapter. Part I chapters share the complete Basis of Design PDF. The sun/moon button switches between light and dark appearance.
+
 ## Contents
 
 | Part | Subject | Source directory |
@@ -46,6 +48,8 @@ Each chapter carries an `Updated: MM.YYYY` line below its title. The date record
 <summary>Repository structure and build instructions</summary>
 
 The introduction is in `part-00/` and the editing guide is in `help/`. Chapter order is defined in [`_toc.yml`](_toc.yml), book settings in [`_config.yml`](_config.yml), and bibliographic references in [`references.bib`](references.bib).
+
+Published PDF links are maintained in `_static/original-pdfs.json` and added to the download menu by `_ext/reader_controls.py`. Check the linked document and the official PDF catalogue when updating a link, then rebuild with `jupyter-book build . --all`. The reader uses the pages listed in `_toc.yml`, leaving this repository README outside its navigation and search.
 
 Install Python 3.11, as used by the repository's build workflow, and download or clone this repository. Create and activate a Python virtual environment before installing the dependencies from [`requirements.txt`](requirements.txt), which specifies Jupyter Book 1.x. From the repository root, run:
 

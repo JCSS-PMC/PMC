@@ -9,6 +9,7 @@ latex:
 
 repository:
   url: https://github.com/JCSS-PMC/PMC
+  branch: master
 
 html:
   use_edit_page_button: true
@@ -25,4 +26,15 @@ parse:
 
 bibtex_bibfiles:
     - references.bib
+
+# Keep repository documentation outside the reader and its search index.
+only_build_toc_files: true
+sphinx:
+  local_extensions:
+    reader_controls: _ext
+  config:
+    templates_path: ["_templates"]
+    html_static_path: ["_static"]
+    html_css_files: ["reader-controls.css"]
+    html_js_files: ["reader-theme.js", "reader-navigation.js"]
 
